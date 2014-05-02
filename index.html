@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html class="no-js">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>The Road Ahead</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- Place favicon.ico and apple-touch-icon(s) in the root directory -->
+
+        <link rel="stylesheet" href="css/normalize.css">
+		<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/main.css">
+        <script src="js/vendor/modernizr-2.7.1.min.js"></script>
+        <script src="http://d3js.org/d3.v3.min.js"></script>
+		<script src="http://d3js.org/topojson.v1.min.js"></script>
+    </head>
+    <body>
+    	<div class="container">
+	        <!--[if lt IE 8]>
+	            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+	        <![endif]-->
+			<div id="instructions">
+		        	<div id="close">Close</div>
+		        	<div id="instructionText">
+			        	<img src="apple-touch-icon.png" class="instructionImg"><!--image of pointer over county-->
+			        	<p>Click on an indicator to see county transportation information at the state level.</p>
+			        	<br clear="left"/>
+			        	<img src="apple-touch-icon.png" class="instructionImg"><!--image of dropdown menu-->
+			        	<p>Hover over an indicator for its definition.</p>
+			        	<br clear="left"/>
+			        	<img src="apple-touch-icon.png" class="instructionImg">
+			        	<p>Click on a state for an individualized PDF profile on the role of counties in transportation (roads and bridges) in a specific state.</p>
+			        	<br clear="left"/>
+			        	<p><div id="fullDefsButton" style="display: inline-block">Click here</div> for key terms used in the study.</p>
+			        	<br clear="left"/>
+			        	<p>The interactive provides individualized PDF profiles for 43 states where counties have authority over roads and/or bridges.  Counties in four states (Delaware, North Carolina, Vermont and West Virginia) do not have authority over both roads and bridges.  New Hampshire counties do not own roads and only one county (Belknap County) owns a bridge.  Connecticut and Rhode Island do not have county governments and are not included in the study.  They are marked in gray on the map.</p>
+			        </div>
+		        </div>
+			
+	        <div id="fullDefs" style="top:10%;">
+	        	<div id="close2">Close</div>
+	        		<p><strong>Transportation</strong> refers only to public roads and bridges for the purpose of this study. This report does not analyze funding and financing for county transit, air, rail or water transportation systems as these transportation assets often have different ownership and funding structures than roads and bridges.</p>
+	        		<p><stong>Moving Ahead for Progress in the 21st Century Act (MAP-21)</stong> is the current federal surface transportation statute that was signed into law July 2012 and is set to expire September 30, 2014. The law authorizes the federal surface transportation programs at about $105 billion for both fiscal years (FY) 2013 and 2014.</p> 
+	        		<p><strong>The enhanced National Highway System (NHS)</strong> was created under MAP-21 and includes the Interstate System, all principal arterials (including some not previously designated as part of the NHS) and border crossings on those routes, highways that provide motor vehicle access between the NHS and major intermodal transportation facilities, the network of highways important to U.S. strategic defense and its connectors to major military installations.</p> 
+	        		<p><strong>Federal-aid highway system</strong> includes public roads functionally classified as rural and urban principal arterials, rural and urban minor arterials, all urban collectors and rural major collectors. It included the National Highway System and other federal-aid highways not on the NHS.</p> 
+	        		<p><strong>On-System bridges</strong> are located on a public road part of the federal-aid highway system.</p> 
+					<p><strong>Off-System bridges</strong> are located on a public road that is not a part of the federal-aid highway system. Most county owned bridges are off-system.</p>
+					<p><strong>National Highway Performance Program (NHPP)</strong> is one of the core formula programs introduced in MAP-21 to support maintenance and construction of approximately 220,000 roadway miles part of the enhanced National Highway System (NHS) established by MAP-21. The program is authorized at about $21.8 billion annually for FY 2013 and 2014.</p>
+					<p><strong>Surface Transportation Program (STP)</strong> is one of the core formula programs continued under MAP-21 that can be used by states and localities for projects on any federal-aid highway, any public road bridge projects, facilities for nonmotorized transportation, transit capital projects and public bus terminals and facilities. Half of STP funds a state receives must be distributed to areas based on population. Also an amount equal to 15 percent of the state’s FY2009 Highway Bridge Program apportionment must be dedicated to bridges not on the federal-aid highway system (off-system bridges). The program is authorized at about $10 billion annually for FY 2013 and 2014 with approximately $700 million a year dedicated to off-system bridges.</p> 
+					<p><strong>Structurally deficient bridges</strong> cannot carry high loads as a result of poor condition of some structural components of the bridge. Structurally deficient bridges are not unsafe and often remain open to traffic, with weight limitations that restrict the gross weight of vehicles travelling on the bridge to reduce further deterioration. They require significant maintenance and repair, and eventually need major rehabilitation or replacement to address deficiency.</p> 
+					<p><strong>Highway user revenues (HURs)</strong> are revenues generated by motor fuel taxes, vehicle registration and license fees, tolls and wheel taxes. They are usually collected to fund highway and bridge improvements, but in some states can be used for mass transit or non-highway purposes.</p> 
+					<p><strong>Motor fuel taxes</strong> are excise taxes imposed on the sale of motor fuels (gasoline, diesel and others). The gas tax can be imposed at a fixed rate per gallon (cents per gallon) or as a variable rate tax that is tied to inflation, often as a percentage of the price of gasoline. Fixed rate gas taxes are not tied to inflation and are only changed when lawmakers vote to change them.</p> 
+					<p><strong>Wheel Taxes</strong> are fees based on the number of wheels of the vehicle, usually as a fixed amount per wheel, collected at the time of vehicle registration renewals.</p> 
+					<p><strong>Local option gas tax</strong> is a tax collected by a local government on the sale of gasoline within their jurisdiction, if the local government is granted the authority by the state. The revenues from this tax are used for transportation purposes. Besides state authority, the local government needs a local law or voter approval to implement the local option gas tax. To be considered a local option gas tax in this study, the tax must be implemented and collected by a county; statewide and state collected gas taxes are considered state gas taxes.</p> 	        
+					<p><strong>Local option sales tax</strong> is a tax collected by a local government on the sale of any taxable goods within its jurisdiction, if the local government is granted the authority by the state. Besides state authority, the local government needs a local law or voter approval to implement the local option sales tax. To be considered a local option sales tax in this study, the tax must be implemented and collected by a county and used for transportation or for general purposes, including transportation. A local option sales tax differs from a local option gas tax through the tax base; the local gas tax only applies to the sale of gasoline, whereas a local option sales tax applies to the sale of any taxable goods within the county.</p>
+					<p><strong>General funds</strong> are all funds that a government can use for any governmental purpose. In terms of county general funds, they often consist of broadly collected taxes such as property taxes, sales taxes, income taxes, charges and fees and state shared taxes that are not designated for a specific purpose</p>
+					<p><strong>Land Value Capture mechanisms</strong> are a type of public financing used by local governments where increases in land values generated by transportation investments are “captured” to repay the cost of the public investment. Types of land value capture mechanisms include Tax Increment Financing, special assessments and development impact fees.</p>
+					<p><strong>Impact fees</strong> are levied by counties and other public entities on a new or proposed land development project, with the goal of funding capital improvements required by that development.</p>
+					<p><strong>Tax increment financing (TIF)</strong> is a financing method used for current infrastructure improvements using future gains in tax revenues expected from the infrastructure improvements in the tax incremental districts (TID) established under the TIF.</p>
+					<p><strong>Public Private Partnerships (PPPs or P3s)</strong> are a financing arrangement that establishes a contractual agreement between a public agency and a private sector entity to collaborate on a transportation project. The format of the agreement can vary from the private party doing only the design and construction of the project to assuming financial and operational responsibilities. This is a financing method that requires a funding source for the project to reimburse the private party for its contractual obligations.</p>
+			</div>
+	        <!-- Add your site or application content here -->
+			<div id="header" >
+				<div id="help">help?</div>
+				<div id="fullReport"><a href="http://www.naco.org/countytransportation">Read the Full Report</a>
+					<br/>
+					<a href="https://www2.gotomeeting.com/register/418063602">Listen to the Webinar</a>
+				</div>
+				<script>
+			        	var instructionBox = d3.select("#instructions").style("display", "block");
+			        	var fullDefsBox = d3.select("#fullDefs");
+			        	
+			        	var closeButton = d3.select('#close').on("click", function(){ instructionBox.style("display", "none"); });
+			        	var close2Button = d3.select("#close2").on("click", function(){ fullDefsBox.style("display", "none"); });
+			        	
+			        	var helpButton = d3.select("#help").on("click", function(){ instructionBox.style("display", "block"); });
+			        	
+			        	var fullDefsButton = d3.select("#fullDefsButton").on("click", function(){ fullDefsBox.style("display", "block"); });
+	        
+	      	  </script>
+				<h1>THE ROAD AHEAD<br/><small>County Transportation Funding and Financing</small></h1>
+
+				<div id="select" class="btn-group" data-toggle="buttons">
+					
+					<button title="County-owned Roads as a share of Statewide Public Roads in 2011." class="btn" value="pctRoads" type="radio" >County Roads</button>
+					<button title="County-owned Bridges as a share of Statewide Public Bridges in 2012." class="btn" value="pctBridges" type="radio">County Bridges</button>
+					<button title="Share of County Structurally Deficient Bridges of all Structurally Deficient Bridges in the State in 2012." class="btn" value="pctBridgesDef" type="radio">County Structurally Deficient Bridges</button>
+					<button title="The gas tax can be imposed at a fixed rate per gallon (cents per gallon) or as a variable rate tax that is tied to inflation, often as a percentage of the price of gasoline. Fixed rate gas taxes are not tied to inflation and are only changed when lawmakers vote to change them." class="btn" value="gasTaxType" type="radio">State Gas Tax Type</button>
+					<button title="State excise tax on gasoline." class="btn active" value="gasTaxRate" type="radio">State Gas Tax Rate</button>
+					<button class="btn" value="yrsSinceInc" type="radio">Last State Gas Tax Increase</button>
+					<button title="Property tax rate limits are the most common type of property tax limitations and can take several forms. One limits the overall property tax payment to a certain percentage of the property’s market value. Another type restricts mill levies, or freezes mill levies. Local governments can usually override property tax rate limits with voter approval.  Assessment limits how much property values can increase annually for tax purposes. These limits can restrict a county from generating large increases in revenues from rapidly rising property values." class="btn" value="propTaxLimits" type="radio">State Limits on Property Tax</button>
+				</div>
+				<div id="select" class="btn-group" data-toggle="buttons">
+					<button title="Local option gas tax is a tax collected by a loccal government on the sale of gasoline within their jurisdiction, if the local government is granted the authority by the state.  The revenues from this tax are used for transportation purposes.  Besides state authority, often the local government needs a local law or voter approval to implement the local option gas tax.  To be considered a local option gas tax in this study, the state authority to collect the tax must be granted to counties; statewide and state collected gas taxes that do not require local approval are considered state gas taxes." class="btn" value="localGasTax" type="radio">Local Gas Tax</button>
+					<button title="Local option sales tax is a tax collected by a local government on the sale of any taxable goods within its jurisdiction, if the local government is granted the authority by the state.  Besides state authority, often the local government needs a local law or voter approval to implement the local option sales tax.  To be considered a local option sales tax in this study, the state authority to collect the tax must be granted to counties and the tax revenue used for transportation or for general purposes, including transportation.  A local option sales tax differs from a local option gas tax through the tax base; the local gas tax only applies to the sale of gasoline, whereas a local option sales tax applies to the sale of any taxable goods within the county." class="btn" value="localSalesTax" type="radio">Local Option Sales Tax</button>
+				</div>
+				<div style="text-align: center; font-size:.8em; padding:.5em;"><p>Click on a state for a two page profile on the role of counties in transportation in that state.</p></div>
+			</div>
+			<div id="map"></div>
+	        <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.10.2.min.js"><\/script>')</script>
+	        <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+	        <script src="js/plugins.js"></script>
+	        <script src="js/main.js"></script>
+			
+			<div class="browsehappy" id="IE-update"><p>It looks like you may be using an <strong>outdated</strong> browser. In order to view this interactive, please <a href="http://browsehappy.com/">upgrade your browser</a></p></div>
+			<script>
+				d3.select(".browsehappy").attr("class", "hidden");
+			</script>
+	        <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+	        <script>
+			  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+			  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+			  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+			  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+			
+			  ga('create', 'UA-44457538-3', 'uscounties.org');
+			  ga('send', 'pageview');
+			
+			</script>
+	        <div id="underMap">
+		        	<p id="byline">Interactive by Nicholas Lyell</p>
+		        	<p id="dataSource"></p>
+		        	<p id="webinar">Want to see why this tool matters to you and <b>your county</b>?  Listen to the <a href="https://www2.gotomeeting.com/register/418063602">webinar</a>.</p>
+		        	<p id="dataNotes" ><strong>Notes: </strong>Transportation refers only to public roads and
+						bridges for the purpose of this study. This report
+						does not analyze funding and financing for county
+						transit, air, rail or water transportation systems as
+						these transportation assets often have different
+						ownership and funding structures than roads and
+						bridges.
+					</p>
+	        </div>
+	        <div id="summary"><p>The interactive provides individualized PDF profiles for 43 states where counties have authority over roads and/or bridges.  Counties in four states (Delaware, North Carolina, Vermont and West Virginia) do not have authority over both roads and bridges.  New Hampshire counties do not own roads and only one county (Belknap County) owns a bridge.  Connecticut and Rhode Island do not have county governments and are not included in the study.  They are marked in gray on the map.</p></div>
+   		</div>
+    </body>
+</html>

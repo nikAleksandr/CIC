@@ -1,0 +1,20 @@
+example county with multiple land areas
+23009,"arcs":[[[918]],[[919]],[[920,-599,-813]]]}
+
+The following were integrated into the New York County: 36061
+
+after 42013: Brooklyn
+
+{"type":"Polygon","id":36047,"arcs":[[3152,-3121]]},
+
+after 49035: Bronx
+
+{"type":"Polygon","id":36005,"arcs":[[3046,3047,3048,-2751]]},
+
+after 19111: Queens
+
+{"type":"Polygon","id":36081,"arcs":[[-3056,3119,3120,3121]]},
+
+after 18053: Staten Island
+
+{"type":"Polygon","id":36085,"arcs":[[3237]]},
