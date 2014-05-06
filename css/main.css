@@ -321,6 +321,19 @@ svg:not(:root) {
 	margin-right:1em;
 }
 
+.legend {
+  background-color: #fff;
+  width: 300px;
+  height: 60px;
+  border: 1px solid #bbb;
+  margin: 10px;
+}
+
+#quantileLegend .colorlegend-labels {
+  font-size: 11px;
+  fill: black;
+}
+
 /*
  * CSS for the 
  * Tooltip

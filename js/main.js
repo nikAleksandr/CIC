@@ -35,7 +35,7 @@ d3.tsv("CountyData.tsv", function (error, countyData) {
 	color
 		.domain(quantById)
 		.range(range);
-	
+	colorlegend("#quantileLegend", color, "quantile", {title: "legend", boxHeight: 15, boxWidth: 30});
 });
 
 
@@ -126,10 +126,8 @@ function update(value){
 	color
 		.domain(quantById)
 		.range(range);
-		
-	currentScale = color.copy(quantById);
 	
-	g.selectAll(".counties path")
+	g.selectAll(".counties .county")
 	  .transition()
       .duration(750)
 	  .style("fill", function(d) { if(!isNaN(quantById[d.id])){return color(quantById[d.id]);} else{return "rgb(155,155,155)";} });
