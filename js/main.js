@@ -11,15 +11,21 @@ var topo,projection,path,svg,g;
 
 var tooltip = d3.select("#container").append("div").attr("class", "tooltip hidden");
 
+var selectedData,
+	data;
+	
 var quantById = []; 
 var nameById = [];
 
-var max = .1;
-var min = -.1;
+var max = .1,
+	min = -.1,
+	domain = [min, max],
+	range = ['rgb(201,228,242)', 'rgb(96,175,215)', 'rgb(10,132,193)'];
+
 
 var color = d3.scale.quantize()
-	.domain([min, max])
-	.range(['rgb(201,228,242)', 'rgb(96,175,215)', 'rgb(10,132,193)']);
+	.domain(domain)
+	.range(range);
 
 setup(width,height);
 
@@ -38,7 +44,8 @@ function setup(width,height){
       .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")")
       .call(zoom);
 
-  g = svg.append("g");
+  g = svg.append("g")
+  		.attr("class", "counties");
 
 }
 
@@ -58,7 +65,8 @@ d3.json("us.json", function(error, us) {
   var states = topojson.feature(us, us.objects.states).features;
 
   topo = counties;
-  draw(topo, states);
+  
+  draw(topo);
 
 });
 
@@ -92,6 +100,37 @@ function draw(topo) {
 
    
 }
+
+function update(value){
+	
+	//chooseCat(value);
+	//	legendMaker(domain, range, units, legendTitleText, notes, sourceText);
+	
+	data.forEach(function(d){
+		quantById[d.id] = d[value]; 
+  		nameById[d.id] = d.geography;
+	});
+	
+	color
+		.domain(domain)
+		.range(range);
+	
+	g.selectAll(".counties path")
+	  .transition()
+      .duration(750)
+	  .style("fill", function(d) { if(!isNaN(quantById[d.id])){return color(quantById[d.id]);} else{return "rgb(155,155,155)";} });
+
+	
+}
+
+
+$("#primeInd li a").click(function() {
+	//$(".dropdown-menu li").removeClass("active");
+	//$(this).addClass("btn active");
+	console.log(this);
+	selectedData = this.title;
+	update(selectedData);
+});
 
 function redraw() {
   width = document.getElementById('container').offsetWidth-60;
