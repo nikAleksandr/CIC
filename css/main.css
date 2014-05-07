@@ -325,7 +325,7 @@ svg:not(:root) {
   background-color: #fff;
   width: 300px;
   height: 60px;
-  border: 1px solid #bbb;
+  border: 0;
   margin: 10px;
 }
 

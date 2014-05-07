@@ -12,16 +12,21 @@ var topo,stateMesh,projection,path,svg,g;
 var tooltip = d3.select("#container").append("div").attr("class", "tooltip hidden");
 
 var selectedData,
-	data;
+	selectedDataText = "GDP Growth, 2013",
+	data,
+	legend;
 	
 var quantById = []; 
 var nameById = [];
 
-var max = .1,
-	min = -.1,
-	range = ['rgb(247,251,255)','rgb(222,235,247)','rgb(198,219,239)','rgb(158,202,225)','rgb(107,174,214)','rgb(66,146,198)','rgb(33,113,181)','rgb(8,81,156)','rgb(8,48,107)'];
-	//['rgb(201,228,242)', 'rgb(96,176,215)', 'rgb(10,132,193)'];
-
+var max,
+	min,
+	median,
+	quantOneThird,
+	quantTwoThird,
+	range = ['rgb(255,255,204)','rgb(255,237,160)','rgb(254,217,118)','rgb(254,178,76)','rgb(253,141,60)','rgb(252,78,42)','rgb(227,26,28)','rgb(189,0,38)','rgb(128,0,38)'];
+	//['rgb(201,228,242)', 'rgb(96,176,215)', 'rgb(10,132,193)']
+	
 var color = d3.scale.quantile();
 
 d3.tsv("CountyData.tsv", function (error, countyData) {
@@ -31,11 +36,19 @@ d3.tsv("CountyData.tsv", function (error, countyData) {
 	  	quantById[d.id] = +d.RGDPGrowth13; 
 	  	nameById[d.id] = d.geography;
 	});
-	
+	/*
+	max = Math.ceil(d3.max(quantById)*100)/100;
+	min = Math.floor(d3.min(quantById)*100)/100;
+	median = Math.round(d3.median(quantById)*100)/100;
+	*/
 	color
 		.domain(quantById)
 		.range(range);
-	colorlegend("#quantileLegend", color, "quantile", {title: "legend", boxHeight: 15, boxWidth: 30});
+	
+	console.log(color.quantiles());
+	
+	d3.select(".legend").append("div").attr("id", "legendTitle").text(selectedDataText);
+	legend = colorlegend("#quantileLegend", color, "quantile", {title: "legend", boxHeight: 15, boxWidth: 30});
 });
 
 
@@ -132,7 +145,10 @@ function update(value){
       .duration(750)
 	  .style("fill", function(d) { if(!isNaN(quantById[d.id])){return color(quantById[d.id]);} else{return "rgb(155,155,155)";} });
 
-	
+	d3.selectAll(".legend svg").remove();
+	d3.select("#legendTitle").remove();
+	d3.select(".legend").append("div").attr("id", "legendTitle").text(selectedDataText);
+	legend = colorlegend("#quantileLegend", color, "quantile", {title: "legend", boxHeight: 15, boxWidth: 40});
 }
 
 
@@ -140,6 +156,7 @@ $("#primeInd li a").click(function() {
 	//$(".dropdown-menu li").removeClass("active");
 	//$(this).addClass("btn active");
 	selectedData = this.title;
+	selectedDataText = this.innerHTML;
 	update(selectedData);
 });
 
