@@ -156,9 +156,23 @@ $("#primeInd li a").click(function() {
 	//$(".dropdown-menu li").removeClass("active");
 	//$(this).addClass("btn active");
 	selectedData = this.title;
+	selectedDataset = this.name;
+	getData(selectedData, selectedDataset);
 	selectedDataText = this.innerHTML;
 	update(selectedData);
 });
+
+var structure;
+
+function getData(indName, datasetName){
+	d3.json("data/CICstructure.json", function(error, CICStructure){
+		structure = CICStructure.children;
+		for(i=0; i<structure.length; i++){
+			console.log(indName + " ,-, " + structure[i].name);
+			if(structure[i].name==datasetName)
+		}
+	});
+}
 
 function redraw() {
   width = document.getElementById('container').offsetWidth-60;
