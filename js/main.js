@@ -16,7 +16,8 @@ var selectedData,
 	primeInd = {},
 	dataYear,
 	data,
-	legend;
+	legend,
+	clickCount = 0;
 	
 var quantById = []; 
 var nameById = [];
@@ -111,12 +112,28 @@ function draw(topo, stateMesh) {
 
   //tooltips
   county
+    .on('click', function(d) {
+		clickCount++;
+		if (clickCount === 1) {
+			singleClickTimer = setTimeout(function() {
+				clickCount = 0;
+				clicked(d);
+			}, 400);
+		} else if (clickCount === 2) {
+			clearTimeout(singleClickTimer);
+			clickCount = 0;
+			doubleClicked(d);
+		}
+	}, false)
     .on("mousemove", function(d,i) {
       var mouse = d3.mouse(svg.node()).map( function(d) { return parseInt(d); } );
         tooltip
           .classed("hidden", false)
           .attr("style", "left:"+(mouse[0]+offsetL)+"px;top:"+(mouse[1]+offsetT)+"px")
-          .html(d.properties.name);
+          .attr("id", "tt")
+          .html(d.id);
+      	return tooltip.html("<div id='tipContainer'><div id='tipLocation'><b>" + "VAR" + "</b></div><div id='tipKey'></b>County-owned bridges, share of public bridges statewide: <b>" + "VAR" + "</b><br>County-owned roads, share of public roads statewide: <b>" + "VAR" + "</b>" + "<br/>State gas tax rate ($/gallon): <b>" + "VAR" + "</b><br>Year of last state gas tax increase: <b>" + "VAR"  + "</div><div class='tipClear'></div> </div>");
+
       })
       .on("mouseout",  function(d,i) {
         tooltip.classed("hidden", true);
@@ -173,10 +190,15 @@ function update(primeInd, primeIndYear){
 			break;
 	}
 	
-	g.selectAll(".counties .county")
-	  .transition()
-      .duration(750)
-	  .style("fill", function(d) { if(!isNaN(quantById[d.id])){return color(quantById[d.id]);} else{return "rgb(155,155,155)";} });
+	
+	g.selectAll(".counties .county").transition().duration(750).style("fill", function(d) {
+		if (!isNaN(quantById[d.id])) {
+			return color(quantById[d.id]);
+		} else {
+			return "rgb(155,155,155)";
+		}
+	});
+
 }
 
 
@@ -237,7 +259,7 @@ function getData(indName, datasetName){
 		//
 		///
 		//This is Where GET requests are issued to the server for JSON with fips, county name/state, plus primeIndText, extraInd1Text, extraInd2Text, and extraInd3Text; redefine "data" variable as this JSON
-		//"data" should be structured as a JSON with an array of each county.  each county has properties "id"(fips), "geography"(county name, ST), and each of the indicators specified above
+		//"data" should be structured as a JSON with an array of each county.  each county has properties "id"(fips), "geography"(county name, ST), and each of the indicators specified above and clicked and doubleclicked data
 		//
 		//Will move update(selectedData) down here and replace with update(primeInd, primeIndYear)
 		update(primeInd, primeIndYear);
@@ -265,6 +287,14 @@ function getCompanionData(Jcategory){
 	extraInd3Text = extraInd[2].name;
 	extraInd3Units = extraInd[2].unit;
 	extraInd3Year = extraIndYears[2];
+}
+
+function clicked(d){
+	console.log("clicked on " + d.id);
+}
+function doubleClicked(d){
+	d3.event.zoom(null);
+	console.log("doubleClicked on " + d.id);
 }
 
 function redraw() {
