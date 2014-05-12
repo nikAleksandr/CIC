@@ -35,7 +35,8 @@ var colorlegend = function (target, scale, type, options) {
     , titlePadding = title ? 11 : 0
     , domain = scale.domain()
     , range = scale.range()
-    , i = 0;
+    , i = 0
+    , percentFmt = d3.format(".1%");
 
   // check for valid input - 'quantize' not included
   for (i = 0 ; i < scaleTypes.length ; i++) {
@@ -111,9 +112,9 @@ var colorlegend = function (target, scale, type, options) {
         // show only the first and last for others
         else {
           if (i === 0)
-            return domain[0];
+            return percentFmt(domain[0]);
           if (i === colors.length - 1)
-            return domain[domain.length - 1];
+            return percentFmt(domain[domain.length - 1]);
         }
       });
 
