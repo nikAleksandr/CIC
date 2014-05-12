@@ -13,6 +13,8 @@ var tooltip = d3.select("#container").append("div").attr("class", "tooltip hidde
 
 var selectedData,
 	selectedDataText = "GDP Growth, 2013",
+	PrimeInd,
+	dataYear,
 	data,
 	legend;
 	
@@ -162,16 +164,63 @@ $("#primeInd li a").click(function() {
 	update(selectedData);
 });
 
-var structure;
+var structure, extraInd = [];
 
 function getData(indName, datasetName){
 	d3.json("data/CICstructure.json", function(error, CICStructure){
+		var Jcategory;
 		structure = CICStructure.children;
 		for(i=0; i<structure.length; i++){
-			console.log(indName + " ,-, " + structure[i].name);
-			if(structure[i].name==datasetName)
+			for(j=0; j<structure[i].children.length; j++){
+				if(structure[i].children[j].name==datasetName){
+					console.log (structure[i].children[j].name + " " + i + " : " + j);
+					Jcategory = structure[i];
+					var Jdataset = structure[i].children[j];
+					dataYear = d3.max(Jdataset.years);
+					//will also want vintage, source, companions, and dataNotes properties from here
+					vintage = "2014";
+					sourceText = "Nick Lyell's book of Awesome Statistics";
+					companions = ['PILT Annual Growth Rate (from previous year)', 'Total HUD Amount', 'CDBG Amount'];
+					dataNotes = "These are test numbers and do not reflect the final project.";
+					for(h=0; h<Jdataset.children.length; h++){
+						if(indName==Jdataset.children[h].name){
+							PrimeInd = Jdataset.children[h];
+							//PrimeInd is a JSON object from CIC-structure with the properties: name, units, dataType
+							PrimeIndText = PrimeInd.name;
+							PrimeIndUnits = "lightyears per square gram";
+							dataType = "continuous";
+						}
+					}
+				}
+			}
 		}
+		getCompanionData(Jcategory);
 	});
+	//
+	///
+	//This is Where GET requests are issued to the server for data based on PrimeIndText, extraInd1Text, extraInd2Text, and extraInd3Text
+	//
+	//
+}
+//comnpanion data always has to be run AFTER getData
+function getCompanionData(Jcategory){
+	for(k=0; k<companions.length; k++){
+		for(i=0; i<Jcategory.children.length; i++){
+			for(j=0; j<Jcategory.children[i].children.length; j++){
+				if(companions[k]==Jcategory.children[i].children[j].name){
+					extraInd[k] = Jcategory.children[i].children[j];
+					//extraInd is an array of JSON objects from CIC-structure with the properties: name, units
+					
+				}
+			}
+		}
+	}
+	extraInd1Text = extraInd[0].name;
+	extraInd1Units = extraInd[0].unit;
+	extraInd2Text = extraInd[1].name;
+	extraInd2Units = extraInd[2].unit;
+	extraInd3Text = extraInd[2].name;
+	extraInd3Units = extraInd[2].unit;
 }
 
 function redraw() {
