@@ -13,7 +13,7 @@ var tooltip = d3.select("#container").append("div").attr("class", "tooltip hidde
 
 var selectedData,
 	selectedDataText = "GDP Growth, 2013",
-	primeInd,
+	primeInd = {},
 	dataYear,
 	data,
 	legend;
@@ -92,7 +92,7 @@ d3.json("us.json", function(error, us) {
 function draw(topo, stateMesh) {
 
   var county = g.selectAll(".county").data(topo);
-
+  
   county.enter().insert("path")
       .attr("class", "county")
       .attr("d", path)
@@ -107,7 +107,7 @@ function draw(topo, stateMesh) {
   
   //ofsets plus width/height of transform, plsu 20 px of padding, plus 20 extra for tooltip offset off mouse
   var offsetL = document.getElementById('container').offsetLeft+(width/2)+40;
-  var offsetT =document.getElementById('container').offsetTop+(height/2)+20;
+  var offsetT = document.getElementById('container').offsetTop+(height/2)+20;
 
   //tooltips
   county
@@ -122,7 +122,9 @@ function draw(topo, stateMesh) {
         tooltip.classed("hidden", true);
       }); 
       
-
+	selectedData = "PILT Amount";
+	selectedDataset = "Payment in Lieu of Taxes (PILT)";
+  	getData(selectedData, selectedDataset);
    
 }
 
@@ -143,12 +145,13 @@ function update(primeInd, primeIndYear){
 	//	legendMaker(domain, range, units, legendTitleText, notes, sourceText);
 	switch(dataType){
 		case "percent":
+			primeIndUnits = "percent";
 			range = ['rgb(239,243,255)','rgb(189,215,231)','rgb(107,174,214)','rgb(49,130,189)','rgb(8,81,156)'];
 			color
 				.domain(quantById)
 				.range(range);
 			d3.selectAll(".legend svg").remove();  d3.select("#legendTitle").remove();
-			d3.select(".legend").append("div").attr("id", "legendTitle").text(primeIndYear + primeIndText + " in " + primeIndUnits);
+			d3.select(".legend").append("div").attr("id", "legendTitle").text(primeIndYear + " " + primeIndText + " in " + primeIndUnits);
 			legend = colorlegend("#quantileLegend", color, "quantile", {title: "legend", boxHeight: 15, boxWidth: 40});
 			break;
 		case "divergent":
@@ -196,7 +199,6 @@ function getData(indName, datasetName){
 		for(i=0; i<structure.length; i++){
 			for(j=0; j<structure[i].children.length; j++){
 				if(structure[i].children[j].name==datasetName){
-					console.log (structure[i].children[j].name + " " + i + " : " + j);
 					Jcategory = structure[i];
 					var Jdataset = structure[i].children[j];
 					primeIndYear = d3.max(Jdataset.years);
@@ -204,7 +206,7 @@ function getData(indName, datasetName){
 					vintage = Jdataset.vintage;
 					sourceText = Jdataset.source;
 					companions = Jdataset.companions;
-					dataNotes = Jdatset.notes;
+					dataNotes = Jdataset.notes;
 					for(h=0; h<Jdataset.children.length; h++){
 						if(indName==Jdataset.children[h].name){
 							primeInd = Jdataset.children[h];
