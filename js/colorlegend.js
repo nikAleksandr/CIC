@@ -32,7 +32,7 @@ var colorlegend = function (target, scale, type, options) {
     , colors = []
     , padding = [2, 4, 10, 4] // top, right, bottom, left
     , boxSpacing = type === 'ordinal' ? 3 : 0 // spacing between boxes
-    , titlePadding = title ? 11 : 0
+    , titlePadding = title ? 16 : 0
     , domain = scale.domain()
     , range = scale.range()
     , i = 0
@@ -86,8 +86,13 @@ var colorlegend = function (target, scale, type, options) {
       .style('font-size', '11px')
       .style('fill', '#666');
       
+  var dataValues = [];
+  for (i = 0; i < colors.length + 1; i++) {
+  	dataValues[i] = ((domain[domain.length - 1] - domain[0]) * i / colors.length) + domain[0];
+  }
+      
   var legendBoxes = legend.selectAll('g.legend')
-      .data(colors)
+      .data(dataValues)
     .enter().append('g');
 
   // value labels
@@ -106,16 +111,8 @@ var colorlegend = function (target, scale, type, options) {
       .style('pointer-events', 'none')
       .text(function (d, i) {
         // show label for all ordinal values
-        if (type === 'ordinal') {
-          return domain[i];
-        }
-        // show only the first and last for others
-        else {
-          if (i === 0)
-            return percentFmt(domain[0]);
-          if (i === colors.length - 1)
-            return percentFmt(domain[domain.length - 1]);
-        }
+        if (type === 'ordinal') return dataValues[i];
+        else return percentFmt(dataValues[i]);
       });
 
   // the colors, each color is drawn as a rectangle
@@ -125,13 +122,17 @@ var colorlegend = function (target, scale, type, options) {
       })
       .attr('width', boxWidth)
       .attr('height', boxHeight)
-      .style('fill', function (d, i) { return colors[i]; });
+      .attr('x', function (d, i) {
+      	return i * (boxWidth + boxSpacing) + boxWidth/2;
+      })
+      .style('fill', function (d, i) { return colors[i]; })
+      .style('display', function (d, i) { if (i == colors.length) return 'none'; });
   
   // show a title in center of legend (bottom)
   if (title) {
     legend.append('text')
         .attr('class', 'colorlegend-title')
-        .attr('x', (colors.length * (boxWidth / 2)))
+        .attr('x', (colors.length * (boxWidth / 2) + boxWidth / 2))
         .attr('y', boxHeight + titlePadding)
         .attr('dy', '.71em')
         .style('text-anchor', 'middle')
