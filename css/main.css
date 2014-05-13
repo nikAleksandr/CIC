@@ -339,13 +339,30 @@ svg:not(:root) {
  * Tooltip
  * 
  */
+
+.county:hover{
+  stroke: yellow;
+  stroke-width: .7px;
+}
+div.tooltip {
+  color: #222; 
+  background: #fff; 
+  padding: .5em; 
+  text-shadow: #f5f5f5 0 1px 0;
+  border-radius: 2px; 
+  box-shadow: 0px 0px 2px 0px #a6a6a6; 
+  opacity: 0.9; 
+  position: absolute;
+}
+
+/*
 #tt { pointer-events: none;color:white;}
 #tipContainer { font-size:16px;position:absolute;width:180px;z-index:100;background-repeat:no-repeat;text-align:left;line-height:20px;}
 #tipLocation {font-weight:normal;font-family:Georgia; font-style: Italic; color:white;margin:0px;padding:10px 10px;background:#333;font-size:14px;}
 #tipCount {font-weight:bold;font-size:32px;letter-spacing:-1px;margin:0px;padding:0px 10px 10px 10px;color:#333;}
 #tipKey {font-weight:normal;font-size:10px;color:#333;margin:0px;padding:5px 2px 5px 10px;background:rgba(255,255,255,0.8);}
 .tipClear { clear:both;} 
-
+*/
 
 
 

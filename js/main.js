@@ -1,5 +1,7 @@
 d3.select(window).on("resize", throttle);
 
+var percentFmt = d3.format(".1%");
+
 var zoom = d3.behavior.zoom()
     .scaleExtent([1, 10])
     .on("zoom", move);
@@ -9,7 +11,7 @@ var height = width / 2;
 
 var topo,stateMesh,projection,path,svg,g;
 
-var tooltip = d3.select("#container").append("div").attr("class", "tooltip hidden");
+var tooltip = d3.select("#container").append("div").attr("class", "tooltip hidden").attr("id", "tt");
 
 var selectedData,
 	selectedDataText = "GDP Growth, 2013",
@@ -129,15 +131,14 @@ function draw(topo, stateMesh) {
       var mouse = d3.mouse(svg.node()).map( function(d) { return parseInt(d); } );
         tooltip
           .classed("hidden", false)
-          .attr("style", "left:"+(mouse[0]+offsetL)+"px;top:"+(mouse[1]+offsetT)+"px")
-          .attr("id", "tt")
-          .html(d.id);
-      	return tooltip.html("<div id='tipContainer'><div id='tipLocation'><b>" + "VAR" + "</b></div><div id='tipKey'></b>County-owned bridges, share of public bridges statewide: <b>" + "VAR" + "</b><br>County-owned roads, share of public roads statewide: <b>" + "VAR" + "</b>" + "<br/>State gas tax rate ($/gallon): <b>" + "VAR" + "</b><br>Year of last state gas tax increase: <b>" + "VAR"  + "</div><div class='tipClear'></div> </div>");
+          .style("left", (mouse[0]+offsetL) + "px")
+          .style("top", +(mouse[1]+offsetT) +"px");
+      	return tooltip.html("<div id='tipContainer'><div id='tipLocation'><b>" + "FIPS: " + d.id + "</b></div><div id='tipKey'></b>" + primeIndText + ": <b>" + percentFmt(quantById[d.id]) + "</b><br>County-owned roads, share of public roads statewide: <b>" + "VAR" + "</b>" + "<br/>State gas tax rate ($/gallon): <b>" + "VAR" + "</b><br>Year of last state gas tax increase: <b>" + "VAR"  + "</div><div class='tipClear'></div> </div>");
 
-      })
+     })
       .on("mouseout",  function(d,i) {
         tooltip.classed("hidden", true);
-      }); 
+      });
       
 	selectedData = "PILT Amount";
 	selectedDataset = "Payment in Lieu of Taxes (PILT)";
