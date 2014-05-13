@@ -36,7 +36,7 @@ var colorlegend = function (target, scale, type, options) {
     , domain = scale.domain()
     , range = scale.range()
     , i = 0
-    , percentFmt = d3.format(".1%");
+    , percentFmt = d3.format(".1%"); // formatting percentage values
 
   // check for valid input - 'quantize' not included
   for (i = 0 ; i < scaleTypes.length ; i++) {
@@ -85,7 +85,8 @@ var colorlegend = function (target, scale, type, options) {
       .attr('transform', 'translate(' + padding[3] + ',' + padding[0] + ')')
       .style('font-size', '11px')
       .style('fill', '#666');
-      
+  
+  // set up data values to be used for text in legend    
   var dataValues = [];
   for (i = 0; i < colors.length + 1; i++) {
   	dataValues[i] = ((domain[domain.length - 1] - domain[0]) * i / colors.length) + domain[0];
