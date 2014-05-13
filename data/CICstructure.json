@@ -7,6 +7,7 @@
         {
        	  "name": "Administration Expenditures",
        	  "years": [2007],
+       	  "source": "U.S. Census Bureau - Census of Individual Governments: Finance",
        	  "children": [
        	  	{"name": "Total", "units": "thousands of dollars"},
        	  	{"name": "Total Administration", "units": "thousands of dollars"},
@@ -23,16 +24,18 @@
         },
         {
           "name": "Adminstration Employment",
+          "source": "U.S. Census Bureau - Census of Individual Governments: Employment",
           "years": [2007, 2008, 2009, 2010, 2011, 2012],
           "children": [
-            {"name": "Total"},
-            {"name": "Total Adminstration"},
-          	{"name": "Financial Administration"},
-            {"name": "Other Governmental Administration"}
+            {"name": "Total", "units":"FTE employees"},
+            {"name": "Total Adminstration", "units":"FTE employees"},
+          	{"name": "Financial Administration", "units":"FTE employees"},
+            {"name": "Other Governmental Administration", "units":"FTE employees"}
           ]
         },
         {
           "name": "Administration Revenue",
+          "source": "U.S. Census Bureau - Census of Individual Governments: Finance",
           "years": [2007],
           "children": [
           	{"name": "Total", "unit": "thousands of dollars"},
@@ -51,112 +54,123 @@
       "children": [
         {
           "name": "Adminstration Employment",
+          "source": "U.S. Census Bureau - Census of Individual Governments: Employment",
           "years": [2007, 2008, 2009, 2010, 2011, 2012],
           "children": [
-            {"name": "Total"},
-            {"name": "Total Adminstration"},
-          	{"name": "Financial Administration"},
-            {"name": "Other Governmental Administration"}
+            {"name": "Total", "units":"FTE employees"},
+            {"name": "Total Adminstration", "units":"FTE employees"},
+          	{"name": "Financial Administration", "units":"FTE employees"},
+            {"name": "Other Governmental Administration", "units":"FTE employees"}
           ]
         },
         {
           "name": "Public Amenity Employment",
+          "source": "U.S. Census Bureau - Census of Individual Governments: Employment",
           "years": [2007, 2008, 2009, 2010, 2011, 2012],
           "children": [
-          	{"name": "Total"},
-            {"name": "Total Public Amenity"},
-          	{"name": "Libraries"},
-            {"name": "Natural Resources"},
-            {"name": "Parks & Recreation"}
+          	{"name": "Total", "units":"FTE employees"},
+            {"name": "Total Public Amenity", "units":"FTE employees"},
+          	{"name": "Libraries", "units":"FTE employees"},
+            {"name": "Natural Resources", "units":"FTE employees"},
+            {"name": "Parks & Recreation", "units":"FTE employees"}
           ]
         },
         {
           "name": "Education Employment",
+          "source": "U.S. Census Bureau - Census of Individual Governments: Employment",
           "years": [2007, 2008, 2009, 2010, 2011, 2012],
           "children": [
-            {"name": "Total"},
-            {"name": "Total Education"},
-          	{"name": "Elementary & Secondary Education"},
-            {"name": "Higher Education"}
+            {"name": "Total", "units":"FTE employees"},
+            {"name": "Total Education", "units":"FTE employees"},
+          	{"name": "Elementary & Secondary Education", "units":"FTE employees"},
+            {"name": "Higher Education", "units":"FTE employees"}
           ]
         },
         {
           "name": "Housing & Community Development Employment",
+          "source": "U.S. Census Bureau - Census of Individual Governments: Employment",
           "years": [2007, 2008, 2009, 2010, 2011, 2012],
           "children": [
-          	{"name": "Total"},
-          	{"name": "Housing & Community Development"}
+          	{"name": "Total", "units":"FTE employees"},
+          	{"name": "Housing & Community Development", "units":"FTE employees"}
           ]
         },
         {
           "name": "Health & Hospitals Employment",
+          "source": "U.S. Census Bureau - Census of Individual Governments: Employment",
           "years": [2007, 2008, 2009, 2010, 2011, 2012],
           "children": [
-          	{"name": "Total"},
-            {"name": "Total Health & Hospitals"},
-          	{"name": "Health"},
-            {"name": "Hospitals"}
+          	{"name": "Total", "units":"FTE employees"},
+            {"name": "Total Health & Hospitals", "units":"FTE employees"},
+          	{"name": "Health", "units":"FTE employees"},
+            {"name": "Hospitals", "units":"FTE employees"}
           ]
         },
         {
           "name": "Justice & Public Safety Employment",
+          "source": "U.S. Census Bureau - Census of Individual Governments: Employment",
           "years": [2007, 2008, 2009, 2010, 2011, 2012],
           "children": [
-          	{"name": "Total"},
-            {"name": "Total Justice & Public Safety"},
-          	{"name": "Correction"},
-            {"name": "Judicial & Legal Services"},
-            {"name": "Police Protection"},
-            {"name": "Firefighters"}
+          	{"name": "Total", "units":"FTE employees"},
+            {"name": "Total Justice & Public Safety", "units":"FTE employees"},
+          	{"name": "Correction", "units":"FTE employees"},
+            {"name": "Judicial & Legal Services", "units":"FTE employees"},
+            {"name": "Police Protection", "units":"FTE employees"},
+            {"name": "Firefighters", "units":"FTE employees"}
           ]
         },
         {
           "name": "Public Welfare Employment",
+          "source": "U.S. Census Bureau - Census of Individual Governments: Employment",
           "years": [2007, 2008, 2009, 2010, 2011, 2012],
           "children": [
-          	{"name": "Total"},
-          	{"name": "Public Welfare"}
+          	{"name": "Total", "units":"FTE employees"},
+          	{"name": "Public Welfare", "units":"FTE employees"}
           ]
         },
         {
           "name": "Transportation Employment",
+          "source": "U.S. Census Bureau - Census of Individual Governments: Employment",
           "years": [2007, 2008, 2009, 2010, 2011, 2012],
           "children": [
-          	{"name": "Total"},
-            {"name": "Total Transportation"},
-          	{"name": "Air Tranportation"},
-            {"name": "Highways"},
-            {"name": "Water Transport & Terminals"},
-            {"name": "Transit"}
+          	{"name": "Total", "units":"FTE employees"},
+            {"name": "Total Transportation", "units":"FTE employees"},
+          	{"name": "Air Tranportation", "units":"FTE employees"},
+            {"name": "Highways", "units":"FTE employees"},
+            {"name": "Water Transport & Terminals", "units":"FTE employees"},
+            {"name": "Transit", "units":"FTE employees"}
           ]
         },
         {
           "name": "Utility Employment",
+          "source": "U.S. Census Bureau - Census of Individual Governments: Employment",
           "years": [2007, 2008, 2009, 2010, 2011, 2012],
           "children": [
-          	{"name": "Total"},
-            {"name": "Total Utility"},
-          	{"name": "Electric Utilities"},
-            {"name": "Gas Utilities"}
+          	{"name": "Total", "units":"FTE employees"},
+            {"name": "Total Utility", "units":"FTE employees"},
+          	{"name": "Electric Utilities", "units":"FTE employees"},
+            {"name": "Gas Utilities", "units":"FTE employees"}
           ]
         },
         {
           "name": "Water, Sewerage & Solid Waste Employment",
+          "source": "U.S. Census Bureau - Census of Individual Governments: Employment",
           "years": [2007, 2008, 2009, 2010, 2011, 2012],
           "children": [
-          	{"name": "Total"},
-            {"name": "Total Water, Sewerage & Solid Waste"},
-          	{"name": "Sewerage"},
-            {"name": "Solid Waste"},
-            {"name": "Water Utilities"}
+          	{"name": "Total", "units":"FTE employees"},
+            {"name": "Total Water, Sewerage & Solid Waste", "units":"FTE employees"},
+          	{"name": "Sewerage", "units":"FTE employees"},
+            {"name": "Solid Waste", "units":"FTE employees"},
+            {"name": "Water Utilities", "units":"FTE employees"}
           ]
         },
         {
           "name": "Other Employment",
+          "source": "U.S. Census Bureau - Census of Individual Governments: Employment",
           "years": [2007, 2008, 2009, 2010, 2011, 2012],
           "children": [
-          	{"name": "Total"},
-          	{"name": "Other & Unallocable"}
+          	{"name": "Total", "units":"FTE employees"},
+          	{"name": "Other & Unallocable", "units":"FTE employees"}
           ]
         }
       ]
@@ -166,6 +180,7 @@
       "children": [
         {
           "name": "Administration Revenue",
+          "source": "U.S. Census Bureau - Census of Individual Governments: Finance",
           "years": [2007],
           "children": [
           	{"name": "Total", "unit": "thousands of dollars"},
@@ -179,6 +194,7 @@
         },
         {
           "name": "Intergovernmental Revenue",
+          "source": "U.S. Census Bureau - Census of Individual Governments: Finance",
           "years": [2007],
           "children": [
           	{"name": "Total", "unit": "thousands of dollars"},
@@ -190,6 +206,7 @@
         },
         {
           "name": "Tax Revenue",
+          "source": "U.S. Census Bureau - Census of Individual Governments: Finance",
           "years": [2007],
           "children": [
           	{"name": "Total", "unit": "thousands of dollars"},
@@ -203,6 +220,7 @@
         },
         {
           "name": "Utility Revenue",
+          "source": "U.S. Census Bureau - Census of Individual Governments: Finance",
           "years": [2007],
           "children": [
           	{"name": "Total", "unit": "thousands of dollars"},
@@ -215,6 +233,7 @@
         },
         {
        	  "name": "Administration Expenditures",
+          "source": "U.S. Census Bureau - Census of Individual Governments: Finance",
        	  "years": [2007],
        	  "children": [
        	  	{"name": "Total", "units": "thousands of dollars"},
@@ -232,6 +251,7 @@
         },
         {
        	  "name": "Public Amenity Expenditures",
+          "source": "U.S. Census Bureau - Census of Individual Governments: Finance",
        	  "years": [2007],
        	  "children": [
        	  	{"name": "Total", "units": "thousands of dollars"},
@@ -248,6 +268,7 @@
         },
         {
        	  "name": "Education Expenditures",
+          "source": "U.S. Census Bureau - Census of Individual Governments: Finance",
        	  "years": [2007],
        	  "children": [
        	  	{"name": "Total", "units": "thousands of dollars"},
@@ -263,6 +284,7 @@
         },
         {
        	  "name": "Housing & Community Development Expenditures",
+          "source": "U.S. Census Bureau - Census of Individual Governments: Finance",
        	  "years": [2007],
        	  "children": [
        	  	{"name": "Total", "units": "thousands of dollars"},
@@ -276,6 +298,7 @@
         },
         {
        	  "name": "Health & Hospitals Expenditures",
+          "source": "U.S. Census Bureau - Census of Individual Governments: Finance",
        	  "years": [2007],
        	  "children": [
        	  	{"name": "Total", "units": "thousands of dollars"},
@@ -291,6 +314,7 @@
         },
         {
        	  "name": "Financial Expenditures",
+          "source": "U.S. Census Bureau - Census of Individual Governments: Finance",
        	  "years": [2007],
        	  "children": [
        	  	{"name": "Total", "units": "thousands of dollars"},
@@ -302,6 +326,7 @@
         },
         {
        	  "name": "Justice & Public Safety Expenditures",
+          "source": "U.S. Census Bureau - Census of Individual Governments: Finance",
        	  "years": [2007],
        	  "children": [
        	  	{"name": "Total", "units": "thousands of dollars"},
@@ -320,6 +345,7 @@
         },
         {
        	  "name": "Public Welfare Expenditures",
+          "source": "U.S. Census Bureau - Census of Individual Governments: Finance",
        	  "years": [2007],
        	  "children": [
        	  	{"name": "Total", "units": "thousands of dollars"},
@@ -337,6 +363,7 @@
         },
         {
        	  "name": "Transportation Expenditures",
+          "source": "U.S. Census Bureau - Census of Individual Governments: Finance",
        	  "years": [2007],
        	  "children": [
        	  	{"name": "Total", "units": "thousands of dollars"},
@@ -356,6 +383,7 @@
         },
         {
        	  "name": "Utility Expenditures",
+          "source": "U.S. Census Bureau - Census of Individual Governments: Finance",
        	  "years": [2007],
        	  "children": [
        	  	{"name": "Total", "units": "thousands of dollars"},
@@ -372,6 +400,7 @@
         },
         {
        	  "name": "Water, Sewerage & Solid Waste Expenditures",
+          "source": "U.S. Census Bureau - Census of Individual Governments: Finance",
        	  "years": [2007],
        	  "children": [
        	  	{"name": "Total", "units": "thousands of dollars"},
@@ -389,6 +418,7 @@
         },
         {
        	  "name": "Other Expenditures",
+          "source": "U.S. Census Bureau - Census of Individual Governments: Finance",
        	  "years": [2007],
        	  "children": [
        	  	{"name": "Total", "units": "thousands of dollars"},
@@ -400,6 +430,7 @@
         },
         {
           "name": "Annual Financial Report - Revenue",
+          "source": "NACo Analysis of County Comprehensive Annual Financial Reports",
           "years": [2006, 2007, 2008, 2009, 2010],
           "children": [
            {"name": "Total Revenue"},
@@ -415,6 +446,7 @@
         },
         {
           "name": "Annual Financial Report - Expenses",
+          "source": "NACo Analysis of County Comprehensive Annual Financial Reports",
           "years": [2006, 2007, 2008, 2009, 2010],
           "children": [
            {"name": "Total Expenditures"},
@@ -433,6 +465,7 @@
         },
         {
           "name": "Combined Tax Rates",
+          "source": "NACo Research",
           "years": [2007, 2008, 2009, 2010, 2011],
           "children": [
            {"name": "Fiscal Year"},
@@ -458,8 +491,10 @@
       "children": [
         {
           "name": "Government Structure",
+          "source": "NACo Research",
           "years": [2014],
           "children": [
+            {"name": "County Government"},
             {"name": "Total Elected Officials"},
             {"name": "Size of Board"},
             {"name": "Elected Executive"},
@@ -613,7 +648,7 @@
         },
         {
         	"name": "Public Elementary & Secondary Schools",
-        	"years": [2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010],
+        	"years": [2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012],
         	"children": [
         		{"name": "Number of Districts"},
         		{"name": "Number Operational Schools"},
@@ -953,7 +988,7 @@
 	        },
         	{
         		"name": "Jails - Supervised Population",
-        		"years": [2008, 2009, 2010],
+        		"years": [2008, 2009, 2010, 2011, 2012],
         		"children": [
         			{"name": "Total Jail Population"},
         			{"name": "Jail Capacity"},
@@ -966,7 +1001,7 @@
         	},
         	{
         		"name": "Jails - Supervised Population by Agency",
-        		"years": [2008, 2009, 2010],
+        		"years": [2008, 2009, 2010, 2011, 2012],
         		"children": [
         			{"name": "Total Jail Population"},
         			{"name": "Jail Capacity"},
@@ -983,7 +1018,7 @@
         	},
         	{
         		"name": "Jails - Inmate Demographics",
-        		"years": [2008, 2009, 2010],
+        		"years": [2008, 2009, 2010, 2011, 2012],
         		"children": [
         			{"name": "Total Jail Population"},
         			{"name": "Adult Males"},
@@ -1003,7 +1038,7 @@
         	},
         	{
         		"name": "Jails - Community Supervision",
-        		"years": [2008, 2009, 2010],
+        		"years": [2008, 2009, 2010, 2011, 2012],
         		"children" : [
         			{"name": "Total Jail Population"},
         			{"name": "Jail Capacity"},
@@ -1186,7 +1221,7 @@
         	},
         	{
         		"name": "Bridges",
-        		"years": [2007, 2008, 2009, 2010, 2011, 2012],
+        		"years": [2007, 2008, 2009, 2010, 2011, 2012, 2013],
         		"children": [
         			{"name": "All Bridges - Total Bridges"},
         			{"name": "All Bridges - City/Town Owned"},

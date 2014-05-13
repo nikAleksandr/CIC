@@ -232,6 +232,7 @@ function getData(indName, datasetName){
 				}
 			}
 		}
+		
 		//getCompanionData(Jcategory);
 		//temporary switch to override this function while using tsv data
 		switch(primeInd.name){
@@ -241,6 +242,19 @@ function getData(indName, datasetName){
 					'dataType': "percent"
 				};
 				primeIndYear = '2013';
+				break;
+			case "County Government":
+				primeInd ={ 
+					'name': "countyGov",
+					'dataType': "binary"
+				};
+				primeIndYear = '2014';
+				break;
+			case "Population Level":
+				primeInd ={ 
+					'name': "avgWageFAKE"
+				};
+				primeIndYear = '1910';
 				break;
 			default:
 				primeInd = {
