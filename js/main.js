@@ -114,31 +114,22 @@ function draw(topo, stateMesh) {
 
   //tooltips
   county
-    .on('click', function(d) {
+    .on('click', function(d, i) {
+    	var mouse = d3.mouse(svg.node()).map( function(d) { return parseInt(d); } );
+
 		clickCount++;
 		if (clickCount === 1) {
 			singleClickTimer = setTimeout(function() {
 				clickCount = 0;
-				clicked(d);
+				clicked(mouse, offsetL, offsetT, d, i);
 			}, 400);
 		} else if (clickCount === 2) {
 			clearTimeout(singleClickTimer);
 			clickCount = 0;
-			doubleClicked(d);
+			doubleClicked(d, i);
 		}
-	}, false)
-    .on("mousemove", function(d,i) {
-      var mouse = d3.mouse(svg.node()).map( function(d) { return parseInt(d); } );
-        tooltip
-          .classed("hidden", false)
-          .style("left", (mouse[0]+offsetL) + "px")
-          .style("top", +(mouse[1]+offsetT) +"px");
-      	return tooltip.html("<div id='tipContainer'><div id='tipLocation'><b>" + "FIPS: " + d.id + "</b></div><div id='tipKey'></b>" + primeIndText + ": <b>" + percentFmt(quantById[d.id]) + "</b><br>County-owned roads, share of public roads statewide: <b>" + "VAR" + "</b>" + "<br/>State gas tax rate ($/gallon): <b>" + "VAR" + "</b><br>Year of last state gas tax increase: <b>" + "VAR"  + "</div><div class='tipClear'></div> </div>");
-
-     })
-      .on("mouseout",  function(d,i) {
-        tooltip.classed("hidden", true);
-      });
+	}, false);
+    
       
 	selectedData = "PILT Amount";
 	selectedDataset = "Payment in Lieu of Taxes (PILT)";
@@ -204,6 +195,8 @@ function update(primeInd, primeIndYear){
 
 
 $("#primeInd li a").click(function() {
+	tooltip.classed("hidden", true);
+	
 	selectedData = this.title;
 	selectedDataset = this.name;
 	selectedDataText = this.innerHTML;
@@ -290,15 +283,26 @@ function getCompanionData(Jcategory){
 	extraInd3Year = extraIndYears[2];
 }
 
-function clicked(d){
-	console.log("clicked on " + d.id);
+function clicked(mouse, l, t, d, i){
+        tooltip
+          .classed("hidden", false)
+          .style("left", (mouse[0]+l) + "px")
+          .style("top", +(mouse[1]+t) +"px");
+      	return tooltip.html("<div id='tipContainer'><div id='tipLocation'><b>" + "FIPS: " + d.id + "</b></div><div id='tipKey'></b>" + primeIndText + ": <b>" + percentFmt(quantById[d.id]) + "</b><br>County-owned roads, share of public roads statewide: <b>" + "VAR" + "</b>" + "<br/>State gas tax rate ($/gallon): <b>" + "VAR" + "</b><br>Year of last state gas tax increase: <b>" + "VAR"  + "</div><div class='tipClear'></div> </div>");
+
+/* // Function for making the tooltip go back to hiding, currently active any time someone moves, zooms, changes data, or doulbe-clicks
+        tooltip.classed("hidden", true);
+ */
 }
 function doubleClicked(d){
-	d3.event.zoom(null);
+	tooltip.classed("hidden", true);
+	
 	console.log("doubleClicked on " + d.id);
 }
 
 function redraw() {
+  tooltip.classed("hidden", true);
+  
   width = document.getElementById('container').offsetWidth-60;
   height = width / 2;
   d3.select('svg').remove();
@@ -307,7 +311,8 @@ function redraw() {
 }
 
 function move() {
-
+  tooltip.classed("hidden", true);
+	
   var t = d3.event.translate;
   var s = d3.event.scale;  
   var h = height / 3;
