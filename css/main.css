@@ -278,6 +278,10 @@ svg:not(:root) {
   fill: black;
 }
 
+#legendTitle {
+	margin-left: 23px;
+}
+
 /*
  * CSS for the 
  * Tooltip
