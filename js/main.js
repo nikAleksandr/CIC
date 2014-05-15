@@ -72,7 +72,6 @@ d3.json("us.json", function(error, us) {
   
   draw(topo, stateMesh);
   
-
 });
 
 function draw(topo, stateMesh) {
@@ -91,7 +90,7 @@ function draw(topo, stateMesh) {
 		      .attr("d", path);
   
   
-  //ofsets plus width/height of transform, plsu 20 px of padding, plus 20 extra for tooltip offset off mouse
+  //offsets plus width/height of transform, plus 20 px of padding, plus 20 extra for tooltip offset off mouse
   var offsetL = document.getElementById('container').offsetLeft+(width/2)+40;
   var offsetT = document.getElementById('container').offsetTop+(height/2)+20;
 
@@ -123,7 +122,7 @@ function draw(topo, stateMesh) {
 function update(primeInd, primeIndYear){
 	//Will first break the JSON object into component parts here:
 	var primeIndText = primeInd.name;
-	var primeIndUnits = primeInd.units;
+	var primeIndUnits = primeInd.unit;
 	var dataType = primeInd.dataType;
 	
 	//will need to redefine "data" variable to be our returned data from the GET call	
@@ -150,15 +149,18 @@ function update(primeInd, primeIndYear){
 			legendTitle = primeIndYear + " " + primeIndText;
 			break;
 		case "categorical":
+			// max is 5 categories
 			range = ['rgb(228,26,28)','rgb(55,126,184)','rgb(77,175,74)','rgb(152,78,163)','rgb(255,127,0)'];
 			legendTitle = primeIndYear + " " + primeIndText;
 			break;
 		default:
 			//continous, so we don't have to have this property in the JSON
-			//figure out rounding/formatting
 			range = ['rgb(239,243,255)','rgb(189,215,231)','rgb(107,174,214)','rgb(49,130,189)','rgb(8,81,156)'];
 			legendTitle = primeIndYear + " " + primeIndText + " in " + primeIndUnits;
 	}
+	
+	// determine if indicator values are currency by checking units
+	var isCurrency = (primeIndUnits) ? (primeIndUnits.indexOf("dollar") != -1) : false;
 	
 	// pack data in color array; create legend
 	color
@@ -166,7 +168,13 @@ function update(primeInd, primeIndYear){
 		.range(range);
 	d3.selectAll(".legend svg").remove();  d3.select("#legendTitle").remove();
 	d3.select(".legend").append("div").attr("id", "legendTitle").text(legendTitle);
-	legend = colorlegend("#quantileLegend", color, "quantile", {title: "legend", boxHeight: 15, boxWidth: 40, dataType: dataType});
+	legend = colorlegend("#quantileLegend", color, "quantile", {
+		title: "legend", 
+		boxHeight: 15, 
+		boxWidth: 60, 
+		dataType: dataType,
+		isCurrency: isCurrency
+	});
 	
 	
 	g.selectAll(".counties .county").transition().duration(750).style("fill", function(d) {
@@ -196,76 +204,85 @@ var structure, extraInd = [], extraIndYears = [];
 //Alternative to this big lookup is to list a i,j,h "JSON address" in the HTML anchor properties.  Would still likely require some type of HTML or JSON lookup for companion indicators though
 function getData(indName, datasetName){
 	d3.json("data/CICstructure.json", function(error, CICStructure){
-		var Jcategory;
-		structure = CICStructure.children;
-		for(i=0; i<structure.length; i++){
-			for(j=0; j<structure[i].children.length; j++){
-				if(structure[i].children[j].name==datasetName){
-					Jcategory = structure[i];
-					var Jdataset = structure[i].children[j];
-					primeIndYear = d3.max(Jdataset.years);
-					//will also want vintage, source, companions, and dataNotes properties from here
-					vintage = Jdataset.vintage;
-					sourceText = Jdataset.source;
-					companions = Jdataset.companions;
-					dataNotes = Jdataset.notes;
-					for(h=0; h<Jdataset.children.length; h++){
-						if(indName==Jdataset.children[h].name){
-							primeInd = Jdataset.children[h];
-							//primeInd is a JSON object from CIC-structure with the properties: name, units, dataType
+		if (!error) {
+			var Jcategory, primeInd;
+			structure = CICStructure.children;
+			for (var i = 0; i < structure.length; i++) {
+				for (var j = 0; j < structure[i].children.length; j++) {
+					if (structure[i].children[j].name == datasetName) {
+						Jcategory = structure[i];
+						var Jdataset = structure[i].children[j];
+						primeIndYear = d3.max(Jdataset.years);
+						//will also want vintage, source, companions, and dataNotes properties from here
+						vintage = Jdataset.vintage;
+						sourceText = Jdataset.source;
+						companions = Jdataset.companions;
+						dataNotes = Jdataset.notes;
+						for (var h = 0; h < Jdataset.children.length; h++) {
+							if (indName == Jdataset.children[h].name) {
+								//primeInd is a JSON object from CIC-structure with the properties: name, units, dataType
+								primeInd = Jdataset.children[h];
+								break;
+							}
 						}
+						break;
 					}
 				}
 			}
+			
+			//getCompanionData(Jcategory);
+			
+			//temporary switch to override this function while using tsv data
+			switch(indName){
+				case "PILT Amount":
+					primeInd = { 
+						'name': "RGDPGrowth13",
+						'dataType': "percent"
+					};
+					primeIndYear = '2013';
+					break;
+				case "County Government":
+					primeInd = { 
+						'name': "countyGov",
+						'dataType': "binary"
+					};
+					primeIndYear = '2014';
+					break;
+				case "Population Level":
+					primeInd = { 
+						'name': "avgWageFAKE",
+						'dataType': "level",
+						'unit': "dollars"
+					};
+					primeIndYear = '1910';
+					break;
+				default:
+					primeInd = {
+						"name": "HHpriceGrowth13",
+						"dataType": "percent"
+					};
+					primeIndYear = '2013';
+					break;
+			};
+			//
+			///
+			//This is Where GET requests are issued to the server for JSON with fips, county name/state, plus primeIndText, extraInd1Text, extraInd2Text, and extraInd3Text; redefine "data" variable as this JSON
+			//"data" should be structured as a JSON with an array of each county.  each county has properties "id"(fips), "geography"(county name, ST), and each of the indicators specified above and clicked and doubleclicked data
+			//
+			//Will move update(selectedData) down here and replace with update(primeInd, primeIndYear)
+			update(primeInd, primeIndYear);
+		} else {
+			// notify user of error in some way
+			console.log(error);
 		}
-		
-		//getCompanionData(Jcategory);
-		//temporary switch to override this function while using tsv data
-		switch(primeInd.name){
-			case "PILT Amount":
-				primeInd ={ 
-					'name': "RGDPGrowth13",
-					'dataType': "percent"
-				};
-				primeIndYear = '2013';
-				break;
-			case "County Government":
-				primeInd ={ 
-					'name': "countyGov",
-					'dataType': "binary"
-				};
-				primeIndYear = '2014';
-				break;
-			case "Population Level":
-				primeInd ={ 
-					'name': "avgWageFAKE",
-					'dataType': "level"
-				};
-				primeIndYear = '1910';
-				break;
-			default:
-				primeInd = {
-					"name": "HHpriceGrowth13",
-					"dataType": "percent"
-				};
-				primeIndYear = '2013';
-				break;
-		};
-		//
-		///
-		//This is Where GET requests are issued to the server for JSON with fips, county name/state, plus primeIndText, extraInd1Text, extraInd2Text, and extraInd3Text; redefine "data" variable as this JSON
-		//"data" should be structured as a JSON with an array of each county.  each county has properties "id"(fips), "geography"(county name, ST), and each of the indicators specified above and clicked and doubleclicked data
-		//
-		//Will move update(selectedData) down here and replace with update(primeInd, primeIndYear)
-		update(primeInd, primeIndYear);
 	});	
 }
 //comnpanion data always has to be run AFTER getData
 function getCompanionData(Jcategory){
-	for(k=0; k<companions.length; k++){
-		for(i=0; i<Jcategory.children.length; i++){
-			for(j=0; j<Jcategory.children[i].children.length; j++){
-				if(companions[k]==Jcategory.children[i].children[j].name){
+	for (k = 0; k < companions.length; k++) {
+		for (i = 0; i < Jcategory.children.length; i++) {
+			for (j = 0; j < Jcategory.children[i].children.length; j++) {
+				if (companions[k] == Jcategory.children[i].children[j].name) {
 					extraInd[k] = Jcategory.children[i].children[j];
 					//extraInd is an array of JSON objects from CIC-structure with the properties: name, units
 					extraIndYears[k] = d3.max(Jcategory.children[i].years);
@@ -284,18 +301,15 @@ function getCompanionData(Jcategory){
 	extraInd3Year = extraIndYears[2];
 }
 
-function clicked(mouse, l, t, d, i){
-        tooltip
-          .classed("hidden", false)
-          .style("left", (mouse[0]+l) + "px")
-          .style("top", +(mouse[1]+t) +"px");
-      	return tooltip.html("<div id='tipContainer'><div id='tipLocation'><b>" + "FIPS: " + d.id + "</b></div><div id='tipKey'></b>" + primeIndText + ": <b>" + percentFmt(quantById[d.id]) + "</b><br>County-owned roads, share of public roads statewide: <b>" + "VAR" + "</b>" + "<br/>State gas tax rate ($/gallon): <b>" + "VAR" + "</b><br>Year of last state gas tax increase: <b>" + "VAR"  + "</div><div class='tipClear'></div> </div>");
-
-/* // Function for making the tooltip go back to hiding, currently active any time someone moves, zooms, changes data, or doulbe-clicks
-        tooltip.classed("hidden", true);
- */
+function clicked(mouse, l, t, d, i) {
+    tooltip
+      .classed("hidden", false)
+      .style("left", (mouse[0]+l) + "px")
+      .style("top", +(mouse[1]+t) +"px");
+  	return tooltip.html("<div id='tipContainer'><div id='tipLocation'><b>" + "FIPS: " + d.id + "</b></div><div id='tipKey'></b>" + primeIndText + ": <b>" + percentFmt(quantById[d.id]) + "</b><br>County-owned roads, share of public roads statewide: <b>" + "VAR" + "</b>" + "<br/>State gas tax rate ($/gallon): <b>" + "VAR" + "</b><br>Year of last state gas tax increase: <b>" + "VAR"  + "</div><div class='tipClear'></div> </div>");
 }
-function doubleClicked(d){
+
+function doubleClicked(d) {
 	tooltip.classed("hidden", true);
 	var countyID = d.id.toString();
 		if(countyID.length!=5){
@@ -325,7 +339,7 @@ function move() {
   tooltip.classed("hidden", true);
 	
   var t = d3.event.translate;
-  var s = d3.event.scale;  
+  var s = d3.event.scale;
   var h = height / 3;
   
   t[0] = Math.min(width / 2 * (s - 1), Math.max(width / 2 * (1 - s), t[0]));

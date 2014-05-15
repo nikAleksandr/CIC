@@ -27,13 +27,15 @@ var colorlegend = function (target, scale, type, options) {
     	, title = opts.title || null // draw title (string)
     	, fill = opts.fill || false // fill the element (boolean)
     	, linearBoxes = opts.linearBoxes || 9 // number of boxes for linear scales (int)
+    	, isCurrency = opts.isCurrency || false
     	, htmlElement = document.getElementById(target.substring(0, 1) === '#' ? target.substring(1, target.length) : target) // target container element - strip the prefix #
     	, w = htmlElement.offsetWidth // width of container element
     	, h = htmlElement.offsetHeight // height of container element
     	, colors = []
     	, padding = [2, 4, 10, 4] // top, right, bottom, left
     	, boxSpacing = type === 'ordinal' ? 3 : 0 // spacing between boxes
-    	, titlePadding = title ? 16 : 0
+    	, titlePadding = title ? 18 : 0
+    	, boxLabelHeight = 10
     	, domain = scale.domain()
     	, range = scale.range();
     
@@ -50,12 +52,15 @@ var colorlegend = function (target, scale, type, options) {
     		};
     		break;
     	case 'level':
+    	case 'level_np':
     	    // format thousands with a "k", format millions with a "mil"
     	    var format = function (num) {
     	    	if (num >= 1000000) {
     	    		return String((num/1000000).toFixed(1)) + "mil";
     	    	} else if (num >= 10000) {
     	    		return String((num/1000).toFixed(1)) + "k";
+    	    	} else if (num == 0) {
+    	    		return 0;
     	    	} else {
     	    		return num.toFixed(1);	
     	    	}
@@ -128,8 +133,14 @@ var colorlegend = function (target, scale, type, options) {
 			}
 		}
 	}
+	else if (dataType === 'level') {
+		// for levels; min is set as 0
+		for (var i = 0; i < colors.length + 1; i++) {
+			dataValues[i] = domain[domain.length - 1] * i / colors.length;
+		}
+	}
 	else { 
-		// for numbers that will align in between the color boxes ('percent' or 'level')
+		// for percent; numbers will align in between color boxes; min is not necessarily 0
 	  	for (var i = 0; i < colors.length + 1; i++) {
 	  		dataValues[i] = ((domain[domain.length - 1] - domain[0]) * i / colors.length) + domain[0];
   		}
@@ -140,7 +151,18 @@ var colorlegend = function (target, scale, type, options) {
     	.data(dataValues)
     	.enter().append('g');
 
-  	// value labels
+  	// the colors, each color is drawn as a rectangle
+  	legendBoxes.append('rect')
+      	.attr('width', boxWidth)
+      	.attr('height', boxHeight)
+      	.attr('x', function (d, i) {
+	      	return i * (boxWidth + boxSpacing) + boxWidth / 2;
+      	})
+      	.attr('y', boxLabelHeight)
+      	.style('fill', function (d, i) { return colors[i]; })
+      	.style('display', function (d, i) { if (i >= colors.length) return 'none'; });
+
+ 	// value labels
   	legendBoxes.append('text')
     	.attr('class', 'colorlegend-labels')
       	.attr('dy', '.71em')
@@ -148,9 +170,7 @@ var colorlegend = function (target, scale, type, options) {
 	        var leftAlignX = i * (boxWidth + boxSpacing) + (type !== 'ordinal' ? (boxWidth / 2) : 0);
     	    return (dataType === 'binary') ? (leftAlignX + boxWidth / 2) : leftAlignX;
       	})
-      	.attr('y', function () {
-	        return boxHeight + 2;
-      	})
+      	.attr('y', boxLabelHeight + boxHeight + 2)
       	.style('text-anchor', function () {
 	        return type === 'ordinal' ? 'start' : 'middle';
       	})
@@ -158,28 +178,34 @@ var colorlegend = function (target, scale, type, options) {
       	.text(function (d, i) {
 	        // show label for all ordinal values
     	    if (type === 'ordinal') return dataValues[i];
-        	else return format(dataValues[i]); // format is defined based on dataType
+    	    else return isCurrency ? ("$" + format(dataValues[i])) : format(dataValues[i]); // format is defined based on dataType
       	});
-
-  	// the colors, each color is drawn as a rectangle
-  	legendBoxes.append('rect')
-      	.attr('x', function (d, i) {
-	        return i * (boxWidth + boxSpacing);
-      	})
-      	.attr('width', boxWidth)
-      	.attr('height', boxHeight)
-      	.attr('x', function (d, i) {
-	      	return i * (boxWidth + boxSpacing) + boxWidth/2;
-      	})
-      	.style('fill', function (d, i) { return colors[i]; })
-      	.style('display', function (d, i) { if (i >= colors.length) return 'none'; }); // if looping for too many, display none
+      	
+    // additional text on top of color boxes, displaying "top 20%", "bottom 20%", etc.
+    if (dataType === 'level' || dataType === 'level_np' || dataType === 'percent') {
+	    legendBoxes.append('text')
+	    	.attr('class', 'colorlegend-boxlabels')
+	    	.attr('x', function (d, i) {
+	    		return i * (boxWidth + boxSpacing) + boxWidth;
+	    	})
+	    	.attr('y', 8)
+	    	.style('text-anchor', 'middle')
+	    	.style('pointer-events', 'none')
+	    	.text(function (d, i) {
+	    		if (i == 0) return "bottom 20%";
+	    		if (i == 1) return "mid-bottom 20%";
+	    		if (i == 2) return "middle 20%";
+	    		if (i == 3) return "mid-top 20%";
+	    		if (i == 4) return "top 20%";
+	    	});
+	}
   
   	// show a title in center of legend (bottom)
   	if (title) {
 	    legend.append('text')
         	.attr('class', 'colorlegend-title')
         	.attr('x', (colors.length * (boxWidth / 2) + boxWidth / 2))
-        	.attr('y', boxHeight + titlePadding)
+        	.attr('y', boxLabelHeight + boxHeight + titlePadding)
         	.attr('dy', '.71em')
         	.style('text-anchor', 'middle')
         	.style('pointer-events', 'none')
