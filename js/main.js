@@ -24,10 +24,7 @@ var selectedData,
 var quantById = []; 
 var nameById = [];
 
-var max,
-	min,
-	median,
-	quantOneThird,
+var quantOneThird,
 	quantTwoThird,
 	range = ['rgb(239,243,255)','rgb(189,215,231)','rgb(107,174,214)','rgb(49,130,189)','rgb(8,81,156)'];
 	
@@ -40,21 +37,8 @@ d3.tsv("CountyData.tsv", function (error, countyData) {
 	  	quantById[d.id] = +d.RGDPGrowth13; 
 	  	nameById[d.id] = d.geography;
 	});
-	/*
-	max = Math.ceil(d3.max(quantById)*100)/100;
-	min = Math.floor(d3.min(quantById)*100)/100;
-	median = Math.round(d3.median(quantById)*100)/100;
-	*/
-	color
-		.domain(quantById)
-		.range(range);
-	
-	d3.select(".legend").append("div").attr("id", "legendTitle").text(selectedDataText);
-	legend = colorlegend("#quantileLegend", color, "quantile", {title: "legend", boxHeight: 15, boxWidth: 30});
 });
 
-
-setup(width,height);
 
 function setup(width,height){
   projection = d3.geo.albersUsa()
@@ -73,8 +57,9 @@ function setup(width,height){
 
   g = svg.append("g")
   		.attr("class", "counties");
-
 }
+
+setup(width,height);
 	
 
 d3.json("us.json", function(error, us) {
@@ -148,7 +133,7 @@ function update(primeInd, primeIndYear){
 	});
 	
 	
-	var legendTitle = "", range = [];
+	var legendTitle = "";
 	switch(dataType){
 		case "percent":
 			primeIndUnits = "percent";
@@ -253,7 +238,8 @@ function getData(indName, datasetName){
 				break;
 			case "Population Level":
 				primeInd ={ 
-					'name': "avgWageFAKE"
+					'name': "avgWageFAKE",
+					'dataType': "level"
 				};
 				primeIndYear = '1910';
 				break;
