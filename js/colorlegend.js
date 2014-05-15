@@ -21,6 +21,7 @@ var colorlegend = function (target, scale, type, options) {
   var scaleTypes = ['linear', 'quantile', 'ordinal']
     , found = false
     , opts = options || {}
+    , dataType = opts.dataType || 'percent'
     , boxWidth = opts.boxWidth || 20 // width of each box (int)
     , boxHeight = opts.boxHeight || 20 // height of each box (int)
     , title = opts.title || null // draw title (string)
@@ -35,8 +36,18 @@ var colorlegend = function (target, scale, type, options) {
     , titlePadding = title ? 16 : 0
     , domain = scale.domain()
     , range = scale.range()
-    , i = 0
-    , percentFmt = d3.format(".1%"); // formatting percentage values
+    , i = 0;
+    
+    // define how to format text values based on data type
+    var format = function (num) { return num; };
+    if (dataType == 'percent') format = d3.format(".1%"); // formatting percentage values
+    else if (dataType == 'binary') {
+    	format = function (num) {
+    		if (num == 1) return "Yes";
+    		else if (num == 0) return "No";
+    		else return "N/A";
+    	};
+    }
 
   // check for valid input - 'quantize' not included
   for (i = 0 ; i < scaleTypes.length ; i++) {
@@ -86,10 +97,17 @@ var colorlegend = function (target, scale, type, options) {
       .style('font-size', '11px')
       .style('fill', '#666');
   
-  // set up data values to be used for text in legend    
-  var dataValues = [];
-  for (i = 0; i < colors.length + 1; i++) {
-  	dataValues[i] = ((domain[domain.length - 1] - domain[0]) * i / colors.length) + domain[0];
+  // set up data values to be used for text in legend   
+  // only works for percent right now
+
+
+  if (dataType == 'binary') { // 'Yes' or 'No'
+  	var dataValues = [0, 1]; 	
+  } else { // for text values that align in between the color boxes
+  	var dataValues = [];
+  	for (i = 0; i < colors.length + 1; i++) {
+	  	dataValues[i] = ((domain[domain.length - 1] - domain[0]) * i / colors.length) + domain[0];
+  	}
   }
       
   var legendBoxes = legend.selectAll('g.legend')
@@ -101,7 +119,8 @@ var colorlegend = function (target, scale, type, options) {
       .attr('class', 'colorlegend-labels')
       .attr('dy', '.71em')
       .attr('x', function (d, i) {
-        return i * (boxWidth + boxSpacing) + (type !== 'ordinal' ? (boxWidth / 2) : 0);
+        var leftAlignX = i * (boxWidth + boxSpacing) + (type !== 'ordinal' ? (boxWidth / 2) : 0);
+        return (dataType == 'binary') ? (leftAlignX + boxWidth / 2) : leftAlignX;
       })
       .attr('y', function () {
         return boxHeight + 2;
@@ -113,7 +132,7 @@ var colorlegend = function (target, scale, type, options) {
       .text(function (d, i) {
         // show label for all ordinal values
         if (type === 'ordinal') return dataValues[i];
-        else return percentFmt(dataValues[i]);
+        else return format(dataValues[i]);
       });
 
   // the colors, each color is drawn as a rectangle

@@ -49,8 +49,6 @@ d3.tsv("CountyData.tsv", function (error, countyData) {
 		.domain(quantById)
 		.range(range);
 	
-	console.log(color.quantiles());
-	
 	d3.select(".legend").append("div").attr("id", "legendTitle").text(selectedDataText);
 	legend = colorlegend("#quantileLegend", color, "quantile", {title: "legend", boxHeight: 15, boxWidth: 30});
 });
@@ -139,9 +137,9 @@ function draw(topo, stateMesh) {
 
 function update(primeInd, primeIndYear){
 	//Will first break the JSON object into component parts here:
-	primeIndText = primeInd.name;
-	primeIndUnits = primeInd.units;
-	dataType = primeInd.dataType;
+	var primeIndText = primeInd.name;
+	var primeIndUnits = primeInd.units;
+	var dataType = primeInd.dataType;
 	
 	//will need to redefine "data" variable to be our returned data from the GET call	
 	data.forEach(function(d){
@@ -150,18 +148,12 @@ function update(primeInd, primeIndYear){
 	});
 	
 	
-	//chooseCat(value);
-	//	legendMaker(domain, range, units, legendTitleText, notes, sourceText);
+	var legendTitle = "", range = [];
 	switch(dataType){
 		case "percent":
 			primeIndUnits = "percent";
 			range = ['rgb(239,243,255)','rgb(189,215,231)','rgb(107,174,214)','rgb(49,130,189)','rgb(8,81,156)'];
-			color
-				.domain(quantById)
-				.range(range);
-			d3.selectAll(".legend svg").remove();  d3.select("#legendTitle").remove();
-			d3.select(".legend").append("div").attr("id", "legendTitle").text(primeIndYear + " " + primeIndText + " in " + primeIndUnits);
-			legend = colorlegend("#quantileLegend", color, "quantile", {title: "legend", boxHeight: 15, boxWidth: 40});
+			legendTitle = primeIndYear + " " + primeIndText + " in " + primeIndUnits;
 			break;
 		/*case "divergent":
 			range = ['rgb(215,25,28)','rgb(253,174,97)','rgb(255,255,191)','rgb(171,217,233)','rgb(44,123,182)'];
@@ -170,35 +162,26 @@ function update(primeInd, primeIndYear){
 		*/
 		case "binary":
 			range = ['rgb(201,228,242)', 'rgb(255,204,102)'];
-			color
-				.domain(quantById)
-				.range(range);
-			d3.selectAll(".legend svg").remove();  d3.select("#legendTitle").remove();
-			d3.select(".legend").append("div").attr("id", "legendTitle").text(primeIndYear + " " + primeIndText + " in " + primeIndUnits);
-			legend = colorlegend("#quantileLegend", color, "quantile", {title: "legend", boxHeight: 15, boxWidth: 40});
+			legendTitle = primeIndYear + " " + primeIndText;
 			break;
 		case "categorical":
 			range = ['rgb(228,26,28)','rgb(55,126,184)','rgb(77,175,74)','rgb(152,78,163)','rgb(255,127,0)'];
-			color
-				.domain(quantById)
-				.range(range);
-			d3.selectAll(".legend svg").remove();  d3.select("#legendTitle").remove();
-			d3.select(".legend").append("div").attr("id", "legendTitle").text(primeIndYear + " " + primeIndText + " in " + primeIndUnits);
-			legend = colorlegend("#quantileLegend", color, "quantile", {title: "legend", boxHeight: 15, boxWidth: 40});
+			legendTitle = primeIndYear + " " + primeIndText;
 			break;
 		default:
-			range = ['rgb(239,243,255)','rgb(189,215,231)','rgb(107,174,214)','rgb(49,130,189)','rgb(8,81,156)'];
 			//continous, so we don't have to have this property in the JSON
 			//figure out rounding/formatting
 			range = ['rgb(239,243,255)','rgb(189,215,231)','rgb(107,174,214)','rgb(49,130,189)','rgb(8,81,156)'];
-			color
-				.domain(quantById)
-				.range(range);
-			d3.selectAll(".legend svg").remove();  d3.select("#legendTitle").remove();
-			d3.select(".legend").append("div").attr("id", "legendTitle").text(primeIndYear + " " + primeIndText + " in " + primeIndUnits);
-			legend = colorlegend("#quantileLegend", color, "quantile", {title: "legend", boxHeight: 15, boxWidth: 40});
-			break;
+			legendTitle = primeIndYear + " " + primeIndText + " in " + primeIndUnits;
 	}
+	
+	// pack data in color array; create legend
+	color
+		.domain(quantById)
+		.range(range);
+	d3.selectAll(".legend svg").remove();  d3.select("#legendTitle").remove();
+	d3.select(".legend").append("div").attr("id", "legendTitle").text(legendTitle);
+	legend = colorlegend("#quantileLegend", color, "quantile", {title: "legend", boxHeight: 15, boxWidth: 40, dataType: dataType});
 	
 	
 	g.selectAll(".counties .county").transition().duration(750).style("fill", function(d) {
