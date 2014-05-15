@@ -9,17 +9,17 @@
        	  "years": [2007],
        	  "source": "U.S. Census Bureau - Census of Individual Governments: Finance",
        	  "children": [
-       	  	{"name": "Total", "units": "thousands of dollars"},
-       	  	{"name": "Total Administration", "units": "thousands of dollars"},
-       	  	{"name": "Financial Administration", "units": "thousands of dollars"},
-           	{"name": "Other Governmental Administration", "units": "thousands of dollars"},
-           	{"name": "Social Insurance Administration", "units": "thousands of dollars"},
-       	  	{"name": "Liquor Stores", "units": "thousands of dollars"},
-       	  	{"name": "Current Operations", "units": "thousands of dollars"},
-        	{"name": "Construction", "units": "thousands of dollars"},
-        	{"name": "Other Capital Outlay", "units": "thousands of dollars"},
-        	{"name": "Intergovernmental to State", "units": "thousands of dollars"},
-        	{"name": "Intergovernmental to Local", "units": "thousands of dollars"}
+       	  	{"name": "Total", "unit": "thousands of dollars", "dataType": "level"},
+       	  	{"name": "Total Administration", "unit": "thousands of dollars", "dataType": "level"},
+       	  	{"name": "Financial Administration", "unit": "thousands of dollars", "dataType": "level"},
+           	{"name": "Other Governmental Administration", "unit": "thousands of dollars", "dataType": "level"},
+           	{"name": "Social Insurance Administration", "unit": "thousands of dollars", "dataType": "level"},
+       	  	{"name": "Liquor Stores", "unit": "thousands of dollars", "dataType": "level"},
+       	  	{"name": "Current Operations", "unit": "thousands of dollars", "dataType": "level"},
+        	{"name": "Construction", "unit": "thousands of dollars", "dataType": "level"},
+        	{"name": "Other Capital Outlay", "unit": "thousands of dollars", "dataType": "level"},
+        	{"name": "Intergovernmental to State", "unit": "thousands of dollars", "dataType": "level"},
+        	{"name": "Intergovernmental to Local", "unit": "thousands of dollars", "dataType": "level"}
        	  ]
         },
         {
@@ -27,10 +27,10 @@
           "source": "U.S. Census Bureau - Census of Individual Governments: Employment",
           "years": [2007, 2008, 2009, 2010, 2011, 2012],
           "children": [
-            {"name": "Total", "units":"FTE employees"},
-            {"name": "Total Adminstration", "units":"FTE employees"},
-          	{"name": "Financial Administration", "units":"FTE employees"},
-            {"name": "Other Governmental Administration", "units":"FTE employees"}
+            {"name": "Total", "unit":"FTE employees", "dataType": "level"},
+            {"name": "Total Adminstration", "unit":"FTE employees", "dataType": "level"},
+          	{"name": "Financial Administration", "unit":"FTE employees", "dataType": "level"},
+            {"name": "Other Governmental Administration", "unit":"FTE employees", "dataType": "level"}
           ]
         },
         {
@@ -38,13 +38,13 @@
           "source": "U.S. Census Bureau - Census of Individual Governments: Finance",
           "years": [2007],
           "children": [
-          	{"name": "Total", "unit": "thousands of dollars"},
-          	{"name": "Total Administration", "unit": "thousands of dollars"},
-          	{"name": "Charges", "unit": "thousands of dollars"},
-            {"name": "Misc. General Revenue", "unit": "thousands of dollars"},
-            {"name": "Liquor Stores", "unit": "thousands of dollars"},
-          	{"name": "Public Employee Retirement Systems", "unit": "thousands of dollars"},
-           	{"name": "Unemployment Compensation Systems", "unit": "thousands of dollars"}
+          	{"name": "Total", "unit": "thousands of dollars", "dataType": "level"},
+          	{"name": "Total Administration", "unit": "thousands of dollars", "dataType": "level"},
+          	{"name": "Charges", "unit": "thousands of dollars", "dataType": "level"},
+            {"name": "Misc. General Revenue", "unit": "thousands of dollars", "dataType": "level"},
+            {"name": "Liquor Stores", "unit": "thousands of dollars", "dataType": "level"},
+          	{"name": "Public Employee Retirement Systems", "unit": "thousands of dollars", "dataType": "level"},
+           	{"name": "Unemployment Compensation Systems", "unit": "thousands of dollars", "dataType": "level"}
           ]
         }
       ]
@@ -57,10 +57,10 @@
           "source": "U.S. Census Bureau - Census of Individual Governments: Employment",
           "years": [2007, 2008, 2009, 2010, 2011, 2012],
           "children": [
-            {"name": "Total", "units":"FTE employees"},
-            {"name": "Total Adminstration", "units":"FTE employees"},
-          	{"name": "Financial Administration", "units":"FTE employees"},
-            {"name": "Other Governmental Administration", "units":"FTE employees"}
+            {"name": "Total", "unit":"FTE employees", "dataType": "level"},
+            {"name": "Total Adminstration", "unit":"FTE employees", "dataType": "level"},
+          	{"name": "Financial Administration", "unit":"FTE employees", "dataType": "level"},
+            {"name": "Other Governmental Administration", "unit":"FTE employees", "dataType": "level"}
           ]
         },
         {
@@ -68,11 +68,11 @@
           "source": "U.S. Census Bureau - Census of Individual Governments: Employment",
           "years": [2007, 2008, 2009, 2010, 2011, 2012],
           "children": [
-          	{"name": "Total", "units":"FTE employees"},
-            {"name": "Total Public Amenity", "units":"FTE employees"},
-          	{"name": "Libraries", "units":"FTE employees"},
-            {"name": "Natural Resources", "units":"FTE employees"},
-            {"name": "Parks & Recreation", "units":"FTE employees"}
+          	{"name": "Total", "unit":"FTE employees", "dataType": "level"},
+            {"name": "Total Public Amenity", "unit":"FTE employees", "dataType": "level"},
+          	{"name": "Libraries", "unit":"FTE employees", "dataType": "level"},
+            {"name": "Natural Resources", "unit":"FTE employees", "dataType": "level"},
+            {"name": "Parks & Recreation", "unit":"FTE employees", "dataType": "level"}
           ]
         },
         {
@@ -80,10 +80,10 @@
           "source": "U.S. Census Bureau - Census of Individual Governments: Employment",
           "years": [2007, 2008, 2009, 2010, 2011, 2012],
           "children": [
-            {"name": "Total", "units":"FTE employees"},
-            {"name": "Total Education", "units":"FTE employees"},
-          	{"name": "Elementary & Secondary Education", "units":"FTE employees"},
-            {"name": "Higher Education", "units":"FTE employees"}
+            {"name": "Total", "unit":"FTE employees", "dataType": "level"},
+            {"name": "Total Education", "unit":"FTE employees", "dataType": "level"},
+          	{"name": "Elementary & Secondary Education", "unit":"FTE employees", "dataType": "level"},
+            {"name": "Higher Education", "unit":"FTE employees", "dataType": "level"}
           ]
         },
         {
@@ -91,8 +91,8 @@
           "source": "U.S. Census Bureau - Census of Individual Governments: Employment",
           "years": [2007, 2008, 2009, 2010, 2011, 2012],
           "children": [
-          	{"name": "Total", "units":"FTE employees"},
-          	{"name": "Housing & Community Development", "units":"FTE employees"}
+          	{"name": "Total", "unit":"FTE employees", "dataType": "level"},
+          	{"name": "Housing & Community Development", "unit":"FTE employees", "dataType": "level"}
           ]
         },
         {
@@ -100,10 +100,10 @@
           "source": "U.S. Census Bureau - Census of Individual Governments: Employment",
           "years": [2007, 2008, 2009, 2010, 2011, 2012],
           "children": [
-          	{"name": "Total", "units":"FTE employees"},
-            {"name": "Total Health & Hospitals", "units":"FTE employees"},
-          	{"name": "Health", "units":"FTE employees"},
-            {"name": "Hospitals", "units":"FTE employees"}
+          	{"name": "Total", "unit":"FTE employees", "dataType": "level"},
+            {"name": "Total Health & Hospitals", "unit":"FTE employees", "dataType": "level"},
+          	{"name": "Health", "unit":"FTE employees", "dataType": "level"},
+            {"name": "Hospitals", "unit":"FTE employees", "dataType": "level"}
           ]
         },
         {
@@ -111,12 +111,12 @@
           "source": "U.S. Census Bureau - Census of Individual Governments: Employment",
           "years": [2007, 2008, 2009, 2010, 2011, 2012],
           "children": [
-          	{"name": "Total", "units":"FTE employees"},
-            {"name": "Total Justice & Public Safety", "units":"FTE employees"},
-          	{"name": "Correction", "units":"FTE employees"},
-            {"name": "Judicial & Legal Services", "units":"FTE employees"},
-            {"name": "Police Protection", "units":"FTE employees"},
-            {"name": "Firefighters", "units":"FTE employees"}
+          	{"name": "Total", "unit":"FTE employees", "dataType": "level"},
+            {"name": "Total Justice & Public Safety", "unit":"FTE employees", "dataType": "level"},
+          	{"name": "Correction", "unit":"FTE employees", "dataType": "level"},
+            {"name": "Judicial & Legal Services", "unit":"FTE employees", "dataType": "level"},
+            {"name": "Police Protection", "unit":"FTE employees", "dataType": "level"},
+            {"name": "Firefighters", "unit":"FTE employees", "dataType": "level"}
           ]
         },
         {
@@ -124,8 +124,8 @@
           "source": "U.S. Census Bureau - Census of Individual Governments: Employment",
           "years": [2007, 2008, 2009, 2010, 2011, 2012],
           "children": [
-          	{"name": "Total", "units":"FTE employees"},
-          	{"name": "Public Welfare", "units":"FTE employees"}
+          	{"name": "Total", "unit":"FTE employees", "dataType": "level"},
+          	{"name": "Public Welfare", "unit":"FTE employees", "dataType": "level"}
           ]
         },
         {
@@ -133,12 +133,12 @@
           "source": "U.S. Census Bureau - Census of Individual Governments: Employment",
           "years": [2007, 2008, 2009, 2010, 2011, 2012],
           "children": [
-          	{"name": "Total", "units":"FTE employees"},
-            {"name": "Total Transportation", "units":"FTE employees"},
-          	{"name": "Air Tranportation", "units":"FTE employees"},
-            {"name": "Highways", "units":"FTE employees"},
-            {"name": "Water Transport & Terminals", "units":"FTE employees"},
-            {"name": "Transit", "units":"FTE employees"}
+          	{"name": "Total", "unit":"FTE employees", "dataType": "level"},
+            {"name": "Total Transportation", "unit":"FTE employees", "dataType": "level"},
+          	{"name": "Air Tranportation", "unit":"FTE employees", "dataType": "level"},
+            {"name": "Highways", "unit":"FTE employees", "dataType": "level"},
+            {"name": "Water Transport & Terminals", "unit":"FTE employees", "dataType": "level"},
+            {"name": "Transit", "unit":"FTE employees", "dataType": "level"}
           ]
         },
         {
@@ -146,10 +146,10 @@
           "source": "U.S. Census Bureau - Census of Individual Governments: Employment",
           "years": [2007, 2008, 2009, 2010, 2011, 2012],
           "children": [
-          	{"name": "Total", "units":"FTE employees"},
-            {"name": "Total Utility", "units":"FTE employees"},
-          	{"name": "Electric Utilities", "units":"FTE employees"},
-            {"name": "Gas Utilities", "units":"FTE employees"}
+          	{"name": "Total", "unit":"FTE employees", "dataType": "level"},
+            {"name": "Total Utility", "unit":"FTE employees", "dataType": "level"},
+          	{"name": "Electric Utilities", "unit":"FTE employees", "dataType": "level"},
+            {"name": "Gas Utilities", "unit":"FTE employees", "dataType": "level"}
           ]
         },
         {
@@ -157,11 +157,11 @@
           "source": "U.S. Census Bureau - Census of Individual Governments: Employment",
           "years": [2007, 2008, 2009, 2010, 2011, 2012],
           "children": [
-          	{"name": "Total", "units":"FTE employees"},
-            {"name": "Total Water, Sewerage & Solid Waste", "units":"FTE employees"},
-          	{"name": "Sewerage", "units":"FTE employees"},
-            {"name": "Solid Waste", "units":"FTE employees"},
-            {"name": "Water Utilities", "units":"FTE employees"}
+          	{"name": "Total", "unit":"FTE employees", "dataType": "level"},
+            {"name": "Total Water, Sewerage & Solid Waste", "unit":"FTE employees", "dataType": "level"},
+          	{"name": "Sewerage", "unit":"FTE employees", "dataType": "level"},
+            {"name": "Solid Waste", "unit":"FTE employees", "dataType": "level"},
+            {"name": "Water Utilities", "unit":"FTE employees", "dataType": "level"}
           ]
         },
         {
@@ -169,8 +169,8 @@
           "source": "U.S. Census Bureau - Census of Individual Governments: Employment",
           "years": [2007, 2008, 2009, 2010, 2011, 2012],
           "children": [
-          	{"name": "Total", "units":"FTE employees"},
-          	{"name": "Other & Unallocable", "units":"FTE employees"}
+          	{"name": "Total", "unit":"FTE employees", "dataType": "level"},
+          	{"name": "Other & Unallocable", "unit":"FTE employees", "dataType": "level"}
           ]
         }
       ]
@@ -183,13 +183,13 @@
           "source": "U.S. Census Bureau - Census of Individual Governments: Finance",
           "years": [2007],
           "children": [
-          	{"name": "Total", "unit": "thousands of dollars"},
-          	{"name": "Total Administration", "unit": "thousands of dollars"},
-          	{"name": "Charges", "unit": "thousands of dollars"},
-            {"name": "Misc. General Revenue", "unit": "thousands of dollars"},
-            {"name": "Liquor Stores", "unit": "thousands of dollars"},
-          	{"name": "Public Employee Retirement Systems", "unit": "thousands of dollars"},
-           	{"name": "Unemployment Compensation Systems", "unit": "thousands of dollars"}
+          	{"name": "Total", "unit": "thousands of dollars", "dataType": "level"},
+          	{"name": "Total Administration", "unit": "thousands of dollars", "dataType": "level"},
+          	{"name": "Charges", "unit": "thousands of dollars", "dataType": "level"},
+            {"name": "Misc. General Revenue", "unit": "thousands of dollars", "dataType": "level"},
+            {"name": "Liquor Stores", "unit": "thousands of dollars", "dataType": "level"},
+          	{"name": "Public Employee Retirement Systems", "unit": "thousands of dollars", "dataType": "level"},
+           	{"name": "Unemployment Compensation Systems", "unit": "thousands of dollars", "dataType": "level"}
           ]
         },
         {
@@ -197,11 +197,11 @@
           "source": "U.S. Census Bureau - Census of Individual Governments: Finance",
           "years": [2007],
           "children": [
-          	{"name": "Total", "unit": "thousands of dollars"},
-          	{"name": "Total Intergovernmental", "unit": "thousands of dollars"},
-          	{"name": "From Federal Government", "unit": "thousands of dollars"},
-           	{"name": "From Local Government", "unit": "thousands of dollars"},
-           	{"name": "From State Government", "unit": "thousands of dollars"}
+          	{"name": "Total", "unit": "thousands of dollars", "dataType": "level"},
+          	{"name": "Total Intergovernmental", "unit": "thousands of dollars", "dataType": "level"},
+          	{"name": "From Federal Government", "unit": "thousands of dollars", "dataType": "level"},
+           	{"name": "From Local Government", "unit": "thousands of dollars", "dataType": "level"},
+           	{"name": "From State Government", "unit": "thousands of dollars", "dataType": "level"}
           ]
         },
         {
@@ -209,13 +209,13 @@
           "source": "U.S. Census Bureau - Census of Individual Governments: Finance",
           "years": [2007],
           "children": [
-          	{"name": "Total", "unit": "thousands of dollars"},
-          	{"name": "Total Tax", "unit": "thousands of dollars"},
-          	{"name": "Income Taxes", "unit": "thousands of dollars"},
-           	{"name": "License Taxes", "unit": "thousands of dollars"},
-           	{"name": "Other Taxes", "unit": "thousands of dollars"},
-           	{"name": "Property Taxes", "unit": "thousands of dollars"},
-           	{"name": "Tax - Sales & Gross Receipts Taxes", "unit": "thousands of dollars"}
+          	{"name": "Total", "unit": "thousands of dollars", "dataType": "level"},
+          	{"name": "Total Tax", "unit": "thousands of dollars", "dataType": "level"},
+          	{"name": "Income Taxes", "unit": "thousands of dollars", "dataType": "level"},
+           	{"name": "License Taxes", "unit": "thousands of dollars", "dataType": "level"},
+           	{"name": "Other Taxes", "unit": "thousands of dollars", "dataType": "level"},
+           	{"name": "Property Taxes", "unit": "thousands of dollars", "dataType": "level"},
+           	{"name": "Tax - Sales & Gross Receipts Taxes", "unit": "thousands of dollars", "dataType": "level"}
           ]
         },
         {
@@ -223,12 +223,12 @@
           "source": "U.S. Census Bureau - Census of Individual Governments: Finance",
           "years": [2007],
           "children": [
-          	{"name": "Total", "unit": "thousands of dollars"},
-          	{"name": "Total Utility", "unit": "thousands of dollars"},
-          	{"name": "Electric Power Systems", "unit": "thousands of dollars"},
-           	{"name": "Gas Supply Systems", "unit": "thousands of dollars"},
-           	{"name": "Public Mass Transit Systems", "unit": "thousands of dollars"},
-           	{"name": "Water Supply Systems", "unit": "thousands of dollars"}
+          	{"name": "Total", "unit": "thousands of dollars", "dataType": "level"},
+          	{"name": "Total Utility", "unit": "thousands of dollars", "dataType": "level"},
+          	{"name": "Electric Power Systems", "unit": "thousands of dollars", "dataType": "level"},
+           	{"name": "Gas Supply Systems", "unit": "thousands of dollars", "dataType": "level"},
+           	{"name": "Public Mass Transit Systems", "unit": "thousands of dollars", "dataType": "level"},
+           	{"name": "Water Supply Systems", "unit": "thousands of dollars", "dataType": "level"}
           ]
         },
         {
@@ -236,17 +236,17 @@
           "source": "U.S. Census Bureau - Census of Individual Governments: Finance",
        	  "years": [2007],
        	  "children": [
-       	  	{"name": "Total", "units": "thousands of dollars"},
-       	  	{"name": "Total Administration", "units": "thousands of dollars"},
-       	  	{"name": "Financial Administration", "units": "thousands of dollars"},
-           	{"name": "Other Governmental Administration", "units": "thousands of dollars"},
-           	{"name": "Social Insurance Administration", "units": "thousands of dollars"},
-       	  	{"name": "Liquor Stores", "units": "thousands of dollars"},
-       	  	{"name": "Current Operations", "units": "thousands of dollars"},
-        	{"name": "Construction", "units": "thousands of dollars"},
-        	{"name": "Other Capital Outlay", "units": "thousands of dollars"},
-        	{"name": "Intergovernmental to State", "units": "thousands of dollars"},
-        	{"name": "Intergovernmental to Local", "units": "thousands of dollars"}
+       	  	{"name": "Total", "unit": "thousands of dollars", "dataType": "level"},
+       	  	{"name": "Total Administration", "unit": "thousands of dollars", "dataType": "level"},
+       	  	{"name": "Financial Administration", "unit": "thousands of dollars", "dataType": "level"},
+           	{"name": "Other Governmental Administration", "unit": "thousands of dollars", "dataType": "level"},
+           	{"name": "Social Insurance Administration", "unit": "thousands of dollars", "dataType": "level"},
+       	  	{"name": "Liquor Stores", "unit": "thousands of dollars", "dataType": "level"},
+       	  	{"name": "Current Operations", "unit": "thousands of dollars", "dataType": "level"},
+        	{"name": "Construction", "unit": "thousands of dollars", "dataType": "level"},
+        	{"name": "Other Capital Outlay", "unit": "thousands of dollars", "dataType": "level"},
+        	{"name": "Intergovernmental to State", "unit": "thousands of dollars", "dataType": "level"},
+        	{"name": "Intergovernmental to Local", "unit": "thousands of dollars", "dataType": "level"}
        	  ]
         },
         {
@@ -254,16 +254,16 @@
           "source": "U.S. Census Bureau - Census of Individual Governments: Finance",
        	  "years": [2007],
        	  "children": [
-       	  	{"name": "Total", "units": "thousands of dollars"},
-       	  	{"name": "Total Public Amenity", "units": "thousands of dollars"},
-       	  	{"name": "Libraries", "units": "thousands of dollars"},
-           	{"name": "Natural Resources", "units": "thousands of dollars"},
-           	{"name": "Parks & Recreation", "units": "thousands of dollars"},
-       	  	{"name": "Current Operations", "units": "thousands of dollars"},
-        	{"name": "Construction", "units": "thousands of dollars"},
-        	{"name": "Other Capital Outlay", "units": "thousands of dollars"},
-        	{"name": "Intergovernmental to State", "units": "thousands of dollars"},
-        	{"name": "Intergovernmental to Local", "units": "thousands of dollars"}
+       	  	{"name": "Total", "unit": "thousands of dollars", "dataType": "level"},
+       	  	{"name": "Total Public Amenity", "unit": "thousands of dollars", "dataType": "level"},
+       	  	{"name": "Libraries", "unit": "thousands of dollars", "dataType": "level"},
+           	{"name": "Natural Resources", "unit": "thousands of dollars", "dataType": "level"},
+           	{"name": "Parks & Recreation", "unit": "thousands of dollars", "dataType": "level"},
+       	  	{"name": "Current Operations", "unit": "thousands of dollars", "dataType": "level"},
+        	{"name": "Construction", "unit": "thousands of dollars", "dataType": "level"},
+        	{"name": "Other Capital Outlay", "unit": "thousands of dollars", "dataType": "level"},
+        	{"name": "Intergovernmental to State", "unit": "thousands of dollars", "dataType": "level"},
+        	{"name": "Intergovernmental to Local", "unit": "thousands of dollars", "dataType": "level"}
        	  ]
         },
         {
@@ -271,15 +271,15 @@
           "source": "U.S. Census Bureau - Census of Individual Governments: Finance",
        	  "years": [2007],
        	  "children": [
-       	  	{"name": "Total", "units": "thousands of dollars"},
-       	  	{"name": "Total Education", "units": "thousands of dollars"},
-       	  	{"name": "Elementary & Secondary Education", "units": "thousands of dollars"},
-           	{"name": "Higher Education", "units": "thousands of dollars"},
-       	  	{"name": "Current Operations", "units": "thousands of dollars"},
-        	{"name": "Construction", "units": "thousands of dollars"},
-        	{"name": "Other Capital Outlay", "units": "thousands of dollars"},
-        	{"name": "Intergovernmental to State", "units": "thousands of dollars"},
-        	{"name": "Intergovernmental to Local", "units": "thousands of dollars"}
+       	  	{"name": "Total", "unit": "thousands of dollars", "dataType": "level"},
+       	  	{"name": "Total Education", "unit": "thousands of dollars", "dataType": "level"},
+       	  	{"name": "Elementary & Secondary Education", "unit": "thousands of dollars", "dataType": "level"},
+           	{"name": "Higher Education", "unit": "thousands of dollars", "dataType": "level"},
+       	  	{"name": "Current Operations", "unit": "thousands of dollars", "dataType": "level"},
+        	{"name": "Construction", "unit": "thousands of dollars", "dataType": "level"},
+        	{"name": "Other Capital Outlay", "unit": "thousands of dollars", "dataType": "level"},
+        	{"name": "Intergovernmental to State", "unit": "thousands of dollars", "dataType": "level"},
+        	{"name": "Intergovernmental to Local", "unit": "thousands of dollars", "dataType": "level"}
        	  ]
         },
         {
@@ -287,13 +287,13 @@
           "source": "U.S. Census Bureau - Census of Individual Governments: Finance",
        	  "years": [2007],
        	  "children": [
-       	  	{"name": "Total", "units": "thousands of dollars"},
-       	  	{"name": "Total Housing & Community Development", "units": "thousands of dollars"},
-       	  	{"name": "Current Operations", "units": "thousands of dollars"},
-        	{"name": "Construction", "units": "thousands of dollars"},
-        	{"name": "Other Capital Outlay", "units": "thousands of dollars"},
-        	{"name": "Intergovernmental to State", "units": "thousands of dollars"},
-        	{"name": "Intergovernmental to Local", "units": "thousands of dollars"}
+       	  	{"name": "Total", "unit": "thousands of dollars", "dataType": "level"},
+       	  	{"name": "Total Housing & Community Development", "unit": "thousands of dollars", "dataType": "level"},
+       	  	{"name": "Current Operations", "unit": "thousands of dollars", "dataType": "level"},
+        	{"name": "Construction", "unit": "thousands of dollars", "dataType": "level"},
+        	{"name": "Other Capital Outlay", "unit": "thousands of dollars", "dataType": "level"},
+        	{"name": "Intergovernmental to State", "unit": "thousands of dollars", "dataType": "level"},
+        	{"name": "Intergovernmental to Local", "unit": "thousands of dollars", "dataType": "level"}
        	  ]
         },
         {
@@ -301,15 +301,15 @@
           "source": "U.S. Census Bureau - Census of Individual Governments: Finance",
        	  "years": [2007],
        	  "children": [
-       	  	{"name": "Total", "units": "thousands of dollars"},
-       	  	{"name": "Total Health & Hospitals", "units": "thousands of dollars"},
-       	  	{"name": "Health", "units": "thousands of dollars"},
-           	{"name": "Hospitals", "units": "thousands of dollars"},
-       	  	{"name": "Current Operations", "units": "thousands of dollars"},
-        	{"name": "Construction", "units": "thousands of dollars"},
-        	{"name": "Other Capital Outlay", "units": "thousands of dollars"},
-        	{"name": "Intergovernmental to State", "units": "thousands of dollars"},
-        	{"name": "Intergovernmental to Local", "units": "thousands of dollars"}
+       	  	{"name": "Total", "unit": "thousands of dollars", "dataType": "level"},
+       	  	{"name": "Total Health & Hospitals", "unit": "thousands of dollars", "dataType": "level"},
+       	  	{"name": "Health", "unit": "thousands of dollars", "dataType": "level"},
+           	{"name": "Hospitals", "unit": "thousands of dollars", "dataType": "level"},
+       	  	{"name": "Current Operations", "unit": "thousands of dollars", "dataType": "level"},
+        	{"name": "Construction", "unit": "thousands of dollars", "dataType": "level"},
+        	{"name": "Other Capital Outlay", "unit": "thousands of dollars", "dataType": "level"},
+        	{"name": "Intergovernmental to State", "unit": "thousands of dollars", "dataType": "level"},
+        	{"name": "Intergovernmental to Local", "unit": "thousands of dollars", "dataType": "level"}
        	  ]
         },
         {
@@ -317,11 +317,11 @@
           "source": "U.S. Census Bureau - Census of Individual Governments: Finance",
        	  "years": [2007],
        	  "children": [
-       	  	{"name": "Total", "units": "thousands of dollars"},
-       	  	{"name": "Total Financial", "units": "thousands of dollars"},
-       	  	{"name": "Interest on General Debt", "units": "thousands of dollars"},
-           	{"name": "Insurance Trust - Employee Retirement", "units": "thousands of dollars"},
-           	{"name": "Insurance Trust - Unemployment", "units": "thousands of dollars"}
+       	  	{"name": "Total", "unit": "thousands of dollars", "dataType": "level"},
+       	  	{"name": "Total Financial", "unit": "thousands of dollars", "dataType": "level"},
+       	  	{"name": "Interest on General Debt", "unit": "thousands of dollars", "dataType": "level"},
+           	{"name": "Insurance Trust - Employee Retirement", "unit": "thousands of dollars", "dataType": "level"},
+           	{"name": "Insurance Trust - Unemployment", "unit": "thousands of dollars", "dataType": "level"}
        	  ]
         },
         {
@@ -329,18 +329,18 @@
           "source": "U.S. Census Bureau - Census of Individual Governments: Finance",
        	  "years": [2007],
        	  "children": [
-       	  	{"name": "Total", "units": "thousands of dollars"},
-       	  	{"name": "Total Justice & Public Safety", "units": "thousands of dollars"},
-       	  	{"name": "Correction", "units": "thousands of dollars"},
-           	{"name": "Judicial & Legal Services", "units": "thousands of dollars"},
-           	{"name": "Police Protection", "units": "thousands of dollars"},
-           	{"name": "Fire Protection", "units": "thousands of dollars"},
-           	{"name": "Protective Inspection", "units": "thousands of dollars"},
-       	  	{"name": "Current Operations", "units": "thousands of dollars"},
-        	{"name": "Construction", "units": "thousands of dollars"},
-        	{"name": "Other Capital Outlay", "units": "thousands of dollars"},
-        	{"name": "Intergovernmental to State", "units": "thousands of dollars"},
-        	{"name": "Intergovernmental to Local", "units": "thousands of dollars"}
+       	  	{"name": "Total", "unit": "thousands of dollars", "dataType": "level"},
+       	  	{"name": "Total Justice & Public Safety", "unit": "thousands of dollars", "dataType": "level"},
+       	  	{"name": "Correction", "unit": "thousands of dollars", "dataType": "level"},
+           	{"name": "Judicial & Legal Services", "unit": "thousands of dollars", "dataType": "level"},
+           	{"name": "Police Protection", "unit": "thousands of dollars", "dataType": "level"},
+           	{"name": "Fire Protection", "unit": "thousands of dollars", "dataType": "level"},
+           	{"name": "Protective Inspection", "unit": "thousands of dollars", "dataType": "level"},
+       	  	{"name": "Current Operations", "unit": "thousands of dollars", "dataType": "level"},
+        	{"name": "Construction", "unit": "thousands of dollars", "dataType": "level"},
+        	{"name": "Other Capital Outlay", "unit": "thousands of dollars", "dataType": "level"},
+        	{"name": "Intergovernmental to State", "unit": "thousands of dollars", "dataType": "level"},
+        	{"name": "Intergovernmental to Local", "unit": "thousands of dollars", "dataType": "level"}
        	  ]
         },
         {
@@ -348,17 +348,17 @@
           "source": "U.S. Census Bureau - Census of Individual Governments: Finance",
        	  "years": [2007],
        	  "children": [
-       	  	{"name": "Total", "units": "thousands of dollars"},
-       	  	{"name": "Total Public Welfare", "units": "thousands of dollars"},
-       	  	{"name": "Cash Assistance", "units": "thousands of dollars"},
-           	{"name": "Vendor Payments", "units": "thousands of dollars"},
-           	{"name": "Other Public Welfare", "units": "thousands of dollars"},
-       	  	{"name": "Current Operations", "units": "thousands of dollars"},
-        	{"name": "Construction", "units": "thousands of dollars"},
-        	{"name": "Assistance & Subsidies", "units": "thousands of dollars"},
-        	{"name": "Other Capital Outlay", "units": "thousands of dollars"},
-        	{"name": "Intergovernmental to State", "units": "thousands of dollars"},
-        	{"name": "Intergovernmental to Local", "units": "thousands of dollars"}
+       	  	{"name": "Total", "unit": "thousands of dollars", "dataType": "level"},
+       	  	{"name": "Total Public Welfare", "unit": "thousands of dollars", "dataType": "level"},
+       	  	{"name": "Cash Assistance", "unit": "thousands of dollars", "dataType": "level"},
+           	{"name": "Vendor Payments", "unit": "thousands of dollars", "dataType": "level"},
+           	{"name": "Other Public Welfare", "unit": "thousands of dollars", "dataType": "level"},
+       	  	{"name": "Current Operations", "unit": "thousands of dollars", "dataType": "level"},
+        	{"name": "Construction", "unit": "thousands of dollars", "dataType": "level"},
+        	{"name": "Assistance & Subsidies", "unit": "thousands of dollars", "dataType": "level"},
+        	{"name": "Other Capital Outlay", "unit": "thousands of dollars", "dataType": "level"},
+        	{"name": "Intergovernmental to State", "unit": "thousands of dollars", "dataType": "level"},
+        	{"name": "Intergovernmental to Local", "unit": "thousands of dollars", "dataType": "level"}
        	  ]
         },
         {
@@ -366,19 +366,19 @@
           "source": "U.S. Census Bureau - Census of Individual Governments: Finance",
        	  "years": [2007],
        	  "children": [
-       	  	{"name": "Total", "units": "thousands of dollars"},
-       	  	{"name": "Total Transportation", "units": "thousands of dollars"},
-       	  	{"name": "Air Transportation", "units": "thousands of dollars"},
-          	{"name": "Highways", "units": "thousands of dollars"},
-           	{"name": "Parking Facilities", "units": "thousands of dollars"},           
-           	{"name": "Sea & Inland Port", "units": "thousands of dollars"},                    
-           	{"name": "Transit Utilities", "units": "thousands of dollars"},
-       	  	{"name": "Current Operations", "units": "thousands of dollars"},
-        	{"name": "Construction", "units": "thousands of dollars"},
-        	{"name": "Capital Outlay", "units": "thousands of dollars"},
-        	{"name": "Interests on Debt", "units": "thousands of dollars"},
-        	{"name": "Intergovernmental to State", "units": "thousands of dollars"},
-        	{"name": "Intergovernmental to Local", "units": "thousands of dollars"}
+       	  	{"name": "Total", "unit": "thousands of dollars", "dataType": "level"},
+       	  	{"name": "Total Transportation", "unit": "thousands of dollars", "dataType": "level"},
+       	  	{"name": "Air Transportation", "unit": "thousands of dollars", "dataType": "level"},
+          	{"name": "Highways", "unit": "thousands of dollars", "dataType": "level"},
+           	{"name": "Parking Facilities", "unit": "thousands of dollars", "dataType": "level"},  
+           	{"name": "Sea & Inland Port", "unit": "thousands of dollars", "dataType": "level"}, 
+           	{"name": "Transit Utilities", "unit": "thousands of dollars", "dataType": "level"},
+       	  	{"name": "Current Operations", "unit": "thousands of dollars", "dataType": "level"},
+        	{"name": "Construction", "unit": "thousands of dollars", "dataType": "level"},
+        	{"name": "Capital Outlay", "unit": "thousands of dollars", "dataType": "level"},
+        	{"name": "Interests on Debt", "unit": "thousands of dollars", "dataType": "level"},
+        	{"name": "Intergovernmental to State", "unit": "thousands of dollars", "dataType": "level"},
+        	{"name": "Intergovernmental to Local", "unit": "thousands of dollars", "dataType": "level"}
        	  ]
         },
         {
@@ -386,16 +386,16 @@
           "source": "U.S. Census Bureau - Census of Individual Governments: Finance",
        	  "years": [2007],
        	  "children": [
-       	  	{"name": "Total", "units": "thousands of dollars"},
-       	  	{"name": "Total Utility", "units": "thousands of dollars"},
-       	  	{"name": "Electric Utilities", "units": "thousands of dollars"},                    
-           	{"name": "Gas Utilities", "units": "thousands of dollars"},
-       	  	{"name": "Current Operations", "units": "thousands of dollars"},
-        	{"name": "Construction", "units": "thousands of dollars"},
-        	{"name": "Capital Outlay", "units": "thousands of dollars"},
-        	{"name": "Interests on Debt", "units": "thousands of dollars"},
-        	{"name": "Intergovernmental to State", "units": "thousands of dollars"},
-        	{"name": "Intergovernmental to Local", "units": "thousands of dollars"}
+       	  	{"name": "Total", "unit": "thousands of dollars", "dataType": "level"},
+       	  	{"name": "Total Utility", "unit": "thousands of dollars", "dataType": "level"},
+       	  	{"name": "Electric Utilities", "unit": "thousands of dollars", "dataType": "level"},        
+           	{"name": "Gas Utilities", "unit": "thousands of dollars", "dataType": "level"},
+       	  	{"name": "Current Operations", "unit": "thousands of dollars", "dataType": "level"},
+        	{"name": "Construction", "unit": "thousands of dollars", "dataType": "level"},
+        	{"name": "Capital Outlay", "unit": "thousands of dollars", "dataType": "level"},
+        	{"name": "Interests on Debt", "unit": "thousands of dollars", "dataType": "level"},
+        	{"name": "Intergovernmental to State", "unit": "thousands of dollars", "dataType": "level"},
+        	{"name": "Intergovernmental to Local", "unit": "thousands of dollars", "dataType": "level"}
        	  ]
         },
         {
@@ -403,17 +403,17 @@
           "source": "U.S. Census Bureau - Census of Individual Governments: Finance",
        	  "years": [2007],
        	  "children": [
-       	  	{"name": "Total", "units": "thousands of dollars"},
-       	  	{"name": "Total Administration", "units": "thousands of dollars"},
-       	  	{"name": "Sewerage", "units": "thousands of dollars"},                    
-           	{"name": "Solid Waste", "units": "thousands of dollars"},                    
-           	{"name": "Waste Utilities", "units": "thousands of dollars"},
-       	  	{"name": "Current Operations", "units": "thousands of dollars"},
-        	{"name": "Construction", "units": "thousands of dollars"},
-        	{"name": "Capital Outlay", "units": "thousands of dollars"},
-        	{"name": "Interests on Debt", "units": "thousands of dollars"},
-        	{"name": "Intergovernmental to State", "units": "thousands of dollars"},
-        	{"name": "Intergovernmental to Local", "units": "thousands of dollars"}  
+       	  	{"name": "Total", "unit": "thousands of dollars", "dataType": "level"},
+       	  	{"name": "Total Administration", "unit": "thousands of dollars", "dataType": "level"},
+       	  	{"name": "Sewerage", "unit": "thousands of dollars", "dataType": "level"}, 
+           	{"name": "Solid Waste", "unit": "thousands of dollars", "dataType": "level"},     
+           	{"name": "Waste Utilities", "unit": "thousands of dollars", "dataType": "level"},
+       	  	{"name": "Current Operations", "unit": "thousands of dollars", "dataType": "level"},
+        	{"name": "Construction", "unit": "thousands of dollars", "dataType": "level"},
+        	{"name": "Capital Outlay", "unit": "thousands of dollars", "dataType": "level"},
+        	{"name": "Interests on Debt", "unit": "thousands of dollars", "dataType": "level"},
+        	{"name": "Intergovernmental to State", "unit": "thousands of dollars", "dataType": "level"},
+        	{"name": "Intergovernmental to Local", "unit": "thousands of dollars", "dataType": "level"}
        	  ]
         },
         {
@@ -421,11 +421,11 @@
           "source": "U.S. Census Bureau - Census of Individual Governments: Finance",
        	  "years": [2007],
        	  "children": [
-       	  	{"name": "Total", "units": "thousands of dollars"},
-       	  	{"name": "Total Other", "units": "thousands of dollars"},
-          	{"name": "Misc. Commercial Activities", "units": "thousands of dollars"},
-          	{"name": "Other & Unallocable", "units": "thousands of dollars"},
-           	{"name": "General Public Buildings", "units": "thousands of dollars"}
+       	  	{"name": "Total", "unit": "thousands of dollars", "dataType": "level"},
+       	  	{"name": "Total Other", "unit": "thousands of dollars", "dataType": "level"},
+          	{"name": "Misc. Commercial Activities", "unit": "thousands of dollars", "dataType": "level"},
+          	{"name": "Other & Unallocable", "unit": "thousands of dollars", "dataType": "level"},
+           	{"name": "General Public Buildings", "unit": "thousands of dollars", "dataType": "level"}
        	  ]
         },
         {
@@ -433,15 +433,15 @@
           "source": "NACo Analysis of County Comprehensive Annual Financial Reports",
           "years": [2006, 2007, 2008, 2009, 2010],
           "children": [
-           {"name": "Total Revenue"},
-           {"name": "Total Taxes"},
-           {"name": "Licesnses and Permits"},
-           {"name": "Fines, Fees & Forfeits"},
-           {"name": "Intergovernmental"},
-           {"name": "Use of Money & Property"},
-           {"name": "Investment Earnings"},
-           {"name": "Charges for Services"},
-           {"name": "Other"}
+           {"name": "Total Revenue", "unit": "dollars", "dataType": "level"},
+           {"name": "Total Taxes", "unit": "dollars", "dataType": "level"},
+           {"name": "Licesnses and Permits", "unit": "dollars", "dataType": "level"},
+           {"name": "Fines, Fees & Forfeits", "unit": "dollars", "dataType": "level"},
+           {"name": "Intergovernmental", "unit": "dollars", "dataType": "level"},
+           {"name": "Use of Money & Property", "unit": "dollars", "dataType": "level"},
+           {"name": "Investment Earnings", "unit": "dollars", "dataType": "level"},
+           {"name": "Charges for Services", "unit": "dollars", "dataType": "level"},
+           {"name": "Other", "unit": "dollars", "dataType": "level"}
           ]
         },
         {
@@ -449,18 +449,18 @@
           "source": "NACo Analysis of County Comprehensive Annual Financial Reports",
           "years": [2006, 2007, 2008, 2009, 2010],
           "children": [
-           {"name": "Total Expenditures"},
-           {"name": "General Government"},
-           {"name": "Public Works, Buildings & Transportation"},
-           {"name": "Public Safety & Court Related"},
-           {"name": "Health & Human Services"},
-           {"name": "Education, Culture & Recreation"},
-           {"name": "Intergovernmental"},
-           {"name": "Environmental Protection/Natural Resources"},
-           {"name": "Community & Economic Development"},
-           {"name": "Total Debt"},
-           {"name": "Capital Projects"},
-           {"name": "Other"}
+           {"name": "Total Expenditures", "unit": "dollars", "dataType": "level"},
+           {"name": "General Government", "unit": "dollars", "dataType": "level"},
+           {"name": "Public Works, Buildings & Transportation", "unit": "dollars", "dataType": "level"},
+           {"name": "Public Safety & Court Related", "unit": "dollars", "dataType": "level"},
+           {"name": "Health & Human Services", "unit": "dollars", "dataType": "level"},
+           {"name": "Education, Culture & Recreation", "unit": "dollars", "dataType": "level"},
+           {"name": "Intergovernmental", "unit": "dollars", "dataType": "level"},
+           {"name": "Environmental Protection/Natural Resources", "unit": "dollars", "dataType": "level"},
+           {"name": "Community & Economic Development", "unit": "dollars", "dataType": "level"},
+           {"name": "Total Debt", "unit": "dollars", "dataType": "level"},
+           {"name": "Capital Projects", "unit": "dollars", "dataType": "level"},
+           {"name": "Other", "unit": "dollars", "dataType": "level"}
           ]
         },
         {
@@ -494,12 +494,11 @@
           "source": "NACo Research",
           "years": [2014],
           "children": [
-            {"name": "County Government"},
-            {"name": "Total Elected Officials"},
-            {"name": "Size of Board"},
-            {"name": "Elected Executive"},
-            {"name": "Number of Other Elected Officia"},
-            {"name": "County Administrator"}
+            {"name": "Total Elected Officials", "dataType": "level"},
+            {"name": "Size of Board", "dataType": "level"},
+            {"name": "Elected Executive", "dataType": "binary"},
+            {"name": "Number of Other Elected Officials", "dataType": "level"},
+            {"name": "County Administrator", "dataType": "binary"}
           ]
         }
       ]
@@ -511,73 +510,73 @@
         		"name": "Population Levels and Trends",
         		"years": [2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013],
         		"children": [
-        			{"name": "Population Level"},
-        			{"name": "Population Annual Growth Rate (from previous year)"}
+        			{"name": "Population Level", "dataType": "level"},
+        			{"name": "Population Annual Growth Rate (from previous year)", "dataType": "percent"}
         		]
         	},
         	{
         		"name": "Population Change Components",
-        		"years": [2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2011, 2012, 2013],
+        		"years": [2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013],
         		"children": [
-        			{"name": "Population Level"},
-        			{"name": "Change in Population (from previous year)"},
-        			{"name": "Births"},
-        			{"name": "Deaths"},
-        			{"name": "Natural Population Increase"},
-        			{"name": "International Migration"},
-        			{"name": "Domestic Migration"},
-        			{"name": "Net Migration"},
-        			{"name": "Birth Rate"},
-        			{"name": "Death Rate"},
-        			{"name": "Natural Population Increase Rate"},
-        			{"name": "International Migration Rate"},
-        			{"name": "Domestic Migration Rate"},
-        			{"name": "Net Migration Rate"}
+        			{"name": "Population Level", "dataType": "level"},
+        			{"name": "Change in Population (from previous year)", "dataType": "percent"},
+        			{"name": "Births", "dataType": "level"},
+        			{"name": "Deaths", "dataType": "level"},
+        			{"name": "Natural Population Increase", "dataType": "level_np"},
+        			{"name": "International Migration", "dataType": "level_np"},
+        			{"name": "Domestic Migration", "dataType": "level_np"},
+        			{"name": "Net Migration", "dataType": "level_np"},
+        			{"name": "Birth Rate", "dataType": "level"},
+        			{"name": "Death Rate", "dataType": "level"},
+        			{"name": "Natural Population Increase Rate", "dataType": "level_np"},
+        			{"name": "International Migration Rate", "dataType": "level_np"},
+        			{"name": "Domestic Migration Rate", "dataType": "level_np"},
+        			{"name": "Net Migration Rate", "dataType": "level_np"}
         		]
         	},
         	{
         		"name": "Population Density",
         		"years": [2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013],
         		"children": [
-        			{"name": "Population Level"},
-        			{"name": "Population Density"},
-        			{"name": "Population Density Growth Rate (from previous year)"},
-        			{"name": "Total Land Area"},
-        			{"name": "Total Federal Land Area"},
-        			{"name": "Inhabitable Land Area"}
+        			{"name": "Population Level", "dataType": "level"},
+        			{"name": "Population Density", "dataType": "level"},
+        			{"name": "Population Density Growth Rate (from previous year)", "dataType": "percent"},
+        			{"name": "Total Land Area", "dataType": "level"},
+        			{"name": "Total Federal Land Area", "dataType": "level"},
+        			{"name": "Inhabitable Land Area", "dataType": "level"}
         		]
         	},
         	{
         		"name": "Population by Age/Gender",
         		"years": [2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012],
         		"children": [
-        			{"name": "Total Population Level"},
-        			{"name": "Male Population"},
-        			{"name": "Percent Male"},
-        			{"name": "Female Population"},
-        			{"name": "Percent Female"},
-        			{"name": "Under 5 years old Population"},
-        			{"name": "Percent Under 5 years old"},
-        			{"name": "5-24 years old Population"},
-        			{"name": "Percent 5-24 years old"},
-        			{"name": "25-64 years old Population"},
-        			{"name": "Percent 25-64 years old"},
-        			{"name": "65 and older Population"},
-        			{"name": "Percent 65 and older"}
+        			{"name": "Total Population Level", "dataType": "level"},
+        			{"name": "Male Population", "dataType": "level"},
+        			{"name": "Percent Male", "dataType": "percent"},
+        			{"name": "Female Population", "dataType": "level"},
+        			{"name": "Percent Female", "dataType": "percent"},
+        			{"name": "Under 5 years old Population", "dataType": "level"},
+        			{"name": "Percent Under 5 years old", "dataType": "percent"},
+        			{"name": "5-24 years old Population", "dataType": "level"},
+        			{"name": "Percent 5-24 years old", "dataType": "percent"},
+        			{"name": "25-64 years old Population", "dataType": "level"},
+        			{"name": "Percent 25-64 years old", "dataType": "percent"},
+        			{"name": "65 and older Population", "dataType": "level"},
+        			{"name": "Percent 65 and older", "dataType": "percent"}
                 ]
         	},
         	{
         		"name": "Population by Ethnicity",
         		"years": [2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012],
         		"children": [
-        			{"name": "Total Population"},
-        			{"name": "White Population"},
-        			{"name": "Black or African American Population"},
-        			{"name": "American Indian or Alaskan Native Population"},
-        			{"name": "Asian Population"},
-        			{"name": "Native Hawaiian or Other Pacific Islander Population"},
-        			{"name": "Population of Two or More Races"},
-        			{"name": "Hispanic or Latino Origin"}
+        			{"name": "Total Population", "dataType": "level"},
+        			{"name": "White Population", "dataType": "level"},
+        			{"name": "Black or African American Population", "dataType": "level"},
+        			{"name": "American Indian or Alaskan Native Population", "dataType": "level"},
+        			{"name": "Asian Population", "dataType": "level"},
+        			{"name": "Native Hawaiian or Other Pacific Islander Population", "dataType": "level"},
+        			{"name": "Population of Two or More Races", "dataType": "level"},
+        			{"name": "Hispanic or Latino Origin", "dataType": "level"}
         		]
         	}
         ]
@@ -589,31 +588,31 @@
           "name": "Household Income",
           "years": [2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012],
           "children": [
-            {"name": "Total Households"},
-            {"name": "Per Capita Income"},
-            {"name": "Median Household Income"},
-            {"name": "Number of Households with Income Less than $10,000"},
-            {"name": "Percent of Households with Income Less than $10,000"},
-            {"name": "Number of Households with Income Between $10,000 - $24,999"},
-            {"name": "Percent of Households with Income Between $10,000 - $24,999"},
-            {"name": "Number of Households with Income Between $25,000 - $49,999"},
-            {"name": "Percent of Households with Income Between $25,000 - $49,999"},
-            {"name": "Number of Households with Income Between $50,000 - $99,999"},
-            {"name": "Percent of Households with Income Between $50,000 - $99,999"},
-            {"name": "Number of Households with Income Between $100,000 - $199,999"},
-            {"name": "Percent of Households with Income Between $100,000 - $199,999"},
-            {"name": "Number of Households with Income of $200,000 or more"},
-            {"name": "Percent of Households with Income of $200,000 or more"}
+            {"name": "Total Households", "dataType": "level"},
+            {"name": "Per Capita Income", "dataType": "level"},
+            {"name": "Median Household Income", "dataType": "level"},
+            {"name": "Number of Households with Income Less than $10,000", "dataType": "level"},
+            {"name": "Percent of Households with Income Less than $10,000", "dataType": "percent"},
+            {"name": "Number of Households with Income Between $10,000 - $24,999", "dataType": "level"},
+            {"name": "Percent of Households with Income Between $10,000 - $24,999", "dataType": "percent"},
+            {"name": "Number of Households with Income Between $25,000 - $49,999", "dataType": "level"},
+            {"name": "Percent of Households with Income Between $25,000 - $49,999", "dataType": "percent"},
+            {"name": "Number of Households with Income Between $50,000 - $99,999", "dataType": "level"},
+            {"name": "Percent of Households with Income Between $50,000 - $99,999", "dataType": "percent"},
+            {"name": "Number of Households with Income Between $100,000 - $199,999", "dataType": "level"},
+            {"name": "Percent of Households with Income Between $100,000 - $199,999", "dataType": "percent"},
+            {"name": "Number of Households with Income of $200,000 or more", "dataType": "level"},
+            {"name": "Percent of Households with Income of $200,000 or more", "dataType": "percent"}
           ]
         },
         {
           "name": "Labor Force",
-          "years": [2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012],
+          "years": [2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013],
           "children": [
-            {"name": "Civilian Labor Force Population"},
-            {"name": "Number Employed"},
-            {"name": "Number Unemployed"},
-            {"name": "Unemployment Rate"}
+            {"name": "Civilian Labor Force Population", "dataType": "level"},
+            {"name": "Number Employed", "dataType": "level"},
+            {"name": "Number Unemployed", "dataType": "level"},
+            {"name": "Unemployment Rate", "dataType": "percent"}
           ]
         }
       ]
@@ -625,56 +624,56 @@
           "name": "Education Employment",
           "years": [2007, 2008, 2009, 2010, 2011, 2012],
           "children": [
-            {"name": "Total"},
-            {"name": "Total Education"},
-          	{"name": "Elementary & Secondary Education"},
-            {"name": "Higher Education"}
+            {"name": "Total", "dataType": "level"},
+            {"name": "Total Education", "dataType": "level"},
+          	{"name": "Elementary & Secondary Education", "dataType": "level"},
+            {"name": "Higher Education", "dataType": "level"}
           ]
         },
         {
         	"name": "Expenditures on Education",
         	"years": [2007],
         	"children": [
-        		{"name": "Total", "units": "thousands of dollars"},
-        		{"name": "Total Education", "units": "thousands of dollars"},
-        		{"name": "Elementary & Secondary Education", "units": "thousands of dollars"},
-        		{"name": "Higher Education", "units": "thousands of dollars"},
-        		{"name": "Current Operations", "units": "thousands of dollars"},
-        		{"name": "Construction", "units": "thousands of dollars"},
-        		{"name": "Other Capital Outlay", "units": "thousands of dollars"},
-        		{"name": "Intergovernmental to State", "units": "thousands of dollars"},
-        		{"name": "Intergovernmental to Local", "units": "thousands of dollars"}
+        		{"name": "Total", "unit": "thousands of dollars", "dataType": "level"},
+        		{"name": "Total Education", "unit": "thousands of dollars", "dataType": "level"},
+        		{"name": "Elementary & Secondary Education", "unit": "thousands of dollars", "dataType": "level"},
+        		{"name": "Higher Education", "unit": "thousands of dollars", "dataType": "level"},
+        		{"name": "Current Operations", "unit": "thousands of dollars", "dataType": "level"},
+        		{"name": "Construction", "unit": "thousands of dollars", "dataType": "level"},
+        		{"name": "Other Capital Outlay", "unit": "thousands of dollars", "dataType": "level"},
+        		{"name": "Intergovernmental to State", "unit": "thousands of dollars", "dataType": "level"},
+        		{"name": "Intergovernmental to Local", "unit": "thousands of dollars", "dataType": "level"}
         	]
         },
         {
         	"name": "Public Elementary & Secondary Schools",
-        	"years": [2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012],
+        	"years": [2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012],
         	"children": [
-        		{"name": "Number of Districts"},
-        		{"name": "Number Operational Schools"},
-        		{"name": "Number of Local School Districts"},
-        		{"name": "Number of Federally-operated Institutions"},
-        		{"name": "Number of State-operated Institutions"},
-        		{"name": "Number of Charter School Agencies"},
-        		{"name": "Number of Other School Agencies"},
-        		{"name": "Total Students"},
-        		{"name": "FTE Teachers"},
-        		{"name": "Pupil/Teacher Ratio"}
+        		{"name": "Number of Districts", "dataType": "level"},
+        		{"name": "Number Operational Schools", "dataType": "level"},
+        		{"name": "Number of Local School Districts", "dataType": "level"},
+        		{"name": "Number of Federally-operated Institutions", "dataType": "level"},
+        		{"name": "Number of State-operated Institutions", "dataType": "level"},
+        		{"name": "Number of Charter School Agencies", "dataType": "level"},
+        		{"name": "Number of Other School Agencies", "dataType": "level"},
+        		{"name": "Total Students", "dataType": "level"},
+        		{"name": "FTE Teachers", "dataType": "level"},
+        		{"name": "Pupil/Teacher Ratio", "dataType": "level"}
         	]
         },
         {
         	"name": "Colleges & Universities",
         	"years": [2009, 2010, 2011, 2012],
         	"children": [
-        	  {"name": "Number of Institutions"},
-        	  {"name": "Number of Public Institutions"},
-        	  {"name": "Number of less than 4 year Institutions"},
-        	  {"name": "Number of 4 year or Higher Institutions"},
-        	  {"name": "Total Enrollment"},
-        	  {"name": "Male Enrollment"},
-        	  {"name": "Female Enrollment"},
-        	  {"name": "Average In-State Tuition"},
-        	  {"name": "Average Out-of-State Tuition"}
+        	  {"name": "Number of Institutions", "dataType": "level"},
+        	  {"name": "Number of Public Institutions", "dataType": "level"},
+        	  {"name": "Number of less than 4 year Institutions", "dataType": "level"},
+        	  {"name": "Number of 4 year or Higher Institutions", "dataType": "level"},
+        	  {"name": "Total Enrollment", "dataType": "level"},
+        	  {"name": "Male Enrollment", "dataType": "level"},
+        	  {"name": "Female Enrollment", "dataType": "level"},
+        	  {"name": "Average In-State Tuition", "unit": "dollars", "dataType": "level"},
+        	  {"name": "Average Out-of-State Tuition", "unit": "dollars", "dataType": "level"}
         	]
         }
       ]
@@ -686,48 +685,48 @@
       		"name": "American Dream Downpayment Initiative (ADDI)",
       		"years": [2003, 2004, 2005, 2006, 2007, 2008],
       		"children": [
-      			{"name": "ADDI Amount", "unit": "thousands of dollars"},
-      			{"name": "ADDI Annual Growth Rate (from previous year)"}
+      			{"name": "ADDI Amount", "unit": "thousands of dollars", "dataType": "level"},
+      			{"name": "ADDI Annual Growth Rate (from previous year)", "dataType": "percent"}
       		]
       	},
       	{
       		"name": "Community Development Block Grants (CDBG)",
       		"years": [2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014],
       		"children": [
-      			{"name": "CDBG Amount", "unit": "thousands of dollars"},
-      			{"name": "CDBG Annual Growth Rate (from previous year)"}
+      			{"name": "CDBG Amount", "unit": "thousands of dollars", "dataType": "level"},
+      			{"name": "CDBG Annual Growth Rate (from previous year)", "dataType": "percent"}
       		]
       	},
       	{
       		"name": "Emergency Shelter Grants (ESG)",
       		"years": [2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014],
       		"children": [
-      			{"name": "ESG Amount", "unit": "thousands of dollars"},
-      			{"name": "ESG Annual Growth Rate (from previous year)"}
+      			{"name": "ESG Amount", "unit": "thousands of dollars", "dataType": "level"},
+      			{"name": "ESG Annual Growth Rate (from previous year)", "dataType": "percent"}
       		]
       	},
       	{
       		"name": "HOME Investment Partnership Program",
       		"years": [2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014],
       		"children": [
-      			{"name": "HOME Amount", "unit": "thousands of dollars"},
-      			{"name": "HOME Annual Growth Rate (from previous year)"}
+      			{"name": "HOME Amount", "unit": "thousands of dollars", "dataType": "level"},
+      			{"name": "HOME Annual Growth Rate (from previous year)", "dataType": "percent"}
       		]
       	},
       	{
       		"name": "Housing & Urban Development Grants",
       		"years": [2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014],
       		"children": [
-      			{"name": "Total HUD Amount", "units": "thousands of dollars"},
-      			{"name": "HUD Annual Growth Rate (from previous year)"}
+      			{"name": "Total HUD Amount", "unit": "thousands of dollars", "dataType": "level"},
+      			{"name": "HUD Annual Growth Rate (from previous year)", "dataType": "percent"}
      		]
       	},
       	{
       		"name": "Housing Opportunities for Persons with AIDS (HOPWA)",
       		"years": [2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014],
       		"children": [
-      			{"name": "HOPWA Amount", "unit": "thousands of dollars"},
-      			{"name": "HOPWA Annual Growth Rate (from previous year)"}
+      			{"name": "HOPWA Amount", "unit": "thousands of dollars", "dataType": "level"},
+      			{"name": "HOPWA Annual Growth Rate (from previous year)", "dataType": "percent"}
       		]
       	},
       	{
@@ -738,37 +737,37 @@
       		"vintage": "2014",
       		"notes": "These are test numbers and do not reflect the final project.",
       		"children": [
-      			{"name": "PILT Amount", "unit": "thousands of dollars"},
+      			{"name": "PILT Amount", "unit": "thousands of dollars", "dataType": "level"},
       			{"name": "PILT Annual Growth Rate (from previous year)", "dataType": "percent"},
-      			{"name": "Total Federal Land Area", "unit": "square miles"},
-      			{"name": "Total County Area", "unit": "square miles"},
+      			{"name": "Total Federal Land Area", "unit": "square miles", "dataType": "level"},
+      			{"name": "Total County Area", "unit": "square miles", "dataType": "level"},
       			{"name": "Percent of Federal Land", "dataType": "percent"},
-      			{"name": "PILT per Square Mile", "unit": "USD per Square Mile"}
+      			{"name": "PILT per Square Mile", "unit": "USD per Square Mile", "dataType": "level"}
       		]
       	},
       	{
       		"name": "Secure Rural Schools (SRS)",
       		"years": [2012],
       		"children": [
-      			{"name": "SRS Amount", "unit": "thousands of dollars"}
+      			{"name": "SRS Amount", "unit": "thousands of dollars", "dataType": "level"}
      		]      		
       	},
       	{
-      		"name": "State Criminal Alien Assistance Program",
-      		"years": [2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012],
+      		"name": "State Criminal Alien Assistance Program (SCAAP)",
+      		"years": [2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013],
       		"children": [
-      			{"name": "SCAAP Level", "units": "thousands of dollars"},
-      			{"name": "SCAAP Annual Growth Rate (from previous year)"}
+      			{"name": "SCAAP Level", "unit": "thousands of dollars", "dataType": "level"},
+      			{"name": "SCAAP Annual Growth Rate (from previous year)", "dataType": "percent"}
       		]
       	},
       	{
       		"name": "USDA Rural Development",
-      		"years": [2009, 2010, 2011, 2012],
+      		"years": [2009, 2010, 2011, 2012, 2013, 2014],
       		"children": [
-      			{"name": "USAD Total Amount", "units": "thousands of dollars"},
-      			{"name": "USDA Total Annual Growth Rate (from previous year)"},
-      			{"name": "USDA Grant Amount", "units": "thousands of dollars"},
-      			{"name": "USDA Loan Amount", "units": "thousands of dollars"}
+      			{"name": "USAD Total Amount", "unit": "thousands of dollars", "dataType": "level"},
+      			{"name": "USDA Total Annual Growth Rate (from previous year)", "dataType": "percent"},
+      			{"name": "USDA Grant Amount", "unit": "thousands of dollars", "dataType": "level"},
+      			{"name": "USDA Loan Amount", "unit": "thousands of dollars", "dataType": "level"}
       		]
       	}
       ]
@@ -780,12 +779,12 @@
 			     "name": "County Profile",
 				 "years": [2013],
 				 "children": [
-					{"name": "Census Region"},
+					{"name": "Census Region", "dataType": "categorical"},
 					{"name": "County Seat"},
 					{"name": "Year Founded"},
 					{"name": "Year Consolidated"},
-					{"name": "Board Size"},
-					{"name": "County Square Mileage"},
+					{"name": "Board Size", "dataType": "level"},
+					{"name": "County Square Mileage", "dataType": "level"},
 					{"name": "Fiscal Year End Date"},
 					{"name": "State Capitol"},
 					{"name": "CBSA Name"},
@@ -796,9 +795,9 @@
 			   	"name": "Land & Water Area",
 			   	"years": [2010],
 			   	"children": [
-			   		{"name": "Total Square Miles"},
-			   		{"name": "Total Land Square Miles"},
-			   		{"name": "Total Water Square Miles"},
+			   		{"name": "Total Square Miles", "dataType": "level"},
+			   		{"name": "Total Land Square Miles", "dataType": "level"},
+			   		{"name": "Total Water Square Miles", "dataType": "level"},
 			   		{"name": "Coastal Status"},
 			   		{"name": "Body of Water"}
 			   	]
@@ -824,90 +823,90 @@
 	          "name": "Health & Hospitals Employment",
 	          "years": [2007, 2008, 2009, 2010, 2011, 2012],
 	          "children": [
-	          	{"name": "Total"},
-	            {"name": "Total Health & Hospitals"},
-	          	{"name": "Health"},
-	            {"name": "Hospitals"}
+	          	{"name": "Total", "dataType": "level"},
+	            {"name": "Total Health & Hospitals", "dataType": "level"},
+	          	{"name": "Health", "dataType": "level"},
+	            {"name": "Hospitals", "dataType": "level"}
 	          ]
 	        },
 	        {
 	       	  "name": "Health & Hospitals Expenditures",
 	       	  "years": [2007],
 	       	  "children": [
-	       	  	{"name": "Total", "units": "thousands of dollars"},
-	       	  	{"name": "Total Health & Hospitals", "units": "thousands of dollars"},
-	       	  	{"name": "Health", "units": "thousands of dollars"},
-	           	{"name": "Hospitals", "units": "thousands of dollars"},
-	       	  	{"name": "Current Operations", "units": "thousands of dollars"},
-	        	{"name": "Construction", "units": "thousands of dollars"},
-	        	{"name": "Other Capital Outlay", "units": "thousands of dollars"},
-	        	{"name": "Intergovernmental to State", "units": "thousands of dollars"},
-	        	{"name": "Intergovernmental to Local", "units": "thousands of dollars"}
+	       	  	{"name": "Total", "unit": "thousands of dollars", "dataType": "level"},
+	       	  	{"name": "Total Health & Hospitals", "unit": "thousands of dollars", "dataType": "level"},
+	       	  	{"name": "Health", "unit": "thousands of dollars", "dataType": "level"},
+	           	{"name": "Hospitals", "unit": "thousands of dollars", "dataType": "level"},
+	       	  	{"name": "Current Operations", "unit": "thousands of dollars", "dataType": "level"},
+	        	{"name": "Construction", "unit": "thousands of dollars", "dataType": "level"},
+	        	{"name": "Other Capital Outlay", "unit": "thousands of dollars", "dataType": "level"},
+	        	{"name": "Intergovernmental to State", "unit": "thousands of dollars", "dataType": "level"},
+	        	{"name": "Intergovernmental to Local", "unit": "thousands of dollars", "dataType": "level"}
 	       	  ]
 	        },
         	{
         		"name": "Hospitals",
         		"years": [2011],
         		"children": [
-        			{"name": "Number of Hospitals"},
-        			{"name": "Number of City Facilities"},
-        			{"name": "Number of County Facilities"},
-        			{"name": "Number of City-County Facilities"},
-        			{"name": "Number of Hospital District Facilities"},
-        			{"name": "Number of Other Government Facilities"},
-        			{"name": "Number of Proprietary Facilities"},
-        			{"name": "Number of Nonprofit Facilities"},
-        			{"name": "Number of Beds"},
-        			{"name": "Number of Employees"},
-        			{"name": "Gross Revenue"},
-        			{"name": "Medicare Revenue"},
-        			{"name": "Medicaid Revenue"},
-        			{"name": "Patient Days"},
-        			{"name": "Revenue per Bed"},
-        			{"name": "Revenue per Patient Day"}
+        			{"name": "Number of Hospitals", "dataType": "level"},
+        			{"name": "Number of City Facilities", "dataType": "level"},
+        			{"name": "Number of County Facilities", "dataType": "level"},
+        			{"name": "Number of City-County Facilities", "dataType": "level"},
+        			{"name": "Number of Hospital District Facilities", "dataType": "level"},
+        			{"name": "Number of Other Government Facilities", "dataType": "level"},
+        			{"name": "Number of Proprietary Facilities", "dataType": "level"},
+        			{"name": "Number of Nonprofit Facilities", "dataType": "level"},
+        			{"name": "Number of Beds", "dataType": "level"},
+        			{"name": "Number of Employees", "dataType": "level"},
+        			{"name": "Gross Revenue", "unit": "dollars", "dataType": "level"},
+        			{"name": "Medicare Revenue", "unit": "dollars", "dataType": "level"},
+        			{"name": "Medicaid Revenue", "unit": "dollars", "dataType": "level"},
+        			{"name": "Patient Days", "dataType": "level"},
+        			{"name": "Revenue per Bed", "unit": "dollars", "dataType": "level"},
+        			{"name": "Revenue per Patient Day", "unit": "dollars", "dataType": "level"}
         		]
         	},
         	{
         		"name": "Nursing Homes",
         		"years": [2014],
         		"children": [
-        			{"name": "Number of Nursing Homes"},
-        			{"name": "Number of City Facilities"},
-        			{"name": "Number of County Facilities"},
-        			{"name": "Number of City-County Facilities"},
-        			{"name": "Number of Hospital District Facilities"},
-        			{"name": "Number of Other Government Facilities"},
-        			{"name": "Number of For Profit Facilities"},
-        			{"name": "Number of Nonprofit Facilities"},
-        			{"name": "Number of Certified Beds"},
-        			{"name": "Number of Residents"},
-        			{"name": "Percent of Occupied Beds"},
-        			{"name": "Number of Continuing Care Retirement Facilities"},
-        			{"name": "Number of Special Focus Facilities"}
+        			{"name": "Number of Nursing Homes", "dataType": "level"},
+        			{"name": "Number of City Facilities", "dataType": "level"},
+        			{"name": "Number of County Facilities", "dataType": "level"},
+        			{"name": "Number of City-County Facilities", "dataType": "level"},
+        			{"name": "Number of Hospital District Facilities", "dataType": "level"},
+        			{"name": "Number of Other Government Facilities", "dataType": "level"},
+        			{"name": "Number of For Profit Facilities", "dataType": "level"},
+        			{"name": "Number of Nonprofit Facilities", "dataType": "level"},
+        			{"name": "Number of Certified Beds", "dataType": "level"},
+        			{"name": "Number of Residents", "dataType": "level"},
+        			{"name": "Percent of Occupied Beds", "dataType": "level"},
+        			{"name": "Number of Continuing Care Retirement Facilities", "dataType": "level"},
+        			{"name": "Number of Special Focus Facilities", "dataType": "level"}
         		]
         	},
         	{
         		"name": "Health Insurance",
         		"years": [2009, 2010, 2011, 2012],
         		"children": [
-        			{"name": "Population"},
-        			{"name": "Population Insured"},
-        			{"name": "Percent Insured"},
-        			{"name": "Population Uninsured"},
-        			{"name": "Population with Private Health Insurance"},
-        			{"name": "Population with Public Health Insurance"},
-        			{"name": "Population Under 6"},
-        			{"name": "Population Under 6 Insured"},
-        			{"name": "Percent Under 6 Insured"},
-        			{"name": "Population 6-24"},
-        			{"name": "Population 6-24 Insured"},
-        			{"name": "Percent 6-24 Insured"},
-        			{"name": "Population 25-64"},
-        			{"name": "Population 25-64 Insured"},
-        			{"name": "Percent 25-64 Insured"},
-        			{"name": "Population 65 and Over"},
-        			{"name": "Population 65 and Over Insured"},
-        			{"name": "Percent 65 and Over Insured"}
+        			{"name": "Population", "dataType": "level"},
+        			{"name": "Population Insured", "dataType": "level"},
+        			{"name": "Percent Insured", "dataType": "percent"},
+        			{"name": "Population Uninsured", "dataType": "level"},
+        			{"name": "Population with Private Health Insurance", "dataType": "level"},
+        			{"name": "Population with Public Health Insurance", "dataType": "level"},
+        			{"name": "Population Under 6", "dataType": "level"},
+        			{"name": "Population Under 6 Insured", "dataType": "level"},
+        			{"name": "Percent Under 6 Insured", "dataType": "percent"},
+        			{"name": "Population 6-24", "dataType": "level"},
+        			{"name": "Population 6-24 Insured", "dataType": "level"},
+        			{"name": "Percent 6-24 Insured", "dataType": "percent"},
+        			{"name": "Population 25-64", "dataType": "level"},
+        			{"name": "Population 25-64 Insured", "dataType": "level"},
+        			{"name": "Percent 25-64 Insured", "dataType": "percent"},
+        			{"name": "Population 65 and Over", "dataType": "level"},
+        			{"name": "Population 65 and Over Insured", "dataType": "level"},
+        			{"name": "Percent 65 and Over Insured", "dataType": "percent"}
         		]
         	}
         ]
@@ -919,35 +918,35 @@
 	          "name": "Housing & Community Development Employment",
 	          "years": [2007, 2008, 2009, 2010, 2011, 2012],
 	          "children": [
-	          	{"name": "Total"},
-	          	{"name": "Housing & Community Development"}
+	          	{"name": "Total", "dataType": "level"},
+	          	{"name": "Housing & Community Development", "dataType": "level"}
 	          ]
 	        },
         	{
 	       	  "name": "Housing & Community Development Expenditures",
 	       	  "years": [2007],
 	       	  "children": [
-	       	  	{"name": "Total", "units": "thousands of dollars"},
-	       	  	{"name": "Total Housing & Community Development", "units": "thousands of dollars"},
-	       	  	{"name": "Current Operations", "units": "thousands of dollars"},
-	        	{"name": "Construction", "units": "thousands of dollars"},
-	        	{"name": "Other Capital Outlay", "units": "thousands of dollars"},
-	        	{"name": "Intergovernmental to State", "units": "thousands of dollars"},
-	        	{"name": "Intergovernmental to Local", "units": "thousands of dollars"}
+	       	  	{"name": "Total", "unit": "thousands of dollars", "dataType": "level"},
+	       	  	{"name": "Total Housing & Community Development", "unit": "thousands of dollars", "dataType": "level"},
+	       	  	{"name": "Current Operations", "unit": "thousands of dollars", "dataType": "level"},
+	        	{"name": "Construction", "unit": "thousands of dollars", "dataType": "level"},
+	        	{"name": "Other Capital Outlay", "unit": "thousands of dollars", "dataType": "level"},
+	        	{"name": "Intergovernmental to State", "unit": "thousands of dollars", "dataType": "level"},
+	        	{"name": "Intergovernmental to Local", "unit": "thousands of dollars", "dataType": "level"}
 	       	  ]
 	        },
 	        {
-        		"name": "Housing Units",
+        		"name": "Housing unit",
         		"years": [2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012],
         		"children": [
-        			{"name": "Population"},
-        			{"name": "Number of Housing Units"},
-        			{"name": "Average Household Size"},
-        			{"name": "Occupied Housing Units"},
-        			{"name": "Owner-Occupied Housing Units"},
-        			{"name": "Percent of Owner-Occupied Housing Units"},
-        			{"name": "Renter-Occupied Housing Units"},
-        			{"name": "Percent of Renter-Occupied Housing Units"}
+        			{"name": "Population", "dataType": "level"},
+        			{"name": "Number of Housing unit", "dataType": "level"},
+        			{"name": "Average Household Size", "dataType": "level"},
+        			{"name": "Occupied Housing unit", "dataType": "level"},
+        			{"name": "Owner-Occupied Housing unit", "dataType": "level"},
+        			{"name": "Percent of Owner-Occupied Housing unit", "dataType": "percent"},
+        			{"name": "Renter-Occupied Housing unit", "dataType": "level"},
+        			{"name": "Percent of Renter-Occupied Housing unit", "dataType": "percent"}
         		]
         	}
         ]
@@ -959,120 +958,120 @@
 	          "name": "Justice & Public Safety Employment",
 	          "years": [2007, 2008, 2009, 2010, 2011, 2012],
 	          "children": [
-	          	{"name": "Total"},
-	            {"name": "Total Justice & Public Safety"},
-	          	{"name": "Correction"},
-	            {"name": "Judicial & Legal Services"},
-	            {"name": "Police Protection"},
-	            {"name": "Fire Protection"},
-	            {"name": "Protective Inspection"}
+	          	{"name": "Total", "dataType": "level"},
+	            {"name": "Total Justice & Public Safety", "dataType": "level"},
+	          	{"name": "Correction", "dataType": "level"},
+	            {"name": "Judicial & Legal Services", "dataType": "level"},
+	            {"name": "Police Protection", "dataType": "level"},
+	            {"name": "Fire Protection", "dataType": "level"},
+	            {"name": "Protective Inspection", "dataType": "level"}
 	          ]
 	        },
         	{
 	       	  "name": "Justice & Public Safety Expenditures",
 	       	  "years": [2007],
 	       	  "children": [
-	       	  	{"name": "Total", "units": "thousands of dollars"},
-	       	  	{"name": "Total Justice & Public Safety", "units": "thousands of dollars"},
-	       	  	{"name": "Correction", "units": "thousands of dollars"},
-	           	{"name": "Judicial & Legal Services", "units": "thousands of dollars"},
-	           	{"name": "Police Protection", "units": "thousands of dollars"},
-	           	{"name": "Fire Protection", "units": "thousands of dollars"},
-	           	{"name": "Protective Inspection", "units": "thousands of dollars"},
-	       	  	{"name": "Current Operations", "units": "thousands of dollars"},
-	        	{"name": "Construction", "units": "thousands of dollars"},
-	        	{"name": "Other Capital Outlay", "units": "thousands of dollars"},
-	        	{"name": "Intergovernmental to State", "units": "thousands of dollars"},
-	        	{"name": "Intergovernmental to Local", "units": "thousands of dollars"}
+	       	  	{"name": "Total", "unit": "thousands of dollars", "dataType": "level"},
+	       	  	{"name": "Total Justice & Public Safety", "unit": "thousands of dollars", "dataType": "level"},
+	       	  	{"name": "Correction", "unit": "thousands of dollars", "dataType": "level"},
+	           	{"name": "Judicial & Legal Services", "unit": "thousands of dollars", "dataType": "level"},
+	           	{"name": "Police Protection", "unit": "thousands of dollars", "dataType": "level"},
+	           	{"name": "Fire Protection", "unit": "thousands of dollars", "dataType": "level"},
+	           	{"name": "Protective Inspection", "unit": "thousands of dollars", "dataType": "level"},
+	       	  	{"name": "Current Operations", "unit": "thousands of dollars", "dataType": "level"},
+	        	{"name": "Construction", "unit": "thousands of dollars", "dataType": "level"},
+	        	{"name": "Other Capital Outlay", "unit": "thousands of dollars", "dataType": "level"},
+	        	{"name": "Intergovernmental to State", "unit": "thousands of dollars", "dataType": "level"},
+	        	{"name": "Intergovernmental to Local", "unit": "thousands of dollars", "dataType": "level"}
 	       	  ]
 	        },
         	{
         		"name": "Jails - Supervised Population",
         		"years": [2008, 2009, 2010, 2011, 2012],
         		"children": [
-        			{"name": "Total Jail Population"},
-        			{"name": "Jail Capacity"},
-        			{"name": "Confined Persons"},
-        			{"name": "Nonconfined Persons"},
-        			{"name": "Non US Citizens"},
-        			{"name": "Weekenders"},
-        			{"name": "Average Daily Population"}
+        			{"name": "Total Jail Population", "dataType": "level"},
+        			{"name": "Jail Capacity", "dataType": "level"},
+        			{"name": "Confined Persons", "dataType": "level"},
+        			{"name": "Nonconfined Persons", "dataType": "level"},
+        			{"name": "Non US Citizens", "dataType": "level"},
+        			{"name": "Weekenders", "dataType": "level"},
+        			{"name": "Average Daily Population", "dataType": "level"}
         		]
         	},
         	{
         		"name": "Jails - Supervised Population by Agency",
         		"years": [2008, 2009, 2010, 2011, 2012],
         		"children": [
-        			{"name": "Total Jail Population"},
-        			{"name": "Jail Capacity"},
-        			{"name": "Held for US Marshall's Service"},
-        			{"name": "Held for Federal Bureau of Prisons"},
-        			{"name": "Held for Immigration & Customs"},
-        			{"name": "Held for Bureau of Indian Affairs"},
-        			{"name": "Held for Other Federal Authorities"},
-        			{"name": "Held for Own State"},
-        			{"name": "Held for Other State"},
-        			{"name": "Held for Local Jurisdiction in State"},
-        			{"name": "Held for Local Jurisdiction outside the State"}
+        			{"name": "Total Jail Population", "dataType": "level"},
+        			{"name": "Jail Capacity", "dataType": "level"},
+        			{"name": "Held for US Marshall's Service", "dataType": "level"},
+        			{"name": "Held for Federal Bureau of Prisons", "dataType": "level"},
+        			{"name": "Held for Immigration & Customs", "dataType": "level"},
+        			{"name": "Held for Bureau of Indian Affairs", "dataType": "level"},
+        			{"name": "Held for Other Federal Authorities", "dataType": "level"},
+        			{"name": "Held for Own State", "dataType": "level"},
+        			{"name": "Held for Other State", "dataType": "level"},
+        			{"name": "Held for Local Jurisdiction in State", "dataType": "level"},
+        			{"name": "Held for Local Jurisdiction outside the State", "dataType": "level"}
         		]
         	},
         	{
         		"name": "Jails - Inmate Demographics",
         		"years": [2008, 2009, 2010, 2011, 2012],
         		"children": [
-        			{"name": "Total Jail Population"},
-        			{"name": "Adult Males"},
-        			{"name": "Adult Females"},
-        			{"name": "Total Juveniles"},
-        			{"name": "Total Convicted"},
-        			{"name": "Total Unconvicted"},
-        			{"name": "White"},
-        			{"name": "Black or African American"},
-        			{"name": "Hispanic or Latino"},
-        			{"name": "Asian"},
-        			{"name": "Native Hawaiian or Other Pacific Islander"},
-        			{"name": "Two or More Races"},
-        			{"name": "Other Inmate Races"},
-        			{"name": "Race Not Known"}
+        			{"name": "Total Jail Population", "dataType": "level"},
+        			{"name": "Adult Males", "dataType": "level"},
+        			{"name": "Adult Females", "dataType": "level"},
+        			{"name": "Total Juveniles", "dataType": "level"},
+        			{"name": "Total Convicted", "dataType": "level"},
+        			{"name": "Total Unconvicted", "dataType": "level"},
+        			{"name": "White", "dataType": "level"},
+        			{"name": "Black or African American", "dataType": "level"},
+        			{"name": "Hispanic or Latino", "dataType": "level"},
+        			{"name": "Asian", "dataType": "level"},
+        			{"name": "Native Hawaiian or Other Pacific Islander", "dataType": "level"},
+        			{"name": "Two or More Races", "dataType": "level"},
+        			{"name": "Other Inmate Races", "dataType": "level"},
+        			{"name": "Race Not Known", "dataType": "level"}
         		]
         	},
         	{
         		"name": "Jails - Community Supervision",
         		"years": [2008, 2009, 2010, 2011, 2012],
         		"children" : [
-        			{"name": "Total Jail Population"},
-        			{"name": "Jail Capacity"},
-        			{"name": "Confined Persons"},
-        			{"name": "Nonconfined Persons"},
-        			{"name": "Electronic Monitoring Program"},
-        			{"name": "Home Detention"},
-        			{"name": "Community Service"},
-        			{"name": "Day Reporting"},
-        			{"name": "Other Pretrial Supervision"},
-        			{"name": "Other Alternative Work Programs"},
-        			{"name": "Alcohol/Drug Treatment Programs"},
-        			{"name": "Other Nonconfined Programs"}
+        			{"name": "Total Jail Population", "dataType": "level"},
+        			{"name": "Jail Capacity", "dataType": "level"},
+        			{"name": "Confined Persons", "dataType": "level"},
+        			{"name": "Nonconfined Persons", "dataType": "level"},
+        			{"name": "Electronic Monitoring Program", "dataType": "level"},
+        			{"name": "Home Detention", "dataType": "level"},
+        			{"name": "Community Service", "dataType": "level"},
+        			{"name": "Day Reporting", "dataType": "level"},
+        			{"name": "Other Pretrial Supervision", "dataType": "level"},
+        			{"name": "Other Alternative Work Programs", "dataType": "level"},
+        			{"name": "Alcohol/Drug Treatment Programs", "dataType": "level"},
+        			{"name": "Other Nonconfined Programs", "dataType": "level"}
         		]
         	},
         	{
         		"name": "Public Safety Structure",
         		"years": [2012],
         		"children": [
-        			{"name": "Elected Sheriff"},
-        			{"name": "County Funded Sheriff Department"},
-        			{"name": "County Operated Sheriff Department"},
-        			{"name": "Elected Police Chief"},
-        			{"name": "County Funded Police Department"},
-        			{"name": "County Operated Police Department"},
-        			{"name": "County Funded Jails"},
-        			{"name": "County Operated Jails"},
-        			{"name": "County Funded Courts - Salaries"},
-        			{"name": "County Funded Courts - Building/Real Property"},
-        			{"name": "County Funded Courts - General Operating Expenses"},
-        			{"name": "County Operated Courts"},
-        			{"name": "Eelcted Judges"},
-        			{"name": "Elected Clerks of Court"},
-        			{"name": "Elected District Attorney"}
+        			{"name": "Elected Sheriff", "dataType": "binary"},
+        			{"name": "County Funded Sheriff Department", "dataType": "binary"},
+        			{"name": "County Operated Sheriff Department", "dataType": "binary"},
+        			{"name": "Elected Police Chief", "dataType": "binary"},
+        			{"name": "County Funded Police Department", "dataType": "binary"},
+        			{"name": "County Operated Police Department", "dataType": "binary"},
+        			{"name": "County Funded Jails", "dataType": "binary"},
+        			{"name": "County Operated Jails", "dataType": "binary"},
+        			{"name": "County Funded Courts - Salaries", "dataType": "binary"},
+        			{"name": "County Funded Courts - Building/Real Property", "dataType": "binary"},
+        			{"name": "County Funded Courts - General Operating Expenses", "dataType": "binary"},
+        			{"name": "County Operated Courts", "dataType": "binary"},
+        			{"name": "Eelcted Judges", "dataType": "binary"},
+        			{"name": "Elected Clerks of Court", "dataType": "binary"},
+        			{"name": "Elected District Attorney", "dataType": "binary"}
         		]
         		
         	}
@@ -1085,62 +1084,62 @@
 	          "name": "Public Amenity Employment",
 	          "years": [2007, 2008, 2009, 2010, 2011, 2012],
 	          "children": [
-	          	{"name": "Total"},
-	            {"name": "Total Public Amenity"},
-	          	{"name": "Libraries"},
-	            {"name": "Natural Resources"},
-	            {"name": "Parks & Recreation"}
+	          	{"name": "Total", "dataType": "level"},
+	            {"name": "Total Public Amenity", "dataType": "level"},
+	          	{"name": "Libraries", "dataType": "level"},
+	            {"name": "Natural Resources", "dataType": "level"},
+	            {"name": "Parks & Recreation", "dataType": "level"}
 	          ]
 	        },
 	        {
 	       	  "name": "Public Amenity Expenditures",
 	       	  "years": [2007],
 	       	  "children": [
-	       	  	{"name": "Total", "units": "thousands of dollars"},
-	       	  	{"name": "Total Public Amenity", "units": "thousands of dollars"},
-	       	  	{"name": "Libraries", "units": "thousands of dollars"},
-	           	{"name": "Natural Resources", "units": "thousands of dollars"},
-	           	{"name": "Parks & Recreation", "units": "thousands of dollars"},
-	       	  	{"name": "Current Operations", "units": "thousands of dollars"},
-	        	{"name": "Construction", "units": "thousands of dollars"},
-	        	{"name": "Other Capital Outlay", "units": "thousands of dollars"},
-	        	{"name": "Intergovernmental to State", "units": "thousands of dollars"},
-	        	{"name": "Intergovernmental to Local", "units": "thousands of dollars"}
+	       	  	{"name": "Total", "unit": "thousands of dollars", "dataType": "level"},
+	       	  	{"name": "Total Public Amenity", "unit": "thousands of dollars", "dataType": "level"},
+	       	  	{"name": "Libraries", "unit": "thousands of dollars", "dataType": "level"},
+	           	{"name": "Natural Resources", "unit": "thousands of dollars", "dataType": "level"},
+	           	{"name": "Parks & Recreation", "unit": "thousands of dollars", "dataType": "level"},
+	       	  	{"name": "Current Operations", "unit": "thousands of dollars", "dataType": "level"},
+	        	{"name": "Construction", "unit": "thousands of dollars", "dataType": "level"},
+	        	{"name": "Other Capital Outlay", "unit": "thousands of dollars", "dataType": "level"},
+	        	{"name": "Intergovernmental to State", "unit": "thousands of dollars", "dataType": "level"},
+	        	{"name": "Intergovernmental to Local", "unit": "thousands of dollars", "dataType": "level"}
 	       	  ]
 	        },
         	{
         		"name": "Libraries",
         		"years": [2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011],
         		"children": [
-        			{"name": "Number of Central Service Outlets"},
-        			{"name": "Number of Branches"},
-        			{"name": "Number of Bookmobile"},
-        			{"name": "Population of Local Service Area"},
-        			{"name": "Full Time Librarians"},
-        			{"name": "Total FTE Staff"},
-        			{"name": "Annual Hours - All Outlets"},
-        			{"name": "Total Operating Revenue"},
-        			{"name": "Operating Revenue from Local Government"},
-        			{"name": "Operating Revenue from State Government"},
-        			{"name": "Operating Revenue from Federal Government"},
-        			{"name": "Other Operating Revenue"},
-        			{"name": "Operating Expenditures Salaries and Benefits"},
-        			{"name": "Operating Expenditures Lbirary Collections"},
-        			{"name": "Other Operating Expenditures"},
-        			{"name": "Total Operating Expenditures"},
-        			{"name": "Total Capital Revenue"},
-        			{"name": "Total Capital Expenditures"},
-        			{"name": "Library Collections - Number of Print Materials"},
-        			{"name": "Library Collections - Number of Electronic Books"},
-        			{"name": "Library Collection - Number of Audio Materials"},
-        			{"name": "Library Collection - Number of Video Materials"},
-        			{"name": "Total Annual Visits"},
-        			{"name": "Total Annual Circulation"},
-        			{"name": "Number of Computers Available"},
-        			{"name": "Number of Computer Users"},
-        			{"name": "Number of Licensed Databases"},
-        			{"name": "Registered Borrowers"},
-        			{"name": "Total Programs"}
+        			{"name": "Number of Central Service Outlets", "dataType": "level"},
+        			{"name": "Number of Branches", "dataType": "level"},
+        			{"name": "Number of Bookmobile", "dataType": "level"},
+        			{"name": "Population of Local Service Area", "dataType": "level"},
+        			{"name": "Full Time Librarians", "dataType": "level"},
+        			{"name": "Total FTE Staff", "dataType": "level"},
+        			{"name": "Annual Hours - All Outlets", "dataType": "level"},
+        			{"name": "Total Operating Revenue", "dataType": "level"},
+        			{"name": "Operating Revenue from Local Government", "dataType": "level"},
+        			{"name": "Operating Revenue from State Government", "dataType": "level"},
+        			{"name": "Operating Revenue from Federal Government", "dataType": "level"},
+        			{"name": "Other Operating Revenue", "dataType": "level"},
+        			{"name": "Operating Expenditures Salaries and Benefits", "dataType": "level"},
+        			{"name": "Operating Expenditures Lbirary Collections", "dataType": "level"},
+        			{"name": "Other Operating Expenditures", "dataType": "level"},
+        			{"name": "Total Operating Expenditures", "dataType": "level"},
+        			{"name": "Total Capital Revenue", "dataType": "level"},
+        			{"name": "Total Capital Expenditures", "dataType": "level"},
+        			{"name": "Library Collections - Number of Print Materials", "dataType": "level"},
+        			{"name": "Library Collections - Number of Electronic Books", "dataType": "level"},
+        			{"name": "Library Collection - Number of Audio Materials", "dataType": "level"},
+        			{"name": "Library Collection - Number of Video Materials", "dataType": "level"},
+        			{"name": "Total Annual Visits", "dataType": "level"},
+        			{"name": "Total Annual Circulation", "dataType": "level"},
+        			{"name": "Number of Computers Available", "dataType": "level"},
+        			{"name": "Number of Computer Users", "dataType": "level"},
+        			{"name": "Number of Licensed Databases", "dataType": "level"},
+        			{"name": "Registered Borrowers", "dataType": "level"},
+        			{"name": "Total Programs", "dataType": "level"}
         		]
         	}
         ]
@@ -1152,25 +1151,25 @@
 	          "name": "Public Welfare Employment",
 	          "years": [2007, 2008, 2009, 2010, 2011, 2012],
 	          "children": [
-	          	{"name": "Total"},
-	          	{"name": "Public Welfare"}
+	          	{"name": "Total", "dataType": "level"},
+	          	{"name": "Public Welfare", "dataType": "level"}
 	          ]
 	        },
         	{
 	       	  "name": "Public Welfare Expenditures",
 	       	  "years": [2007],
 	       	  "children": [
-	       	  	{"name": "Total", "units": "thousands of dollars"},
-	       	  	{"name": "Total Public Welfare", "units": "thousands of dollars"},
-	       	  	{"name": "Cash Assistance", "units": "thousands of dollars"},
-	           	{"name": "Vendor Payments", "units": "thousands of dollars"},
-	           	{"name": "Other Public Welfare", "units": "thousands of dollars"},
-	       	  	{"name": "Current Operations", "units": "thousands of dollars"},
-	        	{"name": "Construction", "units": "thousands of dollars"},
-	        	{"name": "Assistance & Subsidies", "units": "thousands of dollars"},
-	        	{"name": "Other Capital Outlay", "units": "thousands of dollars"},
-	        	{"name": "Intergovernmental to State", "units": "thousands of dollars"},
-	        	{"name": "Intergovernmental to Local", "units": "thousands of dollars"}
+	       	  	{"name": "Total", "unit": "thousands of dollars", "dataType": "level"},
+	       	  	{"name": "Total Public Welfare", "unit": "thousands of dollars", "dataType": "level"},
+	       	  	{"name": "Cash Assistance", "unit": "thousands of dollars", "dataType": "level"},
+	           	{"name": "Vendor Payments", "unit": "thousands of dollars", "dataType": "level"},
+	           	{"name": "Other Public Welfare", "unit": "thousands of dollars", "dataType": "level"},
+	       	  	{"name": "Current Operations", "unit": "thousands of dollars", "dataType": "level"},
+	        	{"name": "Construction", "unit": "thousands of dollars", "dataType": "level"},
+	        	{"name": "Assistance & Subsidies", "unit": "thousands of dollars", "dataType": "level"},
+	        	{"name": "Other Capital Outlay", "unit": "thousands of dollars", "dataType": "level"},
+	        	{"name": "Intergovernmental to State", "unit": "thousands of dollars", "dataType": "level"},
+	        	{"name": "Intergovernmental to Local", "unit": "thousands of dollars", "dataType": "level"}
 	       	  ]
 	        }
         ]
@@ -1182,121 +1181,121 @@
 	          "name": "Transportation Employment",
 	          "years": [2007, 2008, 2009, 2010, 2011, 2012],
 	          "children": [
-	          	{"name": "Total"},
-	            {"name": "Total Transportation"},
-	          	{"name": "Air Tranportation"},
-	            {"name": "Highways"},
-	            {"name": "Water Transport & Terminals"},
-	            {"name": "Transit"}
+	          	{"name": "Total", "dataType": "level"},
+	            {"name": "Total Transportation", "dataType": "level"},
+	          	{"name": "Air Tranportation", "dataType": "level"},
+	            {"name": "Highways", "dataType": "level"},
+	            {"name": "Water Transport & Terminals", "dataType": "level"},
+	            {"name": "Transit", "dataType": "level"}
 	          ]
 	        },
         	{
 	       	  "name": "Transportation Expenditures",
 	       	  "years": [2007],
 	       	  "children": [
-	       	  	{"name": "Total", "units": "thousands of dollars"},
-	       	  	{"name": "Total Transportation", "units": "thousands of dollars"},
-	       	  	{"name": "Air Transportation", "units": "thousands of dollars"},
-	          	{"name": "Highways", "units": "thousands of dollars"},
-	           	{"name": "Parking Facilities", "units": "thousands of dollars"},           
-	           	{"name": "Sea & Inland Port", "units": "thousands of dollars"},                    
-	           	{"name": "Transit Utilities", "units": "thousands of dollars"},
-	       	  	{"name": "Current Operations", "units": "thousands of dollars"},
-	        	{"name": "Construction", "units": "thousands of dollars"},
-	        	{"name": "Capital Outlay", "units": "thousands of dollars"},
-	        	{"name": "Interests on Debt", "units": "thousands of dollars"},
-	        	{"name": "Intergovernmental to State", "units": "thousands of dollars"},
-	        	{"name": "Intergovernmental to Local", "units": "thousands of dollars"}
+	       	  	{"name": "Total", "unit": "thousands of dollars", "dataType": "level"},
+	       	  	{"name": "Total Transportation", "unit": "thousands of dollars", "dataType": "level"},
+	       	  	{"name": "Air Transportation", "unit": "thousands of dollars", "dataType": "level"},
+	          	{"name": "Highways", "unit": "thousands of dollars", "dataType": "level"},
+	           	{"name": "Parking Facilities", "unit": "thousands of dollars", "dataType": "level"},    
+	           	{"name": "Sea & Inland Port", "unit": "thousands of dollars", "dataType": "level"},
+	           	{"name": "Transit Utilities", "unit": "thousands of dollars", "dataType": "level"},
+	       	  	{"name": "Current Operations", "unit": "thousands of dollars", "dataType": "level"},
+	        	{"name": "Construction", "unit": "thousands of dollars", "dataType": "level"},
+	        	{"name": "Capital Outlay", "unit": "thousands of dollars", "dataType": "level"},
+	        	{"name": "Interests on Debt", "unit": "thousands of dollars", "dataType": "level"},
+	        	{"name": "Intergovernmental to State", "unit": "thousands of dollars", "dataType": "level"},
+	        	{"name": "Intergovernmental to Local", "unit": "thousands of dollars", "dataType": "level"}
 	       	  ]
 	        },
         	{
         		"name": "Airports",
         		"years": [2013],
         		"children": [
-        			{"name": "Number of Airports"},
-        			{"name": "Number of Publicly Owned Airports"},
-        			{"name": "Number of Privately Owned Airports"},
-        			{"name": "Number of Military Owned Airports"}        			
+        			{"name": "Number of Airports", "dataType": "level"},
+        			{"name": "Number of Publicly Owned Airports", "dataType": "level"},
+        			{"name": "Number of Privately Owned Airports", "dataType": "level"},
+        			{"name": "Number of Military Owned Airports", "dataType": "level"}	
         		]
         	},
         	{
         		"name": "Bridges",
         		"years": [2007, 2008, 2009, 2010, 2011, 2012, 2013],
         		"children": [
-        			{"name": "All Bridges - Total Bridges"},
-        			{"name": "All Bridges - City/Town Owned"},
-        			{"name": "All Bridges - County Owned"},
-        			{"name": "All Bridges - Federal Owned"},
-        			{"name": "All Bridges - Privately Owned"},
-        			{"name": "All Bridges - State Owned"},
-        			{"name": "All Bridges - Local Owned"},
-        			{"name": "Structurally Deficient Bridges - Total Bridges"},
-        			{"name": "Structurally Deficient Bridges - City/Town Owned"},
-        			{"name": "Structurally Deficient Bridges - County Owned"},
-        			{"name": "Structurally Deficient Bridges - Federal Owned"},
-        			{"name": "Structurally Deficient Bridges - Privately Owned"},
-        			{"name": "Structurally Deficient Bridges - State Owned"},
-        			{"name": "Structurally Deficient Bridges - Local Owned"},
-        			{"name": "Functionally Obsolete Bridges - Total Bridges"},
-        			{"name": "Functionally Obsolete Bridges - City/Town Owned"},
-        			{"name": "Functionally Obsolete Bridges - County Owned"},
-        			{"name": "Functionally Obsolete Bridges - Federal Owned"},
-        			{"name": "Functionally Obsolete Bridges - Privately Owned"},
-        			{"name": "Functionally Obsolete Bridges - State Owned"},
-        			{"name": "Functionally Obsolete Bridges - Local Owned"}
+        			{"name": "All Bridges - Total Bridges", "dataType": "level"},
+        			{"name": "All Bridges - City/Town Owned", "dataType": "level"},
+        			{"name": "All Bridges - County Owned", "dataType": "level"},
+        			{"name": "All Bridges - Federal Owned", "dataType": "level"},
+        			{"name": "All Bridges - Privately Owned", "dataType": "level"},
+        			{"name": "All Bridges - State Owned", "dataType": "level"},
+        			{"name": "All Bridges - Local Owned", "dataType": "level"},
+        			{"name": "Structurally Deficient Bridges - Total Bridges", "dataType": "level"},
+        			{"name": "Structurally Deficient Bridges - City/Town Owned", "dataType": "level"},
+        			{"name": "Structurally Deficient Bridges - County Owned", "dataType": "level"},
+        			{"name": "Structurally Deficient Bridges - Federal Owned", "dataType": "level"},
+        			{"name": "Structurally Deficient Bridges - Privately Owned", "dataType": "level"},
+        			{"name": "Structurally Deficient Bridges - State Owned", "dataType": "level"},
+        			{"name": "Structurally Deficient Bridges - Local Owned", "dataType": "level"},
+        			{"name": "Functionally Obsolete Bridges - Total Bridges", "dataType": "level"},
+        			{"name": "Functionally Obsolete Bridges - City/Town Owned", "dataType": "level"},
+        			{"name": "Functionally Obsolete Bridges - County Owned", "dataType": "level"},
+        			{"name": "Functionally Obsolete Bridges - Federal Owned", "dataType": "level"},
+        			{"name": "Functionally Obsolete Bridges - Privately Owned", "dataType": "level"},
+        			{"name": "Functionally Obsolete Bridges - State Owned", "dataType": "level"},
+        			{"name": "Functionally Obsolete Bridges - Local Owned", "dataType": "level"}
         		]
         	},
         	{
         		"name": "Road Classification",
         		"years": [2011],
         		"children": [
-        			{"name": "Total Public Road Miles"},
-        			{"name": "Interstate Road Miles"},
-        			{"name": "Other Freeway/Expressway Road Miles"},
-        			{"name": "Other Principle Arterial Road Miles"},
-        			{"name": "Minor Arterial Road Miles"},
-        			{"name": "Major Collector Road Miles"},
-        			{"name": "Urban Minor Collector Road Miles"},
-        			{"name": "Local Road Miles"},
-        			{"name": "Share Interstate"},
-        			{"name": "Share Other Freeway/Expressway"},
-        			{"name": "Share Other Principle Arterial"},
-        			{"name": "Share Minor Arterial"},
-        			{"name": "Share Major Collector"},
-        			{"name": "Share Urban Minor Collector"},
-        			{"name": "Share Local"}
+        			{"name": "Total Public Road Miles", "dataType": "level"},
+        			{"name": "Interstate Road Miles", "dataType": "level"},
+        			{"name": "Other Freeway/Expressway Road Miles", "dataType": "level"},
+        			{"name": "Other Principle Arterial Road Miles", "dataType": "level"},
+        			{"name": "Minor Arterial Road Miles", "dataType": "level"},
+        			{"name": "Major Collector Road Miles", "dataType": "level"},
+        			{"name": "Urban Minor Collector Road Miles", "dataType": "level"},
+        			{"name": "Local Road Miles", "dataType": "level"},
+        			{"name": "Share Interstate", "dataType": "percent"},
+        			{"name": "Share Other Freeway/Expressway", "dataType": "percent"},
+        			{"name": "Share Other Principle Arterial", "dataType": "percent"},
+        			{"name": "Share Minor Arterial", "dataType": "percent"},
+        			{"name": "Share Major Collector", "dataType": "percent"},
+        			{"name": "Share Urban Minor Collector", "dataType": "percent"},
+        			{"name": "Share Local", "dataType": "percent"}
         		]
         	},
         	{
         		"name": "Road Ownership",
         		"years": [2008, 2011],
         		"children": [
-        			{"name": "Total Public Road Miles"},
-        			{"name": "State Highway Agency Road Miles"},
-        			{"name": "County Highway Agency Road Miles"},
-        			{"name": "Other State Agency Road Miles"},
-        			{"name": "Other Local Agency Road Miles"},
-        			{"name": "Privately Owned Road Miles"},
-        			{"name": "Town or Township Highway Agency Road Miles"},
-        			{"name": "City or Municipal Highway Agency Road Miles"},
-        			{"name": "Other Public Instrumentality Road Miles"},
-        			{"name": "Indian Tribe/Nation Road Miles"},
-        			{"name": "Federal Agency Road Miles"},
-        			{"name": "County Land Square Miles"},
-        			{"name": "Total Road Miles per Square Mile"},
-        			{"name": "Total County Road Miles per Square Mile"},
-        			{"name": "Unknown Road Miles"},
-        			{"name": "Share State Highway Agency"},
-        			{"name": "Share County Highway Agency"},
-        			{"name": "Share Other State Agencies"},
-        			{"name": "Share Other Local Agencies"},
-        			{"name": "Share Private"},
-        			{"name": "Share Town or Township Highway Agency"},
-        			{"name": "Share City or Municipal Highway Agency"},
-        			{"name": "Share Other Public Instrumentality"},
-        			{"name": "Share Indian Tribe/Nation"},
-        			{"name": "Share Federal Agency"},
-        			{"name": "Share Unknown"}
+        			{"name": "Total Public Road Miles", "dataType": "level"},
+        			{"name": "State Highway Agency Road Miles", "dataType": "level"},
+        			{"name": "County Highway Agency Road Miles", "dataType": "level"},
+        			{"name": "Other State Agency Road Miles", "dataType": "level"},
+        			{"name": "Other Local Agency Road Miles", "dataType": "level"},
+        			{"name": "Privately Owned Road Miles", "dataType": "level"},
+        			{"name": "Town or Township Highway Agency Road Miles", "dataType": "level"},
+        			{"name": "City or Municipal Highway Agency Road Miles", "dataType": "level"},
+        			{"name": "Other Public Instrumentality Road Miles", "dataType": "level"},
+        			{"name": "Indian Tribe/Nation Road Miles", "dataType": "level"},
+        			{"name": "Federal Agency Road Miles", "dataType": "level"},
+        			{"name": "County Land Square Miles", "dataType": "level"},
+        			{"name": "Total Road Miles per Square Mile", "dataType": "level"},
+        			{"name": "Total County Road Miles per Square Mile", "dataType": "level"},
+        			{"name": "Unknown Road Miles", "dataType": "level"},
+        			{"name": "Share State Highway Agency", "dataType": "percent"},
+        			{"name": "Share County Highway Agency", "dataType": "percent"},
+        			{"name": "Share Other State Agencies", "dataType": "percent"},
+        			{"name": "Share Other Local Agencies", "dataType": "percent"},
+        			{"name": "Share Private", "dataType": "percent"},
+        			{"name": "Share Town or Township Highway Agency", "dataType": "percent"},
+        			{"name": "Share City or Municipal Highway Agency", "dataType": "percent"},
+        			{"name": "Share Other Public Instrumentality", "dataType": "percent"},
+        			{"name": "Share Indian Tribe/Nation", "dataType": "percent"},
+        			{"name": "Share Federal Agency", "dataType": "percent"},
+        			{"name": "Share Unknown", "dataType": "percent"}
         		]
         	}
         ]
@@ -1308,38 +1307,38 @@
 	          "name": "Utility Employment",
 	          "years": [2007, 2008, 2009, 2010, 2011, 2012],
 	          "children": [
-	          	{"name": "Total"},
-	            {"name": "Total Utility"},
-	          	{"name": "Electric Utilities"},
-	            {"name": "Gas Utilities"}
+	          	{"name": "Total", "dataType": "level"},
+	            {"name": "Total Utility", "dataType": "level"},
+	          	{"name": "Electric Utilities", "dataType": "level"},
+	            {"name": "Gas Utilities", "dataType": "level"}
 	          ]
 	        },
 	        {
 	          "name": "Utility Revenue",
 	          "years": [2007],
 	          "children": [
-	          	{"name": "Total", "unit": "thousands of dollars"},
-	          	{"name": "Total Utility", "unit": "thousands of dollars"},
-	          	{"name": "Electric Power Systems", "unit": "thousands of dollars"},
-	           	{"name": "Gas Supply Systems", "unit": "thousands of dollars"},
-	           	{"name": "Public Mass Transit Systems", "unit": "thousands of dollars"},
-	           	{"name": "Water Supply Systems", "unit": "thousands of dollars"}
+	          	{"name": "Total", "unit": "thousands of dollars", "dataType": "level"},
+	          	{"name": "Total Utility", "unit": "thousands of dollars", "dataType": "level"},
+	          	{"name": "Electric Power Systems", "unit": "thousands of dollars", "dataType": "level"},
+	           	{"name": "Gas Supply Systems", "unit": "thousands of dollars", "dataType": "level"},
+	           	{"name": "Public Mass Transit Systems", "unit": "thousands of dollars", "dataType": "level"},
+	           	{"name": "Water Supply Systems", "unit": "thousands of dollars", "dataType": "level"}
 	          ]
 	        },
         	{
 	       	  "name": "Utility Expenditures",
 	       	  "years": [2007],
 	       	  "children": [
-	       	  	{"name": "Total", "units": "thousands of dollars"},
-	       	  	{"name": "Total Utility", "units": "thousands of dollars"},
-	       	  	{"name": "Electric Utilities", "units": "thousands of dollars"},                    
-	           	{"name": "Gas Utilities", "units": "thousands of dollars"},
-	       	  	{"name": "Current Operations", "units": "thousands of dollars"},
-	        	{"name": "Construction", "units": "thousands of dollars"},
-	        	{"name": "Capital Outlay", "units": "thousands of dollars"},
-	        	{"name": "Interests on Debt", "units": "thousands of dollars"},
-	        	{"name": "Intergovernmental to State", "units": "thousands of dollars"},
-	        	{"name": "Intergovernmental to Local", "units": "thousands of dollars"}
+	       	  	{"name": "Total", "unit": "thousands of dollars", "dataType": "level"},
+	       	  	{"name": "Total Utility", "unit": "thousands of dollars", "dataType": "level"},
+	       	  	{"name": "Electric Utilities", "unit": "thousands of dollars", "dataType": "level"},        
+	           	{"name": "Gas Utilities", "unit": "thousands of dollars", "dataType": "level"},
+	       	  	{"name": "Current Operations", "unit": "thousands of dollars", "dataType": "level"},
+	        	{"name": "Construction", "unit": "thousands of dollars", "dataType": "level"},
+	        	{"name": "Capital Outlay", "unit": "thousands of dollars", "dataType": "level"},
+	        	{"name": "Interests on Debt", "unit": "thousands of dollars", "dataType": "level"},
+	        	{"name": "Intergovernmental to State", "unit": "thousands of dollars", "dataType": "level"},
+	        	{"name": "Intergovernmental to Local", "unit": "thousands of dollars", "dataType": "level"}
 	       	  ]
 	        }
         ]
@@ -1351,28 +1350,28 @@
 	          "name": "Water, Sewerage & Solid Waste Employment",
 	          "years": [2007, 2008, 2009, 2010, 2011, 2012],
 	          "children": [
-	          	{"name": "Total"},
-	            {"name": "Total Water, Sewerage & Solid Waste"},
-	          	{"name": "Sewerage"},
-	            {"name": "Solid Waste"},
-	            {"name": "Water Utilities"}
+	          	{"name": "Total", "dataType": "level"},
+	            {"name": "Total Water, Sewerage & Solid Waste", "dataType": "level"},
+	          	{"name": "Sewerage", "dataType": "level"},
+	            {"name": "Solid Waste", "dataType": "level"},
+	            {"name": "Water Utilities", "dataType": "level"}
 	          ]
 	        },
         	{
 	       	  "name": "Water, Sewerage & Solid Waste Expenditures",
 	       	  "years": [2007],
 	       	  "children": [
-	       	  	{"name": "Total", "units": "thousands of dollars"},
-	       	  	{"name": "Total Water, Sewerage & Solid Waste Management", "units": "thousands of dollars"},
-	       	  	{"name": "Sewerage", "units": "thousands of dollars"},                    
-	           	{"name": "Solid Waste", "units": "thousands of dollars"},                    
-	           	{"name": "Waste Utilities", "units": "thousands of dollars"},
-	       	  	{"name": "Current Operations", "units": "thousands of dollars"},
-	        	{"name": "Construction", "units": "thousands of dollars"},
-	        	{"name": "Capital Outlay", "units": "thousands of dollars"},
-	        	{"name": "Interests on Debt", "units": "thousands of dollars"},
-	        	{"name": "Intergovernmental to State", "units": "thousands of dollars"},
-	        	{"name": "Intergovernmental to Local", "units": "thousands of dollars"}
+	       	  	{"name": "Total", "unit": "thousands of dollars", "dataType": "level"},
+	       	  	{"name": "Total Water, Sewerage & Solid Waste Management", "unit": "thousands of dollars", "dataType": "level"},
+	       	  	{"name": "Sewerage", "unit": "thousands of dollars", "dataType": "level"}, 
+	           	{"name": "Solid Waste", "unit": "thousands of dollars", "dataType": "level"},     
+	           	{"name": "Waste Utilities", "unit": "thousands of dollars", "dataType": "level"},
+	       	  	{"name": "Current Operations", "unit": "thousands of dollars", "dataType": "level"},
+	        	{"name": "Construction", "unit": "thousands of dollars", "dataType": "level"},
+	        	{"name": "Capital Outlay", "unit": "thousands of dollars", "dataType": "level"},
+	        	{"name": "Interests on Debt", "unit": "thousands of dollars", "dataType": "level"},
+	        	{"name": "Intergovernmental to State", "unit": "thousands of dollars", "dataType": "level"},
+	        	{"name": "Intergovernmental to Local", "unit": "thousands of dollars", "dataType": "level"}
 	       	  ]
 	        }
         ]

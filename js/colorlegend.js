@@ -18,127 +18,199 @@
 
 var colorlegend = function (target, scale, type, options) {
 
-  var scaleTypes = ['linear', 'quantile', 'ordinal']
-    , found = false
-    , opts = options || {}
-    , boxWidth = opts.boxWidth || 20 // width of each box (int)
-    , boxHeight = opts.boxHeight || 20 // height of each box (int)
-    , title = opts.title || null // draw title (string)
-    , fill = opts.fill || false // fill the element (boolean)
-    , linearBoxes = opts.linearBoxes || 9 // number of boxes for linear scales (int)
-    , htmlElement = document.getElementById(target.substring(0, 1) === '#' ? target.substring(1, target.length) : target) // target container element - strip the prefix #
-    , w = htmlElement.offsetWidth // width of container element
-    , h = htmlElement.offsetHeight // height of container element
-    , colors = []
-    , padding = [2, 4, 10, 4] // top, right, bottom, left
-    , boxSpacing = type === 'ordinal' ? 3 : 0 // spacing between boxes
-    , titlePadding = title ? 16 : 0
-    , domain = scale.domain()
-    , range = scale.range()
-    , i = 0
-    , percentFmt = d3.format(".1%");
-
-  // check for valid input - 'quantize' not included
-  for (i = 0 ; i < scaleTypes.length ; i++) {
-    if (scaleTypes[i] === type) {
-      found = true;
-      break;
-    }
-  }
-  if (! found)
-    throw new Error('Scale type, ' + type + ', is not suported.');
-
-  
-  // setup the colors to use
-  if (type === 'quantile') {
-    colors = range;
-  }
-  else if (type === 'ordinal') {
-    for (i = 0 ; i < domain.length ; i++) {
-      colors[i] = range[i];
-    }
-  }
-  else if (type === 'linear') {
-    var min = domain[0];
-    var max = domain[domain.length - 1];
-    for (i = 0; i < linearBoxes ; i++) {
-      colors[i] = scale(min + i * ((max - min) / linearBoxes));
-    }
-  }
-  
-  // check the width and height and adjust if necessary to fit in the element
-  // use the range if quantile
-  if (fill || w < (boxWidth + boxSpacing) * colors.length + padding[1] + padding[3]) {
-    boxWidth = (w - padding[1] - padding[3] - (boxSpacing * colors.length)) / colors.length;
-  }
-  if (fill || h < boxHeight + padding[0] + padding[2] + titlePadding) {
-    boxHeight = h - padding[0] - padding[2] - titlePadding;
-  }
-  
-  // set up the legend graphics context
-  var legend = d3.select(target)
-    .append('svg')
-      .attr('width', w)
-      .attr('height', h)
-    .append('g')
-      .attr('class', 'colorlegend')
-      .attr('transform', 'translate(' + padding[3] + ',' + padding[0] + ')')
-      .style('font-size', '11px')
-      .style('fill', '#666');
-      
-  var dataValues = [];
-  for (i = 0; i < colors.length + 1; i++) {
-  	dataValues[i] = ((domain[domain.length - 1] - domain[0]) * i / colors.length) + domain[0];
-  }
-      
-  var legendBoxes = legend.selectAll('g.legend')
-      .data(dataValues)
-    .enter().append('g');
-
-  // value labels
-  legendBoxes.append('text')
-      .attr('class', 'colorlegend-labels')
-      .attr('dy', '.71em')
-      .attr('x', function (d, i) {
-        return i * (boxWidth + boxSpacing) + (type !== 'ordinal' ? (boxWidth / 2) : 0);
-      })
-      .attr('y', function () {
-        return boxHeight + 2;
-      })
-      .style('text-anchor', function () {
-        return type === 'ordinal' ? 'start' : 'middle';
-      })
-      .style('pointer-events', 'none')
-      .text(function (d, i) {
-        // show label for all ordinal values
-        if (type === 'ordinal') return dataValues[i];
-        else return percentFmt(dataValues[i]);
-      });
-
-  // the colors, each color is drawn as a rectangle
-  legendBoxes.append('rect')
-      .attr('x', function (d, i) {
-        return i * (boxWidth + boxSpacing);
-      })
-      .attr('width', boxWidth)
-      .attr('height', boxHeight)
-      .attr('x', function (d, i) {
-      	return i * (boxWidth + boxSpacing) + boxWidth/2;
-      })
-      .style('fill', function (d, i) { return colors[i]; })
-      .style('display', function (d, i) { if (i == colors.length) return 'none'; });
-  
-  // show a title in center of legend (bottom)
-  if (title) {
-    legend.append('text')
-        .attr('class', 'colorlegend-title')
-        .attr('x', (colors.length * (boxWidth / 2) + boxWidth / 2))
-        .attr('y', boxHeight + titlePadding)
-        .attr('dy', '.71em')
-        .style('text-anchor', 'middle')
-        .style('pointer-events', 'none')
-        .text(title);
-  }
+ 	var scaleTypes = ['linear', 'quantile', 'ordinal']
+    	, found = false
+    	, opts = options || {}
+    	, dataType = opts.dataType || 'percent'
+    	, boxWidth = opts.boxWidth || 20 // width of each box (int)
+    	, boxHeight = opts.boxHeight || 20 // height of each box (int)
+    	, title = opts.title || null // draw title (string)
+    	, fill = opts.fill || false // fill the element (boolean)
+    	, linearBoxes = opts.linearBoxes || 9 // number of boxes for linear scales (int)
+    	, isCurrency = opts.isCurrency || false
+    	, htmlElement = document.getElementById(target.substring(0, 1) === '#' ? target.substring(1, target.length) : target) // target container element - strip the prefix #
+    	, w = htmlElement.offsetWidth // width of container element
+    	, h = htmlElement.offsetHeight // height of container element
+    	, colors = []
+    	, padding = [2, 4, 10, 4] // top, right, bottom, left
+    	, boxSpacing = type === 'ordinal' ? 3 : 0 // spacing between boxes
+    	, titlePadding = title ? 18 : 0
+    	, boxLabelHeight = 10
+    	, domain = scale.domain()
+    	, range = scale.range();
     
-  return this;
+    // define how to format text values based on data type
+    switch (dataType) {
+    	case 'percent':
+    		var format = d3.format(".1%");
+    		break;
+    	case 'binary':
+    		var format = function (num) {
+    			if (num === 1) return "Yes";
+    			else if (num === 0) return "No";
+    			else return "N/A";
+    		};
+    		break;
+    	case 'level':
+    	case 'level_np':
+    	    // format thousands with a "k", format millions with a "mil"
+    	    var format = function (num) {
+    	    	if (num >= 1000000) {
+    	    		return String((num/1000000).toFixed(1)) + "mil";
+    	    	} else if (num >= 10000) {
+    	    		return String((num/1000).toFixed(1)) + "k";
+    	    	} else if (num == 0) {
+    	    		return 0;
+    	    	} else {
+    	    		return num.toFixed(1);	
+    	    	}
+    	    };
+    	    break;
+    	default:
+    		var format = function (num) { return num; };
+    }	
+
+
+	// check for valid input - 'quantize' not included
+  	for (var i = 0; i < scaleTypes.length; i++) {
+   		if (scaleTypes[i] === type) {
+			found = true;
+			break;
+		}
+	}
+  	if (!found) throw new Error('Scale type, ' + type + ', is not supported.');
+
+  	
+  	// setup the colors to use
+  	if (type === 'quantile') {
+    	colors = range;
+  	}
+  	else if (type === 'ordinal') {
+    	for (var i = 0 ; i < domain.length ; i++) {
+      		colors[i] = range[i];
+    	}
+  	}
+  	else if (type === 'linear') {
+    	var min = domain[0];
+    	var max = domain[domain.length - 1];
+    	for (i = 0; i < linearBoxes ; i++) {
+      		colors[i] = scale(min + i * ((max - min) / linearBoxes));
+    	}
+  	}
+  
+  	// check the width and height and adjust if necessary to fit in the element
+  	// use the range if quantile
+  	if (fill || w < (boxWidth + boxSpacing) * colors.length + padding[1] + padding[3]) {
+	    boxWidth = (w - padding[1] - padding[3] - (boxSpacing * colors.length)) / colors.length;
+  	}
+  	if (fill || h < boxHeight + padding[0] + padding[2] + titlePadding) {
+	    boxHeight = h - padding[0] - padding[2] - titlePadding;
+  	}
+  
+  	// set up the legend graphics context
+  	var legend = d3.select(target)
+	    .append('svg')
+      		.attr('width', w)
+      		.attr('height', h)
+    	.append('g')
+      		.attr('class', 'colorlegend')
+      		.attr('transform', 'translate(' + padding[3] + ',' + padding[0] + ')')
+      		.style('font-size', '11px')
+      		.style('fill', '#666');
+ 
+  
+  	// set up data values to be used for text in legend
+  	var dataValues = [];   
+  	if (dataType === 'binary') { 
+	  	dataValues = [0, 1]; // 'Yes' or 'No'
+	}
+	else if (dataType === 'categorical') {
+		// find and store all unique data values
+		for (var i = 0; i < domain.length; i++) {
+			for (var j = 0; j < dataValues.length; j++) {
+				if (domain[i] == dataValues[j]) break;
+				if (j == dataValues.length - 1) dataValues.push(domain[i]);
+			}
+		}
+	}
+	else if (dataType === 'level') {
+		// for levels; min is set as 0
+		for (var i = 0; i < colors.length + 1; i++) {
+			dataValues[i] = domain[domain.length - 1] * i / colors.length;
+		}
+	}
+	else { 
+		// for percent; numbers will align in between color boxes; min is not necessarily 0
+	  	for (var i = 0; i < colors.length + 1; i++) {
+	  		dataValues[i] = ((domain[domain.length - 1] - domain[0]) * i / colors.length) + domain[0];
+  		}
+  	}
+ 
+    
+  	var legendBoxes = legend.selectAll('g.legend')
+    	.data(dataValues)
+    	.enter().append('g');
+
+  	// the colors, each color is drawn as a rectangle
+  	legendBoxes.append('rect')
+      	.attr('width', boxWidth)
+      	.attr('height', boxHeight)
+      	.attr('x', function (d, i) {
+	      	return i * (boxWidth + boxSpacing) + boxWidth / 2;
+      	})
+      	.attr('y', boxLabelHeight)
+      	.style('fill', function (d, i) { return colors[i]; })
+      	.style('display', function (d, i) { if (i >= colors.length) return 'none'; });
+
+ 	// value labels
+  	legendBoxes.append('text')
+    	.attr('class', 'colorlegend-labels')
+      	.attr('dy', '.71em')
+      	.attr('x', function (d, i) {
+	        var leftAlignX = i * (boxWidth + boxSpacing) + (type !== 'ordinal' ? (boxWidth / 2) : 0);
+    	    return (dataType === 'binary') ? (leftAlignX + boxWidth / 2) : leftAlignX;
+      	})
+      	.attr('y', boxLabelHeight + boxHeight + 2)
+      	.style('text-anchor', function () {
+	        return type === 'ordinal' ? 'start' : 'middle';
+      	})
+      	.style('pointer-events', 'none')
+      	.text(function (d, i) {
+	        // show label for all ordinal values
+    	    if (type === 'ordinal') return dataValues[i];
+    	    else return isCurrency ? ("$" + format(dataValues[i])) : format(dataValues[i]); // format is defined based on dataType
+      	});
+      	
+    // additional text on top of color boxes, displaying "top 20%", "bottom 20%", etc.
+    if (dataType === 'level' || dataType === 'level_np' || dataType === 'percent') {
+	    legendBoxes.append('text')
+	    	.attr('class', 'colorlegend-boxlabels')
+	    	.attr('x', function (d, i) {
+	    		return i * (boxWidth + boxSpacing) + boxWidth;
+	    	})
+	    	.attr('y', 8)
+	    	.style('text-anchor', 'middle')
+	    	.style('pointer-events', 'none')
+	    	.text(function (d, i) {
+	    		if (i == 0) return "bottom 20%";
+	    		if (i == 1) return "mid-bottom 20%";
+	    		if (i == 2) return "middle 20%";
+	    		if (i == 3) return "mid-top 20%";
+	    		if (i == 4) return "top 20%";
+	    	});
+	}
+  
+  	// show a title in center of legend (bottom)
+  	if (title) {
+	    legend.append('text')
+        	.attr('class', 'colorlegend-title')
+        	.attr('x', (colors.length * (boxWidth / 2) + boxWidth / 2))
+        	.attr('y', boxLabelHeight + boxHeight + titlePadding)
+        	.attr('dy', '.71em')
+        	.style('text-anchor', 'middle')
+        	.style('pointer-events', 'none')
+        	.text(title);
+  	}
+    
+  	return this;
 };

@@ -267,7 +267,7 @@ svg:not(:root) {
 
 .legend {
   background-color: #fff;
-  width: 300px;
+  width: 400px;
   height: 60px;
   border: 0;
   margin: 10px;
@@ -276,6 +276,10 @@ svg:not(:root) {
 #quantileLegend .colorlegend-labels {
   font-size: 11px;
   fill: black;
+}
+
+#quantileLegend .colorlegend-boxlabels {
+  font-size: 8px;
 }
 
 #legendTitle {
