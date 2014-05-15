@@ -311,8 +311,18 @@ function clicked(mouse, l, t, d, i){
 }
 function doubleClicked(d){
 	tooltip.classed("hidden", true);
-	
-	console.log("doubleClicked on " + d.id);
+	var countyID = d.id.toString();
+		if(countyID.length!=5){
+			countyID = "0" + countyID;
+		}
+	var basicCountyLinkLead = "http://www.uscounties.org/cffiles_web/counties/county.cfm?id=";
+	var basicCountyGETLink = basicCountyLinkLead.concat(countyID);
+	console.log(basicCountyGETLink);
+	//may need to allow Cross-domain referencing depending on where this is stored search CORS: http://www.html5rocks.com/en/tutorials/cors/
+	d3.xhr(basicCountyGETLink, function(error, basicCounty){
+		d3.select("#dataNotes").html(basicCounty.responseText);
+	});
+	console.log("doubleClicked on " + countyID);
 }
 
 function redraw() {
