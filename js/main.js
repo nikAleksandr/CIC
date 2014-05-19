@@ -74,8 +74,22 @@ d3.json("us.json", function(error, us) {
   
 });
 
-function draw(topo, stateMesh) {
+// populate dropdown menu with categories
+/*d3.json("data/CICstructure.json", function(error, CICStructure){
+	if (!error) {
+		var s = CICStructure.children;
+		for (var i = 0; i < s.length; i++) {
+			d3.select('#primeInd')
+				.append('li')
+					.attr('name', s[i].name)
+					.attr('title', s[i].name)
+					.attr('href', '#')
+					.text(s[i].name);
+		}
+	} else throw new Error('Error reading JSON file');
+});*/
 
+function draw(topo, stateMesh) {
   var county = g.selectAll(".county").data(topo);
   
   county.enter().insert("path")
@@ -203,6 +217,8 @@ var structure, extraInd = [], extraIndYears = [];
 
 //Alternative to this big lookup is to list a i,j,h "JSON address" in the HTML anchor properties.  Would still likely require some type of HTML or JSON lookup for companion indicators though
 function getData(indName, datasetName){
+	
+	// replace with .get() function call
 	d3.json("data/CICstructure.json", function(error, CICStructure){
 		if (!error) {
 			var Jcategory, primeInd;
@@ -229,7 +245,7 @@ function getData(indName, datasetName){
 					}
 				}
 			}
-			
+						
 			//getCompanionData(Jcategory);
 			
 			//temporary switch to override this function while using tsv data

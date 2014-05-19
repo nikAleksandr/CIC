@@ -21,7 +21,7 @@ var colorlegend = function (target, scale, type, options) {
  	var scaleTypes = ['linear', 'quantile', 'ordinal']
     	, found = false
     	, opts = options || {}
-    	, dataType = opts.dataType || 'percent'
+    	, dataType = opts.dataType || 'level'
     	, boxWidth = opts.boxWidth || 20 // width of each box (int)
     	, boxHeight = opts.boxHeight || 20 // height of each box (int)
     	, title = opts.title || null // draw title (string)
@@ -55,7 +55,9 @@ var colorlegend = function (target, scale, type, options) {
     	case 'level_np':
     	    // format thousands with a "k", format millions with a "mil"
     	    var format = function (num) {
-    	    	if (num >= 1000000) {
+    	    	if (num >= 1000000000) {
+    	    		return String((num/1000000000).toFixed(1)) + "bil";
+    	    	} else if (num >= 1000000) {
     	    		return String((num/1000000).toFixed(1)) + "mil";
     	    	} else if (num >= 10000) {
     	    		return String((num/1000).toFixed(1)) + "k";
@@ -120,12 +122,13 @@ var colorlegend = function (target, scale, type, options) {
  
   
   	// set up data values to be used for text in legend
+  	// if numeric, assume domain is sorted small to large
   	var dataValues = [];   
   	if (dataType === 'binary') { 
 	  	dataValues = [0, 1]; // 'Yes' or 'No'
 	}
 	else if (dataType === 'categorical') {
-		// find and store all unique data values
+		// if categorical, find and store all unique data values
 		for (var i = 0; i < domain.length; i++) {
 			for (var j = 0; j < dataValues.length; j++) {
 				if (domain[i] == dataValues[j]) break;
@@ -134,13 +137,13 @@ var colorlegend = function (target, scale, type, options) {
 		}
 	}
 	else if (dataType === 'level') {
-		// for levels; min is set as 0
+		// for level (not level_np): numeric, min is set as 0
 		for (var i = 0; i < colors.length + 1; i++) {
 			dataValues[i] = domain[domain.length - 1] * i / colors.length;
 		}
 	}
 	else { 
-		// for percent; numbers will align in between color boxes; min is not necessarily 0
+		// numeric, min is not necessarily 0
 	  	for (var i = 0; i < colors.length + 1; i++) {
 	  		dataValues[i] = ((domain[domain.length - 1] - domain[0]) * i / colors.length) + domain[0];
   		}
