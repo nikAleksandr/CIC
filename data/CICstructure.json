@@ -9,17 +9,17 @@
        	  "years": [2007],
        	  "source": "U.S. Census Bureau - Census of Individual Governments: Finance",
        	  "children": [
-       	  	{"name": "Total", "unit": "thousands of dollars", "dataType": "level"},
-       	  	{"name": "Total Administration", "unit": "thousands of dollars", "dataType": "level"},
-       	  	{"name": "Financial Administration", "unit": "thousands of dollars", "dataType": "level"},
-           	{"name": "Other Governmental Administration", "unit": "thousands of dollars", "dataType": "level"},
-           	{"name": "Social Insurance Administration", "unit": "thousands of dollars", "dataType": "level"},
-       	  	{"name": "Liquor Stores", "unit": "thousands of dollars", "dataType": "level"},
-       	  	{"name": "Current Operations", "unit": "thousands of dollars", "dataType": "level"},
-        	{"name": "Construction", "unit": "thousands of dollars", "dataType": "level"},
-        	{"name": "Other Capital Outlay", "unit": "thousands of dollars", "dataType": "level"},
-        	{"name": "Intergovernmental to State", "unit": "thousands of dollars", "dataType": "level"},
-        	{"name": "Intergovernmental to Local", "unit": "thousands of dollars", "dataType": "level"}
+       	  	{"name": "Total", "unit": "thousands of dollars", "dataType": "level", "definition": "All amounts of money paid out by a government--net of recoveries and other correcting transactions--other than for retirement of debt, investment in securities, extension of credit, or as agency transactions. Note that expenditure includes only external transactions of a government and excludes non-cash transactions such as the provision of perquisites or other payments in kind."},
+       	  	{"name": "Total Administration", "unit": "thousands of dollars", "dataType": "level", "definition": "Includes expenditure on Financial Administration, Social Insurance Administration and Other Governmental Administration (including Federal and State Legislative and Central Staff Services).  Covers  administration of unemployment compensation systems, public employment services, and the Federal Social Security, Medicare, and Railroad Retirement trusts; officials and central staff agencies concerned with tax assessment and collection, accounting, auditing, budgeting, purchasing, custody of funds, and other finance activities; legislative bodies and related activities involved in the making, enacting, and repeal of law; and government-wide executive, administrative, and staff service agencies other than financial, judicial, legal, and Federal or state legislative activities."},
+       	  	{"name": "Financial Administration", "unit": "thousands of dollars", "dataType": "level", "definition": "Officials and central staff agencies concerned with tax assessment and collection, accounting, auditing, budgeting, purchasing, custody of funds, and other finance activities. Includes Expenditures to administer the offices of auditor, comptroller, treasurer, finance director, and other central accounting, budgeting, and purchasing offices; tax administration, assessment, billing, and collection; custody and disbursement of funds; revenue collection activities like delinquent tax sales, tax litigation, and charges of depositories; state supervision of local finances; management of debt and of investments (including that of own utilities); cost of insurance for issuing debt; administration of employee-retirement, workers’ compensation, and federal and state other insurance trust funds; lottery administrative costs ; licensing and tax collection activities of motor vehicle departments; distinctive tax collection activities of regulatory agencies; central data processing centers; and other finance activities not recorded elsewhere."},
+           	{"name": "Other Governmental Administration", "unit": "thousands of dollars", "dataType": "level", "definition": "Government-wide executive, administrative, and staff service agencies other than financial, judicial, legal, and Federal or state legislative activities. Includes Expenditures for the office of the chief executive, mayor, city manager, county administrator; central personnel administration; overall planning and zoning; clerk’s office, recorder, and general public reporting; central staff executive and administrative agencies. For local governments also includes legislative activities such as city or county council, board of supervisors, commissioners, and so forth."},
+           	{"name": "Social Insurance Administration", "unit": "thousands of dollars", "dataType": "level", "definition": "Administration of unemployment compensation systems, public employment services, and the Federal Social Security, Medicare, and Railroad Retirement trusts. Includes Employees of unemployment compensation, unemployment insurance, and equivalent agencies involved in administering the cooperative Federal-state unemployment compensation  system. Includes associated public employment, job services, employment services, and other agencies providing job placement, counseling, veterans readjustment allowances, or related services; and determination of eligibility for disability benefits under Federal Social Security (Old-Age and Survivors Insurance and Disability Insurance) and Medicare (Hospital Insurance and Supplementary Medical Insurance). For the Federal Government, this function also includes administration of Social Security, Medicare, and Railroad Unemployment and Retirement programs."},
+       	  	{"name": "Liquor Stores", "unit": "thousands of dollars", "dataType": "level", "definition": "Expenditure for purchase of liquor for resale and provision and operation of government-maintained alcoholic beverage monopoly systems. Excludes expenditure for law enforcement and licensing activities carried out in conjunction with liquor store operations."},
+       	  	{"name": "Current Operations", "unit": "thousands of dollars", "dataType": "level", "definition": "Direct expenditure for compensation of own officers and employees and for supplies, materials, and contractual services except amounts for capital outlay."},
+        	{"name": "Construction", "unit": "thousands of dollars", "dataType": "level", "definition": "Production of fixed works and structures additions, replacements, and major alterations, including planning and design of specific projects, site improvements, and provision of equipment and facilities that are integral parts of a structure. Includes contract construction, undertaken on a contract basis by private contractors, and force account construction, undertaken with direct use of material and labor by the government."},
+        	{"name": "Other Capital Outlay", "unit": "thousands of dollars", "dataType": "level", "definition": "Direct expenditure for contract or force account construction of buildings, grounds, and other improvements, and purchase of equipment, land, and existing structures. Includes amounts for additions, replacements, and major alterations to fixed works and structures. However, expenditure for repairs to such works and structures is classified as current operation expenditure."},
+        	{"name": "Intergovernmental to State", "unit": "thousands of dollars", "dataType": "level", "definition": "Amounts paid to the state government for performance of specific functions or for general financial support. Includes grants, shared taxes, contingent loans and advances, and any significant and identifiable amounts or reimbursement paid to other governments for performance of general government services or activities. By definition, it excludes amounts paid to other governments for purchase of commodities, property, or utility services and for any tax levied as such on facilities of the government."},
+        	{"name": "Intergovernmental to Local", "unit": "thousands of dollars", "dataType": "level", "definition": "Amounts paid to other local governments government for performance of specific functions or for general financial support. Includes grants, shared taxes, contingent loans and advances, and any significant and identifiable amounts or reimbursement paid to other governments for performance of general government services or activities. By definition, it excludes amounts paid to other governments for purchase of commodities, property, or utility services and for any tax levied as such on facilities of the government."}
        	  ]
         },
         {
@@ -27,10 +27,11 @@
           "source": "U.S. Census Bureau - Census of Individual Governments: Employment",
           "years": [2007, 2008, 2009, 2010, 2011, 2012],
           "children": [
-            {"name": "Total", "unit":"FTE employees", "dataType": "level"},
-            {"name": "Total Adminstration", "unit":"FTE employees", "dataType": "level"},
-          	{"name": "Financial Administration", "unit":"FTE employees", "dataType": "level"},
-            {"name": "Other Governmental Administration", "unit":"FTE employees", "dataType": "level"}
+            {"name": "Total", "unit": "FTE employees", "dataType": "level", "definition": "The number of Full-time equivalent (FTE) employees for each county is a computed statistic representing the number of full-time employees that could have been employed if the reported number of hours worked by part-time employees had been worked by full-time employees."},
+            {"name": "Total Adminstration", "unit": "FTE employees", "dataType": "level", "definition": "Includes all FTE on Financial Administration, Social Insurance Administration and Other Governmental Administration.  Covers  administration of unemployment compensation systems, public employment services, and the Federal Social Security, Medicare, and Railroad Retirement trusts; officials and central staff agencies concerned with tax assessment and collection, accounting, auditing, budgeting, purchasing, custody of funds, and other finance activities; legislative bodies and related activities involved in the making, enacting, and repeal of law; and government-wide executive, administrative, and staff service agencies other than financial, judicial, legal, and Federal or state legislative activities."},
+          	{"name": "Financial Administration", "unit": "FTE employees", "dataType": "level", "definition": "Number of FTEs working on Officials and central staff agencies concerned with tax assessment and collection, accounting, auditing, budgeting, purchasing, custody of funds, and other finance activities."},
+            {"name": "Other Governmental Administration", "unit": "FTE employees", "dataType": "level", "definition": "Number of FTEs working on Government-wide executive, administrative, and staff service agencies other than financial, judicial, legal, and Federal or state legislative activities."},
+            {"name": "Social Insurance Administration", "unit": "FTE employees", "dataType": "level", "definition": "Number of FTEs working on Administration of unemployment compensation systems, public employment services, and the Federal Social Security, Medicare, and Railroad Retirement trusts. Includes Employees of unemployment compensation, unemployment insurance, and equivalent agencies involved in administering the cooperative Federal-state unemployment compensation system."}
           ]
         },
         {
@@ -38,13 +39,13 @@
           "source": "U.S. Census Bureau - Census of Individual Governments: Finance",
           "years": [2007],
           "children": [
-          	{"name": "Total", "unit": "thousands of dollars", "dataType": "level"},
+          	{"name": "Total", "unit": "thousands of dollars", "dataType": "level", "definition": "All amounts of money received by a government from external sources--net of refunds and other correcting transactions--other than from issuance of debt, liquidation of investments, and as agency and private trust transactions. Note that revenue excludes noncash transactions such as receipt of services, commodities, or other 'receipts in kind.'"},
           	{"name": "Total Administration", "unit": "thousands of dollars", "dataType": "level"},
-          	{"name": "Charges", "unit": "thousands of dollars", "dataType": "level"},
-            {"name": "Misc. General Revenue", "unit": "thousands of dollars", "dataType": "level"},
-            {"name": "Liquor Stores", "unit": "thousands of dollars", "dataType": "level"},
-          	{"name": "Public Employee Retirement Systems", "unit": "thousands of dollars", "dataType": "level"},
-           	{"name": "Unemployment Compensation Systems", "unit": "thousands of dollars", "dataType": "level"}
+          	{"name": "Charges", "unit": "thousands of dollars", "dataType": "level", "definition": "Amounts received from the public for performance of specific services benefiting the person charged, and from sales of commodities and services, except liquor store sales.  Includes fees, assessments, and other reimbursements for current services, rents and sales derived from commodities or services furnished incident to the performance of particular functions, gross income of commercial activities, and the like.  Excludes amounts received from other governments (see intergovernmental above) and interdepartmental charges and transfers. Current charges are distinguished from license taxes, which relate to privileges granted by the government or regulatory measures for the protection of the public."},
+            {"name": "Misc. General Revenue", "unit": "thousands of dollars", "dataType": "level", "definition": "General revenue not falling within any standard functional category."},
+            {"name": "Liquor Stores", "unit": "thousands of dollars", "dataType": "level", "definition": "Amounts received from sale of liquor by state and/or local liquor store operations. Excludes any state taxes collected by state liquor monopoly systems."},
+          	{"name": "Public Employee Retirement Systems", "unit": "thousands of dollars", "dataType": "level", "definition": "Distribution of cash benefits to, or withdrawals by, eligible persons under government administered employee retirement systems covering public employees."},
+           	{"name": "Unemployment Compensation Systems", "unit": "thousands of dollars", "dataType": "level", "definition": "Distribution of cash benefits to eligible persons under the cooperative Federal-state unemployment compensation insurance programs."}
           ]
         }
       ]
@@ -57,10 +58,12 @@
           "source": "U.S. Census Bureau - Census of Individual Governments: Employment",
           "years": [2007, 2008, 2009, 2010, 2011, 2012],
           "children": [
-            {"name": "Total", "unit":"FTE employees", "dataType": "level"},
-            {"name": "Total Adminstration", "unit":"FTE employees", "dataType": "level"},
-          	{"name": "Financial Administration", "unit":"FTE employees", "dataType": "level"},
-            {"name": "Other Governmental Administration", "unit":"FTE employees", "dataType": "level"}
+            {"name": "Total", "unit": "FTE employees", "dataType": "level", "definition": "The number of Full-time equivalent (FTE) employees for each county is a computed statistic representing the number of full-time employees that could have been employed if the reported number of hours worked by part-time employees had been worked by full-time employees."},
+            {"name": "Total Adminstration", "unit": "FTE employees", "dataType": "level", "definition": "Number of FTEs on Financial Administration, Social Insurance Administration and Other Governmental Administration.  Covers  administration of unemployment compensation systems, public employment services, and the Federal Social Security, Medicare, and Railroad Retirement trusts; officials and central staff agencies concerned with tax assessment and collection, accounting, auditing, budgeting, purchasing, custody of funds, and other finance activities; legislative bodies and related activities involved in the making, enacting, and repeal of law; and government-wide executive, administrative, and staff service agencies other than financial, judicial, legal, and Federal or state legislative activities."},
+          	{"name": "Financial Administration", "unit": "FTE employees", "dataType": "level", "definition": "Number of FTEs working on Officials and central staff agencies concerned with tax assessment and collection, accounting, auditing, budgeting, purchasing, custody of funds, and other finance activities."},
+            {"name": "Other Governmental Administration", "unit": "FTE employees", "dataType": "level", "definition": "Number of FTEs working on Government-wide executive, administrative, and staff service agencies other than financial, judicial, legal, and Federal or state legislative activities."},
+            {"name": "Social Insurance Administration", "unit": "FTE employees", "dataType": "level", "definition": "Number of FTEs working on Administration of unemployment compensation systems, public employment services, and the Federal Social Security, Medicare, and Railroad Retirement trusts. Includes Employees of unemployment compensation, unemployment insurance, and equivalent agencies involved in administering the cooperative Federal-state unemployment compensation system."}
+
           ]
         },
         {
@@ -68,11 +71,11 @@
           "source": "U.S. Census Bureau - Census of Individual Governments: Employment",
           "years": [2007, 2008, 2009, 2010, 2011, 2012],
           "children": [
-          	{"name": "Total", "unit":"FTE employees", "dataType": "level"},
-            {"name": "Total Public Amenity", "unit":"FTE employees", "dataType": "level"},
-          	{"name": "Libraries", "unit":"FTE employees", "dataType": "level"},
-            {"name": "Natural Resources", "unit":"FTE employees", "dataType": "level"},
-            {"name": "Parks & Recreation", "unit":"FTE employees", "dataType": "level"}
+            {"name": "Total", "unit": "FTE employees", "dataType": "level", "definition": "The number of Full-time equivalent (FTE) employees for each county is a computed statistic representing the number of full-time employees that could have been employed if the reported number of hours worked by part-time employees had been worked by full-time employees."},
+            {"name": "Total Public Amenity", "unit":"FTE employees", "dataType": "level", "definition": "Number of FTEs working on libraries, parks and recreation, as well as other natural resources."},
+          	{"name": "Libraries", "unit":"FTE employees", "dataType": "level", "definition": "Number of FTEs working on Establishment and provision of libraries for use by the general public and the technical support of privately-operated libraries. Includes: Public libraries, community libraries, consolidated libraries, regional libraries, and their variously-named equivalents; library extension services including bookmobiles; public library (special) districts; U.S. Library of Congress (including Copyright Office); state library commissions and boards; programs to promote, develop, and coordinate library services and facilities."},
+            {"name": "Natural Resources", "unit":"FTE employees", "dataType": "level", "definition": "Number of FTEs working on Conservation, promotion, and development of natural resources (soil, water, energy, minerals, etc.) and the regulation of industries which develop, utilize, or affect natural resources. Includes: Employees engaged in irrigation; drainage; flood control; soil conservation and reclamation including prevention of soil erosion; surveying, development, and regulation of water resources; regulation of mineral resources and related industries including land reclamation; wetlands and watershed management and protection; geological surveying and mapping; regulation of gas and oil drilling and production; dam and reservoir safety; public education programs related to the above; fairs; technical assistance to private or other governmental efforts in these areas."},
+            {"name": "Parks & Recreation", "unit":"FTE employees", "dataType": "level", "definition": "Number of FTEs working on Provision and support of recreational and cultural-scientific facilities maintained for the benefit of residents and visitors."}
           ]
         },
         {
@@ -80,10 +83,10 @@
           "source": "U.S. Census Bureau - Census of Individual Governments: Employment",
           "years": [2007, 2008, 2009, 2010, 2011, 2012],
           "children": [
-            {"name": "Total", "unit":"FTE employees", "dataType": "level"},
-            {"name": "Total Education", "unit":"FTE employees", "dataType": "level"},
-          	{"name": "Elementary & Secondary Education", "unit":"FTE employees", "dataType": "level"},
-            {"name": "Higher Education", "unit":"FTE employees", "dataType": "level"}
+            {"name": "Total", "unit": "FTE employees", "dataType": "level", "definition": "The number of Full-time equivalent (FTE) employees for each county is a computed statistic representing the number of full-time employees that could have been employed if the reported number of hours worked by part-time employees had been worked by full-time employees."},
+            {"name": "Total Education", "unit":"FTE employees", "dataType": "level", "definition": "Number of FTEs working in Schools, colleges, and other educational institutions (elementary and secondary schools)."},
+          	{"name": "Elementary & Secondary Education", "unit":"FTE employees", "dataType": "level", "definition": "Number of FTEs working on The operation, maintenance, and construction of public schools and facilities for elementary and secondary education (kindergarten through high school), vocational-technical education, and other educational institutions except those for higher education. Covers operations by independent governments (school districts) as well as those operated as integral agencies of state, county, municipal, or township governments. Also covers financial support of public elementary and secondary schools."},
+            {"name": "Higher Education", "unit":"FTE employees", "dataType": "level", "definition": "Number of FTEs working on Higher Education Auxiliary Enterprises: Higher education activities and facilities that provide supplementary services to students, faculty or staff, and which are self-supported (wholly or largely through charges for services) and operated on a commercial basis.Includes: Dormitories; cafeterias; bookstores; athletic facilities, contests, or events; student activities; lunch rooms; student health services; college unions; college stores, and the like.    Other Higher Education: Degree-granting institutions (associate, bachelor, master, or doctorate) operated by state or local governments that provide academic training beyond the high school (grade 12) level, other than for auxiliary enterprises of the state or local institution."}
           ]
         },
         {
@@ -91,8 +94,8 @@
           "source": "U.S. Census Bureau - Census of Individual Governments: Employment",
           "years": [2007, 2008, 2009, 2010, 2011, 2012],
           "children": [
-          	{"name": "Total", "unit":"FTE employees", "dataType": "level"},
-          	{"name": "Housing & Community Development", "unit":"FTE employees", "dataType": "level"}
+            {"name": "Total", "unit": "FTE employees", "dataType": "level", "definition": "The number of Full-time equivalent (FTE) employees for each county is a computed statistic representing the number of full-time employees that could have been employed if the reported number of hours worked by part-time employees had been worked by full-time employees."},
+          	{"name": "Housing & Community Development", "unit":"FTE employees", "dataType": "level", "definition": "Number of FTEs working on Construction, operation, and support of housing and redevelopment projects and other activities to promote or aid public and private housing and community development.  Includes: Housing: Planning, construction, furnishing, and operation of public housing projects (generally for persons not adequately served by private sector). Community development: Urban renewal and slum clearance; redevelopment and rehabilitation of substandard or deteriorated facilities and areas; rural redevelopment; and revitalization of commercial areas."}
           ]
         },
         {
@@ -100,10 +103,10 @@
           "source": "U.S. Census Bureau - Census of Individual Governments: Employment",
           "years": [2007, 2008, 2009, 2010, 2011, 2012],
           "children": [
-          	{"name": "Total", "unit":"FTE employees", "dataType": "level"},
-            {"name": "Total Health & Hospitals", "unit":"FTE employees", "dataType": "level"},
-          	{"name": "Health", "unit":"FTE employees", "dataType": "level"},
-            {"name": "Hospitals", "unit":"FTE employees", "dataType": "level"}
+            {"name": "Total", "unit": "FTE employees", "dataType": "level", "definition": "The number of Full-time equivalent (FTE) employees for each county is a computed statistic representing the number of full-time employees that could have been employed if the reported number of hours worked by part-time employees had been worked by full-time employees."},
+            {"name": "Total Health & Hospitals", "unit":"FTE employees", "dataType": "level", "definition": "Number of FTEs working in hospitals or providing health services."},
+          	{"name": "Health", "unit":"FTE employees", "dataType": "level", "definition": "Number of FTEs working on Provision of services for the conservation and improvement of public health, other than hospital care, and support of other governments’ health programs."},
+            {"name": "Hospitals", "unit":"FTE employees", "dataType": "level", "definition": "Number of FTEs working on Services provided from a government’s own hospitals as well as expenditures for the provision of care in other hospitals (public or private). Own hospitals are facilities directly administered by the government, including those operated by public universities. Other expenditures cover the provision of care in other hospitals and support of other public and private hospitals."}
           ]
         },
         {
@@ -111,12 +114,12 @@
           "source": "U.S. Census Bureau - Census of Individual Governments: Employment",
           "years": [2007, 2008, 2009, 2010, 2011, 2012],
           "children": [
-          	{"name": "Total", "unit":"FTE employees", "dataType": "level"},
-            {"name": "Total Justice & Public Safety", "unit":"FTE employees", "dataType": "level"},
-          	{"name": "Correction", "unit":"FTE employees", "dataType": "level"},
-            {"name": "Judicial & Legal Services", "unit":"FTE employees", "dataType": "level"},
-            {"name": "Police Protection", "unit":"FTE employees", "dataType": "level"},
-            {"name": "Firefighters", "unit":"FTE employees", "dataType": "level"}
+            {"name": "Total", "unit": "FTE employees", "dataType": "level", "definition": "The number of Full-time equivalent (FTE) employees for each county is a computed statistic representing the number of full-time employees that could have been employed if the reported number of hours worked by part-time employees had been worked by full-time employees."},
+            {"name": "Total Justice & Public Safety", "unit":"FTE employees", "dataType": "level", "definition": "Number of FTEs working on correction, judicial and legal services, and police protection. Correctional Institutions: Residential institutions or facilities for the confinement, correction, and rehabilitation of convicted adults, or juveniles adjudicated, delinquent or in need of supervision, and for the detention of adults and juveniles charged with a crime and awaiting trial. Judicial and Legal : Courts (criminal and civil) and activities associated with courts, legal services, and legal counseling of indigent or other needy persons. Police protection: sheriff, state police, and other governmental departments that preserve law and order, protect persons and property from illegal acts, and work to prevent, control, investigate, and reduce crime."},
+          	{"name": "Correction", "unit":"FTE employees", "dataType": "level", "definition": "Number of FTEs working on Correctional Institutions: Residential institutions or facilities for the confinement, correction, and rehabilitation of convicted adults, or juveniles adjudicated, delinquent or in need of supervision, and for the detention of adults and juveniles charged with a crime and awaiting trial.      Other Corrections: Correctional activities other than Federal, state and local residential institutions or facilities."},
+            {"name": "Judicial & Legal Services", "unit":"FTE employees", "dataType": "level", "definition": "Number of FTEs working on Courts (criminal and civil) and activities associated with courts, legal services, and legal counseling of indigent or other needy persons."},
+            {"name": "Police Protection", "unit":"FTE employees", "dataType": "level", "definition": "Number of FTEs working on general police, sheriff, state police, and other governmental departments that preserve law and order, protect persons and property from illegal acts, and work to prevent, control, investigate, and reduce crime."},
+            {"name": "Fire Protection", "unit":"FTE employees", "dataType": "level", "definition": "Fire fighting organization and auxiliary services; fire inspection and investigation; support of volunteer fire forces; and other fire prevention activities. Includes cost of fire fighting facilities, such as fire hydrants and water, furnished by other agencies of the government."}
           ]
         },
         {
@@ -124,8 +127,8 @@
           "source": "U.S. Census Bureau - Census of Individual Governments: Employment",
           "years": [2007, 2008, 2009, 2010, 2011, 2012],
           "children": [
-          	{"name": "Total", "unit":"FTE employees", "dataType": "level"},
-          	{"name": "Public Welfare", "unit":"FTE employees", "dataType": "level"}
+            {"name": "Total", "unit": "FTE employees", "dataType": "level", "definition": "The number of Full-time equivalent (FTE) employees for each county is a computed statistic representing the number of full-time employees that could have been employed if the reported number of hours worked by part-time employees had been worked by full-time employees."},
+          	{"name": "Public Welfare", "unit":"FTE employees", "dataType": "level", "definition": "Number of FTEs working on Support of and assistance to needy persons contingent upon their need."}
           ]
         },
         {
@@ -133,12 +136,12 @@
           "source": "U.S. Census Bureau - Census of Individual Governments: Employment",
           "years": [2007, 2008, 2009, 2010, 2011, 2012],
           "children": [
-          	{"name": "Total", "unit":"FTE employees", "dataType": "level"},
-            {"name": "Total Transportation", "unit":"FTE employees", "dataType": "level"},
-          	{"name": "Air Tranportation", "unit":"FTE employees", "dataType": "level"},
-            {"name": "Highways", "unit":"FTE employees", "dataType": "level"},
-            {"name": "Water Transport & Terminals", "unit":"FTE employees", "dataType": "level"},
-            {"name": "Transit", "unit":"FTE employees", "dataType": "level"}
+            {"name": "Total", "unit": "FTE employees", "dataType": "level", "definition": "The number of Full-time equivalent (FTE) employees for each county is a computed statistic representing the number of full-time employees that could have been employed if the reported number of hours worked by part-time employees had been worked by full-time employees."},
+            {"name": "Total Transportation", "unit":"FTE employees", "dataType": "level", "definition": "Number of FTEs working on Air Transportation, Highways, Sea and Inland Port and Transit Utilities."},
+          	{"name": "Air Tranportation", "unit":"FTE employees", "dataType": "level", "definition": "Number of FTEs working on Provision, operation, construction, and support of airport facilities serving the public at-large on a scheduled or unscheduled basis."},
+            {"name": "Highways", "unit":"FTE employees", "dataType": "level", "definition": "Number of FTEs working on Regular Highway: Maintenance, operation, repair, and construction of highways, streets, roads, alleys, sidewalks, bridges, tunnels, ferry boats, viaducts, and related non-toll structures.Toll Highway: Maintenance, operation, repair, and construction of highways, roads, bridges, ferries, and tunnels operated on a fee or toll basis. Includes: Turnpikes; toll roads, toll bridges, toll ferries (including docks and related terminals), toll tunnels, and all related activities and facilities such as snow and ice removal, highway police and fire protection units IF administered by the toll authority, lighting and light fixtures, design and engineering, garages and administrative buildings of toll authorities, operation of toll booths, drawspans, rest stops, and service areas by the toll authority itself."},
+            {"name": "Water Transport & Terminals", "unit":"FTE employees", "dataType": "level", "definition": "Number of FTEs working on Construction, maintenance, operation, and support of canals and other waterways, harbors, docks, wharves, and related marine terminal facilities."},
+            {"name": "Transit", "unit":"FTE employees", "dataType": "level", "definition": "Number of FTEs working on Construction, maintenance, and operation of public mass transit systems--bus, commuter rail, light rail, or subway systems. Excludes systems established solely to transport elementary and secondary school pupils. Ferry systems are classified under Highways."}
           ]
         },
         {
@@ -146,10 +149,10 @@
           "source": "U.S. Census Bureau - Census of Individual Governments: Employment",
           "years": [2007, 2008, 2009, 2010, 2011, 2012],
           "children": [
-          	{"name": "Total", "unit":"FTE employees", "dataType": "level"},
-            {"name": "Total Utility", "unit":"FTE employees", "dataType": "level"},
-          	{"name": "Electric Utilities", "unit":"FTE employees", "dataType": "level"},
-            {"name": "Gas Utilities", "unit":"FTE employees", "dataType": "level"}
+            {"name": "Total", "unit": "FTE employees", "dataType": "level", "definition": "The number of Full-time equivalent (FTE) employees for each county is a computed statistic representing the number of full-time employees that could have been employed if the reported number of hours worked by part-time employees had been worked by full-time employees."},
+            {"name": "Total Utility", "unit":"FTE employees", "dataType": "level", "definition": "Number of FTEs working on Electricity Utilities and Gas Utilities."},
+          	{"name": "Electric Utilities", "unit":"FTE employees", "dataType": "level", "definition": "Number of FTEs working on Operation, maintenance, and construction of public electric power systems, including production, acquisition, and distribution of electricity to general public or to other public or private utilities."},
+            {"name": "Gas Utilities", "unit":"FTE employees", "dataType": "level", "definition": "Number of FTEs working on Operation, maintenance, and construction of public natural gas supply systems, including production, acquisition, and distribution of gas to general public or to other public or private utilities. This function covers government gas supply activities for residential, commercial, and industrial gas usage."}
           ]
         },
         {
@@ -157,11 +160,11 @@
           "source": "U.S. Census Bureau - Census of Individual Governments: Employment",
           "years": [2007, 2008, 2009, 2010, 2011, 2012],
           "children": [
-          	{"name": "Total", "unit":"FTE employees", "dataType": "level"},
-            {"name": "Total Water, Sewerage & Solid Waste", "unit":"FTE employees", "dataType": "level"},
-          	{"name": "Sewerage", "unit":"FTE employees", "dataType": "level"},
-            {"name": "Solid Waste", "unit":"FTE employees", "dataType": "level"},
-            {"name": "Water Utilities", "unit":"FTE employees", "dataType": "level"}
+            {"name": "Total", "unit": "FTE employees", "dataType": "level", "definition": "The number of Full-time equivalent (FTE) employees for each county is a computed statistic representing the number of full-time employees that could have been employed if the reported number of hours worked by part-time employees had been worked by full-time employees."},
+            {"name": "Total Water, Sewerage & Solid Waste", "unit":"FTE employees", "dataType": "level", "definition": "Includes FTEs working on on Sewerage, Solid Waste Management and Water Utitlies services."},
+          	{"name": "Sewerage", "unit":"FTE employees", "dataType": "level", "definition": "Number of FTEs working on Provision, maintenance, and operation of sanitary and storm sewer systems and sewage disposal and treatment facilities, as well as all intergovernmental payments for such activities."},
+            {"name": "Solid Waste", "unit":"FTE employees", "dataType": "level", "definition": "Number of FTEs working on Collection, removal, and disposal of garbage, refuse, hazardous, and other solid wastes and the cleaning of streets, alleys, and sidewalks."},
+            {"name": "Water Utilities", "unit":"FTE employees", "dataType": "level", "definition": "Number of FTEs working on Operation, maintenance, and construction of public water supply systems, whether for distribution of water to the general public or to other public or private utilities. This function covers government water supply activities for residential, commercial, and industrial water usage."}
           ]
         },
         {
@@ -169,8 +172,8 @@
           "source": "U.S. Census Bureau - Census of Individual Governments: Employment",
           "years": [2007, 2008, 2009, 2010, 2011, 2012],
           "children": [
-          	{"name": "Total", "unit":"FTE employees", "dataType": "level"},
-          	{"name": "Other & Unallocable", "unit":"FTE employees", "dataType": "level"}
+            {"name": "Total", "unit": "FTE employees", "dataType": "level", "definition": "The number of Full-time equivalent (FTE) employees for each county is a computed statistic representing the number of full-time employees that could have been employed if the reported number of hours worked by part-time employees had been worked by full-time employees."},
+          	{"name": "Other & Unallocable", "unit":"FTE employees", "dataType": "level", "definition": "Number of FTEs working on Activities not applicable to other general functions, or multi-functional general sector activities that cannot be separated into specific functions."}
           ]
         }
       ]
@@ -183,13 +186,13 @@
           "source": "U.S. Census Bureau - Census of Individual Governments: Finance",
           "years": [2007],
           "children": [
-          	{"name": "Total", "unit": "thousands of dollars", "dataType": "level"},
+          	{"name": "Total", "unit": "thousands of dollars", "dataType": "level", "definition": "All amounts of money received by a government from external sources--net of refunds and other correcting transactions--other than from issuance of debt, liquidation of investments, and as agency and private trust transactions. Note that revenue excludes noncash transactions such as receipt of services, commodities, or other 'receipts in kind.'"},
           	{"name": "Total Administration", "unit": "thousands of dollars", "dataType": "level"},
-          	{"name": "Charges", "unit": "thousands of dollars", "dataType": "level"},
-            {"name": "Misc. General Revenue", "unit": "thousands of dollars", "dataType": "level"},
-            {"name": "Liquor Stores", "unit": "thousands of dollars", "dataType": "level"},
-          	{"name": "Public Employee Retirement Systems", "unit": "thousands of dollars", "dataType": "level"},
-           	{"name": "Unemployment Compensation Systems", "unit": "thousands of dollars", "dataType": "level"}
+          	{"name": "Charges", "unit": "thousands of dollars", "dataType": "level", "definition": "Amounts received from the public for performance of specific services benefiting the person charged, and from sales of commodities and services, except liquor store sales.  Includes fees, assessments, and other reimbursements for current services, rents and sales derived from commodities or services furnished incident to the performance of particular functions, gross income of commercial activities, and the like.  Excludes amounts received from other governments (see intergovernmental above) and interdepartmental charges and transfers. Current charges are distinguished from license taxes, which relate to privileges granted by the government or regulatory measures for the protection of the public."},
+            {"name": "Misc. General Revenue", "unit": "thousands of dollars", "dataType": "level", "definition": "General revenue not falling within any standard functional category."},
+            {"name": "Liquor Stores", "unit": "thousands of dollars", "dataType": "level", "definition": "Amounts received from sale of liquor by state and/or local liquor store operations. Excludes any state taxes collected by state liquor monopoly systems."},
+          	{"name": "Public Employee Retirement Systems", "unit": "thousands of dollars", "dataType": "level", "definition": "Distribution of cash benefits to, or withdrawals by, eligible persons under government administered employee retirement systems covering public employees."},
+           	{"name": "Unemployment Compensation Systems", "unit": "thousands of dollars", "dataType": "level", "definition": "Distribution of cash benefits to eligible persons under the cooperative Federal-state unemployment compensation insurance programs."}
           ]
         },
         {
@@ -197,7 +200,7 @@
           "source": "U.S. Census Bureau - Census of Individual Governments: Finance",
           "years": [2007],
           "children": [
-          	{"name": "Total", "unit": "thousands of dollars", "dataType": "level"},
+          	{"name": "Total", "unit": "thousands of dollars", "dataType": "level", "definition": "All amounts of money received by a government from external sources--net of refunds and other correcting transactions--other than from issuance of debt, liquidation of investments, and as agency and private trust transactions. Note that revenue excludes noncash transactions such as receipt of services, commodities, or other 'receipts in kind.'"},
           	{"name": "Total Intergovernmental", "unit": "thousands of dollars", "dataType": "level"},
           	{"name": "From Federal Government", "unit": "thousands of dollars", "dataType": "level"},
            	{"name": "From Local Government", "unit": "thousands of dollars", "dataType": "level"},
@@ -209,7 +212,7 @@
           "source": "U.S. Census Bureau - Census of Individual Governments: Finance",
           "years": [2007],
           "children": [
-          	{"name": "Total", "unit": "thousands of dollars", "dataType": "level"},
+          	{"name": "Total", "unit": "thousands of dollars", "dataType": "level", "definition": "All amounts of money received by a government from external sources--net of refunds and other correcting transactions--other than from issuance of debt, liquidation of investments, and as agency and private trust transactions. Note that revenue excludes noncash transactions such as receipt of services, commodities, or other 'receipts in kind.'"},
           	{"name": "Total Tax", "unit": "thousands of dollars", "dataType": "level"},
           	{"name": "Income Taxes", "unit": "thousands of dollars", "dataType": "level"},
            	{"name": "License Taxes", "unit": "thousands of dollars", "dataType": "level"},
@@ -223,7 +226,7 @@
           "source": "U.S. Census Bureau - Census of Individual Governments: Finance",
           "years": [2007],
           "children": [
-          	{"name": "Total", "unit": "thousands of dollars", "dataType": "level"},
+          	{"name": "Total", "unit": "thousands of dollars", "dataType": "level", "definition": "All amounts of money received by a government from external sources--net of refunds and other correcting transactions--other than from issuance of debt, liquidation of investments, and as agency and private trust transactions. Note that revenue excludes noncash transactions such as receipt of services, commodities, or other 'receipts in kind.'"},
           	{"name": "Total Utility", "unit": "thousands of dollars", "dataType": "level"},
           	{"name": "Electric Power Systems", "unit": "thousands of dollars", "dataType": "level"},
            	{"name": "Gas Supply Systems", "unit": "thousands of dollars", "dataType": "level"},

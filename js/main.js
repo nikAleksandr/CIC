@@ -57,6 +57,8 @@ function setup(width,height){
 
   g = svg.append("g")
   		.attr("class", "counties");
+  		
+  buildDropdown();
 }
 
 setup(width,height);
@@ -73,21 +75,6 @@ d3.json("us.json", function(error, us) {
   draw(topo, stateMesh);
   
 });
-
-// populate dropdown menu with categories
-/*d3.json("data/CICstructure.json", function(error, CICStructure){
-	if (!error) {
-		var s = CICStructure.children;
-		for (var i = 0; i < s.length; i++) {
-			d3.select('#primeInd')
-				.append('li')
-					.attr('name', s[i].name)
-					.attr('title', s[i].name)
-					.attr('href', '#')
-					.text(s[i].name);
-		}
-	} else throw new Error('Error reading JSON file');
-});*/
 
 function draw(topo, stateMesh) {
   var county = g.selectAll(".county").data(topo);
@@ -132,6 +119,45 @@ function draw(topo, stateMesh) {
   	getData(selectedData, selectedDataset);
    
 }
+
+function buildDropdown() {
+	// populate dropdown menu with categories pulled from json
+	d3.json("data/CICstructure.json", function(error, CICStructure){
+		if (!error) {
+			d3.select('#primeInd')
+				.selectAll('li')
+					.remove();
+			
+			var s = CICStructure.children;
+			for (var i = 0; i < s.length; i++) {
+				(function(ind) {
+					var datasetName = s[ind].name;
+					d3.select('#primeInd')
+						.append('li')
+						.append('a')
+							.attr('name', datasetName)
+							.attr('title', datasetName)
+							.attr('href', '#')
+							.text(s[i].name)
+							.on('click', function(d) {
+								tooltip.classed("hidden", true);				
+								selectedData = datasetName;
+								selectedDataset = datasetName;
+								selectedDataText = datasetName;
+								d3.select('#primeIndText').html(selectedDataText);
+								
+								getData(selectedData, selectedDataset);
+							});
+				})(i);
+			}
+			
+			$("#primeInd li a")
+						
+		} else throw new Error('Error reading JSON file');
+	});
+}
+
+
 
 function update(primeInd, primeIndYear){
 	//Will first break the JSON object into component parts here:
@@ -202,17 +228,6 @@ function update(primeInd, primeIndYear){
 }
 
 
-$("#primeInd li a").click(function() {
-	tooltip.classed("hidden", true);
-	
-	selectedData = this.title;
-	selectedDataset = this.name;
-	selectedDataText = this.innerHTML;
-	d3.select('#primeIndText').html(selectedDataText);
-	
-	getData(selectedData, selectedDataset);
-});
-
 var structure, extraInd = [], extraIndYears = [];
 
 //Alternative to this big lookup is to list a i,j,h "JSON address" in the HTML anchor properties.  Would still likely require some type of HTML or JSON lookup for companion indicators though
@@ -250,21 +265,21 @@ function getData(indName, datasetName){
 			
 			//temporary switch to override this function while using tsv data
 			switch(indName){
-				case "PILT Amount":
+				case "Administration":
 					primeInd = { 
 						'name': "RGDPGrowth13",
 						'dataType': "percent"
 					};
 					primeIndYear = '2013';
 					break;
-				case "County Government":
+				case "County Structure":
 					primeInd = { 
 						'name': "countyGov",
 						'dataType': "binary"
 					};
 					primeIndYear = '2014';
 					break;
-				case "Population Level":
+				case "County Finance":
 					primeInd = { 
 						'name': "avgWageFAKE",
 						'dataType': "level",
