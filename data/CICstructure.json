@@ -8,6 +8,7 @@
        	  "name": "Administration Expenditures",
        	  "years": [2007],
        	  "source": "U.S. Census Bureau - Census of Individual Governments: Finance",
+       	  "companions": [["Administartion Expenditures", "Total Administration"], ["Administration Employment", "Total Administration"], ["Administration Revenue", "Total Administration"], ["Administration Expenditures", "Total"]],
        	  "children": [
        	  	{"name": "Total", "unit": "thousands of dollars", "dataType": "level", "definition": "All amounts of money paid out by a government--net of recoveries and other correcting transactions--other than for retirement of debt, investment in securities, extension of credit, or as agency transactions. Note that expenditure includes only external transactions of a government and excludes non-cash transactions such as the provision of perquisites or other payments in kind."},
        	  	{"name": "Total Administration", "unit": "thousands of dollars", "dataType": "level", "definition": "Includes expenditure on Financial Administration, Social Insurance Administration and Other Governmental Administration (including Federal and State Legislative and Central Staff Services).  Covers  administration of unemployment compensation systems, public employment services, and the Federal Social Security, Medicare, and Railroad Retirement trusts; officials and central staff agencies concerned with tax assessment and collection, accounting, auditing, budgeting, purchasing, custody of funds, and other finance activities; legislative bodies and related activities involved in the making, enacting, and repeal of law; and government-wide executive, administrative, and staff service agencies other than financial, judicial, legal, and Federal or state legislative activities."},
@@ -26,7 +27,8 @@
           "name": "Adminstration Employment",
           "source": "U.S. Census Bureau - Census of Individual Governments: Employment",
           "years": [2007, 2008, 2009, 2010, 2011, 2012],
-          "children": [
+          "companions": [["Administartion Expenditures", "Total Administration"], ["Administration Employment", "Total Administration"], ["Administration Revenue", "Total Administration"], ["Administration Employment", "Total"]],
+       	  "children": [
             {"name": "Total", "unit": "FTE employees", "dataType": "level", "definition": "The number of Full-time equivalent (FTE) employees for each county is a computed statistic representing the number of full-time employees that could have been employed if the reported number of hours worked by part-time employees had been worked by full-time employees."},
             {"name": "Total Adminstration", "unit": "FTE employees", "dataType": "level", "definition": "Includes all FTE on Financial Administration, Social Insurance Administration and Other Governmental Administration.  Covers  administration of unemployment compensation systems, public employment services, and the Federal Social Security, Medicare, and Railroad Retirement trusts; officials and central staff agencies concerned with tax assessment and collection, accounting, auditing, budgeting, purchasing, custody of funds, and other finance activities; legislative bodies and related activities involved in the making, enacting, and repeal of law; and government-wide executive, administrative, and staff service agencies other than financial, judicial, legal, and Federal or state legislative activities."},
           	{"name": "Financial Administration", "unit": "FTE employees", "dataType": "level", "definition": "Number of FTEs working on Officials and central staff agencies concerned with tax assessment and collection, accounting, auditing, budgeting, purchasing, custody of funds, and other finance activities."},
@@ -38,7 +40,8 @@
           "name": "Administration Revenue",
           "source": "U.S. Census Bureau - Census of Individual Governments: Finance",
           "years": [2007],
-          "children": [
+          "companions": [["Administartion Expenditures", "Total Administration"], ["Administration Employment", "Total Administration"], ["Administration Revenue", "Total Administration"], ["Administration Revenue", "Total"]],
+       	  "children": [
           	{"name": "Total", "unit": "thousands of dollars", "dataType": "level", "definition": "All amounts of money received by a government from external sources--net of refunds and other correcting transactions--other than from issuance of debt, liquidation of investments, and as agency and private trust transactions. Note that revenue excludes noncash transactions such as receipt of services, commodities, or other 'receipts in kind.'"},
           	{"name": "Total Administration", "unit": "thousands of dollars", "dataType": "level"},
           	{"name": "Charges", "unit": "thousands of dollars", "dataType": "level", "definition": "Amounts received from the public for performance of specific services benefiting the person charged, and from sales of commodities and services, except liquor store sales.  Includes fees, assessments, and other reimbursements for current services, rents and sales derived from commodities or services furnished incident to the performance of particular functions, gross income of commercial activities, and the like.  Excludes amounts received from other governments (see intergovernmental above) and interdepartmental charges and transfers. Current charges are distinguished from license taxes, which relate to privileges granted by the government or regulatory measures for the protection of the public."},
@@ -57,7 +60,8 @@
           "name": "Adminstration Employment",
           "source": "U.S. Census Bureau - Census of Individual Governments: Employment",
           "years": [2007, 2008, 2009, 2010, 2011, 2012],
-          "children": [
+          "companions": [["Administartion Expenditures", "Total Administration"], ["Administration Employment", "Total Administration"], ["Administration Revenue", "Total Administration"], ["Administration Employment", "Total"]],
+       	  "children": [
             {"name": "Total", "unit": "FTE employees", "dataType": "level", "definition": "The number of Full-time equivalent (FTE) employees for each county is a computed statistic representing the number of full-time employees that could have been employed if the reported number of hours worked by part-time employees had been worked by full-time employees."},
             {"name": "Total Adminstration", "unit": "FTE employees", "dataType": "level", "definition": "Number of FTEs on Financial Administration, Social Insurance Administration and Other Governmental Administration.  Covers  administration of unemployment compensation systems, public employment services, and the Federal Social Security, Medicare, and Railroad Retirement trusts; officials and central staff agencies concerned with tax assessment and collection, accounting, auditing, budgeting, purchasing, custody of funds, and other finance activities; legislative bodies and related activities involved in the making, enacting, and repeal of law; and government-wide executive, administrative, and staff service agencies other than financial, judicial, legal, and Federal or state legislative activities."},
           	{"name": "Financial Administration", "unit": "FTE employees", "dataType": "level", "definition": "Number of FTEs working on Officials and central staff agencies concerned with tax assessment and collection, accounting, auditing, budgeting, purchasing, custody of funds, and other finance activities."},
@@ -170,6 +174,7 @@
         {
           "name": "Other Employment",
           "source": "U.S. Census Bureau - Census of Individual Governments: Employment",
+          "companions": [["Other Employment", "Other & Unallocable"], ["Other Employment", "Total"], ["Administration Employment", "Total Administration"], ["Public Amenity Employment", "Total Public Amenity"]],
           "years": [2007, 2008, 2009, 2010, 2011, 2012],
           "children": [
             {"name": "Total", "unit": "FTE employees", "dataType": "level", "definition": "The number of Full-time equivalent (FTE) employees for each county is a computed statistic representing the number of full-time employees that could have been employed if the reported number of hours worked by part-time employees had been worked by full-time employees."},
@@ -199,6 +204,7 @@
           "name": "Intergovernmental Revenue",
           "source": "U.S. Census Bureau - Census of Individual Governments: Finance",
           "years": [2007],
+          "companions": [["Intergovernmnetal Revenue", "Total Intergovernmental"], ["Intergovernmnetal Revenue", "From Federal Government"], ["Intergovernmnetal Revenue", "From State Government"], ["Intergovernmnetal Revenue", "From Local Government"]],
           "children": [
           	{"name": "Total", "unit": "thousands of dollars", "dataType": "level", "definition": "All amounts of money received by a government from external sources--net of refunds and other correcting transactions--other than from issuance of debt, liquidation of investments, and as agency and private trust transactions. Note that revenue excludes noncash transactions such as receipt of services, commodities, or other 'receipts in kind.'"},
           	{"name": "Total Intergovernmental", "unit": "thousands of dollars", "dataType": "level"},
@@ -211,6 +217,7 @@
           "name": "Tax Revenue",
           "source": "U.S. Census Bureau - Census of Individual Governments: Finance",
           "years": [2007],
+          "companions": [["Tax Revenue", "Total Tax"], ["Tax Revenue", "Income Tax"], ["Tax Revenue", "Property Tax"], ["Tax Revenue", "License Tax"]],
           "children": [
           	{"name": "Total", "unit": "thousands of dollars", "dataType": "level", "definition": "All amounts of money received by a government from external sources--net of refunds and other correcting transactions--other than from issuance of debt, liquidation of investments, and as agency and private trust transactions. Note that revenue excludes noncash transactions such as receipt of services, commodities, or other 'receipts in kind.'"},
           	{"name": "Total Tax", "unit": "thousands of dollars", "dataType": "level"},
@@ -319,7 +326,8 @@
        	  "name": "Financial Expenditures",
           "source": "U.S. Census Bureau - Census of Individual Governments: Finance",
        	  "years": [2007],
-       	  "children": [
+       	  "companions": [["Financial Expenditures", "Total Financial"], ["Financial Expenditures", "Interest on General Debt"], ["Financial Expenditures", "Insurance Trust - Employee Retirement"], ["Financial Expenditures", "Insurance Trust - Unemployment"]],
+          "children": [
        	  	{"name": "Total", "unit": "thousands of dollars", "dataType": "level"},
        	  	{"name": "Total Financial", "unit": "thousands of dollars", "dataType": "level"},
        	  	{"name": "Interest on General Debt", "unit": "thousands of dollars", "dataType": "level"},
@@ -423,7 +431,8 @@
        	  "name": "Other Expenditures",
           "source": "U.S. Census Bureau - Census of Individual Governments: Finance",
        	  "years": [2007],
-       	  "children": [
+       	  "companions": [["Other Expenditures", "Total Other"], ["Other Expenditures", "Misc. Commercial Activities"], ["Other Expenditures", "Other & Unallocable"], ["Other Expenditures", "General Public Buildings"]],
+          "children": [
        	  	{"name": "Total", "unit": "thousands of dollars", "dataType": "level"},
        	  	{"name": "Total Other", "unit": "thousands of dollars", "dataType": "level"},
           	{"name": "Misc. Commercial Activities", "unit": "thousands of dollars", "dataType": "level"},
@@ -435,6 +444,7 @@
           "name": "Annual Financial Report - Revenue",
           "source": "NACo Analysis of County Comprehensive Annual Financial Reports",
           "years": [2006, 2007, 2008, 2009, 2010],
+          "companions": [["Annual Financial Report - Revenue", "Total Revenue"], ["Annual Financial Report - Revenue", "Total Taxes"], ["Annual Financial Report - Revenue", "Intergovernmental"], ["Annual Financial Report - Revenue", "Licenses and Permits"]],
           "children": [
            {"name": "Total Revenue", "unit": "dollars", "dataType": "level"},
            {"name": "Total Taxes", "unit": "dollars", "dataType": "level"},
@@ -451,6 +461,7 @@
           "name": "Annual Financial Report - Expenses",
           "source": "NACo Analysis of County Comprehensive Annual Financial Reports",
           "years": [2006, 2007, 2008, 2009, 2010],
+          "companions": [["Annual Financial Report - Expenses", "Total Expenditures"], ["Annual Financial Report - Expenses", "General Government"], ["Annual Financial Report - Expenses", "Community & Economic Development"], ["Annual Financial Report - Expenses", "Public Safety & Court Related"]],
           "children": [
            {"name": "Total Expenditures", "unit": "dollars", "dataType": "level"},
            {"name": "General Government", "unit": "dollars", "dataType": "level"},
@@ -470,9 +481,9 @@
           "name": "Combined Tax Rates",
           "source": "NACo Research",
           "years": [2007, 2008, 2009, 2010, 2011],
+          "companions": [["Combined Tax Rates", "Fiscal Year End"], ["Combined Tax Rates", "County Income Tax"], ["Combined Tax Rates", "Personal Property Tax"], ["Combined Tax Rates", "Business Property Tax"]],
           "children": [
-           {"name": "Fiscal Year"},
-           {"name": "Fiscal Year End"},
+           {"name": "Fiscal Year End", "dataType":"categorical"},
            {"name": "County Income Tax"},
            {"name": "State Income Tax"},
            {"name": "Personal Property Tax"},
@@ -496,6 +507,7 @@
           "name": "Government Structure",
           "source": "NACo Research",
           "years": [2014],
+          "companions": [["Government Structure", "Total Elected Officials"], ["Government Structure", "Size of Board"], ["Government Structure", "Elected Executive"], ["Government Structure", "County Administrator"]],
           "children": [
             {"name": "Total Elected Officials", "dataType": "level"},
             {"name": "Size of Board", "dataType": "level"},
@@ -512,7 +524,8 @@
         	{
         		"name": "Population Levels and Trends",
         		"years": [2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013],
-        		"children": [
+        		"companions": [["Demographics", "Population Level"], ["Demographics", "Population Annual Growth Rate (from previous year)"], ["Population Density", "Population Density"], ["Population by Age/Gender", "Percent 65 and older"]],
+          		"children": [
         			{"name": "Population Level", "dataType": "level"},
         			{"name": "Population Annual Growth Rate (from previous year)", "dataType": "percent"}
         		]
@@ -520,7 +533,8 @@
         	{
         		"name": "Population Change Components",
         		"years": [2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013],
-        		"children": [
+        		"companions": [["Demographics", "Population Level"], ["Demographics", "Population Annual Growth Rate (from previous year)"], ["Population Change Components", "Birth Rate"], ["Population Change Conponents", "Net Migration Rate"]],
+          		"children": [
         			{"name": "Population Level", "dataType": "level"},
         			{"name": "Change in Population (from previous year)", "dataType": "percent"},
         			{"name": "Births", "dataType": "level"},
@@ -540,7 +554,8 @@
         	{
         		"name": "Population Density",
         		"years": [2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013],
-        		"children": [
+        		"companions": [["Demographics", "Population Level"], ["Demographics", "Population Annual Growth Rate (from previous year)"], ["Population Density", "Population Density"], ["Population by Age/Gender", "Percent 65 and older"]],
+          		"children": [
         			{"name": "Population Level", "dataType": "level"},
         			{"name": "Population Density", "dataType": "level"},
         			{"name": "Population Density Growth Rate (from previous year)", "dataType": "percent"},
@@ -552,7 +567,8 @@
         	{
         		"name": "Population by Age/Gender",
         		"years": [2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012],
-        		"children": [
+        		"companions": [["Demographics", "Population Level"], ["Population by Age/Gender", "Percent Female"], ["Population by Age/Gender", "Percent 65 and older"], ["Population By Age/Gender", "Percent 5-24 years old"]],
+          		"children": [
         			{"name": "Total Population Level", "dataType": "level"},
         			{"name": "Male Population", "dataType": "level"},
         			{"name": "Percent Male", "dataType": "percent"},
@@ -571,7 +587,8 @@
         	{
         		"name": "Population by Ethnicity",
         		"years": [2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012],
-        		"children": [
+        		"companions": [["Demographics", "Population Level"], ["Population by Ethnicity", "White Population"], ["Population by Ethnicity", "Black or African American Population Population"], ["Population by Ethnicity", "Hispanic or Latino Origin"]],
+          		"children": [
         			{"name": "Total Population", "dataType": "level"},
         			{"name": "White Population", "dataType": "level"},
         			{"name": "Black or African American Population", "dataType": "level"},
@@ -590,6 +607,7 @@
         {
           "name": "Household Income",
           "years": [2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012],
+          "companions": [["Household Income", "Median Household Income"], ["Household Income", "Percent of Households with Income Less than $10,000"], ["Household Income", "Percent of Households with Income Between $50,000 - $99,999"], ["Household Income", "Percent of Households with Income of $200,000 or more"]],
           "children": [
             {"name": "Total Households", "dataType": "level"},
             {"name": "Per Capita Income", "dataType": "level"},
@@ -611,6 +629,7 @@
         {
           "name": "Labor Force",
           "years": [2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013],
+          "companions": [["Labor Force", "Civilian Labor Force Population"], ["Labor Force", "Unemployment Rate"], ["Labor Force", "Number Employed"], ["Labor Force", "Number Unemployed"]],
           "children": [
             {"name": "Civilian Labor Force Population", "dataType": "level"},
             {"name": "Number Employed", "dataType": "level"},
@@ -626,6 +645,7 @@
         {
           "name": "Education Employment",
           "years": [2007, 2008, 2009, 2010, 2011, 2012],
+          "companions": [["Education Expenditures", "Total Education"], ["Education Employment", "Total Education"], ["Education Employment", "Elementary & Secondary Education"], ["Education Employment", "Higher Education"]],
           "children": [
             {"name": "Total", "dataType": "level"},
             {"name": "Total Education", "dataType": "level"},
@@ -634,9 +654,10 @@
           ]
         },
         {
-        	"name": "Expenditures on Education",
+        	"name": "Education Expenditures",
         	"years": [2007],
-        	"children": [
+        	"companions": [["Education Expenditures", "Total Education"], ["Education Employment", "Total Education"], ["Education Expenditures", "Elementary & Secondary Education"], ["Education Expenditures", "Higher Education"]],
+          	"children": [
         		{"name": "Total", "unit": "thousands of dollars", "dataType": "level"},
         		{"name": "Total Education", "unit": "thousands of dollars", "dataType": "level"},
         		{"name": "Elementary & Secondary Education", "unit": "thousands of dollars", "dataType": "level"},
