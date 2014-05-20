@@ -23,12 +23,12 @@
        	  ]
         },
         {
-          "name": "Adminstration Employment",
+          "name": "Administration Employment",
           "source": "U.S. Census Bureau - Census of Individual Governments: Employment",
           "years": [2007, 2008, 2009, 2010, 2011, 2012],
           "children": [
             {"name": "Total", "unit": "FTE employees", "dataType": "level", "definition": "The number of Full-time equivalent (FTE) employees for each county is a computed statistic representing the number of full-time employees that could have been employed if the reported number of hours worked by part-time employees had been worked by full-time employees."},
-            {"name": "Total Adminstration", "unit": "FTE employees", "dataType": "level", "definition": "Includes all FTE on Financial Administration, Social Insurance Administration and Other Governmental Administration.  Covers  administration of unemployment compensation systems, public employment services, and the Federal Social Security, Medicare, and Railroad Retirement trusts; officials and central staff agencies concerned with tax assessment and collection, accounting, auditing, budgeting, purchasing, custody of funds, and other finance activities; legislative bodies and related activities involved in the making, enacting, and repeal of law; and government-wide executive, administrative, and staff service agencies other than financial, judicial, legal, and Federal or state legislative activities."},
+            {"name": "Total Administration", "unit": "FTE employees", "dataType": "level", "definition": "Includes all FTE on Financial Administration, Social Insurance Administration and Other Governmental Administration.  Covers  administration of unemployment compensation systems, public employment services, and the Federal Social Security, Medicare, and Railroad Retirement trusts; officials and central staff agencies concerned with tax assessment and collection, accounting, auditing, budgeting, purchasing, custody of funds, and other finance activities; legislative bodies and related activities involved in the making, enacting, and repeal of law; and government-wide executive, administrative, and staff service agencies other than financial, judicial, legal, and Federal or state legislative activities."},
           	{"name": "Financial Administration", "unit": "FTE employees", "dataType": "level", "definition": "Number of FTEs working on Officials and central staff agencies concerned with tax assessment and collection, accounting, auditing, budgeting, purchasing, custody of funds, and other finance activities."},
             {"name": "Other Governmental Administration", "unit": "FTE employees", "dataType": "level", "definition": "Number of FTEs working on Government-wide executive, administrative, and staff service agencies other than financial, judicial, legal, and Federal or state legislative activities."},
             {"name": "Social Insurance Administration", "unit": "FTE employees", "dataType": "level", "definition": "Number of FTEs working on Administration of unemployment compensation systems, public employment services, and the Federal Social Security, Medicare, and Railroad Retirement trusts. Includes Employees of unemployment compensation, unemployment insurance, and equivalent agencies involved in administering the cooperative Federal-state unemployment compensation system."}
@@ -54,12 +54,12 @@
       "name": "County FTE Employment",
       "children": [
         {
-          "name": "Adminstration Employment",
+          "name": "Administration Employment",
           "source": "U.S. Census Bureau - Census of Individual Governments: Employment",
           "years": [2007, 2008, 2009, 2010, 2011, 2012],
           "children": [
             {"name": "Total", "unit": "FTE employees", "dataType": "level", "definition": "The number of Full-time equivalent (FTE) employees for each county is a computed statistic representing the number of full-time employees that could have been employed if the reported number of hours worked by part-time employees had been worked by full-time employees."},
-            {"name": "Total Adminstration", "unit": "FTE employees", "dataType": "level", "definition": "Number of FTEs on Financial Administration, Social Insurance Administration and Other Governmental Administration.  Covers  administration of unemployment compensation systems, public employment services, and the Federal Social Security, Medicare, and Railroad Retirement trusts; officials and central staff agencies concerned with tax assessment and collection, accounting, auditing, budgeting, purchasing, custody of funds, and other finance activities; legislative bodies and related activities involved in the making, enacting, and repeal of law; and government-wide executive, administrative, and staff service agencies other than financial, judicial, legal, and Federal or state legislative activities."},
+            {"name": "Total Administration", "unit": "FTE employees", "dataType": "level", "definition": "Number of FTEs on Financial Administration, Social Insurance Administration and Other Governmental Administration.  Covers  administration of unemployment compensation systems, public employment services, and the Federal Social Security, Medicare, and Railroad Retirement trusts; officials and central staff agencies concerned with tax assessment and collection, accounting, auditing, budgeting, purchasing, custody of funds, and other finance activities; legislative bodies and related activities involved in the making, enacting, and repeal of law; and government-wide executive, administrative, and staff service agencies other than financial, judicial, legal, and Federal or state legislative activities."},
           	{"name": "Financial Administration", "unit": "FTE employees", "dataType": "level", "definition": "Number of FTEs working on Officials and central staff agencies concerned with tax assessment and collection, accounting, auditing, budgeting, purchasing, custody of funds, and other finance activities."},
             {"name": "Other Governmental Administration", "unit": "FTE employees", "dataType": "level", "definition": "Number of FTEs working on Government-wide executive, administrative, and staff service agencies other than financial, judicial, legal, and Federal or state legislative activities."},
             {"name": "Social Insurance Administration", "unit": "FTE employees", "dataType": "level", "definition": "Number of FTEs working on Administration of unemployment compensation systems, public employment services, and the Federal Social Security, Medicare, and Railroad Retirement trusts. Includes Employees of unemployment compensation, unemployment insurance, and equivalent agencies involved in administering the cooperative Federal-state unemployment compensation system."}
@@ -513,6 +513,7 @@
         		"name": "Population Levels and Trends",
         		"source": "U.S. Census Bureau - Population Estimates Program (PEP)",
         		"years": [2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013],
+        		"vintage": 2013,
         		"children": [
         			{"name": "Population Level", "dataType": "level", "definition": "The calculated number of people living in an area as of a specified point in time, usually July 1st. The estimated population is calculated using a component of change model that incorporates information on natural increase (births, deaths) and net migration (net domestic migration, net international migration) that has occurred in an area since the latest decennial census."},
         			{"name": "Population Annual Growth Rate (from previous year)", "dataType": "percent", "definition": "The difference between the population of an area at the beginning and end of a time period, expressed as a percentage of the beginning population."}
@@ -522,6 +523,7 @@
         		"name": "Population Change Components",
         		"source": "U.S. Census Bureau - Population Estimates Program (PEP)",
         		"years": [2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013],
+        		"vintage": 2013,
         		"children": [
         			{"name": "Population Level", "dataType": "level", "definition": "The calculated number of people living in an area as of a specified point in time, usually July 1st. The estimated population is calculated using a component of change model that incorporates information on natural increase (births, deaths) and net migration (net domestic migration, net international migration) that has occurred in an area since the latest decennial census."},
         			{"name": "Change in Population (from previous year)", "dataType": "level_np", "definition": "The difference between the population of an area at the beginning and end of a time period."},
@@ -543,6 +545,7 @@
         		"name": "Population Density",
         		"source": "U.S. Census Bureau - Population Estimates Program (PEP)",
         		"years": [2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013],
+        		"vintage": 2013,
         		"children": [
         			{"name": "Population Level", "dataType": "level", "definition": "The calculated number of people living in an area as of a specified point in time, usually July 1st. The estimated population is calculated using a component of change model that incorporates information on natural increase (births, deaths) and net migration (net domestic migration, net international migration) that has occurred in an area since the latest decennial census."},
         			{"name": "Population Density", "dataType": "level", "definition": "Number of people per square mile according to the population estimates from the Census Bureau."},
@@ -556,6 +559,7 @@
         		"name": "Population by Age/Gender",
          		"source": "U.S. Census Bureau - Population Estimates Program (PEP)",
 	       		"years": [2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012],
+	       		"vintage": 2012,
         		"children": [
         			{"name": "Total Population Level", "dataType": "level", "definition": "The calculated number of people living in an area as of a specified point in time, usually July 1st. The estimated population is calculated using a component of change model that incorporates information on natural increase (births, deaths) and net migration (net domestic migration, net international migration) that has occurred in an area since the latest decennial census."},
         			{"name": "Male Population", "dataType": "level", "definition": "Total male population as self identified according to population estimates from the Census Bureau."},
@@ -576,6 +580,7 @@
         		"name": "Population by Ethnicity",
          		"source": "U.S. Census Bureau - Population Estimates Program (PEP)",
 	       		"years": [2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012],
+	       		"vintage": 2012,
         		"children": [
         			{"name": "Total Population", "dataType": "level", "definition": "The calculated number of people living in an area as of a specified point in time, usually July 1st. The estimated population is calculated using a component of change model that incorporates information on natural increase (births, deaths) and net migration (net domestic migration, net international migration) that has occurred in an area since the latest decennial census."},
         			{"name": "White Population", "dataType": "level", "definition": "Population estimate of people (not hispanic) identifying with origins in any of the original peoples of Europe, the Middle East, or North Africa."},
@@ -594,7 +599,7 @@
       "children": [
         {
           "name": "Household Income",
-          "source": "U.S. Census Bureau - American Community Survey (ACS)"
+          "source": "U.S. Census Bureau - American Community Survey (ACS)",
           "years": [2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012],
           "children": [
             {"name": "Total Households", "dataType": "level", "definition": "A household consists of all the people who occupy a housing unit. A house, an apartment or other group of rooms, or a single room, is regarded as a housing unit when it is occupied or intended for occupancy as separate living quarters; that is, when the occupants do not live with any other persons in the structure and there is direct access from the outside or through a common hall. A household includes the related family members and all the unrelated people, if any, such as lodgers, foster children, wards, or employees who share the housing unit. A person living alone in a housing unit, or a group of unrelated people sharing a housing unit such as partners or roomers, is also counted as a household. The count of households excludes group quarters."},
@@ -616,7 +621,7 @@
         },
         {
           "name": "Labor Force",
-          "source": "Bureau of Labor Statistics - Local Area Unemployment Statistics (LAUS)"
+          "source": "Bureau of Labor Statistics - Local Area Unemployment Statistics (LAUS)",
           "years": [2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013],
           "children": [
             {"name": "Civilian Labor Force Population", "dataType": "level", "definition": "All private industry and state and local government workers.  Federal government, military and agricultural workers are excluded."},
@@ -632,6 +637,7 @@
       "children": [
         {
           "name": "Education Employment",
+          "source": "U.S. Census Bureau - Census of Individual Governments: Employment",
           "years": [2007, 2008, 2009, 2010, 2011, 2012],
           "children": [
             {"name": "Total", "unit": "FTE employees", "dataType": "level", "definition": "The number of Full-time equivalent (FTE) employees for each county is a computed statistic representing the number of full-time employees that could have been employed if the reported number of hours worked by part-time employees had been worked by full-time employees."},
@@ -642,6 +648,7 @@
         },
         {
           "name": "Expenditures on Education",
+          "source": "U.S. Census Bureau - Census of Individual Governments: Finance",
           "years": [2007],
           "children": [
        	  	{"name": "Total", "unit": "thousands of dollars", "dataType": "level", "definition": "All amounts of money paid out by a government--net of recoveries and other correcting transactions--other than for retirement of debt, investment in securities, extension of credit, or as agency transactions. Note that expenditure includes only external transactions of a government and excludes non-cash transactions such as the provision of perquisites or other payments in kind."},
@@ -657,22 +664,24 @@
         },
         {
         	"name": "Public Elementary & Secondary Schools",
+        	"source": "National Center for Economic Statistics (NCES) - Common Core Data (CCD), Elementary and Secondary Information System (ELSi)",
         	"years": [2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012],
         	"children": [
-        		{"name": "Number of Districts", "dataType": "level"},
-        		{"name": "Number Operational Schools", "dataType": "level"},
-        		{"name": "Number of Local School Districts", "dataType": "level"},
-        		{"name": "Number of Federally-operated Institutions", "dataType": "level"},
-        		{"name": "Number of State-operated Institutions", "dataType": "level"},
-        		{"name": "Number of Charter School Agencies", "dataType": "level"},
-        		{"name": "Number of Other School Agencies", "dataType": "level"},
-        		{"name": "Total Students", "dataType": "level"},
-        		{"name": "FTE Teachers", "dataType": "level"},
-        		{"name": "Pupil/Teacher Ratio", "dataType": "level"}
+        		{"name": "Number of Districts", "dataType": "level", "definition": "The number of school districts located in the county."},
+        		{"name": "Number Operational Schools", "dataType": "level", "definition": "The number of operational schools located in the county."},
+        		{"name": "Number of Local School Districts", "dataType": "level", "definition": "The number of Local School Districts or Local School District Components of a Supervisory Union located in the county."},
+        		{"name": "Number of Federally-operated Institutions", "dataType": "level", "definition": "The number of Federally Operated institutions located in the county."},
+        		{"name": "Number of State-operated Institutions", "dataType": "level", "definition": "The number of State Operated institutions located in the county."},
+        		{"name": "Number of Charter School Agencies", "dataType": "level", "definition": "The number of Charter School agencies located in the county."},
+        		{"name": "Number of Other School Agencies", "dataType": "level", "definition": "The number of Supervisory Union Administrative centers, Regional education services agencies, and other education agencies located in the county."},
+        		{"name": "Total Students", "dataType": "level", "definition": "The total number of students in all the school districts located in the county."},
+        		{"name": "FTE Teachers", "dataType": "level", "definition": "The total number of Full-Time Equivalent teachers working in all the school districts located in the county."},
+        		{"name": "Pupil/Teacher Ratio", "dataType": "level", "definition": "The ratio of total students to full-time equivalent teachers in the county."}
         	]
         },
         {
         	"name": "Colleges & Universities",
+        	"source": "National Center for Economic Statistics (NCES) - Integrated Postsecondary Education Data System (IPEDS)",
         	"years": [2009, 2010, 2011, 2012],
         	"children": [
         	  {"name": "Number of Institutions", "dataType": "level"},
@@ -695,7 +704,7 @@
       		"name": "American Dream Downpayment Initiative (ADDI)",
       		"years": [2003, 2004, 2005, 2006, 2007, 2008],
       		"children": [
-      			{"name": "ADDI Amount", "unit": "thousands of dollars", "dataType": "level"},
+      			{"name": "ADDI Amount", "unit": "thousands of dollars", "dataType": "level", "definition": "Funding received from the American Dream Downpayment Initiative"},
       			{"name": "ADDI Annual Growth Rate (from previous year)", "dataType": "percent"}
       		]
       	},
@@ -787,6 +796,7 @@
 		"children": [
 		   {
 			     "name": "County Profile",
+		   		"source": "U.S. Census Bureau, NACo Research",
 				 "years": [2013],
 				 "children": [
 					{"name": "Census Region", "dataType": "categorical"},
@@ -803,6 +813,7 @@
 		   },
 		   {
 			   	"name": "Land & Water Area",
+		   		"source": "U.S. Census Bureau - Gazetteer, NACo Research - Counties with NOAA Trust Resources",
 			   	"years": [2010],
 			   	"children": [
 			   		{"name": "Total Square Miles", "dataType": "level"},
@@ -814,6 +825,7 @@
 		   },
 		   {
 		   		"name": "Metro-Micro Areas (MSA)",
+		   		"source": "U.S. Census Bureau",
 		   		"years": [2013],
 		   		"children": [
 		   			{"name": "CBSA Code"},
@@ -831,53 +843,57 @@
         "children": [
         	{
 	          "name": "Health & Hospitals Employment",
+	          "source": "U.S. Census Bureau - Census of Individual Governments: Employment",
 	          "years": [2007, 2008, 2009, 2010, 2011, 2012],
 	          "children": [
-	          	{"name": "Total", "dataType": "level"},
-	            {"name": "Total Health & Hospitals", "dataType": "level"},
-	          	{"name": "Health", "dataType": "level"},
-	            {"name": "Hospitals", "dataType": "level"}
+	            {"name": "Total", "unit": "FTE employees", "dataType": "level", "definition": "The number of Full-time equivalent (FTE) employees for each county is a computed statistic representing the number of full-time employees that could have been employed if the reported number of hours worked by part-time employees had been worked by full-time employees."},
+	            {"name": "Total Health & Hospitals", "unit":"FTE employees", "dataType": "level", "definition": "Number of FTEs working in hospitals or providing health services."},
+	          	{"name": "Health", "unit":"FTE employees", "dataType": "level", "definition": "Number of FTEs working on Provision of services for the conservation and improvement of public health, other than hospital care, and support of other governments’ health programs."},
+	            {"name": "Hospitals", "unit":"FTE employees", "dataType": "level", "definition": "Number of FTEs working on Services provided from a government’s own hospitals as well as expenditures for the provision of care in other hospitals (public or private). Own hospitals are facilities directly administered by the government, including those operated by public universities. Other expenditures cover the provision of care in other hospitals and support of other public and private hospitals."}
 	          ]
 	        },
 	        {
 	       	  "name": "Health & Hospitals Expenditures",
+	          "source": "U.S. Census Bureau - Census of Individual Governments: Finance",
 	       	  "years": [2007],
 	       	  "children": [
-	       	  	{"name": "Total", "unit": "thousands of dollars", "dataType": "level"},
+	       	  	{"name": "Total", "unit": "thousands of dollars", "dataType": "level", "definition": "All amounts of money paid out by a government--net of recoveries and other correcting transactions--other than for retirement of debt, investment in securities, extension of credit, or as agency transactions. Note that expenditure includes only external transactions of a government and excludes non-cash transactions such as the provision of perquisites or other payments in kind."},
 	       	  	{"name": "Total Health & Hospitals", "unit": "thousands of dollars", "dataType": "level"},
-	       	  	{"name": "Health", "unit": "thousands of dollars", "dataType": "level"},
-	           	{"name": "Hospitals", "unit": "thousands of dollars", "dataType": "level"},
-	       	  	{"name": "Current Operations", "unit": "thousands of dollars", "dataType": "level"},
-	        	{"name": "Construction", "unit": "thousands of dollars", "dataType": "level"},
-	        	{"name": "Other Capital Outlay", "unit": "thousands of dollars", "dataType": "level"},
-	        	{"name": "Intergovernmental to State", "unit": "thousands of dollars", "dataType": "level"},
-	        	{"name": "Intergovernmental to Local", "unit": "thousands of dollars", "dataType": "level"}
+	       	  	{"name": "Health", "unit": "thousands of dollars", "dataType": "level", "definition": "Provision of services for the conservation and improvement of public health, other than hospital care, and financial support of other governments’ health programs. Includes: Expenditures for general health activities, categorical health activities and programs, healthrelated inspections, community health care programs, regulation of air and water quality, rabies and animal control, and ambulance and emergency medical services ONLY IF handled separately from the local fire department. Also includes state or local expenditure financed by Federal Government “Superfund” for cleanup of hazardous waste sites. School health services provided by health agencies (rather than school agencies) are included here. Sewage treatment operations are classified under Sewerage."},
+	           	{"name": "Hospitals", "unit": "thousands of dollars", "dataType": "level", "definition": "Expenditures related to a government’s own hospitals as well as expenditures for the provision of care in other hospitals (public or private). Own hospitals are facilities directly administered by the government, including those operated by public universities. Other expenditures cover the provision of care in other hospitals and support of other public and private hospitals. This function also covers direct payments for acquisition or construction of hospitals (whether or not the government will operate the completed facility) and payments to private corporations that lease and operate government owned hospitals."},
+	       	  	{"name": "Current Operations", "unit": "thousands of dollars", "dataType": "level", "definition": "Direct expenditure for compensation of own officers and employees and for supplies, materials, and contractual services except amounts for capital outlay."},
+	        	{"name": "Construction", "unit": "thousands of dollars", "dataType": "level", "definition": "Production of fixed works and structures additions, replacements, and major alterations, including planning and design of specific projects, site improvements, and provision of equipment and facilities that are integral parts of a structure. Includes contract construction, undertaken on a contract basis by private contractors, and force account construction, undertaken with direct use of material and labor by the government."},
+	        	{"name": "Other Capital Outlay", "unit": "thousands of dollars", "dataType": "level", "definition": "Direct expenditure for contract or force account construction of buildings, grounds, and other improvements, and purchase of equipment, land, and existing structures. Includes amounts for additions, replacements, and major alterations to fixed works and structures. However, expenditure for repairs to such works and structures is classified as current operation expenditure."},
+	        	{"name": "Intergovernmental to State", "unit": "thousands of dollars", "dataType": "level", "definition": "Amounts paid to the state government for performance of specific functions or for general financial support. Includes grants, shared taxes, contingent loans and advances, and any significant and identifiable amounts or reimbursement paid to other governments for performance of general government services or activities. By definition, it excludes amounts paid to other governments for purchase of commodities, property, or utility services and for any tax levied as such on facilities of the government."},
+	        	{"name": "Intergovernmental to Local", "unit": "thousands of dollars", "dataType": "level", "definition": "Amounts paid to other local governments government for performance of specific functions or for general financial support. Includes grants, shared taxes, contingent loans and advances, and any significant and identifiable amounts or reimbursement paid to other governments for performance of general government services or activities. By definition, it excludes amounts paid to other governments for purchase of commodities, property, or utility services and for any tax levied as such on facilities of the government."}
 	       	  ]
 	        },
         	{
         		"name": "Hospitals",
+        		"source": "American Hospital Directory",
         		"years": [2011],
         		"children": [
-        			{"name": "Number of Hospitals", "dataType": "level"},
-        			{"name": "Number of City Facilities", "dataType": "level"},
-        			{"name": "Number of County Facilities", "dataType": "level"},
-        			{"name": "Number of City-County Facilities", "dataType": "level"},
-        			{"name": "Number of Hospital District Facilities", "dataType": "level"},
-        			{"name": "Number of Other Government Facilities", "dataType": "level"},
-        			{"name": "Number of Proprietary Facilities", "dataType": "level"},
-        			{"name": "Number of Nonprofit Facilities", "dataType": "level"},
-        			{"name": "Number of Beds", "dataType": "level"},
-        			{"name": "Number of Employees", "dataType": "level"},
-        			{"name": "Gross Revenue", "unit": "dollars", "dataType": "level"},
-        			{"name": "Medicare Revenue", "unit": "dollars", "dataType": "level"},
-        			{"name": "Medicaid Revenue", "unit": "dollars", "dataType": "level"},
-        			{"name": "Patient Days", "dataType": "level"},
-        			{"name": "Revenue per Bed", "unit": "dollars", "dataType": "level"},
-        			{"name": "Revenue per Patient Day", "unit": "dollars", "dataType": "level"}
+        			{"name": "Number of Hospitals", "dataType": "level", "definition": "Number of hospitals located in the county."},
+        			{"name": "Number of City Facilities", "dataType": "level", "definition": "Number of hospitals controlled by the city in the county."},
+        			{"name": "Number of County Facilities", "dataType": "level", "definition": "Number of hospitals controlled by the county in the county."},
+        			{"name": "Number of City-County Facilities", "dataType": "level", "definition": "Number of hospitals controlled by city-county in the county."},
+        			{"name": "Number of Hospital District Facilities", "dataType": "level", "definition": "Number of hospitals controlled by hospital districts in the county."},
+        			{"name": "Number of Other Government Facilities", "dataType": "level", "definition": "Number of hospitals controlled by other governmental agencies in the county."},
+        			{"name": "Number of Proprietary Facilities", "dataType": "level", "definition": "Number of non-governmental proprietary hospitals located in the county."},
+        			{"name": "Number of Nonprofit Facilities", "dataType": "level", "definition": "Number of voluntary, non-profit hospitals located in the county."},
+        			{"name": "Number of Beds", "dataType": "level", "definitions": "Total number of beds available for use by patients in all hopsitals located in the county.  A bed means an adult bed, pediatric bed, birthing room, or newborn bed maintained in a patient care area for lodging patients in acute, long term, or domiciliary areas of the hospital."},
+        			{"name": "Number of Employees", "dataType": "level", "definition": "Total number of employees working in all hospitals located in the county."},
+        			{"name": "Gross Revenue", "unit": "dollars", "dataType": "level", "definition": "Gross revenue of all hospitals located in the county as reported on Medicare reports."},
+        			{"name": "Medicare Revenue", "unit": "dollars", "dataType": "level", "definition": "Amount of revenue from all hospitals located in the county from the Medicare program."},
+        			{"name": "Medicaid Revenue", "unit": "dollars", "dataType": "level", "defintiion": "Amount of revenue from all hospitals located in the county from the Medicaid program."},
+        			{"name": "Patient Days", "dataType": "level", "definition": "Total number of patient days from most recent Medicare cost report from all hospitals located in the county."},
+        			{"name": "Revenue per Bed", "unit": "dollars", "dataType": "level", "definition": "Average amount of revenue per hospital bed of all hospitals located in the county."},
+        			{"name": "Revenue per Patient Day", "unit": "dollars", "dataType": "level", "definition": "Amount of revenue per patient day of all hospitals located in the county."}
         		]
         	},
         	{
         		"name": "Nursing Homes",
+        		"source": "Department of Health & Human Services",
         		"years": [2014],
         		"children": [
         			{"name": "Number of Nursing Homes", "dataType": "level"},
@@ -897,6 +913,7 @@
         	},
         	{
         		"name": "Health Insurance",
+        		"source": "U.S. Census Bureau - American Community Survey (ACS)",
         		"years": [2009, 2010, 2011, 2012],
         		"children": [
         			{"name": "Population", "dataType": "level"},
@@ -925,28 +942,31 @@
         "name": "Housing & Community Development",
         "children": [
         	{
-	          "name": "Housing & Community Development Employment",
-	          "years": [2007, 2008, 2009, 2010, 2011, 2012],
-	          "children": [
-	          	{"name": "Total", "dataType": "level"},
-	          	{"name": "Housing & Community Development", "dataType": "level"}
-	          ]
+	          	"name": "Housing & Community Development Employment",
+	          	"source": "U.S. Census Bureau - Census of Individual Governments: Employment",
+	          	"years": [2007, 2008, 2009, 2010, 2011, 2012],
+	          	"children": [
+		            {"name": "Total", "unit": "FTE employees", "dataType": "level", "definition": "The number of Full-time equivalent (FTE) employees for each county is a computed statistic representing the number of full-time employees that could have been employed if the reported number of hours worked by part-time employees had been worked by full-time employees."},
+	          		{"name": "Housing & Community Development", "unit":"FTE employees", "dataType": "level", "definition": "Number of FTEs working on Construction, operation, and support of housing and redevelopment projects and other activities to promote or aid public and private housing and community development.  Includes: Housing: Planning, construction, furnishing, and operation of public housing projects (generally for persons not adequately served by private sector). Community development: Urban renewal and slum clearance; redevelopment and rehabilitation of substandard or deteriorated facilities and areas; rural redevelopment; and revitalization of commercial areas."}
+	          	]
 	        },
-        	{
-	       	  "name": "Housing & Community Development Expenditures",
-	       	  "years": [2007],
-	       	  "children": [
-	       	  	{"name": "Total", "unit": "thousands of dollars", "dataType": "level"},
-	       	  	{"name": "Total Housing & Community Development", "unit": "thousands of dollars", "dataType": "level"},
-	       	  	{"name": "Current Operations", "unit": "thousands of dollars", "dataType": "level"},
-	        	{"name": "Construction", "unit": "thousands of dollars", "dataType": "level"},
-	        	{"name": "Other Capital Outlay", "unit": "thousands of dollars", "dataType": "level"},
-	        	{"name": "Intergovernmental to State", "unit": "thousands of dollars", "dataType": "level"},
-	        	{"name": "Intergovernmental to Local", "unit": "thousands of dollars", "dataType": "level"}
-	       	  ]
-	        },
+       		{
+       	  		"name": "Housing & Community Development Expenditures",
+        	 	"source": "U.S. Census Bureau - Census of Individual Governments: Finance",
+       	  		"years": [2007],
+       	  		"children": [
+       	  			{"name": "Total", "unit": "thousands of dollars", "dataType": "level", "definition": "All amounts of money paid out by a government--net of recoveries and other correcting transactions--other than for retirement of debt, investment in securities, extension of credit, or as agency transactions. Note that expenditure includes only external transactions of a government and excludes non-cash transactions such as the provision of perquisites or other payments in kind."},
+       	  			{"name": "Total Housing & Community Development", "unit": "thousands of dollars", "dataType": "level"},
+       	  			{"name": "Current Operations", "unit": "thousands of dollars", "dataType": "level", "definition": "Direct expenditure for compensation of own officers and employees and for supplies, materials, and contractual services except amounts for capital outlay."},
+        			{"name": "Construction", "unit": "thousands of dollars", "dataType": "level", "definition": "Production of fixed works and structures additions, replacements, and major alterations, including planning and design of specific projects, site improvements, and provision of equipment and facilities that are integral parts of a structure. Includes contract construction, undertaken on a contract basis by private contractors, and force account construction, undertaken with direct use of material and labor by the government."},
+        			{"name": "Other Capital Outlay", "unit": "thousands of dollars", "dataType": "level", "definition": "Direct expenditure for contract or force account construction of buildings, grounds, and other improvements, and purchase of equipment, land, and existing structures. Includes amounts for additions, replacements, and major alterations to fixed works and structures. However, expenditure for repairs to such works and structures is classified as current operation expenditure."},
+        			{"name": "Intergovernmental to State", "unit": "thousands of dollars", "dataType": "level", "definition": "Amounts paid to the state government for performance of specific functions or for general financial support. Includes grants, shared taxes, contingent loans and advances, and any significant and identifiable amounts or reimbursement paid to other governments for performance of general government services or activities. By definition, it excludes amounts paid to other governments for purchase of commodities, property, or utility services and for any tax levied as such on facilities of the government."},
+        			{"name": "Intergovernmental to Local", "unit": "thousands of dollars", "dataType": "level", "definition": "Amounts paid to other local governments government for performance of specific functions or for general financial support. Includes grants, shared taxes, contingent loans and advances, and any significant and identifiable amounts or reimbursement paid to other governments for performance of general government services or activities. By definition, it excludes amounts paid to other governments for purchase of commodities, property, or utility services and for any tax levied as such on facilities of the government."}
+       	  		]
+        	},
 	        {
-        		"name": "Housing unit",
+        		"name": "Housing Units",
+        		"source": "U.S. Census Bureau - American Community Survey (ACS)",
         		"years": [2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012],
         		"children": [
         			{"name": "Population", "dataType": "level"},
@@ -966,37 +986,39 @@
         "children": [
         	{
 	          "name": "Justice & Public Safety Employment",
+	          "source": "U.S. Census Bureau - Census of Individual Governments: Employment",
 	          "years": [2007, 2008, 2009, 2010, 2011, 2012],
 	          "children": [
-	          	{"name": "Total", "dataType": "level"},
-	            {"name": "Total Justice & Public Safety", "dataType": "level"},
-	          	{"name": "Correction", "dataType": "level"},
-	            {"name": "Judicial & Legal Services", "dataType": "level"},
-	            {"name": "Police Protection", "dataType": "level"},
-	            {"name": "Fire Protection", "dataType": "level"},
-	            {"name": "Protective Inspection", "dataType": "level"}
+	            {"name": "Total", "unit": "FTE employees", "dataType": "level", "definition": "The number of Full-time equivalent (FTE) employees for each county is a computed statistic representing the number of full-time employees that could have been employed if the reported number of hours worked by part-time employees had been worked by full-time employees."},
+	            {"name": "Total Justice & Public Safety", "unit":"FTE employees", "dataType": "level", "definition": "Number of FTEs working on correction, judicial and legal services, and police protection. Correctional Institutions: Residential institutions or facilities for the confinement, correction, and rehabilitation of convicted adults, or juveniles adjudicated, delinquent or in need of supervision, and for the detention of adults and juveniles charged with a crime and awaiting trial. Judicial and Legal : Courts (criminal and civil) and activities associated with courts, legal services, and legal counseling of indigent or other needy persons. Police protection: sheriff, state police, and other governmental departments that preserve law and order, protect persons and property from illegal acts, and work to prevent, control, investigate, and reduce crime."},
+	          	{"name": "Correction", "unit":"FTE employees", "dataType": "level", "definition": "Number of FTEs working on Correctional Institutions: Residential institutions or facilities for the confinement, correction, and rehabilitation of convicted adults, or juveniles adjudicated, delinquent or in need of supervision, and for the detention of adults and juveniles charged with a crime and awaiting trial.      Other Corrections: Correctional activities other than Federal, state and local residential institutions or facilities."},
+	            {"name": "Judicial & Legal Services", "unit":"FTE employees", "dataType": "level", "definition": "Number of FTEs working on Courts (criminal and civil) and activities associated with courts, legal services, and legal counseling of indigent or other needy persons."},
+	            {"name": "Police Protection", "unit":"FTE employees", "dataType": "level", "definition": "Number of FTEs working on general police, sheriff, state police, and other governmental departments that preserve law and order, protect persons and property from illegal acts, and work to prevent, control, investigate, and reduce crime."},
+	            {"name": "Fire Protection", "unit":"FTE employees", "dataType": "level", "definition": "Fire fighting organization and auxiliary services; fire inspection and investigation; support of volunteer fire forces; and other fire prevention activities. Includes cost of fire fighting facilities, such as fire hydrants and water, furnished by other agencies of the government."}
 	          ]
 	        },
         	{
 	       	  "name": "Justice & Public Safety Expenditures",
+	          "source": "U.S. Census Bureau - Census of Individual Governments: Finance",
 	       	  "years": [2007],
 	       	  "children": [
-	       	  	{"name": "Total", "unit": "thousands of dollars", "dataType": "level"},
+	       	  	{"name": "Total", "unit": "thousands of dollars", "dataType": "level", "definition": "All amounts of money paid out by a government--net of recoveries and other correcting transactions--other than for retirement of debt, investment in securities, extension of credit, or as agency transactions. Note that expenditure includes only external transactions of a government and excludes non-cash transactions such as the provision of perquisites or other payments in kind."},
 	       	  	{"name": "Total Justice & Public Safety", "unit": "thousands of dollars", "dataType": "level"},
-	       	  	{"name": "Correction", "unit": "thousands of dollars", "dataType": "level"},
-	           	{"name": "Judicial & Legal Services", "unit": "thousands of dollars", "dataType": "level"},
-	           	{"name": "Police Protection", "unit": "thousands of dollars", "dataType": "level"},
-	           	{"name": "Fire Protection", "unit": "thousands of dollars", "dataType": "level"},
-	           	{"name": "Protective Inspection", "unit": "thousands of dollars", "dataType": "level"},
-	       	  	{"name": "Current Operations", "unit": "thousands of dollars", "dataType": "level"},
-	        	{"name": "Construction", "unit": "thousands of dollars", "dataType": "level"},
-	        	{"name": "Other Capital Outlay", "unit": "thousands of dollars", "dataType": "level"},
-	        	{"name": "Intergovernmental to State", "unit": "thousands of dollars", "dataType": "level"},
-	        	{"name": "Intergovernmental to Local", "unit": "thousands of dollars", "dataType": "level"}
+	       	  	{"name": "Correction", "unit": "thousands of dollars", "dataType": "level", "definition": "Correctional Institutions: Residential institutions or facilities for the confinement, correction, and rehabilitation of convicted adults, or juveniles adjudicated, delinquent or in need of supervision, and for the detention of adults and juveniles charged with a crime and awaiting trial. Includes: Facilities generally referred to as prisons, reformatories, jails, enitentiaries, correctional farms, workhouses, reception centers, industrial schools, training schools, and detention centers. Includes hospitals for the criminally insane IF operated by a corrections agency. Includes expenditure on education, training, and health care programs devoted to inmates. Includes residential work release units, and residential halfway houses, and community corrections centers. For prison industries include only amounts involved in the manufacture, sale, and distribution of articles or services for resale or use outside the government involved.             Other Corrections: Correctional activities other than Federal, state and local residential institutions or facilities. Includes: Probation offices (whether operated by courts or correctional agencies) boards of parole, boards of pardon, and the like; noninstitutional activities such as administration of a correctional agency, training of correctional employees, and nonresidential halfway houses and community corrections centers."},
+	           	{"name": "Judicial & Legal Services", "unit": "thousands of dollars", "dataType": "level", "definition": "Courts (criminal and civil) and activities associated with courts, legal services, and legal counseling of indigent or other needy persons. Includes: Expenditures for criminal and civil courts of limited and general jurisdiction; appellate courts;  juries, court reporters, witness fees, and law libraries; medical and social service activities of courts (except probation); court activities of sheriff offices (bailiffs or “civil” functions); registers of wills and other probate activities; legal departments, general counsels, solicitors, prosecuting and district attorneys; attorneys providing government-wide services; public defenders; payments for court-appointed lawyers; indigent defense; child support enforcement; and contributions to legal aid societies."},
+	           	{"name": "Police Protection", "unit": "thousands of dollars", "dataType": "level", "definition": "Expenditures for general police, sheriff, state police, and other governmental departments that preserve law and order, protect persons and property from illegal acts, and work to prevent, control, investigate, and reduce crime.    Includes: All law enforcement activities of regular police departments, sheriff and constable offices, and state highway patrols, including the following: criminal investigation, forensic services, crime labs and testifying in court; buildings, including training academies, used exclusively for police purposes; coroners, medical examiners; payments for transporting criminals; police communications and radios services; criminal justice planning and general support activities if handled by law enforcement; the following activities IF handled by a police agency: motor vehicle inspection and regulation, liquor law enforcement, and traffic control (e.g., enforcing speed laws, directing traffic)."},
+	           	{"name": "Fire Protection", "unit": "thousands of dollars", "dataType": "level", "definition": "Prevention, avoidance, and suppression of fires and provision of ambulance, medical, rescue, or auxiliary services provided by fire protection agencies.  Includes: Expenditures of regular fire departments; financial, technical, and operational support of volunteer fire forces; fire hydrant maintenance; rescue squads; fire inspection, investigation, and regulation; fire marshals; fire prevention education; fire suppression training; auxiliary services; fire stations, buildings, and other facilities used exclusively for fire protection purposes; and the following activities IF handled by a fire department: ambulances, emergency medical technicians (EMTs), paramedic squads, and arson investigation. Also include any identifiable amounts for services rendered by other agencies of the same government for fire protection or suppression, such as provision of water by water supply utility."},
+	           	{"name": "Protective Inspection", "unit": "thousands of dollars", "dataType": "level", "definition": "Protective Inspection and Regulation, NEC: Regulation and inspection of private establishments for the protection of the public or to prevent hazardous conditions NOT classified under another Census Bureau function, and the regulation of professional occupational licensing.  Includes: Inspection of plans, permits, construction, or installations related to buildings, housing, plumbing, electrical systems, gas, air conditioning, boilers, elevators, electric power plant sites, nuclear facilities, weights and measures, etc.; regulation of financial institutions, taxicabs, public service corporations, insurance companies, private utilities (telephone, electric, etc.), and other corporations; licensing, examination, and regulation of professional occupations, including health-related ones like doctors, nurses, etc.; inspection and regulation or working conditions and occupational hazards; motor vehicle inspection and weighing unless handled by a police agency; regulation and enforcement of liquor laws and sale of alcoholic beverages unless handled by a police department."},
+	       	  	{"name": "Current Operations", "unit": "thousands of dollars", "dataType": "level", "definition": "Direct expenditure for compensation of own officers and employees and for supplies, materials, and contractual services except amounts for capital outlay."},
+	        	{"name": "Construction", "unit": "thousands of dollars", "dataType": "level", "definition": "Production of fixed works and structures additions, replacements, and major alterations, including planning and design of specific projects, site improvements, and provision of equipment and facilities that are integral parts of a structure. Includes contract construction, undertaken on a contract basis by private contractors, and force account construction, undertaken with direct use of material and labor by the government."},
+	        	{"name": "Other Capital Outlay", "unit": "thousands of dollars", "dataType": "level", "definition": "Direct expenditure for contract or force account construction of buildings, grounds, and other improvements, and purchase of equipment, land, and existing structures. Includes amounts for additions, replacements, and major alterations to fixed works and structures. However, expenditure for repairs to such works and structures is classified as current operation expenditure."},
+	        	{"name": "Intergovernmental to State", "unit": "thousands of dollars", "dataType": "level", "definition": "Amounts paid to the state government for performance of specific functions or for general financial support. Includes grants, shared taxes, contingent loans and advances, and any significant and identifiable amounts or reimbursement paid to other governments for performance of general government services or activities. By definition, it excludes amounts paid to other governments for purchase of commodities, property, or utility services and for any tax levied as such on facilities of the government."},
+	        	{"name": "Intergovernmental to Local", "unit": "thousands of dollars", "dataType": "level", "definition": "Amounts paid to other local governments government for performance of specific functions or for general financial support. Includes grants, shared taxes, contingent loans and advances, and any significant and identifiable amounts or reimbursement paid to other governments for performance of general government services or activities. By definition, it excludes amounts paid to other governments for purchase of commodities, property, or utility services and for any tax levied as such on facilities of the government."}
 	       	  ]
 	        },
         	{
         		"name": "Jails - Supervised Population",
+        		"source": "Bureau of Justice Statistics - Annual Survey of Jails",
         		"years": [2008, 2009, 2010, 2011, 2012],
         		"children": [
         			{"name": "Total Jail Population", "dataType": "level"},
@@ -1010,7 +1032,8 @@
         	},
         	{
         		"name": "Jails - Supervised Population by Agency",
-        		"years": [2008, 2009, 2010, 2011, 2012],
+         		"source": "Bureau of Justice Statistics - Annual Survey of Jails",
+	       		"years": [2008, 2009, 2010, 2011, 2012],
         		"children": [
         			{"name": "Total Jail Population", "dataType": "level"},
         			{"name": "Jail Capacity", "dataType": "level"},
@@ -1027,7 +1050,8 @@
         	},
         	{
         		"name": "Jails - Inmate Demographics",
-        		"years": [2008, 2009, 2010, 2011, 2012],
+         		"source": "Bureau of Justice Statistics - Annual Survey of Jails",
+       			"years": [2008, 2009, 2010, 2011, 2012],
         		"children": [
         			{"name": "Total Jail Population", "dataType": "level"},
         			{"name": "Adult Males", "dataType": "level"},
@@ -1047,7 +1071,8 @@
         	},
         	{
         		"name": "Jails - Community Supervision",
-        		"years": [2008, 2009, 2010, 2011, 2012],
+         		"source": "Bureau of Justice Statistics - Annual Survey of Jails",
+      	 		"years": [2008, 2009, 2010, 2011, 2012],
         		"children" : [
         			{"name": "Total Jail Population", "dataType": "level"},
         			{"name": "Jail Capacity", "dataType": "level"},
@@ -1092,33 +1117,36 @@
         "children": [
         	{
 	          "name": "Public Amenity Employment",
+	          "source": "U.S. Census Bureau - Census of Individual Governments: Employment",
 	          "years": [2007, 2008, 2009, 2010, 2011, 2012],
 	          "children": [
-	          	{"name": "Total", "dataType": "level"},
-	            {"name": "Total Public Amenity", "dataType": "level"},
-	          	{"name": "Libraries", "dataType": "level"},
-	            {"name": "Natural Resources", "dataType": "level"},
-	            {"name": "Parks & Recreation", "dataType": "level"}
+	            {"name": "Total", "unit": "FTE employees", "dataType": "level", "definition": "The number of Full-time equivalent (FTE) employees for each county is a computed statistic representing the number of full-time employees that could have been employed if the reported number of hours worked by part-time employees had been worked by full-time employees."},
+	            {"name": "Total Public Amenity", "unit":"FTE employees", "dataType": "level", "definition": "Number of FTEs working on libraries, parks and recreation, as well as other natural resources."},
+	          	{"name": "Libraries", "unit":"FTE employees", "dataType": "level", "definition": "Number of FTEs working on Establishment and provision of libraries for use by the general public and the technical support of privately-operated libraries. Includes: Public libraries, community libraries, consolidated libraries, regional libraries, and their variously-named equivalents; library extension services including bookmobiles; public library (special) districts; U.S. Library of Congress (including Copyright Office); state library commissions and boards; programs to promote, develop, and coordinate library services and facilities."},
+	            {"name": "Natural Resources", "unit":"FTE employees", "dataType": "level", "definition": "Number of FTEs working on Conservation, promotion, and development of natural resources (soil, water, energy, minerals, etc.) and the regulation of industries which develop, utilize, or affect natural resources. Includes: Employees engaged in irrigation; drainage; flood control; soil conservation and reclamation including prevention of soil erosion; surveying, development, and regulation of water resources; regulation of mineral resources and related industries including land reclamation; wetlands and watershed management and protection; geological surveying and mapping; regulation of gas and oil drilling and production; dam and reservoir safety; public education programs related to the above; fairs; technical assistance to private or other governmental efforts in these areas."},
+	            {"name": "Parks & Recreation", "unit":"FTE employees", "dataType": "level", "definition": "Number of FTEs working on Provision and support of recreational and cultural-scientific facilities maintained for the benefit of residents and visitors."}
 	          ]
 	        },
 	        {
 	       	  "name": "Public Amenity Expenditures",
+	          "source": "U.S. Census Bureau - Census of Individual Governments: Finance",
 	       	  "years": [2007],
 	       	  "children": [
-	       	  	{"name": "Total", "unit": "thousands of dollars", "dataType": "level"},
+	       	  	{"name": "Total", "unit": "thousands of dollars", "dataType": "level", "definition": "All amounts of money paid out by a government--net of recoveries and other correcting transactions--other than for retirement of debt, investment in securities, extension of credit, or as agency transactions. Note that expenditure includes only external transactions of a government and excludes non-cash transactions such as the provision of perquisites or other payments in kind."},
 	       	  	{"name": "Total Public Amenity", "unit": "thousands of dollars", "dataType": "level"},
-	       	  	{"name": "Libraries", "unit": "thousands of dollars", "dataType": "level"},
-	           	{"name": "Natural Resources", "unit": "thousands of dollars", "dataType": "level"},
-	           	{"name": "Parks & Recreation", "unit": "thousands of dollars", "dataType": "level"},
-	       	  	{"name": "Current Operations", "unit": "thousands of dollars", "dataType": "level"},
-	        	{"name": "Construction", "unit": "thousands of dollars", "dataType": "level"},
-	        	{"name": "Other Capital Outlay", "unit": "thousands of dollars", "dataType": "level"},
-	        	{"name": "Intergovernmental to State", "unit": "thousands of dollars", "dataType": "level"},
-	        	{"name": "Intergovernmental to Local", "unit": "thousands of dollars", "dataType": "level"}
+	       	  	{"name": "Libraries", "unit": "thousands of dollars", "dataType": "level", "definition": "Establishment and provision of libraries for use by the general public and the technical support of privately-operated libraries. Includes: Public libraries, community libraries, consolidated libraries, regional libraries, and their variously-named equivalents; library extension services including bookmobiles; public library (special) districts; U.S. Library of Congress (including Copyright Office); state library commissions and boards; programs to promote, develop, and coordinate library services and facilities."},
+	           	{"name": "Natural Resources", "unit": "thousands of dollars", "dataType": "level", "definition": "Conservation, promotion, and development of natural resources (soil, water, energy, minerals, etc.) and the regulation of industries which develop, utilize, or affect natural resources. Includes: Employees engaged in irrigation; drainage; flood control; soil conservation and reclamation including prevention of soil erosion; surveying, development, and regulation of water resources; regulation of mineral resources and related industries including land reclamation; wetlands and watershed management and protection; geological surveying and mapping; regulation of gas and oil drilling and production; dam and reservoir safety; public education programs related to the above; fairs; technical assistance to private or other governmental efforts in these areas."},
+	           	{"name": "Parks & Recreation", "unit": "thousands of dollars", "dataType": "level", "definition": "Provision and support of recreational and cultural-scientific facilities maintained for the benefit of residents and visitors. Includes: Golf courses, playgrounds, tennis courts, public beaches, swimming pools, playing fields, parks, camping areas, recreational piers and marinas, etc.; galleries, museums, zoos, and botanical gardens; auditoriums, stadiums, recreational centers, convention centers, and exhibition halls; community music, drama, and celebrations including public support of cultural activities."},
+	       	  	{"name": "Current Operations", "unit": "thousands of dollars", "dataType": "level", "definition": "Direct expenditure for compensation of own officers and employees and for supplies, materials, and contractual services except amounts for capital outlay."},
+	        	{"name": "Construction", "unit": "thousands of dollars", "dataType": "level", "definition": "Production of fixed works and structures additions, replacements, and major alterations, including planning and design of specific projects, site improvements, and provision of equipment and facilities that are integral parts of a structure. Includes contract construction, undertaken on a contract basis by private contractors, and force account construction, undertaken with direct use of material and labor by the government."},
+	        	{"name": "Other Capital Outlay", "unit": "thousands of dollars", "dataType": "level", "definition": "Direct expenditure for contract or force account construction of buildings, grounds, and other improvements, and purchase of equipment, land, and existing structures. Includes amounts for additions, replacements, and major alterations to fixed works and structures. However, expenditure for repairs to such works and structures is classified as current operation expenditure."},
+	        	{"name": "Intergovernmental to State", "unit": "thousands of dollars", "dataType": "level", "definition": "Amounts paid to the state government for performance of specific functions or for general financial support. Includes grants, shared taxes, contingent loans and advances, and any significant and identifiable amounts or reimbursement paid to other governments for performance of general government services or activities. By definition, it excludes amounts paid to other governments for purchase of commodities, property, or utility services and for any tax levied as such on facilities of the government."},
+	        	{"name": "Intergovernmental to Local", "unit": "thousands of dollars", "dataType": "level", "definition": "Amounts paid to other local governments government for performance of specific functions or for general financial support. Includes grants, shared taxes, contingent loans and advances, and any significant and identifiable amounts or reimbursement paid to other governments for performance of general government services or activities. By definition, it excludes amounts paid to other governments for purchase of commodities, property, or utility services and for any tax levied as such on facilities of the government."}
 	       	  ]
 	        },
         	{
         		"name": "Libraries",
+        		"source": "Institute of Museum and Library Services - Public Libraries Survey (PLS)",
         		"years": [2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011],
         		"children": [
         			{"name": "Number of Central Service Outlets", "dataType": "level"},
@@ -1159,27 +1187,29 @@
         "children": [
         	{
 	          "name": "Public Welfare Employment",
+	          "source": "U.S. Census Bureau - Census of Individual Governments: Employment",
 	          "years": [2007, 2008, 2009, 2010, 2011, 2012],
 	          "children": [
-	          	{"name": "Total", "dataType": "level"},
-	          	{"name": "Public Welfare", "dataType": "level"}
+	            {"name": "Total", "unit": "FTE employees", "dataType": "level", "definition": "The number of Full-time equivalent (FTE) employees for each county is a computed statistic representing the number of full-time employees that could have been employed if the reported number of hours worked by part-time employees had been worked by full-time employees."},
+	          	{"name": "Public Welfare", "unit":"FTE employees", "dataType": "level", "definition": "Number of FTEs working on Support of and assistance to needy persons contingent upon their need."}
 	          ]
 	        },
         	{
 	       	  "name": "Public Welfare Expenditures",
+	          "source": "U.S. Census Bureau - Census of Individual Governments: Finance",
 	       	  "years": [2007],
 	       	  "children": [
-	       	  	{"name": "Total", "unit": "thousands of dollars", "dataType": "level"},
+	       	  	{"name": "Total", "unit": "thousands of dollars", "dataType": "level", "definition": "All amounts of money paid out by a government--net of recoveries and other correcting transactions--other than for retirement of debt, investment in securities, extension of credit, or as agency transactions. Note that expenditure includes only external transactions of a government and excludes non-cash transactions such as the provision of perquisites or other payments in kind."},
 	       	  	{"name": "Total Public Welfare", "unit": "thousands of dollars", "dataType": "level"},
-	       	  	{"name": "Cash Assistance", "unit": "thousands of dollars", "dataType": "level"},
-	           	{"name": "Vendor Payments", "unit": "thousands of dollars", "dataType": "level"},
-	           	{"name": "Other Public Welfare", "unit": "thousands of dollars", "dataType": "level"},
-	       	  	{"name": "Current Operations", "unit": "thousands of dollars", "dataType": "level"},
-	        	{"name": "Construction", "unit": "thousands of dollars", "dataType": "level"},
-	        	{"name": "Assistance & Subsidies", "unit": "thousands of dollars", "dataType": "level"},
-	        	{"name": "Other Capital Outlay", "unit": "thousands of dollars", "dataType": "level"},
-	        	{"name": "Intergovernmental to State", "unit": "thousands of dollars", "dataType": "level"},
-	        	{"name": "Intergovernmental to Local", "unit": "thousands of dollars", "dataType": "level"}
+	       	  	{"name": "Cash Assistance", "unit": "thousands of dollars", "dataType": "level", "definition": "Cash payments made directly to individuals contingent upon their need, other than those under Federal categorical assistance programs.  Includes: Poor relief; general relief; home relief; emergency relief; general assistance; refugee assistance; medical assistance, housing expense relief, energy assistance (e.g., Federal Low Income Home Energy Assistance Program, or LIHEAP), emergency assistance, etc. paid directly to individuals and not to vendors; other direct assistance to needy persons not covered by or eligible for Federal categorical assistance; payments to other governments in support of, or as reimbursement for costs of, these types of assistance programs."},
+	           	{"name": "Vendor Payments", "unit": "thousands of dollars", "dataType": "level", "definition": "Public welfare payments made directly to private vendors for medical assistance and hospital or health care, including Medicaid (Title XIX), plus mandatory state payments to the Federal Government to offset costs of prescription drugs under Medicare Part D. Payments to vendors or the Federal Government must be made on behalf of low-income or means tested beneficiaries, or other medically qualified persons."},
+	           	{"name": "Other Public Welfare", "unit": "thousands of dollars", "dataType": "level", "definition": "All expenditures for welfare activities not classified elsewhere.  Includes: Administration of medical and cash assistance, general relief, vendor, and other programs; all intergovernmental payments for welfare other than for cash assistance programs or for Medicare Part D phase-down payments and all intergovernmental payments to public hospitals for medical assistance other than under the Medicaid program; regulation of private welfare activities; children services, such as foster care, adoption, day care, nonresidential shelters, and the like; social services for the physically disabled, such as transportation; low-income energy assistance and weatherization intergovernmental payments; temporary shelters and other services for the homeless; welfare-related community action programs."},
+	       	  	{"name": "Current Operations", "unit": "thousands of dollars", "dataType": "level", "definition": "Direct expenditure for compensation of own officers and employees and for supplies, materials, and contractual services except amounts for capital outlay."},
+	        	{"name": "Construction", "unit": "thousands of dollars", "dataType": "level", "definition": "Production of fixed works and structures additions, replacements, and major alterations, including planning and design of specific projects, site improvements, and provision of equipment and facilities that are integral parts of a structure. Includes contract construction, undertaken on a contract basis by private contractors, and force account construction, undertaken with direct use of material and labor by the government."},
+	        	{"name": "Assistance & Subsidies", "unit": "thousands of dollars", "dataType": "level", "definition": "Direct cash assistance to foreign governments, private individuals, and nongovernmental organizations (e.g., foreign aid, agricultural supports, public welfare, veteran bonuses, and cash grants for tuition and scholarships) neither in return for goods and services nor in repayment of debt and other claims against the government."},
+	        	{"name": "Other Capital Outlay", "unit": "thousands of dollars", "dataType": "level", "definition": "Direct expenditure for contract or force account construction of buildings, grounds, and other improvements, and purchase of equipment, land, and existing structures. Includes amounts for additions, replacements, and major alterations to fixed works and structures. However, expenditure for repairs to such works and structures is classified as current operation expenditure."},
+	        	{"name": "Intergovernmental to State", "unit": "thousands of dollars", "dataType": "level", "definition": "Amounts paid to the state government for performance of specific functions or for general financial support. Includes grants, shared taxes, contingent loans and advances, and any significant and identifiable amounts or reimbursement paid to other governments for performance of general government services or activities. By definition, it excludes amounts paid to other governments for purchase of commodities, property, or utility services and for any tax levied as such on facilities of the government."},
+	        	{"name": "Intergovernmental to Local", "unit": "thousands of dollars", "dataType": "level", "definition": "Amounts paid to other local governments government for performance of specific functions or for general financial support. Includes grants, shared taxes, contingent loans and advances, and any significant and identifiable amounts or reimbursement paid to other governments for performance of general government services or activities. By definition, it excludes amounts paid to other governments for purchase of commodities, property, or utility services and for any tax levied as such on facilities of the government."}
 	       	  ]
 	        }
         ]
@@ -1189,37 +1219,40 @@
         "children": [
         	{
 	          "name": "Transportation Employment",
+	          "source": "U.S. Census Bureau - Census of Individual Governments: Employment",
 	          "years": [2007, 2008, 2009, 2010, 2011, 2012],
 	          "children": [
-	          	{"name": "Total", "dataType": "level"},
-	            {"name": "Total Transportation", "dataType": "level"},
-	          	{"name": "Air Tranportation", "dataType": "level"},
-	            {"name": "Highways", "dataType": "level"},
-	            {"name": "Water Transport & Terminals", "dataType": "level"},
-	            {"name": "Transit", "dataType": "level"}
+	            {"name": "Total", "unit": "FTE employees", "dataType": "level", "definition": "The number of Full-time equivalent (FTE) employees for each county is a computed statistic representing the number of full-time employees that could have been employed if the reported number of hours worked by part-time employees had been worked by full-time employees."},
+	            {"name": "Total Transportation", "unit":"FTE employees", "dataType": "level", "definition": "Number of FTEs working on Air Transportation, Highways, Sea and Inland Port and Transit Utilities."},
+	          	{"name": "Air Tranportation", "unit":"FTE employees", "dataType": "level", "definition": "Number of FTEs working on Provision, operation, construction, and support of airport facilities serving the public at-large on a scheduled or unscheduled basis."},
+	            {"name": "Highways", "unit":"FTE employees", "dataType": "level", "definition": "Number of FTEs working on Regular Highway: Maintenance, operation, repair, and construction of highways, streets, roads, alleys, sidewalks, bridges, tunnels, ferry boats, viaducts, and related non-toll structures.Toll Highway: Maintenance, operation, repair, and construction of highways, roads, bridges, ferries, and tunnels operated on a fee or toll basis. Includes: Turnpikes; toll roads, toll bridges, toll ferries (including docks and related terminals), toll tunnels, and all related activities and facilities such as snow and ice removal, highway police and fire protection units IF administered by the toll authority, lighting and light fixtures, design and engineering, garages and administrative buildings of toll authorities, operation of toll booths, drawspans, rest stops, and service areas by the toll authority itself."},
+	            {"name": "Water Transport & Terminals", "unit":"FTE employees", "dataType": "level", "definition": "Number of FTEs working on Construction, maintenance, operation, and support of canals and other waterways, harbors, docks, wharves, and related marine terminal facilities."},
+	            {"name": "Transit", "unit":"FTE employees", "dataType": "level", "definition": "Number of FTEs working on Construction, maintenance, and operation of public mass transit systems--bus, commuter rail, light rail, or subway systems. Excludes systems established solely to transport elementary and secondary school pupils. Ferry systems are classified under Highways."}
 	          ]
 	        },
         	{
 	       	  "name": "Transportation Expenditures",
+	          "source": "U.S. Census Bureau - Census of Individual Governments: Finance",
 	       	  "years": [2007],
 	       	  "children": [
-	       	  	{"name": "Total", "unit": "thousands of dollars", "dataType": "level"},
+	       	  	{"name": "Total", "unit": "thousands of dollars", "dataType": "level", "definition": "All amounts of money paid out by a government--net of recoveries and other correcting transactions--other than for retirement of debt, investment in securities, extension of credit, or as agency transactions. Note that expenditure includes only external transactions of a government and excludes non-cash transactions such as the provision of perquisites or other payments in kind."},
 	       	  	{"name": "Total Transportation", "unit": "thousands of dollars", "dataType": "level"},
-	       	  	{"name": "Air Transportation", "unit": "thousands of dollars", "dataType": "level"},
-	          	{"name": "Highways", "unit": "thousands of dollars", "dataType": "level"},
-	           	{"name": "Parking Facilities", "unit": "thousands of dollars", "dataType": "level"},    
-	           	{"name": "Sea & Inland Port", "unit": "thousands of dollars", "dataType": "level"},
-	           	{"name": "Transit Utilities", "unit": "thousands of dollars", "dataType": "level"},
-	       	  	{"name": "Current Operations", "unit": "thousands of dollars", "dataType": "level"},
-	        	{"name": "Construction", "unit": "thousands of dollars", "dataType": "level"},
-	        	{"name": "Capital Outlay", "unit": "thousands of dollars", "dataType": "level"},
-	        	{"name": "Interests on Debt", "unit": "thousands of dollars", "dataType": "level"},
-	        	{"name": "Intergovernmental to State", "unit": "thousands of dollars", "dataType": "level"},
-	        	{"name": "Intergovernmental to Local", "unit": "thousands of dollars", "dataType": "level"}
+	       	  	{"name": "Air Transportation", "unit": "thousands of dollars", "dataType": "level", "definition": "Provision, operation, construction, and support of airport facilities serving the public at-large on a scheduled or unscheduled basis. Also includes the regulation of airline industry, if applicable.  Includes: Publicly-operated airfields and related facilities (runways, terminals, control towers, maintenance facilities, and the like); intergovernmental payments for construction, operation, or support of publicly-owned airports; support of private airports; airport police if either an integral part of the airport operating authority or a payment to regular police agency (see Special Considerations below)."},
+	          	{"name": "Highways", "unit": "thousands of dollars", "dataType": "level", "definition": "Regular Highway: Maintenance, operation, repair, and construction of highways, streets, roads, alleys, sidewalks, bridges, tunnels, ferry boats, viaducts, and related non-toll structures. These figures include snow and ice removal and application of salt and sand (including that by sanitation or street cleaning agencies, if identifiable); street or highway lighting and related fixtures; traffic signals; highway and traffic design, planning, and engineering IF handled by public works or highways agency; highway safety; nontoll ferries; operation of drawspans; garages, administrative buildings, and other facilities of highway agencies; construction and maintenance of such highway-related items as curbs, gutters, crosswalks, grade separations, trestles, railroad crossings, and storm drains that are integral to highway projects; intergovernmental payments for highways (toll or free), including state aid for debt service on local highway debt.   Toll Highway: Maintenance, operation, repair, and construction of highways, roads, bridges, ferries, and tunnels operated on a fee or toll basis. Includes: Turnpikes; toll roads, toll bridges, toll ferries (including docks and related terminals), toll tunnels, and all related activities and facilities such as snow and ice removal, highway police and fire protection units IF administered by the toll authority, lighting and light fixtures, design and engineering, garages and administrative buildings of toll authorities, operation of toll booths, drawspans, rest stops, and service areas by the toll authority itself."},
+	           	{"name": "Parking Facilities", "unit": "thousands of dollars", "dataType": "level", "definition": "Provision, construction, maintenance, and operation of public parking facilities operated on a commercial basis. Includes: Public parking lots and garages. Includes the purchase and maintenance of parking meters, on streets or in parking lots, and the collection of monies from them."},  
+	           	{"name": "Sea & Inland Port", "unit": "thousands of dollars", "dataType": "level", "definition": "Provision, construction, operation, maintenance, and support of public waterways and harbors, docks, wharves, and related marine terminal facilities; and the regulation of the water transportation industry. Includes: Commercial port facilities, canals, harbors, and other public waterways; dredging of same; public docks, piers, wharves, warehouses, cranes, and associated terminal facilities; regulation and inspection of the commercial water transportation industry."}, 
+	           	{"name": "Transit Utilities", "unit": "thousands of dollars", "dataType": "level", "definition": "Operation, maintenance, and construction of public mass transit systems, including subways, surface rails, and buses.  Includes: Rapid transit; subways, buses, surface rail, and street railroad systems; commuter rail lines; trolleys and light rail; related stations, tracks, depots, and rail yards; acquisition of right-of-ways; transit police employed directly by utility; subsidies to public mass transit systems (but not private ones)."},
+	       	  	{"name": "Current Operations", "unit": "thousands of dollars", "dataType": "level", "definition": "Direct expenditure for compensation of own officers and employees and for supplies, materials, and contractual services except amounts for capital outlay."},
+	        	{"name": "Construction", "unit": "thousands of dollars", "dataType": "level", "definition": "Production of fixed works and structures additions, replacements, and major alterations, including planning and design of specific projects, site improvements, and provision of equipment and facilities that are integral parts of a structure. Includes contract construction, undertaken on a contract basis by private contractors, and force account construction, undertaken with direct use of material and labor by the government."},
+		       	{"name": "Other Capital Outlay", "unit": "thousands of dollars", "dataType": "level", "definition": "Direct expenditure for contract or force account construction of buildings, grounds, and other improvements, and purchase of equipment, land, and existing structures. Includes amounts for additions, replacements, and major alterations to fixed works and structures. However, expenditure for repairs to such works and structures is classified as current operation expenditure."},
+	        	{"name": "Interests on Debt", "unit": "thousands of dollars", "dataType": "level", "definition": "Amounts paid for the use of borrowed money."},
+	        	{"name": "Intergovernmental to State", "unit": "thousands of dollars", "dataType": "level", "definition": "Amounts paid to the state government for performance of specific functions or for general financial support. Includes grants, shared taxes, contingent loans and advances, and any significant and identifiable amounts or reimbursement paid to other governments for performance of general government services or activities. By definition, it excludes amounts paid to other governments for purchase of commodities, property, or utility services and for any tax levied as such on facilities of the government."},
+	        	{"name": "Intergovernmental to Local", "unit": "thousands of dollars", "dataType": "level", "definition": "Amounts paid to other local governments government for performance of specific functions or for general financial support. Includes grants, shared taxes, contingent loans and advances, and any significant and identifiable amounts or reimbursement paid to other governments for performance of general government services or activities. By definition, it excludes amounts paid to other governments for purchase of commodities, property, or utility services and for any tax levied as such on facilities of the government."}
 	       	  ]
 	        },
         	{
         		"name": "Airports",
+        		"source": "Federal Aviation Administration",
         		"years": [2013],
         		"children": [
         			{"name": "Number of Airports", "dataType": "level"},
@@ -1230,36 +1263,38 @@
         	},
         	{
         		"name": "Bridges",
+        		"source": "Federal Highway Administration - National Bridge Inventory",
         		"years": [2007, 2008, 2009, 2010, 2011, 2012, 2013],
         		"children": [
-        			{"name": "All Bridges - Total Bridges", "dataType": "level"},
-        			{"name": "All Bridges - City/Town Owned", "dataType": "level"},
-        			{"name": "All Bridges - County Owned", "dataType": "level"},
-        			{"name": "All Bridges - Federal Owned", "dataType": "level"},
-        			{"name": "All Bridges - Privately Owned", "dataType": "level"},
-        			{"name": "All Bridges - State Owned", "dataType": "level"},
-        			{"name": "All Bridges - Local Owned", "dataType": "level"},
-        			{"name": "Structurally Deficient Bridges - Total Bridges", "dataType": "level"},
-        			{"name": "Structurally Deficient Bridges - City/Town Owned", "dataType": "level"},
-        			{"name": "Structurally Deficient Bridges - County Owned", "dataType": "level"},
-        			{"name": "Structurally Deficient Bridges - Federal Owned", "dataType": "level"},
-        			{"name": "Structurally Deficient Bridges - Privately Owned", "dataType": "level"},
-        			{"name": "Structurally Deficient Bridges - State Owned", "dataType": "level"},
-        			{"name": "Structurally Deficient Bridges - Local Owned", "dataType": "level"},
-        			{"name": "Functionally Obsolete Bridges - Total Bridges", "dataType": "level"},
-        			{"name": "Functionally Obsolete Bridges - City/Town Owned", "dataType": "level"},
-        			{"name": "Functionally Obsolete Bridges - County Owned", "dataType": "level"},
-        			{"name": "Functionally Obsolete Bridges - Federal Owned", "dataType": "level"},
-        			{"name": "Functionally Obsolete Bridges - Privately Owned", "dataType": "level"},
-        			{"name": "Functionally Obsolete Bridges - State Owned", "dataType": "level"},
-        			{"name": "Functionally Obsolete Bridges - Local Owned", "dataType": "level"}
+        			{"name": "All Bridges - Total Bridges", "dataType": "level", "definition": "Total number of bridges located in the county."},
+        			{"name": "All Bridges - City/Town Owned", "dataType": "level", "definition": "Total number of bridges owned by a Town or Township Highway Agency or a City or Municipal Highway Agency."},
+        			{"name": "All Bridges - County Owned", "dataType": "level", "definition": "Total number of bridges owned by a County Highway Agency."},
+        			{"name": "All Bridges - Federal Owned", "dataType": "level", "definition": "Total number of bridges owned by a Federal Agency. Includes the Indian Tribal Government, Bureau of Indian Affairs, Bureau of Fish and Wildlife, U.S. Forest Service, National Park Service, Tennessee Valley Authority, Bureau of Land Management, Bureau of Reclamation, Corps of Engineers, Air Force, Navy/Marines, Army, NASA, or the Metropolitan Washington Airports Service."},
+        			{"name": "All Bridges - Privately Owned", "dataType": "level", "definition": "Total number of bridges owned by a Private agency."},
+        			{"name": "All Bridges - State Owned", "dataType": "level", "definition": "Total number of bridges owned by a State Highway Agency, a State Park, Forest, or Reservation Agency, or Other State Agencies."},
+        			{"name": "All Bridges - Local Owned", "dataType": "level", "definition": "Total number of bridges owned by a Local Park, Forest, or Reservation Agency or Local Toll Authority, or Other Local Agencies."},
+        			{"name": "Structurally Deficient Bridges - Total Bridges", "dataType": "level", "definition": "Total number of structurally deficient bridges; A highway bridge is classified as structurally deficient if the deck, superstructure, substructure, or culvert is rated in 'poor' condition (0 to 4 on the NBI rating scale). A bridge can also be classified as structurally deficient if its load carrying capacity is significantly below current design standards or if a waterway below frequently overtops the bridge during floods."},
+        			{"name": "Structurally Deficient Bridges - City/Town Owned", "dataType": "level", "definition": "Total number of structurally deficient bridges owned by a Town or Township Highway Agency or a City or Municipal Highway Agency."},
+        			{"name": "Structurally Deficient Bridges - County Owned", "dataType": "level", "definition": "Total number of structurally deficient bridges owned by a County Highway Agency."},
+        			{"name": "Structurally Deficient Bridges - Federal Owned", "dataType": "level", "definition": "Total number of structurally deficient bridges owned by a Federal Agency. Includes the Indian Tribal Government, Bureau of Indian Affairs, Bureau of Fish and Wildlife, U.S. Forest Service, National Park Service, Tennessee Valley Authority, Bureau of Land Management, Bureau of Reclamation, Corps of Engineers, Air Force, Navy/Marines, Army, NASA, or the Metropolitan Washington Airports Service."},
+        			{"name": "Structurally Deficient Bridges - Privately Owned", "dataType": "level", "definition": "Total number of structurally deficient bridges owned by a Private agency."},
+        			{"name": "Structurally Deficient Bridges - State Owned", "dataType": "level", "definition": "Total number of structurally deficient bridges owned by a State Highway Agency, a State Park, Forest, or Reservation Agency, or Other State Agencies."},
+        			{"name": "Structurally Deficient Bridges - Local Owned", "dataType": "level", "definition": "Total number of structurally deficient bridges owned by a Local Park, Forest, or Reservation Agency or Local Toll Authority, or Other Local Agencies."},
+        			{"name": "Functionally Obsolete Bridges - Total Bridges", "dataType": "level", "definition": "Total number of functionally obsolete bridges; 'Functionally obsolete' means that the design of a bridge is not suitable for its current use, such as lack of safety shoulders or the inability to handle current traffic volume, speed, size, or weight."},
+        			{"name": "Functionally Obsolete Bridges - City/Town Owned", "dataType": "level", "definition": "Total number of functionally obsolete bridges owned by a Town or Township Highway Agency or a City or Municipal Highway Agency."},
+        			{"name": "Functionally Obsolete Bridges - County Owned", "dataType": "level", "definition": "Total number of functionally obsolete bridges owned by a County Highway Agency."},
+        			{"name": "Functionally Obsolete Bridges - Federal Owned", "dataType": "level", "definition": "Total number of functionally obsolete bridges owned by a Federal Agency. Includes the Indian Tribal Government, Bureau of Indian Affairs, Bureau of Fish and Wildlife, U.S. Forest Service, National Park Service, Tennessee Valley Authority, Bureau of Land Management, Bureau of Reclamation, Corps of Engineers, Air Force, Navy/Marines, Army, NASA, or the Metropolitan Washington Airports Service."},
+        			{"name": "Functionally Obsolete Bridges - Privately Owned", "dataType": "level", "definition": "Total number of functionally obsolete bridges owned by a Private agency."},
+        			{"name": "Functionally Obsolete Bridges - State Owned", "dataType": "level", "definition": "Total number of functionally obsolete bridges owned by a State Highway Agency, a State Park, Forest, or Reservation Agency, or Other State Agencies."},
+        			{"name": "Functionally Obsolete Bridges - Local Owned", "dataType": "level", "definition": "Total number of functionally obsolete bridges owned by a Local Park, Forest, or Reservation Agency or Local Toll Authority, or Other Local Agencies."}
         		]
         	},
         	{
         		"name": "Road Classification",
+        		"source": "Federal Highway Administration - Highway Performance Monitoring System",
         		"years": [2011],
         		"children": [
-        			{"name": "Total Public Road Miles", "dataType": "level"},
+        			{"name": "Total Public Road Miles", "dataType": "level", "definition": "Total miles of public roads, which are any roads or streets owned and maintained by a public authority and open to public travel."},
         			{"name": "Interstate Road Miles", "dataType": "level"},
         			{"name": "Other Freeway/Expressway Road Miles", "dataType": "level"},
         			{"name": "Other Principle Arterial Road Miles", "dataType": "level"},
@@ -1278,7 +1313,8 @@
         	},
         	{
         		"name": "Road Ownership",
-        		"years": [2008, 2011],
+         		"source": "Federal Highway Administration - Highway Performance Monitoring System",
+	       		"years": [2008, 2011],
         		"source": "U.S. Department of Transportation – Federal Highway Administration, Highway Performance Monitoring System",
         		"vintage": 2011,
         		"children": [
@@ -1317,42 +1353,44 @@
         "children": [
         	{
 	          "name": "Utility Employment",
+	          "source": "U.S. Census Bureau - Census of Individual Governments: Employment",
 	          "years": [2007, 2008, 2009, 2010, 2011, 2012],
 	          "children": [
-	          	{"name": "Total", "dataType": "level"},
-	            {"name": "Total Utility", "dataType": "level"},
-	          	{"name": "Electric Utilities", "dataType": "level"},
-	            {"name": "Gas Utilities", "dataType": "level"}
+	            {"name": "Total", "unit": "FTE employees", "dataType": "level", "definition": "The number of Full-time equivalent (FTE) employees for each county is a computed statistic representing the number of full-time employees that could have been employed if the reported number of hours worked by part-time employees had been worked by full-time employees."},
+	            {"name": "Total Utility", "unit":"FTE employees", "dataType": "level", "definition": "Number of FTEs working on Electricity Utilities and Gas Utilities."},
+	          	{"name": "Electric Utilities", "unit":"FTE employees", "dataType": "level", "definition": "Number of FTEs working on Operation, maintenance, and construction of public electric power systems, including production, acquisition, and distribution of electricity to general public or to other public or private utilities."},
+	            {"name": "Gas Utilities", "unit":"FTE employees", "dataType": "level", "definition": "Number of FTEs working on Operation, maintenance, and construction of public natural gas supply systems, including production, acquisition, and distribution of gas to general public or to other public or private utilities. This function covers government gas supply activities for residential, commercial, and industrial gas usage."}
 	          ]
 	        },
 	        {
 	          "name": "Utility Revenue",
+	          "source": "U.S. Census Bureau - Census of Individual Governments: Finance",
 	          "years": [2007],
 	          "children": [
-	          	{"name": "Total", "unit": "thousands of dollars", "dataType": "level"},
+	          	{"name": "Total", "unit": "thousands of dollars", "dataType": "level", "definition": "All amounts of money received by a government from external sources--net of refunds and other correcting transactions--other than from issuance of debt, liquidation of investments, and as agency and private trust transactions. Note that revenue excludes noncash transactions such as receipt of services, commodities, or other 'receipts in kind.'"},
 	          	{"name": "Total Utility", "unit": "thousands of dollars", "dataType": "level"},
-	          	{"name": "Electric Power Systems", "unit": "thousands of dollars", "dataType": "level"},
-	           	{"name": "Gas Supply Systems", "unit": "thousands of dollars", "dataType": "level"},
-	           	{"name": "Public Mass Transit Systems", "unit": "thousands of dollars", "dataType": "level"},
-	           	{"name": "Water Supply Systems", "unit": "thousands of dollars", "dataType": "level"}
+	          	{"name": "Electric Power Systems", "unit": "thousands of dollars", "dataType": "level", "definition": "State aid for maintenance, operation, and construction of public electric power generating plants and related transmission systems."},
+	           	{"name": "Gas Supply Systems", "unit": "thousands of dollars", "dataType": "level", "definition": "State aid for maintenance, operation, and construction of public natural gas supply and distribution systems."},
+	           	{"name": "Public Mass Transit Systems", "unit": "thousands of dollars", "dataType": "level", "definition": "State aid for maintenance, operation, and construction of public mass transit systems (buses, subways, commuter railroads, urban mass transit, and the like)."},
+	           	{"name": "Water Supply Systems", "unit": "thousands of dollars", "dataType": "level", "definition": "State aid for maintenance, operation, and construction of public water supply systems, water purification plants, etc."}
 	          ]
 	        },
         	{
 	       	  "name": "Utility Expenditures",
+	          "source": "U.S. Census Bureau - Census of Individual Governments: Finance",
 	       	  "years": [2007],
-	       	  "source": "U.S. Census Bureau - Census of Individual Governments: Finance",
 	       	  "vintage": 2014,
 	       	  "children": [
-	       	  	{"name": "Total", "unit": "thousands of dollars", "dataType": "level", "definition": ""},
-	       	  	{"name": "Total Utility", "unit": "thousands of dollars", "dataType": "level", "definition": ""},
-	       	  	{"name": "Electric Utilities", "unit": "thousands of dollars", "dataType": "level", "definition": ""},        
-	           	{"name": "Gas Utilities", "unit": "thousands of dollars", "dataType": "level", "definition": ""},
-	       	  	{"name": "Current Operations", "unit": "thousands of dollars", "dataType": "level", "definition": ""},
-	        	{"name": "Construction", "unit": "thousands of dollars", "dataType": "level", "definition": ""},
-	        	{"name": "Capital Outlay", "unit": "thousands of dollars", "dataType": "level", "definition": ""},
-	        	{"name": "Interests on Debt", "unit": "thousands of dollars", "dataType": "level", "definition": ""},
-	        	{"name": "Intergovernmental to State", "unit": "thousands of dollars", "dataType": "level", "definition": ""},
-	        	{"name": "Intergovernmental to Local", "unit": "thousands of dollars", "dataType": "level", "definition": ""}
+	       	  	{"name": "Total", "unit": "thousands of dollars", "dataType": "level", "definition": "All amounts of money paid out by a government--net of recoveries and other correcting transactions--other than for retirement of debt, investment in securities, extension of credit, or as agency transactions. Note that expenditure includes only external transactions of a government and excludes non-cash transactions such as the provision of perquisites or other payments in kind."},
+	       	  	{"name": "Total Utility", "unit": "thousands of dollars", "dataType": "level"},
+	       	  	{"name": "Electric Utilities", "unit": "thousands of dollars", "dataType": "level", "definition": "Operation, maintenance, and construction of public electric power systems, including production, acquisition, and distribution of electricity to general public or to other public or private utilities. This function covers government electric power activities for residential, commercial, and industrial electrical usage.  Includes: Generating stations; power plants; transmission lines; switching stations; pollution abatement equipment; purchase of electricity for resale; distribution lines and meters."},        
+	           	{"name": "Gas Utilities", "unit": "thousands of dollars", "dataType": "level", "definition": "Operation, maintenance, and construction of public natural gas supply systems, including production, acquisition, and distribution of gas to general public or to other public or private utilities. This function covers government gas supply activities for residential, commercial, and industrial gas usage. Includes: Public gas works; liquefaction equipment; pumping stations; gas mains; service lines and meters; purchase of natural gas for resale."},
+	       	  	{"name": "Current Operations", "unit": "thousands of dollars", "dataType": "level", "definition": "Direct expenditure for compensation of own officers and employees and for supplies, materials, and contractual services except amounts for capital outlay."},
+	        	{"name": "Construction", "unit": "thousands of dollars", "dataType": "level", "definition": "Production of fixed works and structures additions, replacements, and major alterations, including planning and design of specific projects, site improvements, and provision of equipment and facilities that are integral parts of a structure. Includes contract construction, undertaken on a contract basis by private contractors, and force account construction, undertaken with direct use of material and labor by the government."},
+		       	{"name": "Other Capital Outlay", "unit": "thousands of dollars", "dataType": "level", "definition": "Direct expenditure for contract or force account construction of buildings, grounds, and other improvements, and purchase of equipment, land, and existing structures. Includes amounts for additions, replacements, and major alterations to fixed works and structures. However, expenditure for repairs to such works and structures is classified as current operation expenditure."},
+	        	{"name": "Interests on Debt", "unit": "thousands of dollars", "dataType": "level", "definition": "Amounts paid for the use of borrowed money."},
+	        	{"name": "Intergovernmental to State", "unit": "thousands of dollars", "dataType": "level", "definition": "Amounts paid to the state government for performance of specific functions or for general financial support. Includes grants, shared taxes, contingent loans and advances, and any significant and identifiable amounts or reimbursement paid to other governments for performance of general government services or activities. By definition, it excludes amounts paid to other governments for purchase of commodities, property, or utility services and for any tax levied as such on facilities of the government."},
+	        	{"name": "Intergovernmental to Local", "unit": "thousands of dollars", "dataType": "level", "definition": "Amounts paid to other local governments government for performance of specific functions or for general financial support. Includes grants, shared taxes, contingent loans and advances, and any significant and identifiable amounts or reimbursement paid to other governments for performance of general government services or activities. By definition, it excludes amounts paid to other governments for purchase of commodities, property, or utility services and for any tax levied as such on facilities of the government."}
 	       	  ]
 	        }
         ]
