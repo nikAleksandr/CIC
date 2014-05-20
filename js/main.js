@@ -113,7 +113,8 @@ function draw(topo, stateMesh) {
 		}
 	}, false);
     
-      
+    
+    // dataset to map first
 	selectedData = "PILT Amount";
 	selectedDataset = "Payment in Lieu of Taxes (PILT)";
   	getData(selectedData, selectedDataset);
@@ -124,34 +125,31 @@ function buildDropdown() {
 	// populate dropdown menu with categories pulled from json
 	d3.json("data/CICstructure.json", function(error, CICStructure){
 		if (!error) {
+			// empty out dropdown
 			d3.select('#primeInd')
 				.selectAll('li')
 					.remove();
 			
 			var s = CICStructure.children;
-			for (var i = 0; i < s.length; i++) {
-				(function(ind) {
-					var datasetName = s[ind].name;
-					d3.select('#primeInd')
-						.append('li')
-						.append('a')
-							.attr('name', datasetName)
-							.attr('title', datasetName)
-							.attr('href', '#')
-							.text(s[i].name)
-							.on('click', function(d) {
-								tooltip.classed("hidden", true);				
-								selectedData = datasetName;
-								selectedDataset = datasetName;
-								selectedDataText = datasetName;
-								d3.select('#primeIndText').html(selectedDataText);
-								
-								getData(selectedData, selectedDataset);
-							});
-				})(i);
-			}
-			
-			$("#primeInd li a")
+			var createCategory = function(catName) {
+				d3.select('#primeInd').append('li')
+					.append('a')
+					.attr('name', catName)
+					.attr('title', catName)
+					.attr('href', '#')
+					.text(catName)
+					.on('click', function(d) {
+						tooltip.classed("hidden", true);				
+						selectedData = catName;
+						selectedDataset = catName;
+						selectedDataText = catName;
+						d3.select('#primeIndText').html(selectedDataText);
+						
+						getData(selectedData, selectedDataset);
+					});				
+			};
+						
+			for (var i = 0; i < s.length; i++) createCategory(s[i].name);
 						
 		} else throw new Error('Error reading JSON file');
 	});
@@ -261,7 +259,7 @@ function getData(indName, datasetName){
 				}
 			}
 						
-			//getCompanionData(Jcategory);
+			//getCompanionData(Jdataset);
 			
 			//temporary switch to override this function while using tsv data
 			switch(indName){

@@ -23,12 +23,12 @@
        	  ]
         },
         {
-          "name": "Adminstration Employment",
+          "name": "Administration Employment",
           "source": "U.S. Census Bureau - Census of Individual Governments: Employment",
           "years": [2007, 2008, 2009, 2010, 2011, 2012],
           "children": [
             {"name": "Total", "unit": "FTE employees", "dataType": "level", "definition": "The number of Full-time equivalent (FTE) employees for each county is a computed statistic representing the number of full-time employees that could have been employed if the reported number of hours worked by part-time employees had been worked by full-time employees."},
-            {"name": "Total Adminstration", "unit": "FTE employees", "dataType": "level", "definition": "Includes all FTE on Financial Administration, Social Insurance Administration and Other Governmental Administration.  Covers  administration of unemployment compensation systems, public employment services, and the Federal Social Security, Medicare, and Railroad Retirement trusts; officials and central staff agencies concerned with tax assessment and collection, accounting, auditing, budgeting, purchasing, custody of funds, and other finance activities; legislative bodies and related activities involved in the making, enacting, and repeal of law; and government-wide executive, administrative, and staff service agencies other than financial, judicial, legal, and Federal or state legislative activities."},
+            {"name": "Total Administration", "unit": "FTE employees", "dataType": "level", "definition": "Includes all FTE on Financial Administration, Social Insurance Administration and Other Governmental Administration.  Covers  administration of unemployment compensation systems, public employment services, and the Federal Social Security, Medicare, and Railroad Retirement trusts; officials and central staff agencies concerned with tax assessment and collection, accounting, auditing, budgeting, purchasing, custody of funds, and other finance activities; legislative bodies and related activities involved in the making, enacting, and repeal of law; and government-wide executive, administrative, and staff service agencies other than financial, judicial, legal, and Federal or state legislative activities."},
           	{"name": "Financial Administration", "unit": "FTE employees", "dataType": "level", "definition": "Number of FTEs working on Officials and central staff agencies concerned with tax assessment and collection, accounting, auditing, budgeting, purchasing, custody of funds, and other finance activities."},
             {"name": "Other Governmental Administration", "unit": "FTE employees", "dataType": "level", "definition": "Number of FTEs working on Government-wide executive, administrative, and staff service agencies other than financial, judicial, legal, and Federal or state legislative activities."},
             {"name": "Social Insurance Administration", "unit": "FTE employees", "dataType": "level", "definition": "Number of FTEs working on Administration of unemployment compensation systems, public employment services, and the Federal Social Security, Medicare, and Railroad Retirement trusts. Includes Employees of unemployment compensation, unemployment insurance, and equivalent agencies involved in administering the cooperative Federal-state unemployment compensation system."}
@@ -54,12 +54,12 @@
       "name": "County FTE Employment",
       "children": [
         {
-          "name": "Adminstration Employment",
+          "name": "Administration Employment",
           "source": "U.S. Census Bureau - Census of Individual Governments: Employment",
           "years": [2007, 2008, 2009, 2010, 2011, 2012],
           "children": [
             {"name": "Total", "unit": "FTE employees", "dataType": "level", "definition": "The number of Full-time equivalent (FTE) employees for each county is a computed statistic representing the number of full-time employees that could have been employed if the reported number of hours worked by part-time employees had been worked by full-time employees."},
-            {"name": "Total Adminstration", "unit": "FTE employees", "dataType": "level", "definition": "Number of FTEs on Financial Administration, Social Insurance Administration and Other Governmental Administration.  Covers  administration of unemployment compensation systems, public employment services, and the Federal Social Security, Medicare, and Railroad Retirement trusts; officials and central staff agencies concerned with tax assessment and collection, accounting, auditing, budgeting, purchasing, custody of funds, and other finance activities; legislative bodies and related activities involved in the making, enacting, and repeal of law; and government-wide executive, administrative, and staff service agencies other than financial, judicial, legal, and Federal or state legislative activities."},
+            {"name": "Total Administration", "unit": "FTE employees", "dataType": "level", "definition": "Number of FTEs on Financial Administration, Social Insurance Administration and Other Governmental Administration.  Covers  administration of unemployment compensation systems, public employment services, and the Federal Social Security, Medicare, and Railroad Retirement trusts; officials and central staff agencies concerned with tax assessment and collection, accounting, auditing, budgeting, purchasing, custody of funds, and other finance activities; legislative bodies and related activities involved in the making, enacting, and repeal of law; and government-wide executive, administrative, and staff service agencies other than financial, judicial, legal, and Federal or state legislative activities."},
           	{"name": "Financial Administration", "unit": "FTE employees", "dataType": "level", "definition": "Number of FTEs working on Officials and central staff agencies concerned with tax assessment and collection, accounting, auditing, budgeting, purchasing, custody of funds, and other finance activities."},
             {"name": "Other Governmental Administration", "unit": "FTE employees", "dataType": "level", "definition": "Number of FTEs working on Government-wide executive, administrative, and staff service agencies other than financial, judicial, legal, and Federal or state legislative activities."},
             {"name": "Social Insurance Administration", "unit": "FTE employees", "dataType": "level", "definition": "Number of FTEs working on Administration of unemployment compensation systems, public employment services, and the Federal Social Security, Medicare, and Railroad Retirement trusts. Includes Employees of unemployment compensation, unemployment insurance, and equivalent agencies involved in administering the cooperative Federal-state unemployment compensation system."}
@@ -513,6 +513,7 @@
         		"name": "Population Levels and Trends",
         		"source": "U.S. Census Bureau - Population Estimates Program (PEP)",
         		"years": [2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013],
+        		"vintage": 2013,
         		"children": [
         			{"name": "Population Level", "dataType": "level", "definition": "The calculated number of people living in an area as of a specified point in time, usually July 1st. The estimated population is calculated using a component of change model that incorporates information on natural increase (births, deaths) and net migration (net domestic migration, net international migration) that has occurred in an area since the latest decennial census."},
         			{"name": "Population Annual Growth Rate (from previous year)", "dataType": "percent", "definition": "The difference between the population of an area at the beginning and end of a time period, expressed as a percentage of the beginning population."}
@@ -522,6 +523,7 @@
         		"name": "Population Change Components",
         		"source": "U.S. Census Bureau - Population Estimates Program (PEP)",
         		"years": [2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013],
+        		"vintage": 2013,
         		"children": [
         			{"name": "Population Level", "dataType": "level", "definition": "The calculated number of people living in an area as of a specified point in time, usually July 1st. The estimated population is calculated using a component of change model that incorporates information on natural increase (births, deaths) and net migration (net domestic migration, net international migration) that has occurred in an area since the latest decennial census."},
         			{"name": "Change in Population (from previous year)", "dataType": "level_np", "definition": "The difference between the population of an area at the beginning and end of a time period."},
@@ -543,6 +545,7 @@
         		"name": "Population Density",
         		"source": "U.S. Census Bureau - Population Estimates Program (PEP)",
         		"years": [2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013],
+        		"vintage": 2013,
         		"children": [
         			{"name": "Population Level", "dataType": "level", "definition": "The calculated number of people living in an area as of a specified point in time, usually July 1st. The estimated population is calculated using a component of change model that incorporates information on natural increase (births, deaths) and net migration (net domestic migration, net international migration) that has occurred in an area since the latest decennial census."},
         			{"name": "Population Density", "dataType": "level", "definition": "Number of people per square mile according to the population estimates from the Census Bureau."},
@@ -556,6 +559,7 @@
         		"name": "Population by Age/Gender",
          		"source": "U.S. Census Bureau - Population Estimates Program (PEP)",
 	       		"years": [2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012],
+	       		"vintage": 2012,
         		"children": [
         			{"name": "Total Population Level", "dataType": "level", "definition": "The calculated number of people living in an area as of a specified point in time, usually July 1st. The estimated population is calculated using a component of change model that incorporates information on natural increase (births, deaths) and net migration (net domestic migration, net international migration) that has occurred in an area since the latest decennial census."},
         			{"name": "Male Population", "dataType": "level", "definition": "Total male population as self identified according to population estimates from the Census Bureau."},
@@ -576,6 +580,7 @@
         		"name": "Population by Ethnicity",
          		"source": "U.S. Census Bureau - Population Estimates Program (PEP)",
 	       		"years": [2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012],
+	       		"vintage": 2012,
         		"children": [
         			{"name": "Total Population", "dataType": "level", "definition": "The calculated number of people living in an area as of a specified point in time, usually July 1st. The estimated population is calculated using a component of change model that incorporates information on natural increase (births, deaths) and net migration (net domestic migration, net international migration) that has occurred in an area since the latest decennial census."},
         			{"name": "White Population", "dataType": "level", "definition": "Population estimate of people (not hispanic) identifying with origins in any of the original peoples of Europe, the Middle East, or North Africa."},
@@ -662,16 +667,16 @@
         	"source": "National Center for Economic Statistics (NCES) - Common Core Data (CCD), Elementary and Secondary Information System (ELSi)",
         	"years": [2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012],
         	"children": [
-        		{"name": "Number of Districts", "dataType": "level"},
-        		{"name": "Number Operational Schools", "dataType": "level"},
-        		{"name": "Number of Local School Districts", "dataType": "level"},
-        		{"name": "Number of Federally-operated Institutions", "dataType": "level"},
-        		{"name": "Number of State-operated Institutions", "dataType": "level"},
-        		{"name": "Number of Charter School Agencies", "dataType": "level"},
-        		{"name": "Number of Other School Agencies", "dataType": "level"},
-        		{"name": "Total Students", "dataType": "level"},
-        		{"name": "FTE Teachers", "dataType": "level"},
-        		{"name": "Pupil/Teacher Ratio", "dataType": "level"}
+        		{"name": "Number of Districts", "dataType": "level", "definition": "The number of school districts located in the county."},
+        		{"name": "Number Operational Schools", "dataType": "level", "definition": "The number of operational schools located in the county."},
+        		{"name": "Number of Local School Districts", "dataType": "level", "definition": "The number of Local School Districts or Local School District Components of a Supervisory Union located in the county."},
+        		{"name": "Number of Federally-operated Institutions", "dataType": "level", "definition": "The number of Federally Operated institutions located in the county."},
+        		{"name": "Number of State-operated Institutions", "dataType": "level", "definition": "The number of State Operated institutions located in the county."},
+        		{"name": "Number of Charter School Agencies", "dataType": "level", "definition": "The number of Charter School agencies located in the county."},
+        		{"name": "Number of Other School Agencies", "dataType": "level", "definition": "The number of Supervisory Union Administrative centers, Regional education services agencies, and other education agencies located in the county."},
+        		{"name": "Total Students", "dataType": "level", "definition": "The total number of students in all the school districts located in the county."},
+        		{"name": "FTE Teachers", "dataType": "level", "definition": "The total number of Full-Time Equivalent teachers working in all the school districts located in the county."},
+        		{"name": "Pupil/Teacher Ratio", "dataType": "level", "definition": "The ratio of total students to full-time equivalent teachers in the county."}
         	]
         },
         {
@@ -791,6 +796,7 @@
 		"children": [
 		   {
 			     "name": "County Profile",
+		   		"source": "U.S. Census Bureau, NACo Research",
 				 "years": [2013],
 				 "children": [
 					{"name": "Census Region", "dataType": "categorical"},
@@ -807,6 +813,7 @@
 		   },
 		   {
 			   	"name": "Land & Water Area",
+		   		"source": "U.S. Census Bureau - Gazetteer, NACo Research - Counties with NOAA Trust Resources",
 			   	"years": [2010],
 			   	"children": [
 			   		{"name": "Total Square Miles", "dataType": "level"},
@@ -818,6 +825,7 @@
 		   },
 		   {
 		   		"name": "Metro-Micro Areas (MSA)",
+		   		"source": "U.S. Census Bureau",
 		   		"years": [2013],
 		   		"children": [
 		   			{"name": "CBSA Code"},
@@ -835,27 +843,29 @@
         "children": [
         	{
 	          "name": "Health & Hospitals Employment",
+	          "source": "U.S. Census Bureau - Census of Individual Governments: Employment",
 	          "years": [2007, 2008, 2009, 2010, 2011, 2012],
 	          "children": [
-	          	{"name": "Total", "dataType": "level"},
-	            {"name": "Total Health & Hospitals", "dataType": "level"},
-	          	{"name": "Health", "dataType": "level"},
-	            {"name": "Hospitals", "dataType": "level"}
+	            {"name": "Total", "unit": "FTE employees", "dataType": "level", "definition": "The number of Full-time equivalent (FTE) employees for each county is a computed statistic representing the number of full-time employees that could have been employed if the reported number of hours worked by part-time employees had been worked by full-time employees."},
+	            {"name": "Total Health & Hospitals", "unit":"FTE employees", "dataType": "level", "definition": "Number of FTEs working in hospitals or providing health services."},
+	          	{"name": "Health", "unit":"FTE employees", "dataType": "level", "definition": "Number of FTEs working on Provision of services for the conservation and improvement of public health, other than hospital care, and support of other governments’ health programs."},
+	            {"name": "Hospitals", "unit":"FTE employees", "dataType": "level", "definition": "Number of FTEs working on Services provided from a government’s own hospitals as well as expenditures for the provision of care in other hospitals (public or private). Own hospitals are facilities directly administered by the government, including those operated by public universities. Other expenditures cover the provision of care in other hospitals and support of other public and private hospitals."}
 	          ]
 	        },
 	        {
 	       	  "name": "Health & Hospitals Expenditures",
+	          "source": "U.S. Census Bureau - Census of Individual Governments: Finance",
 	       	  "years": [2007],
 	       	  "children": [
-	       	  	{"name": "Total", "unit": "thousands of dollars", "dataType": "level"},
+	       	  	{"name": "Total", "unit": "thousands of dollars", "dataType": "level", "definition": "All amounts of money paid out by a government--net of recoveries and other correcting transactions--other than for retirement of debt, investment in securities, extension of credit, or as agency transactions. Note that expenditure includes only external transactions of a government and excludes non-cash transactions such as the provision of perquisites or other payments in kind."},
 	       	  	{"name": "Total Health & Hospitals", "unit": "thousands of dollars", "dataType": "level"},
-	       	  	{"name": "Health", "unit": "thousands of dollars", "dataType": "level"},
-	           	{"name": "Hospitals", "unit": "thousands of dollars", "dataType": "level"},
-	       	  	{"name": "Current Operations", "unit": "thousands of dollars", "dataType": "level"},
-	        	{"name": "Construction", "unit": "thousands of dollars", "dataType": "level"},
-	        	{"name": "Other Capital Outlay", "unit": "thousands of dollars", "dataType": "level"},
-	        	{"name": "Intergovernmental to State", "unit": "thousands of dollars", "dataType": "level"},
-	        	{"name": "Intergovernmental to Local", "unit": "thousands of dollars", "dataType": "level"}
+	       	  	{"name": "Health", "unit": "thousands of dollars", "dataType": "level", "definition": "Provision of services for the conservation and improvement of public health, other than hospital care, and financial support of other governments’ health programs. Includes: Expenditures for general health activities, categorical health activities and programs, healthrelated inspections, community health care programs, regulation of air and water quality, rabies and animal control, and ambulance and emergency medical services ONLY IF handled separately from the local fire department. Also includes state or local expenditure financed by Federal Government “Superfund” for cleanup of hazardous waste sites. School health services provided by health agencies (rather than school agencies) are included here. Sewage treatment operations are classified under Sewerage."},
+	           	{"name": "Hospitals", "unit": "thousands of dollars", "dataType": "level", "definition": "Expenditures related to a government’s own hospitals as well as expenditures for the provision of care in other hospitals (public or private). Own hospitals are facilities directly administered by the government, including those operated by public universities. Other expenditures cover the provision of care in other hospitals and support of other public and private hospitals. This function also covers direct payments for acquisition or construction of hospitals (whether or not the government will operate the completed facility) and payments to private corporations that lease and operate government owned hospitals."},
+	       	  	{"name": "Current Operations", "unit": "thousands of dollars", "dataType": "level", "definition": "Direct expenditure for compensation of own officers and employees and for supplies, materials, and contractual services except amounts for capital outlay."},
+	        	{"name": "Construction", "unit": "thousands of dollars", "dataType": "level", "definition": "Production of fixed works and structures additions, replacements, and major alterations, including planning and design of specific projects, site improvements, and provision of equipment and facilities that are integral parts of a structure. Includes contract construction, undertaken on a contract basis by private contractors, and force account construction, undertaken with direct use of material and labor by the government."},
+	        	{"name": "Other Capital Outlay", "unit": "thousands of dollars", "dataType": "level", "definition": "Direct expenditure for contract or force account construction of buildings, grounds, and other improvements, and purchase of equipment, land, and existing structures. Includes amounts for additions, replacements, and major alterations to fixed works and structures. However, expenditure for repairs to such works and structures is classified as current operation expenditure."},
+	        	{"name": "Intergovernmental to State", "unit": "thousands of dollars", "dataType": "level", "definition": "Amounts paid to the state government for performance of specific functions or for general financial support. Includes grants, shared taxes, contingent loans and advances, and any significant and identifiable amounts or reimbursement paid to other governments for performance of general government services or activities. By definition, it excludes amounts paid to other governments for purchase of commodities, property, or utility services and for any tax levied as such on facilities of the government."},
+	        	{"name": "Intergovernmental to Local", "unit": "thousands of dollars", "dataType": "level", "definition": "Amounts paid to other local governments government for performance of specific functions or for general financial support. Includes grants, shared taxes, contingent loans and advances, and any significant and identifiable amounts or reimbursement paid to other governments for performance of general government services or activities. By definition, it excludes amounts paid to other governments for purchase of commodities, property, or utility services and for any tax levied as such on facilities of the government."}
 	       	  ]
 	        },
         	{
@@ -863,22 +873,22 @@
         		"source": "American Hospital Directory",
         		"years": [2011],
         		"children": [
-        			{"name": "Number of Hospitals", "dataType": "level"},
-        			{"name": "Number of City Facilities", "dataType": "level"},
-        			{"name": "Number of County Facilities", "dataType": "level"},
-        			{"name": "Number of City-County Facilities", "dataType": "level"},
-        			{"name": "Number of Hospital District Facilities", "dataType": "level"},
-        			{"name": "Number of Other Government Facilities", "dataType": "level"},
-        			{"name": "Number of Proprietary Facilities", "dataType": "level"},
-        			{"name": "Number of Nonprofit Facilities", "dataType": "level"},
-        			{"name": "Number of Beds", "dataType": "level"},
-        			{"name": "Number of Employees", "dataType": "level"},
-        			{"name": "Gross Revenue", "unit": "dollars", "dataType": "level"},
-        			{"name": "Medicare Revenue", "unit": "dollars", "dataType": "level"},
-        			{"name": "Medicaid Revenue", "unit": "dollars", "dataType": "level"},
-        			{"name": "Patient Days", "dataType": "level"},
-        			{"name": "Revenue per Bed", "unit": "dollars", "dataType": "level"},
-        			{"name": "Revenue per Patient Day", "unit": "dollars", "dataType": "level"}
+        			{"name": "Number of Hospitals", "dataType": "level", "definition": "Number of hospitals located in the county."},
+        			{"name": "Number of City Facilities", "dataType": "level", "definition": "Number of hospitals controlled by the city in the county."},
+        			{"name": "Number of County Facilities", "dataType": "level", "definition": "Number of hospitals controlled by the county in the county."},
+        			{"name": "Number of City-County Facilities", "dataType": "level", "definition": "Number of hospitals controlled by city-county in the county."},
+        			{"name": "Number of Hospital District Facilities", "dataType": "level", "definition": "Number of hospitals controlled by hospital districts in the county."},
+        			{"name": "Number of Other Government Facilities", "dataType": "level", "definition": "Number of hospitals controlled by other governmental agencies in the county."},
+        			{"name": "Number of Proprietary Facilities", "dataType": "level", "definition": "Number of non-governmental proprietary hospitals located in the county."},
+        			{"name": "Number of Nonprofit Facilities", "dataType": "level", "definition": "Number of voluntary, non-profit hospitals located in the county."},
+        			{"name": "Number of Beds", "dataType": "level", "definitions": "Total number of beds available for use by patients in all hopsitals located in the county.  A bed means an adult bed, pediatric bed, birthing room, or newborn bed maintained in a patient care area for lodging patients in acute, long term, or domiciliary areas of the hospital."},
+        			{"name": "Number of Employees", "dataType": "level", "definition": "Total number of employees working in all hospitals located in the county."},
+        			{"name": "Gross Revenue", "unit": "dollars", "dataType": "level", "definition": "Gross revenue of all hospitals located in the county as reported on Medicare reports."},
+        			{"name": "Medicare Revenue", "unit": "dollars", "dataType": "level", "definition": "Amount of revenue from all hospitals located in the county from the Medicare program."},
+        			{"name": "Medicaid Revenue", "unit": "dollars", "dataType": "level", "defintiion": "Amount of revenue from all hospitals located in the county from the Medicaid program."},
+        			{"name": "Patient Days", "dataType": "level", "definition": "Total number of patient days from most recent Medicare cost report from all hospitals located in the county."},
+        			{"name": "Revenue per Bed", "unit": "dollars", "dataType": "level", "definition": "Average amount of revenue per hospital bed of all hospitals located in the county."},
+        			{"name": "Revenue per Patient Day", "unit": "dollars", "dataType": "level", "definition": "Amount of revenue per patient day of all hospitals located in the county."}
         		]
         	},
         	{
@@ -956,7 +966,7 @@
         	},
 	        {
         		"name": "Housing Units",
-        		"source": "U.S. Census Bureau - American Community Survey (ACS)"
+        		"source": "U.S. Census Bureau - American Community Survey (ACS)",
         		"years": [2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012],
         		"children": [
         			{"name": "Population", "dataType": "level"},
@@ -1256,27 +1266,27 @@
         		"source": "Federal Highway Administration - National Bridge Inventory",
         		"years": [2007, 2008, 2009, 2010, 2011, 2012, 2013],
         		"children": [
-        			{"name": "All Bridges - Total Bridges", "dataType": "level"},
-        			{"name": "All Bridges - City/Town Owned", "dataType": "level"},
-        			{"name": "All Bridges - County Owned", "dataType": "level"},
-        			{"name": "All Bridges - Federal Owned", "dataType": "level"},
-        			{"name": "All Bridges - Privately Owned", "dataType": "level"},
-        			{"name": "All Bridges - State Owned", "dataType": "level"},
-        			{"name": "All Bridges - Local Owned", "dataType": "level"},
-        			{"name": "Structurally Deficient Bridges - Total Bridges", "dataType": "level"},
-        			{"name": "Structurally Deficient Bridges - City/Town Owned", "dataType": "level"},
-        			{"name": "Structurally Deficient Bridges - County Owned", "dataType": "level"},
-        			{"name": "Structurally Deficient Bridges - Federal Owned", "dataType": "level"},
-        			{"name": "Structurally Deficient Bridges - Privately Owned", "dataType": "level"},
-        			{"name": "Structurally Deficient Bridges - State Owned", "dataType": "level"},
-        			{"name": "Structurally Deficient Bridges - Local Owned", "dataType": "level"},
-        			{"name": "Functionally Obsolete Bridges - Total Bridges", "dataType": "level"},
-        			{"name": "Functionally Obsolete Bridges - City/Town Owned", "dataType": "level"},
-        			{"name": "Functionally Obsolete Bridges - County Owned", "dataType": "level"},
-        			{"name": "Functionally Obsolete Bridges - Federal Owned", "dataType": "level"},
-        			{"name": "Functionally Obsolete Bridges - Privately Owned", "dataType": "level"},
-        			{"name": "Functionally Obsolete Bridges - State Owned", "dataType": "level"},
-        			{"name": "Functionally Obsolete Bridges - Local Owned", "dataType": "level"}
+        			{"name": "All Bridges - Total Bridges", "dataType": "level", "definition": "Total number of bridges located in the county."},
+        			{"name": "All Bridges - City/Town Owned", "dataType": "level", "definition": "Total number of bridges owned by a Town or Township Highway Agency or a City or Municipal Highway Agency."},
+        			{"name": "All Bridges - County Owned", "dataType": "level", "definition": "Total number of bridges owned by a County Highway Agency."},
+        			{"name": "All Bridges - Federal Owned", "dataType": "level", "definition": "Total number of bridges owned by a Federal Agency. Includes the Indian Tribal Government, Bureau of Indian Affairs, Bureau of Fish and Wildlife, U.S. Forest Service, National Park Service, Tennessee Valley Authority, Bureau of Land Management, Bureau of Reclamation, Corps of Engineers, Air Force, Navy/Marines, Army, NASA, or the Metropolitan Washington Airports Service."},
+        			{"name": "All Bridges - Privately Owned", "dataType": "level", "definition": "Total number of bridges owned by a Private agency."},
+        			{"name": "All Bridges - State Owned", "dataType": "level", "definition": "Total number of bridges owned by a State Highway Agency, a State Park, Forest, or Reservation Agency, or Other State Agencies."},
+        			{"name": "All Bridges - Local Owned", "dataType": "level", "definition": "Total number of bridges owned by a Local Park, Forest, or Reservation Agency or Local Toll Authority, or Other Local Agencies."},
+        			{"name": "Structurally Deficient Bridges - Total Bridges", "dataType": "level", "definition": "Total number of structurally deficient bridges; A highway bridge is classified as structurally deficient if the deck, superstructure, substructure, or culvert is rated in 'poor' condition (0 to 4 on the NBI rating scale). A bridge can also be classified as structurally deficient if its load carrying capacity is significantly below current design standards or if a waterway below frequently overtops the bridge during floods."},
+        			{"name": "Structurally Deficient Bridges - City/Town Owned", "dataType": "level", "definition": "Total number of structurally deficient bridges owned by a Town or Township Highway Agency or a City or Municipal Highway Agency."},
+        			{"name": "Structurally Deficient Bridges - County Owned", "dataType": "level", "definition": "Total number of structurally deficient bridges owned by a County Highway Agency."},
+        			{"name": "Structurally Deficient Bridges - Federal Owned", "dataType": "level", "definition": "Total number of structurally deficient bridges owned by a Federal Agency. Includes the Indian Tribal Government, Bureau of Indian Affairs, Bureau of Fish and Wildlife, U.S. Forest Service, National Park Service, Tennessee Valley Authority, Bureau of Land Management, Bureau of Reclamation, Corps of Engineers, Air Force, Navy/Marines, Army, NASA, or the Metropolitan Washington Airports Service."},
+        			{"name": "Structurally Deficient Bridges - Privately Owned", "dataType": "level", "definition": "Total number of structurally deficient bridges owned by a Private agency."},
+        			{"name": "Structurally Deficient Bridges - State Owned", "dataType": "level", "definition": "Total number of structurally deficient bridges owned by a State Highway Agency, a State Park, Forest, or Reservation Agency, or Other State Agencies."},
+        			{"name": "Structurally Deficient Bridges - Local Owned", "dataType": "level", "definition": "Total number of structurally deficient bridges owned by a Local Park, Forest, or Reservation Agency or Local Toll Authority, or Other Local Agencies."},
+        			{"name": "Functionally Obsolete Bridges - Total Bridges", "dataType": "level", "definition": "Total number of functionally obsolete bridges; 'Functionally obsolete' means that the design of a bridge is not suitable for its current use, such as lack of safety shoulders or the inability to handle current traffic volume, speed, size, or weight."},
+        			{"name": "Functionally Obsolete Bridges - City/Town Owned", "dataType": "level", "definition": "Total number of functionally obsolete bridges owned by a Town or Township Highway Agency or a City or Municipal Highway Agency."},
+        			{"name": "Functionally Obsolete Bridges - County Owned", "dataType": "level", "definition": "Total number of functionally obsolete bridges owned by a County Highway Agency."},
+        			{"name": "Functionally Obsolete Bridges - Federal Owned", "dataType": "level", "definition": "Total number of functionally obsolete bridges owned by a Federal Agency. Includes the Indian Tribal Government, Bureau of Indian Affairs, Bureau of Fish and Wildlife, U.S. Forest Service, National Park Service, Tennessee Valley Authority, Bureau of Land Management, Bureau of Reclamation, Corps of Engineers, Air Force, Navy/Marines, Army, NASA, or the Metropolitan Washington Airports Service."},
+        			{"name": "Functionally Obsolete Bridges - Privately Owned", "dataType": "level", "definition": "Total number of functionally obsolete bridges owned by a Private agency."},
+        			{"name": "Functionally Obsolete Bridges - State Owned", "dataType": "level", "definition": "Total number of functionally obsolete bridges owned by a State Highway Agency, a State Park, Forest, or Reservation Agency, or Other State Agencies."},
+        			{"name": "Functionally Obsolete Bridges - Local Owned", "dataType": "level", "definition": "Total number of functionally obsolete bridges owned by a Local Park, Forest, or Reservation Agency or Local Toll Authority, or Other Local Agencies."}
         		]
         	},
         	{
@@ -1284,7 +1294,7 @@
         		"source": "Federal Highway Administration - Highway Performance Monitoring System",
         		"years": [2011],
         		"children": [
-        			{"name": "Total Public Road Miles", "dataType": "level"},
+        			{"name": "Total Public Road Miles", "dataType": "level", "definition": "Total miles of public roads, which are any roads or streets owned and maintained by a public authority and open to public travel."},
         			{"name": "Interstate Road Miles", "dataType": "level"},
         			{"name": "Other Freeway/Expressway Road Miles", "dataType": "level"},
         			{"name": "Other Principle Arterial Road Miles", "dataType": "level"},
@@ -1382,7 +1392,7 @@
 	        	{"name": "Intergovernmental to State", "unit": "thousands of dollars", "dataType": "level", "definition": "Amounts paid to the state government for performance of specific functions or for general financial support. Includes grants, shared taxes, contingent loans and advances, and any significant and identifiable amounts or reimbursement paid to other governments for performance of general government services or activities. By definition, it excludes amounts paid to other governments for purchase of commodities, property, or utility services and for any tax levied as such on facilities of the government."},
 	        	{"name": "Intergovernmental to Local", "unit": "thousands of dollars", "dataType": "level", "definition": "Amounts paid to other local governments government for performance of specific functions or for general financial support. Includes grants, shared taxes, contingent loans and advances, and any significant and identifiable amounts or reimbursement paid to other governments for performance of general government services or activities. By definition, it excludes amounts paid to other governments for purchase of commodities, property, or utility services and for any tax levied as such on facilities of the government."}
 	       	  ]
-	        },
+	        }
         ]
     },
     {
