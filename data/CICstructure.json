@@ -687,7 +687,8 @@
         	"name": "Public Elementary & Secondary Schools",
         	"source": "National Center for Economic Statistics (NCES) - Common Core Data (CCD), Elementary and Secondary Information System (ELSi)",
         	"years": [2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012],
-        	"children": [
+        	"companions": [["Public Elementary & Secondary Schools", "Number of Local Schools"], ["Public Elementary & Secondary Schools", "Pupil/Teacher Ratip"], ["Public Elementary & Secondary Schools", "Number of Charter Schools"], ["Public Elementary & Secondary Schools", "Total Students"]],
+          	"children": [
         		{"name": "Number of Districts", "dataType": "level", "definition": "The number of school districts located in the county."},
         		{"name": "Number Operational Schools", "dataType": "level", "definition": "The number of operational schools located in the county."},
         		{"name": "Number of Local School Districts", "dataType": "level", "definition": "The number of Local School Districts or Local School District Components of a Supervisory Union located in the county."},
@@ -704,7 +705,8 @@
         	"name": "Colleges & Universities",
         	"source": "National Center for Economic Statistics (NCES) - Integrated Postsecondary Education Data System (IPEDS)",
         	"years": [2009, 2010, 2011, 2012],
-        	"children": [
+        	"companions": [["Colleges & Universities", "Number of Institutions"], ["Colleges & Universities", "Average In-State Tuition"], ["Colleges & Universities", "Average Out-of-State Tuition"], ["Colleges & Universities", "Total Enrollment"]],
+          	"children": [
         	  {"name": "Number of Institutions", "dataType": "level"},
         	  {"name": "Number of Public Institutions", "dataType": "level"},
         	  {"name": "Number of less than 4 year Institutions", "dataType": "level"},
@@ -724,7 +726,8 @@
       	{
       		"name": "American Dream Downpayment Initiative (ADDI)",
       		"years": [2003, 2004, 2005, 2006, 2007, 2008],
-      		"children": [
+      		"companions": [["American Dream Downpayment Initiative (ADDI)", "ADDI Amount"], ["American Dream Downpayment Initiative (ADDI)", "ADDI Annual Growth Rate (from previous year)"], ["Housing & Urban Development Grants", "Total HUD Amount"], ["Housing & Urban Development Grants", "HUD Annual Growth Rate (from previous year)"]],
+          	"children": [
       			{"name": "ADDI Amount", "unit": "thousands of dollars", "dataType": "level", "definition": "Funding received from the American Dream Downpayment Initiative"},
       			{"name": "ADDI Annual Growth Rate (from previous year)", "dataType": "percent"}
       		]
@@ -732,7 +735,8 @@
       	{
       		"name": "Community Development Block Grants (CDBG)",
       		"years": [2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014],
-      		"children": [
+      		"companions": [["Community Development Block Grants (CDBG)", "CDBG Amount"], ["Community Development Block Grants (CDBG)", "CDBG Annual Growth Rate (from previous year)"], ["Housing & Urban Development Grants", "Total HUD Amount"], ["Housing & Urban Development Grants", "HUD Annual Growth Rate (from previous year)"]],
+          	"children": [
       			{"name": "CDBG Amount", "unit": "thousands of dollars", "dataType": "level"},
       			{"name": "CDBG Annual Growth Rate (from previous year)", "dataType": "percent"}
       		]
@@ -740,7 +744,8 @@
       	{
       		"name": "Emergency Shelter Grants (ESG)",
       		"years": [2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014],
-      		"children": [
+      		"companions": [["Emergency Shelter Grants (ESG)", "ESG Amount"], ["Emergency Shelter Grants (ESG)", "ESG Annual Growth Rate (from previous year)"], ["Housing & Urban Development Grants", "Total HUD Amount"], ["Housing & Urban Development Grants", "HUD Annual Growth Rate (from previous year)"]],
+          	"children": [
       			{"name": "ESG Amount", "unit": "thousands of dollars", "dataType": "level"},
       			{"name": "ESG Annual Growth Rate (from previous year)", "dataType": "percent"}
       		]
@@ -748,7 +753,8 @@
       	{
       		"name": "HOME Investment Partnership Program",
       		"years": [2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014],
-      		"children": [
+      		"companions": [["HOME Investment Partnership Program", "HOME Amount"], ["HOME Investment Partnership Program", "HOME Annual Growth Rate (from previous year)"], ["Housing & Urban Development Grants", "Total HUD Amount"], ["Housing & Urban Development Grants", "HUD Annual Growth Rate (from previous year)"]],
+          	"children": [
       			{"name": "HOME Amount", "unit": "thousands of dollars", "dataType": "level"},
       			{"name": "HOME Annual Growth Rate (from previous year)", "dataType": "percent"}
       		]
@@ -756,7 +762,8 @@
       	{
       		"name": "Housing & Urban Development Grants",
       		"years": [2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014],
-      		"children": [
+      		"companions": [["Housing & Urban Development Grants", "Total HUD Amount"], ["Housing & Urban Development Grants", "HUD Annual Growth Rate (from previous year)"], ["Community Development Block Grants (CDBG)", "CDBG Amount"], ["HOME Investment Partnership Program", "HOME Amount"]],
+          	"children": [
       			{"name": "Total HUD Amount", "unit": "thousands of dollars", "dataType": "level"},
       			{"name": "HUD Annual Growth Rate (from previous year)", "dataType": "percent"}
      		]
@@ -764,7 +771,8 @@
       	{
       		"name": "Housing Opportunities for Persons with AIDS (HOPWA)",
       		"years": [2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014],
-      		"children": [
+      		"companions": [["Housing Opportunities for Persons with AIDS (HOPWA)", "HOPWA Amount"], ["Housing Opportunities for Persons with AIDS (HOPWA)", "HOPWA Annual Growth Rate (from previous year)"], ["Housing & Urban Development Grants", "Total HUD Amount"], ["Housing & Urban Development Grants", "HUD Annual Growth Rate (from previous year)"]],
+          	"children": [
       			{"name": "HOPWA Amount", "unit": "thousands of dollars", "dataType": "level"},
       			{"name": "HOPWA Annual Growth Rate (from previous year)", "dataType": "percent"}
       		]
@@ -772,7 +780,7 @@
       	{
       		"name": "Payment in Lieu of Taxes (PILT)",
       		"years": [2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013],
-      		"companions": ["PILT Annual Growth Rate (from previous year)", "Total HUD Amount", "CDBG Amount"],
+      		"companions": [["Payment in Lieu of Taxes (PILT)", "PILT Annual Growth Rate (from previous year)"], ["Payment in Lieu of Taxes (PILT)", "PILT per Square Mile"], ["Housing & Urban Development Grants", "Total HUD Amount"], ["Community Development Block Grants", "CDBG Amount"]],
       		"source": "Nick Lyell's book of Awesome Statistics",
       		"vintage": "2014",
       		"notes": "These are test numbers and do not reflect the final project.",
@@ -788,6 +796,7 @@
       	{
       		"name": "Secure Rural Schools (SRS)",
       		"years": [2012],
+      		"companions": [["Secure Rural Schools (SRS)", "SRS Amount"], ["USDA Rural Development", "USDA Total Amount"], ["Payment in Lieu of Taxes (PILT)", "PILT Amount"], ["Housing & Urban Development Grants", "Total HUD Amount"]],
       		"children": [
       			{"name": "SRS Amount", "unit": "thousands of dollars", "dataType": "level"}
      		]      		
@@ -795,16 +804,18 @@
       	{
       		"name": "State Criminal Alien Assistance Program (SCAAP)",
       		"years": [2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013],
+      		"companions": [["State Criminal Alien Assistance Program (SCAAP)", "SCAAP Amount"], ["State Criminal Alien Assistance Program (SCAAP)", "SCAAP Annual Growth Rate"], ["Housing & Urban Development Grants", "Total HUD Amount"], ["Housing & Urban Development Grants", "HUD Annual Growth Rate (from previous year)"]],
       		"children": [
-      			{"name": "SCAAP Level", "unit": "thousands of dollars", "dataType": "level"},
+      			{"name": "SCAAP Amount", "unit": "thousands of dollars", "dataType": "level"},
       			{"name": "SCAAP Annual Growth Rate (from previous year)", "dataType": "percent"}
       		]
       	},
       	{
       		"name": "USDA Rural Development",
       		"years": [2009, 2010, 2011, 2012, 2013, 2014],
+      		"companions": [["USDA Rural Development", "USDA Total Amount"], ["USDA Rural Development", "USDA Total Amount Growth Rate (from previous year)"], ["USDA Rural Development", "USDA Grant Amount"], ["USDA Rural Development", "USDA Loan Amount"]],
       		"children": [
-      			{"name": "USAD Total Amount", "unit": "thousands of dollars", "dataType": "level"},
+      			{"name": "USDA Total Amount", "unit": "thousands of dollars", "dataType": "level"},
       			{"name": "USDA Total Annual Growth Rate (from previous year)", "dataType": "percent"},
       			{"name": "USDA Grant Amount", "unit": "thousands of dollars", "dataType": "level"},
       			{"name": "USDA Loan Amount", "unit": "thousands of dollars", "dataType": "level"}
