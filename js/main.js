@@ -155,7 +155,6 @@ function buildDropdown() {
 			var createIndicator = function(cat, indName) {
 				var indDrop = cat.append('ul');
 				indDrop.classed('dropdown-menu', true);
-				//indDrop.html('<ul class="dropdown-menu"></ul>');
 				indDrop.append('li')
 					.append('a')
 					.attr('title', indName)
@@ -217,19 +216,23 @@ function update(primeInd, primeIndYear){
 	// determine if indicator values are currency by checking units
 	var isCurrency = (primeIndUnits) ? (primeIndUnits.indexOf("dollar") != -1) : false;
 	
-	// pack data in color array; create legend
+	// pack data in color array
 	color
 		.domain(quantById)
 		.range(range);
 	d3.selectAll(".legend svg").remove();  d3.select("#legendTitle").remove();
-	d3.select(".legend").append("div").attr("id", "legendTitle").text(legendTitle);
-	legend = colorlegend("#quantileLegend", color, "quantile", {
-		title: "legend", 
-		boxHeight: 15, 
-		boxWidth: 60, 
-		dataType: dataType,
-		isCurrency: isCurrency
-	});
+	
+	if (dataType !== 'none') { 
+		// create legend
+		d3.select(".legend").append("div").attr("id", "legendTitle").text(legendTitle);
+		legend = colorlegend("#quantileLegend", color, "quantile", {
+			title: "legend", 
+			boxHeight: 15, 
+			boxWidth: 60, 
+			dataType: dataType,
+			isCurrency: isCurrency
+		});
+	}
 	
 	
 	g.selectAll(".counties .county").transition().duration(750).style("fill", function(d) {
