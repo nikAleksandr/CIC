@@ -828,9 +828,10 @@
 		"children": [
 		   {
 			     "name": "County Profile",
-		   		"source": "U.S. Census Bureau, NACo Research",
+		   		 "source": "U.S. Census Bureau, NACo Research",
 				 "years": [2013],
-				 "children": [
+				 "companions": [["County Profile", "Census Region"], ["County Profile", "Year Founded"], ["County Profile", "County Square Mileage"], ["County Profile", "Fiscal Year End Date"]],
+      			 "children": [
 					{"name": "Census Region", "dataType": "categorical"},
 					{"name": "County Seat"},
 					{"name": "Year Founded"},
@@ -847,7 +848,8 @@
 			   	"name": "Land & Water Area",
 		   		"source": "U.S. Census Bureau - Gazetteer, NACo Research - Counties with NOAA Trust Resources",
 			   	"years": [2010],
-			   	"children": [
+			   	"companions": [["County Profile", "Census Region"], ["County Profile", "Year Founded"], ["County Profile", "County Square Mileage"], ["County Profile", "Fiscal Year End Date"]],
+      			"children": [
 			   		{"name": "Total Square Miles", "dataType": "level"},
 			   		{"name": "Total Land Square Miles", "dataType": "level"},
 			   		{"name": "Total Water Square Miles", "dataType": "level"},
@@ -859,13 +861,14 @@
 		   		"name": "Metro-Micro Areas (MSA)",
 		   		"source": "U.S. Census Bureau",
 		   		"years": [2013],
-		   		"children": [
-		   			{"name": "CBSA Code"},
-		   			{"name": "CSA Code"},
-		   			{"name": "CBSA Title"},
-		   			{"name": "CSA Title"},
-		   			{"name": "Level of CBSA"},
-		   			{"name": "County Status"}
+		   		"companions": [["County Profile", "Census Region"], ["Metro-Micro Areas (MSA)", "CBSA Title"], ["Metro-Micro Areas (MSA)", "CSA Title"], ["Metro-Micro Areas (MSA)", "County Status"]],
+      			"children": [
+		   			{"name": "CBSA Code", "dataType": "none"},
+		   			{"name": "CSA Code", "dataType": "none"},
+		   			{"name": "CBSA Title", "dataType": "none"},
+		   			{"name": "CSA Title", "dataType": "none"},
+		   			{"name": "Level of CBSA", "dataType": "categorical"},
+		   			{"name": "County Status", "dataType": "binary"}
 		   		]
 		   }
 		]
@@ -877,7 +880,8 @@
 	          "name": "Health & Hospitals Employment",
 	          "source": "U.S. Census Bureau - Census of Individual Governments: Employment",
 	          "years": [2007, 2008, 2009, 2010, 2011, 2012],
-	          "children": [
+	          "companions": [["Health & Hospitals Employment", "Total Health & Hospitals"], ["Health & Hospitals Employment", "Health"], ["Health & Hospitals Employment", "Hospitals"], ["Hospitals", "Number of Hospitals"]],
+      		  "children": [
 	            {"name": "Total", "unit": "FTE employees", "dataType": "level", "definition": "The number of Full-time equivalent (FTE) employees for each county is a computed statistic representing the number of full-time employees that could have been employed if the reported number of hours worked by part-time employees had been worked by full-time employees."},
 	            {"name": "Total Health & Hospitals", "unit":"FTE employees", "dataType": "level", "definition": "Number of FTEs working in hospitals or providing health services."},
 	          	{"name": "Health", "unit":"FTE employees", "dataType": "level", "definition": "Number of FTEs working on Provision of services for the conservation and improvement of public health, other than hospital care, and support of other governments’ health programs."},
@@ -888,7 +892,8 @@
 	       	  "name": "Health & Hospitals Expenditures",
 	          "source": "U.S. Census Bureau - Census of Individual Governments: Finance",
 	       	  "years": [2007],
-	       	  "children": [
+	       	  "companions": [["Health & Hospitals Expenditures", "Total Health & Hospitals"], ["Health & Hospitals Expenditures", "Health"], ["Health & Hospitals Expenditures", "Hospitals"], ["Hospitals", "Number of Hospitals"]],
+      		  "children": [
 	       	  	{"name": "Total", "unit": "thousands of dollars", "dataType": "level", "definition": "All amounts of money paid out by a government--net of recoveries and other correcting transactions--other than for retirement of debt, investment in securities, extension of credit, or as agency transactions. Note that expenditure includes only external transactions of a government and excludes non-cash transactions such as the provision of perquisites or other payments in kind."},
 	       	  	{"name": "Total Health & Hospitals", "unit": "thousands of dollars", "dataType": "level"},
 	       	  	{"name": "Health", "unit": "thousands of dollars", "dataType": "level", "definition": "Provision of services for the conservation and improvement of public health, other than hospital care, and financial support of other governments’ health programs. Includes: Expenditures for general health activities, categorical health activities and programs, healthrelated inspections, community health care programs, regulation of air and water quality, rabies and animal control, and ambulance and emergency medical services ONLY IF handled separately from the local fire department. Also includes state or local expenditure financed by Federal Government “Superfund” for cleanup of hazardous waste sites. School health services provided by health agencies (rather than school agencies) are included here. Sewage treatment operations are classified under Sewerage."},
@@ -904,7 +909,8 @@
         		"name": "Hospitals",
         		"source": "American Hospital Directory",
         		"years": [2011],
-        		"children": [
+        		"companions": [["Hospitals", "Number of Hospitals"], ["Hospitals", "Number of County Facilities"], ["Hospitals", "Number of Beds"], ["Hospitals", "Revenue per Patient Day"]],
+      		  	"children": [
         			{"name": "Number of Hospitals", "dataType": "level", "definition": "Number of hospitals located in the county."},
         			{"name": "Number of City Facilities", "dataType": "level", "definition": "Number of hospitals controlled by the city in the county."},
         			{"name": "Number of County Facilities", "dataType": "level", "definition": "Number of hospitals controlled by the county in the county."},
@@ -927,7 +933,8 @@
         		"name": "Nursing Homes",
         		"source": "Department of Health & Human Services",
         		"years": [2014],
-        		"children": [
+        		"companions": [["Nursing Homes", "Number of Nursing Homes"], ["Nursing Homes", "Number of County Facilities"], ["Nursing Homes", "Percent of Occupied Beds"], ["Nursing Homes", "Number of Residents"]],
+      		  	"children": [
         			{"name": "Number of Nursing Homes", "dataType": "level"},
         			{"name": "Number of City Facilities", "dataType": "level"},
         			{"name": "Number of County Facilities", "dataType": "level"},
@@ -947,7 +954,8 @@
         		"name": "Health Insurance",
         		"source": "U.S. Census Bureau - American Community Survey (ACS)",
         		"years": [2009, 2010, 2011, 2012],
-        		"children": [
+        		"companions": [["Health Insurance", "Percent Insured"], ["Health Insurance", "Population with Private Insurance"], ["Health Insurance", "Population with Public Insurance"], ["Health Insurance", "Percent 6-24 Insured"]],
+      		  	"children": [
         			{"name": "Population", "dataType": "level"},
         			{"name": "Population Insured", "dataType": "level"},
         			{"name": "Percent Insured", "dataType": "percent"},
@@ -977,7 +985,8 @@
 	          	"name": "Housing & Community Development Employment",
 	          	"source": "U.S. Census Bureau - Census of Individual Governments: Employment",
 	          	"years": [2007, 2008, 2009, 2010, 2011, 2012],
-	          	"children": [
+	          	"companions": [["Housing & Community Development Expenditures", "Total Housing & Community Development"], ["Housing & Community Development Employment", "Total Housing & Community Development"], ["Housing & Community Development Employment", "Total"], ["Housing & Community Development Expenditures", "Current Operations"]],
+       	  		"children": [
 		            {"name": "Total", "unit": "FTE employees", "dataType": "level", "definition": "The number of Full-time equivalent (FTE) employees for each county is a computed statistic representing the number of full-time employees that could have been employed if the reported number of hours worked by part-time employees had been worked by full-time employees."},
 	          		{"name": "Housing & Community Development", "unit":"FTE employees", "dataType": "level", "definition": "Number of FTEs working on Construction, operation, and support of housing and redevelopment projects and other activities to promote or aid public and private housing and community development.  Includes: Housing: Planning, construction, furnishing, and operation of public housing projects (generally for persons not adequately served by private sector). Community development: Urban renewal and slum clearance; redevelopment and rehabilitation of substandard or deteriorated facilities and areas; rural redevelopment; and revitalization of commercial areas."}
 	          	]
@@ -986,6 +995,7 @@
        	  		"name": "Housing & Community Development Expenditures",
         	 	"source": "U.S. Census Bureau - Census of Individual Governments: Finance",
        	  		"years": [2007],
+       	  		"companions": [["Housing & Community Development Expenditures", "Total Housing & Community Development"], ["Housing & Community Development Employment", "Total Housing & Community Development"], ["Housing & Community Development Expenditures", "Current Operations"], ["Housing & Community Development Expenditures", "Total"]],
        	  		"children": [
        	  			{"name": "Total", "unit": "thousands of dollars", "dataType": "level", "definition": "All amounts of money paid out by a government--net of recoveries and other correcting transactions--other than for retirement of debt, investment in securities, extension of credit, or as agency transactions. Note that expenditure includes only external transactions of a government and excludes non-cash transactions such as the provision of perquisites or other payments in kind."},
        	  			{"name": "Total Housing & Community Development", "unit": "thousands of dollars", "dataType": "level"},
@@ -1000,7 +1010,8 @@
         		"name": "Housing Units",
         		"source": "U.S. Census Bureau - American Community Survey (ACS)",
         		"years": [2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012],
-        		"children": [
+        		"companions": [["Housing Units", "Number of Housing Units"], ["Housing Units", "Average Household Size"], ["Housing Units", "Percent of Owner-Occupied Housing Units"], ["Housing Units", "Percent of Renter Occupied Housing Units"]],
+      		  	"children": [
         			{"name": "Population", "dataType": "level"},
         			{"name": "Number of Housing unit", "dataType": "level"},
         			{"name": "Average Household Size", "dataType": "level"},
