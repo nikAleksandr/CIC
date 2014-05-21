@@ -132,11 +132,14 @@ function buildDropdown() {
 			
 			var s = CICStructure.children;
 			var createCategory = function(catName) {
-				d3.select('#primeInd').append('li')
-					.append('a')
+				/*var primeDrop = d3.select('#primeInd');
+				primeDrop.append('a').text(catName);
+				var cat = primeDrop.append('li');*/
+				var cat = d3.select('#primeInd').append('li').append('a')
 					.attr('name', catName)
 					.attr('title', catName)
 					.attr('href', '#')
+					.style('text-align', 'left')
 					.text(catName)
 					.on('click', function(d) {
 						tooltip.classed("hidden", true);				
@@ -146,10 +149,24 @@ function buildDropdown() {
 						d3.select('#primeIndText').html(selectedDataText);
 						
 						getData(selectedData, selectedDataset);
-					});				
+					});
+				return cat;
+			};
+			var createIndicator = function(cat, indName) {
+				var indDrop = cat.append('ul');
+				indDrop.classed('dropdown-menu', true);
+				//indDrop.html('<ul class="dropdown-menu"></ul>');
+				indDrop.append('li')
+					.append('a')
+					.attr('title', indName)
+					.attr('name', indName)
+					.attr('href', '#')
+					.text(indName);
 			};
 						
 			for (var i = 0; i < s.length; i++) createCategory(s[i].name);
+			//var testCat = createCategory('Test');
+			//createIndicator(testCat, 'Test 2');
 						
 		} else throw new Error('Error reading JSON file');
 	});
