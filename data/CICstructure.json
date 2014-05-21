@@ -27,7 +27,7 @@
           "name": "Administration Employment",
           "source": "U.S. Census Bureau - Census of Individual Governments: Employment",
           "years": [2007, 2008, 2009, 2010, 2011, 2012],
-          "companions": [["Administartion Expenditures", "Total Administration"], ["Administration Employment", "Total Administration"], ["Administration Revenue", "Total Administration"], ["Administration Employment", "Total"]],
+          "companions": [["Administration Expenditures", "Total Administration"], ["Administration Employment", "Total Administration"], ["Administration Revenue", "Total Administration"], ["Administration Employment", "Total"]],
        	  "children": [
             {"name": "Total", "unit": "FTE employees", "dataType": "level", "definition": "The number of Full-time equivalent (FTE) employees for each county is a computed statistic representing the number of full-time employees that could have been employed if the reported number of hours worked by part-time employees had been worked by full-time employees."},
             {"name": "Total Administration", "unit": "FTE employees", "dataType": "level", "definition": "Includes all FTE on Financial Administration, Social Insurance Administration and Other Governmental Administration.  Covers  administration of unemployment compensation systems, public employment services, and the Federal Social Security, Medicare, and Railroad Retirement trusts; officials and central staff agencies concerned with tax assessment and collection, accounting, auditing, budgeting, purchasing, custody of funds, and other finance activities; legislative bodies and related activities involved in the making, enacting, and repeal of law; and government-wide executive, administrative, and staff service agencies other than financial, judicial, legal, and Federal or state legislative activities."},
@@ -40,7 +40,7 @@
           "name": "Administration Revenue",
           "source": "U.S. Census Bureau - Census of Individual Governments: Finance",
           "years": [2007],
-          "companions": [["Administartion Expenditures", "Total Administration"], ["Administration Employment", "Total Administration"], ["Administration Revenue", "Total Administration"], ["Administration Revenue", "Total"]],
+          "companions": [["Administration Expenditures", "Total Administration"], ["Administration Employment", "Total Administration"], ["Administration Revenue", "Total Administration"], ["Administration Revenue", "Total"]],
        	  "children": [
           	{"name": "Total", "unit": "thousands of dollars", "dataType": "level", "definition": "All amounts of money received by a government from external sources--net of refunds and other correcting transactions--other than from issuance of debt, liquidation of investments, and as agency and private trust transactions. Note that revenue excludes noncash transactions such as receipt of services, commodities, or other 'receipts in kind.'"},
           	{"name": "Total Administration", "unit": "thousands of dollars", "dataType": "level"},
@@ -60,7 +60,7 @@
           "name": "Administration Employment",
           "source": "U.S. Census Bureau - Census of Individual Governments: Employment",
           "years": [2007, 2008, 2009, 2010, 2011, 2012],
-          "companions": [["Administartion Expenditures", "Total Administration"], ["Administration Employment", "Total Administration"], ["Administration Revenue", "Total Administration"], ["Administration Employment", "Total"]],
+          "companions": [["Administration Expenditures", "Total Administration"], ["Administration Employment", "Total Administration"], ["Administration Revenue", "Total Administration"], ["Administration Employment", "Total"]],
        	  "children": [
             {"name": "Total", "unit": "FTE employees", "dataType": "level", "definition": "The number of Full-time equivalent (FTE) employees for each county is a computed statistic representing the number of full-time employees that could have been employed if the reported number of hours worked by part-time employees had been worked by full-time employees."},
             {"name": "Total Administration", "unit": "FTE employees", "dataType": "level", "definition": "Number of FTEs on Financial Administration, Social Insurance Administration and Other Governmental Administration.  Covers  administration of unemployment compensation systems, public employment services, and the Federal Social Security, Medicare, and Railroad Retirement trusts; officials and central staff agencies concerned with tax assessment and collection, accounting, auditing, budgeting, purchasing, custody of funds, and other finance activities; legislative bodies and related activities involved in the making, enacting, and repeal of law; and government-wide executive, administrative, and staff service agencies other than financial, judicial, legal, and Federal or state legislative activities."},
@@ -623,18 +623,18 @@
             {"name": "Total Households", "dataType": "level", "definition": "A household consists of all the people who occupy a housing unit. A house, an apartment or other group of rooms, or a single room, is regarded as a housing unit when it is occupied or intended for occupancy as separate living quarters; that is, when the occupants do not live with any other persons in the structure and there is direct access from the outside or through a common hall. A household includes the related family members and all the unrelated people, if any, such as lodgers, foster children, wards, or employees who share the housing unit. A person living alone in a housing unit, or a group of unrelated people sharing a housing unit such as partners or roomers, is also counted as a household. The count of households excludes group quarters."},
             {"name": "Per Capita Income", "dataType": "level", "definition": "The average income computed for every man, woman, and child in a particular group. The Census Bureau derived per capita income by dividing the total income of a particular group by the total population in that group (excluding patients or inmates in institutional quarters)."},
             {"name": "Median Household Income", "dataType": "level", "definition": "The amount which divides the income distribution into two equal groups, half having incomes above the median, half having incomes below the median. The medians for households, families, and unrelated individuals are based on all households, families, and unrelated individuals, respectively. The medians for people are based on people 15 years old and over with income."},
-            {"name": "Number of Households with Income Less than $10,000", "dataType": "level"},
-            {"name": "Percent of Households with Income Less than $10,000", "dataType": "percent"},
-            {"name": "Number of Households with Income Between $10,000 - $24,999", "dataType": "level"},
-            {"name": "Percent of Households with Income Between $10,000 - $24,999", "dataType": "percent"},
-            {"name": "Number of Households with Income Between $25,000 - $49,999", "dataType": "level"},
-            {"name": "Percent of Households with Income Between $25,000 - $49,999", "dataType": "percent"},
-            {"name": "Number of Households with Income Between $50,000 - $99,999", "dataType": "level"},
-            {"name": "Percent of Households with Income Between $50,000 - $99,999", "dataType": "percent"},
-            {"name": "Number of Households with Income Between $100,000 - $199,999", "dataType": "level"},
-            {"name": "Percent of Households with Income Between $100,000 - $199,999", "dataType": "percent"},
-            {"name": "Number of Households with Income of $200,000 or more", "dataType": "level"},
-            {"name": "Percent of Households with Income of $200,000 or more", "dataType": "percent"}
+            {"name": "Number of Households with Income Less than $10,000", "dataType": "level", "definition": "The number of households located in the county with a household income of less than $10,000. This includes the income of the householder and all other individuals 15 years old and over in the household, whether they are related to the householder or not."},
+            {"name": "Percent of Households with Income Less than $10,000", "dataType": "percent", "definition": "The percentage of households located in the county with a household income of less than $10,000. This includes the income of the householder and all other individuals 15 years old and over in the household, whether they are related to the householder or not."},
+            {"name": "Number of Households with Income Between $10,000 - $24,999", "dataType": "level", "definition": "The number of households located in the county with a household income of between $10,000 and $24,999. This includes the income of the householder and all other individuals 15 years old and over in the household, whether they are related to the householder or not."},
+            {"name": "Percent of Households with Income Between $10,000 - $24,999", "dataType": "percent", "definition": "The percentage of households located in the county with a household income of between $10,000 and $24,999. This includes the income of the householder and all other individuals 15 years old and over in the household, whether they are related to the householder or not."},
+            {"name": "Number of Households with Income Between $25,000 - $49,999", "dataType": "level", "definition": "The number of households located in the county with a household income of between $25,000 and $49,999. This includes the income of the householder and all other individuals 15 years old and over in the household, whether they are related to the householder or not."},
+            {"name": "Percent of Households with Income Between $25,000 - $49,999", "dataType": "percent", "definition": "The percentage of households located in the county with a household income of between $25,000 and $49,999. This includes the income of the householder and all other individuals 15 years old and over in the household, whether they are related to the householder or not."},
+            {"name": "Number of Households with Income Between $50,000 - $99,999", "dataType": "level", "definition": "The number of households located in the county with a household income of between $50,000 and $99,999. This includes the income of the householder and all other individuals 15 years old and over in the household, whether they are related to the householder or not."},
+            {"name": "Percent of Households with Income Between $50,000 - $99,999", "dataType": "percent", "definition": "The percentage of households located in the county with a household income of between $50,000 and $99,999. This includes the income of the householder and all other individuals 15 years old and over in the household, whether they are related to the householder or not."},
+            {"name": "Number of Households with Income Between $100,000 - $199,999", "dataType": "level", "definition": "The number of households located in the county with a household income of between $100,000 and $199,999. This includes the income of the householder and all other individuals 15 years old and over in the household, whether they are related to the householder or not."},
+            {"name": "Percent of Households with Income Between $100,000 - $199,999", "dataType": "percent", "definition": "The percentage of households located in the county with a household income of between $100,000 and $199,999. This includes the income of the householder and all other individuals 15 years old and over in the household, whether they are related to the householder or not."},
+            {"name": "Number of Households with Income of $200,000 or more", "dataType": "level", "definition": "The number of households located in the county with a household income of $200,000 or more. This includes the income of the householder and all other individuals 15 years old and over in the household, whether they are related to the householder or not."},
+            {"name": "Percent of Households with Income of $200,000 or more", "dataType": "percent", "definition": "The percentage of households located in the county with a household income of $200,000 or more. This includes the income of the householder and all other individuals 15 years old and over in the household, whether they are related to the householder or not."}
           ]
         },
         {
@@ -705,15 +705,15 @@
         	"source": "National Center for Economic Statistics (NCES) - Integrated Postsecondary Education Data System (IPEDS)",
         	"years": [2009, 2010, 2011, 2012],
         	"children": [
-        	  {"name": "Number of Institutions", "dataType": "level"},
-        	  {"name": "Number of Public Institutions", "dataType": "level"},
-        	  {"name": "Number of less than 4 year Institutions", "dataType": "level"},
-        	  {"name": "Number of 4 year or Higher Institutions", "dataType": "level"},
-        	  {"name": "Total Enrollment", "dataType": "level"},
-        	  {"name": "Male Enrollment", "dataType": "level"},
-        	  {"name": "Female Enrollment", "dataType": "level"},
-        	  {"name": "Average In-State Tuition", "unit": "dollars", "dataType": "level"},
-        	  {"name": "Average Out-of-State Tuition", "unit": "dollars", "dataType": "level"}
+        	  {"name": "Number of Institutions", "dataType": "level", "definition": "The number of institutions that have been accredited at the college level by an agency or association recognized by the Secretary, U.S. Department of Education."},
+        	  {"name": "Number of Public Institutions", "dataType": "level", "definition": "The number of higher education institutions that are operated by publicly elected or appointed officials."},
+        	  {"name": "Number of less than 4 year Institutions", "dataType": "level", "definition": "The number of institutions with programs that are less than 4 years"},
+        	  {"name": "Number of 4 year or Higher Institutions", "dataType": "level", "definition": "The number of institutions with programs that are 4 years or higher"},
+        	  {"name": "Total Enrollment", "dataType": "level", "definition": "The number of students enrolled in all institutions in the county. Includes students enrolled in courses creditable toward a degree or other formal award; students enrolled in courses that are part of a vocational or occupational program, including those enrolled in off-campus or extension center; and high school students taking regular college courses for credit."},
+        	  {"name": "Male Enrollment", "dataType": "level", "definition": "The number of male students enrolled in all institutions in the county. Includes students enrolled in courses creditable toward a degree or other formal award; students enrolled in courses that are part of a vocational or occupational program, including those enrolled in off-campus or extension center; and high school students taking regular college courses for credit."},
+        	  {"name": "Female Enrollment", "dataType": "level", "definition": "The number of female students enrolled in all institutions in the county. Includes students enrolled in courses creditable toward a degree or other formal award; students enrolled in courses that are part of a vocational or occupational program, including those enrolled in off-campus or extension center; and high school students taking regular college courses for credit."},
+        	  {"name": "Average In-State Tuition", "unit": "dollars", "dataType": "level", "definition": "The tuition charged by institutions to those students who meet the state's or institution's residency requirements."},
+        	  {"name": "Average Out-of-State Tuition", "unit": "dollars", "dataType": "level", "definition": "The tuition charged by institutions to those students who do not meet the institution's or state's residency requirements."}
         	]
         }
       ]
@@ -725,89 +725,88 @@
       		"name": "American Dream Downpayment Initiative (ADDI)",
       		"years": [2003, 2004, 2005, 2006, 2007, 2008],
       		"children": [
-      			{"name": "ADDI Amount", "unit": "thousands of dollars", "dataType": "level", "definition": "Funding received from the American Dream Downpayment Initiative"},
-      			{"name": "ADDI Annual Growth Rate (from previous year)", "dataType": "percent"}
+      			{"name": "ADDI Amount", "unit": "thousands of dollars", "dataType": "level", "definition": "Funding received for the American Dream Downpayment Initiative program"},
+      			{"name": "ADDI Annual Growth Rate (from previous year)", "dataType": "percent", "definition": "Percent change in funding for the American Dream Downpayment Initiative program from the previous year"}
       		]
       	},
       	{
       		"name": "Community Development Block Grants (CDBG)",
       		"years": [2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014],
       		"children": [
-      			{"name": "CDBG Amount", "unit": "thousands of dollars", "dataType": "level"},
-      			{"name": "CDBG Annual Growth Rate (from previous year)", "dataType": "percent"}
+      			{"name": "CDBG Amount", "unit": "thousands of dollars", "dataType": "level", "definition": "Funding received for the Community Development Block Grants program"},
+      			{"name": "CDBG Annual Growth Rate (from previous year)", "dataType": "percent", "definition": "Percent change in funding for the Community Development Block Grants program from the previous year"}
       		]
       	},
       	{
       		"name": "Emergency Shelter Grants (ESG)",
       		"years": [2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014],
       		"children": [
-      			{"name": "ESG Amount", "unit": "thousands of dollars", "dataType": "level"},
-      			{"name": "ESG Annual Growth Rate (from previous year)", "dataType": "percent"}
+      			{"name": "ESG Amount", "unit": "thousands of dollars", "dataType": "level", "definition": "Funding received for the Emergency Shelter Grants program"},
+      			{"name": "ESG Annual Growth Rate (from previous year)", "dataType": "percent", "definition": "Percent change in funding for the Emergency Shelter Grants program from the previous year"}
       		]
       	},
       	{
       		"name": "HOME Investment Partnership Program",
       		"years": [2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014],
       		"children": [
-      			{"name": "HOME Amount", "unit": "thousands of dollars", "dataType": "level"},
-      			{"name": "HOME Annual Growth Rate (from previous year)", "dataType": "percent"}
+      			{"name": "HOME Amount", "unit": "thousands of dollars", "dataType": "level", "definition": "Funding received for the HOME Investment Partnership Program"},
+      			{"name": "HOME Annual Growth Rate (from previous year)", "dataType": "percent", "definition": "Percent change in funding for the HOME Investment Partnership Program program from the previous year"}
       		]
       	},
       	{
       		"name": "Housing & Urban Development Grants",
       		"years": [2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014],
       		"children": [
-      			{"name": "Total HUD Amount", "unit": "thousands of dollars", "dataType": "level"},
-      			{"name": "HUD Annual Growth Rate (from previous year)", "dataType": "percent"}
+      			{"name": "Total HUD Amount", "unit": "thousands of dollars", "dataType": "level", "definition": "Funding received for the Housing & Urban Development Grants program"},
+      			{"name": "HUD Annual Growth Rate (from previous year)", "dataType": "percent", "definition": "Percent change in funding for the Housing & Urban Development Grants program from the previous year"}
      		]
       	},
       	{
       		"name": "Housing Opportunities for Persons with AIDS (HOPWA)",
       		"years": [2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014],
       		"children": [
-      			{"name": "HOPWA Amount", "unit": "thousands of dollars", "dataType": "level"},
-      			{"name": "HOPWA Annual Growth Rate (from previous year)", "dataType": "percent"}
+      			{"name": "HOPWA Amount", "unit": "thousands of dollars", "dataType": "level", "definition": "Funding received for the Housing Opportunities for Persons with AIDS program"},
+      			{"name": "HOPWA Annual Growth Rate (from previous year)", "dataType": "percent", "definition": "Percent change in funding for the Housing Opportunities for Persons with AIDS program from the previous year"}
       		]
       	},
       	{
       		"name": "Payment in Lieu of Taxes (PILT)",
       		"years": [2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013],
       		"companions": ["PILT Annual Growth Rate (from previous year)", "Total HUD Amount", "CDBG Amount"],
-      		"source": "Nick Lyell's book of Awesome Statistics",
       		"vintage": "2014",
       		"notes": "These are test numbers and do not reflect the final project.",
       		"children": [
-      			{"name": "PILT Amount", "unit": "thousands of dollars", "dataType": "level"},
-      			{"name": "PILT Annual Growth Rate (from previous year)", "dataType": "percent"},
-      			{"name": "Total Federal Land Area", "unit": "square miles", "dataType": "level"},
-      			{"name": "Total County Area", "unit": "square miles", "dataType": "level"},
-      			{"name": "Percent of Federal Land", "dataType": "percent"},
-      			{"name": "PILT per Square Mile", "unit": "USD per Square Mile", "dataType": "level"}
+      			{"name": "PILT Amount", "unit": "dollars", "dataType": "level", "definition": "Funding received for Payment in Lieu of Taxes"},
+      			{"name": "PILT Annual Growth Rate (from previous year)", "dataType": "percent", "definition": "Percent change in funding for Payment in Lieu of Taxes from the previous year"},
+      			{"name": "Total Federal Land Area", "unit": "square miles", "dataType": "level", "definition": "The area of total federal land in the county (in square miles)"},
+      			{"name": "Total County Area", "unit": "square miles", "dataType": "level", "definition": "The area of total land in the county (in square miles)"},
+      			{"name": "Percent of Federal Land", "dataType": "percent", "definition": "The percentage of the county's total land area that consists of federal land."},
+      			{"name": "PILT per Square Mile", "unit": "dollars per square mile", "dataType": "level", "definition": "The Payment in Lieu of Taxes amount per square mile of federal land"}
       		]
       	},
       	{
       		"name": "Secure Rural Schools (SRS)",
       		"years": [2012],
       		"children": [
-      			{"name": "SRS Amount", "unit": "thousands of dollars", "dataType": "level"}
+      			{"name": "SRS Amount", "unit": "thousands of dollars", "dataType": "level", "definition": "Funding received for the Secure Rural Schools program"}
      		]      		
       	},
       	{
       		"name": "State Criminal Alien Assistance Program (SCAAP)",
       		"years": [2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013],
       		"children": [
-      			{"name": "SCAAP Level", "unit": "thousands of dollars", "dataType": "level"},
-      			{"name": "SCAAP Annual Growth Rate (from previous year)", "dataType": "percent"}
+      			{"name": "SCAAP Level", "unit": "thousands of dollars", "dataType": "level", "definition": "Funding received for the State Criminal Alien Assistance Program"},
+      			{"name": "SCAAP Annual Growth Rate (from previous year)", "dataType": "percent", "definition": "Percent change in funding for the State Criminal Alien Assistance program from the previous year"}
       		]
       	},
       	{
       		"name": "USDA Rural Development",
       		"years": [2009, 2010, 2011, 2012, 2013, 2014],
       		"children": [
-      			{"name": "USAD Total Amount", "unit": "thousands of dollars", "dataType": "level"},
-      			{"name": "USDA Total Annual Growth Rate (from previous year)", "dataType": "percent"},
-      			{"name": "USDA Grant Amount", "unit": "thousands of dollars", "dataType": "level"},
-      			{"name": "USDA Loan Amount", "unit": "thousands of dollars", "dataType": "level"}
+      			{"name": "USDA Total Amount", "unit": "thousands of dollars", "dataType": "level", "definition": "Funding received for the USDA Rural Development program"},
+      			{"name": "USDA Total Annual Growth Rate (from previous year)", "dataType": "percent", "definition": "Percent change in funding for the USDA Rural Development program from the previous year"},
+      			{"name": "USDA Grant Amount", "unit": "thousands of dollars", "dataType": "level", "definition": "Grants received for the USDA Rural Development program"},
+      			{"name": "USDA Loan Amount", "unit": "thousands of dollars", "dataType": "level", "definition": "Loans received for the USDA Rural Development program"}
       		]
       	}
       ]
@@ -917,19 +916,19 @@
         		"source": "Department of Health & Human Services",
         		"years": [2014],
         		"children": [
-        			{"name": "Number of Nursing Homes", "dataType": "level"},
-        			{"name": "Number of City Facilities", "dataType": "level"},
-        			{"name": "Number of County Facilities", "dataType": "level"},
-        			{"name": "Number of City-County Facilities", "dataType": "level"},
-        			{"name": "Number of Hospital District Facilities", "dataType": "level"},
-        			{"name": "Number of Other Government Facilities", "dataType": "level"},
-        			{"name": "Number of For Profit Facilities", "dataType": "level"},
-        			{"name": "Number of Nonprofit Facilities", "dataType": "level"},
-        			{"name": "Number of Certified Beds", "dataType": "level"},
-        			{"name": "Number of Residents", "dataType": "level"},
-        			{"name": "Percent of Occupied Beds", "dataType": "level"},
-        			{"name": "Number of Continuing Care Retirement Facilities", "dataType": "level"},
-        			{"name": "Number of Special Focus Facilities", "dataType": "level"}
+        			{"name": "Number of Nursing Homes", "dataType": "level", "definition": "The number of nursing homes located in the county. A nursing home is considered a place which provides 24 hour services including board and room to 3 or more unrelated residents who because of their mental or physical condition require nursing care. Nursing homes are licensed by DHS under ch. HFS 132 Adm. Codes."},
+        			{"name": "Number of City Facilities", "dataType": "level", "definition": "The number of nursing homes owned by a city agency."},
+        			{"name": "Number of County Facilities", "dataType": "level", "definition": "The number of nursing homes owned by a county agency."},
+        			{"name": "Number of City-County Facilities", "dataType": "level", "definition": "The number of nursing homes jointly owned by a city and county agency."},
+        			{"name": "Number of Hospital District Facilities", "dataType": "level", "definition": "The number of nursing homes owned by a hospital district."},
+        			{"name": "Number of Other Government Facilities", "dataType": "level", "definition": "The number of nursing homes owned by a federal or state agency."},
+        			{"name": "Number of For Profit Facilities", "dataType": "level", "definition": "The number of nursing homes owned by a for-profit agency, including corporations, individuals, partnerships or limited liability companies."},
+        			{"name": "Number of Nonprofit Facilities", "dataType": "level", "definition": "The number of nursing homes owned by a non-profit agency, including corporations, churches, or other agencies."},
+        			{"name": "Number of Certified Beds", "dataType": "level", "definition": "The number of Medicare and/or Medicaid beds in all the nursing home facilities in the county."},
+        			{"name": "Number of Residents", "dataType": "level", "definition": "The number of residents located in all the facilities in the county."},
+        			{"name": "Percent of Occupied Beds", "dataType": "level", "The percentage of occupied beds in all the nursing homes facilities in the county. Also the ratio of number of residents to number of certified beds."},
+        			{"name": "Number of Continuing Care Retirement Facilities", "dataType": "level", "definition": "The number of facilities designated as a 'Continuing Care Facility' that has flexible accomodations that are designed to meet residents changing needs over time"},
+        			{"name": "Number of Special Focus Facilities", "dataType": "level", "definition": "The number of facilities designated as having a specific focus."}
         		]
         	},
         	{
@@ -937,24 +936,24 @@
         		"source": "U.S. Census Bureau - American Community Survey (ACS)",
         		"years": [2009, 2010, 2011, 2012],
         		"children": [
-        			{"name": "Population", "dataType": "level"},
-        			{"name": "Population Insured", "dataType": "level"},
-        			{"name": "Percent Insured", "dataType": "percent"},
-        			{"name": "Population Uninsured", "dataType": "level"},
-        			{"name": "Population with Private Health Insurance", "dataType": "level"},
-        			{"name": "Population with Public Health Insurance", "dataType": "level"},
-        			{"name": "Population Under 6", "dataType": "level"},
-        			{"name": "Population Under 6 Insured", "dataType": "level"},
-        			{"name": "Percent Under 6 Insured", "dataType": "percent"},
-        			{"name": "Population 6-24", "dataType": "level"},
-        			{"name": "Population 6-24 Insured", "dataType": "level"},
-        			{"name": "Percent 6-24 Insured", "dataType": "percent"},
-        			{"name": "Population 25-64", "dataType": "level"},
-        			{"name": "Population 25-64 Insured", "dataType": "level"},
-        			{"name": "Percent 25-64 Insured", "dataType": "percent"},
-        			{"name": "Population 65 and Over", "dataType": "level"},
-        			{"name": "Population 65 and Over Insured", "dataType": "level"},
-        			{"name": "Percent 65 and Over Insured", "dataType": "percent"}
+        			{"name": "Population", "dataType": "level", "definition": "The calculated number of people living in the county."},
+        			{"name": "Population Insured", "dataType": "level", "definition": "The number of people that are covered by a public health insurance program or by private health insurance."},
+        			{"name": "Percent Insured", "dataType": "percent", "definition": "The percentage of people that are covered by a public health insurance program or by private health insurance."},
+        			{"name": "Population Uninsured", "dataType": "level", "definition": "The number of people that are not covered by a health insurance plan."},
+        			{"name": "Population with Private Health Insurance", "dataType": "level", "definition": "The number of people that are covered by private health insurance. Private health insurance is a plan provided through an employer or union; a plan purchased by an individual from an insurance company; or TRICARE or other military health coverage."},
+        			{"name": "Population with Public Health Insurance", "dataType": "level", "definition": "The number of people that are covered by a public health insurance health plan. Public coverage includes the federal programs Medicare, Medicaid and other medical assistance programs, VA Health Care; the Children’s Health Insurance Program (CHIP); and individual state health plans."},
+        			{"name": "Population Under 6", "dataType": "level", "definition": "The calculated number of people living in the county under the age of 6 years as of April 1st of the data year."},
+        			{"name": "Population Under 6 Insured", "dataType": "level", "definition": "The number of people living in the county under the age of 6 years that are covered by a public health insurance program or by private health insurance."},
+        			{"name": "Percent Under 6 Insured", "dataType": "percent", "definition": "The percentage of people living in the county under the age of 6 years that are covered by a public health insurance program or by private health insurance."},
+        			{"name": "Population 6-24", "dataType": "level", "definition": "The calculated number of people living in the county between (and including) the ages of 6 and 24 years as of April 1st of the data year."},
+        			{"name": "Population 6-24 Insured", "dataType": "level", "definition": "The number of people living in the county between (and including) the ages of 6 and 24 years that are covered by a public health insurance program or by private health insurance."},
+        			{"name": "Percent 6-24 Insured", "dataType": "percent", "definition": "The percentage of people living in the county between (and including) the ages of 6 and 24 years that are covered by a public health insurance program or by private health insurance."},
+        			{"name": "Population 25-64", "dataType": "level", "definition": "The calculated number of people living in the county between (and including) the ages of 25 and 64 years as of April 1st of the data year."},
+        			{"name": "Population 25-64 Insured", "dataType": "level", "definition": "The number of people living in the county between (and including) the ages of 25 and 64 years that are covered by a public health insurance program or by private health insurance."},
+        			{"name": "Percent 25-64 Insured", "dataType": "percent", "definition": "The percentage of people living in the county between (and including) the ages of 25 and 64 years that are covered by a public health insurance program or by private health insurance."},
+        			{"name": "Population 65 and Over", "dataType": "level", "definition": "The calculated number of people living in the county over (and including) the ages of 65 years as of April 1st of the data year."},
+        			{"name": "Population 65 and Over Insured", "dataType": "level", "definition": "The number of people living in the county over (and including) the ages of 65 years that are covered by a public health insurance program or by private health insurance."},
+        			{"name": "Percent 65 and Over Insured", "dataType": "percent", "definition": "The percentage of people living in the county over (and including) the ages of 65 years that are covered by a public health insurance program or by private health insurance."}
         		]
         	}
         ]
@@ -990,14 +989,14 @@
         		"source": "U.S. Census Bureau - American Community Survey (ACS)",
         		"years": [2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012],
         		"children": [
-        			{"name": "Population", "dataType": "level"},
-        			{"name": "Number of Housing unit", "dataType": "level"},
-        			{"name": "Average Household Size", "dataType": "level"},
-        			{"name": "Occupied Housing unit", "dataType": "level"},
-        			{"name": "Owner-Occupied Housing unit", "dataType": "level"},
-        			{"name": "Percent of Owner-Occupied Housing unit", "dataType": "percent"},
-        			{"name": "Renter-Occupied Housing unit", "dataType": "level"},
-        			{"name": "Percent of Renter-Occupied Housing unit", "dataType": "percent"}
+        			{"name": "Population", "dataType": "level", "definition": "The calculated number of people living in the county."},
+        			{"name": "Number of Housing Units", "dataType": "level", "definition": "The number of housing units located in the county. A housing unit may be a house, an apartment, a mobile home, a group of rooms or a single room that is occupied (or, if vacant, intended for occupancy) as separate living quarters."},
+        			{"name": "Average Household Size", "dataType": "level", "definition": "The average number of people occupying a single housing unit in the county. This includes the householder, occupants related to the householder, lodgers, roomers, boarders, and so forth."},
+        			{"name": "Occupied Housing Units", "dataType": "level", "definition": "The number of occupied housing units located in the county. A housing unit is classified as occupied if it is the current place of residence of the person or group of people living in it at the time of interview, or if the occupants are only temporarily absent from the residence for two months or less, that is, away on vacation or a business trip."},
+        			{"name": "Owner-Occupied Housing Units", "dataType": "level", "definition": "The number of owner-occupied housing units located in the county. A housing unit is owner occupied if the owner or co-owner lives in the unit even if it is mortgaged or not fully paid for."},
+        			{"name": "Percent of Owner-Occupied Housing Units", "dataType": "percent", "definition": "The percentage of owner-occupied housing units located in the county. A housing unit is owner occupied if the owner or co-owner lives in the unit even if it is mortgaged or not fully paid for."},
+        			{"name": "Renter-Occupied Housing Units", "dataType": "level", "definition": "The number of renter-occupied housing units located in the county. All occupied housing units which are not owner occupied, whether they are rented or occupied without payment of rent, are classified as renter occupied."},
+        			{"name": "Percent of Renter-Occupied Housing Units", "dataType": "percent", "definition": "The percentage of renter-occupied housing units located in the county. All occupied housing units which are not owner occupied, whether they are rented or occupied without payment of rent, are classified as renter occupied."}
         		]
         	}
         ]
@@ -1276,10 +1275,10 @@
         		"source": "Federal Aviation Administration",
         		"years": [2013],
         		"children": [
-        			{"name": "Number of Airports", "dataType": "level"},
-        			{"name": "Number of Publicly Owned Airports", "dataType": "level"},
-        			{"name": "Number of Privately Owned Airports", "dataType": "level"},
-        			{"name": "Number of Military Owned Airports", "dataType": "level"}	
+        			{"name": "Number of Airports", "dataType": "level", "definition": "The number of airports located in the county. The definition for airports in the law refers to any area of land or water used or inteded for landing or takeoff of aircraft. This includes, within the five categories of airports listed below, special types of facilities including seaplane bases, heliports, and facilities to accommodate tilt rotor aircraft. An airport includes an appurtenant area used or intended for airport buildings, facilities, as well as rights of way together with the buildings and facilities."},
+        			{"name": "Number of Publicly Owned Airports", "dataType": "level", "definition": "The number of airports designated for public use that are located in the county."},
+        			{"name": "Number of Privately Owned Airports", "dataType": "level", "definition": "The number of airports designated for private use that are located in the county."},
+        			{"name": "Number of Military Owned Airports", "dataType": "level", "definition": "The number of airports designated for military use that are located in the county."}	
         		]
         	},
         	{
