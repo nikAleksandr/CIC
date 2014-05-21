@@ -1030,7 +1030,8 @@
 	          "name": "Justice & Public Safety Employment",
 	          "source": "U.S. Census Bureau - Census of Individual Governments: Employment",
 	          "years": [2007, 2008, 2009, 2010, 2011, 2012],
-	          "children": [
+	          "companions": [["Justice & Public Safety Expenditures", "Total Justice & Public Safety"], ["Justice and Public Safety Employment", "Total Justice & Public Safety"], ["Justice & Public Safety Expenditures", "Total"], ["Jails - Supervised Population", "Total Jail Population"]],
+      		  "children": [
 	            {"name": "Total", "unit": "FTE employees", "dataType": "level", "definition": "The number of Full-time equivalent (FTE) employees for each county is a computed statistic representing the number of full-time employees that could have been employed if the reported number of hours worked by part-time employees had been worked by full-time employees."},
 	            {"name": "Total Justice & Public Safety", "unit":"FTE employees", "dataType": "level", "definition": "Number of FTEs working on correction, judicial and legal services, and police protection. Correctional Institutions: Residential institutions or facilities for the confinement, correction, and rehabilitation of convicted adults, or juveniles adjudicated, delinquent or in need of supervision, and for the detention of adults and juveniles charged with a crime and awaiting trial. Judicial and Legal : Courts (criminal and civil) and activities associated with courts, legal services, and legal counseling of indigent or other needy persons. Police protection: sheriff, state police, and other governmental departments that preserve law and order, protect persons and property from illegal acts, and work to prevent, control, investigate, and reduce crime."},
 	          	{"name": "Correction", "unit":"FTE employees", "dataType": "level", "definition": "Number of FTEs working on Correctional Institutions: Residential institutions or facilities for the confinement, correction, and rehabilitation of convicted adults, or juveniles adjudicated, delinquent or in need of supervision, and for the detention of adults and juveniles charged with a crime and awaiting trial.      Other Corrections: Correctional activities other than Federal, state and local residential institutions or facilities."},
@@ -1043,7 +1044,8 @@
 	       	  "name": "Justice & Public Safety Expenditures",
 	          "source": "U.S. Census Bureau - Census of Individual Governments: Finance",
 	       	  "years": [2007],
-	       	  "children": [
+	       	  "companions": [["Justice & Public Safety Expenditures", "Total Justice & Public Safety"], ["Justice and Public Safety Employment", "Total Justice & Public Safety"], ["Justice & Public Safety Expenditures", "Total"], ["Jails - Supervised Population", "Total Jail Population"]],
+      		  "children": [
 	       	  	{"name": "Total", "unit": "thousands of dollars", "dataType": "level", "definition": "All amounts of money paid out by a government--net of recoveries and other correcting transactions--other than for retirement of debt, investment in securities, extension of credit, or as agency transactions. Note that expenditure includes only external transactions of a government and excludes non-cash transactions such as the provision of perquisites or other payments in kind."},
 	       	  	{"name": "Total Justice & Public Safety", "unit": "thousands of dollars", "dataType": "level"},
 	       	  	{"name": "Correction", "unit": "thousands of dollars", "dataType": "level", "definition": "Correctional Institutions: Residential institutions or facilities for the confinement, correction, and rehabilitation of convicted adults, or juveniles adjudicated, delinquent or in need of supervision, and for the detention of adults and juveniles charged with a crime and awaiting trial. Includes: Facilities generally referred to as prisons, reformatories, jails, enitentiaries, correctional farms, workhouses, reception centers, industrial schools, training schools, and detention centers. Includes hospitals for the criminally insane IF operated by a corrections agency. Includes expenditure on education, training, and health care programs devoted to inmates. Includes residential work release units, and residential halfway houses, and community corrections centers. For prison industries include only amounts involved in the manufacture, sale, and distribution of articles or services for resale or use outside the government involved.             Other Corrections: Correctional activities other than Federal, state and local residential institutions or facilities. Includes: Probation offices (whether operated by courts or correctional agencies) boards of parole, boards of pardon, and the like; noninstitutional activities such as administration of a correctional agency, training of correctional employees, and nonresidential halfway houses and community corrections centers."},
@@ -1062,6 +1064,7 @@
         		"name": "Jails - Supervised Population",
         		"source": "Bureau of Justice Statistics - Annual Survey of Jails",
         		"years": [2008, 2009, 2010, 2011, 2012],
+        		"companions": [["Jails - Supervised Population", "Total Jail Population"], ["Jails - Supervised Population", "Confined Persons"], ["Jails - Supervised Population", "Nonconfined Persons"], ["Jails - Supervised Population", "Average Daily Population"]],
         		"children": [
         			{"name": "Total Jail Population", "dataType": "level"},
         			{"name": "Jail Capacity", "dataType": "level"},
@@ -1076,6 +1079,7 @@
         		"name": "Jails - Supervised Population by Agency",
          		"source": "Bureau of Justice Statistics - Annual Survey of Jails",
 	       		"years": [2008, 2009, 2010, 2011, 2012],
+        		"companions": [["Jails - Supervised Population by Agency", "Total Jail Population"], ["Jails - Supervised Population by Agency", "Held for Own State"], ["Jails - Supervised Population by Agency", "Held for Local Jurisdiction in State"], ["Jails - Supervised Population by Agency", "Held for Federal Bureau of Prisons"]],
         		"children": [
         			{"name": "Total Jail Population", "dataType": "level"},
         			{"name": "Jail Capacity", "dataType": "level"},
@@ -1094,6 +1098,7 @@
         		"name": "Jails - Inmate Demographics",
          		"source": "Bureau of Justice Statistics - Annual Survey of Jails",
        			"years": [2008, 2009, 2010, 2011, 2012],
+        		"companions": [["Jails - Inmate Demographics", "Total Jail Population"], ["Jails - Inmate Demographics", "Total Juveniles"], ["Jails - Inmate Demographics", "Total Unconvicted"], ["Jails - Inmate Demographics", "White"]],
         		"children": [
         			{"name": "Total Jail Population", "dataType": "level"},
         			{"name": "Adult Males", "dataType": "level"},
@@ -1115,6 +1120,7 @@
         		"name": "Jails - Community Supervision",
          		"source": "Bureau of Justice Statistics - Annual Survey of Jails",
       	 		"years": [2008, 2009, 2010, 2011, 2012],
+        		"companions": [["Jails - Community Supervision", "Total Jail Population"], ["Jails - Community Supervision", "Alchohol/Drug Treatment Programs"], ["Jails - Community Supervision", "Electronic Monitoring Program"], ["Jails - Community Supervision", "Community Service"]],
         		"children" : [
         			{"name": "Total Jail Population", "dataType": "level"},
         			{"name": "Jail Capacity", "dataType": "level"},
@@ -1133,6 +1139,7 @@
         	{
         		"name": "Public Safety Structure",
         		"years": [2012],
+        		"companions": [["Public Safety Structure", "Elected Sheriff"], ["Public Safety Structure", "Elected Police Cheif"], ["Public Safety Structure", "Elected Judges"], ["Public Safety Structure", "County Operated Courts"]],
         		"children": [
         			{"name": "Elected Sheriff", "dataType": "binary"},
         			{"name": "County Funded Sheriff Department", "dataType": "binary"},
@@ -1161,7 +1168,8 @@
 	          "name": "Public Amenity Employment",
 	          "source": "U.S. Census Bureau - Census of Individual Governments: Employment",
 	          "years": [2007, 2008, 2009, 2010, 2011, 2012],
-	          "children": [
+	          "companions": [["Public Amenity Expenditures", "Total Public Amenity"], ["Public Amenity Employment", "Total Public Amenity"], ["Public Amenity Employment", "Parks & Recreation"], ["Public Amenity Employment", "Libraries"]],
+      		  "children": [
 	            {"name": "Total", "unit": "FTE employees", "dataType": "level", "definition": "The number of Full-time equivalent (FTE) employees for each county is a computed statistic representing the number of full-time employees that could have been employed if the reported number of hours worked by part-time employees had been worked by full-time employees."},
 	            {"name": "Total Public Amenity", "unit":"FTE employees", "dataType": "level", "definition": "Number of FTEs working on libraries, parks and recreation, as well as other natural resources."},
 	          	{"name": "Libraries", "unit":"FTE employees", "dataType": "level", "definition": "Number of FTEs working on Establishment and provision of libraries for use by the general public and the technical support of privately-operated libraries. Includes: Public libraries, community libraries, consolidated libraries, regional libraries, and their variously-named equivalents; library extension services including bookmobiles; public library (special) districts; U.S. Library of Congress (including Copyright Office); state library commissions and boards; programs to promote, develop, and coordinate library services and facilities."},
@@ -1173,7 +1181,8 @@
 	       	  "name": "Public Amenity Expenditures",
 	          "source": "U.S. Census Bureau - Census of Individual Governments: Finance",
 	       	  "years": [2007],
-	       	  "children": [
+	       	  "companions": [["Public Amenity Expenditures", "Total Public Amenity"], ["Public Amenity Employment", "Total Public Amenity"], ["Public Amenity Expenditures", "Parks & Recreation"], ["Public Amenity Expenditures", "Libraries"]],
+      		  "children": [
 	       	  	{"name": "Total", "unit": "thousands of dollars", "dataType": "level", "definition": "All amounts of money paid out by a government--net of recoveries and other correcting transactions--other than for retirement of debt, investment in securities, extension of credit, or as agency transactions. Note that expenditure includes only external transactions of a government and excludes non-cash transactions such as the provision of perquisites or other payments in kind."},
 	       	  	{"name": "Total Public Amenity", "unit": "thousands of dollars", "dataType": "level"},
 	       	  	{"name": "Libraries", "unit": "thousands of dollars", "dataType": "level", "definition": "Establishment and provision of libraries for use by the general public and the technical support of privately-operated libraries. Includes: Public libraries, community libraries, consolidated libraries, regional libraries, and their variously-named equivalents; library extension services including bookmobiles; public library (special) districts; U.S. Library of Congress (including Copyright Office); state library commissions and boards; programs to promote, develop, and coordinate library services and facilities."},
@@ -1190,7 +1199,8 @@
         		"name": "Libraries",
         		"source": "Institute of Museum and Library Services - Public Libraries Survey (PLS)",
         		"years": [2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011],
-        		"children": [
+        		"companions": [["Libraries", "Number of Central Service Outlets"], ["Libraries", "Full Time Librarians"], ["Libraries", "Library Collections - Number of Print Materials"], ["Libraries", "Registered Borrowers"]],
+      		  	"children": [
         			{"name": "Number of Central Service Outlets", "dataType": "level"},
         			{"name": "Number of Branches", "dataType": "level"},
         			{"name": "Number of Bookmobile", "dataType": "level"},
@@ -1231,7 +1241,8 @@
 	          "name": "Public Welfare Employment",
 	          "source": "U.S. Census Bureau - Census of Individual Governments: Employment",
 	          "years": [2007, 2008, 2009, 2010, 2011, 2012],
-	          "children": [
+	          "companions": [["Public Welfare Expenditures", "Total Public Welfare"], ["Public Welfare Employment", "Public Welfare"], ["Public Welfare Expenditures", "Cash Assistance"], ["Public Welfare Expenditures", "Vendor Payments"]],
+      		  "children": [
 	            {"name": "Total", "unit": "FTE employees", "dataType": "level", "definition": "The number of Full-time equivalent (FTE) employees for each county is a computed statistic representing the number of full-time employees that could have been employed if the reported number of hours worked by part-time employees had been worked by full-time employees."},
 	          	{"name": "Public Welfare", "unit":"FTE employees", "dataType": "level", "definition": "Number of FTEs working on Support of and assistance to needy persons contingent upon their need."}
 	          ]
@@ -1240,7 +1251,8 @@
 	       	  "name": "Public Welfare Expenditures",
 	          "source": "U.S. Census Bureau - Census of Individual Governments: Finance",
 	       	  "years": [2007],
-	       	  "children": [
+	       	  "companions": [["Public Welfare Expenditures", "Total Public Welfare"], ["Public Welfare Employment", "Public Welfare"], ["Public Welfare Expenditures", "Cash Assistance"], ["Public Welfare Expenditures", "Vendor Payments"]],
+      		  "children": [
 	       	  	{"name": "Total", "unit": "thousands of dollars", "dataType": "level", "definition": "All amounts of money paid out by a government--net of recoveries and other correcting transactions--other than for retirement of debt, investment in securities, extension of credit, or as agency transactions. Note that expenditure includes only external transactions of a government and excludes non-cash transactions such as the provision of perquisites or other payments in kind."},
 	       	  	{"name": "Total Public Welfare", "unit": "thousands of dollars", "dataType": "level"},
 	       	  	{"name": "Cash Assistance", "unit": "thousands of dollars", "dataType": "level", "definition": "Cash payments made directly to individuals contingent upon their need, other than those under Federal categorical assistance programs.  Includes: Poor relief; general relief; home relief; emergency relief; general assistance; refugee assistance; medical assistance, housing expense relief, energy assistance (e.g., Federal Low Income Home Energy Assistance Program, or LIHEAP), emergency assistance, etc. paid directly to individuals and not to vendors; other direct assistance to needy persons not covered by or eligible for Federal categorical assistance; payments to other governments in support of, or as reimbursement for costs of, these types of assistance programs."},
