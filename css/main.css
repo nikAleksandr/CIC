@@ -235,6 +235,28 @@ h1 small {
   pointer-events: all;
 }
 
+#search_field, #state_drop, #search_submit {
+	display: inline-block;
+	position: absolute;
+	top: 1.6em;
+	margin: 0;
+	font-size: .71em;
+}
+
+#search_field {
+	right: 11em;
+}
+
+#state_drop {
+	right: 6em;
+	top: 1.7em;
+}
+
+#search_submit{
+	color: #222;
+	right: 1em;
+}
+
 /*
  * Map and SVG CSS
  */
