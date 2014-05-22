@@ -259,6 +259,7 @@ function submitSearch() {
 		}
 		
 		if (county_search === true) {
+			// trim out the fat
 			var search_arr = search_str.split(" ");
 			var geoDesc = ["County", "County,", "City", "City,", "city", "city,", "Borough", "Borough,", "Parish", "Parish,"];
 			var countyName = "";
@@ -273,8 +274,9 @@ function submitSearch() {
 				}
 				if (!descBin) countyName = countyName.concat(a, " ");
 			}
-			countyName = countyName.replace(",", "");
+			countyName = countyName.replace(",", "").trim();
 		
+			// check for entire phrase matches
 			var search_comb = "", match = false;
 			for (var j = 0; j < geoDesc.length; j++) {
 				search_comb = toTitleCase(countyName) + geoDesc[j] + " " + state_name;
@@ -283,8 +285,6 @@ function submitSearch() {
 					foundId = parseInt(idByName[search_comb]);
 					var county = countyPathById[foundId];
 					
-					console.log(county);
-									
 					//highlight(county);
 					zoomTo(county);
 					doubleClicked(county);
@@ -294,7 +294,8 @@ function submitSearch() {
 				}
 			}
 			if (match === false) {
-				// display result matches to search
+				// check for partial word matches
+				
 				alert('search not matched :(');
 			}
 
