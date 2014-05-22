@@ -30,6 +30,7 @@ var selectedData,
 	dataYear,
 	data,
 	legend,
+	selected,
 	clickCount = 0;
 	
 var quantById = []; 
@@ -114,7 +115,9 @@ function draw(topo, stateMesh) {
   county
     .on('click', function(d, i) {
     	var mouse = d3.mouse(svg.node()).map( function(d) { return parseInt(d); } );
-
+		
+		highlight(d);
+		
 		clickCount++;
 		if (clickCount === 1) {
 			singleClickTimer = setTimeout(function() {
@@ -291,9 +294,16 @@ function zoomTo(d) {
 }
 
 function highlight(d) {
-	selected = (d && selected !== d) ? d : null;
-	g.select("#counties").selectAll("path")
+	console.log(d);
+	if (d && selected !== d) {
+	    selected = d;
+	  } else {
+	    selected = null;
+	  }
+	
+	g.selectAll("path")
       .classed("active", selected && function(d) { return d === selected; });
+	
 }
 
 
