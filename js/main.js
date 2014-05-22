@@ -277,25 +277,32 @@ function submitSearch() {
 			countyName = countyName.replace(",", "");
 		
 			// check for entire phrase matches
-			var search_comb = "", match = false;
+			var search_comb = "", full_match = false;
 			for (var j = 0; j < geoDesc.length; j++) {
 				search_comb = toTitleCase(countyName) + geoDesc[j] + " " + state_name;
 				if (idByName[search_comb]) {
-					match = true;
+					full_match = true;
 					foundId = parseInt(idByName[search_comb]);
-					var county = countyPathById[foundId];
-					
-					//highlight(county);
-					zoomTo(county);
-					doubleClicked(county);
-					
-					//document.getElementById('search_form').reset();
+					executeSearchMatch(foundId);
 					break;
 				}
 			}
-			if (match === false) {
+			if (full_match === false) {
 				// check for partial word matches
-				
+				var partial_match = false;
+				for (var ind in idByName) {
+					var db_array = ind.split(', ');
+					if (db_array[1] === state_name) {
+						if (db_array[0].toLowerCase.indexOf(countyName.toLowerCase()) != -1) {
+							partial_match = true;
+							foundId = parseInt(idByName[ind]);
+							executeSearchMatch(foundId);						
+							break;
+						}
+					}
+				}				
+			}
+			if (partial_match === false) {
 				alert('search not matched :(');
 			}
 
@@ -312,6 +319,16 @@ function submitSearch() {
 		}
 	}
 }
+
+function executeSearchMatch(FIPS) {
+	var county = countyPathById[FIPS];
+	
+	//highlight(county);
+	zoomTo(county);
+	doubleClicked(county);
+	
+	//document.getElementById('search_form').reset();				
+};
 
 function zoomTo(d) {
 	console.log(path);
