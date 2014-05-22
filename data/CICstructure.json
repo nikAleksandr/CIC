@@ -467,15 +467,15 @@
           "years": [2006, 2007, 2008, 2009, 2010],
           "companions": [["Annual Financial Report - Revenue", "Total Revenue"], ["Annual Financial Report - Revenue", "Total Taxes"], ["Annual Financial Report - Revenue", "Intergovernmental"], ["Annual Financial Report - Revenue", "Licenses and Permits"]],
           "children": [
-           {"name": "Total Revenue", "unit": "dollars", "dataType": "level"},
-           {"name": "Total Taxes", "unit": "dollars", "dataType": "level"},
+           {"name": "Total Revenue", "unit": "dollars", "dataType": "level", "definition": "Total revenues from total taxes, licenses and permits, fines, fees, and forfeits, intergovernmental, use of money and property, investment earnings, charges and services, and other revenues"},
+           {"name": "Total Taxes", "unit": "dollars", "dataType": "level", "definition": "Total revenues from county government taxes."},
            {"name": "Licenses and Permits", "unit": "dollars", "dataType": "level", "definition": "Revenues from businesses and occupations that must be licensed before doing business within the government's jurisdiction, and from all non-business licenses and permits levied according to the benefits presumably conferred by the license or permit."},
-           {"name": "Fines, Fees & Forfeits", "unit": "dollars", "dataType": "level"},
+           {"name": "Fines, Fees & Forfeits", "unit": "dollars", "dataType": "level", "definition": "Revenues from court and legal fines, fees and forfeits."},
            {"name": "Intergovernmental", "unit": "dollars", "dataType": "level", "definition": "Revenues from other governments in the form of operating grants, entitlements, shared revenues, or payments in lieu of taxes."},
-           {"name": "Use of Money & Property", "unit": "dollars", "dataType": "level"},
+           {"name": "Use of Money & Property", "unit": "dollars", "dataType": "level", "definition": "Revenues from the use of money and property"},
            {"name": "Investment Earnings", "unit": "dollars", "dataType": "level", "definition": "Interest, dividends, rents, and other earnings on investments. Includes realized and unrealized gains on sale of investments net of any realized or unrealized losses based on reporting market value for corporate bonds and stocks."},
            {"name": "Charges for Services", "unit": "dollars", "dataType": "level", "definition": "Charges for current services exclusive of revenues of proprietary funds, i.e., recording of legal instruments, special police services, protective inspection fees, sewerage charges, vital statistics and recreation fees."},
-           {"name": "Other", "unit": "dollars", "dataType": "level"}
+           {"name": "Other", "unit": "dollars", "dataType": "level", "definition": "Revenues from other categories."}
           ]
         },
         {
@@ -484,18 +484,18 @@
           "years": [2006, 2007, 2008, 2009, 2010],
           "companions": [["Annual Financial Report - Expenses", "Total Expenditures"], ["Annual Financial Report - Expenses", "General Government"], ["Annual Financial Report - Expenses", "Community & Economic Development"], ["Annual Financial Report - Expenses", "Public Safety & Court Related"]],
           "children": [
-           {"name": "Total Expenditures", "unit": "dollars", "dataType": "level"},
-           {"name": "General Government", "unit": "dollars", "dataType": "level"},
-           {"name": "Public Works, Buildings & Transportation", "unit": "dollars", "dataType": "level"},
-           {"name": "Public Safety & Court Related", "unit": "dollars", "dataType": "level"},
-           {"name": "Health & Human Services", "unit": "dollars", "dataType": "level"},
-           {"name": "Education, Culture & Recreation", "unit": "dollars", "dataType": "level"},
-           {"name": "Intergovernmental", "unit": "dollars", "dataType": "level"},
-           {"name": "Environmental Protection/Natural Resources", "unit": "dollars", "dataType": "level"},
-           {"name": "Community & Economic Development", "unit": "dollars", "dataType": "level"},
-           {"name": "Total Debt", "unit": "dollars", "dataType": "level"},
-           {"name": "Capital Projects", "unit": "dollars", "dataType": "level"},
-           {"name": "Other", "unit": "dollars", "dataType": "level"}
+           {"name": "Total Expenditures", "unit": "dollars", "dataType": "level", "definition": "Total expenditures from general government, public works, buildings and transportation, public safety and court related, health and human services, education, culture and recreation, intergovernmental. environmental protection and natural resources, community and economic development, total debt, capital projects, and other expenditures."},
+           {"name": "General Government", "unit": "dollars", "dataType": "level", "definition": "Expenses incurred by the general government. The general government sector consists mainly of central, state and local government units together with social security funds imposed and controlled by those units. In addition, it includes non-profit institutions engaged in non-market production that are controlled and mainly financed by government units or social security funds."},
+           {"name": "Public Works, Buildings & Transportation", "unit": "dollars", "dataType": "level", "definition": "Expenses incurred by the public works, buildings, and transportation sector"},
+           {"name": "Public Safety & Court Related", "unit": "dollars", "dataType": "level", "definition": "Expenses public safety and court related."},
+           {"name": "Health & Human Services", "unit": "dollars", "dataType": "level", "definition": "Expenses incurred by the health and human services sector"},
+           {"name": "Education, Culture & Recreation", "unit": "dollars", "dataType": "level", "definition": "Expenses incurred by the education, culture and recreation sector"},
+           {"name": "Intergovernmental", "unit": "dollars", "dataType": "level", "definition": "Expenses incurred by intergovernmental transactions"},
+           {"name": "Environmental Protection/Natural Resources", "unit": "dollars", "dataType": "level", "definition": "Expenses incurred by environmental protection and natural resources agencies"},
+           {"name": "Community & Economic Development", "unit": "dollars", "dataType": "level", "definition": "Expenses incurred by community and economic development agencies"},
+           {"name": "Total Debt", "unit": "dollars", "dataType": "level", "definition": "Expenses incurred from total debt"},
+           {"name": "Capital Projects", "unit": "dollars", "dataType": "level", "definition": "Expenses incurred from capital projects"},
+           {"name": "Other", "unit": "dollars", "dataType": "level", "definition": "Other expenses incurred"}
           ]
         },
         {
@@ -513,10 +513,10 @@
            	{"name": "Real Estate Tax", "definition": "Tax rate levied by the county on real property, generally land and attached structures, located within the county’s geographical boundaries.  Rates within a county may vary by district in order to cover various funding levels for services such as schools, fire and emergency and storm water management."},
            	{"name": "Bed Tax", "definition": "Commonly referred to as a hotel tax, this is the tax rate for commercial rental of short-term occupancy dwellings such as hotels, motels or inns.  Tax is generally levied on the rental transaction amount and not on a per bed basis."},
            	{"name": "Special Services Tax", "definition": "Tax rate levied on residents within the county for specific services.  Counties may be divided up into service districts and rates may vary by district based on service level or costs per resident to provide service."},
-           	{"name": "Other Tax 1 Rate"},
-           	{"name": "Other Tax 1 Descriptor"},
-           	{"name": "Other Tax 2 Rate"},
-           	{"name": "Other Tax 2 Descriptor"}
+           	{"name": "Other Tax 1 Rate", "definition": "Tax Rate of Other Tax 1 Descriptor. Tax rates for a variety of taxes levied that are generally based on funding for a specific project or service or a need for additional general revenue.  Taxes include gross receipts taxes, stadium taxes, meals taxes or additional taxes to support schools, fire and rescue or libraries."},
+           	{"name": "Other Tax 1 Descriptor", "definition": "Descriptor for Other Tax 1. Tax rates for a variety of taxes levied that are generally based on funding for a specific project or service or a need for additional general revenue.  Taxes include gross receipts taxes, stadium taxes, meals taxes or additional taxes to support schools, fire and rescue or libraries."},
+           	{"name": "Other Tax 2 Rate", "definition": "Tax Rate of Other Tax 2 Descriptor. Tax rates for a variety of taxes levied that are generally based on funding for a specific project or service or a need for additional general revenue.  Taxes include gross receipts taxes, stadium taxes, meals taxes or additional taxes to support schools, fire and rescue or libraries."},
+           	{"name": "Other Tax 2 Descriptor", "definition": "Descriptor for Other Tax 2. Tax rates for a variety of taxes levied that are generally based on funding for a specific project or service or a need for additional general revenue.  Taxes include gross receipts taxes, stadium taxes, meals taxes or additional taxes to support schools, fire and rescue or libraries."}
           ]
         }
       ]
@@ -802,7 +802,6 @@
       		"name": "Payment in Lieu of Taxes (PILT)",
       		"years": [2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013],
       		"companions": [["Payment in Lieu of Taxes (PILT)", "PILT Annual Growth Rate (from previous year)"], ["Payment in Lieu of Taxes (PILT)", "PILT per Square Mile"], ["Housing & Urban Development Grants", "Total HUD Amount"], ["Community Development Block Grants", "CDBG Amount"]],
-      		"vintage": "2014",
       		"notes": "These are test numbers and do not reflect the final project.",
       		"children": [
       			{"name": "PILT Amount", "unit": "dollars", "dataType": "level", "definition": "Funding received for Payment in Lieu of Taxes"},
@@ -853,15 +852,15 @@
 				 "companions": [["County Profile", "Census Region"], ["County Profile", "Year Founded"], ["County Profile", "County Square Mileage"], ["County Profile", "Fiscal Year End Date"]],
       			 "children": [
 					{"name": "Census Region", "dataType": "categorical"},
-					{"name": "County Seat", "dataType": "none"},
-					{"name": "Year Founded", "dataType": "level"},
-					{"name": "Year Consolidated", "dataType": "level"},
-					{"name": "Board Size", "dataType": "level"},
-					{"name": "County Square Mileage", "dataType": "level"},
-					{"name": "Fiscal Year End Date", "dataType": "categorical"},
-					{"name": "State Capitol", "dataType": "none"},
-					{"name": "CBSA Name", "dataType": "none"},
-					{"name": "CBSA Code", "dataType": "none"}
+					{"name": "County Seat", "dataType": "none", "definition": "Administrative center for the county.  Most counties have only one county seat. However, some counties in Alabama, Arkansas, Iowa, Kentucky, Massachusetts, Mississippi, Missouri, New Hampshire, New York, North Carolina, and Vermont have two or more county seats, usually located on opposite sides of the county."},
+					{"name": "Year Founded", "dataType": "level_np", "definition": "Year the county was recognized by the state"},
+					{"name": "Year Consolidated", "dataType": "level_np", "definition": "Year a city and a county that have been merged into one unified jurisdiction. A consolidated government has the powers and responibilities of both types of entities."},
+					{"name": "Board Size", "dataType": "level", "definition": "Nubmer of representatives elected to the county board"},
+					{"name": "County Square Mileage", "dataType": "level", "definition": "Total land square miles within the county's geographical boundaries"},
+					{"name": "Fiscal Year End Date", "dataType": "categorical", "definition": "The date of the end of the fiscal year for each county"},
+					{"name": "State Capitol", "dataType": "none", "definition": "The city within the county where the state capital is located.  This field is left blank for counties that do not include the state capital."},
+		   			{"name": "CBSA Title", "dataType": "none", "definition": "The title of the Core Based Statistical Area the county is located in."},
+		   			{"name": "CBSA Code", "dataType": "none", "definition": "The Core Based Statistical Area code for the county. A 5 digit numeric code that is assigned alphabetically based on title and is unique within the nation."}
 			     ]
 		   },
 		   {

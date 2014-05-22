@@ -1,6 +1,10 @@
 d3.select(window).on("resize", throttle);
 
+function toTitleCase(str){
+    return str.replace(/\w\S*/g, function(txt){return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();});
+}
 var percentFmt = d3.format(".1%");
+var stateAbbrev = ['AK', 'AL', 'AR', 'AZ', 'CA', 'CO', 'CT', 'DC', 'DE', 'FL', 'GA', 'HI', 'IA', 'ID', 'IL', 'IN', 'KS', 'KY', 'LA', 'MA', 'MD', 'ME', 'MI', 'MN', 'MO', 'MS', 'MT', 'NC', 'ND', 'NE', 'NH', 'NJ', 'NM', 'NV', 'NY', 'OH', 'OK', 'OR', 'PA', 'RI', 'SC', 'SD', 'TN', 'TX', 'UT', 'VA', 'VT', 'WA', 'WI', 'WV', 'WY'];
 
 var zoom = d3.behavior.zoom()
     .scaleExtent([1, 10])
@@ -8,6 +12,13 @@ var zoom = d3.behavior.zoom()
 
 var width = document.getElementById('container').offsetWidth-60;
 var height = width / 2;
+
+var projection = d3.geo.albersUsa()
+    .scale(width )
+    .translate([width / 2, height / 2]);
+
+var path = d3.geo.path()
+	.projection(projection);
 
 var topo,stateMesh,projection,path,svg,g;
 
@@ -23,6 +34,8 @@ var selectedData,
 	
 var quantById = []; 
 var nameById = [];
+var idByName = {};
+var countyPathById = {};
 
 var quantOneThird,
 	quantTwoThird,
@@ -36,6 +49,8 @@ d3.tsv("CountyData.tsv", function (error, countyData) {
 	countyData.forEach(function(d) { 
 	  	quantById[d.id] = +d.RGDPGrowth13; 
 	  	nameById[d.id] = d.geography;
+	  	idByName[d.geography] = d.id;	
+	  	countyPathById[d.id] = d;  	
 	});
 });
 
@@ -58,10 +73,10 @@ function setup(width,height){
   g = svg.append("g")
   		.attr("class", "counties");
   		
+		
   buildDropdown();
+  buildSearch();
 }
-
-setup(width,height);
 	
 
 d3.json("us.json", function(error, us) {
@@ -171,6 +186,115 @@ function buildDropdown() {
 	});
 }
 
+function buildSearch() {
+	var searchForm = d3.select('#searchContainer').append('form')
+		.attr('id', 'search_form');
+	var searchField = searchForm.append("input")
+		.attr('type', 'search')
+		.attr('id', 'search_field')
+		.attr('placeholder', 'city or county')
+		.on('keyup', function() {
+			if (d3.event.keyCode == 13) submitSearch();
+		});
+	
+	var stateDropdown = searchForm.append('select')
+		.attr('id', 'state_drop');
+	stateDropdown.append('option')
+		.text('State')
+		.attr('value', '');
+	for (var i = 0; i < stateAbbrev.length; i++) {
+		stateDropdown.append('option')
+			.text(stateAbbrev[i])
+			.attr('value', stateAbbrev[i]);
+	}
+	
+	var submitButton = searchForm.append('input')
+		.attr('type', 'button')
+		.attr('id', 'search_submit')
+		.attr('value', 'Search')
+		.on('click', submitSearch);
+}
+
+function submitSearch() {
+	var search_str = document.getElementById('search_field').value;
+	var state_name = document.getElementById('state_drop').value;
+	var results_container = d3.select('#container');
+
+	if (search_str == '' && state_name != '') {
+		// user has only specified state name; return results of all counties within state
+		$.get('state.cfm?statecode=' + encodeURIComponent(state_name), function(data) {
+			console.log(data);
+			
+			// create table with data?
+			// create iframe with data?
+			results_container.append('div')
+				.text(data);
+		});
+					
+	} else if (search_str != '' && state_name != '') {
+		// user has specified county/city and state	
+		var search_arr = search_str.split(" ");
+		var geoDesc = ["County", "County,", "City", "City,", "city", "city,", "Borough", "Borough,", "Parish", "Parish,"];
+		var countyName = "";
+		var descBin = false;
+		for (var i = 0; i < search_arr.length; i++) {
+			var a = search_arr[i].toUpperCase();
+			for (var j = 0; j < geoDesc.length; j++) {
+				if (a == geoDesc[j].toUpperCase()) {
+					descBin = true;
+					break;
+				}
+			}
+			if (!descBin) countyName = countyName.concat(a, " ");
+		}
+		countyName = countyName.replace(",", "");
+	
+		var search_comb = "", match = false;
+		for (var j = 0; j < geoDesc.length; j++) {
+			search_comb = toTitleCase(countyName) + geoDesc[j] + " " + state_name;
+			if (idByName[search_comb]) {
+				match = true;
+				foundId = parseInt(idByName[search_comb]);
+				var county = countyPathById[foundId];
+				
+				console.log(county);
+				
+				//highlight(county);
+				zoomTo(county);
+				doubleClicked(county);
+				
+				//document.getElementById('search_form').reset();
+				break;
+			}
+		}
+		if (match === false) {
+			// display result matches to search
+			alert('search not matched :(');
+		}
+		
+		/*$.get('city_res.cfm?city=' + encodeURIComponent(search_str), function(data) {
+			console.log(data);
+			
+			// create table with data?
+			// create iframe with data?
+			results_container.append('div')
+				.text(data);
+		});*/
+	}
+}
+
+function zoomTo(d) {
+	console.log(path);
+	console.log(path.centroid(d));
+	
+	zoom.center(path.centroid(d));
+}
+
+function highlight(d) {
+	selected = (d && selected !== d) ? d : null;
+	g.select("#counties").selectAll("path")
+      .classed("active", selected && function(d) { return d === selected; });
+}
 
 
 function update(primeInd, primeIndYear){
@@ -406,3 +530,5 @@ function throttle() {
       redraw();
     }, 200);
 }
+
+setup(width,height);
