@@ -8,7 +8,7 @@
        	  "name": "Administration Expenditures",
        	  "years": [2007],
        	  "source": "U.S. Census Bureau - Census of Individual Governments: Finance",
-       	  "companions": [["Administartion Expenditures", "Total Administration"], ["Administration Employment", "Total Administration"], ["Administration Revenue", "Total Administration"], ["Administration Expenditures", "Total"]],
+       	  "companions": [["Administartion Expenditures", "Total Administration"], ["Administration Expenditures", "Financial Administration"], ["Administration Expenditures", "Other Governmental Administration"], ["Administration Expenditures", "Liquor Stores"]],
        	  "children": [
        	  	{"name": "Total", "unit": "thousands of dollars", "dataType": "level", "definition": "All amounts of money paid out by a government--net of recoveries and other correcting transactions--other than for retirement of debt, investment in securities, extension of credit, or as agency transactions. Note that expenditure includes only external transactions of a government and excludes non-cash transactions such as the provision of perquisites or other payments in kind."},
        	  	{"name": "Total Administration", "unit": "thousands of dollars", "dataType": "level", "definition": "Includes expenditure on Financial Administration, Social Insurance Administration and Other Governmental Administration (including Federal and State Legislative and Central Staff Services).  Covers  administration of unemployment compensation systems, public employment services, and the Federal Social Security, Medicare, and Railroad Retirement trusts; officials and central staff agencies concerned with tax assessment and collection, accounting, auditing, budgeting, purchasing, custody of funds, and other finance activities; legislative bodies and related activities involved in the making, enacting, and repeal of law; and government-wide executive, administrative, and staff service agencies other than financial, judicial, legal, and Federal or state legislative activities."},
@@ -27,7 +27,7 @@
           "name": "Administration Employment",
           "source": "U.S. Census Bureau - Census of Individual Governments: Employment",
           "years": [2007, 2008, 2009, 2010, 2011, 2012],
-          "companions": [["Administration Expenditures", "Total Administration"], ["Administration Employment", "Total Administration"], ["Administration Revenue", "Total Administration"], ["Administration Employment", "Total"]],
+          "companions": [["Administration Employment", "Total Administration"], ["Administration Employment", "Financial Administration"], ["Administration Employment", "Other Governmental Administration"], ["Administration Employment", "Social Insurance Administration"]],
        	  "children": [
             {"name": "Total", "unit": "FTE employees", "dataType": "level", "definition": "The number of Full-time equivalent (FTE) employees for each county is a computed statistic representing the number of full-time employees that could have been employed if the reported number of hours worked by part-time employees had been worked by full-time employees."},
             {"name": "Total Administration", "unit": "FTE employees", "dataType": "level", "definition": "Includes all FTE on Financial Administration, Social Insurance Administration and Other Governmental Administration.  Covers  administration of unemployment compensation systems, public employment services, and the Federal Social Security, Medicare, and Railroad Retirement trusts; officials and central staff agencies concerned with tax assessment and collection, accounting, auditing, budgeting, purchasing, custody of funds, and other finance activities; legislative bodies and related activities involved in the making, enacting, and repeal of law; and government-wide executive, administrative, and staff service agencies other than financial, judicial, legal, and Federal or state legislative activities."},
@@ -40,7 +40,7 @@
           "name": "Administration Revenue",
           "source": "U.S. Census Bureau - Census of Individual Governments: Finance",
           "years": [2007],
-          "companions": [["Administration Expenditures", "Total Administration"], ["Administration Employment", "Total Administration"], ["Administration Revenue", "Total Administration"], ["Administration Revenue", "Total"]],
+          "companions": [["Administration Revenue", "Total Administration"], ["Administration Revenue", "Charges"], ["Administration Revenue", "Public Employee Retirement Systems"], ["Administration Revenue", "Unemployment Compensation Systems"]],
        	  "children": [
           	{"name": "Total", "unit": "thousands of dollars", "dataType": "level", "definition": "All amounts of money received by a government from external sources--net of refunds and other correcting transactions--other than from issuance of debt, liquidation of investments, and as agency and private trust transactions. Note that revenue excludes noncash transactions such as receipt of services, commodities, or other 'receipts in kind.'"},
           	{"name": "Total Administration", "unit": "thousands of dollars", "dataType": "level", "definition": "Total administration revenue, including charges, miscellaneous general revenue, liquor store revenue, public employee retirement systems, and unemployment compensation systems."},
@@ -60,7 +60,7 @@
           "name": "Administration Employment",
           "source": "U.S. Census Bureau - Census of Individual Governments: Employment",
           "years": [2007, 2008, 2009, 2010, 2011, 2012],
-          "companions": [["Administration Expenditures", "Total Administration"], ["Administration Employment", "Total Administration"], ["Administration Revenue", "Total Administration"], ["Administration Employment", "Total"]],
+          "companions": [["Administration Employment", "Total Administration"], ["Administration Employment", "Financial Administration"], ["Administration Employment", "Other Governmental Administration"], ["Administration Employment", "Social Insurance Administration"]],
        	  "children": [
             {"name": "Total", "unit": "FTE employees", "dataType": "level", "definition": "The number of Full-time equivalent (FTE) employees for each county is a computed statistic representing the number of full-time employees that could have been employed if the reported number of hours worked by part-time employees had been worked by full-time employees."},
             {"name": "Total Administration", "unit": "FTE employees", "dataType": "level", "definition": "Number of FTEs on Financial Administration, Social Insurance Administration and Other Governmental Administration.  Covers  administration of unemployment compensation systems, public employment services, and the Federal Social Security, Medicare, and Railroad Retirement trusts; officials and central staff agencies concerned with tax assessment and collection, accounting, auditing, budgeting, purchasing, custody of funds, and other finance activities; legislative bodies and related activities involved in the making, enacting, and repeal of law; and government-wide executive, administrative, and staff service agencies other than financial, judicial, legal, and Federal or state legislative activities."},
@@ -74,7 +74,8 @@
           "name": "Public Amenity Employment",
           "source": "U.S. Census Bureau - Census of Individual Governments: Employment",
           "years": [2007, 2008, 2009, 2010, 2011, 2012],
-          "children": [
+          "companions": [["Public Amenity Employment", "Total Public Amenity"], ["Public Amenity Employment", "Natural Resources"], ["Public Amenity Employment", "Parks & Recreation"], ["Public Amenity Employment", "Libraries"]],
+      	  "children": [
             {"name": "Total", "unit": "FTE employees", "dataType": "level", "definition": "The number of Full-time equivalent (FTE) employees for each county is a computed statistic representing the number of full-time employees that could have been employed if the reported number of hours worked by part-time employees had been worked by full-time employees."},
             {"name": "Total Public Amenity", "unit":"FTE employees", "dataType": "level", "definition": "Number of FTEs working on libraries, parks and recreation, as well as other natural resources."},
           	{"name": "Libraries", "unit":"FTE employees", "dataType": "level", "definition": "Number of FTEs working on Establishment and provision of libraries for use by the general public and the technical support of privately-operated libraries. Includes: Public libraries, community libraries, consolidated libraries, regional libraries, and their variously-named equivalents; library extension services including bookmobiles; public library (special) districts; U.S. Library of Congress (including Copyright Office); state library commissions and boards; programs to promote, develop, and coordinate library services and facilities."},
@@ -86,6 +87,7 @@
           "name": "Education Employment",
           "source": "U.S. Census Bureau - Census of Individual Governments: Employment",
           "years": [2007, 2008, 2009, 2010, 2011, 2012],
+          "companions": [["Education Expenditures", "Total Education"], ["Education Employment", "Total Education"], ["Education Employment", "Elementary & Secondary Education"], ["Education Employment", "Higher Education"]],
           "children": [
             {"name": "Total", "unit": "FTE employees", "dataType": "level", "definition": "The number of Full-time equivalent (FTE) employees for each county is a computed statistic representing the number of full-time employees that could have been employed if the reported number of hours worked by part-time employees had been worked by full-time employees."},
             {"name": "Total Education", "unit":"FTE employees", "dataType": "level", "definition": "Number of FTEs working in Schools, colleges, and other educational institutions (elementary and secondary schools)."},
@@ -97,7 +99,8 @@
           "name": "Housing & Community Development Employment",
           "source": "U.S. Census Bureau - Census of Individual Governments: Employment",
           "years": [2007, 2008, 2009, 2010, 2011, 2012],
-          "children": [
+          "companions": [["Housing & Community Development Expenditures", "Total Housing & Community Development"], ["Housing & Community Development Employment", "Total Housing & Community Development"], ["Housing & Community Development Employment", "Total"], ["Housing & Community Development Expenditures", "Current Operations"]],
+       	  "children": [
             {"name": "Total", "unit": "FTE employees", "dataType": "level", "definition": "The number of Full-time equivalent (FTE) employees for each county is a computed statistic representing the number of full-time employees that could have been employed if the reported number of hours worked by part-time employees had been worked by full-time employees."},
           	{"name": "Housing & Community Development", "unit":"FTE employees", "dataType": "level", "definition": "Number of FTEs working on Construction, operation, and support of housing and redevelopment projects and other activities to promote or aid public and private housing and community development.  Includes: Housing: Planning, construction, furnishing, and operation of public housing projects (generally for persons not adequately served by private sector). Community development: Urban renewal and slum clearance; redevelopment and rehabilitation of substandard or deteriorated facilities and areas; rural redevelopment; and revitalization of commercial areas."}
           ]
@@ -106,7 +109,8 @@
           "name": "Health & Hospitals Employment",
           "source": "U.S. Census Bureau - Census of Individual Governments: Employment",
           "years": [2007, 2008, 2009, 2010, 2011, 2012],
-          "children": [
+          "companions": [["Health & Hospitals Employment", "Total Health & Hospitals"], ["Health & Hospitals Employment", "Health"], ["Health & Hospitals Employment", "Hospitals"], ["Hospitals", "Number of Hospitals"]],
+      	  "children": [
             {"name": "Total", "unit": "FTE employees", "dataType": "level", "definition": "The number of Full-time equivalent (FTE) employees for each county is a computed statistic representing the number of full-time employees that could have been employed if the reported number of hours worked by part-time employees had been worked by full-time employees."},
             {"name": "Total Health & Hospitals", "unit":"FTE employees", "dataType": "level", "definition": "Number of FTEs working in hospitals or providing health services."},
           	{"name": "Health", "unit":"FTE employees", "dataType": "level", "definition": "Number of FTEs working on Provision of services for the conservation and improvement of public health, other than hospital care, and support of other governments’ health programs."},
@@ -117,7 +121,8 @@
           "name": "Justice & Public Safety Employment",
           "source": "U.S. Census Bureau - Census of Individual Governments: Employment",
           "years": [2007, 2008, 2009, 2010, 2011, 2012],
-          "children": [
+          "companions": [["Justice & Public Safety Employment", "Total Justice & Public Safety"], ["Justice and Public Safety Employment", "Correction"], ["Justice & Public Safety Employment", "Judicial & Legal Services"], ["Justice & Public Safety Employment", "Police Protection"]],
+      	  "children": [
             {"name": "Total", "unit": "FTE employees", "dataType": "level", "definition": "The number of Full-time equivalent (FTE) employees for each county is a computed statistic representing the number of full-time employees that could have been employed if the reported number of hours worked by part-time employees had been worked by full-time employees."},
             {"name": "Total Justice & Public Safety", "unit":"FTE employees", "dataType": "level", "definition": "Number of FTEs working on correction, judicial and legal services, and police protection. Correctional Institutions: Residential institutions or facilities for the confinement, correction, and rehabilitation of convicted adults, or juveniles adjudicated, delinquent or in need of supervision, and for the detention of adults and juveniles charged with a crime and awaiting trial. Judicial and Legal : Courts (criminal and civil) and activities associated with courts, legal services, and legal counseling of indigent or other needy persons. Police protection: sheriff, state police, and other governmental departments that preserve law and order, protect persons and property from illegal acts, and work to prevent, control, investigate, and reduce crime."},
           	{"name": "Correction", "unit":"FTE employees", "dataType": "level", "definition": "Number of FTEs working on Correctional Institutions: Residential institutions or facilities for the confinement, correction, and rehabilitation of convicted adults, or juveniles adjudicated, delinquent or in need of supervision, and for the detention of adults and juveniles charged with a crime and awaiting trial.      Other Corrections: Correctional activities other than Federal, state and local residential institutions or facilities."},
@@ -130,7 +135,8 @@
           "name": "Public Welfare Employment",
           "source": "U.S. Census Bureau - Census of Individual Governments: Employment",
           "years": [2007, 2008, 2009, 2010, 2011, 2012],
-          "children": [
+          "companions": [["Public Welfare Expenditures", "Total Public Welfare"], ["Public Welfare Employment", "Public Welfare"], ["Public Welfare Expenditures", "Cash Assistance"], ["Public Welfare Expenditures", "Vendor Payments"]],
+      	  "children": [
             {"name": "Total", "unit": "FTE employees", "dataType": "level", "definition": "The number of Full-time equivalent (FTE) employees for each county is a computed statistic representing the number of full-time employees that could have been employed if the reported number of hours worked by part-time employees had been worked by full-time employees."},
           	{"name": "Public Welfare", "unit":"FTE employees", "dataType": "level", "definition": "Number of FTEs working on Support of and assistance to needy persons contingent upon their need."}
           ]
@@ -139,7 +145,8 @@
           "name": "Transportation Employment",
           "source": "U.S. Census Bureau - Census of Individual Governments: Employment",
           "years": [2007, 2008, 2009, 2010, 2011, 2012],
-          "children": [
+          "companions": [["Transportation Employment", "Total Transportation"], ["Transportation Employment", "Transit"], ["Transportation Employment", "Highways"], ["Transportation Employment", "Air Transportation"]],
+      	  "children": [
             {"name": "Total", "unit": "FTE employees", "dataType": "level", "definition": "The number of Full-time equivalent (FTE) employees for each county is a computed statistic representing the number of full-time employees that could have been employed if the reported number of hours worked by part-time employees had been worked by full-time employees."},
             {"name": "Total Transportation", "unit":"FTE employees", "dataType": "level", "definition": "Number of FTEs working on Air Transportation, Highways, Sea and Inland Port and Transit Utilities."},
           	{"name": "Air Tranportation", "unit":"FTE employees", "dataType": "level", "definition": "Number of FTEs working on Provision, operation, construction, and support of airport facilities serving the public at-large on a scheduled or unscheduled basis."},
@@ -152,7 +159,8 @@
           "name": "Utility Employment",
           "source": "U.S. Census Bureau - Census of Individual Governments: Employment",
           "years": [2007, 2008, 2009, 2010, 2011, 2012],
-          "children": [
+          "companions": [["Utility Employment", "Total Utility"], ["Utility Employment", "Electric Utility"], ["Utility Employment", "Gas Utilities"], ["Utility Expenditures", "Total Utility"]],
+      	  "children": [
             {"name": "Total", "unit": "FTE employees", "dataType": "level", "definition": "The number of Full-time equivalent (FTE) employees for each county is a computed statistic representing the number of full-time employees that could have been employed if the reported number of hours worked by part-time employees had been worked by full-time employees."},
             {"name": "Total Utility", "unit":"FTE employees", "dataType": "level", "definition": "Number of FTEs working on Electricity Utilities and Gas Utilities."},
           	{"name": "Electric Utilities", "unit":"FTE employees", "dataType": "level", "definition": "Number of FTEs working on Operation, maintenance, and construction of public electric power systems, including production, acquisition, and distribution of electricity to general public or to other public or private utilities."},
@@ -163,7 +171,8 @@
           "name": "Water, Sewerage & Solid Waste Employment",
           "source": "U.S. Census Bureau - Census of Individual Governments: Employment",
           "years": [2007, 2008, 2009, 2010, 2011, 2012],
-          "children": [
+          "companions": [["Water, Sewerage & Solid Waste Employment", "Total Water, Sewerage & Solid Waste"], ["Water, Sewerage & Solid Waste Employment", "Sewerage"], ["Water, Sewerage & Solid Waste Employment", "Solid Waste"], ["Water, Sewerage & Solid Waste Employment", "Water Utilities"]],
+      	  "children": [
             {"name": "Total", "unit": "FTE employees", "dataType": "level", "definition": "The number of Full-time equivalent (FTE) employees for each county is a computed statistic representing the number of full-time employees that could have been employed if the reported number of hours worked by part-time employees had been worked by full-time employees."},
             {"name": "Total Water, Sewerage & Solid Waste", "unit":"FTE employees", "dataType": "level", "definition": "Includes FTEs working on on Sewerage, Solid Waste Management and Water Utitlies services."},
           	{"name": "Sewerage", "unit":"FTE employees", "dataType": "level", "definition": "Number of FTEs working on Provision, maintenance, and operation of sanitary and storm sewer systems and sewage disposal and treatment facilities, as well as all intergovernmental payments for such activities."},
@@ -190,7 +199,8 @@
           "name": "Administration Revenue",
           "source": "U.S. Census Bureau - Census of Individual Governments: Finance",
           "years": [2007],
-          "children": [
+          "companions": [["Administration Revenue", "Total Administration"], ["Administration Revenue", "Charges"], ["Administration Revenue", "Public Employee Retirement Systems"], ["Administration Revenue", "Unemployment Compensation Systems"]],
+       	  "children": [
           	{"name": "Total", "unit": "thousands of dollars", "dataType": "level", "definition": "All amounts of money received by a government from external sources--net of refunds and other correcting transactions--other than from issuance of debt, liquidation of investments, and as agency and private trust transactions. Note that revenue excludes noncash transactions such as receipt of services, commodities, or other 'receipts in kind.'"},
           	{"name": "Total Administration", "unit": "thousands of dollars", "dataType": "level", "definition": "Total administration revenue, including charges, miscellaneous general revenue, liquor store revenue, public employee retirement systems, and unemployment compensation systems."},
           	{"name": "Charges", "unit": "thousands of dollars", "dataType": "level", "definition": "Amounts received from the public for performance of specific services benefiting the person charged, and from sales of commodities and services, except liquor store sales.  Includes fees, assessments, and other reimbursements for current services, rents and sales derived from commodities or services furnished incident to the performance of particular functions, gross income of commercial activities, and the like.  Excludes amounts received from other governments (see intergovernmental above) and interdepartmental charges and transfers. Current charges are distinguished from license taxes, which relate to privileges granted by the government or regulatory measures for the protection of the public."},
@@ -232,7 +242,8 @@
           "name": "Utility Revenue",
           "source": "U.S. Census Bureau - Census of Individual Governments: Finance",
           "years": [2007],
-          "children": [
+          "companions": [["Utility Revenue", "Total Utility"], ["Utility Revenue", "Electric Power Systems"], ["Utility Revenue", "Gas Supply Systems"], ["Utility Revenue", "Water Supply Systems"]],
+      	  "children": [
           	{"name": "Total", "unit": "thousands of dollars", "dataType": "level", "definition": "All amounts of money received by a government from external sources--net of refunds and other correcting transactions--other than from issuance of debt, liquidation of investments, and as agency and private trust transactions. Note that revenue excludes noncash transactions such as receipt of services, commodities, or other 'receipts in kind.'"},
 	        {"name": "Total Utility", "unit": "thousands of dollars", "dataType": "level", "definition": "Total amount of utility revenue, including Electric Power Systems, Gas Supply Systems, Public Mass Transit Systems and Water Supply Systems."},
           	{"name": "Electric Power Systems", "unit": "thousands of dollars", "dataType": "level", "definition": "State aid for maintenance, operation, and construction of public electric power generating plants and related transmission systems."},
@@ -245,6 +256,7 @@
        	  "name": "Administration Expenditures",
           "source": "U.S. Census Bureau - Census of Individual Governments: Finance",
        	  "years": [2007],
+       	  "companions": [["Administartion Expenditures", "Total Administration"], ["Administration Expenditures", "Financial Administration"], ["Administration Expenditures", "Other Governmental Administration"], ["Administration Expenditures", "Liquor Stores"]],
        	  "children": [
        	  	{"name": "Total", "unit": "thousands of dollars", "dataType": "level", "definition": "All amounts of money paid out by a government--net of recoveries and other correcting transactions--other than for retirement of debt, investment in securities, extension of credit, or as agency transactions. Note that expenditure includes only external transactions of a government and excludes non-cash transactions such as the provision of perquisites or other payments in kind."},
        	  	{"name": "Total Administration", "unit": "thousands of dollars", "dataType": "level", "definition": "Includes expenditure on Financial Administration, Social Insurance Administration and Other Governmental Administration (including Federal and State Legislative and Central Staff Services).  Covers  administration of unemployment compensation systems, public employment services, and the Federal Social Security, Medicare, and Railroad Retirement trusts; officials and central staff agencies concerned with tax assessment and collection, accounting, auditing, budgeting, purchasing, custody of funds, and other finance activities; legislative bodies and related activities involved in the making, enacting, and repeal of law; and government-wide executive, administrative, and staff service agencies other than financial, judicial, legal, and Federal or state legislative activities."},
@@ -263,7 +275,8 @@
        	  "name": "Public Amenity Expenditures",
           "source": "U.S. Census Bureau - Census of Individual Governments: Finance",
        	  "years": [2007],
-       	  "children": [
+       	  "companions": [["Public Amenity Expenditures", "Total Public Amenity"], ["Public Amenity Expenditures", "Natural Resources"], ["Public Amenity Expenditures", "Parks & Recreation"], ["Public Amenity Expenditures", "Libraries"]],
+      	  "children": [
        	  	{"name": "Total", "unit": "thousands of dollars", "dataType": "level", "definition": "All amounts of money paid out by a government--net of recoveries and other correcting transactions--other than for retirement of debt, investment in securities, extension of credit, or as agency transactions. Note that expenditure includes only external transactions of a government and excludes non-cash transactions such as the provision of perquisites or other payments in kind."},
 	       	{"name": "Total Public Amenity", "unit": "thousands of dollars", "dataType": "level", "definition": "Total amount of public amenity expenditures, including Libraries, Natural Resources, Parks and Recreation, Current Operations, Construction, Other Capital Outlay, Intergovernmental to State and Intergovernmental to Local."},
        	  	{"name": "Libraries", "unit": "thousands of dollars", "dataType": "level", "definition": "Establishment and provision of libraries for use by the general public and the technical support of privately-operated libraries. Includes: Public libraries, community libraries, consolidated libraries, regional libraries, and their variously-named equivalents; library extension services including bookmobiles; public library (special) districts; U.S. Library of Congress (including Copyright Office); state library commissions and boards; programs to promote, develop, and coordinate library services and facilities."},
@@ -280,7 +293,8 @@
        	  "name": "Education Expenditures",
           "source": "U.S. Census Bureau - Census of Individual Governments: Finance",
        	  "years": [2007],
-       	  "children": [
+       	  "companions": [["Education Expenditures", "Total Education"], ["Education Employment", "Total Education"], ["Education Expenditures", "Elementary & Secondary Education"], ["Education Expenditures", "Higher Education"]],
+          "children": [
        	  	{"name": "Total", "unit": "thousands of dollars", "dataType": "level", "definition": "All amounts of money paid out by a government--net of recoveries and other correcting transactions--other than for retirement of debt, investment in securities, extension of credit, or as agency transactions. Note that expenditure includes only external transactions of a government and excludes non-cash transactions such as the provision of perquisites or other payments in kind."},
        	  	{"name": "Total Education", "unit": "thousands of dollars", "dataType": "level", "definition": "Total education expenditure, including Elementary and Secondary Education, Higher Education, Current Operations, Construction, Other Capital Outlay, Intergovernmental to State and Intergovernmental to Local."},
        	  	{"name": "Elementary & Secondary Education", "unit": "thousands of dollars", "dataType": "level", "definition": "The operation, maintenance, and construction of public schools and facilities for elementary and secondary education (kindergarten through high school), vocational-technical education, and other educational institutions except those for higher education. Covers operations by independent governments (school districts) as well as those operated as integral agencies of state, county, municipal, or township governments. Also covers financial support of public elementary and secondary schools. Includes: Instructional, support, and auxiliary services operated through school systems (school lunch, student activities, community services, pupil transportation, health services, guidance counseling, and the like); administration and supervision of school systems; special education, classes for the handicapped, and vocational education provided through school systems; libraries operated by public schools; and plant maintenance and operation. For state governments, includes payments in support of local school systems as well as direct expenditures on their behalf (e.g., for construction of school buildings, purchase of textbooks and other instructional materials, acquisition and operation of school buses, and other local school activities)."},
@@ -296,6 +310,7 @@
        	  "name": "Housing & Community Development Expenditures",
           "source": "U.S. Census Bureau - Census of Individual Governments: Finance",
        	  "years": [2007],
+       	  "companions": [["Housing & Community Development Expenditures", "Total Housing & Community Development"], ["Housing & Community Development Employment", "Total Housing & Community Development"], ["Housing & Community Development Expenditures", "Current Operations"], ["Housing & Community Development Expenditures", "Total"]],
        	  "children": [
        	  	{"name": "Total", "unit": "thousands of dollars", "dataType": "level", "definition": "All amounts of money paid out by a government--net of recoveries and other correcting transactions--other than for retirement of debt, investment in securities, extension of credit, or as agency transactions. Note that expenditure includes only external transactions of a government and excludes non-cash transactions such as the provision of perquisites or other payments in kind."},
        	  	{"name": "Total Housing & Community Development", "unit": "thousands of dollars", "dataType": "level", "definition": "Total housing and community development expenditures, including Current Operations, Construction, Other Capital Outlay, Intergovernmental to State and Intergovernmental to Local."},
@@ -310,7 +325,8 @@
        	  "name": "Health & Hospitals Expenditures",
           "source": "U.S. Census Bureau - Census of Individual Governments: Finance",
        	  "years": [2007],
-       	  "children": [
+       	  "companions": [["Health & Hospitals Expenditures", "Total Health & Hospitals"], ["Health & Hospitals Expenditures", "Health"], ["Health & Hospitals Expenditures", "Hospitals"], ["Hospitals", "Number of Hospitals"]],
+      	  "children": [
        	  	{"name": "Total", "unit": "thousands of dollars", "dataType": "level", "definition": "All amounts of money paid out by a government--net of recoveries and other correcting transactions--other than for retirement of debt, investment in securities, extension of credit, or as agency transactions. Note that expenditure includes only external transactions of a government and excludes non-cash transactions such as the provision of perquisites or other payments in kind."},
 	       	{"name": "Total Health & Hospitals", "unit": "thousands of dollars", "dataType": "level", "definition": "Total health and hospitals expenditures, including Health, Hospitals, Current Operations, Construction, Other Capital Outlay, Intergovernmental to State and Intergovernmental to Local."},
        	  	{"name": "Health", "unit": "thousands of dollars", "dataType": "level", "definition": "Provision of services for the conservation and improvement of public health, other than hospital care, and financial support of other governments’ health programs. Includes: Expenditures for general health activities, categorical health activities and programs, healthrelated inspections, community health care programs, regulation of air and water quality, rabies and animal control, and ambulance and emergency medical services ONLY IF handled separately from the local fire department. Also includes state or local expenditure financed by Federal Government “Superfund” for cleanup of hazardous waste sites. School health services provided by health agencies (rather than school agencies) are included here. Sewage treatment operations are classified under Sewerage."},
@@ -339,7 +355,8 @@
        	  "name": "Justice & Public Safety Expenditures",
           "source": "U.S. Census Bureau - Census of Individual Governments: Finance",
        	  "years": [2007],
-       	  "children": [
+       	  "companions": [["Justice & Public Safety Expenditures", "Total Justice & Public Safety"], ["Justice and Public Safety Expenditures", "Correction"], ["Justice & Public Safety Expenditures", "Judicial & Legal Service"], ["Justice & Public Safety Expenditures", "Police Protection"]],
+      	  "children": [
        	  	{"name": "Total", "unit": "thousands of dollars", "dataType": "level", "definition": "All amounts of money paid out by a government--net of recoveries and other correcting transactions--other than for retirement of debt, investment in securities, extension of credit, or as agency transactions. Note that expenditure includes only external transactions of a government and excludes non-cash transactions such as the provision of perquisites or other payments in kind."},
 	       	{"name": "Total Justice & Public Safety", "unit": "thousands of dollars", "dataType": "level", "definition": "Total justice and public safety expenditures, including Correction, Judicial and Legal Services, Police Protection, Fire Protection, Protective Inspection, Current Operations, Construction, Other Capital Outlay, Intergovernmental to State, Intergovernmental to Local."},
        	  	{"name": "Correction", "unit": "thousands of dollars", "dataType": "level", "definition": "Correctional Institutions: Residential institutions or facilities for the confinement, correction, and rehabilitation of convicted adults, or juveniles adjudicated, delinquent or in need of supervision, and for the detention of adults and juveniles charged with a crime and awaiting trial. Includes: Facilities generally referred to as prisons, reformatories, jails, enitentiaries, correctional farms, workhouses, reception centers, industrial schools, training schools, and detention centers. Includes hospitals for the criminally insane IF operated by a corrections agency. Includes expenditure on education, training, and health care programs devoted to inmates. Includes residential work release units, and residential halfway houses, and community corrections centers. For prison industries include only amounts involved in the manufacture, sale, and distribution of articles or services for resale or use outside the government involved.             Other Corrections: Correctional activities other than Federal, state and local residential institutions or facilities. Includes: Probation offices (whether operated by courts or correctional agencies) boards of parole, boards of pardon, and the like; noninstitutional activities such as administration of a correctional agency, training of correctional employees, and nonresidential halfway houses and community corrections centers."},
@@ -358,7 +375,8 @@
        	  "name": "Public Welfare Expenditures",
           "source": "U.S. Census Bureau - Census of Individual Governments: Finance",
        	  "years": [2007],
-       	  "children": [
+       	  "companions": [["Public Welfare Expenditures", "Total Public Welfare"], ["Public Welfare Employment", "Public Welfare"], ["Public Welfare Expenditures", "Cash Assistance"], ["Public Welfare Expenditures", "Vendor Payments"]],
+      	  "children": [
        	  	{"name": "Total", "unit": "thousands of dollars", "dataType": "level", "definition": "All amounts of money paid out by a government--net of recoveries and other correcting transactions--other than for retirement of debt, investment in securities, extension of credit, or as agency transactions. Note that expenditure includes only external transactions of a government and excludes non-cash transactions such as the provision of perquisites or other payments in kind."},
 	       	{"name": "Total Public Welfare", "unit": "thousands of dollars", "dataType": "level", "definition": "Total amount of public welfare expenditure, including Cash Assistance, Vendor Payments, Other Public Welfare, and Current Operations, Construction, Other Capital Outlay, Assistance and Subsidies, Intergovernmental to State and Intergovernmental to Local."},
        	  	{"name": "Cash Assistance", "unit": "thousands of dollars", "dataType": "level", "definition": "Cash payments made directly to individuals contingent upon their need, other than those under Federal categorical assistance programs.  Includes: Poor relief; general relief; home relief; emergency relief; general assistance; refugee assistance; medical assistance, housing expense relief, energy assistance (e.g., Federal Low Income Home Energy Assistance Program, or LIHEAP), emergency assistance, etc. paid directly to individuals and not to vendors; other direct assistance to needy persons not covered by or eligible for Federal categorical assistance; payments to other governments in support of, or as reimbursement for costs of, these types of assistance programs."},
@@ -376,7 +394,8 @@
        	  "name": "Transportation Expenditures",
           "source": "U.S. Census Bureau - Census of Individual Governments: Finance",
        	  "years": [2007],
-       	  "children": [
+       	  "companions": [["Transportation Expenditures", "Total Transportation"], ["Transportation Expenditures", "Transit"], ["Transportation Expenditures", "Highways"], ["Transportation Expenditures", "Air Transportation"]],
+      	  "children": [
        	  	{"name": "Total", "unit": "thousands of dollars", "dataType": "level", "definition": "All amounts of money paid out by a government--net of recoveries and other correcting transactions--other than for retirement of debt, investment in securities, extension of credit, or as agency transactions. Note that expenditure includes only external transactions of a government and excludes non-cash transactions such as the provision of perquisites or other payments in kind."},
 	       	{"name": "Total Transportation", "unit": "thousands of dollars", "dataType": "level", "definition": "Total number of transportation expenditures, including Air Transportation, Highways, Parking Facilities, Sea and Inland Port, Transit Utilities, Current Operations, Construction, Other Capital Outlay, Interests on Debt, Intergovernmental to State and Intergovernmental to Local."},
        	  	{"name": "Air Transportation", "unit": "thousands of dollars", "dataType": "level", "definition": "Provision, operation, construction, and support of airport facilities serving the public at-large on a scheduled or unscheduled basis. Also includes the regulation of airline industry, if applicable.  Includes: Publicly-operated airfields and related facilities (runways, terminals, control towers, maintenance facilities, and the like); intergovernmental payments for construction, operation, or support of publicly-owned airports; support of private airports; airport police if either an integral part of the airport operating authority or a payment to regular police agency (see Special Considerations below)."},
@@ -396,7 +415,8 @@
        	  "name": "Utility Expenditures",
           "source": "U.S. Census Bureau - Census of Individual Governments: Finance",
        	  "years": [2007],
-       	  "children": [
+       	  "companions": [["Utility Expenditures", "Total Utility"], ["Utility Expenditures", "Electric Utilities"], ["Utility Expenditures", "Gas Utilities"], ["Utility Expenditures", "Construction"]],
+      	  "children": [
        	  	{"name": "Total", "unit": "thousands of dollars", "dataType": "level", "definition": "All amounts of money paid out by a government--net of recoveries and other correcting transactions--other than for retirement of debt, investment in securities, extension of credit, or as agency transactions. Note that expenditure includes only external transactions of a government and excludes non-cash transactions such as the provision of perquisites or other payments in kind."},
 	       	{"name": "Total Utility", "unit": "thousands of dollars", "dataType": "level", "definition": "Total amount of utility expenditures, including Electric Utilities, Gas Utilities, Current Operations, Construction, Other Capital Outlay, Interests on Debt, Intergovernmental to State and Intergovernmental to Local."},
        	  	{"name": "Electric Utilities", "unit": "thousands of dollars", "dataType": "level", "definition": "Operation, maintenance, and construction of public electric power systems, including production, acquisition, and distribution of electricity to general public or to other public or private utilities. This function covers government electric power activities for residential, commercial, and industrial electrical usage.  Includes: Generating stations; power plants; transmission lines; switching stations; pollution abatement equipment; purchase of electricity for resale; distribution lines and meters."},        
@@ -413,7 +433,8 @@
        	  "name": "Water, Sewerage & Solid Waste Expenditures",
           "source": "U.S. Census Bureau - Census of Individual Governments: Finance",
        	  "years": [2007],
-       	  "children": [
+       	  "companions": [["Water, Sewerage & Solid Waste Expenditures", "Total Water, Sewerage & Solid Waste"], ["Water, Sewerage & Solid Waste Expenditures", "Sewerage"], ["Water, Sewerage & Solid Waste Expenditures", "Solid Waste"], ["Water, Sewerage & Solid Waste Expenditures", "Water Utilities"]],
+      	  "children": [
        	  	{"name": "Total", "unit": "thousands of dollars", "dataType": "level", "definition": "All amounts of money paid out by a government--net of recoveries and other correcting transactions--other than for retirement of debt, investment in securities, extension of credit, or as agency transactions. Note that expenditure includes only external transactions of a government and excludes non-cash transactions such as the provision of perquisites or other payments in kind."},
 	       	{"name": "Total Water, Sewerage & Solid Waste Management", "unit": "thousands of dollars", "dataType": "level", "definition": "All amounts of money paid out by a government on Water, Sewerage and Solid Waste Management-net of recoveries and other correcting transactions--other than for retirement of debt, investment in securities, extension of credit, or as agency transactions. Note that expenditure includes only external transactions of a government and excludes non-cash transactions such as the provision of perquisites or other payments in kind."},
        	  	{"name": "Sewerage", "unit": "thousands of dollars", "dataType": "level", "definition": "Provision, maintenance, and operation of sanitary and storm sewer systems and sewage disposal and treatment facilities, as well as all intergovernmental payments for such activities. Includes: Expenditures for the construction and maintenance of sanitary and storm sewers and for sewage disposal, including the following: construction and maintenance of sanitary sewer lines and related lift and pump stations; sewer cleaning and flushing; sewage treatment and water pollution control plants; storm drains that are not connected with highway projects; systems for the collection and disposal of storm runoff."}, 
@@ -1030,7 +1051,7 @@
 	          "name": "Justice & Public Safety Employment",
 	          "source": "U.S. Census Bureau - Census of Individual Governments: Employment",
 	          "years": [2007, 2008, 2009, 2010, 2011, 2012],
-	          "companions": [["Justice & Public Safety Expenditures", "Total Justice & Public Safety"], ["Justice and Public Safety Employment", "Total Justice & Public Safety"], ["Justice & Public Safety Expenditures", "Total"], ["Jails - Supervised Population", "Total Jail Population"]],
+	          "companions": [["Justice & Public Safety Employment", "Total Justice & Public Safety"], ["Justice and Public Safety Employment", "Correction"], ["Justice & Public Safety Employment", "Judicial & Legal Services"], ["Justice & Public Safety Employment", "Police Protection"]],
       		  "children": [
 	            {"name": "Total", "unit": "FTE employees", "dataType": "level", "definition": "The number of Full-time equivalent (FTE) employees for each county is a computed statistic representing the number of full-time employees that could have been employed if the reported number of hours worked by part-time employees had been worked by full-time employees."},
 	            {"name": "Total Justice & Public Safety", "unit":"FTE employees", "dataType": "level", "definition": "Number of FTEs working on correction, judicial and legal services, and police protection. Correctional Institutions: Residential institutions or facilities for the confinement, correction, and rehabilitation of convicted adults, or juveniles adjudicated, delinquent or in need of supervision, and for the detention of adults and juveniles charged with a crime and awaiting trial. Judicial and Legal : Courts (criminal and civil) and activities associated with courts, legal services, and legal counseling of indigent or other needy persons. Police protection: sheriff, state police, and other governmental departments that preserve law and order, protect persons and property from illegal acts, and work to prevent, control, investigate, and reduce crime."},
@@ -1044,7 +1065,7 @@
 	       	  "name": "Justice & Public Safety Expenditures",
 	          "source": "U.S. Census Bureau - Census of Individual Governments: Finance",
 	       	  "years": [2007],
-	       	  "companions": [["Justice & Public Safety Expenditures", "Total Justice & Public Safety"], ["Justice and Public Safety Employment", "Total Justice & Public Safety"], ["Justice & Public Safety Expenditures", "Total"], ["Jails - Supervised Population", "Total Jail Population"]],
+	       	  "companions": [["Justice & Public Safety Expenditures", "Total Justice & Public Safety"], ["Justice and Public Safety Expenditures", "Correction"], ["Justice & Public Safety Expenditures", "Judicial & Legal Service"], ["Justice & Public Safety Expenditures", "Police Protection"]],
       		  "children": [
 	       	  	{"name": "Total", "unit": "thousands of dollars", "dataType": "level", "definition": "All amounts of money paid out by a government--net of recoveries and other correcting transactions--other than for retirement of debt, investment in securities, extension of credit, or as agency transactions. Note that expenditure includes only external transactions of a government and excludes non-cash transactions such as the provision of perquisites or other payments in kind."},
 	       	  	{"name": "Total Justice & Public Safety", "unit": "thousands of dollars", "dataType": "level", "definition": "Total justice and public safety expenditures, including Correction, Judicial and Legal Services, Police Protection, Fire Protection, Protective Inspection, Current Operations, Construction, Other Capital Outlay, Intergovernmental to State, Intergovernmental to Local."},
@@ -1168,7 +1189,7 @@
 	          "name": "Public Amenity Employment",
 	          "source": "U.S. Census Bureau - Census of Individual Governments: Employment",
 	          "years": [2007, 2008, 2009, 2010, 2011, 2012],
-	          "companions": [["Public Amenity Expenditures", "Total Public Amenity"], ["Public Amenity Employment", "Total Public Amenity"], ["Public Amenity Employment", "Parks & Recreation"], ["Public Amenity Employment", "Libraries"]],
+	          "companions": [["Public Amenity Employment", "Total Public Amenity"], ["Public Amenity Employment", "Natural Resources"], ["Public Amenity Employment", "Parks & Recreation"], ["Public Amenity Employment", "Libraries"]],
       		  "children": [
 	            {"name": "Total", "unit": "FTE employees", "dataType": "level", "definition": "The number of Full-time equivalent (FTE) employees for each county is a computed statistic representing the number of full-time employees that could have been employed if the reported number of hours worked by part-time employees had been worked by full-time employees."},
 	            {"name": "Total Public Amenity", "unit":"FTE employees", "dataType": "level", "definition": "Number of FTEs working on libraries, parks and recreation, as well as other natural resources."},
@@ -1181,7 +1202,7 @@
 	       	  "name": "Public Amenity Expenditures",
 	          "source": "U.S. Census Bureau - Census of Individual Governments: Finance",
 	       	  "years": [2007],
-	       	  "companions": [["Public Amenity Expenditures", "Total Public Amenity"], ["Public Amenity Employment", "Total Public Amenity"], ["Public Amenity Expenditures", "Parks & Recreation"], ["Public Amenity Expenditures", "Libraries"]],
+	       	  "companions": [["Public Amenity Expenditures", "Total Public Amenity"], ["Public Amenity Expenditures", "Natural Resources"], ["Public Amenity Expenditures", "Parks & Recreation"], ["Public Amenity Expenditures", "Libraries"]],
       		  "children": [
 	       	  	{"name": "Total", "unit": "thousands of dollars", "dataType": "level", "definition": "All amounts of money paid out by a government--net of recoveries and other correcting transactions--other than for retirement of debt, investment in securities, extension of credit, or as agency transactions. Note that expenditure includes only external transactions of a government and excludes non-cash transactions such as the provision of perquisites or other payments in kind."},
 	       	  	{"name": "Total Public Amenity", "unit": "thousands of dollars", "dataType": "level", "definition": "Total amount of public amenity expenditures, including Libraries, Natural Resources, Parks and Recreation, Current Operations, Construction, Other Capital Outlay, Intergovernmental to State and Intergovernmental to Local."},
@@ -1275,7 +1296,7 @@
 	          "name": "Transportation Employment",
 	          "source": "U.S. Census Bureau - Census of Individual Governments: Employment",
 	          "years": [2007, 2008, 2009, 2010, 2011, 2012],
-	          "companions": [["Transportation Expenditures", "Total Transportation"], ["Transportation Employment", "Total Transportation"], ["Transportation Employment", "Highways"], ["Transportation Employment", "Air Transportation"]],
+	          "companions": [["Transportation Employment", "Total Transportation"], ["Transportation Employment", "Transit"], ["Transportation Employment", "Highways"], ["Transportation Employment", "Air Transportation"]],
       		  "children": [
 	            {"name": "Total", "unit": "FTE employees", "dataType": "level", "definition": "The number of Full-time equivalent (FTE) employees for each county is a computed statistic representing the number of full-time employees that could have been employed if the reported number of hours worked by part-time employees had been worked by full-time employees."},
 	            {"name": "Total Transportation", "unit":"FTE employees", "dataType": "level", "definition": "Number of FTEs working on Air Transportation, Highways, Sea and Inland Port and Transit Utilities."},
@@ -1289,7 +1310,7 @@
 	       	  "name": "Transportation Expenditures",
 	          "source": "U.S. Census Bureau - Census of Individual Governments: Finance",
 	       	  "years": [2007],
-	       	  "companions": [["Transportation Expenditures", "Total Transportation"], ["Transportation Employment", "Total Transportation"], ["Transportation Expenditures", "Highways"], ["Transportation Expenditures", "Air Transportation"]],
+	       	  "companions": [["Transportation Expenditures", "Total Transportation"], ["Transportation Expenditures", "Transit"], ["Transportation Expenditures", "Highways"], ["Transportation Expenditures", "Air Transportation"]],
       		  "children": [
 	       	  	{"name": "Total", "unit": "thousands of dollars", "dataType": "level", "definition": "All amounts of money paid out by a government--net of recoveries and other correcting transactions--other than for retirement of debt, investment in securities, extension of credit, or as agency transactions. Note that expenditure includes only external transactions of a government and excludes non-cash transactions such as the provision of perquisites or other payments in kind."},
 	       	  	{"name": "Total Transportation", "unit": "thousands of dollars", "dataType": "level", "definition": "Total number of transportation expenditures, including Air Transportation, Highways, Parking Facilities, Sea and Inland Port, Transit Utilities, Current Operations, Construction, Other Capital Outlay, Interests on Debt, Intergovernmental to State and Intergovernmental to Local."},
