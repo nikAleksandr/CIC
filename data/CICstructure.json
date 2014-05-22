@@ -1275,7 +1275,8 @@
 	          "name": "Transportation Employment",
 	          "source": "U.S. Census Bureau - Census of Individual Governments: Employment",
 	          "years": [2007, 2008, 2009, 2010, 2011, 2012],
-	          "children": [
+	          "companions": [["Transportation Expenditures", "Total Transportation"], ["Transportation Employment", "Total Transportation"], ["Transportation Employment", "Highways"], ["Transportation Employment", "Air Transportation"]],
+      		  "children": [
 	            {"name": "Total", "unit": "FTE employees", "dataType": "level", "definition": "The number of Full-time equivalent (FTE) employees for each county is a computed statistic representing the number of full-time employees that could have been employed if the reported number of hours worked by part-time employees had been worked by full-time employees."},
 	            {"name": "Total Transportation", "unit":"FTE employees", "dataType": "level", "definition": "Number of FTEs working on Air Transportation, Highways, Sea and Inland Port and Transit Utilities."},
 	          	{"name": "Air Tranportation", "unit":"FTE employees", "dataType": "level", "definition": "Number of FTEs working on Provision, operation, construction, and support of airport facilities serving the public at-large on a scheduled or unscheduled basis."},
@@ -1288,7 +1289,8 @@
 	       	  "name": "Transportation Expenditures",
 	          "source": "U.S. Census Bureau - Census of Individual Governments: Finance",
 	       	  "years": [2007],
-	       	  "children": [
+	       	  "companions": [["Transportation Expenditures", "Total Transportation"], ["Transportation Employment", "Total Transportation"], ["Transportation Expenditures", "Highways"], ["Transportation Expenditures", "Air Transportation"]],
+      		  "children": [
 	       	  	{"name": "Total", "unit": "thousands of dollars", "dataType": "level", "definition": "All amounts of money paid out by a government--net of recoveries and other correcting transactions--other than for retirement of debt, investment in securities, extension of credit, or as agency transactions. Note that expenditure includes only external transactions of a government and excludes non-cash transactions such as the provision of perquisites or other payments in kind."},
 	       	  	{"name": "Total Transportation", "unit": "thousands of dollars", "dataType": "level", "definition": "Total number of transportation expenditures, including Air Transportation, Highways, Parking Facilities, Sea and Inland Port, Transit Utilities, Current Operations, Construction, Other Capital Outlay, Interests on Debt, Intergovernmental to State and Intergovernmental to Local."},
 	       	  	{"name": "Air Transportation", "unit": "thousands of dollars", "dataType": "level", "definition": "Provision, operation, construction, and support of airport facilities serving the public at-large on a scheduled or unscheduled basis. Also includes the regulation of airline industry, if applicable.  Includes: Publicly-operated airfields and related facilities (runways, terminals, control towers, maintenance facilities, and the like); intergovernmental payments for construction, operation, or support of publicly-owned airports; support of private airports; airport police if either an integral part of the airport operating authority or a payment to regular police agency (see Special Considerations below)."},
@@ -1308,7 +1310,8 @@
         		"name": "Airports",
         		"source": "Federal Aviation Administration",
         		"years": [2013],
-        		"children": [
+        		"companions": [["Airports", "Number of Airports"], ["Airports", "Number of Publicly Owned Airports"], ["Airports", "Number of Privately Owned Airports"], ["Airports", "Number of Military Owned Airports"]],
+      		  	"children": [
         			{"name": "Number of Airports", "dataType": "level", "definition": "The number of airports located in the county. The definition for airports in the law refers to any area of land or water used or inteded for landing or takeoff of aircraft. This includes, within the five categories of airports listed below, special types of facilities including seaplane bases, heliports, and facilities to accommodate tilt rotor aircraft. An airport includes an appurtenant area used or intended for airport buildings, facilities, as well as rights of way together with the buildings and facilities."},
         			{"name": "Number of Publicly Owned Airports", "dataType": "level", "definition": "The number of airports designated for public use that are located in the county."},
         			{"name": "Number of Privately Owned Airports", "dataType": "level", "definition": "The number of airports designated for private use that are located in the county."},
@@ -1319,7 +1322,8 @@
         		"name": "Bridges",
         		"source": "Federal Highway Administration - National Bridge Inventory",
         		"years": [2007, 2008, 2009, 2010, 2011, 2012, 2013],
-        		"children": [
+        		"companions": [["Bridges", "All Bridges - Total Bridges"], ["Bridges", "All Bridges - County Owned"], ["Bridges", "Structurally Deficient Bridges - County Owned"], ["Bridges", "Functionally Obsolete Bridges - County Owned"]],
+      		  	"children": [
         			{"name": "All Bridges - Total Bridges", "dataType": "level", "definition": "Total number of bridges located in the county."},
         			{"name": "All Bridges - City/Town Owned", "dataType": "level", "definition": "Total number of bridges owned by a Town or Township Highway Agency or a City or Municipal Highway Agency."},
         			{"name": "All Bridges - County Owned", "dataType": "level", "definition": "Total number of bridges owned by a County Highway Agency."},
@@ -1347,7 +1351,8 @@
         		"name": "Road Classification",
         		"source": "Federal Highway Administration - Highway Performance Monitoring System",
         		"years": [2011],
-        		"children": [
+        		"companions": [["Road Classification", "Total Public Road Miles"], ["Road Classification", "Share Interstate"], ["Road Classification", "Share Local"], ["Road Classification", "Share Freeway/Expressway"]],
+      		  	"children": [
         			{"name": "Total Public Road Miles", "dataType": "level", "definition": "Total miles of public roads, which are any roads or streets owned and maintained by a public authority and open to public travel."},
         			{"name": "Interstate Road Miles", "dataType": "level", "definition": "Total miles of interstate highway, defined as a divided arterial highway for through traffic with full or partial control of access and grade separations at major intersections"},
         			{"name": "Other Freeway/Expressway Road Miles", "dataType": "level", "definition": "Total miles of other freeway and expressway, defined as all urban principal arterials with limited access but not part of the Interstate system."},
@@ -1371,7 +1376,8 @@
 	       		"years": [2008, 2011],
         		"source": "U.S. Department of Transportation – Federal Highway Administration, Highway Performance Monitoring System",
         		"vintage": 2011,
-        		"children": [
+        		"companions": [["Road Ownership", "Total Public Road Miles"], ["Road Ownership", "Share County Highway Agency"], ["Road Ownership", "Share State Highway Agency"], ["Road Ownership", "Share Other Local Agency"]],
+      		  	"children": [
         			{"name": "Total Public Road Miles", "dataType": "level", "definition": "Total miles of public roads, which are any roads or streets owned and maintained by a public authority and open to public travel."},
         			{"name": "State Highway Agency Road Miles", "dataType": "level", "definition": "Public road miles that are under the control of a state highway agency."},
         			{"name": "County Highway Agency Road Miles", "dataType": "level", "definition": "Public road miles under the control of the county plus city or municipality for consolidated governments."},
@@ -1409,7 +1415,8 @@
 	          "name": "Utility Employment",
 	          "source": "U.S. Census Bureau - Census of Individual Governments: Employment",
 	          "years": [2007, 2008, 2009, 2010, 2011, 2012],
-	          "children": [
+	          "companions": [["Utility Employment", "Total Utility"], ["Utility Employment", "Electric Utility"], ["Utility Employment", "Gas Utilities"], ["Utility Expenditures", "Total Utility"]],
+      		  "children": [
 	            {"name": "Total", "unit": "FTE employees", "dataType": "level", "definition": "The number of Full-time equivalent (FTE) employees for each county is a computed statistic representing the number of full-time employees that could have been employed if the reported number of hours worked by part-time employees had been worked by full-time employees."},
 	            {"name": "Total Utility", "unit":"FTE employees", "dataType": "level", "definition": "Number of FTEs working on Electricity Utilities and Gas Utilities."},
 	          	{"name": "Electric Utilities", "unit":"FTE employees", "dataType": "level", "definition": "Number of FTEs working on Operation, maintenance, and construction of public electric power systems, including production, acquisition, and distribution of electricity to general public or to other public or private utilities."},
@@ -1420,7 +1427,8 @@
 	          "name": "Utility Revenue",
 	          "source": "U.S. Census Bureau - Census of Individual Governments: Finance",
 	          "years": [2007],
-	          "children": [
+	          "companions": [["Utility Revenue", "Total Utility"], ["Utility Revenue", "Electric Power Systems"], ["Utility Revenue", "Gas Supply Systems"], ["Utility Revenue", "Water Supply Systems"]],
+      		  "children": [
 	          	{"name": "Total", "unit": "thousands of dollars", "dataType": "level", "definition": "All amounts of money received by a government from external sources--net of refunds and other correcting transactions--other than from issuance of debt, liquidation of investments, and as agency and private trust transactions. Note that revenue excludes noncash transactions such as receipt of services, commodities, or other 'receipts in kind.'"},
 	          	{"name": "Total Utility", "unit": "thousands of dollars", "dataType": "level", "definition": "Total amount of utility revenue, including Electric Power Systems, Gas Supply Systems, Public Mass Transit Systems and Water Supply Systems."},
 	          	{"name": "Electric Power Systems", "unit": "thousands of dollars", "dataType": "level", "definition": "State aid for maintenance, operation, and construction of public electric power generating plants and related transmission systems."},
@@ -1434,7 +1442,8 @@
 	          "source": "U.S. Census Bureau - Census of Individual Governments: Finance",
 	       	  "years": [2007],
 	       	  "vintage": 2014,
-	       	  "children": [
+	       	  "companions": [["Utility Expenditures", "Total Utility"], ["Utility Expenditures", "Electric Utilities"], ["Utility Expenditures", "Gas Utilities"], ["Utility Expenditures", "Construction"]],
+      		  "children": [
 	       	  	{"name": "Total", "unit": "thousands of dollars", "dataType": "level", "definition": "All amounts of money paid out by a government--net of recoveries and other correcting transactions--other than for retirement of debt, investment in securities, extension of credit, or as agency transactions. Note that expenditure includes only external transactions of a government and excludes non-cash transactions such as the provision of perquisites or other payments in kind."},
 	       	  	{"name": "Total Utility", "unit": "thousands of dollars", "dataType": "level", "definition": "Total amount of utility expenditures, including Electric Utilities, Gas Utilities, Current Operations, Construction, Other Capital Outlay, Interests on Debt, Intergovernmental to State and Intergovernmental to Local."},
 	       	  	{"name": "Electric Utilities", "unit": "thousands of dollars", "dataType": "level", "definition": "Operation, maintenance, and construction of public electric power systems, including production, acquisition, and distribution of electricity to general public or to other public or private utilities. This function covers government electric power activities for residential, commercial, and industrial electrical usage.  Includes: Generating stations; power plants; transmission lines; switching stations; pollution abatement equipment; purchase of electricity for resale; distribution lines and meters."},        
@@ -1457,7 +1466,8 @@
 	          "years": [2007, 2008, 2009, 2010, 2011, 2012],
 	          "source": "U.S. Census Bureau - Census of Individual Governments: Employment",
 	          "vintage": 2014, 
-	          "children": [
+	          "companions": [["Water, Sewerage & Solid Waste Employment", "Total Water, Sewerage & Solid Waste"], ["Water, Sewerage & Solid Waste Employment", "Sewerage"], ["Water, Sewerage & Solid Waste Employment", "Solid Waste"], ["Water, Sewerage & Solid Waste Employment", "Water Utilities"]],
+      		  "children": [
 	          	{"name": "Total", "dataType": "level", "definition": "The number of Full-time equivalent (FTE) employees for each county is a computed statistic representing the number of full-time employees that could have been employed if the reported number of hours worked by part-time employees had been worked by full-time employees."},
 	            {"name": "Total Water, Sewerage & Solid Waste", "dataType": "level", "definition": "Total Number of FTEs working on Water, Sewerage and Solid Waste Management"},
 	          	{"name": "Sewerage", "dataType": "level", "definition": "Number of FTEs working on Provision, maintenance, and operation of sanitary and storm sewer systems and sewage disposal and treatment facilities, as well as all intergovernmental payments for such activities."},
@@ -1470,12 +1480,13 @@
 	       	  "years": [2007],
 	       	  "source": "U.S. Census Bureau - Census of Individual Governments: Finance",
 	       	  "vintage": 2014,
-	       	  "children": [
+	       	  "companions": [["Water, Sewerage & Solid Waste Expenditures", "Total Water, Sewerage & Solid Waste"], ["Water, Sewerage & Solid Waste Expenditures", "Sewerage"], ["Water, Sewerage & Solid Waste Expenditures", "Solid Waste"], ["Water, Sewerage & Solid Waste Expenditures", "Water Utilities"]],
+      		  "children": [
 	       	  	{"name": "Total", "unit": "thousands of dollars", "dataType": "level", "definition": "All amounts of money paid out by a government--net of recoveries and other correcting transactions--other than for retirement of debt, investment in securities, extension of credit, or as agency transactions. Note that expenditure includes only external transactions of a government and excludes non-cash transactions such as the provision of perquisites or other payments in kind."},
 	       	  	{"name": "Total Water, Sewerage & Solid Waste Management", "unit": "thousands of dollars", "dataType": "level", "definition": "All amounts of money paid out by a government on Water, Sewerage and Solid Waste Management-net of recoveries and other correcting transactions--other than for retirement of debt, investment in securities, extension of credit, or as agency transactions. Note that expenditure includes only external transactions of a government and excludes non-cash transactions such as the provision of perquisites or other payments in kind."},
 	       	  	{"name": "Sewerage", "unit": "thousands of dollars", "dataType": "level", "definition": "Provision, maintenance, and operation of sanitary and storm sewer systems and sewage disposal and treatment facilities, as well as all intergovernmental payments for such activities. Includes: Expenditures for the construction and maintenance of sanitary and storm sewers and for sewage disposal, including the following: construction and maintenance of sanitary sewer lines and related lift and pump stations; sewer cleaning and flushing; sewage treatment and water pollution control plants; storm drains that are not connected with highway projects; systems for the collection and disposal of storm runoff."}, 
 	           	{"name": "Solid Waste", "unit": "thousands of dollars", "dataType": "level", "definition": "Collection, removal, and disposal of garbage, refuse, hazardous, and other solid wastes and the cleaning of streets, alleys, and sidewalks.  Includes: Garbage collection; sanitary landfills; non-nuclear hazardous waste disposal sites; incinerators; pyrolysis facilities; cleanup of toxic chemical spills and dumps; collection and disposal of abandoned vehicles; resource recovery authorities, including those which co-generate electricity or gas as a by-product; recycling centers; cleaning and washing of streets; and collection and disposal of street debris and trash. "},     
-	           	{"name": "Waste Utilities", "unit": "thousands of dollars", "dataType": "level", "definition": "Operation, maintenance, and construction of public water supply systems, whether for distribution of water to the general public or to other public or private utilities. This function covers government water supply activities for residential, commercial, and industrial water usage. Includes: Dams and reservoirs expressly for water supply; purification and filtration plants, including desalinization plants; pumping stations; aqueducts and transmission systems; water storage tanks; purchase of water for resale; and distribution lines and meters. "},
+	           	{"name": "Water Utilities", "unit": "thousands of dollars", "dataType": "level", "definition": "Operation, maintenance, and construction of public water supply systems, whether for distribution of water to the general public or to other public or private utilities. This function covers government water supply activities for residential, commercial, and industrial water usage. Includes: Dams and reservoirs expressly for water supply; purification and filtration plants, including desalinization plants; pumping stations; aqueducts and transmission systems; water storage tanks; purchase of water for resale; and distribution lines and meters. "},
 	       	  	{"name": "Current Operations", "unit": "thousands of dollars", "dataType": "level", "definition": "Direct expenditure for compensation of own officers and employees and for supplies, materials, and contractual services except amounts for capital outlay."},
 	        	{"name": "Construction", "unit": "thousands of dollars", "dataType": "level", "definition": "Production of fixed works and structures additions, replacements, and major alterations, including planning and design of specific projects, site improvements, and provision of equipment and facilities that are integral parts of a structure. Includes contract construction, undertaken on a contract basis by private contractors, and force account construction, undertaken with direct use of material and labor by the government."},
 	        	{"name": "Capital Outlay", "unit": "thousands of dollars", "dataType": "level", "definition": "Direct expenditure for contract or force account construction of buildings, grounds, and other improvements, and purchase of equipment, land, and existing structures. Includes amounts for additions, replacements, and major alterations to fixed works and structures. However, expenditure for repairs to such works and structures is classified as current operation expenditure."},
