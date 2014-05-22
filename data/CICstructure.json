@@ -468,7 +468,7 @@
            {"name": "Public Works, Buildings & Transportation", "unit": "dollars", "dataType": "level", "definition": "Expenses incurred by the public works, buildings, and transportation sector"},
            {"name": "Public Safety & Court Related", "unit": "dollars", "dataType": "level", "definition": "Expenses public safety and court related."},
            {"name": "Health & Human Services", "unit": "dollars", "dataType": "level", "definition": "Expenses incurred by the health and human services sector"},
-           {"name": "Education, Culture & Recreation", "unit": "dollars", "dataType": "level", "Expenses incurred by the education, culture and recreation sector"},
+           {"name": "Education, Culture & Recreation", "unit": "dollars", "dataType": "level", "definition": "Expenses incurred by the education, culture and recreation sector"},
            {"name": "Intergovernmental", "unit": "dollars", "dataType": "level", "definition": "Expenses incurred by intergovernmental transactions"},
            {"name": "Environmental Protection/Natural Resources", "unit": "dollars", "dataType": "level", "definition": "Expenses incurred by environmental protection and natural resources agencies"},
            {"name": "Community & Economic Development", "unit": "dollars", "dataType": "level", "definition": "Expenses incurred by community and economic development agencies"},
@@ -781,7 +781,6 @@
       		"name": "Payment in Lieu of Taxes (PILT)",
       		"years": [2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013],
       		"companions": [["Payment in Lieu of Taxes (PILT)", "PILT Annual Growth Rate (from previous year)"], ["Payment in Lieu of Taxes (PILT)", "PILT per Square Mile"], ["Housing & Urban Development Grants", "Total HUD Amount"], ["Community Development Block Grants", "CDBG Amount"]],
-      		"vintage": "2014",
       		"notes": "These are test numbers and do not reflect the final project.",
       		"children": [
       			{"name": "PILT Amount", "unit": "dollars", "dataType": "level", "definition": "Funding received for Payment in Lieu of Taxes"},
@@ -840,7 +839,7 @@
 					{"name": "Fiscal Year End Date", "dataType": "categorical", "definition": "The date of the end of the fiscal year for each county"},
 					{"name": "State Capitol", "dataType": "none", "definition": "The city within the county where the state capital is located.  This field is left blank for counties that do not include the state capital."},
 		   			{"name": "CBSA Title", "dataType": "none", "definition": "The title of the Core Based Statistical Area the county is located in."},
-		   			{"name": "CBSA Code", "dataType": "none", "definition": "The Core Based Statistical Area code for the county. A 5 digit numeric code that is assigned alphabetically based on title and is unique within the nation."},
+		   			{"name": "CBSA Code", "dataType": "none", "definition": "The Core Based Statistical Area code for the county. A 5 digit numeric code that is assigned alphabetically based on title and is unique within the nation."}
 			     ]
 		   },
 		   {
@@ -1370,7 +1369,6 @@
          		"source": "Federal Highway Administration - Highway Performance Monitoring System",
 	       		"years": [2008, 2011],
         		"source": "U.S. Department of Transportation – Federal Highway Administration, Highway Performance Monitoring System",
-        		"vintage": 2011,
         		"children": [
         			{"name": "Total Public Road Miles", "dataType": "level", "definition": "Total miles of public roads, which are any roads or streets owned and maintained by a public authority and open to public travel."},
         			{"name": "State Highway Agency Road Miles", "dataType": "level", "definition": "Public road miles that are under the control of a state highway agency."},
@@ -1433,7 +1431,6 @@
 	       	  "name": "Utility Expenditures",
 	          "source": "U.S. Census Bureau - Census of Individual Governments: Finance",
 	       	  "years": [2007],
-	       	  "vintage": 2014,
 	       	  "children": [
 	       	  	{"name": "Total", "unit": "thousands of dollars", "dataType": "level", "definition": "All amounts of money paid out by a government--net of recoveries and other correcting transactions--other than for retirement of debt, investment in securities, extension of credit, or as agency transactions. Note that expenditure includes only external transactions of a government and excludes non-cash transactions such as the provision of perquisites or other payments in kind."},
 	       	  	{"name": "Total Utility", "unit": "thousands of dollars", "dataType": "level", "definition": "Total amount of utility expenditures, including Electric Utilities, Gas Utilities, Current Operations, Construction, Other Capital Outlay, Interests on Debt, Intergovernmental to State and Intergovernmental to Local."},
@@ -1456,7 +1453,6 @@
 	          "name": "Water, Sewerage & Solid Waste Employment",
 	          "years": [2007, 2008, 2009, 2010, 2011, 2012],
 	          "source": "U.S. Census Bureau - Census of Individual Governments: Employment",
-	          "vintage": 2014, 
 	          "children": [
 	          	{"name": "Total", "dataType": "level", "definition": "The number of Full-time equivalent (FTE) employees for each county is a computed statistic representing the number of full-time employees that could have been employed if the reported number of hours worked by part-time employees had been worked by full-time employees."},
 	            {"name": "Total Water, Sewerage & Solid Waste", "dataType": "level", "definition": "Total Number of FTEs working on Water, Sewerage and Solid Waste Management"},
@@ -1469,7 +1465,6 @@
 	       	  "name": "Water, Sewerage & Solid Waste Expenditures",
 	       	  "years": [2007],
 	       	  "source": "U.S. Census Bureau - Census of Individual Governments: Finance",
-	       	  "vintage": 2014,
 	       	  "children": [
 	       	  	{"name": "Total", "unit": "thousands of dollars", "dataType": "level", "definition": "All amounts of money paid out by a government--net of recoveries and other correcting transactions--other than for retirement of debt, investment in securities, extension of credit, or as agency transactions. Note that expenditure includes only external transactions of a government and excludes non-cash transactions such as the provision of perquisites or other payments in kind."},
 	       	  	{"name": "Total Water, Sewerage & Solid Waste Management", "unit": "thousands of dollars", "dataType": "level", "definition": "All amounts of money paid out by a government on Water, Sewerage and Solid Waste Management-net of recoveries and other correcting transactions--other than for retirement of debt, investment in securities, extension of credit, or as agency transactions. Note that expenditure includes only external transactions of a government and excludes non-cash transactions such as the provision of perquisites or other payments in kind."},
