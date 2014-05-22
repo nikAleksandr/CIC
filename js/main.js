@@ -274,7 +274,7 @@ function submitSearch() {
 				}
 				if (!descBin) countyName = countyName.concat(a, " ");
 			}
-			countyName = countyName.replace(",", "").trim();
+			countyName = countyName.replace(",", "");
 		
 			// check for entire phrase matches
 			var search_comb = "", match = false;
