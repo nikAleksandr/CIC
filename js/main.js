@@ -184,6 +184,18 @@ function buildDropdown() {
 			for (var i = 0; i < s.length; i++) createCategory(s[i].name);
 			//var testCat = createCategory('Test');
 			//createIndicator(testCat, 'Test 2');
+			
+			for (var i = 0; i < s.length; i++) {
+				for (var j = 0; j < s[i].children.length; j++) {
+					if (s[i].children[j].hasOwnProperty('companions')) {
+						if (s[i].children[j].companions.length != 4) {
+							console.log(s[i].name + ', ' + s[i].children[j].name + ' has ' + s[i].children[j].companions.length);
+						}
+					} else {
+						console.log('Missing: ' + s[i].name + ', ' + s[i].children[j].name);
+					}
+				}
+			}
 						
 		} else throw new Error('Error reading JSON file');
 	});
@@ -224,65 +236,83 @@ function submitSearch() {
 	var results_container = d3.select('#container');
 
 	if (search_str == '' && state_name != '') {
-		// user has only specified state name; return results of all counties within state
-		$.get('state.cfm?statecode=' + encodeURIComponent(state_name), function(data) {
-			console.log(data);
-			
-			// create table with data?
-			// create iframe with data?
-			results_container.append('div')
-				.text(data);
+		// only state; return results of all counties within state
+		tooltip.classed("hidden", true);
+		d3.xhr('http://www.uscounties.org/cffiles_web/counties/state.cfm?statecode='+encodeURIComponent(state_name), function(error, searchResults){
+			d3.select("#dataNotes").html(searchResults.responseText);
 		});
 					
 	} else if (search_str != '' && state_name != '') {
-		// user has specified county/city and state	
-		var search_arr = search_str.split(" ");
-		var geoDesc = ["County", "County,", "City", "City,", "city", "city,", "Borough", "Borough,", "Parish", "Parish,"];
-		var countyName = "";
-		var descBin = false;
-		for (var i = 0; i < search_arr.length; i++) {
-			var a = search_arr[i].toUpperCase();
-			for (var j = 0; j < geoDesc.length; j++) {
-				if (a == geoDesc[j].toUpperCase()) {
-					descBin = true;
+		// city/county and state
+		
+		// first, determine whether searching a city or a county
+		// if it has the word "city" and is not among the county names with the word "city": treat as city. otherwise assume county search
+		var county_search = true;
+		var counties_with_word_city = ['Juneau', 'Sitka', 'Wrangell', 'Yakutat', 'San Francisco', 'Broomfield', 'Denver', 'Jacksonville', 'Honolulu', 'Kansas', 'Baltimore', 'Boston', 'St. Louis', 'St Louis', 'Carson', 'New York', 'Charles', 'James']; 
+		if (search_str.toLowerCase().indexOf('city') != -1) {
+			for (var i = 0; i < counties_with_word_city.length; i++) {
+				var cwwc = counties_with_word_city[i].toLowerCase();
+				var cwwc_match = false;
+				if (search_str.indexOf(cwwc) != -1) {
+					cwwc_match = true;
 					break;
 				}
 			}
-			if (!descBin) countyName = countyName.concat(a, " ");
-		}
-		countyName = countyName.replace(",", "");
-	
-		var search_comb = "", match = false;
-		for (var j = 0; j < geoDesc.length; j++) {
-			search_comb = toTitleCase(countyName) + geoDesc[j] + " " + state_name;
-			if (idByName[search_comb]) {
-				match = true;
-				foundId = parseInt(idByName[search_comb]);
-				var county = countyPathById[foundId];
-				
-				console.log(county);
-				
-				//highlight(county);
-				zoomTo(county);
-				doubleClicked(county);
-				
-				//document.getElementById('search_form').reset();
-				break;
-			}
-		}
-		if (match === false) {
-			// display result matches to search
-			alert('search not matched :(');
+			if (cwwc_match === false) county_search = false;
 		}
 		
-		/*$.get('city_res.cfm?city=' + encodeURIComponent(search_str), function(data) {
-			console.log(data);
+		if (county_search === true) {
+			// trim out the fat
+			var search_arr = search_str.split(" ");
+			var geoDesc = ["County", "County,", "City", "City,", "city", "city,", "Borough", "Borough,", "Parish", "Parish,"];
+			var countyName = "";
+			var descBin = false;
+			for (var i = 0; i < search_arr.length; i++) {
+				var a = search_arr[i].toUpperCase();
+				for (var j = 0; j < geoDesc.length; j++) {
+					if (a == geoDesc[j].toUpperCase()) {
+						descBin = true;
+						break;
+					}
+				}
+				if (!descBin) countyName = countyName.concat(a, " ");
+			}
+			countyName = countyName.replace(",", "").trim();
+		
+			// check for entire phrase matches
+			var search_comb = "", match = false;
+			for (var j = 0; j < geoDesc.length; j++) {
+				search_comb = toTitleCase(countyName) + geoDesc[j] + " " + state_name;
+				if (idByName[search_comb]) {
+					match = true;
+					foundId = parseInt(idByName[search_comb]);
+					var county = countyPathById[foundId];
+					
+					//highlight(county);
+					zoomTo(county);
+					doubleClicked(county);
+					
+					//document.getElementById('search_form').reset();
+					break;
+				}
+			}
+			if (match === false) {
+				// check for partial word matches
+				
+				alert('search not matched :(');
+			}
+
+		} else {
+			// city search: use city-county lookup
+			var search_str_array = search_str.toLowerCase().split('city');
+			var city_search_str = '';
+			for (var i = 0; i < search_str_array.length; i++) city_search_str += search_str_array[i];
 			
-			// create table with data?
-			// create iframe with data?
-			results_container.append('div')
-				.text(data);
-		});*/
+			tooltip.classed("hidden", true);
+			d3.xhr('http://www.uscounties.org/cffiles_web/counties/city_res.cfm?city='+encodeURIComponent(city_search_str.trim()), function(error, searchResults){
+				d3.select("#dataNotes").html(searchResults.responseText);
+			});		
+		}
 	}
 }
 
