@@ -100,7 +100,8 @@ textarea {
 body {
 	background-color: white;
 	text-align: center;
-	font-family: Helvetica-Neue, "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif; font-weight: 150; letter-spacing: .063;
+	font-family: 'Oswald', sans-serif;
+	letter-spacing: .1em;
 	box-shadow: 0 0 .625 rgba(0, 0, 0, 0.2);
 	font-size: 1em;
 }
@@ -187,18 +188,15 @@ body {
 }
 
 #header {
+	position: relative;
+	z-index:10;
 	width: 110%;
 	height: auto;
 	font-size: 1em;
 	margin: 0 auto 0em -5%;
 	padding-left: 1em;
 	padding-bottom: .5em;
-	box-shadow: 0 .5em .5em rgba(0, 0, 0, 0.1);
-	background-attachment: scroll;
-	background-clip: border-box;
-	background-image: none;
-	background-size: auto auto;
-	z-index: 1000;
+	box-shadow: 0em 1em .5em -.5em rgba(0, 0, 0, 0.1);
 }
 
 #header p {
@@ -256,6 +254,10 @@ h1 small {
 #search_submit{
 	color: #222;
 	right: 1em;
+}
+
+#map {
+	z-index:-10;
 }
 
 #resultWindow {
