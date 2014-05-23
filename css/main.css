@@ -273,6 +273,10 @@ svg:not(:root) {
   fill: none;
 }
 
+.county.active {
+	fill: #FFA601;
+}
+
 #state-borders {
   fill: none;
   stroke: #fff;
