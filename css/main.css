@@ -190,7 +190,7 @@ body {
 	width: 110%;
 	height: auto;
 	font-size: 1em;
-	margin: 0 auto 1em -5%;
+	margin: 0 auto 0em -5%;
 	padding-left: 1em;
 	padding-bottom: .5em;
 	box-shadow: 0 .5em .5em rgba(0, 0, 0, 0.1);
@@ -198,6 +198,7 @@ body {
 	background-clip: border-box;
 	background-image: none;
 	background-size: auto auto;
+	z-index: 1000;
 }
 
 #header p {
