@@ -323,6 +323,8 @@ function zoomTo(d) {
 	zoom.center(path.centroid(d));
 }
 
+var frmrFill, frmrActive;
+
 function highlight(d) {
 	console.log(d);
 	if (d && selected !== d) {
@@ -333,6 +335,15 @@ function highlight(d) {
 	
 	g.selectAll("path")
       .classed("active", selected && function(d) { return d === selected; });
+	
+	if(frmrActive){
+		frmrActive.style("fill", frmrFill);
+	}
+	
+	frmrActive = d3.select(".active");
+	frmrFill = frmrActive.style("fill");
+	frmrActive.style("fill", null);
+	
 	
 }
 
