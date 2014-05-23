@@ -261,6 +261,11 @@ h1 small {
 	text-align: center;
 }
 
+.result_iframe {
+	width: 100%;
+	border: none;
+}
+
 .search_results_table {
 	text-align: center;
 	box-sizing: border-box;
