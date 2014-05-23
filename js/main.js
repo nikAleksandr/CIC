@@ -33,10 +33,11 @@ var selectedData,
 	selected,
 	clickCount = 0;
 	
-var quantById = []; 
-var nameById = [];
-var idByName = {};
-var countyPathById = {};
+var quantById = [], 
+	nameById = [],
+	idByName = {},
+	countyObjectById = {},
+	countyPathById = {};
 
 var quantOneThird,
 	quantTwoThird,
@@ -51,7 +52,7 @@ d3.tsv("CountyData.tsv", function (error, countyData) {
 	  	quantById[d.id] = +d.RGDPGrowth13; 
 	  	nameById[d.id] = d.geography;
 	  	idByName[d.geography] = d.id;	
-	  	countyPathById[d.id] = d;  	
+	  	countyObjectById[d.id] = d;  	
 	});
 });
 
@@ -84,6 +85,10 @@ d3.json("us.json", function(error, us) {
 
   var counties = topojson.feature(us, us.objects.counties).features;
   var states = topojson.mesh(us, us.objects.states, function(a, b) { return a !== b; });
+
+	counties.forEach(function(d) { 
+	  	countyPathById[d.id] = d;  	
+	});
 
   topo = counties;
   stateMesh = states;
@@ -304,7 +309,7 @@ function submitSearch() {
 				var rTitleState = rTitleRow.append('td').text('State');
 					
 				for (var i = 0; i < pMatchArray.length; i++) {
-					var countyObj = countyPathById[pMatchArray[i]];
+					var countyObj = countyObjectById[pMatchArray[i]];
 					var nameArr = countyObj.geography. split(', ');
 					
 					var countyRow = rTable.append('tr');
@@ -347,7 +352,7 @@ function submitSearch() {
 }
 
 function executeSearchMatch(FIPS) {
-	var county = countyPathById[FIPS];
+	var county = countyObjectById[FIPS];
 	
 	highlight(county);
 	zoomTo(county);
@@ -371,14 +376,21 @@ function displayResultsInFrame(url) {
 
 function zoomTo(d) {
 	// doesnt work
-	zoom.center(path.centroid(d));
+	//zoom.center(path.centroid(d));
 }
 
 var frmrFill, frmrActive;
 
 function highlight(d) {
+	
 	if (d && selected !== d) {
-	    selected = d;
+	    if(d.type === "Feature"){
+	    	selected = d;
+	    	console.log(d);
+	    }
+	    else{
+	    	selected = countyPathById[d.id];
+	    }
 	  } else {
 	    selected = null;
 	  }
