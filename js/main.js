@@ -4,7 +4,6 @@ function toTitleCase(str){
     return str.replace(/\w\S*/g, function(txt){return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();});
 }
 var percentFmt = d3.format(".1%");
-var stateAbbrev = ['AK', 'AL', 'AR', 'AZ', 'CA', 'CO', 'CT', 'DC', 'DE', 'FL', 'GA', 'HI', 'IA', 'ID', 'IL', 'IN', 'KS', 'KY', 'LA', 'MA', 'MD', 'ME', 'MI', 'MN', 'MO', 'MS', 'MT', 'NC', 'ND', 'NE', 'NH', 'NJ', 'NM', 'NV', 'NY', 'OH', 'OK', 'OR', 'PA', 'RI', 'SC', 'SD', 'TN', 'TX', 'UT', 'VA', 'VT', 'WA', 'WI', 'WV', 'WY'];
 
 var zoom = d3.behavior.zoom()
     .scaleExtent([1, 10])
@@ -195,49 +194,26 @@ function buildDropdown() {
 }
 
 function buildSearch() {
-	d3.select('#search_form').append('form')
-		.attr('id', 'search_form')
-		.on('submit', submitSearch);
-	var searchField = searchForm.append("input")
-		.attr('type', 'search')
-		.attr('id', 'search_field')
-		.attr('placeholder', 'county name')
-		.on('keyup', function() {
+	d3.select('#search_form').on('submit', submitSearch);	
+	var searchField = d3.select('#search_field').on('keyup', function() {
 			if (d3.event.keyCode === 13) {
 				d3.event.preventDefault();
 				submitSearch();
 			}
-		});
-	
-	var stateDropdown = searchForm.append('select')
-		.attr('id', 'state_drop');
-	stateDropdown.append('option')
-		.text('State')
-		.attr('value', '');
-	for (var i = 0; i < stateAbbrev.length; i++) {
-		stateDropdown.append('option')
-			.text(stateAbbrev[i])
-			.attr('value', stateAbbrev[i]);
-	}
-	
-	var submitButton = searchForm.append('input')
-		.attr('type', 'button')
-		.attr('id', 'search_submit')
-		.attr('value', 'Search')
-		.on('click', submitSearch);
-	
-	d3.select('#searchType').on('change', function() {
-		if (d3.select('#searchType').property('value') == 'state') {
+		});	
+	d3.select('#search_submit').on('click', submitSearch);	
+	d3.select('#search_type').on('change', function() {
+		if (d3.select('#search_type').property('value') == 'state') {
 			searchField.style('display', 'none');
 		} else {
 			searchField.style('display', '');
-			searchField.attr('placeholder', d3.select('#searchType').property('value') + ' name');			
+			searchField.attr('placeholder', d3.select('#search_type').property('value') + ' name');			
 		}
 	});
 }
 
 function submitSearch() {
-	var search_type = d3.select('#searchType').property('value');
+	var search_type = d3.select('#search_type').property('value');
 	var search_str = d3.select('#search_field').property('value');
 	var state_name = d3.select('#state_drop').property('value');
 	var results_container = d3.select('#container');

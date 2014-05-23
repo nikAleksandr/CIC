@@ -234,7 +234,7 @@ h1 small {
   pointer-events: all;
 }
 
-#searchType {
+#search_type {
 	position: absolute;
 	top: 1.7em;
 	right: 22em;
