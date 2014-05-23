@@ -279,6 +279,7 @@ function submitSearch() {
 					break;
 				}
 			}
+
 			if (full_match === false) {
 				// check for partial word matches
 				var pMatchArray = [];
@@ -291,7 +292,6 @@ function submitSearch() {
 					}
 				}				
 			}
-			console.log(pMatchArray);
 			
 			if (pMatchArray.length > 1) {
 				// display all matches, if more than one match
@@ -349,10 +349,7 @@ function submitSearch() {
 function executeSearchMatch(FIPS) {
 	var county = countyPathById[FIPS];
 	
-	console.log('MATCH');
-	console.log(county);
-	
-	//highlight(county);
+	highlight(county);
 	zoomTo(county);
 	doubleClicked(county);
 	
@@ -395,7 +392,7 @@ function highlight(d) {
 	
 	frmrActive = d3.select(".active");
 	frmrFill = frmrActive.style("fill");
-	frmrActive.style("fill", null);	
+	frmrActive.style("fill", null);
 }
 
 
