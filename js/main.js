@@ -294,6 +294,11 @@ function submitSearch() {
 			
 			if (pMatchArray.length > 1) {
 				// display all matches
+				var rTable = d3.select('#dataNotes').append('table');
+				for (var i = 0; i < pMatchArray.length; i++) {
+					
+				}
+				
 				
 				
 			} else if (pMatchArray.length == 1) {
