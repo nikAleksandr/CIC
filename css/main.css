@@ -234,6 +234,13 @@ h1 small {
   pointer-events: all;
 }
 
+#searchType {
+	position: absolute;
+	top: 1.7em;
+	right: 22em;
+	font-size: .71em;
+}
+
 #search_field, #state_drop, #search_submit {
 	display: inline-block;
 	position: absolute;
@@ -243,7 +250,7 @@ h1 small {
 }
 
 #search_field {
-	right: 11em;
+	right: 11.5em;
 }
 
 #state_drop {
