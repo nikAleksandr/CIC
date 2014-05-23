@@ -191,13 +191,15 @@ function buildDropdown() {
 
 function buildSearch() {
 	var searchForm = d3.select('#searchContainer').append('form')
-		.attr('id', 'search_form');
+		.attr('id', 'search_form')
+		.on('submit', submitSearch);
 	var searchField = searchForm.append("input")
 		.attr('type', 'search')
 		.attr('id', 'search_field')
 		.attr('placeholder', 'city or county')
 		.on('keyup', function() {
 			if (d3.event.keyCode === 13) {
+				d3.event.preventDefault();
 				submitSearch();
 			}
 		});
@@ -293,6 +295,7 @@ function submitSearch() {
 			
 			if (pMatchArray.length > 1) {
 				// display all matches, if more than one match
+				$('#resultWindow').empty();
 				var rTable = d3.select('#resultWindow').append('table')
 					.classed('search_results_table', true);
 				var rTitleRow = rTable.append('tr').style('font-weight', 'bold');
