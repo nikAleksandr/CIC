@@ -191,13 +191,15 @@ function buildDropdown() {
 
 function buildSearch() {
 	var searchForm = d3.select('#searchContainer').append('form')
-		.attr('id', 'search_form');
+		.attr('id', 'search_form')
+		.on('submit', submitSearch);
 	var searchField = searchForm.append("input")
 		.attr('type', 'search')
 		.attr('id', 'search_field')
 		.attr('placeholder', 'city or county')
 		.on('keyup', function() {
 			if (d3.event.keyCode === 13) {
+				d3.event.preventDefault();
 				submitSearch();
 			}
 		});
@@ -277,6 +279,7 @@ function submitSearch() {
 					break;
 				}
 			}
+
 			if (full_match === false) {
 				// check for partial word matches
 				var pMatchArray = [];
@@ -289,10 +292,10 @@ function submitSearch() {
 					}
 				}				
 			}
-			console.log(pMatchArray);
 			
 			if (pMatchArray.length > 1) {
 				// display all matches, if more than one match
+				$('#resultWindow').empty();
 				var rTable = d3.select('#resultWindow').append('table')
 					.classed('search_results_table', true);
 				var rTitleRow = rTable.append('tr').style('font-weight', 'bold');
@@ -346,10 +349,7 @@ function submitSearch() {
 function executeSearchMatch(FIPS) {
 	var county = countyPathById[FIPS];
 	
-	console.log('MATCH');
-	console.log(county);
-	
-	//highlight(county);
+	highlight(county);
 	zoomTo(county);
 	doubleClicked(county);
 	
@@ -392,7 +392,7 @@ function highlight(d) {
 	
 	frmrActive = d3.select(".active");
 	frmrFill = frmrActive.style("fill");
-	frmrActive.style("fill", null);	
+	frmrActive.style("fill", null);
 }
 
 
