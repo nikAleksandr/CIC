@@ -615,10 +615,18 @@ function move() {
 	
   var t = d3.event.translate;
   var s = d3.event.scale;
-  var h = height / 3;
+  var h = height / 2;
+  
+  console.log(t[1]);
   
   t[0] = Math.min(width / 2 * (s - 1), Math.max(width / 2 * (1 - s), t[0]));
   t[1] = Math.min(height / 2 * (s - 1) + h * s, Math.max(height / 2 * (1 - s) - h * s, t[1]));
+  //maximum translate value is 1944 (maine) from scale = 10 (t-value of 1902)
+  	//1190 from 6 (1145)
+  	//743 from 3.7 (626)
+  	//343 from 2.2 (339)
+  	//167 from 1.3 (132)
+  	//0 from 1 (0)
 
   zoom.translate(t);
   g.style("stroke-width", 1 / s).attr("transform", "translate(" + t + ")scale(" + s + ")");
