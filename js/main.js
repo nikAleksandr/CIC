@@ -73,7 +73,6 @@ function setup(width,height){
 
   g = svg.append("g")
   		.attr("class", "counties");
-  		
 		
   buildIndDropdown();
   buildSearch();
@@ -190,7 +189,7 @@ function buildIndDropdown() {
 			for (var i = 0; i < s.length; i++) createCategory(s[i].name);
 			//var testCat = createCategory('Test');
 			//createIndicator(testCat, 'Test 2');
-									
+								
 		} else throw new Error('Error reading JSON file');
 	});
 }
@@ -360,6 +359,7 @@ function zoomTo(d) {
 var frmrFill, frmrActive;
 
 function highlight(d) {
+	if (selected === d) tooltip.classed('hidden', true);
 	
 	if (d && selected !== d) {
 		selected = (d.type === 'Feature') ? d : countyPathById[d.id];
