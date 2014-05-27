@@ -75,7 +75,7 @@ function setup(width,height){
   		.attr("class", "counties");
   		
 		
-  buildDropdown();
+  buildIndDropdown();
   buildSearch();
 }
 	
@@ -143,7 +143,7 @@ function draw(topo, stateMesh) {
    
 }
 
-function buildDropdown() {
+function buildIndDropdown() {
 	// populate dropdown menu with categories pulled from json
 	d3.json("data/CICstructure.json", function(error, CICStructure){
 		if (!error) {
@@ -201,14 +201,31 @@ function buildSearch() {
 				submitSearch();
 			}
 		});	
-	d3.select('#search_submit').on('click', submitSearch);	
-	d3.select('#search_type').on('change', function() {
-		if (d3.select('#search_type').property('value') == 'state') {
-			searchField.style('display', 'none');
+	d3.select('#search_submit').on('click', submitSearch);
+		
+	var stateDrop = d3.select('#state_drop');
+	var typeDrop = d3.select('#search_type');
+	var searchWidth = searchField.style('width');
+	var searchRight = searchField.style('right');
+	
+	console.log(searchWidth + " " + searchRight);
+	
+	typeDrop.on('change', function() {
+		var type = typeDrop.property('value');
+		if (type === 'state') searchField.style('display', 'none');
+		else searchField.style('display', '');
+		
+		if (type === 'city') {
+			stateDrop.style('display', 'none');
+			searchField.style('width', (parseInt(searchWidth) + 60) + 'px');
+			searchField.style('right', (parseInt(searchRight) - 60) + 'px');
 		} else {
-			searchField.style('display', '');
-			searchField.attr('placeholder', d3.select('#search_type').property('value') + ' name');			
+			stateDrop.style('display', '');
+			searchField.style('width', searchWidth);
+			searchField.style('right', searchRight);
 		}
+		
+		searchField.attr('placeholder', type + ' name');
 	});
 }
 

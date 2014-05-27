@@ -34,7 +34,7 @@ var colorlegend = function (target, scale, type, options) {
     	, colors = []
     	, padding = [2, 4, 10, 4] // top, right, bottom, left
     	, boxSpacing = type === 'ordinal' ? 3 : 0 // spacing between boxes
-    	, titlePadding = title ? 18 : 0
+    	, titlePadding = title ? 22 : 0
     	, boxLabelHeight = 10
     	, domain = scale.domain()
     	, range = scale.range();
@@ -117,7 +117,7 @@ var colorlegend = function (target, scale, type, options) {
     	.append('g')
       		.attr('class', 'colorlegend')
       		.attr('transform', 'translate(' + padding[3] + ',' + padding[0] + ')')
-      		.style('font-size', '11px')
+      		.style('font-size', '.76em')
       		.style('fill', '#666');
  
   
@@ -173,7 +173,7 @@ var colorlegend = function (target, scale, type, options) {
 	        var leftAlignX = i * (boxWidth + boxSpacing) + (type !== 'ordinal' ? (boxWidth / 2) : 0);
     	    return (dataType === 'binary') ? (leftAlignX + boxWidth / 2) : leftAlignX;
       	})
-      	.attr('y', boxLabelHeight + boxHeight + 2)
+      	.attr('y', boxLabelHeight + boxHeight + 4)
       	.style('text-anchor', function () {
 	        return type === 'ordinal' ? 'start' : 'middle';
       	})
