@@ -74,9 +74,7 @@ function setup(width,height){
   g = svg.append("g")
   		.attr("class", "counties");
   		
-  d3.select('#map').on('click', function() {
-  	tooltip.classed('hidden', true);
-  });
+  d3.select('#map').on('click', function() { tooltip.classed('hidden', true); });
 		
   buildIndDropdown();
   buildSearch();
