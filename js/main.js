@@ -576,7 +576,7 @@ function doubleClicked(d) {
 	displayResultsInFrame('http://www.uscounties.org/cffiles_web/counties/county.cfm?id=' + encodeURIComponent(countyID));
 	d3.select('#showOnMap').on('click', function() {
 	  	$('#instructions').hide();
-	  	//clicked(countyPathById[d.id].geometry.coordinates[0][0], tooltipOffsetL, tooltipOffsetT, d);
+	  	//clicked(countyPathById[d.id].geometry.coordinates[0][0], tooltipOffsetL, tooltipOffsetT, d); // a fake click to get tooltip to appear
   	});
 
 }
