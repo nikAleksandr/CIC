@@ -592,7 +592,8 @@ function move() {
   console.log(t[1]);
   
   t[0] = Math.min(width / 2 * (s - 1), Math.max(width / 2 * (1 - s), t[0]));
-  t[1] = Math.min(height / 2 * (s - 1) + h * s, Math.max(height / 2 * (1 - s) - h * s, t[1]));
+  t[1] = Math.min(height / 2 * (s - 1), Math.max(height / 2 * (1 - s), t[1]));
+  //original function: t[1] = Math.min(height / 2 * (s - 1) + h * s, Math.max(height / 2 * (1 - s) - h * s, t[1]));
   //maximum translate value is 1944 (maine) from scale = 10 (t-value of 1902)
   	//1190 from 6 (1145)
   	//743 from 3.7 (626)
