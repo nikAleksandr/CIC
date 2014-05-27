@@ -128,10 +128,11 @@ body {
 }
 
 #instructions, #fullDefs{
-	display:none;
+	display: none;
 	text-align: left;
 	width: 50%;
 	height: auto;
+	max-height: 50%;
 	position: absolute;
 	left: 25%;
 	top: 25%;
@@ -142,7 +143,8 @@ body {
 	background-color: rgba(255, 255, 255, .9);
 	background-image: none;
 	background-size: auto auto;
-	padding: 2% 2% 5% 2%;
+	padding: 1% 2% 2% 2%;
+	overflow: auto;
 }
 
 .instructionImg{
@@ -155,11 +157,10 @@ body {
 }
 
 #instructionText, #fullDefsText{
-	width: 100%;
 	display: inline-block;
-	float: left;
+	width: 100%;
 	font-size: 1em;
-	padding-top: 2%;
+	text-align: center;
 }
 
 #instructionText a, #fullDefsText a{
@@ -280,6 +281,8 @@ h1 small {
 	text-align: center;
 	box-sizing: border-box;
 	font-size: 11px;
+	margin-left: auto;
+	margin-right: auto;
 }
 
 .search_results_cell {

@@ -77,6 +77,8 @@ function setup(width,height){
 		
   buildIndDropdown();
   buildSearch();
+  
+  d3.select('#close').on('click', function() { $('#instructions').hide(); });
 }
 	
 
@@ -202,9 +204,7 @@ function buildSearch() {
 	var typeDrop = d3.select('#search_type');
 	var searchWidth = searchField.style('width');
 	var searchRight = searchField.style('right');
-	
-	console.log(searchWidth + " " + searchRight);
-	
+		
 	typeDrop.on('change', function() {
 		var type = typeDrop.property('value');
 		if (type === 'state') searchField.style('display', 'none');
@@ -280,8 +280,8 @@ function submitSearch() {
 
 			if (pMatchArray.length > 1) {
 				// display all matches if more than one match
-				$('#resultWindow').empty();
-				var rTable = d3.select('#resultWindow').append('table')
+				$('#instructionText').empty();
+				var rTable = d3.select('#instructionText').append('table')
 					.classed('search_results_table', true);
 				var rTitleRow = rTable.append('tr').style('font-weight', 'bold');
 				var rTitleFIPS = rTitleRow.append('td').text('FIPS');
@@ -308,7 +308,10 @@ function submitSearch() {
 				
 				// styling; in anonymous function for closure in click function
 				rTable.selectAll('tr').selectAll('td')
-					.classed('search_results_cell', true);				
+					.classed('search_results_cell', true);
+					
+				$('#instructions').show();
+							
 			} else if (pMatchArray.length == 1) {
 				// if only one match, display county
 				executeSearchMatch(pMatchArray[0]);
@@ -340,14 +343,13 @@ function executeSearchMatch(FIPS) {
 function displayResultsInFrame(url) {
 	tooltip.classed("hidden", true);
 	
-	$('#resultWindow').empty();
-	d3.select('#resultWindow').append('iframe')
+	$('#instructionText').empty();
+	var frame = d3.select('#instructionText').append('iframe')
 		.classed('result_iframe', true)
+		.attr('height', '300px') // very arbitrary, might want to change this
 		.attr('src', url);
 		
-	/*d3.xhr(url, function(error, searchResults){
-		d3.select("#resultWindow").html(searchResults.responseText);
-	});*/
+	$('#instructions').show();
 }
 
 function zoomTo(d) {
