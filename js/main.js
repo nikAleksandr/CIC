@@ -195,12 +195,7 @@ function buildIndDropdown() {
 
 function buildSearch() {
 	d3.select('#search_form').on('submit', submitSearch);	
-	var searchField = d3.select('#search_field').on('keyup', function() {
-			if (d3.event.keyCode === 13) {
-				d3.event.preventDefault();
-				submitSearch();
-			}
-		});	
+	var searchField = d3.select('#search_field').on('keyup', function() { if (d3.event.keyCode === 13) submitSearch(); });	
 	d3.select('#search_submit').on('click', submitSearch);
 		
 	var stateDrop = d3.select('#state_drop');
@@ -230,6 +225,8 @@ function buildSearch() {
 }
 
 function submitSearch() {
+	d3.event.preventDefault();
+		
 	var search_type = d3.select('#search_type').property('value');
 	var search_str = d3.select('#search_field').property('value');
 	var state_name = d3.select('#state_drop').property('value');
