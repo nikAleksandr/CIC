@@ -23,7 +23,9 @@ var topo,stateMesh,projection,path,svg,g;
 
 var tooltip = d3.select("#container").append("div").attr("class", "tooltip hidden").attr("id", "tt");
 
-var selectedData,
+var CICstructure,
+	selectedData,
+	selectedDataset,
 	selectedDataText = "GDP Growth, 2013",
 	primeInd = {},
 	dataYear,
@@ -138,9 +140,7 @@ function draw(topo, stateMesh) {
     
     
     // dataset to map first
-	selectedData = "PILT Amount";
-	selectedDataset = "Payment in Lieu of Taxes (PILT)";
-  	getData(selectedData, selectedDataset);
+	allData("Payment in Lieu of Taxes (PILT)", "PILT Amount");
    
 }
 
@@ -166,12 +166,12 @@ function buildIndDropdown() {
 					.text(catName)
 					.on('click', function(d) {
 						tooltip.classed("hidden", true);				
-						selectedData = catName;
-						selectedDataset = catName;
+						selectedData = "Total";
+						selectedDataset = "Administration Expenditures";
 						selectedDataText = catName;
 						d3.select('#primeIndText').html(selectedDataText);
 						
-						getData(selectedData, selectedDataset);
+						allData(selectedDataset, selectedData);
 					});
 				return cat;
 			};
@@ -453,42 +453,82 @@ function update(primeInd, primeIndYear){
 }
 
 
-var structure, extraInd = [], extraIndYears = [];
+var primeIndObj = {}, secondIndObj = {}, thirdIndObj = {}, fourthIndObj = {};
+
+
+function allData(dataset, indicator){
+	
+	primeIndObj = getData(dataset, indicator);
+	console.log(primeIndObj);
+	//grab companion indcators through same function
+	secondIndObj = getData(primeIndObj.companions[0][0], primeIndObj.companions[0][1]);
+	thirdIndObj = getData(primeIndObj.companions[1][0], primeIndObj.companions[1][1]);
+	fourthIndObj = getData(primeIndObj.companions[2][0], primeIndObj.companions[2][1]);
+	/*
+	if(secondIndObj.name==primeIndObj.name){
+		secondIndObj = getData(primeIndObj.companions[3][0], primeIndObj.companions[3][1]);
+	}
+	else if(thirdIndObj.name==primeIndObj.name){
+		thirdIndObj = getData(primeIndObj.companions[3][0], primeIndObj.companions[3][1]);
+	}
+	else if(fourthIndObj.name==primeIndObj.name){
+		fourthIndObj = getData(primeIndObj.companions[3][0], primeIndObj.companions[3][1]);
+	}
+	*/
+	
+	//
+	///
+	//This is Where GET requests are issued to the server for JSON with fips, county name/state, plus primeIndText, extraInd1Text, extraInd2Text, and extraInd3Text; redefine "data" variable as this JSON
+	//"data" should be structured as a JSON with an array of each county.  each county has properties "id"(fips), "geography"(county name, ST), and each of the indicators specified above and clicked and doubleclicked data
+	//
+	//Will move update(selectedData) down here and replace with update(primeInd, primeIndYear)
+	//update(primeInd, primeIndYear);
+	
+}
 
 //Alternative to this big lookup is to list a i,j,h "JSON address" in the HTML anchor properties.  Would still likely require some type of HTML or JSON lookup for companion indicators though
-function getData(indName, datasetName){
+function getData(dataset, indicator){
 	
 	// replace with .get() function call
 	d3.json("data/CICstructure.json", function(error, CICStructure){
 		if (!error) {
-			var Jcategory, primeInd;
+			var selectedInd = {};
+			var Jcategory, structure;
 			structure = CICStructure.children;
 			for (var i = 0; i < structure.length; i++) {
 				for (var j = 0; j < structure[i].children.length; j++) {
-					if (structure[i].children[j].name == datasetName) {
+					if (structure[i].children[j].name == dataset) {
 						Jcategory = structure[i];
 						var Jdataset = structure[i].children[j];
-						primeIndYear = d3.max(Jdataset.years);
-						//will also want vintage, source, companions, and dataNotes properties from here
-						vintage = Jdataset.vintage;
+						selectedIndYear = d3.max(Jdataset.years);
+						//vintage = Jdataset.vintage;
 						sourceText = Jdataset.source;
 						companions = Jdataset.companions;
-						dataNotes = Jdataset.notes;
+						//dataNotes = Jdataset.notes;
 						for (var h = 0; h < Jdataset.children.length; h++) {
-							if (indName == Jdataset.children[h].name) {
+							if (indicator == Jdataset.children[h].name) {
 								//primeInd is a JSON object from CIC-structure with the properties: name, units, dataType
-								primeInd = Jdataset.children[h];
-								break;
+								selectedInd = Jdataset.children[h];
+								//append dataset properties to the selected indicator
+									selectedInd.year = selectedIndYear;
+									//selectedInd.vintage = vintage;
+									selectedInd.source = sourceText;
+									//selectedInd.notes = dataNotes;
+									selectedInd.dataset = Jdataset.name;
+									selectedInd.companions = companions;
+									
+								//break;
 							}
 						}
-						break;
+						//break;
 					}
 				}
 			}
-						
+					
 			//getCompanionData(Jdataset);
 			
 			//temporary switch to override this function while using tsv data
+			/*
 			switch(indName){
 				case "Administration":
 					primeInd = { 
@@ -520,41 +560,20 @@ function getData(indName, datasetName){
 					primeIndYear = '2013';
 					break;
 			};
-			//
-			///
-			//This is Where GET requests are issued to the server for JSON with fips, county name/state, plus primeIndText, extraInd1Text, extraInd2Text, and extraInd3Text; redefine "data" variable as this JSON
-			//"data" should be structured as a JSON with an array of each county.  each county has properties "id"(fips), "geography"(county name, ST), and each of the indicators specified above and clicked and doubleclicked data
-			//
-			//Will move update(selectedData) down here and replace with update(primeInd, primeIndYear)
-			update(primeInd, primeIndYear);
+			*/
+			
+			
 		} else {
 			// notify user of error in some way
 			console.log(error);
 		}
+		//console.log("in JSON call");
+		console.log(selectedInd);
+		return selectedInd;
 	});	
-}
-//comnpanion data always has to be run AFTER getData
-function getCompanionData(Jcategory){
-	for (k = 0; k < companions.length; k++) {
-		for (i = 0; i < Jcategory.children.length; i++) {
-			for (j = 0; j < Jcategory.children[i].children.length; j++) {
-				if (companions[k] == Jcategory.children[i].children[j].name) {
-					extraInd[k] = Jcategory.children[i].children[j];
-					//extraInd is an array of JSON objects from CIC-structure with the properties: name, units
-					extraIndYears[k] = d3.max(Jcategory.children[i].years);
-				}
-			}
-		}
-	}
-	extraInd1Text = extraInd[0].name;
-	extraInd1Units = extraInd[0].unit;
-	extraInd1Year = extraIndYears[0];
-	extraInd2Text = extraInd[1].name;
-	extraInd2Units = extraInd[2].unit;
-	extraInd2Year = extraIndYears[1];
-	extraInd3Text = extraInd[2].name;
-	extraInd3Units = extraInd[2].unit;
-	extraInd3Year = extraIndYears[2];
+	//console.log("in getData");
+	console.log(selectedInd);
+	return selectedInd;
 }
 
 function clicked(mouse, l, t, d, i) {
