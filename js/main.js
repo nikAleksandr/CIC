@@ -472,6 +472,8 @@ function allData(dataset, indicator){
 		fourthIndObj = getData(primeIndObj.companions[3][0], primeIndObj.companions[3][1]);
 	}
 	
+	d3.select("#resultWindow").select("p").remove();
+	d3.select("#resultWindow").append("p").text(primeIndObj.name + ", " + secondIndObj.name + ", " + thirdIndObj.name + ", " + fourthIndObj.name);
 }
 
 //Alternative to this big lookup is to list a i,j,h "JSON address" in the HTML anchor properties.  Would still likely require some type of HTML or JSON lookup for companion indicators though
