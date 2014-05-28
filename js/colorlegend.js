@@ -27,6 +27,7 @@ var colorlegend = function (target, scale, type, options) {
     	, title = opts.title || null // draw title (string)
     	, fill = opts.fill || false // fill the element (boolean)
     	, linearBoxes = opts.linearBoxes || 9 // number of boxes for linear scales (int)
+    	, isNumeric = (dataType === 'level' || dataType === 'level_np' || dataType === 'percent')
     	, isCurrency = opts.isCurrency || false
     	, htmlElement = document.getElementById(target.substring(0, 1) === '#' ? target.substring(1, target.length) : target) // target container element - strip the prefix #
     	, w = htmlElement.offsetWidth // width of container element
@@ -126,32 +127,23 @@ var colorlegend = function (target, scale, type, options) {
   
   	// set up data values to be used for text in legend
   	// if numeric, assume domain is sorted small to large
-  	var dataValues = [];   
-  	if (dataType === 'binary') { 
-	  	dataValues = [0, 1]; // 'Yes' or 'No'
-	}
-	else if (dataType === 'categorical') {
-		// if categorical, find and store all unique data values
-		for (var i = 0; i < domain.length; i++) {
-			for (var j = 0; j < dataValues.length; j++) {
-				if (domain[i] == dataValues[j]) break;
-				if (j == dataValues.length - 1) dataValues.push(domain[i]);
+  	var dataValues = [];
+	if (isNumeric) { 
+		// for level (not level_np): min is set as 0
+		(dataType === 'level') ? dataValues.push(0) : dataValues.push(domain[0]);
+		for (var i = 0; i < quantiles.length; i++) dataValues.push(quantiles[i]);
+		dataValues.push(domain[domain.length - 1]);
+ 	} else {
+ 		// if categorical or binary, find and store all unique data values
+		for (var j = 0; j < colors.length; j++) {
+			for (var ind in options.keyArray) {
+				if (options.keyArray[ind] === j) {
+					dataValues.push(ind);
+					break;
+				}
 			}
 		}
 	}
-	else if (dataType === 'level') {
-		// for level (not level_np): numeric, min is set as 0
-		dataValues.push(0);	
-		for (var i = 0; i < quantiles.length; i++) dataValues.push(quantiles[i]);
-		dataValues.push(domain[domain.length - 1]);
-	}
-	else { 
-		// numeric, min is not necessarily 0
-		dataValues.push(domain[0]);	
-		for (var i = 0; i < quantiles.length; i++) dataValues.push(quantiles[i]);
-		dataValues.push(domain[domain.length - 1]);
-  	}
- 
     
   	var legendBoxes = legend.selectAll('g.legend')
     	.data(dataValues)
@@ -174,7 +166,7 @@ var colorlegend = function (target, scale, type, options) {
       	.attr('dy', '.71em')
       	.attr('x', function (d, i) {
 	        var leftAlignX = i * (boxWidth + boxSpacing) + (type !== 'ordinal' ? (boxWidth / 2) : 0);
-    	    return (dataType === 'binary') ? (leftAlignX + boxWidth / 2) : leftAlignX;
+    	    return isNumeric ? leftAlignX : (leftAlignX + boxWidth / 2);
       	})
       	.attr('y', boxLabelHeight + boxHeight + 4)
       	.style('text-anchor', function () {
@@ -188,7 +180,7 @@ var colorlegend = function (target, scale, type, options) {
       	});
       	
     // additional text on top of color boxes, displaying "top 20%", "bottom 20%", etc.
-    if (dataType === 'level' || dataType === 'level_np' || dataType === 'percent') {
+    if (isNumeric) {
 	    legendBoxes.append('text')
 	    	.attr('class', 'colorlegend-boxlabels')
 	    	.attr('x', function (d, i) {
