@@ -13,7 +13,7 @@ var width = document.getElementById('container').offsetWidth-60;
 var height = width / 2;
 
 var projection = d3.geo.albersUsa()
-    .scale(width )
+    .scale(width)
     .translate([width / 2, height / 2]);
 
 var path = d3.geo.path()
@@ -525,6 +525,7 @@ function clicked(mouse, l, t, d, i) {
       .style("left", (mouse[0]+l) + "px")
       .style("top", +(mouse[1]+t) +"px");      
   	return tooltip.html("<div id='tipContainer'><div id='tipLocation'><b>" + "FIPS: " + d.id + "</b></div><div id='tipKey'></b>" + primeIndText + ": <b>" + percentFmt(quantById[d.id]) + "</b><br>County-owned roads, share of public roads statewide: <b>" + "VAR" + "</b>" + "<br/>State gas tax rate ($/gallon): <b>" + "VAR" + "</b><br>Year of last state gas tax increase: <b>" + "VAR"  + "</div><div class='tipClear'></div> </div>");
+	
 }
 
 function doubleClicked(d) {
@@ -557,7 +558,7 @@ function move() {
   var s = d3.event.scale;
   var h = height / 2;
   
-  console.log(t[1]);
+  //console.log(t[1]);
   
   t[0] = Math.min(width / 2 * (s - 1), Math.max(width / 2 * (1 - s), t[0]));
   t[1] = Math.min(height / 2 * (s - 1), Math.max(height / 2 * (1 - s), t[1]));
@@ -568,7 +569,8 @@ function move() {
   	//343 from 2.2 (339)
   	//167 from 1.3 (132)
   	//0 from 1 (0)
-
+	
+	//unsure what the first below function does?
   zoom.translate(t);
   g.style("stroke-width", 1 / s).attr("transform", "translate(" + t + ")scale(" + s + ")");
 
