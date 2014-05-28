@@ -138,8 +138,8 @@ function draw(topo, stateMesh) {
 }
 
 function buildIndDropdown() {
-	// populate dropdown menu with categories pulled from json
-	d3.json("data/CICstructure.json", function(error, CICStructure){
+	// dynamically create dropdown menu with categories pulled from json
+	/*d3.json("data/CICstructure.json", function(error, CICStructure){
 		if (!error) {
 			// empty out dropdown
 			d3.select('#primeInd')
@@ -150,7 +150,7 @@ function buildIndDropdown() {
 			var createCategory = function(catName) {
 				/*var primeDrop = d3.select('#primeInd');
 				primeDrop.append('a').text(catName);
-				var cat = primeDrop.append('li');*/
+				var cat = primeDrop.append('li');
 				var cat = d3.select('#primeInd').append('li').append('a')
 					.attr('name', catName)
 					.attr('title', catName)
@@ -184,6 +184,12 @@ function buildIndDropdown() {
 			//createIndicator(testCat, 'Test 2');
 								
 		} else throw new Error('Error reading JSON file');
+	});*/
+	
+	d3.selectAll('.dataset').selectAll('.indicator').on('click', function() {
+		var datasetName = this.parentNode.parentNode.parentNode.title; // real hokey, will fix eventually
+		var indicatorName = this.title;
+		update(datasetName, indicatorName);
 	});
 }
 
@@ -381,11 +387,11 @@ function update(dataset, indicator) {
 	//This is Where GET requests are issued to the server for JSON with fips, county name/state, plus primeInd.name, secondInd.name, thirdInd.name, and fourthInd.name; redefine "data" variable as this JSON
 	//"data" should be structured as a JSON with an array of each county.  each county has properties "id"(fips), "geography"(county name, ST), and each of the indicators specified above and clicked and doubleclicked data
 	//
-	d3.tsv("CountyData.tsv", function(error, countyData) {
+	d3.tsv("CData.tsv", function(error, countyData) {
 		data = countyData;
 
 		countyData.forEach(function(d) {
-			quantById[d.id] = +d[primeIndObj.name];
+			quantById[d.id] = +d[dataset + ' - ' + indicator]; // handles "." as NaN coloring it grey; handles "" as 0 coloring it white			
 			//second indicator
 			//third indicator
 			//fourth indicator
@@ -393,8 +399,24 @@ function update(dataset, indicator) {
 			idByName[d.geography] = d.id;
 			countyObjectById[d.id] = d;
 		});
-
-		createLegend();
+		
+		// define range i.e. color output
+		var dataType = primeIndObj.dataType;
+		switch(dataType) {
+			case "percent":
+				range = ['rgb(239,243,255)', 'rgb(189,215,231)', 'rgb(107,174,214)', 'rgb(49,130,189)', 'rgb(8,81,156)'];
+				break;
+			case "binary":
+				range = ['rgb(201,228,242)', 'rgb(255,204,102)'];
+				break;
+			case "categorical":
+				// max is 5 categories
+				range = ['rgb(228,26,28)', 'rgb(55,126,184)', 'rgb(77,175,74)', 'rgb(152,78,163)', 'rgb(255,127,0)'];
+				break;
+			default:
+				range = ['rgb(239,243,255)', 'rgb(189,215,231)', 'rgb(107,174,214)', 'rgb(49,130,189)', 'rgb(8,81,156)'];
+		}
+		color.domain(quantById).range(range); // set domain and range
 
 		// fill in map colors
 		g.selectAll(".counties .county").transition().duration(750).style("fill", function(d) {
@@ -404,6 +426,8 @@ function update(dataset, indicator) {
 				return "rgb(155,155,155)";
 			}
 		});
+
+		createLegend();
 	});
 }
 
@@ -437,7 +461,7 @@ function getData(dataset, indicator){
 	var structure = CICstructure.children;
 	for (var i = 0; i < structure.length; i++) {
 		for (var j = 0; j < structure[i].children.length; j++) {
-			if (structure[i].children[j].name == dataset) {
+			if (structure[i].children[j].name === dataset) {
 				Jcategory = structure[i];
 				var Jdataset = structure[i].children[j];
 				selectedIndYear = d3.max(Jdataset.years);
@@ -446,7 +470,7 @@ function getData(dataset, indicator){
 				companions = Jdataset.companions;
 				//dataNotes = Jdataset.notes;
 				for (var h = 0; h < Jdataset.children.length; h++) {
-					if (indicator == Jdataset.children[h].name) {
+					if (indicator === Jdataset.children[h].name) {
 						//primeInd is a JSON object from CIC-structure with the properties: name, units, dataType
 						selectedInd = Jdataset.children[h];
 						//append dataset properties to the selected indicator
@@ -468,34 +492,12 @@ function getData(dataset, indicator){
 }
 
 function createLegend() {
-	var legendTitle = "";
-	switch(primeIndObj.dataType) {
-		case "percent":
-			range = ['rgb(239,243,255)', 'rgb(189,215,231)', 'rgb(107,174,214)', 'rgb(49,130,189)', 'rgb(8,81,156)'];
-			legendTitle = primeIndObj.year + " " + primeIndObj.name + " in " + primeIndObj.unit;
-			break;
-		case "binary":
-			range = ['rgb(201,228,242)', 'rgb(255,204,102)'];
-			legendTitle = primeIndObj.year + " " + primeIndObj.name;
-			break;
-		case "categorical":
-			// max is 5 categories
-			range = ['rgb(228,26,28)', 'rgb(55,126,184)', 'rgb(77,175,74)', 'rgb(152,78,163)', 'rgb(255,127,0)'];
-			legendTitle = primeIndObj.year + " " + primeIndObj.name;
-			break;
-		default:
-			//continous, so we don't have to have this property in the JSON
-			range = ['rgb(239,243,255)', 'rgb(189,215,231)', 'rgb(107,174,214)', 'rgb(49,130,189)', 'rgb(8,81,156)'];
-			legendTitle = primeIndObj.year + " " + primeIndObj.name + " in " + primeIndObj.unit;
-	}
-
-	// determine if indicator values are currency by checking units
-	var isCurrency = (primeIndObj.unit) ? (primeIndObj.unit.indexOf("dollar") != -1) : false;
-
-	// pack data in color array
-	color.domain(quantById).range(range);
 	d3.selectAll(".legend svg").remove();
 	d3.select("#legendTitle").remove();
+
+	var isCurrency = (primeIndObj.unit) ? (primeIndObj.unit.indexOf("dollar") != -1) : false; // determine if indicator values are currency by checking units
+	var legendTitle = primeIndObj.year + " " + primeIndObj.name;
+	if (primeIndObj.dataType !== 'binary' && primeIndObj.dataType !== 'categorical') legendTitle += " in " + primeIndObj.unit; 
 
 	if (primeIndObj.dataType !== 'none') {
 		d3.select(".legend").append("div").attr("id", "legendTitle").text(legendTitle);
@@ -547,9 +549,7 @@ function move() {
   var t = d3.event.translate;
   var s = d3.event.scale;
   var h = height / 2;
-  
-  //console.log(t[1]);
-  
+
   t[0] = Math.min(width / 2 * (s - 1), Math.max(width / 2 * (1 - s), t[0]));
   t[1] = Math.min(height / 2 * (s - 1), Math.max(height / 2 * (1 - s), t[1]));
   //original function: t[1] = Math.min(height / 2 * (s - 1) + h * s, Math.max(height / 2 * (1 - s) - h * s, t[1]));
