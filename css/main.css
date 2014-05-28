@@ -161,6 +161,7 @@ body {
 	width: 100%;
 	font-size: 1em;
 	text-align: center;
+	padding-top: 2%;
 }
 
 #instructionText a, #fullDefsText a{
@@ -184,7 +185,15 @@ body {
 	padding-right: .5em;
 }
 
-#close:hover, #close2:hover, #instructionText a:hover, #help:hover{
+#showOnMap {
+	position: absolute;
+	color: rgb(0, 64, 112);
+	font-size: .9em;
+	cursor: pointer;
+	padding-left: .5em;
+}
+
+#close:hover, #close2:hover, #instructionText a:hover, #help:hover, #showOnMap:hover{
 	text-decoration:underline;
 }
 

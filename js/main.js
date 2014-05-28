@@ -22,6 +22,9 @@ var path = d3.geo.path()
 var topo,stateMesh,projection,path,svg,g;
 
 var tooltip = d3.select("#container").append("div").attr("class", "tooltip hidden").attr("id", "tt");
+var tooltipOffsetL = document.getElementById('container').offsetLeft+(width/2)+40;
+var tooltipOffsetT = document.getElementById('container').offsetTop+(height/2)+20;
+
 
 var CICstructure,
 	selectedData,
@@ -82,11 +85,12 @@ function setup(width,height){
 
   g = svg.append("g")
   		.attr("class", "counties");
+  		
+  d3.select('#map').on('click', function() { tooltip.classed('hidden', true); });
+  d3.select('#close').on('click', function() { $('#instructions').hide(); });
 		
   buildIndDropdown();
-  buildSearch();
-  
-  d3.select('#close').on('click', function() { $('#instructions').hide(); });
+  buildSearch();  
 }
 	
 
@@ -122,8 +126,6 @@ function draw(topo, stateMesh) {
   
   
   //offsets plus width/height of transform, plus 20 px of padding, plus 20 extra for tooltip offset off mouse
-  var offsetL = document.getElementById('container').offsetLeft+(width/2)+40;
-  var offsetT = document.getElementById('container').offsetTop+(height/2)+20;
 
   //tooltips
   county
@@ -136,7 +138,7 @@ function draw(topo, stateMesh) {
 		if (clickCount === 1) {
 			singleClickTimer = setTimeout(function() {
 				clickCount = 0;
-				clicked(mouse, offsetL, offsetT, d, i);
+				clicked(mouse, tooltipOffsetL, tooltipOffsetT, d, i);
 			}, 400);
 		} else if (clickCount === 2) {
 			clearTimeout(singleClickTimer);
@@ -351,13 +353,14 @@ function displayResultsInFrame(url) {
 		.classed('result_iframe', true)
 		.attr('height', '300px') // very arbitrary, might want to change this
 		.attr('src', url);
-		
+  			
 	$('#instructions').show();
 }
 
 function zoomTo(d) {
-	// doesnt work
-	//zoom.center(path.centroid(d));
+	// not working...
+	zoom.scale(3);
+	zoom.translate(100,100);
 }
 
 var frmrFill, frmrActive;
@@ -566,7 +569,7 @@ function clicked(mouse, l, t, d, i) {
     tooltip
       .classed("hidden", false)
       .style("left", (mouse[0]+l) + "px")
-      .style("top", +(mouse[1]+t) +"px");
+      .style("top", +(mouse[1]+t) +"px");      
   	return tooltip.html("<div id='tipContainer'><div id='tipLocation'><b>" + "FIPS: " + d.id + "</b></div><div id='tipKey'></b>" + primeIndText + ": <b>" + percentFmt(quantById[d.id]) + "</b><br>County-owned roads, share of public roads statewide: <b>" + "VAR" + "</b>" + "<br/>State gas tax rate ($/gallon): <b>" + "VAR" + "</b><br>Year of last state gas tax increase: <b>" + "VAR"  + "</div><div class='tipClear'></div> </div>");
 }
 
@@ -574,7 +577,13 @@ function doubleClicked(d) {
 	tooltip.classed("hidden", true);
 	var countyID = d.id.toString();
 	if (countyID.length == 4) countyID = "0" + countyID;
+	
 	displayResultsInFrame('http://www.uscounties.org/cffiles_web/counties/county.cfm?id=' + encodeURIComponent(countyID));
+	d3.select('#showOnMap').on('click', function() {
+	  	$('#instructions').hide();
+	  	//clicked(countyPathById[d.id].geometry.coordinates[0][0], tooltipOffsetL, tooltipOffsetT, d); // a fake click to get tooltip to appear
+  	});
+
 }
 
 function redraw() {
@@ -587,7 +596,7 @@ function redraw() {
   draw(topo, stateMesh);
 }
 
-function move() {
+function move() {	
   tooltip.classed("hidden", true);
 	
   var t = d3.event.translate;
