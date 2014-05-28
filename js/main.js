@@ -1,8 +1,6 @@
 d3.select(window).on("resize", throttle);
 
-function toTitleCase(str){
-    return str.replace(/\w\S*/g, function(txt){return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();});
-}
+function toTitleCase(str){ return str.replace(/\w\S*/g, function(txt){return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();}); }
 var percentFmt = d3.format(".1%");
 
 var zoom = d3.behavior.zoom()
@@ -378,21 +376,16 @@ function highlight(d) {
 
 
 function update(dataset, indicator) {
-	allData(dataset, indicator);
+	allData(dataset, indicator); // pull necessary data from JSON and fill primeIndObj
 
 	//This is Where GET requests are issued to the server for JSON with fips, county name/state, plus primeInd.name, secondInd.name, thirdInd.name, and fourthInd.name; redefine "data" variable as this JSON
 	//"data" should be structured as a JSON with an array of each county.  each county has properties "id"(fips), "geography"(county name, ST), and each of the indicators specified above and clicked and doubleclicked data
 	//
 	d3.tsv("CountyData.tsv", function(error, countyData) {
 		data = countyData;
-		//Will first break the JSON object into component parts here:
-		var primeIndText = primeIndObj.name;
-		var primeIndUnits = primeIndObj.unit;
-		var dataType = primeIndObj.dataType;
-		var primeIndYear = primeIndObj.year;
-		
+
 		countyData.forEach(function(d) {
-			quantById[d.id] = +d[primeIndText];
+			quantById[d.id] = +d[primeIndObj.name];
 			//second indicator
 			//third indicator
 			//fourth indicator
@@ -401,54 +394,9 @@ function update(dataset, indicator) {
 			countyObjectById[d.id] = d;
 		});
 
+		createLegend();
 
-		var legendTitle = "";
-		switch(dataType) {
-			case "percent":
-				primeIndUnits = "percent";
-				range = ['rgb(239,243,255)', 'rgb(189,215,231)', 'rgb(107,174,214)', 'rgb(49,130,189)', 'rgb(8,81,156)'];
-				legendTitle = primeIndYear + " " + primeIndText + " in " + primeIndUnits;
-				break;
-			/*case "divergent":
-			 range = ['rgb(215,25,28)','rgb(253,174,97)','rgb(255,255,191)','rgb(171,217,233)','rgb(44,123,182)'];
-			 //get the center-point from somewhere
-			 break;
-			 */
-			case "binary":
-				range = ['rgb(201,228,242)', 'rgb(255,204,102)'];
-				legendTitle = primeIndYear + " " + primeIndText;
-				break;
-			case "categorical":
-				// max is 5 categories
-				range = ['rgb(228,26,28)', 'rgb(55,126,184)', 'rgb(77,175,74)', 'rgb(152,78,163)', 'rgb(255,127,0)'];
-				legendTitle = primeIndYear + " " + primeIndText;
-				break;
-			default:
-				//continous, so we don't have to have this property in the JSON
-				range = ['rgb(239,243,255)', 'rgb(189,215,231)', 'rgb(107,174,214)', 'rgb(49,130,189)', 'rgb(8,81,156)'];
-				legendTitle = primeIndYear + " " + primeIndText + " in " + primeIndUnits;
-		}
-
-		// determine if indicator values are currency by checking units
-		var isCurrency = (primeIndUnits) ? (primeIndUnits.indexOf("dollar") != -1) : false;
-
-		// pack data in color array
-		color.domain(quantById).range(range);
-		d3.selectAll(".legend svg").remove();
-		d3.select("#legendTitle").remove();
-
-		if (dataType !== 'none') {
-			// create legend
-			d3.select(".legend").append("div").attr("id", "legendTitle").text(legendTitle);
-			legend = colorlegend("#quantileLegend", color, "quantile", {
-				title : "legend",
-				boxHeight : 15,
-				boxWidth : 60,
-				dataType : dataType,
-				isCurrency : isCurrency
-			});
-		}
-
+		// fill in map colors
 		g.selectAll(".counties .county").transition().duration(750).style("fill", function(d) {
 			if (!isNaN(quantById[d.id])) {
 				return color(quantById[d.id]);
@@ -485,8 +433,8 @@ function allData(dataset, indicator){
 //Alternative to this big lookup is to list a i,j,h "JSON address" in the HTML anchor properties.  Would still likely require some type of HTML or JSON lookup for companion indicators though
 function getData(dataset, indicator){
 	var selectedInd = {};
-	var Jcategory, structure;
-	structure = CICstructure.children;
+	var Jcategory;
+	var structure = CICstructure.children;
 	for (var i = 0; i < structure.length; i++) {
 		for (var j = 0; j < structure[i].children.length; j++) {
 			if (structure[i].children[j].name == dataset) {
@@ -517,6 +465,48 @@ function getData(dataset, indicator){
 		}
 	}
 	return selectedInd;
+}
+
+function createLegend() {
+	var legendTitle = "";
+	switch(primeIndObj.dataType) {
+		case "percent":
+			range = ['rgb(239,243,255)', 'rgb(189,215,231)', 'rgb(107,174,214)', 'rgb(49,130,189)', 'rgb(8,81,156)'];
+			legendTitle = primeIndObj.year + " " + primeIndObj.name + " in " + primeIndObj.unit;
+			break;
+		case "binary":
+			range = ['rgb(201,228,242)', 'rgb(255,204,102)'];
+			legendTitle = primeIndObj.year + " " + primeIndObj.name;
+			break;
+		case "categorical":
+			// max is 5 categories
+			range = ['rgb(228,26,28)', 'rgb(55,126,184)', 'rgb(77,175,74)', 'rgb(152,78,163)', 'rgb(255,127,0)'];
+			legendTitle = primeIndObj.year + " " + primeIndObj.name;
+			break;
+		default:
+			//continous, so we don't have to have this property in the JSON
+			range = ['rgb(239,243,255)', 'rgb(189,215,231)', 'rgb(107,174,214)', 'rgb(49,130,189)', 'rgb(8,81,156)'];
+			legendTitle = primeIndObj.year + " " + primeIndObj.name + " in " + primeIndObj.unit;
+	}
+
+	// determine if indicator values are currency by checking units
+	var isCurrency = (primeIndObj.unit) ? (primeIndObj.unit.indexOf("dollar") != -1) : false;
+
+	// pack data in color array
+	color.domain(quantById).range(range);
+	d3.selectAll(".legend svg").remove();
+	d3.select("#legendTitle").remove();
+
+	if (primeIndObj.dataType !== 'none') {
+		d3.select(".legend").append("div").attr("id", "legendTitle").text(legendTitle);
+		legend = colorlegend("#quantileLegend", color, "quantile", {
+			title : "legend",
+			boxHeight : 15,
+			boxWidth : 60,
+			dataType : primeIndObj.dataType,
+			isCurrency : isCurrency
+		});
+	}
 }
 
 function clicked(mouse, l, t, d, i) {
