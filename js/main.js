@@ -52,20 +52,9 @@ var color = d3.scale.quantile();
 d3.json("data/CICstructure.json", function(error, CICStructure){
 	
 	CICstructure = CICStructure;
+	// dataset to map first
+	update("Payment in Lieu of Taxes (PILT)", "PILT Amount");
 	
-	d3.tsv("CountyData.tsv", function (error, countyData) {
-		data = countyData;
-		
-		countyData.forEach(function(d) { 
-		  	quantById[d.id] = +d.RGDPGrowth13; 
-		  	nameById[d.id] = d.geography;
-		  	idByName[d.geography] = d.id;	
-		  	countyObjectById[d.id] = d;  	
-		});
-		
-		// dataset to map first
-		allData("Payment in Lieu of Taxes (PILT)", "PILT Amount");
-	});
 });
 
 function setup(width,height){
@@ -177,7 +166,7 @@ function buildIndDropdown() {
 						selectedDataText = catName;
 						d3.select('#primeIndText').html(selectedDataText);
 						
-						allData(selectedDataset, selectedData);
+						update(selectedDataset, selectedData);
 					});
 				return cat;
 			};
@@ -387,82 +376,91 @@ function highlight(d) {
 }
 
 
-function update(primeInd){
-	//Will first break the JSON object into component parts here:
-	var primeIndText = primeIndObj.name;
-	var primeIndUnits = primeIndObj.unit;
-	var dataType = primeIndObj.dataType;
-	var primeIndYear = primeIndObj.year;
-	
-	//will need to redefine "data" variable to be our returned data from the GET call	
-	data.forEach(function(d){
-		quantById[d.id] = +d[primeIndText]; 
-  		//nameById[d.id] = d.geography;
-	});
-	
-	
-	var legendTitle = "";
-	switch(dataType){
-		case "percent":
-			primeIndUnits = "percent";
-			range = ['rgb(239,243,255)','rgb(189,215,231)','rgb(107,174,214)','rgb(49,130,189)','rgb(8,81,156)'];
-			legendTitle = primeIndYear + " " + primeIndText + " in " + primeIndUnits;
-			break;
-		/*case "divergent":
-			range = ['rgb(215,25,28)','rgb(253,174,97)','rgb(255,255,191)','rgb(171,217,233)','rgb(44,123,182)'];
-			//get the center-point from somewhere
-			break;
-		*/
-		case "binary":
-			range = ['rgb(201,228,242)', 'rgb(255,204,102)'];
-			legendTitle = primeIndYear + " " + primeIndText;
-			break;
-		case "categorical":
-			// max is 5 categories
-			range = ['rgb(228,26,28)','rgb(55,126,184)','rgb(77,175,74)','rgb(152,78,163)','rgb(255,127,0)'];
-			legendTitle = primeIndYear + " " + primeIndText;
-			break;
-		default:
-			//continous, so we don't have to have this property in the JSON
-			range = ['rgb(239,243,255)','rgb(189,215,231)','rgb(107,174,214)','rgb(49,130,189)','rgb(8,81,156)'];
-			legendTitle = primeIndYear + " " + primeIndText + " in " + primeIndUnits;
-	}
-	
-	// determine if indicator values are currency by checking units
-	var isCurrency = (primeIndUnits) ? (primeIndUnits.indexOf("dollar") != -1) : false;
-	
-	// pack data in color array
-	color
-		.domain(quantById)
-		.range(range);
-	d3.selectAll(".legend svg").remove();  d3.select("#legendTitle").remove();
-	
-	if (dataType !== 'none') { 
-		// create legend
-		d3.select(".legend").append("div").attr("id", "legendTitle").text(legendTitle);
-		legend = colorlegend("#quantileLegend", color, "quantile", {
-			title: "legend", 
-			boxHeight: 15, 
-			boxWidth: 60, 
-			dataType: dataType,
-			isCurrency: isCurrency
-		});
-	}
-	
-	
-	g.selectAll(".counties .county").transition().duration(750).style("fill", function(d) {
-		if (!isNaN(quantById[d.id])) {
-			return color(quantById[d.id]);
-		} else {
-			return "rgb(155,155,155)";
-		}
-	});
 
+function update(dataset, indicator) {
+	allData(dataset, indicator);
+
+	//This is Where GET requests are issued to the server for JSON with fips, county name/state, plus primeInd.name, secondInd.name, thirdInd.name, and fourthInd.name; redefine "data" variable as this JSON
+	//"data" should be structured as a JSON with an array of each county.  each county has properties "id"(fips), "geography"(county name, ST), and each of the indicators specified above and clicked and doubleclicked data
+	//
+	d3.tsv("CountyData.tsv", function(error, countyData) {
+		data = countyData;
+		//Will first break the JSON object into component parts here:
+		var primeIndText = primeIndObj.name;
+		var primeIndUnits = primeIndObj.unit;
+		var dataType = primeIndObj.dataType;
+		var primeIndYear = primeIndObj.year;
+		
+		countyData.forEach(function(d) {
+			quantById[d.id] = +d[primeIndText];
+			//second indicator
+			//third indicator
+			//fourth indicator
+			nameById[d.id] = d.geography;
+			idByName[d.geography] = d.id;
+			countyObjectById[d.id] = d;
+		});
+
+
+		var legendTitle = "";
+		switch(dataType) {
+			case "percent":
+				primeIndUnits = "percent";
+				range = ['rgb(239,243,255)', 'rgb(189,215,231)', 'rgb(107,174,214)', 'rgb(49,130,189)', 'rgb(8,81,156)'];
+				legendTitle = primeIndYear + " " + primeIndText + " in " + primeIndUnits;
+				break;
+			/*case "divergent":
+			 range = ['rgb(215,25,28)','rgb(253,174,97)','rgb(255,255,191)','rgb(171,217,233)','rgb(44,123,182)'];
+			 //get the center-point from somewhere
+			 break;
+			 */
+			case "binary":
+				range = ['rgb(201,228,242)', 'rgb(255,204,102)'];
+				legendTitle = primeIndYear + " " + primeIndText;
+				break;
+			case "categorical":
+				// max is 5 categories
+				range = ['rgb(228,26,28)', 'rgb(55,126,184)', 'rgb(77,175,74)', 'rgb(152,78,163)', 'rgb(255,127,0)'];
+				legendTitle = primeIndYear + " " + primeIndText;
+				break;
+			default:
+				//continous, so we don't have to have this property in the JSON
+				range = ['rgb(239,243,255)', 'rgb(189,215,231)', 'rgb(107,174,214)', 'rgb(49,130,189)', 'rgb(8,81,156)'];
+				legendTitle = primeIndYear + " " + primeIndText + " in " + primeIndUnits;
+		}
+
+		// determine if indicator values are currency by checking units
+		var isCurrency = (primeIndUnits) ? (primeIndUnits.indexOf("dollar") != -1) : false;
+
+		// pack data in color array
+		color.domain(quantById).range(range);
+		d3.selectAll(".legend svg").remove();
+		d3.select("#legendTitle").remove();
+
+		if (dataType !== 'none') {
+			// create legend
+			d3.select(".legend").append("div").attr("id", "legendTitle").text(legendTitle);
+			legend = colorlegend("#quantileLegend", color, "quantile", {
+				title : "legend",
+				boxHeight : 15,
+				boxWidth : 60,
+				dataType : dataType,
+				isCurrency : isCurrency
+			});
+		}
+
+		g.selectAll(".counties .county").transition().duration(750).style("fill", function(d) {
+			if (!isNaN(quantById[d.id])) {
+				return color(quantById[d.id]);
+			} else {
+				return "rgb(155,155,155)";
+			}
+		});
+	});
 }
 
 
 var primeIndObj = {}, secondIndObj = {}, thirdIndObj = {}, fourthIndObj = {};
-
 
 function allData(dataset, indicator){
 	
@@ -481,15 +479,6 @@ function allData(dataset, indicator){
 	else if(fourthIndObj.name==primeIndObj.name){
 		fourthIndObj = getData(primeIndObj.companions[3][0], primeIndObj.companions[3][1]);
 	}
-	
-	
-	//
-	///
-	//This is Where GET requests are issued to the server for JSON with fips, county name/state, plus primeIndText, extraInd1Text, extraInd2Text, and extraInd3Text; redefine "data" variable as this JSON
-	//"data" should be structured as a JSON with an array of each county.  each county has properties "id"(fips), "geography"(county name, ST), and each of the indicators specified above and clicked and doubleclicked data
-	//
-	//Will move update(selectedData) down here and replace with update(primeInd, primeIndYear)
-	update(primeIndObj);
 	
 }
 
@@ -520,48 +509,13 @@ function getData(dataset, indicator){
 							selectedInd.dataset = Jdataset.name;
 							selectedInd.companions = companions;
 							
-						//break;
+						break;
 					}
 				}
-				//break;
+				break;
 			}
 		}
 	}
-	
-	//temporary switch to override this function while using tsv data
-	/*
-	switch(indName){
-		case "Administration":
-			primeInd = { 
-				'name': "RGDPGrowth13",
-				'dataType': "percent"
-			};
-			primeIndYear = '2013';
-			break;
-		case "County Structure":
-			primeInd = { 
-				'name': "countyGov",
-				'dataType': "binary"
-			};
-			primeIndYear = '2014';
-			break;
-		case "County Finance":
-			primeInd = { 
-				'name': "avgWageFAKE",
-				'dataType': "level",
-				'unit': "dollars"
-			};
-			primeIndYear = '1910';
-			break;
-		default:
-			primeInd = {
-				"name": "HHpriceGrowth13",
-				"dataType": "percent"
-			};
-			primeIndYear = '2013';
-			break;
-	};
-	*/
 	return selectedInd;
 }
 
