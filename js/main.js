@@ -138,8 +138,8 @@ function draw(topo, stateMesh) {
 }
 
 function buildIndDropdown() {
-	// populate dropdown menu with categories pulled from json
-	d3.json("data/CICstructure.json", function(error, CICStructure){
+	// dynamically create dropdown menu with categories pulled from json
+	/*d3.json("data/CICstructure.json", function(error, CICStructure){
 		if (!error) {
 			// empty out dropdown
 			d3.select('#primeInd')
@@ -150,7 +150,7 @@ function buildIndDropdown() {
 			var createCategory = function(catName) {
 				/*var primeDrop = d3.select('#primeInd');
 				primeDrop.append('a').text(catName);
-				var cat = primeDrop.append('li');*/
+				var cat = primeDrop.append('li');
 				var cat = d3.select('#primeInd').append('li').append('a')
 					.attr('name', catName)
 					.attr('title', catName)
@@ -184,6 +184,12 @@ function buildIndDropdown() {
 			//createIndicator(testCat, 'Test 2');
 								
 		} else throw new Error('Error reading JSON file');
+	});*/
+	
+	d3.selectAll('.dataset').selectAll('.indicator').on('click', function() {
+		var datasetName = this.parentNode.parentNode.parentNode.title; // real hokey, will fix eventually
+		var indicatorName = this.title;
+		update(datasetName, indicatorName);
 	});
 }
 
@@ -437,7 +443,7 @@ function getData(dataset, indicator){
 	var structure = CICstructure.children;
 	for (var i = 0; i < structure.length; i++) {
 		for (var j = 0; j < structure[i].children.length; j++) {
-			if (structure[i].children[j].name == dataset) {
+			if (structure[i].children[j].name === dataset) {
 				Jcategory = structure[i];
 				var Jdataset = structure[i].children[j];
 				selectedIndYear = d3.max(Jdataset.years);
@@ -446,7 +452,7 @@ function getData(dataset, indicator){
 				companions = Jdataset.companions;
 				//dataNotes = Jdataset.notes;
 				for (var h = 0; h < Jdataset.children.length; h++) {
-					if (indicator == Jdataset.children[h].name) {
+					if (indicator === Jdataset.children[h].name) {
 						//primeInd is a JSON object from CIC-structure with the properties: name, units, dataType
 						selectedInd = Jdataset.children[h];
 						//append dataset properties to the selected indicator
