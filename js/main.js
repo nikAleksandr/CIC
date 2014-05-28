@@ -452,6 +452,7 @@ function allData(dataset, indicator){
 		fourthIndObj = getData(primeIndObj.companions[3][0], primeIndObj.companions[3][1]);
 	}
 	
+	//temp script for seeing immediately the four indicators name's listed at bottom
 	d3.select("#resultWindow").select("p").remove();
 	d3.select("#resultWindow").append("p").text(primeIndObj.name + ", " + secondIndObj.name + ", " + thirdIndObj.name + ", " + fourthIndObj.name);
 }
