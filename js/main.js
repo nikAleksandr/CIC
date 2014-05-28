@@ -389,9 +389,11 @@ function update(dataset, indicator) {
 	//
 	d3.tsv("CData.tsv", function(error, countyData) {
 		data = countyData;
+		var dataType = primeIndObj.dataType;
+		var isNumeric = (dataType === 'level' || dataType === 'level_np' || dataType === 'percent');
 
 		countyData.forEach(function(d) {
-			quantById[d.id] = +d[dataset + ' - ' + indicator]; // handles "." as NaN coloring it grey; handles "" as 0 coloring it white			
+			quantById[d.id] =  isNumeric ? parseFloat(d[dataset + ' - ' + indicator]) : d[dataset + ' - ' + indicator];		
 			//second indicator
 			//third indicator
 			//fourth indicator
@@ -400,8 +402,20 @@ function update(dataset, indicator) {
 			countyObjectById[d.id] = d;
 		});
 		
+		if (!isNumeric) {
+			// translating string values to numeric values
+			var numCorrVals = 0, vals = {}, corrVal = 0;
+			for (var ind in quantById) {
+				if (!vals.hasOwnProperty(quantById[ind])) {
+					vals[quantById[ind]] = corrVal;
+					corrVal++;
+				}
+				quantById[ind] = vals[quantById[ind]];
+			}
+			for (var ind in vals) numCorrVals++;
+		}
+		
 		// define range i.e. color output
-		var dataType = primeIndObj.dataType;
 		switch(dataType) {
 			case "percent":
 				range = ['rgb(239,243,255)', 'rgb(189,215,231)', 'rgb(107,174,214)', 'rgb(49,130,189)', 'rgb(8,81,156)'];
@@ -411,7 +425,9 @@ function update(dataset, indicator) {
 				break;
 			case "categorical":
 				// max is 5 categories
-				range = ['rgb(228,26,28)', 'rgb(55,126,184)', 'rgb(77,175,74)', 'rgb(152,78,163)', 'rgb(255,127,0)'];
+				range = [];
+				var availColors = ['rgb(228,26,28)', 'rgb(55,126,184)', 'rgb(77,175,74)', 'rgb(152,78,163)', 'rgb(255,127,0)'];
+				for (var i = 0; i < numCorrVals; i++) range.push(availColors[i]);
 				break;
 			default:
 				range = ['rgb(239,243,255)', 'rgb(189,215,231)', 'rgb(107,174,214)', 'rgb(49,130,189)', 'rgb(8,81,156)'];
@@ -420,14 +436,18 @@ function update(dataset, indicator) {
 
 		// fill in map colors
 		g.selectAll(".counties .county").transition().duration(750).style("fill", function(d) {
-			if (!isNaN(quantById[d.id])) {
-				return color(quantById[d.id]);
+			if (isNumeric) {
+				if (!isNaN(quantById[d.id])) {
+					return color(quantById[d.id]);
+				} else {
+					return "rgb(155,155,155)";
+				}
 			} else {
-				return "rgb(155,155,155)";
+				return range[quantById[d.id]];
 			}
 		});
 
-		createLegend();
+		isNumeric ? createLegend() : createLegend(vals);
 	});
 }
 
@@ -491,23 +511,26 @@ function getData(dataset, indicator){
 	return selectedInd;
 }
 
-function createLegend() {
+function createLegend(keyArray) {
 	d3.selectAll(".legend svg").remove();
 	d3.select("#legendTitle").remove();
 
 	var isCurrency = (primeIndObj.unit) ? (primeIndObj.unit.indexOf("dollar") != -1) : false; // determine if indicator values are currency by checking units
 	var legendTitle = primeIndObj.year + " " + primeIndObj.name;
-	if (primeIndObj.dataType !== 'binary' && primeIndObj.dataType !== 'categorical') legendTitle += " in " + primeIndObj.unit; 
+	//if (primeIndObj.dataType !== 'binary' && primeIndObj.dataType !== 'categorical') legendTitle += " in " + primeIndObj.unit; 
 
 	if (primeIndObj.dataType !== 'none') {
-		d3.select(".legend").append("div").attr("id", "legendTitle").text(legendTitle);
-		legend = colorlegend("#quantileLegend", color, "quantile", {
+		var options = {
 			title : "legend",
 			boxHeight : 15,
 			boxWidth : 60,
 			dataType : primeIndObj.dataType,
 			isCurrency : isCurrency
-		});
+		};
+		if (keyArray) options.keyArray = keyArray;
+		
+		d3.select(".legend").append("div").attr("id", "legendTitle").text(legendTitle);
+		legend = colorlegend("#quantileLegend", color, "quantile", options);
 	}
 }
 
