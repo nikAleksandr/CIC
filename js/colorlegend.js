@@ -37,7 +37,8 @@ var colorlegend = function (target, scale, type, options) {
     	, titlePadding = title ? 22 : 0
     	, boxLabelHeight = 10
     	, domain = scale.domain()
-    	, range = scale.range();
+    	, range = scale.range()
+    	, quantiles = scale.quantiles();
     
     // define how to format text values based on data type
     switch (dataType) {
@@ -61,6 +62,8 @@ var colorlegend = function (target, scale, type, options) {
     	    		return String((num/1000000).toFixed(1)) + "mil";
     	    	} else if (num >= 10000) {
     	    		return String((num/1000).toFixed(1)) + "k";
+    	    	} else if (num >= 100) {
+    	    		return num.toFixed(0);
     	    	} else if (num == 0) {
     	    		return 0;
     	    	} else {
@@ -138,15 +141,15 @@ var colorlegend = function (target, scale, type, options) {
 	}
 	else if (dataType === 'level') {
 		// for level (not level_np): numeric, min is set as 0
-		for (var i = 0; i < colors.length + 1; i++) {
-			dataValues[i] = domain[domain.length - 1] * i / colors.length;
-		}
+		dataValues.push(0);	
+		for (var i = 0; i < quantiles.length; i++) dataValues.push(quantiles[i]);
+		dataValues.push(domain[domain.length - 1]);
 	}
 	else { 
 		// numeric, min is not necessarily 0
-	  	for (var i = 0; i < colors.length + 1; i++) {
-	  		dataValues[i] = ((domain[domain.length - 1] - domain[0]) * i / colors.length) + domain[0];
-  		}
+		dataValues.push(domain[0]);	
+		for (var i = 0; i < quantiles.length; i++) dataValues.push(quantiles[i]);
+		dataValues.push(domain[domain.length - 1]);
   	}
  
     
