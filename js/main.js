@@ -439,14 +439,10 @@ function update(dataset, indicator) {
 
 		// fill in map colors
 		g.selectAll(".counties .county").transition().duration(750).style("fill", function(d) {
-			if (isNumeric) {
-				if (!isNaN(quantById[d.id])) {
-					return color(quantById[d.id]);
-				} else {
-					return "rgb(155,155,155)";
-				}
+			if (!isNaN(quantById[d.id])) {
+				return isNumeric ? color(quantById[d.id]) : range[quantById[d.id]];
 			} else {
-				return range[quantById[d.id]];
+				return "rgb(155,155,155)";
 			}
 		});
 
