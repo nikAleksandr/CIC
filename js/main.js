@@ -46,17 +46,24 @@ var quantOneThird,
 	
 var color = d3.scale.quantile();
 
-d3.tsv("CountyData.tsv", function (error, countyData) {
-	data = countyData;
+d3.json("data/CICstructure.json", function(error, CICStructure){
 	
-	countyData.forEach(function(d) { 
-	  	quantById[d.id] = +d.RGDPGrowth13; 
-	  	nameById[d.id] = d.geography;
-	  	idByName[d.geography] = d.id;	
-	  	countyObjectById[d.id] = d;  	
+	CICstructure = CICStructure;
+	
+	d3.tsv("CountyData.tsv", function (error, countyData) {
+		data = countyData;
+		
+		countyData.forEach(function(d) { 
+		  	quantById[d.id] = +d.RGDPGrowth13; 
+		  	nameById[d.id] = d.geography;
+		  	idByName[d.geography] = d.id;	
+		  	countyObjectById[d.id] = d;  	
+		});
+		
+		// dataset to map first
+		allData("Payment in Lieu of Taxes (PILT)", "PILT Amount");
 	});
 });
-
 
 function setup(width,height){
   projection = d3.geo.albersUsa()
@@ -138,9 +145,6 @@ function draw(topo, stateMesh) {
 		}
 	}, false);
     
-    
-    // dataset to map first
-	allData("Payment in Lieu of Taxes (PILT)", "PILT Amount");
    
 }
 
@@ -380,11 +384,12 @@ function highlight(d) {
 }
 
 
-function update(primeInd, primeIndYear){
+function update(primeInd){
 	//Will first break the JSON object into component parts here:
-	var primeIndText = primeInd.name;
-	var primeIndUnits = primeInd.unit;
-	var dataType = primeInd.dataType;
+	var primeIndText = primeIndObj.name;
+	var primeIndUnits = primeIndObj.unit;
+	var dataType = primeIndObj.dataType;
+	var primeIndYear = primeIndObj.year;
 	
 	//will need to redefine "data" variable to be our returned data from the GET call	
 	data.forEach(function(d){
@@ -459,12 +464,11 @@ var primeIndObj = {}, secondIndObj = {}, thirdIndObj = {}, fourthIndObj = {};
 function allData(dataset, indicator){
 	
 	primeIndObj = getData(dataset, indicator);
-	console.log(primeIndObj);
 	//grab companion indcators through same function
 	secondIndObj = getData(primeIndObj.companions[0][0], primeIndObj.companions[0][1]);
 	thirdIndObj = getData(primeIndObj.companions[1][0], primeIndObj.companions[1][1]);
 	fourthIndObj = getData(primeIndObj.companions[2][0], primeIndObj.companions[2][1]);
-	/*
+	
 	if(secondIndObj.name==primeIndObj.name){
 		secondIndObj = getData(primeIndObj.companions[3][0], primeIndObj.companions[3][1]);
 	}
@@ -474,7 +478,7 @@ function allData(dataset, indicator){
 	else if(fourthIndObj.name==primeIndObj.name){
 		fourthIndObj = getData(primeIndObj.companions[3][0], primeIndObj.companions[3][1]);
 	}
-	*/
+	
 	
 	//
 	///
@@ -482,97 +486,79 @@ function allData(dataset, indicator){
 	//"data" should be structured as a JSON with an array of each county.  each county has properties "id"(fips), "geography"(county name, ST), and each of the indicators specified above and clicked and doubleclicked data
 	//
 	//Will move update(selectedData) down here and replace with update(primeInd, primeIndYear)
-	//update(primeInd, primeIndYear);
+	update(primeIndObj);
 	
 }
 
 //Alternative to this big lookup is to list a i,j,h "JSON address" in the HTML anchor properties.  Would still likely require some type of HTML or JSON lookup for companion indicators though
 function getData(dataset, indicator){
-	
-	// replace with .get() function call
-	d3.json("data/CICstructure.json", function(error, CICStructure){
-		if (!error) {
-			var selectedInd = {};
-			var Jcategory, structure;
-			structure = CICStructure.children;
-			for (var i = 0; i < structure.length; i++) {
-				for (var j = 0; j < structure[i].children.length; j++) {
-					if (structure[i].children[j].name == dataset) {
-						Jcategory = structure[i];
-						var Jdataset = structure[i].children[j];
-						selectedIndYear = d3.max(Jdataset.years);
-						//vintage = Jdataset.vintage;
-						sourceText = Jdataset.source;
-						companions = Jdataset.companions;
-						//dataNotes = Jdataset.notes;
-						for (var h = 0; h < Jdataset.children.length; h++) {
-							if (indicator == Jdataset.children[h].name) {
-								//primeInd is a JSON object from CIC-structure with the properties: name, units, dataType
-								selectedInd = Jdataset.children[h];
-								//append dataset properties to the selected indicator
-									selectedInd.year = selectedIndYear;
-									//selectedInd.vintage = vintage;
-									selectedInd.source = sourceText;
-									//selectedInd.notes = dataNotes;
-									selectedInd.dataset = Jdataset.name;
-									selectedInd.companions = companions;
-									
-								//break;
-							}
-						}
+	var selectedInd = {};
+	var Jcategory, structure;
+	structure = CICstructure.children;
+	for (var i = 0; i < structure.length; i++) {
+		for (var j = 0; j < structure[i].children.length; j++) {
+			if (structure[i].children[j].name == dataset) {
+				Jcategory = structure[i];
+				var Jdataset = structure[i].children[j];
+				selectedIndYear = d3.max(Jdataset.years);
+				//vintage = Jdataset.vintage;
+				sourceText = Jdataset.source;
+				companions = Jdataset.companions;
+				//dataNotes = Jdataset.notes;
+				for (var h = 0; h < Jdataset.children.length; h++) {
+					if (indicator == Jdataset.children[h].name) {
+						//primeInd is a JSON object from CIC-structure with the properties: name, units, dataType
+						selectedInd = Jdataset.children[h];
+						//append dataset properties to the selected indicator
+							selectedInd.year = selectedIndYear;
+							//selectedInd.vintage = vintage;
+							selectedInd.source = sourceText;
+							//selectedInd.notes = dataNotes;
+							selectedInd.dataset = Jdataset.name;
+							selectedInd.companions = companions;
+							
 						//break;
 					}
 				}
+				//break;
 			}
-					
-			//getCompanionData(Jdataset);
-			
-			//temporary switch to override this function while using tsv data
-			/*
-			switch(indName){
-				case "Administration":
-					primeInd = { 
-						'name': "RGDPGrowth13",
-						'dataType': "percent"
-					};
-					primeIndYear = '2013';
-					break;
-				case "County Structure":
-					primeInd = { 
-						'name': "countyGov",
-						'dataType': "binary"
-					};
-					primeIndYear = '2014';
-					break;
-				case "County Finance":
-					primeInd = { 
-						'name': "avgWageFAKE",
-						'dataType': "level",
-						'unit': "dollars"
-					};
-					primeIndYear = '1910';
-					break;
-				default:
-					primeInd = {
-						"name": "HHpriceGrowth13",
-						"dataType": "percent"
-					};
-					primeIndYear = '2013';
-					break;
-			};
-			*/
-			
-			
-		} else {
-			// notify user of error in some way
-			console.log(error);
 		}
-		//console.log("in JSON call");
-		console.log(selectedInd);
-		return selectedInd;
-	});	
-	//console.log("in getData");
-	console.log(selectedInd);
+	}
+	
+	//temporary switch to override this function while using tsv data
+	/*
+	switch(indName){
+		case "Administration":
+			primeInd = { 
+				'name': "RGDPGrowth13",
+				'dataType': "percent"
+			};
+			primeIndYear = '2013';
+			break;
+		case "County Structure":
+			primeInd = { 
+				'name': "countyGov",
+				'dataType': "binary"
+			};
+			primeIndYear = '2014';
+			break;
+		case "County Finance":
+			primeInd = { 
+				'name': "avgWageFAKE",
+				'dataType': "level",
+				'unit': "dollars"
+			};
+			primeIndYear = '1910';
+			break;
+		default:
+			primeInd = {
+				"name": "HHpriceGrowth13",
+				"dataType": "percent"
+			};
+			primeIndYear = '2013';
+			break;
+	};
+	*/
 	return selectedInd;
 }
 
