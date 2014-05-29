@@ -99,7 +99,7 @@ function setup(width,height){
   g = svg.append("g")
   		.attr("class", "counties");
   		
-  d3.select('#map').on('click', function() { tooltip.classed('hidden', true); });
+  d3.select('#map').on('click', function() { if (selected !== null) highlight(selected); });
   d3.select('#close').on('click', function() { $('#instructions').hide(); });
 		
   buildIndDropdown();
@@ -143,6 +143,7 @@ function draw(topo, stateMesh) {
   //tooltips
   county
     .on('click', function(d, i) {
+    	d3.event.stopPropagation();
     	var mouse = d3.mouse(svg.node()).map( function(d) { return parseInt(d); } );
 		
 		highlight(d);
@@ -396,13 +397,12 @@ function highlight(d) {
 	g.selectAll("path")
       .classed("active", selected && function(d) { return d === selected; });
 	
-	if(frmrActive){
-		frmrActive.style("fill", frmrFill);
-	}
-	
+	if (frmrActive) frmrActive.style("fill", frmrFill);	
 	frmrActive = d3.select(".active");
-	frmrFill = frmrActive.style("fill");
-	frmrActive.style("fill", null);
+	if (frmrActive[0][0] !== null) {
+		frmrFill = frmrActive.style("fill");
+		frmrActive.style("fill", null);
+	}
 }
 
 
