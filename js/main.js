@@ -1,7 +1,32 @@
 d3.select(window).on("resize", throttle);
 
 function toTitleCase(str){ return str.replace(/\w\S*/g, function(txt){return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();}); }
-var percentFmt = d3.format(".1%");
+
+var format = {
+	"percent": d3.format('.1%'),
+	"binary": function (num) {
+		if (num === 1) return "Yes";
+		else if (num === 0) return "No";
+		else return "N/A";
+	},
+	"categorical": function (num) { return num; },
+	"level": function (num) {
+    	if (num >= 1000000000) {
+    		return String((num/1000000000).toFixed(1)) + "bil";
+    	} else if (num >= 1000000) {
+    		return String((num/1000000).toFixed(1)) + "mil";
+    	} else if (num >= 10000) {
+    		return String((num/1000).toFixed(1)) + "k";
+    	} else if (num >= 100) {
+    		return num.toFixed(0);
+    	} else if (num == 0) {
+    		return 0;
+    	} else {
+    		return num.toFixed(1);	
+    	}
+    }			
+};
+format['level_np'] = format['level'];
 
 var zoom = d3.behavior.zoom()
     .scaleExtent([1, 10])
@@ -20,6 +45,7 @@ var path = d3.geo.path()
 var topo,stateMesh,projection,path,svg,g;
 
 var tooltip = d3.select("#container").append("div").attr("class", "tooltip hidden").attr("id", "tt");
+var tipContainer = tooltip.append('div').attr('id', 'tipContainer');
 var tooltipOffsetL = document.getElementById('container').offsetLeft+(width/2)+40;
 var tooltipOffsetT = document.getElementById('container').offsetTop+(height/2)+20;
 
@@ -35,7 +61,7 @@ var CICstructure,
 	selected,
 	clickCount = 0;
 	
-var quantById = [], 
+var quantById = [], secondQuantById = [], thirdQuantById = [], fourthQuantById = []
 	nameById = [],
 	idByName = {},
 	countyObjectById = {},
@@ -104,7 +130,7 @@ function draw(topo, stateMesh) {
       .attr("class", "county")
       .attr("d", path)
       .attr("id", function(d){ return d.id;})
-      .style("fill", function(d) { if(!isNaN(quantById[d.id])){return color(quantById[d.id]);} else{return "#ccc";} });
+      .style("fill", function(d) { if(!isNaN(quantById[d.id])){return color(quantById[d.id]);} else{return "rgb(155,155,155)";} });
 
   g.append("path")
 		      .datum(stateMesh)
@@ -393,10 +419,11 @@ function update(dataset, indicator) {
 		var isNumeric = (dataType === 'level' || dataType === 'level_np' || dataType === 'percent');
 
 		countyData.forEach(function(d) {
-			quantById[d.id] =  isNumeric ? parseFloat(d[dataset + ' - ' + indicator]) : d[dataset + ' - ' + indicator];		
-			//second indicator
-			//third indicator
-			//fourth indicator
+			quantById[d.id] =  isNumeric ? parseFloat(d[dataset+' - '+indicator]) : d[dataset+' - '+indicator];					
+			secondQuantById[d.id] =  isNumeric ? parseFloat(d[secondIndObj.dataset+' - '+secondIndObj.name]) : d[secondIndObj.dataset+' - '+secondIndObj.name];		
+			thirdQuantById[d.id] =  isNumeric ? parseFloat(d[thirdIndObj.dataset+' - '+thirdIndObj.name]) : d[thirdIndObj.dataset+' - '+thirdIndObj.name];		
+			fourthQuantById[d.id] =  isNumeric ? parseFloat(d[fourthIndObj.dataset+' - '+fourthIndObj.name]) : d[fourthIndObj.dataset+' - '+fourthIndObj.name];		
+
 			nameById[d.id] = d.geography;
 			idByName[d.geography] = d.id;
 			countyObjectById[d.id] = d;
@@ -414,7 +441,7 @@ function update(dataset, indicator) {
 			}
 			for (var ind in vals) numCorrVals++;
 		}
-		
+			
 		// define range i.e. color output
 		switch(dataType) {
 			case "percent":
@@ -427,7 +454,7 @@ function update(dataset, indicator) {
 				// max is 5 categories
 				range = [];
 				var availColors = ['rgb(228,26,28)', 'rgb(55,126,184)', 'rgb(77,175,74)', 'rgb(152,78,163)', 'rgb(255,127,0)'];
-				for (var i = 0; i < numCorrVals; i++) range.push(availColors[i]);
+				for (var i = 0; i < numCorrVals; i++) range.push(availColors[i]);				
 				break;
 			default:
 				range = ['rgb(239,243,255)', 'rgb(189,215,231)', 'rgb(107,174,214)', 'rgb(49,130,189)', 'rgb(8,81,156)'];
@@ -513,7 +540,7 @@ function createLegend(keyArray) {
 	d3.selectAll(".legend svg").remove();
 	d3.select("#legendTitle").remove();
 
-	var isCurrency = (primeIndObj.unit) ? (primeIndObj.unit.indexOf("dollar") != -1) : false; // determine if indicator values are currency by checking units
+	var isCurrency = (primeIndObj.hasOwnProperty('unit')) ? (primeIndObj.unit.indexOf("dollar") != -1) : false; // determine if indicator values are currency by checking units
 	var legendTitle = primeIndObj.year + " " + primeIndObj.name;
 	//if (primeIndObj.dataType !== 'binary' && primeIndObj.dataType !== 'categorical') legendTitle += " in " + primeIndObj.unit; 
 
@@ -523,7 +550,8 @@ function createLegend(keyArray) {
 			boxHeight : 15,
 			boxWidth : 60,
 			dataType : primeIndObj.dataType,
-			isCurrency : isCurrency
+			isCurrency : isCurrency,
+			formatFnArr: format
 		};
 		if (keyArray) options.keyArray = keyArray;
 		
@@ -534,11 +562,26 @@ function createLegend(keyArray) {
 
 function clicked(mouse, l, t, d, i) {
     tooltip
-      .classed("hidden", false)
-      .style("left", (mouse[0]+l) + "px")
-      .style("top", +(mouse[1]+t) +"px");      
-  	return tooltip.html("<div id='tipContainer'><div id='tipLocation'><b>" + "FIPS: " + d.id + "</b></div><div id='tipKey'></b>" + primeIndText + ": <b>" + percentFmt(quantById[d.id]) + "</b><br>County-owned roads, share of public roads statewide: <b>" + "VAR" + "</b>" + "<br/>State gas tax rate ($/gallon): <b>" + "VAR" + "</b><br>Year of last state gas tax increase: <b>" + "VAR"  + "</div><div class='tipClear'></div> </div>");
-	
+     	.classed("hidden", false)
+      	.style("left", (mouse[0]+l) + "px")
+      	.style("top", +(mouse[1]+t) +"px");
+    
+    $('#tipContainer').empty();
+    tipContainer.append('div')
+    	.attr('id', 'tipLocation')
+    	.text(countyObjectById[d.id].geography);
+
+	var obj = [secondIndObj, thirdIndObj, fourthIndObj],
+		quant = [secondQuantById, thirdQuantById, fourthQuantById];
+		
+	// loop through all three companions and display corresponding formatted values	
+	for (var i = 0; i < 3; i++) {
+		var currencyText = "";
+		if (obj[i].hasOwnProperty('unit') && obj[i].unit.indexOf("dollar") != -1) currencyText = "$"; // determine if indicator values are currency by checking units
+		tipContainer.append('div')
+			.attr('class', 'tipKey')
+			.text(obj[i].name + ': ' + currencyText + format[obj[i].dataType](quant[i][d.id]));
+	}	
 }
 
 function doubleClicked(d) {

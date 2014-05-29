@@ -39,43 +39,9 @@ var colorlegend = function (target, scale, type, options) {
     	, boxLabelHeight = 10
     	, domain = scale.domain()
     	, range = scale.range()
-    	, quantiles = scale.quantiles();
+    	, quantiles = scale.quantiles()
+    	, format = opts.formatFnArr;
     
-    // define how to format text values based on data type
-    switch (dataType) {
-    	case 'percent':
-    		var format = d3.format(".1%");
-    		break;
-    	case 'binary':
-    		var format = function (num) {
-    			if (num === 1) return "Yes";
-    			else if (num === 0) return "No";
-    			else return "N/A";
-    		};
-    		break;
-    	case 'level':
-    	case 'level_np':
-    	    // format thousands with a "k", format millions with a "mil"
-    	    var format = function (num) {
-    	    	if (num >= 1000000000) {
-    	    		return String((num/1000000000).toFixed(1)) + "bil";
-    	    	} else if (num >= 1000000) {
-    	    		return String((num/1000000).toFixed(1)) + "mil";
-    	    	} else if (num >= 10000) {
-    	    		return String((num/1000).toFixed(1)) + "k";
-    	    	} else if (num >= 100) {
-    	    		return num.toFixed(0);
-    	    	} else if (num == 0) {
-    	    		return 0;
-    	    	} else {
-    	    		return num.toFixed(1);	
-    	    	}
-    	    };
-    	    break;
-    	default:
-    		var format = function (num) { return num; };
-    }	
-
 
 	// check for valid input - 'quantize' not included
   	for (var i = 0; i < scaleTypes.length; i++) {
@@ -176,7 +142,7 @@ var colorlegend = function (target, scale, type, options) {
       	.text(function (d, i) {
 	        // show label for all ordinal values
     	    if (type === 'ordinal') return dataValues[i];
-    	    else return isCurrency ? ("$" + format(dataValues[i])) : format(dataValues[i]); // format is defined based on dataType
+    	    else return isCurrency ? ("$" + format[dataType](dataValues[i])) : format[dataType](dataValues[i]); // format is defined based on dataType
       	});
       	
     // additional text on top of color boxes, displaying "top 20%", "bottom 20%", etc.
