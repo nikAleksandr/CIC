@@ -169,6 +169,7 @@ function buildIndDropdown() {
 	d3.selectAll('.dataset').selectAll('.indicator').on('click', function() {
 		var datasetName = this.parentNode.parentNode.parentNode.title; // real hokey, will fix eventually
 		var indicatorName = this.title;
+		var defaultDropdownText = d3.select("#primeIndText").html(indicatorName);
 		update(datasetName, indicatorName);
 	});
 }

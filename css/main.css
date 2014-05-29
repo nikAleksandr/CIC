@@ -337,7 +337,7 @@ svg:not(:root) {
 }
 
 #legendTitle {
-	margin-left: 23px;
+	text-align: center;
 }
 
 /*
