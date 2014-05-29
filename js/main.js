@@ -182,7 +182,7 @@ function buildSearch() {
 		
 		if (type === 'state') searchField.style('display', 'none');
 		else searchField.style('display', '');
-		
+
 		if (type === 'city') stateDrop.style('display', 'none');
 		else stateDrop.style('display', '');
 		

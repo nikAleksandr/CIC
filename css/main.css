@@ -236,40 +236,23 @@ h1 small {
   fill: none;
   pointer-events: all;
 }
-
+.navbar-CIC {
+	background-color: #FFF;
+	border: none;
+	margin-bottom: 10px;
+}
+.navbar a {
+	color:#000;
+}
+.navbar .icon-bar{
+	background-color:#ccc;
+}
+.navbar-CIC {
+	
+}
 #searchContainer{
 	font-size: .71em;
 }
-/*
-#search_type {
-	position: absolute;
-	top: 1.7em;
-	right: 22em;
-	font-size: .71em;
-}
-
-#search_field, #state_drop, #search_submit {
-	display: inline-block;
-	position: absolute;
-	top: 1.6em;
-	margin: 0;
-	font-size: .71em;
-}
-
-#search_field {
-	right: 11.5em;
-}
-
-#state_drop {
-	right: 6em;
-	top: 1.7em;
-}
-
-#search_submit{
-	color: #222;
-	right: 1em;
-}
-*/
 #map {
 	z-index:-10;
 }
@@ -473,9 +456,11 @@ div.tooltip {
    Modify as content requires.
    ========================================================================== */
 
-@media (min-width: 640) {
+@media (min-width: 640px) {
     /* Style adjustments for viewports that meet the condition */
-
+	.navbar-brand {
+		display: none;
+	}
 }
 
 @media print,
