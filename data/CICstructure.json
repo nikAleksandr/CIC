@@ -747,7 +747,8 @@
       	{
       		"name": "American Dream Downpayment Initiative (ADDI)",
       		"years": [2003, 2004, 2005, 2006, 2007, 2008],
-      		"companions": [["American Dream Downpayment Initiative (ADDI)", "ADDI Amount"], ["American Dream Downpayment Initiative (ADDI)", "ADDI Annual Growth Rate (from previous year)"], ["Housing & Urban Development Grants", "Total HUD Amount"], ["Housing & Urban Development Grants", "HUD Annual Growth Rate (from previous year)"]],
+       		"source": "U.S. Department of Housing and Urban Development",
+     		"companions": [["American Dream Downpayment Initiative (ADDI)", "ADDI Amount"], ["American Dream Downpayment Initiative (ADDI)", "ADDI Annual Growth Rate (from previous year)"], ["Housing & Urban Development Grants", "Total HUD Amount"], ["Housing & Urban Development Grants", "HUD Annual Growth Rate (from previous year)"]],
       		"children": [
       			{"name": "ADDI Amount", "unit": "thousands of dollars", "dataType": "level", "definition": "Funding received for the American Dream Downpayment Initiative program"},
       			{"name": "ADDI Annual Growth Rate (from previous year)", "dataType": "percent", "definition": "Percent change in funding for the American Dream Downpayment Initiative program from the previous year"}
@@ -756,6 +757,7 @@
       	{
       		"name": "Community Development Block Grants (CDBG)",
       		"years": [2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014],
+      		"source": "U.S. Department of Housing and Urban Development",
       		"companions": [["Community Development Block Grants (CDBG)", "CDBG Amount"], ["Community Development Block Grants (CDBG)", "CDBG Annual Growth Rate (from previous year)"], ["Housing & Urban Development Grants", "Total HUD Amount"], ["Housing & Urban Development Grants", "HUD Annual Growth Rate (from previous year)"]],
           	"children": [
       			{"name": "CDBG Amount", "unit": "thousands of dollars", "dataType": "level", "definition": "Funding received for the Community Development Block Grants program"},
@@ -765,6 +767,7 @@
       	{
       		"name": "Emergency Shelter Grants (ESG)",
       		"years": [2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014],
+      		"source": "U.S. Department of Housing and Urban Development",
       		"companions": [["Emergency Shelter Grants (ESG)", "ESG Amount"], ["Emergency Shelter Grants (ESG)", "ESG Annual Growth Rate (from previous year)"], ["Housing & Urban Development Grants", "Total HUD Amount"], ["Housing & Urban Development Grants", "HUD Annual Growth Rate (from previous year)"]],
           	"children": [
       			{"name": "ESG Amount", "unit": "thousands of dollars", "dataType": "level", "definition": "Funding received for the Emergency Shelter Grants program"},
@@ -774,6 +777,7 @@
       	{
       		"name": "HOME Investment Partnership Program",
       		"years": [2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014],
+      		"source": "U.S. Department of Housing and Urban Development",
       		"companions": [["HOME Investment Partnership Program", "HOME Amount"], ["HOME Investment Partnership Program", "HOME Annual Growth Rate (from previous year)"], ["Housing & Urban Development Grants", "Total HUD Amount"], ["Housing & Urban Development Grants", "HUD Annual Growth Rate (from previous year)"]],
           	"children": [
       			{"name": "HOME Amount", "unit": "thousands of dollars", "dataType": "level", "definition": "Funding received for the HOME Investment Partnership Program"},
@@ -783,6 +787,7 @@
       	{
       		"name": "Housing & Urban Development Grants",
       		"years": [2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014],
+      		"source": "U.S. Department of Housing and Urban Development",
       		"companions": [["Housing & Urban Development Grants", "Total HUD Amount"], ["Housing & Urban Development Grants", "HUD Annual Growth Rate (from previous year)"], ["Community Development Block Grants (CDBG)", "CDBG Amount"], ["HOME Investment Partnership Program", "HOME Amount"]],
           	"children": [
       			{"name": "Total HUD Amount", "unit": "thousands of dollars", "dataType": "level", "definition": "Funding received for the Housing & Urban Development Grants program"},
@@ -792,6 +797,7 @@
       	{
       		"name": "Housing Opportunities for Persons with AIDS (HOPWA)",
       		"years": [2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014],
+      		"source": "U.S. Department of Housing and Urban Development",
       		"companions": [["Housing Opportunities for Persons with AIDS (HOPWA)", "HOPWA Amount"], ["Housing Opportunities for Persons with AIDS (HOPWA)", "HOPWA Annual Growth Rate (from previous year)"], ["Housing & Urban Development Grants", "Total HUD Amount"], ["Housing & Urban Development Grants", "HUD Annual Growth Rate (from previous year)"]],
           	"children": [
       			{"name": "HOPWA Amount", "unit": "thousands of dollars", "dataType": "level", "definition": "Funding received for the Housing Opportunities for Persons with AIDS program"},
@@ -801,20 +807,21 @@
       	{
       		"name": "Payment in Lieu of Taxes (PILT)",
       		"years": [2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013],
+      		"source": "U.S. Department of the Interior",
       		"companions": [["Payment in Lieu of Taxes (PILT)", "PILT Amount"], ["Payment in Lieu of Taxes (PILT)", "PILT Annual Growth Rate (from previous year)"], ["Payment in Lieu of Taxes (PILT)", "PILT per Square Mile"], ["Payment in Lieu of Taxes (PILT)", "Percent of Federal Land"]],
-      		"notes": "These are test numbers and do not reflect the final project.",
       		"children": [
-      			{"name": "PILT Amount", "unit": "dollars", "dataType": "level", "definition": "Funding received for Payment in Lieu of Taxes"},
-      			{"name": "PILT Annual Growth Rate (from previous year)", "dataType": "percent", "definition": "Percent change in funding for Payment in Lieu of Taxes from the previous year"},
+      			{"name": "PILT Amount", "unit": "dollars", "dataType": "level", "definition": "Payment in Lieu of Taxes annual funding"},
+      			{"name": "PILT Annual Growth Rate (from previous year)", "dataType": "percent", "definition": "Percent change in Payment in Lieu of Taxes annual funding from the previous year"},
       			{"name": "Total Federal Land Area", "unit": "square miles", "dataType": "level", "definition": "The area of total federal land in the county (in square miles)"},
       			{"name": "Total County Area", "unit": "square miles", "dataType": "level", "definition": "The area of total land in the county (in square miles)"},
       			{"name": "Percent of Federal Land", "dataType": "percent", "definition": "The percentage of the county's total land area that consists of federal land."},
-      			{"name": "PILT per Square Mile", "unit": "dollars per square mile", "dataType": "level", "definition": "The Payment in Lieu of Taxes amount per square mile of federal land"}
+      			{"name": "PILT per Square Mile", "unit": "dollars per square mile", "dataType": "level", "definition": "The Payment in Lieu of Taxes annual funding per square mile of federal land"}
       		]
       	},
       	{
       		"name": "Secure Rural Schools (SRS)",
       		"years": [2012],
+      		"source": "U.S. Department of Agriculture",
       		"companions": [["Secure Rural Schools (SRS)", "SRS Amount"], ["USDA Rural Development", "USDA Total Amount"], ["Payment in Lieu of Taxes (PILT)", "PILT Amount"], ["Housing & Urban Development Grants", "Total HUD Amount"]],
       		"children": [
       			{"name": "SRS Amount", "unit": "thousands of dollars", "dataType": "level", "definition": "Funding received for the Secure Rural Schools program"}
@@ -823,6 +830,7 @@
       	{
       		"name": "State Criminal Alien Assistance Program (SCAAP)",
       		"years": [2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013],
+      		"source": "U.S. Department of Justice - Bureau of Justice Assistance",
       		"companions": [["State Criminal Alien Assistance Program (SCAAP)", "SCAAP Amount"], ["State Criminal Alien Assistance Program (SCAAP)", "SCAAP Annual Growth Rate"], ["Housing & Urban Development Grants", "Total HUD Amount"], ["Housing & Urban Development Grants", "HUD Annual Growth Rate (from previous year)"]],
       		"children": [
       			{"name": "SCAAP Level", "unit": "thousands of dollars", "dataType": "level", "definition": "Funding received for the State Criminal Alien Assistance Program"},
@@ -832,6 +840,7 @@
       	{
       		"name": "USDA Rural Development",
       		"years": [2009, 2010, 2011, 2012, 2013, 2014],
+      		"source": "U.S. Department of Agriculture - Rural Development",
       		"companions": [["USDA Rural Development", "USDA Total Amount"], ["USDA Rural Development", "USDA Total Amount Growth Rate (from previous year)"], ["USDA Rural Development", "USDA Grant Amount"], ["USDA Rural Development", "USDA Loan Amount"]],
       		"children": [
       			{"name": "USDA Total Amount", "unit": "thousands of dollars", "dataType": "level", "definition": "Funding received for the USDA Rural Development program"},

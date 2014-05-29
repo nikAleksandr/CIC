@@ -157,9 +157,9 @@ var colorlegend = function (target, scale, type, options) {
 	    	.style('pointer-events', 'none')
 	    	.text(function (d, i) {
 	    		if (i == 0) return "bottom 20%";
-	    		if (i == 1) return "mid-bottom 20%";
-	    		if (i == 2) return "middle 20%";
-	    		if (i == 3) return "mid-top 20%";
+	    		//if (i == 1) return "mid-bottom 20%";
+	    		//if (i == 2) return "middle 20%";
+	    		//if (i == 3) return "mid-top 20%";
 	    		if (i == 4) return "top 20%";
 	    	});
 	}
