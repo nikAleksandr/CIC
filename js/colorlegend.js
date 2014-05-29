@@ -142,7 +142,7 @@ var colorlegend = function (target, scale, type, options) {
       	.text(function (d, i) {
 	        // show label for all ordinal values
     	    if (type === 'ordinal') return dataValues[i];
-    	    else return isCurrency ? ("$" + format[dataType](dataValues[i])) : format[dataType](dataValues[i]); // format is defined based on dataType
+    	    else return format[dataType](dataValues[i], isCurrency); // format is defined based on dataType
       	});
       	
     // additional text on top of color boxes, displaying "top 20%", "bottom 20%", etc.
