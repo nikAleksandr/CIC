@@ -851,7 +851,7 @@
 				 "years": [2013],
 				 "companions": [["County Profile", "Census Region"], ["County Profile", "Year Founded"], ["County Profile", "County Square Mileage"], ["County Profile", "Fiscal Year End Date"]],
       			 "children": [
-					{"name": "Census Region", "dataType": "categorical"},
+					{"name": "Census Region", "dataType": "categorical", "definition": "Groupings of states and the District of Columbia that subdivide the United States for the presentation of census data. There are four census regions - Northeast, Midwest, South and West."},
 					{"name": "County Seat", "dataType": "none", "definition": "Administrative center for the county.  Most counties have only one county seat. However, some counties in Alabama, Arkansas, Iowa, Kentucky, Massachusetts, Mississippi, Missouri, New Hampshire, New York, North Carolina, and Vermont have two or more county seats, usually located on opposite sides of the county."},
 					{"name": "Year Founded", "dataType": "level_np", "definition": "Year the county was recognized by the state"},
 					{"name": "Year Consolidated", "dataType": "level_np", "definition": "Year a city and a county that have been merged into one unified jurisdiction. A consolidated government has the powers and responibilities of both types of entities."},
