@@ -46,7 +46,7 @@ var topo,stateMesh,projection,path,svg,g;
 
 var tooltip = d3.select("#container").append("div").attr("class", "tooltip hidden").attr("id", "tt");
 var tipContainer = tooltip.append('div').attr('id', 'tipContainer');
-var tooltipOffsetL = document.getElementById('container').offsetLeft+(width/2)+40;
+var tooltipOffsetL = document.getElementById('container').offsetLeft+(width/2)+40;   //offsets plus width/height of transform, plus 20 px of padding, plus 20 extra for tooltip offset off mouse
 var tooltipOffsetT = document.getElementById('container').offsetTop+(height/2)+20;
 
 
@@ -58,9 +58,8 @@ var CICstructure,
 	dataYear,
 	data,
 	legend,
-	selected,
-	clickCount = 0;
-	
+	selected;
+		
 var quantById = [], secondQuantById = [], thirdQuantById = [], fourthQuantById = []
 	nameById = [],
 	idByName = {},
@@ -99,7 +98,7 @@ function setup(width,height){
   g = svg.append("g")
   		.attr("class", "counties");
   		
-  d3.select('#map').on('click', function() { tooltip.classed('hidden', true); });
+  d3.select('#map').on('click', function() { if (selected !== null) highlight(selected); });
   d3.select('#close').on('click', function() { $('#instructions').hide(); });
 		
   buildIndDropdown();
@@ -137,12 +136,11 @@ function draw(topo, stateMesh) {
 		      .attr("id", "state-borders")
 		      .attr("d", path);
   
-  
-  //offsets plus width/height of transform, plus 20 px of padding, plus 20 extra for tooltip offset off mouse
-
   //tooltips
+  var clickCount = 0;
   county
     .on('click', function(d, i) {
+    	d3.event.stopPropagation();
     	var mouse = d3.mouse(svg.node()).map( function(d) { return parseInt(d); } );
 		
 		highlight(d);
@@ -151,8 +149,8 @@ function draw(topo, stateMesh) {
 		if (clickCount === 1) {
 			singleClickTimer = setTimeout(function() {
 				clickCount = 0;
-				clicked(mouse, tooltipOffsetL, tooltipOffsetT, d, i);
-			}, 400);
+				if (d3.select('.active').empty() !== true) clicked(mouse, tooltipOffsetL, tooltipOffsetT, d, i);
+			}, 300);
 		} else if (clickCount === 2) {
 			clearTimeout(singleClickTimer);
 			clickCount = 0;
@@ -164,54 +162,6 @@ function draw(topo, stateMesh) {
 }
 
 function buildIndDropdown() {
-	// dynamically create dropdown menu with categories pulled from json
-	/*d3.json("data/CICstructure.json", function(error, CICStructure){
-		if (!error) {
-			// empty out dropdown
-			d3.select('#primeInd')
-				.selectAll('li')
-					.remove();
-			
-			var s = CICStructure.children;
-			var createCategory = function(catName) {
-				/*var primeDrop = d3.select('#primeInd');
-				primeDrop.append('a').text(catName);
-				var cat = primeDrop.append('li');
-				var cat = d3.select('#primeInd').append('li').append('a')
-					.attr('name', catName)
-					.attr('title', catName)
-					.attr('href', '#')
-					.style('text-align', 'left')
-					.text(catName)
-					.on('click', function(d) {
-						tooltip.classed("hidden", true);				
-						selectedData = "Total";
-						selectedDataset = "Administration Expenditures";
-						selectedDataText = catName;
-						d3.select('#primeIndText').html(selectedDataText);
-						
-						update(selectedDataset, selectedData);
-					});
-				return cat;
-			};
-			var createIndicator = function(cat, indName) {
-				var indDrop = cat.append('ul');
-				indDrop.classed('dropdown-menu', true);
-				indDrop.append('li')
-					.append('a')
-					.attr('title', indName)
-					.attr('name', indName)
-					.attr('href', '#')
-					.text(indName);
-			};
-						
-			for (var i = 0; i < s.length; i++) createCategory(s[i].name);
-			//var testCat = createCategory('Test');
-			//createIndicator(testCat, 'Test 2');
-								
-		} else throw new Error('Error reading JSON file');
-	});*/
-	
 	d3.selectAll('.dataset').selectAll('.indicator').on('click', function() {
 		var datasetName = this.parentNode.parentNode.parentNode.title; // real hokey, will fix eventually
 		var indicatorName = this.title;
@@ -396,13 +346,12 @@ function highlight(d) {
 	g.selectAll("path")
       .classed("active", selected && function(d) { return d === selected; });
 	
-	if(frmrActive){
-		frmrActive.style("fill", frmrFill);
-	}
-	
+	if (frmrActive) frmrActive.style("fill", frmrFill);	
 	frmrActive = d3.select(".active");
-	frmrFill = frmrActive.style("fill");
-	frmrActive.style("fill", null);
+	if (frmrActive.empty() !== true) {
+		frmrFill = frmrActive.style("fill");
+		frmrActive.style("fill", null);
+	}
 }
 
 
@@ -411,7 +360,7 @@ function update(dataset, indicator) {
 	tooltip.classed("hidden", true);
 	frmrActive = null;
 	
-	allData(dataset, indicator); // pull necessary data from JSON and fill primeIndObj
+	allData(dataset, indicator); // pull data from JSON and fill primeIndObj, secondIndObj, etc.
 
 	//This is Where GET requests are issued to the server for JSON with fips, county name/state, plus primeInd.name, secondInd.name, thirdInd.name, and fourthInd.name; redefine "data" variable as this JSON
 	//"data" should be structured as a JSON with an array of each county.  each county has properties "id"(fips), "geography"(county name, ST), and each of the indicators specified above and clicked and doubleclicked data
