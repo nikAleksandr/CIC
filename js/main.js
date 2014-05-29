@@ -176,22 +176,24 @@ function buildSearch() {
 		
 	var stateDrop = d3.select('#state_drop');
 	var typeDrop = d3.select('#search_type');
-	var searchWidth = searchField.style('width');
-	var searchRight = searchField.style('right');
+	//var searchWidth = searchField.style('width');
+	//var searchRight = searchField.style('right');
 		
 	typeDrop.on('change', function() {
+		console.log("changed");
 		var type = typeDrop.property('value');
+		
 		if (type === 'state') searchField.style('display', 'none');
 		else searchField.style('display', '');
 		
 		if (type === 'city') {
 			stateDrop.style('display', 'none');
-			searchField.style('width', (parseInt(searchWidth) + 60) + 'px');
-			searchField.style('right', (parseInt(searchRight) - 60) + 'px');
+			//searchField.style('width', (parseInt(searchWidth) + 60) + 'px');
+			//searchField.style('right', (parseInt(searchRight) - 60) + 'px');
 		} else {
 			stateDrop.style('display', '');
-			searchField.style('width', searchWidth);
-			searchField.style('right', searchRight);
+			//searchField.style('width', searchWidth);
+			//searchField.style('right', searchRight);
 		}
 		
 		searchField.attr('placeholder', type + ' name');

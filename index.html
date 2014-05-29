@@ -10,9 +10,10 @@
 
         <link rel="stylesheet" href="css/normalize.css">
 		<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
-		<link href='http://fonts.googleapis.com/css?family=Oswald:300,400' rel='stylesheet' type='text/css'>
+		<link href='http://fonts.googleapis.com/css?family=Roboto:400' rel='stylesheet' type='text/css'>
         <link rel="stylesheet" href="css/main.css">
         <!-- SmartMenus jQuery Bootstrap Addon CSS -->
+        <!--<link href='css/sm-core-css.css' rel='stylesheet' type='text/css' />-->
 		<link href="css/jquery.smartmenus.bootstrap.css" rel="stylesheet">
         <script src="js/vendor/modernizr-2.7.1.min.js"></script>
         <!--<script type="text/javascript" src="js/d3.js"></script>-->
@@ -34,9 +35,11 @@
 				
 				<h1>County Intelligence Connection<small></small></h1>
 				
+				
+				
 			   <!-- Static navbar -->
 				<div class="navbar navbar-default" role="navigation">
-				  <div class="navbar-header">
+				 <!-- <div class="navbar-header">
 				    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
 				      <span class="sr-only">Toggle navigation</span>
 				      <span class="icon-bar"></span>
@@ -44,7 +47,7 @@
 				      <span class="icon-bar"></span>
 				    </button>
 				    <a class="navbar-brand" href="#">CIC 2.0</a>
-				  </div>
+				  </div>-->
 				  <div class="navbar-collapse collapse">
 				
 				    <!-- Left nav -->
@@ -170,103 +173,79 @@
 				        </ul>
 				      </li>
 				    </ul>
-					<div id="searchContainer" style="text-align: right;">
-						<select id="search_type">
-							<option value="city">City Search</option>
-							<option selected value="county">County Search</option>
-							<option value="state">State Search</option>
-						</select>
-						<form id="search_form">
-							<input type="search" id="search_field" placeholder="county name">
-							<select id="state_drop">
-								<option value="">State</option>
-								<option value="AK">AK</option>							
-								<option value="AL">AL</option>
-								<option value="AR">AR</option>
-								<option value="AZ">AZ</option>
-								<option value="CA">CA</option>							
-								<option value="CO">CO</option>
-								<option value="CT">CT</option>
-								<option value="DC">DC</option>
-								<option value="DE">DE</option>							
-								<option value="FL">FL</option>
-								<option value="GA">GA</option>
-								<option value="HI">HI</option>
-								<option value="IA">IA</option>							
-								<option value="ID">ID</option>
-								<option value="IL">IL</option>
-								<option value="IN">IN</option>
-								<option value="KS">KS</option>							
-								<option value="KY">KY</option>
-								<option value="LA">LA</option>
-								<option value="MA">MA</option>
-								<option value="MD">MD</option>							
-								<option value="ME">ME</option>
-								<option value="MI">MI</option>
-								<option value="MN">MN</option>
-								<option value="MO">MO</option>							
-								<option value="MS">MS</option>
-								<option value="MT">MT</option>
-								<option value="NC">NC</option>
-								<option value="ND">ND</option>							
-								<option value="NE">NE</option>
-								<option value="NH">NH</option>
-								<option value="NJ">NJ</option>
-								<option value="NM">NM</option>							
-								<option value="NV">NV</option>
-								<option value="NY">NY</option>
-								<option value="OH">OH</option>
-								<option value="OK">OK</option>							
-								<option value="OR">OR</option>
-								<option value="PA">PA</option>
-								<option value="RI">RI</option>
-								<option value="SC">SC</option>							
-								<option value="SD">SD</option>
-								<option value="TN">TN</option>
-								<option value="TX">TX</option>
-								<option value="UT">UT</option>							
-								<option value="VA">VA</option>
-								<option value="VT">VT</option>
-								<option value="WA">WA</option>
-								<option value="WI">WI</option>							
-								<option value="WV">WV</option>
-								<option value="WY">WY</option>
-								</select>
-							<input type="submit" id="search_submit" value="Search">
-						</form>
-					</div>
-				
+				    <!--right nav-->
+					<ul class="nav navbar-nav navbar-right" id="searchContainer">
+						<li><a>
+							<select id="search_type">
+								<option value="city">City Search</option>
+								<option selected value="county">County Search</option>
+								<option value="state">State Search</option>
+							</select>
+						</a></li>
+						<li><a>
+							<form id="search_form">
+								<input type="search" id="search_field" placeholder="county name">
+								<select id="state_drop">
+									<option value="">State</option>
+									<option value="AK">AK</option>							
+									<option value="AL">AL</option>
+									<option value="AR">AR</option>
+									<option value="AZ">AZ</option>
+									<option value="CA">CA</option>							
+									<option value="CO">CO</option>
+									<option value="CT">CT</option>
+									<option value="DC">DC</option>
+									<option value="DE">DE</option>							
+									<option value="FL">FL</option>
+									<option value="GA">GA</option>
+									<option value="HI">HI</option>
+									<option value="IA">IA</option>							
+									<option value="ID">ID</option>
+									<option value="IL">IL</option>
+									<option value="IN">IN</option>
+									<option value="KS">KS</option>							
+									<option value="KY">KY</option>
+									<option value="LA">LA</option>
+									<option value="MA">MA</option>
+									<option value="MD">MD</option>							
+									<option value="ME">ME</option>
+									<option value="MI">MI</option>
+									<option value="MN">MN</option>
+									<option value="MO">MO</option>							
+									<option value="MS">MS</option>
+									<option value="MT">MT</option>
+									<option value="NC">NC</option>
+									<option value="ND">ND</option>							
+									<option value="NE">NE</option>
+									<option value="NH">NH</option>
+									<option value="NJ">NJ</option>
+									<option value="NM">NM</option>							
+									<option value="NV">NV</option>
+									<option value="NY">NY</option>
+									<option value="OH">OH</option>
+									<option value="OK">OK</option>							
+									<option value="OR">OR</option>
+									<option value="PA">PA</option>
+									<option value="RI">RI</option>
+									<option value="SC">SC</option>							
+									<option value="SD">SD</option>
+									<option value="TN">TN</option>
+									<option value="TX">TX</option>
+									<option value="UT">UT</option>							
+									<option value="VA">VA</option>
+									<option value="VT">VT</option>
+									<option value="WA">WA</option>
+									<option value="WI">WI</option>							
+									<option value="WV">WV</option>
+									<option value="WY">WY</option>
+									</select>
+								<input type="submit" id="search_submit" value="Search">
+							</form>
+						</a></li>
+					</ul>
+					
 				  </div><!--/.nav-collapse -->
 				</div>
-			   
-			    <!--<ul class="nav nav-pills">
-			      <li class="dropdown">
-			        <a id="primeIndicator" role="button" class="btn-sm" data-toggle="dropdown" href="#">Primary Indicator <b class="caret"></b></a>
-			        <ul id="menu1" class="dropdown-menu" role="menu" aria-labelledby="drop4">
-			          <li role="presentation"><a role="menuitem" data="RGDPGrowth13" tabindex="-1" href="#">GDP Growth</a></li>
-			          <li role="presentation"><a role="menuitem" data="HHPriceGrowth13" tabindex="-1" href="#">Home Price Growth</a></li>
-			          <li role="presentation" class="disabled"><a role="menuitem" tabindex="-1" data-toggle="dropdown" href="#">Unemployment</a></li>
-			          <li role="presentation" class="divider"></li>
-			          <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Average Wage Growth</a>
-			          	<ul class="dropdown-menu">
-			              <li><a href="#">Action</a></li>
-			              <li><a href="#">Another action</a></li>
-			            </ul>
-			          </li>
-			        </ul>
-			      </li>
-			      <li class="dropdown">
-			        <a id="drop5" role="button" class="btn-sm" data-toggle="dropdown" href="#">Secondary Indicator <b class="caret"></b></a>
-			        <ul id="menu2" class="dropdown-menu" role="menu" aria-labelledby="drop5">
-			          <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Action</a></li>
-			          <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Another action</a></li>
-			          <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Something else here</a></li>
-			          <li role="presentation" class="divider"></li>
-			          <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Separated link</a></li>
-			        </ul>
-			      </li>
-			    </ul> 
-			   -->
   
 
 				
@@ -301,7 +280,7 @@
 			</script>
 	        <div id="underMap">
 	        		<div id="quantileLegend" class="legend"></div>
-		        	<p id="byline"></p>
+		        	<p id="byline">Brought to you by <a href="http://www.naco.org/research">NACo Research</a></p>
 		        	<p id="dataSource"></p>
 		        	<p id="webinar"><a href="https://www2.gotomeeting.com/register/418063602"></a>.</p>
 		        	<p id="dataNotes" >

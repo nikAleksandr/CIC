@@ -91,17 +91,14 @@ textarea {
     color: #000;
     padding: 0.2em 0;
 }
-#IE-update{
 
-}
 /* ==========================================================================
    Author's custom styles
    ========================================================================== */
 body {
 	background-color: white;
 	text-align: center;
-	font-family: 'Oswald', sans-serif;
-	letter-spacing: .1em;
+	font-family: 'Roboto', sans-serif;
 	box-shadow: 0 0 .625 rgba(0, 0, 0, 0.2);
 	font-size: 1em;
 }
@@ -112,10 +109,6 @@ body {
 	font-size: .9em;
 }
 
-#summary{
-	text-align:left;
-	padding: 1em 0;
-}
 #byline{
 	color: rgb(0,64,112);
 	float: right;
@@ -244,6 +237,10 @@ h1 small {
   pointer-events: all;
 }
 
+#searchContainer{
+	font-size: .71em;
+}
+/*
 #search_type {
 	position: absolute;
 	top: 1.7em;
@@ -272,7 +269,7 @@ h1 small {
 	color: #222;
 	right: 1em;
 }
-
+*/
 #map {
 	z-index:-10;
 }
