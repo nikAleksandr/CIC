@@ -10,19 +10,23 @@ var format = {
 		else return "N/A";
 	},
 	"categorical": function (num) { return num; },
-	"level": function (num) {
+	"level": function (num, curr) {
+		var isCurrency = curr || false;
     	if (num >= 1000000000) {
-    		return String((num/1000000000).toFixed(1)) + "bil";
+    		var formatted = String((num/1000000000).toFixed(1)) + "bil";
+    		return isCurrency ? '$' + formatted : formatted;
     	} else if (num >= 1000000) {
-    		return String((num/1000000).toFixed(1)) + "mil";
+    		var formatted = String((num/1000000).toFixed(1)) + "mil";
+    		return isCurrency ? '$' + formatted : formatted;
     	} else if (num >= 10000) {
-    		return String((num/1000).toFixed(1)) + "k";
+    		var formatted = String((num/1000).toFixed(1)) + "k";
+    		return isCurrency ? '$' + formatted : formatted;
     	} else if (num >= 100) {
-    		return num.toFixed(0);
+    		return isCurrency ? d3.format('$,.0f')(num) : d3.format(',.0f')(num);
     	} else if (num == 0) {
-    		return 0;
+    		return isCurrency ? '$0' : 0;
     	} else {
-    		return num.toFixed(1);	
+    		return isCurrency ? d3.format('$.1f')(num) : d3.format('.1f')(num);
     	}
     }			
 };
@@ -178,17 +182,13 @@ function buildSearch() {
 	var typeDrop = d3.select('#search_type');
 		
 	typeDrop.on('change', function() {
-		console.log("changed");
 		var type = typeDrop.property('value');
 		
 		if (type === 'state') searchField.style('display', 'none');
 		else searchField.style('display', '');
-		
-		if (type === 'city') {
-			stateDrop.style('display', 'none');
-		} else {
-			stateDrop.style('display', '');
-		}
+
+		if (type === 'city') stateDrop.style('display', 'none');
+		else stateDrop.style('display', '');
 		
 		searchField.attr('placeholder', type + ' name');
 	});
@@ -283,10 +283,10 @@ function submitSearch() {
 				$('#instructions').show();
 							
 			} else if (pMatchArray.length == 1) {
-				// if only one match, display county
-				executeSearchMatch(pMatchArray[0]);
+				executeSearchMatch(pMatchArray[0]); // if only one match, display county
 			} else {
 				alert('search not matched :(');
+				document.getElementById('search_form').reset();	
 			}
 		}
 		
@@ -527,32 +527,29 @@ function clicked(mouse, l, t, d, i) {
 	    	.attr('id', 'tipLocation')
 	    	.text(countyObjectById[d.id].geography);
 	
-		var obj = [secondIndObj, thirdIndObj, fourthIndObj],
-			quant = [secondQuantById, thirdQuantById, fourthQuantById];
+		var obj = [primeIndObj, secondIndObj, thirdIndObj, fourthIndObj],
+			quant = [quantById, secondQuantById, thirdQuantById, fourthQuantById];
 			
 		// loop through all three companions and display corresponding formatted values	
-		for (var i = 0; i < 3; i++) {
-			var currencyText = "";
-			if (obj[i].hasOwnProperty('unit') && obj[i].unit.indexOf("dollar") != -1) currencyText = "$"; // determine if indicator values are currency by checking units
+		for (var i = 0; i < obj.length; i++) {
+			var isCurrency = obj[i].hasOwnProperty('unit') ? (obj[i].unit.indexOf("dollar") != -1) : false; // determine if indicator values are currency by checking units
 			tipContainer.append('div')
 				.attr('class', 'tipKey')
-				.text(obj[i].name + ': ' + currencyText + format[obj[i].dataType](quant[i][d.id]));
+				.text(obj[i].name + ': ' + format[obj[i].dataType](quant[i][d.id], isCurrency));
 		}
 	}
 }
 
 function doubleClicked(d) {
 	tooltip.classed("hidden", true);
+	
 	var countyID = d.id.toString();
 	if (countyID.length == 4) countyID = "0" + countyID;
-	
-	/*
 	displayResultsInFrame('http://www.uscounties.org/cffiles_web/counties/county.cfm?id=' + encodeURIComponent(countyID));
 	d3.select('#showOnMap').on('click', function() {
 	  	$('#instructions').hide();
 	  	//clicked(countyPathById[d.id].geometry.coordinates[0][0], tooltipOffsetL, tooltipOffsetT, d); // a fake click to get tooltip to appear
   	});
-	*/
 }
 
 function redraw() {

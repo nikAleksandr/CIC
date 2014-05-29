@@ -192,7 +192,7 @@ body {
 
 #header {
 	position: relative;
-	z-index:10;
+	z-index: 10;
 	width: 110%;
 	height: auto;
 	font-size: 1em;
@@ -352,6 +352,7 @@ svg:not(:root) {
   opacity: .5;
 }
 div.tooltip {
+  z-index: 5;
   color: #222; 
   background: #fff; 
   padding: .5em; 
