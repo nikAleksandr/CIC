@@ -256,7 +256,7 @@
        	  "name": "Administration Expenditures",
           "source": "U.S. Census Bureau - Census of Individual Governments: Finance",
        	  "years": [2007],
-       	  "companions": [["Administartion Expenditures", "Total Administration"], ["Administration Expenditures", "Financial Administration"], ["Administration Expenditures", "Other Governmental Administration"], ["Administration Expenditures", "Liquor Stores"]],
+       	  "companions": [["Administration Expenditures", "Total Administration"], ["Administration Expenditures", "Financial Administration"], ["Administration Expenditures", "Other Governmental Administration"], ["Administration Expenditures", "Liquor Stores"]],
        	  "children": [
        	  	{"name": "Total", "unit": "thousands of dollars", "dataType": "level", "definition": "All amounts of money paid out by a government--net of recoveries and other correcting transactions--other than for retirement of debt, investment in securities, extension of credit, or as agency transactions. Note that expenditure includes only external transactions of a government and excludes non-cash transactions such as the provision of perquisites or other payments in kind."},
        	  	{"name": "Total Administration", "unit": "thousands of dollars", "dataType": "level", "definition": "Includes expenditure on Financial Administration, Social Insurance Administration and Other Governmental Administration (including Federal and State Legislative and Central Staff Services).  Covers  administration of unemployment compensation systems, public employment services, and the Federal Social Security, Medicare, and Railroad Retirement trusts; officials and central staff agencies concerned with tax assessment and collection, accounting, auditing, budgeting, purchasing, custody of funds, and other finance activities; legislative bodies and related activities involved in the making, enacting, and repeal of law; and government-wide executive, administrative, and staff service agencies other than financial, judicial, legal, and Federal or state legislative activities."},
@@ -546,7 +546,7 @@
         		"name": "Population Levels and Trends",
         		"source": "U.S. Census Bureau - Population Estimates Program (PEP)",
         		"years": [2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013],
-        		"companions": [["Population Levels and Trends", "Population Level"], ["Population Levels and Trends", "Population Annual Growth Rate (from previous year)"], ["Population Density", "Population Density"], ["Population by Age/Gender", "Percent 65 and older"]],
+        		"companions": [["Population Levels and Trends", "Population Level"], ["Population Levels and Trends", "Population Annual Growth Rate (from previous year)"], ["Population Density", "Population Density"], ["Population by Age/Gender", "Percent 65 years and older"]],
           		"vintage": 2013,
         		"children": [
         			{"name": "Population Level", "dataType": "level", "definition": "The calculated number of people living in an area as of a specified point in time, usually July 1st. The estimated population is calculated using a component of change model that incorporates information on natural increase (births, deaths) and net migration (net domestic migration, net international migration) that has occurred in an area since the latest decennial census."},

@@ -408,6 +408,9 @@ function highlight(d) {
 
 
 function update(dataset, indicator) {
+	tooltip.classed("hidden", true);
+	frmrActive = null;
+	
 	allData(dataset, indicator); // pull necessary data from JSON and fill primeIndObj
 
 	//This is Where GET requests are issued to the server for JSON with fips, county name/state, plus primeInd.name, secondInd.name, thirdInd.name, and fourthInd.name; redefine "data" variable as this JSON
@@ -495,6 +498,7 @@ function allData(dataset, indicator){
 		fourthIndObj = getData(primeIndObj.companions[3][0], primeIndObj.companions[3][1]);
 	}
 	
+	//temp script for seeing immediately the four indicators name's listed at bottom
 	d3.select("#resultWindow").select("p").remove();
 	d3.select("#resultWindow").append("p").text(primeIndObj.name + ", " + secondIndObj.name + ", " + thirdIndObj.name + ", " + fourthIndObj.name);
 }
@@ -589,12 +593,13 @@ function doubleClicked(d) {
 	var countyID = d.id.toString();
 	if (countyID.length == 4) countyID = "0" + countyID;
 	
+	/*
 	displayResultsInFrame('http://www.uscounties.org/cffiles_web/counties/county.cfm?id=' + encodeURIComponent(countyID));
 	d3.select('#showOnMap').on('click', function() {
 	  	$('#instructions').hide();
 	  	//clicked(countyPathById[d.id].geometry.coordinates[0][0], tooltipOffsetL, tooltipOffsetT, d); // a fake click to get tooltip to appear
   	});
-
+	*/
 }
 
 function redraw() {
