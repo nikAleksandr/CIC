@@ -58,9 +58,8 @@ var CICstructure,
 	dataYear,
 	data,
 	legend,
-	selected,
-	clickCount = 0;
-	
+	selected;
+		
 var quantById = [], secondQuantById = [], thirdQuantById = [], fourthQuantById = []
 	nameById = [],
 	idByName = {},
@@ -138,6 +137,7 @@ function draw(topo, stateMesh) {
 		      .attr("d", path);
   
   //tooltips
+  var clickCount = 0;
   county
     .on('click', function(d, i) {
     	d3.event.stopPropagation();
@@ -149,8 +149,8 @@ function draw(topo, stateMesh) {
 		if (clickCount === 1) {
 			singleClickTimer = setTimeout(function() {
 				clickCount = 0;
-				clicked(mouse, tooltipOffsetL, tooltipOffsetT, d, i);
-			}, 400);
+				if (d3.select('.active').empty() !== true) clicked(mouse, tooltipOffsetL, tooltipOffsetT, d, i);
+			}, 300);
 		} else if (clickCount === 2) {
 			clearTimeout(singleClickTimer);
 			clickCount = 0;
@@ -348,7 +348,7 @@ function highlight(d) {
 	
 	if (frmrActive) frmrActive.style("fill", frmrFill);	
 	frmrActive = d3.select(".active");
-	if (frmrActive[0][0] !== null) {
+	if (frmrActive.empty() !== true) {
 		frmrFill = frmrActive.style("fill");
 		frmrActive.style("fill", null);
 	}
@@ -360,7 +360,7 @@ function update(dataset, indicator) {
 	tooltip.classed("hidden", true);
 	frmrActive = null;
 	
-	allData(dataset, indicator); // pull necessary data from JSON and fill primeIndObj
+	allData(dataset, indicator); // pull data from JSON and fill primeIndObj, secondIndObj, etc.
 
 	//This is Where GET requests are issued to the server for JSON with fips, county name/state, plus primeInd.name, secondInd.name, thirdInd.name, and fourthInd.name; redefine "data" variable as this JSON
 	//"data" should be structured as a JSON with an array of each county.  each county has properties "id"(fips), "geography"(county name, ST), and each of the indicators specified above and clicked and doubleclicked data
