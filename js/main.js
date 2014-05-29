@@ -10,19 +10,23 @@ var format = {
 		else return "N/A";
 	},
 	"categorical": function (num) { return num; },
-	"level": function (num) {
+	"level": function (num, curr) {
+		var isCurrency = curr || false;
     	if (num >= 1000000000) {
-    		return String((num/1000000000).toFixed(1)) + "bil";
+    		var formatted = String((num/1000000000).toFixed(1)) + "bil";
+    		return isCurrency ? '$' + formatted : formatted;
     	} else if (num >= 1000000) {
-    		return String((num/1000000).toFixed(1)) + "mil";
+    		var formatted = String((num/1000000).toFixed(1)) + "mil";
+    		return isCurrency ? '$' + formatted : formatted;
     	} else if (num >= 10000) {
-    		return String((num/1000).toFixed(1)) + "k";
+    		var formatted = String((num/1000).toFixed(1)) + "k";
+    		return isCurrency ? '$' + formatted : formatted;
     	} else if (num >= 100) {
-    		return num.toFixed(0);
+    		return isCurrency ? d3.format('$,.0f')(num) : d3.format(',.0f')(num);
     	} else if (num == 0) {
-    		return 0;
+    		return isCurrency ? '$0' : 0;
     	} else {
-    		return num.toFixed(1);	
+    		return isCurrency ? d3.format('$.1f')(num) : d3.format('.1f')(num);
     	}
     }			
 };
@@ -528,11 +532,10 @@ function clicked(mouse, l, t, d, i) {
 			
 		// loop through all three companions and display corresponding formatted values	
 		for (var i = 0; i < 3; i++) {
-			var currencyText = "";
-			if (obj[i].hasOwnProperty('unit') && obj[i].unit.indexOf("dollar") != -1) currencyText = "$"; // determine if indicator values are currency by checking units
+			var isCurrency = obj[i].hasOwnProperty('unit') ? (obj[i].unit.indexOf("dollar") != -1) : false; // determine if indicator values are currency by checking units
 			tipContainer.append('div')
 				.attr('class', 'tipKey')
-				.text(obj[i].name + ': ' + currencyText + format[obj[i].dataType](quant[i][d.id]));
+				.text(obj[i].name + ': ' + format[obj[i].dataType](quant[i][d.id], isCurrency));
 		}
 	}
 }
