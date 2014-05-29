@@ -522,27 +522,29 @@ function createLegend(keyArray) {
 }
 
 function clicked(mouse, l, t, d, i) {
-    tooltip
-     	.classed("hidden", false)
-      	.style("left", (mouse[0]+l) + "px")
-      	.style("top", +(mouse[1]+t) +"px");
-    
-    $('#tipContainer').empty();
-    tipContainer.append('div')
-    	.attr('id', 'tipLocation')
-    	.text(countyObjectById[d.id].geography);
-
-	var obj = [secondIndObj, thirdIndObj, fourthIndObj],
-		quant = [secondQuantById, thirdQuantById, fourthQuantById];
-		
-	// loop through all three companions and display corresponding formatted values	
-	for (var i = 0; i < 3; i++) {
-		var currencyText = "";
-		if (obj[i].hasOwnProperty('unit') && obj[i].unit.indexOf("dollar") != -1) currencyText = "$"; // determine if indicator values are currency by checking units
-		tipContainer.append('div')
-			.attr('class', 'tipKey')
-			.text(obj[i].name + ': ' + currencyText + format[obj[i].dataType](quant[i][d.id]));
-	}	
+	if (countyObjectById.hasOwnProperty(d.id)) {
+	    tooltip
+	     	.classed("hidden", false)
+	      	.style("left", (mouse[0]+l) + "px")
+	      	.style("top", +(mouse[1]+t) +"px");
+	    
+	    $('#tipContainer').empty();
+	    tipContainer.append('div')
+	    	.attr('id', 'tipLocation')
+	    	.text(countyObjectById[d.id].geography);
+	
+		var obj = [secondIndObj, thirdIndObj, fourthIndObj],
+			quant = [secondQuantById, thirdQuantById, fourthQuantById];
+			
+		// loop through all three companions and display corresponding formatted values	
+		for (var i = 0; i < 3; i++) {
+			var currencyText = "";
+			if (obj[i].hasOwnProperty('unit') && obj[i].unit.indexOf("dollar") != -1) currencyText = "$"; // determine if indicator values are currency by checking units
+			tipContainer.append('div')
+				.attr('class', 'tipKey')
+				.text(obj[i].name + ': ' + currencyText + format[obj[i].dataType](quant[i][d.id]));
+		}
+	}
 }
 
 function doubleClicked(d) {
