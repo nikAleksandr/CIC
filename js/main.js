@@ -74,7 +74,7 @@ var quantById = [], secondQuantById = [], thirdQuantById = [], fourthQuantById =
 
 var quantOneThird,
 	quantTwoThird,
-	na_color = '#CCC',
+	na_color = 'rgb(200,200,200)',
 	range = ['rgb(239,243,255)','rgb(189,215,231)','rgb(107,174,214)','rgb(49,130,189)','rgb(8,81,156)'];
 	
 var color = d3.scale.quantile();
@@ -173,6 +173,7 @@ function setDropdownBehavior() {
 	d3.select('#primeInd').selectAll('.dataset').selectAll('.indicator').on('click', function() {
 		var datasetName = this.parentNode.parentNode.parentNode.title; // real hokey, will fix eventually
 		var indicatorName = this.title;
+		var defaultDropdownText = d3.select("#primeIndText").html(indicatorName);
 		update(datasetName, indicatorName);
 	});
 	d3.select('#secondInd').selectAll('.dataset').selectAll('.indicator').on('click', function() {

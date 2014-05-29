@@ -99,7 +99,6 @@ body {
 	background-color: white;
 	text-align: center;
 	font-family: 'Roboto', sans-serif;
-	box-shadow: 0 0 .625 rgba(0, 0, 0, 0.2);
 	font-size: 1em;
 }
 
@@ -193,26 +192,25 @@ body {
 #header {
 	position: relative;
 	z-index: 10;
-	width: 110%;
+	width: 100%;
 	height: auto;
 	font-size: 1em;
-	margin: 0 auto 0em -5%;
-	padding-left: 1em;
-	padding-bottom: .5em;
-	box-shadow: 0em 1em .5em -.5em rgba(0, 0, 0, 0.1);
+	padding: 0 1em;
+	margin-bottom: -1em;
+	box-shadow: 0em 1em .7em 0em rgba(0, 0, 0, 0.2);
 }
 
 #header p {
 	width: 90%;
-	margin: .5em auto;
+	margin: 0 auto;
 	font-weight: 100;
 	font-size: 1em;
 	color:rgb(0,64,112);
 }
 #header h1{
-	color: #FFCC66;
+	font-family: 'Arvo', serif;
+	color: #000;
 	font-weight: 100;
-	letter-spacing: .063em;
 	text-align: left;
 }
 h1 small {
@@ -240,6 +238,7 @@ h1 small {
 	background-color: #FFF;
 	border: none;
 	margin-bottom: 10px;
+	color: #CCC;
 }
 .navbar a {
 	color:#000;
@@ -250,6 +249,7 @@ h1 small {
 
 #searchContainer{
 	font-size: .71em;
+	padding-right: 3em;
 }
 #map {
 	z-index:-10;
@@ -335,7 +335,7 @@ svg:not(:root) {
 }
 
 #legendTitle {
-	margin-left: 23px;
+	text-align: center;
 }
 
 /*
