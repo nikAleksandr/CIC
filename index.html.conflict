@@ -20,7 +20,18 @@
 		<script src="http://d3js.org/topojson.v1.min.js"></script>
     </head>
     <body>
+<<<<<<< HEAD
+    	<div class="container" id="container">
+	        
+	        <div id="instructions">
+	        	<!-- <div id="showOnMap">show on map</div> -->
+	        	<div id="close">Close</div>
+	        	<div id="instructionText"></div>
+	        </div>
+			<div id="header">
+=======
     	<div id="header">
+>>>>>>> upstream/master
 				
 				<h1>NACo County Intelligence Connection 2.0</h1>
 				
@@ -131,31 +142,101 @@
 				          	  </li>	
 				          	</ul>
 				          </li>
-				          <li class="divider"></li>
-				          <li class="dropdown-header">Gotta Pay for this</li>
-				          <li class="category" title="County Finance"><a href="#">County Finance</a>
-				            <ul class="dropdown-menu">
-				              <li class="dataset" title="CAFR Expenditure"><a href="#">CAFR Expenditure</a></li>
-				              <li class="dataset" title="CAFR Revenue"><a href="#">CAFR Revenue</a></li>
-				            </ul>
-				          </li>
 				        </ul>
 				      </li>
 				    </ul>
 				    <ul class="nav navbar-nav">
-				      <li><a id="SecondIndText" href="#">Secondary Indicator</a>
-				        <ul id="secondInd" class="dropdown-menu">
-				          <li><a href="#">GDP Growth</a></li>
-				          <li><a href="#">Home Price Growth</a></li>
-				          <li><a href="#">Jobs Growth</a></li>
-				          <li class="divider"></li>
-				          <li class="dropdown-header">Gotta Pay for this</li>
-				          <li><a href="#">More Data</a></li>
-				          <li><a href="#">Unemployment</a>
-				            <ul class="dropdown-menu">
-				              <li><a href="#">Level</a></li>
-				              <li><a href="#">Growth Rate</a></li>
+				      <li><a id="secondIndText" href="#">Secondary Indicator</a>
+				        <ul id="secondInd" class="dropdown-menu">				        	
+				          <li class="category" title="Administration"><a href="#">Administration</a>
+					        <ul class="dropdown-menu">
+					          <li class="dataset" title="Administration Expenditures"><a href="#">Administration Expenditures</a>
+					            <ul class="dropdown-menu">
+					            <li><a class="indicator" title="Total" href="#">Total</a></li>
+					            <li><a class="indicator" title="Total Administration" href="#">Total Administration</a></li>
+					            <li><a class="indicator" title="Financial Administration" href="#">Financial Administration</a></li>
+					            <li><a class="indicator" title="Other Governmental Administration" href="#">Other Governmental Administration</a></li>
+					            <li><a class="indicator" title="Social Insurance Administration" href="#">Social Insurance Administration</a></li>
+					            <li><a class="indicator" title="Liquor Stores" href="#">Liquor Stores</a></li>
+					            <li><a class="indicator" title="Current Operations" href="#">Current Operations</a></li>
+					            <li><a class="indicator" title="Construction" href="#">Construction</a></li>
+					            <li><a class="indicator" title="Other Capital Outlay" href="#">Other Capital Outlay</a></li>
+					            <li><a class="indicator" title="Intergovernmental to State" href="#">Intergovernmental to State</a></li>
+					            <li><a class="indicator" title="Intergovernmental to Local" href="#">Intergovernmental to Local</a></li>
+					            </ul>
+					          </li>
+					          <li class="dataset" title="Administration Employment"><a href="#">Administration Employment</a>
+					            <ul class="dropdown-menu">
+					            <li><a class="indicator" title="Total" href="#">Total</a></li>
+					            <li><a class="indicator" title="Total Administration" href="#">Total Administration</a></li>
+					            <li><a class="indicator" title="Financial Administration" href="#">Financial Administration</a></li>
+					            <li><a class="indicator" title="Other Governmental Administration" href="#">Other Governmental Administration</a></li>
+					            <li><a class="indicator" title="Social Insurance Administration" href="#">Social Insurance Administration</a></li>
+					            </ul>
+					          </li>
+					          <li class="dataset" title="Administration Revenue"><a href="#">Administration Revenue</a>
+					            <ul class="dropdown-menu">
+					            <li><a class="indicator" title="Total" href="#">Total</a></li>
+					            <li><a class="indicator" title="Total Administration" href="#">Total Administration</a></li>
+					            <li><a class="indicator" title="Charges" href="#">Charges</a></li>
+					            <li><a class="indicator" title="Misc. General Revenue" href="#">Misc. General Revenue</a></li>
+					            <li><a class="indicator" title="Liquor Stores" href="#">Liquor Stores</a></li>
+					            <li><a class="indicator" title="Public Employee Retirement Systems" href="#">Public Employee Retirement Systems</a></li>
+					            <li><a class="indicator" title="Unemployment Compensation Systems" href="#">Unemployment Compensation Systems</a></li>
+					            </ul>
+					          </li>
+					        </ul>
+					      </li>	
+				          <li class="category" title="Demographics"><a href="#">Demographics</a>
+				          	<ul class="dropdown-menu">
+				              <li class="dataset" title="Population Levels and Trends"><a href="#">Population Levels and Trends</a>
+				              	<ul class="dropdown-menu">
+				           		  <li><a class="indicator" title="Population Level" href="#">Population Level</a></li>
+				           		  <li><a class="indicator" title="Population Annual Growth Rate (from previous year)" href="#">Population Growth Rate</a></li>
+				              	</ul>
+				              </li>
+				              <li class="dataset" title="Population by Ethnicity"><a href="#">Population by Ethnicity</a>
+				              	<ul class="dropdown-menu">
+				           		  <li><a class="indicator" title="Total Population" href="#">Total Population</a></li>
+				           		  <li><a class="indicator" title="White Population" href="#">White Population</a></li>
+				           		  <li><a class="indicator" title="Black or African American Population" href="#">Black or African American Population</a></li>
+				           		  <li><a class="indicator" title="American Indian and Alaskan Native Population" href="#">American Indian and Alaskan Native Population</a></li>
+				           		  <li><a class="indicator" title="Asian Population" href="#">Asian Population</a></li>
+				           		  <li><a class="indicator" title="Native Hawaiian and Other Pacific Islander Population" href="#">Native Hawaiian and Other Pacific Islander Population</a></li>
+				           		  <li><a class="indicator" title="Two or More Races Population" href="#">Two or More Races Population</a></li>
+				           		  <li><a class="indicator" title="Hispanic or Latino Origin Population" href="#">Hispanic or Latino Origin Population</a></li>
+				              	</ul>
+				              </li>
 				            </ul>
+				          </li>
+				          <li class="category" title="Federal Funding"><a href="#">Federal Funding</a>
+				          	<ul class="dropdown-menu">
+				              <li class="dataset" title="Payment in Lieu of Taxes (PILT)"><a href="#">Payment in Lieu of Taxes (PILT)</a>
+				              	<ul class="dropdown-menu">
+				           		  <li><a class="indicator" title="PILT Amount" href="#">PILT Amount</a></li>
+				           		  <li><a class="indicator" title="PILT Annual Growth Rate (from previous year)" href="#">PILT Annual Growth Rate</a></li>
+				           		  <li><a class="indicator" title="Total Federal Land Area" href="#">Total Federal Land Area</a></li>
+				           		  <li><a class="indicator" title="Total County Area" href="#">Total County Area</a></li>
+				           		  <li><a class="indicator" title="Percent of Federal Land" href="#">Percent of Federal Land</a></li>
+				           		  <li><a class="indicator" title="PILT per Square Mile" href="#">PILT per Square Mile</a></li>
+				              	</ul>
+				              </li>
+				              <li class="dataset" title="State Criminal Alien Assistance Program (SCAAP)"><a href="#">State Criminal Alien Assistance Program (SCAAP)</a>
+				              	<ul class="dropdown-menu">
+				           		  <li><a class="indicator" title="SCAAP Level" href="#">SCAAP Level</a></li>
+				           		  <li><a class="indicator" title="SCAAP Annual Growth Rate (from previous year)" href="#">SCAAP Annual Growth Rate</a></li>
+				              	</ul>
+				              </li>
+				            </ul>
+				          </li>
+				          <li class="category" title="Geography"><a href="#">Geography</a>
+				          	<ul class="dropdown-menu">
+				          	  <li class="dataset" title="County Profile"><a href="#">County Profile</a>
+				          	  	<ul class="dropdown-menu">
+				          	  	  <li><a class="indicator" title="Census Region" href="#">Census Region</a></li>				          	  		
+				          	  	</ul>
+				          	  </li>	
+				          	</ul>
 				          </li>
 				        </ul>
 				      </li>
@@ -240,7 +321,7 @@
     		<div class="container" id="container">
 	        
 	        <div id="instructions">
-	        	<!-- <div id="showOnMap">show on map</div> -->
+	        	<div id="showOnMap">show on map</div>
 	        	<div id="close">Close</div>
 	        	<div id="instructionText"></div>
 	        </div>

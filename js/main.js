@@ -1,6 +1,7 @@
 d3.select(window).on("resize", throttle);
 
 function toTitleCase(str){ return str.replace(/\w\S*/g, function(txt){return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();}); }
+function isNumFun(data_type) { return (data_type === 'level' || data_type === 'level_np' || data_type === 'percent'); }
 
 var format = {
 	"percent": d3.format('.1%'),
@@ -67,18 +68,20 @@ var CICstructure,
 var quantById = [], secondQuantById = [], thirdQuantById = [], fourthQuantById = []
 	nameById = [],
 	idByName = {},
+	countyCoords = [],
 	countyObjectById = {},
 	countyPathById = {};
 
 var quantOneThird,
 	quantTwoThird,
+	na_color = 'rgb(200,200,200)',
 	range = ['rgb(239,243,255)','rgb(189,215,231)','rgb(107,174,214)','rgb(49,130,189)','rgb(8,81,156)'];
 	
 var color = d3.scale.quantile();
 
-d3.json("data/CICstructure.json", function(error, CICStructure){
-	
+d3.json("data/CICstructure.json", function(error, CICStructure){	
 	CICstructure = CICStructure;
+
 	// dataset to map first
 	update("Payment in Lieu of Taxes (PILT)", "PILT Amount");
 	
@@ -105,8 +108,8 @@ function setup(width,height){
   d3.select('#map').on('click', function() { if (selected !== null) highlight(selected); });
   d3.select('#close').on('click', function() { $('#instructions').hide(); });
 		
-  buildIndDropdown();
-  buildSearch();  
+  setDropdownBehavior();
+  setSearchBehavior();  
 }
 	
 
@@ -116,7 +119,8 @@ d3.json("us.json", function(error, us) {
   var states = topojson.mesh(us, us.objects.states, function(a, b) { return a !== b; });
 
 	counties.forEach(function(d) { 
-	  	countyPathById[d.id] = d;  	
+	  	countyPathById[d.id] = d;
+	  	//countyCoords[d.id] = d.centroid();
 	});
 
   topo = counties;
@@ -133,7 +137,7 @@ function draw(topo, stateMesh) {
       .attr("class", "county")
       .attr("d", path)
       .attr("id", function(d){ return d.id;})
-      .style("fill", function(d) { if(!isNaN(quantById[d.id])){return color(quantById[d.id]);} else{return "rgb(155,155,155)";} });
+      .style("fill", function(d) { if(!isNaN(quantById[d.id])){return color(quantById[d.id]);} else{return na_color;} });
 
   g.append("path")
 		      .datum(stateMesh)
@@ -165,16 +169,21 @@ function draw(topo, stateMesh) {
    
 }
 
-function buildIndDropdown() {
-	d3.selectAll('.dataset').selectAll('.indicator').on('click', function() {
+function setDropdownBehavior() {
+	d3.select('#primeInd').selectAll('.dataset').selectAll('.indicator').on('click', function() {
 		var datasetName = this.parentNode.parentNode.parentNode.title; // real hokey, will fix eventually
 		var indicatorName = this.title;
 		var defaultDropdownText = d3.select("#primeIndText").html(indicatorName);
 		update(datasetName, indicatorName);
 	});
+	d3.select('#secondInd').selectAll('.dataset').selectAll('.indicator').on('click', function() {
+		var datasetName = this.parentNode.parentNode.parentNode.title;
+		var indicatorName = this.title;
+		appendInfo(datasetName, indicatorName);
+	});
 }
 
-function buildSearch() {
+function setSearchBehavior() {
 	d3.select('#search_form').on('submit', submitSearch);	
 	var searchField = d3.select('#search_field').on('keyup', function() { if (d3.event.keyCode === 13) submitSearch(); });	
 	d3.select('#search_submit').on('click', submitSearch);
@@ -305,7 +314,7 @@ function executeSearchMatch(FIPS) {
 	var county = countyObjectById[FIPS];
 	
 	highlight(county);
-	zoomTo(county);
+	//zoomTo(county);
 	doubleClicked(county);
 	
 	//document.getElementById('search_form').reset();				
@@ -325,8 +334,22 @@ function displayResultsInFrame(url) {
 
 function zoomTo(d) {
 	// not working...
-	zoom.scale(3);
-	zoom.translate(100,100);
+	var t = d3.event.translate;
+	var s = 4;
+	var h = height / 2;
+
+	//t[0] = Math.min(width / 2 * (s - 1), Math.max(width / 2 * (1 - s), t[0]));
+	//t[1] = Math.min(height / 2 * (s - 1), Math.max(height / 2 * (1 - s), t[1]));
+	//original function: t[1] = Math.min(height / 2 * (s - 1) + h * s, Math.max(height / 2 * (1 - s) - h * s, t[1]));
+	//maximum translate value is 1944 (maine) from scale = 10 (t-value of 1902)
+	//1190 from 6 (1145)
+	//743 from 3.7 (626)
+	//343 from 2.2 (339)
+	//167 from 1.3 (132)
+	//0 from 1 (0)
+
+	g.style("stroke-width", 1 / s).attr("transform", "translate(" + [0,0] + ")scale(" + s + ")"); 
+
 }
 
 var frmrFill, frmrActive;
@@ -355,38 +378,42 @@ function highlight(d) {
 
 function update(dataset, indicator) {
 	tooltip.classed("hidden", true);
-	frmrActive = null;
 	
-	allData(dataset, indicator); // pull data from JSON and fill primeIndObj, secondIndObj, etc.
+	var indObject = allData(dataset, indicator); // pull data from JSON and fill primeIndObj, secondIndObj, etc.
+	primeIndObj = indObject[0];
+	secondIndObj = indObject[1];
+	thirdIndObj = indObject[2];
+	fourthIndObj = indObject[3];
 
 	//This is Where GET requests are issued to the server for JSON with fips, county name/state, plus primeInd.name, secondInd.name, thirdInd.name, and fourthInd.name; redefine "data" variable as this JSON
 	//"data" should be structured as a JSON with an array of each county.  each county has properties "id"(fips), "geography"(county name, ST), and each of the indicators specified above and clicked and doubleclicked data
 	//
 	d3.tsv("CData.tsv", function(error, countyData) {
 		data = countyData;
-		var dataType = primeIndObj.dataType;
-		var isNumeric = (dataType === 'level' || dataType === 'level_np' || dataType === 'percent');
 
 		countyData.forEach(function(d) {
-			quantById[d.id] =  isNumeric ? parseFloat(d[dataset+' - '+indicator]) : d[dataset+' - '+indicator];					
-			secondQuantById[d.id] =  isNumeric ? parseFloat(d[secondIndObj.dataset+' - '+secondIndObj.name]) : d[secondIndObj.dataset+' - '+secondIndObj.name];		
-			thirdQuantById[d.id] =  isNumeric ? parseFloat(d[thirdIndObj.dataset+' - '+thirdIndObj.name]) : d[thirdIndObj.dataset+' - '+thirdIndObj.name];		
-			fourthQuantById[d.id] =  isNumeric ? parseFloat(d[fourthIndObj.dataset+' - '+fourthIndObj.name]) : d[fourthIndObj.dataset+' - '+fourthIndObj.name];		
+			quantById[d.id] =  isNumFun(primeIndObj.dataType) ? parseFloat(d[dataset+' - '+indicator]) : d[dataset+' - '+indicator];					
+			secondQuantById[d.id] =  isNumFun(secondIndObj.dataType) ? parseFloat(d[secondIndObj.dataset+' - '+secondIndObj.name]) : d[secondIndObj.dataset+' - '+secondIndObj.name];		
+			thirdQuantById[d.id] =  isNumFun(thirdIndObj.dataType) ? parseFloat(d[thirdIndObj.dataset+' - '+thirdIndObj.name]) : d[thirdIndObj.dataset+' - '+thirdIndObj.name];		
+			fourthQuantById[d.id] =  isNumFun(fourthIndObj.dataType) ? parseFloat(d[fourthIndObj.dataset+' - '+fourthIndObj.name]) : d[fourthIndObj.dataset+' - '+fourthIndObj.name];		
 
 			nameById[d.id] = d.geography;
 			idByName[d.geography] = d.id;
 			countyObjectById[d.id] = d;
 		});
 		
+		var dataType = primeIndObj.dataType;
+		var isNumeric = isNumFun(dataType);
+
 		if (!isNumeric) {
 			// translating string values to numeric values
-			var numCorrVals = 0, vals = {}, corrVal = 0;
+			var numCorrVals = 0, vals = {}, corrVal = 0, corrDomain = [];
 			for (var ind in quantById) {
 				if (!vals.hasOwnProperty(quantById[ind])) {
 					vals[quantById[ind]] = corrVal;
 					corrVal++;
 				}
-				quantById[ind] = vals[quantById[ind]];
+				corrDomain[ind] = vals[quantById[ind]];
 			}
 			for (var ind in vals) numCorrVals++;
 		}
@@ -408,28 +435,60 @@ function update(dataset, indicator) {
 			default:
 				range = ['rgb(239,243,255)', 'rgb(189,215,231)', 'rgb(107,174,214)', 'rgb(49,130,189)', 'rgb(8,81,156)'];
 		}
-		color.domain(quantById).range(range); // set domain and range
+		
+		// set domain and range
+		if (isNumeric) color.domain(quantById).range(range);
+		else color.domain(corrDomain).range(range);
 
 		// fill in map colors
+		frmrActive = null;
 		g.selectAll(".counties .county").transition().duration(750).style("fill", function(d) {
-			if (!isNaN(quantById[d.id])) {
-				return isNumeric ? color(quantById[d.id]) : range[quantById[d.id]];
+			if (isNumeric) {
+				return isNaN(quantById[d.id]) ? na_color : color(quantById[d.id]);
 			} else {
-				return "rgb(200,200,200)";
+				return isNaN(corrDomain[d.id]) ? na_color : range[corrDomain[d.id]];
 			}
 		});
 
 		isNumeric ? createLegend() : createLegend(vals); // note: vals is a correspondence array linking strings with numbers for categorical dataTypes
 
-
-		// listing definitions below
+		
+		// list source
+		d3.select("#resultWindow").selectAll("p").remove();
+		var sourceContainer = d3.select('#resultWindow').append('p')
+			.append('div').html('<b>Source</b>: ' + primeIndObj.source + ', ' + primeIndObj.year);
+		
+		// list definitions
 		var obj = [primeIndObj, secondIndObj, thirdIndObj, fourthIndObj];
-		d3.select("#resultWindow").select("p").remove();
 		var defContainer = d3.select("#resultWindow").append("p");
 		for (var i = 0; i < obj.length; i++) {
 			defContainer.append('div')
 				.html('<u>' + obj[i].name + '</u>: ' + obj[i].definition);
 		}
+		
+		// change title of dropdown to current indicator
+		d3.select('#primeIndText').text(primeIndObj.name);
+	});
+}
+
+function appendInfo(dataset, indicator) {
+	tooltip.classed("hidden", true);
+	
+	var indObject = allData(dataset, indicator);
+	s_primeIndObj = indObject[0];
+	s_secondIndObj = indObject[1];
+	s_thirdIndObj = indObject[2];
+	s_fourthIndObj = indObject[3];
+	
+	d3.tsv("CData.tsv", function(error, countyData) {
+		countyData.forEach(function(d) {
+			s_quantById[d.id] =  isNumFun(s_primeIndObj.dataType) ? parseFloat(d[dataset+' - '+indicator]) : d[dataset+' - '+indicator];					
+			s_secondQuantById[d.id] =  isNumFun(s_secondIndObj.dataType) ? parseFloat(d[secondIndObj.dataset+' - '+secondIndObj.name]) : d[secondIndObj.dataset+' - '+secondIndObj.name];		
+			s_thirdQuantById[d.id] =  isNumFun(s_thirdIndObj.dataType) ? parseFloat(d[thirdIndObj.dataset+' - '+thirdIndObj.name]) : d[thirdIndObj.dataset+' - '+thirdIndObj.name];		
+			s_fourthQuantById[d.id] =  isNumFun(s_fourthIndObj.dataType) ? parseFloat(d[fourthIndObj.dataset+' - '+fourthIndObj.name]) : d[fourthIndObj.dataset+' - '+fourthIndObj.name];		
+		});
+		
+		// not written; populate a second tooltip to go side by side with primary tooltip
 	});
 }
 
@@ -438,21 +497,23 @@ var primeIndObj = {}, secondIndObj = {}, thirdIndObj = {}, fourthIndObj = {};
 
 function allData(dataset, indicator){
 	
-	primeIndObj = getData(dataset, indicator);
-	//grab companion indcators through same function
-	secondIndObj = getData(primeIndObj.companions[0][0], primeIndObj.companions[0][1]);
-	thirdIndObj = getData(primeIndObj.companions[1][0], primeIndObj.companions[1][1]);
-	fourthIndObj = getData(primeIndObj.companions[2][0], primeIndObj.companions[2][1]);
+	var firstObj = getData(dataset, indicator);
+	// grab companion indcators through same function
+	var secondObj = getData(firstObj.companions[0][0], firstObj.companions[0][1]);
+	var thirdObj = getData(firstObj.companions[1][0], firstObj.companions[1][1]);
+	var fourthObj = getData(firstObj.companions[2][0], firstObj.companions[2][1]);
 	
-	if(secondIndObj.name==primeIndObj.name){
-		secondIndObj = getData(primeIndObj.companions[3][0], primeIndObj.companions[3][1]);
+	if(secondObj.name === firstObj.name){
+		secondObj = getData(firstObj.companions[3][0], firstObj.companions[3][1]);
 	}
-	else if(thirdIndObj.name==primeIndObj.name){
-		thirdIndObj = getData(primeIndObj.companions[3][0], primeIndObj.companions[3][1]);
+	else if (thirdObj.name === firstObj.name){
+		thirdObj = getData(firstObj.companions[3][0], firstObj.companions[3][1]);
 	}
-	else if(fourthIndObj.name==primeIndObj.name){
-		fourthIndObj = getData(primeIndObj.companions[3][0], primeIndObj.companions[3][1]);
+	else if (fourthObj.name === firstObj.name){
+		fourthObj = getData(firstObj.companions[3][0], firstObj.companions[3][1]);
 	}
+	
+	return [firstObj, secondObj, thirdObj, fourthObj];
 }
 
 //Alternative to this big lookup is to list a i,j,h "JSON address" in the HTML anchor properties.  Would still likely require some type of HTML or JSON lookup for companion indicators though
@@ -502,7 +563,7 @@ function createLegend(keyArray) {
 
 	if (primeIndObj.dataType !== 'none') {
 		var options = {
-			title : "legend",
+			//title : "legend",
 			boxHeight : 15,
 			boxWidth : 60,
 			dataType : primeIndObj.dataType,
@@ -536,7 +597,7 @@ function clicked(mouse, l, t, d, i) {
 			var isCurrency = obj[i].hasOwnProperty('unit') ? (obj[i].unit.indexOf("dollar") != -1) : false; // determine if indicator values are currency by checking units
 			tipContainer.append('div')
 				.attr('class', 'tipKey')
-				.text(obj[i].name + ': ' + format[obj[i].dataType](quant[i][d.id], isCurrency));
+				.html('&bull; <u>' + obj[i].year + ' ' + obj[i].name + '</u>: ' + format[obj[i].dataType](quant[i][d.id], isCurrency));
 		}
 	}
 }
@@ -547,10 +608,10 @@ function doubleClicked(d) {
 	var countyID = d.id.toString();
 	if (countyID.length == 4) countyID = "0" + countyID;
 	displayResultsInFrame('http://www.uscounties.org/cffiles_web/counties/county.cfm?id=' + encodeURIComponent(countyID));
-	d3.select('#showOnMap').on('click', function() {
+	/*d3.select('#showOnMap').on('click', function() {
 	  	$('#instructions').hide();
 	  	//clicked(countyPathById[d.id].geometry.coordinates[0][0], tooltipOffsetL, tooltipOffsetT, d); // a fake click to get tooltip to appear
-  	});
+  	});*/
 }
 
 function redraw() {
