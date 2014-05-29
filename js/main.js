@@ -46,7 +46,7 @@ var topo,stateMesh,projection,path,svg,g;
 
 var tooltip = d3.select("#container").append("div").attr("class", "tooltip hidden").attr("id", "tt");
 var tipContainer = tooltip.append('div').attr('id', 'tipContainer');
-var tooltipOffsetL = document.getElementById('container').offsetLeft+(width/2)+40;
+var tooltipOffsetL = document.getElementById('container').offsetLeft+(width/2)+40;   //offsets plus width/height of transform, plus 20 px of padding, plus 20 extra for tooltip offset off mouse
 var tooltipOffsetT = document.getElementById('container').offsetTop+(height/2)+20;
 
 
@@ -137,9 +137,6 @@ function draw(topo, stateMesh) {
 		      .attr("id", "state-borders")
 		      .attr("d", path);
   
-  
-  //offsets plus width/height of transform, plus 20 px of padding, plus 20 extra for tooltip offset off mouse
-
   //tooltips
   county
     .on('click', function(d, i) {
@@ -165,54 +162,6 @@ function draw(topo, stateMesh) {
 }
 
 function buildIndDropdown() {
-	// dynamically create dropdown menu with categories pulled from json
-	/*d3.json("data/CICstructure.json", function(error, CICStructure){
-		if (!error) {
-			// empty out dropdown
-			d3.select('#primeInd')
-				.selectAll('li')
-					.remove();
-			
-			var s = CICStructure.children;
-			var createCategory = function(catName) {
-				/*var primeDrop = d3.select('#primeInd');
-				primeDrop.append('a').text(catName);
-				var cat = primeDrop.append('li');
-				var cat = d3.select('#primeInd').append('li').append('a')
-					.attr('name', catName)
-					.attr('title', catName)
-					.attr('href', '#')
-					.style('text-align', 'left')
-					.text(catName)
-					.on('click', function(d) {
-						tooltip.classed("hidden", true);				
-						selectedData = "Total";
-						selectedDataset = "Administration Expenditures";
-						selectedDataText = catName;
-						d3.select('#primeIndText').html(selectedDataText);
-						
-						update(selectedDataset, selectedData);
-					});
-				return cat;
-			};
-			var createIndicator = function(cat, indName) {
-				var indDrop = cat.append('ul');
-				indDrop.classed('dropdown-menu', true);
-				indDrop.append('li')
-					.append('a')
-					.attr('title', indName)
-					.attr('name', indName)
-					.attr('href', '#')
-					.text(indName);
-			};
-						
-			for (var i = 0; i < s.length; i++) createCategory(s[i].name);
-			//var testCat = createCategory('Test');
-			//createIndicator(testCat, 'Test 2');
-								
-		} else throw new Error('Error reading JSON file');
-	});*/
-	
 	d3.selectAll('.dataset').selectAll('.indicator').on('click', function() {
 		var datasetName = this.parentNode.parentNode.parentNode.title; // real hokey, will fix eventually
 		var indicatorName = this.title;
