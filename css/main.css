@@ -210,9 +210,8 @@ body {
 	color:rgb(0,64,112);
 }
 #header h1{
-	color: #FFCC66;
+	color: #000;
 	font-weight: 100;
-	letter-spacing: .063em;
 	text-align: left;
 }
 h1 small {
@@ -252,6 +251,7 @@ h1 small {
 }
 #searchContainer{
 	font-size: .71em;
+	padding-right: 3em;
 }
 #map {
 	z-index:-10;

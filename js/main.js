@@ -415,7 +415,7 @@ function update(dataset, indicator) {
 			if (!isNaN(quantById[d.id])) {
 				return isNumeric ? color(quantById[d.id]) : range[quantById[d.id]];
 			} else {
-				return "rgb(155,155,155)";
+				return "rgb(200,200,200)";
 			}
 		});
 
