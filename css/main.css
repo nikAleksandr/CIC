@@ -99,7 +99,6 @@ body {
 	background-color: white;
 	text-align: center;
 	font-family: 'Roboto', sans-serif;
-	box-shadow: 0 0 .625 rgba(0, 0, 0, 0.2);
 	font-size: 1em;
 }
 
@@ -193,18 +192,16 @@ body {
 #header {
 	position: relative;
 	z-index: 10;
-	width: 110%;
+	width: 100%;
 	height: auto;
 	font-size: 1em;
-	margin: 0 auto 0em -5%;
-	padding-left: 1em;
-	padding-bottom: .5em;
+	padding: 0 1em;
 	box-shadow: 0em 1em .5em -.5em rgba(0, 0, 0, 0.1);
 }
 
 #header p {
 	width: 90%;
-	margin: .5em auto;
+	margin: 0 auto;
 	font-weight: 100;
 	font-size: 1em;
 	color:rgb(0,64,112);
