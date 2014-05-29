@@ -527,11 +527,11 @@ function clicked(mouse, l, t, d, i) {
 	    	.attr('id', 'tipLocation')
 	    	.text(countyObjectById[d.id].geography);
 	
-		var obj = [secondIndObj, thirdIndObj, fourthIndObj],
-			quant = [secondQuantById, thirdQuantById, fourthQuantById];
+		var obj = [primeIndObj, secondIndObj, thirdIndObj, fourthIndObj],
+			quant = [quantById, secondQuantById, thirdQuantById, fourthQuantById];
 			
 		// loop through all three companions and display corresponding formatted values	
-		for (var i = 0; i < 3; i++) {
+		for (var i = 0; i < obj.length; i++) {
 			var isCurrency = obj[i].hasOwnProperty('unit') ? (obj[i].unit.indexOf("dollar") != -1) : false; // determine if indicator values are currency by checking units
 			tipContainer.append('div')
 				.attr('class', 'tipKey')
