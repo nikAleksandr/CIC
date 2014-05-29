@@ -422,7 +422,17 @@ function update(dataset, indicator) {
 			}
 		});
 
-		isNumeric ? createLegend() : createLegend(vals);
+		isNumeric ? createLegend() : createLegend(vals); // note: vals is a correspondence array linking strings with numbers for categorical dataTypes
+
+
+		// listing definitions below
+		var obj = [primeIndObj, secondIndObj, thirdIndObj, fourthIndObj];
+		d3.select("#resultWindow").select("p").remove();
+		var defContainer = d3.select("#resultWindow").append("p");
+		for (var i = 0; i < obj.length; i++) {
+			defContainer.append('div')
+				.html('<u>' + obj[i].name + '</u>: ' + obj[i].definition);
+		}
 	});
 }
 
@@ -446,10 +456,6 @@ function allData(dataset, indicator){
 	else if(fourthIndObj.name==primeIndObj.name){
 		fourthIndObj = getData(primeIndObj.companions[3][0], primeIndObj.companions[3][1]);
 	}
-	
-	//temp script for seeing immediately the four indicators name's listed at bottom
-	d3.select("#resultWindow").select("p").remove();
-	d3.select("#resultWindow").append("p").text(primeIndObj.name + ", " + secondIndObj.name + ", " + thirdIndObj.name + ", " + fourthIndObj.name);
 }
 
 //Alternative to this big lookup is to list a i,j,h "JSON address" in the HTML anchor properties.  Would still likely require some type of HTML or JSON lookup for companion indicators though
