@@ -278,7 +278,8 @@ h1 small {
 }
 
 #resultWindow {
-	text-align: center;
+	text-align: left;
+	font-size: .85em;
 }
 
 .result_iframe {
