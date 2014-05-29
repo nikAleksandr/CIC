@@ -1,6 +1,7 @@
 d3.select(window).on("resize", throttle);
 
 function toTitleCase(str){ return str.replace(/\w\S*/g, function(txt){return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();}); }
+function isNumFun(data_type) { return (data_type === 'level' || data_type === 'level_np' || data_type === 'percent'); }
 
 var format = {
 	"percent": d3.format('.1%'),
@@ -388,29 +389,30 @@ function update(dataset, indicator) {
 	//
 	d3.tsv("CData.tsv", function(error, countyData) {
 		data = countyData;
-		var dataType = primeIndObj.dataType;
-		var isNumeric = (dataType === 'level' || dataType === 'level_np' || dataType === 'percent');
 
 		countyData.forEach(function(d) {
-			quantById[d.id] =  isNumeric ? parseFloat(d[dataset+' - '+indicator]) : d[dataset+' - '+indicator];					
-			secondQuantById[d.id] =  isNumeric ? parseFloat(d[secondIndObj.dataset+' - '+secondIndObj.name]) : d[secondIndObj.dataset+' - '+secondIndObj.name];		
-			thirdQuantById[d.id] =  isNumeric ? parseFloat(d[thirdIndObj.dataset+' - '+thirdIndObj.name]) : d[thirdIndObj.dataset+' - '+thirdIndObj.name];		
-			fourthQuantById[d.id] =  isNumeric ? parseFloat(d[fourthIndObj.dataset+' - '+fourthIndObj.name]) : d[fourthIndObj.dataset+' - '+fourthIndObj.name];		
+			quantById[d.id] =  isNumFun(primeIndObj.dataType) ? parseFloat(d[dataset+' - '+indicator]) : d[dataset+' - '+indicator];					
+			secondQuantById[d.id] =  isNumFun(secondIndObj.dataType) ? parseFloat(d[secondIndObj.dataset+' - '+secondIndObj.name]) : d[secondIndObj.dataset+' - '+secondIndObj.name];		
+			thirdQuantById[d.id] =  isNumFun(thirdIndObj.dataType) ? parseFloat(d[thirdIndObj.dataset+' - '+thirdIndObj.name]) : d[thirdIndObj.dataset+' - '+thirdIndObj.name];		
+			fourthQuantById[d.id] =  isNumFun(fourthIndObj.dataType) ? parseFloat(d[fourthIndObj.dataset+' - '+fourthIndObj.name]) : d[fourthIndObj.dataset+' - '+fourthIndObj.name];		
 
 			nameById[d.id] = d.geography;
 			idByName[d.geography] = d.id;
 			countyObjectById[d.id] = d;
 		});
 		
+		var dataType = primeIndObj.dataType;
+		var isNumeric = isNumFun(dataType);
+
 		if (!isNumeric) {
 			// translating string values to numeric values
-			var numCorrVals = 0, vals = {}, corrVal = 0;
+			var numCorrVals = 0, vals = {}, corrVal = 0, corrDomain = [];
 			for (var ind in quantById) {
 				if (!vals.hasOwnProperty(quantById[ind])) {
 					vals[quantById[ind]] = corrVal;
 					corrVal++;
 				}
-				quantById[ind] = vals[quantById[ind]];
+				corrDomain[ind] = vals[quantById[ind]];
 			}
 			for (var ind in vals) numCorrVals++;
 		}
@@ -432,15 +434,18 @@ function update(dataset, indicator) {
 			default:
 				range = ['rgb(239,243,255)', 'rgb(189,215,231)', 'rgb(107,174,214)', 'rgb(49,130,189)', 'rgb(8,81,156)'];
 		}
-		color.domain(quantById).range(range); // set domain and range
+		
+		// set domain and range
+		if (isNumeric) color.domain(quantById).range(range);
+		else color.domain(corrDomain).range(range);
 
 		// fill in map colors
 		frmrActive = null;
 		g.selectAll(".counties .county").transition().duration(750).style("fill", function(d) {
-			if (!isNaN(quantById[d.id])) {
-				return isNumeric ? color(quantById[d.id]) : range[quantById[d.id]];
+			if (isNumeric) {
+				return isNaN(quantById[d.id]) ? na_color : color(quantById[d.id]);
 			} else {
-				return na_color;
+				return isNaN(corrDomain[d.id]) ? na_color : range[corrDomain[d.id]];
 			}
 		});
 
@@ -469,7 +474,21 @@ function appendInfo(dataset, indicator) {
 	tooltip.classed("hidden", true);
 	
 	var indObject = allData(dataset, indicator);
+	s_primeIndObj = indObject[0];
+	s_secondIndObj = indObject[1];
+	s_thirdIndObj = indObject[2];
+	s_fourthIndObj = indObject[3];
 	
+	d3.tsv("CData.tsv", function(error, countyData) {
+		countyData.forEach(function(d) {
+			s_quantById[d.id] =  isNumFun(s_primeIndObj.dataType) ? parseFloat(d[dataset+' - '+indicator]) : d[dataset+' - '+indicator];					
+			s_secondQuantById[d.id] =  isNumFun(s_secondIndObj.dataType) ? parseFloat(d[secondIndObj.dataset+' - '+secondIndObj.name]) : d[secondIndObj.dataset+' - '+secondIndObj.name];		
+			s_thirdQuantById[d.id] =  isNumFun(s_thirdIndObj.dataType) ? parseFloat(d[thirdIndObj.dataset+' - '+thirdIndObj.name]) : d[thirdIndObj.dataset+' - '+thirdIndObj.name];		
+			s_fourthQuantById[d.id] =  isNumFun(s_fourthIndObj.dataType) ? parseFloat(d[fourthIndObj.dataset+' - '+fourthIndObj.name]) : d[fourthIndObj.dataset+' - '+fourthIndObj.name];		
+		});
+		
+		// not written; populate a second tooltip to go side by side with primary tooltip
+	});
 }
 
 
