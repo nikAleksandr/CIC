@@ -196,7 +196,8 @@ body {
 	height: auto;
 	font-size: 1em;
 	padding: 0 1em;
-	box-shadow: 0em 1em .5em -.5em rgba(0, 0, 0, 0.1);
+	margin-bottom: -1em;
+	box-shadow: 0em 1em .7em 0em rgba(0, 0, 0, 0.2);
 }
 
 #header p {
@@ -207,6 +208,7 @@ body {
 	color:rgb(0,64,112);
 }
 #header h1{
+	font-family: 'Arvo', serif;
 	color: #000;
 	font-weight: 100;
 	text-align: left;
