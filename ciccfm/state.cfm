@@ -9,9 +9,9 @@
 		</CFQUERY> 
 			
 		<CFQUERY NAME="getcounties" datasource="naco_cic">
-		SELECT FIPS,  [FIPSTEXT], CountyName, State, countyseat, MemberStatus,  OrgType,
-		Population2010, SquareMiles, founded,  boardsize
-		FROM  CountyData  (NOLOCK)
+		SELECT FIPS,   CountyName, State, countyseat, MemberStatus,  OrgType,
+		Population2010, SquareMiles, founded,  boardsize, GovType
+		FROM  County_Data  (NOLOCK)
 		WHERE State='#statecode#' and OrgType in ('County', 'Independent City', 'County W/o Govt Structure', 'Geographical Census Area') 
 		ORDER BY OrgType
 		</CFQUERY> 
@@ -33,7 +33,7 @@
 <CFIF orgtype NEQ 'County'>
                
                 <TABLE WIDTH="75%" BORDER="1" cellspacing="0" cellpadding="0">
-                <TR bgcolor="##A5BBD2"><TD>#orgtype#</TD>
+                <TR><TD>#orgtype#</TD>
                 <TD align="right">2010 Population</TD>
                 <TD align="right">Square Miles</TD></TR>
                     <CFOUTPUT>
@@ -45,16 +45,12 @@
                
  <CFELSE>
     			<TABLE WIDTH="95%" BORDER="1" cellspacing="0" cellpadding="2">
-		
-				<TR bgcolor="##A5BBD2" >
-					
+				<TR>
                     <TH>
-            <CFIF #state# EQ 'LA'>Parish</CFIF>
+                    <CFIF #state# EQ 'LA'>Parish</CFIF>
                     <CFIF #state# EQ 'AK'>Borough</CFIF>
                     <CFIF #state# NEQ 'LA' AND #state# NEQ 'AK' >County</CFIF>
-                    
                     </TH>
-                    
 					<TH>NACo<BR>Member</TH>
 					<TH>2010<BR>Population</a></TH>
 					<TH>Square<BR>Miles</TH> 
@@ -65,8 +61,8 @@
 		
 		      <CFOUTPUT>
 				<TR>
-				<TD><a href="http://www.uscounties.org/cffiles_web/counties/county.cfm?id=#FIPSTEXT#" >#CountyName#</a>
-				<!--- <CFIF CityCountyConsolidationDate NEQ ''>*</CFIF> --->
+				<TD><a href="http://www.uscounties.org/cffiles_web/counties/county.cfm?id=#FIPS#" >#CountyName#</a>
+				 <CFIF GovType EQ  "Consolidated">*</CFIF>
                 </TD>
 				<TD ALIGN="CENTER"><CFIF MemberStatus EQ  'Active'><IMG SRC="images/check2.gif"><CFELSE>&nbsp;</CFIF></TD>
 				<TD ALIGN="RIGHT"><CFIF Population2010 GT 0>#NumberFormat(Population2010)#<CFELSE><em>N/A</em></CFIF> </TD>

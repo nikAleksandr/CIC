@@ -15,12 +15,12 @@ WHERE code = '#statecode#'
 
 <CFQUERY NAME="getcities" DATASOURCE="naco_cic">
 SELECT DISTINCT
-   CITIES.FIPS,  CITIES.City, CensusPlace, IncorporatedArea, CensusPlace,  countyname, countydata.State
+   CITIES.FIPS,  CITIES.City, CensusPlace, IncorporatedArea, CensusPlace,  countyname, county_data.State
 FROM
- CITIES (NOLOCK) INNER JOIN countydata (NOLOCK)  ON CITIES.FIPS = countydata.FIPSTEXT
+ CITIES (NOLOCK) INNER JOIN county_data (NOLOCK)  ON CITIES.FIPS = county_data.FIPS
 WHERE CITIES.CITY LIKE   <cfqueryparam cfsqltype="cf_sql_varchar"  Value="%#city#%">  
  and  Abbreviated = 0 and notacity is null
-ORDER BY countydata.STATE, countyname
+ORDER BY county_data.STATE, countyname
 </CFQUERY>
 
  
@@ -50,19 +50,19 @@ ORDER BY countydata.STATE, countyname
 
 <CFIF #getcities.RecordCount# GT 0>
 
-	<TABLE width="100%" BORDER="1"  bordercolor="#A5BBD2" cellspacing="0" cellpadding="2">
+	<TABLE width="100%" BORDER="1" cellspacing="0" cellpadding="2">
 	<TR>
-		<TH width="10%" BGCOLOR="#A5BBD2" align="center"><Font color="#FFFFFF"><strong>State</strong></font></TH>
-		<TH width="25%" BGCOLOR="#A5BBD2"><Font color="#FFFFFF"><strong>Place</strong></font></TH>
-		<TH width="35%" BGCOLOR="#A5BBD2"><Font color="#FFFFFF"><strong>Type of Place</strong></font> &nbsp;  </TH>
-		<TH width="30%" BGCOLOR="#A5BBD2"><Font color="#FFFFFF"><strong>County</strong></font></TH>
+		<TH width="10%"align="center">State</TH>
+		<TH width="25%">Place</TH>
+		<TH width="35%">Type of Place &nbsp;  </TH>
+		<TH width="30%">County</TH>
 	</TR>
 	 <CFOUTPUT QUERY="getcities">
 	<TR>
 		<TD align="center">#State#</TD>
 		<TD>#CITY#</TD>
  		<TD>#CensusPlace# <CFIF #IncorporatedArea# EQ "Yes"> &nbsp; (Incorporated Area)<CFELSE>&nbsp; </CFIF>  &nbsp; </TD>
-		<TD><!--- <a href="county.cfm?id=#FipsTEXT#">#countyname#</A> --->    #countyname#
+		<TD><!--- <a href="county.cfm?id=#Fips#">#countyname#</A> --->    #countyname#
 		</TD>
 	</TR>
 	</CFOUTPUT> 

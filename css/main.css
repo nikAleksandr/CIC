@@ -110,7 +110,8 @@ body {
 
 #byline{
 	color: rgb(0,64,112);
-	float: right;
+	text-align: right;
+	display: inline-block;
 }
 #dataSource{
 	font-size: .8em;
@@ -331,9 +332,7 @@ svg:not(:root) {
 #legendNoData {
 	width: auto;
 	padding-top:38px;
-}
-#na-color {
-	display:inline-block;
+	display: inline-block;
 }
 
 #quantileLegend .colorlegend-labels {
