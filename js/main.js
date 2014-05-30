@@ -601,10 +601,12 @@ function clicked(mouse, l, t, d, i) {
 		// loop through all three companions and display corresponding formatted values	
 		var tipTable = tipContainer.append('table').attr("class", "table");
 		for (var i = 0; i < obj.length; i++) {
-			var isCurrency = obj[i].hasOwnProperty('unit') ? (obj[i].unit.indexOf("dollar") != -1) : false; // determine if indicator values are currency by checking units
-			tipTable.append('tr')
-				.attr('class', 'tipKey')
-				.html('<td class="dataName">' + obj[i].year + ' ' + obj[i].name + ':</td><td class="dataNum"> <b>' + format[obj[i].dataType](quant[i][d.id], isCurrency) + '</b></td>');
+			if(!isNaN(quant[i][d.id])){
+				var isCurrency = obj[i].hasOwnProperty('unit') ? (obj[i].unit.indexOf("dollar") != -1) : false; // determine if indicator values are currency by checking units
+				tipTable.append('tr')
+					.attr('class', 'tipKey')
+					.html('<td class="dataName">' + obj[i].year + ' ' + obj[i].name + ':</td><td class="dataNum"> <b>' + format[obj[i].dataType](quant[i][d.id], isCurrency) + '</b></td>');
+			}
 		}
 	}
 }
