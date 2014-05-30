@@ -452,10 +452,15 @@
 			
 			</script>
 	        <div id="underMap">
-	        		<div id="quantileLegend" class="legend"></div>
-		        	<p id="byline">Brought to you by <a href="http://www.naco.org/research">NACo Research</a></p>
+	        	<div class="container-fluid">
+		        	<div class="row">
+		        		<div id="quantileLegend" class="legend col-md-4"></div>
+		        		<div class="col-md-4" id="legendNoData"><svg width="60" height="15" id="na-color"><rect style="fill: rgb(200, 200, 200);" y="0" x="0" height="15" width="60"></rect></svg> = Not Applicable</div>
+			        	<div class="col-md-4"id="byline">Brought to you by <a href="http://www.naco.org/research">NACo Research</a></div>
+			        </div>
+		        </div>
 		        	<p id="dataSource"></p>
-		        	<p id="webinar"><a href="https://www2.gotomeeting.com/register/418063602"></a>.</p>
+		        	<p id="webinar"><a href="https://www2.gotomeeting.com/register/418063602"></a></p>
 		        	<p id="dataNotes" >
 		        		<!-- <strong>Notes: </strong> -->
 		        	</p>

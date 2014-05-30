@@ -110,6 +110,9 @@ function setup(width,height){
 		
   setDropdownBehavior();
   setSearchBehavior();  
+  
+  //add Not Applicable data box
+  //d3.select("#legendNoData").insert("svg").append("rect").attr({"width": "60", "height": "15", "x": "30", "y": "10"}).style("fill", na_color);
 }
 	
 
@@ -451,19 +454,18 @@ function update(dataset, indicator) {
 		});
 
 		isNumeric ? createLegend() : createLegend(vals); // note: vals is a correspondence array linking strings with numbers for categorical dataTypes
-
 		
 		// list source
 		d3.select("#resultWindow").selectAll("p").remove();
-		var sourceContainer = d3.select('#resultWindow').append('p')
-			.append('div').html('<b>Source</b>: ' + primeIndObj.source + ', ' + primeIndObj.year);
+		var sourceContainer = d3.select('#resultWindow').append('p').attr("id", "sourceText")
+			.html('<i>Source</i>: ' + primeIndObj.source + ', ' + primeIndObj.year);
 		
 		// list definitions
 		var obj = [primeIndObj, secondIndObj, thirdIndObj, fourthIndObj];
-		var defContainer = d3.select("#resultWindow").append("p");
+		var defContainer = d3.select("#resultWindow").append("div").attr("id", "definitionsText");
 		for (var i = 0; i < obj.length; i++) {
 			defContainer.append('div')
-				.html('<u>' + obj[i].name + '</u>: ' + obj[i].definition);
+				.html('<b>' + obj[i].name + '</b>: ' + obj[i].definition);
 		}
 		
 		// change title of dropdown to current indicator
@@ -488,7 +490,7 @@ function appendInfo(dataset, indicator) {
 			s_fourthQuantById[d.id] =  isNumFun(s_fourthIndObj.dataType) ? parseFloat(d[fourthIndObj.dataset+' - '+fourthIndObj.name]) : d[fourthIndObj.dataset+' - '+fourthIndObj.name];		
 		});
 		
-		// not written; populate a second tooltip to go side by side with primary tooltip
+		// not written; populate a second tooltip to go side by side with primary tooltip, but only when a second indicator is selected.  Will need a global "comaprison" boolean switch.  See county tracker - comparison branch if need template
 	});
 }
 
@@ -503,11 +505,15 @@ function allData(dataset, indicator){
 	var thirdObj = getData(firstObj.companions[1][0], firstObj.companions[1][1]);
 	var fourthObj = getData(firstObj.companions[2][0], firstObj.companions[2][1]);
 	
+	//ensure no duplicates between primeInd and one of its companions;
 	if(secondObj.name === firstObj.name){
-		secondObj = getData(firstObj.companions[3][0], firstObj.companions[3][1]);
+		secondObj = thirdObj;
+		thirdObj = fourthObj;
+		fourthObj = getData(firstObj.companions[3][0], firstObj.companions[3][1]);
 	}
 	else if (thirdObj.name === firstObj.name){
-		thirdObj = getData(firstObj.companions[3][0], firstObj.companions[3][1]);
+		thirdObj = fourthObj;
+		fourthObj = getData(firstObj.companions[3][0], firstObj.companions[3][1]);
 	}
 	else if (fourthObj.name === firstObj.name){
 		fourthObj = getData(firstObj.companions[3][0], firstObj.companions[3][1]);
@@ -593,11 +599,12 @@ function clicked(mouse, l, t, d, i) {
 			quant = [quantById, secondQuantById, thirdQuantById, fourthQuantById];
 			
 		// loop through all three companions and display corresponding formatted values	
+		var tipTable = tipContainer.append('table').attr("class", "table");
 		for (var i = 0; i < obj.length; i++) {
 			var isCurrency = obj[i].hasOwnProperty('unit') ? (obj[i].unit.indexOf("dollar") != -1) : false; // determine if indicator values are currency by checking units
-			tipContainer.append('div')
+			tipTable.append('tr')
 				.attr('class', 'tipKey')
-				.html('&bull; <u>' + obj[i].year + ' ' + obj[i].name + '</u>: ' + format[obj[i].dataType](quant[i][d.id], isCurrency));
+				.html('<td class="dataName">' + obj[i].year + ' ' + obj[i].name + ':</td><td class="dataNum"> <b>' + format[obj[i].dataType](quant[i][d.id], isCurrency) + '</b></td>');
 		}
 	}
 }
