@@ -248,6 +248,9 @@ h1 small {
 .navbar-CIC {
 	color:#ccc	
 }
+.dropdown-menu {
+	text-align: left;
+}
 #searchContainer{
 	font-size: .71em;
 	padding-right: 3em;

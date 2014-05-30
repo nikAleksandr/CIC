@@ -205,7 +205,7 @@ function submitSearch() {
 
 	if (search_type === 'state') {
 		// only state; return results of all counties within state
-		displayResultsInFrame('http://www.uscounties.org/cffiles_web/counties/state.cfm?statecode='+encodeURIComponent(state_name));
+		displayResultsInFrame('ciccfm/state.cfm?statecode='+encodeURIComponent(state_name));
 							
 	} else if (search_type === 'county') {
 		// trim out the fat
