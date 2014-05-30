@@ -238,6 +238,7 @@ h1 small {
 	background-color: #FFF;
 	border: none;
 	margin-bottom: 10px;
+	color: #CCC;
 }
 .navbar a {
 	color:#000;
@@ -245,9 +246,7 @@ h1 small {
 .navbar .icon-bar{
 	background-color:#ccc;
 }
-.navbar-CIC {
-	color:#ccc	
-}
+
 .dropdown-menu {
 	text-align: left;
 }
@@ -375,7 +374,13 @@ div.tooltip {
 */
 
 #tipLocation {
-	padding-bottom: 4px;
+	padding-bottom: 5px;
+	font-size: 1.8em;
+}
+.tipKey {
+	text-align: left;
+	padding:  0px 2px 2px 0px;
+	font-size: 1.3em;
 }
 
 
