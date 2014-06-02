@@ -701,7 +701,7 @@ function clicked(mouse, l, t, d, i) {
 	
 	//unsure what the first below function does?
   zoom.translate(t);
-  g.style("stroke-width", 1 / s).attr("transform", "translate(" + t + ")scale(" + s + ")");
+  g.transition().style("stroke-width", 1 / s).attr("transform", "translate(" + t + ")scale(" + s + ")");
 }
 
 function doubleClicked(d) {
@@ -746,7 +746,7 @@ function move() {
 	
 	//unsure what the first below function does?
   zoom.translate(t);
-  g.style("stroke-width", 1 / s).attr("transform", "translate(" + t + ")scale(" + s + ")");
+  g.transition().style("stroke-width", 1 / s).attr("transform", "translate(" + t + ")scale(" + s + ")");
 
 }
 
