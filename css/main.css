@@ -113,10 +113,6 @@ body {
 	text-align: right;
 	display: inline-block;
 }
-#dataSource{
-	font-size: .8em;
-	clear: both;
-}
 
 #instructions, #fullDefs{
 	display: none;
@@ -220,23 +216,7 @@ h1 small {
 	float:right;
 }
 
-.btn-group{
-	color: rgb(0,64,112);
-	margin: 0 auto;
-}
-.btn-group .btn{
-	background-color: #FFF;
-	border: 1px solid rgb(0,64,112);
-}
-.btn.active, .btn-group .btn:hover{
-	background-color: rgb(0,64,112);
-	color: #FFF;
-}
 
-.background {
-  fill: none;
-  pointer-events: all;
-}
 .navbar-CIC {
 	background-color: #FFF;
 	border: none;
