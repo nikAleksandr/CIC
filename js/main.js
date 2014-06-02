@@ -655,31 +655,46 @@ function populateTooltip(d) {
 	var tipTable = tipInfo1.append('table').attr("class", "table");
 	var none_avail = true;
 	for (var i = 0; i < obj.length; i++) {
-		if (none_avail && !isNaN(quant[i][d.id])) none_avail = false; 
-
 		var isCurrency = obj[i].hasOwnProperty('unit') ? (obj[i].unit.indexOf("dollar") != -1) : false; // determine if indicator values are currency by checking units
+		var value = format[obj[i].dataType](quant[i][d.id], isCurrency);
+		if (!isNaN(value)) {
+			none_avail = false;
+		} else {
+			value = "Not Available";
+		}
+
 		if (obj[i].name.indexOf('(') != -1) {
 			var name = obj[i].name.substring(0, obj[i].name.indexOf('('));
 		} else {
 			var name = obj[i].name;
 		}
+		
 		var row = tipTable.append('tr')
 			.attr('class', 'tipKey');
 		row.append('td').attr('class', 'dataName').text(obj[i].year + ' ' + name + ':');
-		row.append('td').attr('class', 'dataNum').text(format[obj[i].dataType](quant[i][d.id], isCurrency));
+		row.append('td').attr('class', 'dataNum').text(value);
 			
 		if (showingSecond) {
-			var s_isCurrency = s_obj[i].hasOwnProperty('unit') ? (s_obj[i].unit.indexOf("dollar") != -1) : false;
-			if (s_obj[i].name.indexOf('(') != -1) {
+			var s_isCurrency = s_obj[i].hasOwnProperty('unit') ? (s_obj[i].unit.indexOf("dollar") != -1) : false; // determine if indicator values are currency by checking units
+			var s_value = format[s_obj[i].dataType](s_quant[i][d.id], s_isCurrency);
+			if (!isNaN(s_quant[i][d.id])) {
+				s_value = "Not Available";
+			} 
+	
+			if (obj[i].name.indexOf('(') != -1) {
 				var s_name = s_obj[i].name.substring(0, s_obj[i].name.indexOf('('));
 			} else {
 				var s_name = s_obj[i].name;
 			}
-			row.append('td').attr('class', 'dataName').text(s_obj[i].year + ' ' + s_obj[i].name + ':');
-			row.append('td').attr('class', 'dataNum').text(format[s_obj[i].dataType](s_quant[i][d.id], s_isCurrency));			
+
+			row.append('td').attr('class', 'dataName').text(s_obj[i].year + ' ' + s_name + ':');
+			row.append('td').attr('class', 'dataNum').text(s_value);			
 		}
 	}
-	if (none_avail) tipTable.append('tr').attr('class', 'tipKey').html('<td>No data available for this county</td>');
+	/*if (none_avail) {
+		tipTable.selectAll('tr').remove();
+		tipTable.append('tr').attr('class', 'tipKey').html('<td>No data available for this county</td>');
+	}*/
 
 }
 

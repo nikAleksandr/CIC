@@ -557,7 +557,7 @@
         		"name": "Population Change Components",
         		"source": "U.S. Census Bureau - Population Estimates Program (PEP)",
         		"years": [2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013],
-        		"companions": [["Population Levels and Trends", "Population Level"], ["Population Levels and Trends", "Population Annual Growth Rate (from previous year)"], ["Population Change Components", "Birth Rate"], ["Population Change Conponents", "Net Migration Rate"]],
+        		"companions": [["Population Levels and Trends", "Population Level"], ["Population Levels and Trends", "Population Annual Growth Rate (from previous year)"], ["Population Change Components", "Birth Rate"], ["Population Change Components", "Net Migration Rate"]],
           		"vintage": 2013,
         		"children": [
         			{"name": "Population Level", "dataType": "level", "definition": "The calculated number of people living in an area as of a specified point in time, usually July 1st. The estimated population is calculated using a component of change model that incorporates information on natural increase (births, deaths) and net migration (net domestic migration, net international migration) that has occurred in an area since the latest decennial census."},
@@ -605,11 +605,13 @@
         			{"name": "Percent Female", "dataType": "percent", "definition": "Percent female population according to population estimates from the Census Bureau."},
         			{"name": "Under 5 years old Population", "dataType": "level", "definition": "Population estimate of people under the age of 5 years as of April 1st of the data year."},
         			{"name": "Percent Under 5 years old", "dataType": "percent", "definition": "Percentage of people under the age of 5 years as of April 1st of the data year over the total population."},
-        			{"name": "5-24 years old Population", "dataType": "level", "definition": "Population estimate of people between (and including) the ages of 5 and 24 years as of April 1st of the data year."},
-        			{"name": "Percent 5-24 years old", "dataType": "percent", "definition": "Percentage of people between (and including) the ages of 5 and 24 years as of April 1st of the data year over the total population."},
+        			{"name": "5-14 years old Population", "dataType": "level", "definition": "Population estimate of people between (and including) the ages of 5 and 14 years as of April 1st of the data year."},
+        			{"name": "Percent 5-14 years old", "dataType": "percent", "definition": "Percentage of people between (and including) the ages of 5 and 14 years as of April 1st of the data year over the total population."},
+        			{"name": "15-24 years old Population", "dataType": "level", "definition": "Population estimate of people between (and including) the ages of 15 and 24 years as of April 1st of the data year."},
+        			{"name": "Percent 15-24 years old", "dataType": "percent", "definition": "Percentage of people between (and including) the ages of 15 and 24 years as of April 1st of the data year over the total population."},
         			{"name": "25-64 years old Population", "dataType": "level", "definition": "Population estimate of people between (and including) the ages of 25 and 64 years as of April 1st of the data year."},
         			{"name": "Percent 25-64 years old", "dataType": "percent", "definition": "Percentage of people between (and including) the ages of 25 and 64 years as of April 1st of the data year over the total population."},
-        			{"name": "65 and older Population", "dataType": "level", "definition": "Population estimate of people over (and including) the age of 65 years as of April 1st of the data year."},
+        			{"name": "65 years and older Population", "dataType": "level", "definition": "Population estimate of people over (and including) the age of 65 years as of April 1st of the data year."},
         			{"name": "Percent 65 years and older", "dataType": "percent", "definition": "Percentage of people over (and including) the age of 65 as of April 1st of the data year over the total population."}
                 ]
         	},
