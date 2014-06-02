@@ -708,13 +708,13 @@ function clicked(mouse, l, t, d, i) {
 	}
 	console.log(path.centroid(d));
 	
+	//Zoom section
 	var t = path.centroid(d);
 	var s = 6;
 
   	t[0] = -t[0] * (s - 1);
   	t[1] = -t[1] * (s - 1);
 	
-	//unsure what the first below function does?
   zoom.translate(t);
   g.transition().style("stroke-width", 1 / s).attr("transform", "translate(" + t + ")scale(" + s + ")");
 }
@@ -759,7 +759,6 @@ function move() {
   	//167 from 1.3 (132)
   	//0 from 1 (0)
 	
-	//unsure what the first below function does?
   zoom.translate(t);
   g.transition().style("stroke-width", 1 / s).attr("transform", "translate(" + t + ")scale(" + s + ")");
 
