@@ -215,11 +215,9 @@ h1 small {
 }
 
 #nacoLogo {
-	top:0;
-	right:10px;
-	position: absolute;
 	width:200px;
-	height: 100px;
+	padding-top: 25px;
+	float:right;
 }
 
 .btn-group{
@@ -506,6 +504,12 @@ div.tooltip {
    These examples override the primary ('mobile first') styles.
    Modify as content requires.
    ========================================================================== */
+
+@media (max-width: 1000px){
+	#nacoLogo {
+		display: none;
+	}
+}
 
 @media (min-width: 640px) {
     /* Style adjustments for viewports that meet the condition */
