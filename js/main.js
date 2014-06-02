@@ -503,13 +503,13 @@ function update(dataset, indicator) {
 		isNumeric ? createLegend() : createLegend(vals); // note: vals is a correspondence array linking strings with numbers for categorical dataTypes
 		
 		// list source
-		d3.select("#resultWindow").selectAll("p").remove();
-		var sourceContainer = d3.select('#resultWindow').append('p').attr("id", "sourceText")
+		d3.select("#additionalInfo").selectAll("p").remove();
+		var sourceContainer = d3.select('#additionalInfo').append('p').attr("id", "sourceText")
 			.html('<i>Source</i>: ' + primeIndObj.source + ', ' + primeIndObj.year);
 		
 		// list definitions
 		var obj = [primeIndObj, secondIndObj, thirdIndObj, fourthIndObj];
-		var defContainer = d3.select("#resultWindow").append("p").attr("id", "definitionsText");
+		var defContainer = d3.select("#additionalInfo").append("p").attr("id", "definitionsText");
 		for (var i = 0; i < obj.length; i++) {
 			defContainer.append('div')
 				.html('<b>' + obj[i].name + '</b>: ' + obj[i].definition);
