@@ -40,7 +40,8 @@ var zoom = d3.behavior.zoom()
 
 var width = document.getElementById('container').offsetWidth-60,
 	height = width / 2,
-	windowWidth = $(window).width();;
+	windowWidth = $(window).width(),
+	windowHeight = $(window).height();
 
 var projection = d3.geo.albersUsa()
     .scale(width)
@@ -669,15 +670,30 @@ function populateTooltip(d) {
 }
 
 function clicked(mouse, l, t, d, i) {
+	zoomTo(d.id);
+	
 	if (countyObjectById.hasOwnProperty(d.id)) {
+	    populateTooltip(d);
+	    tooltip.classed('hidden', false);
+	    
+	    /*var ttWidth = $('#tt').width();
+	    var ttHeight = $('#tt').height();
+	    
+	    
+		console.log('Mouse: [' + mouse[0] + ', ' + mouse[1] + ']');
+		console.log('TTW, TTH: ' + ttWidth + ', ' + ttHeight);
+		console.log('W, H: ' + width + ', ' + height);		
+		console.log('WW, WH: ' + windowWidth + ', ' + windowHeight);
+
+		var docLeft = (d3.event.pageX + ttWidth > windowWidth) ? windowWidth - ttWidth : d3.event.pageX;
+		var docTop = (d3.event.pageY + ttHeight > windowHeight) ? windowHeight - ttHeight : d3.event.pageY;*/
+		
+		
 	    tooltip
-	     	.classed("hidden", false)
 	      	.style("left", (mouse[0]+l) + "px")
 	      	.style("top", +(mouse[1]+t) +"px");
-	    populateTooltip(d);
-	}
-	
-	zoomTo(d.id);
+	    
+	}	
 }
 
 function doubleClicked(d) {
@@ -701,6 +717,7 @@ function zoomTo(id) {
 	
 	//unsure what the first below function does?
 	zoom.translate(t);
+	zoom.scale(s);
 	g.transition().style("stroke-width", 1 / s).attr("transform", "translate(" + t + ")scale(" + s + ")");
 }
 
