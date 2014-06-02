@@ -208,9 +208,18 @@ body {
 	font-family: 'Arvo', serif;
 	color: #000;
 	font-weight: 100;
+	width:auto;
 }
 h1 small {
 	color:rgb(0,64,112);
+}
+
+#nacoLogo {
+	top:0;
+	right:10px;
+	position: absolute;
+	width:200px;
+	height: 100px;
 }
 
 .btn-group{
