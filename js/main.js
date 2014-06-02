@@ -4,6 +4,7 @@ function toTitleCase(str){ return str.replace(/\w\S*/g, function(txt){return txt
 function isNumFun(data_type) { return (data_type === 'level' || data_type === 'level_np' || data_type === 'percent'); }
 function positionInstruction(){var instructionLeft = (windowWidth * .2) / 2; if(windowWidth > 1125){instructionLeft = (windowWidth - 900)/2;}; d3.select('#instructions').style("left", instructionLeft + "px");}
 
+// general formatting by data type
 var format = {
 	"percent": d3.format('.1%'),
 	"binary": function (num) {
@@ -30,9 +31,40 @@ var format = {
     	} else {
     		return isCurrency ? d3.format('$.1f')(num) : d3.format('.1f')(num);
     	}
-    }			
+    }
 };
 format['level_np'] = format['level'];
+
+// formatting for the tooltip
+var format_tt = {
+	"percent": d3.format('.1%'),
+	"binary": function (num) {
+		if (num === 1) return "Yes";
+		else if (num === 0) return "No";
+		else return "N/A";
+	},
+	"categorical": function (num) { return num; },
+	"level": function (num, curr) {
+		var isCurrency = curr || false;
+    	if (num >= 1000000000) {
+    		var formatted = String((num/1000000000).toFixed(1)) + " Bil";
+    		return isCurrency ? '$' + formatted : formatted;
+    	} else if (num >= 1000000) {
+    		var formatted = String((num/1000000).toFixed(1)) + " Mil";
+    		return isCurrency ? '$' + formatted : formatted;
+    	} else if (num >= 10000) {
+    		var formatted = String((num/1000).toFixed(1)) + "k";
+    		return isCurrency ? '$' + formatted : formatted;
+    	} else if (num >= 100) {
+    		return isCurrency ? d3.format('$,.0f')(num) : d3.format(',.0f')(num);
+    	} else if (num == 0) {
+    		return isCurrency ? '$0' : 0;
+    	} else {
+    		return isCurrency ? d3.format('$.1f')(num) : d3.format('.1f')(num);
+    	}
+    }
+};
+format_tt['level_np'] = format['level'];
 
 var zoom = d3.behavior.zoom()
     .scaleExtent([1, 10])
@@ -54,9 +86,6 @@ var topo,stateMesh,projection,path,svg,g;
 
 var tooltip = d3.select("#container").append("div").attr("class", "tooltip hidden").attr("id", "tt");
 var tipContainer = tooltip.append('div').attr('id', 'tipContainer');
-var tooltipOffsetL = document.getElementById('container').offsetLeft+(width/2)+40;   //offsets plus width/height of transform, plus 20 px of padding, plus 20 extra for tooltip offset off mouse
-var tooltipOffsetT = document.getElementById('container').offsetTop+(height/2)+20;
-
 
 var CICstructure,
 	selectedData, selectedDataset, selectedDataText = "GDP Growth, 2013",
@@ -162,6 +191,7 @@ function draw(topo, stateMesh) {
     .on('click', function(d, i) {
     	d3.event.stopPropagation();
     	var mouse = d3.mouse(svg.node()).map( function(d) { return parseInt(d); } );
+    	var event = d3.event;
 		
 		highlight(d);
 		
@@ -169,7 +199,7 @@ function draw(topo, stateMesh) {
 		if (clickCount === 1) {
 			singleClickTimer = setTimeout(function() {
 				clickCount = 0;
-				if (d3.select('.active').empty() !== true) clicked(mouse, tooltipOffsetL, tooltipOffsetT, d, i);
+				if (d3.select('.active').empty() !== true) clicked(mouse, event, d, i);
 			}, 300);
 		} else if (clickCount === 2) {
 			clearTimeout(singleClickTimer);
@@ -627,8 +657,8 @@ function populateTooltip(d) {
 	var none_avail = true;
 	for (var i = 0; i < obj.length; i++) {
 		var isCurrency = obj[i].hasOwnProperty('unit') ? (obj[i].unit.indexOf("dollar") != -1) : false; // determine if indicator values are currency by checking units
-		var value = format[obj[i].dataType](quant[i][d.id], isCurrency);
-		if (value === '$NaN' || value === 'NaN' || value === 'NaN%') {
+		var value = format_tt[obj[i].dataType](quant[i][d.id], isCurrency);
+		if (value === '$NaN' || value === 'NaN' || value === 'NaN %') {
 			value = 'Not Available';
 		} else {
 			none_avail = false;
@@ -647,10 +677,10 @@ function populateTooltip(d) {
 			
 		if (showingSecond) {
 			var s_isCurrency = s_obj[i].hasOwnProperty('unit') ? (s_obj[i].unit.indexOf("dollar") != -1) : false; // determine if indicator values are currency by checking units
-			var s_value = format[s_obj[i].dataType](s_quant[i][d.id], s_isCurrency);
-			if (!isNaN(s_quant[i][d.id])) {
-				s_value = "Not Available";
-			} 
+			var s_value = format_tt[s_obj[i].dataType](s_quant[i][d.id], s_isCurrency);
+			if (s_value === '$NaN' || s_value === 'NaN' || s_value === 'NaN %') {
+				s_value = 'Not Available';
+			}
 	
 			if (obj[i].name.indexOf('(') != -1) {
 				var s_name = s_obj[i].name.substring(0, s_obj[i].name.indexOf('('));
@@ -669,30 +699,28 @@ function populateTooltip(d) {
 
 }
 
-function clicked(mouse, l, t, d, i) {
+function clicked(mouse, event, d, i) {
 	zoomTo(d.id);
 	
 	if (countyObjectById.hasOwnProperty(d.id)) {
 	    populateTooltip(d);
 	    tooltip.classed('hidden', false);
 	    
-	    /*var ttWidth = $('#tt').width();
+		var tooltipOffsetL = document.getElementById('container').offsetLeft+(width/2)+40;   //offsets plus width/height of transform, plus 20 px of padding, plus 20 extra for tooltip offset off mouse
+		var tooltipOffsetT = document.getElementById('container').offsetTop+(height/2)+20;
+
+	    var ttWidth = $('#tt').width(); // tooltip width and height
 	    var ttHeight = $('#tt').height();
 	    
-	    
-		console.log('Mouse: [' + mouse[0] + ', ' + mouse[1] + ']');
-		console.log('TTW, TTH: ' + ttWidth + ', ' + ttHeight);
-		console.log('W, H: ' + width + ', ' + height);		
-		console.log('WW, WH: ' + windowWidth + ', ' + windowHeight);
-
-		var docLeft = (d3.event.pageX + ttWidth > windowWidth) ? windowWidth - ttWidth : d3.event.pageX;
-		var docTop = (d3.event.pageY + ttHeight > windowHeight) ? windowHeight - ttHeight : d3.event.pageY;*/
+		var dx = windowWidth - (event.pageX + ttWidth); // if tooltip will go past the window width, fix so it doesnt
+		var dy = windowHeight - (event.pageY + ttHeight); // if tooltip will go past the window height, fix so it doesnt
 		
+		var left = (dx < 0) ? mouse[0] + tooltipOffsetL + dx : mouse[0] + tooltipOffsetL;
+		var top = (dy < 0) ? mouse[1] + tooltipOffsetT + dy : mouse[1] + tooltipOffsetT;
 		
 	    tooltip
-	      	.style("left", (mouse[0]+l) + "px")
-	      	.style("top", +(mouse[1]+t) +"px");
-	    
+	      	.style("left", (left) + "px")
+	      	.style("top", (top) + "px");
 	}	
 }
 
