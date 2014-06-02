@@ -82,6 +82,9 @@ var color = d3.scale.quantile();
 d3.json("data/CICstructure.json", function(error, CICStructure){	
 	CICstructure = CICStructure;
 
+	setDropdownBehavior();
+	setSearchBehavior();  
+
 	// dataset to map first
 	update("Payment in Lieu of Taxes (PILT)", "PILT Amount");
 	
@@ -107,10 +110,7 @@ function setup(width,height){
   		
   d3.select('#map').on('click', function() { if (selected !== null) highlight(selected); });
   d3.select('#close').on('click', function() { $('#instructions').hide(); });
-		
-  setDropdownBehavior();
-  setSearchBehavior();  
-  
+		  
   //add Not Applicable data box
   //d3.select("#legendNoData").insert("svg").append("rect").attr({"width": "60", "height": "15", "x": "30", "y": "10"}).style("fill", na_color);
 }
@@ -172,7 +172,38 @@ function draw(topo, stateMesh) {
    
 }
 
-function setDropdownBehavior() {
+function setDropdownBehavior() {		
+	// this script is ONLY used to create html to COPY over to index.html
+	/*$('#primeIndLi').empty();
+	var primeList = d3.select('#primeIndLi');
+	primeList.append('a')
+		.attr('id', 'primeIndText')
+		.text('Primary Indicator');
+	var mainDrop = primeList.append('ul').attr('id', 'primeInd').attr('class', 'dropdown-menu');
+	
+	for (var i = 0; i < CICstructure.children.length; i++) {
+		var category = CICstructure.children[i];
+		var catLi = mainDrop.append('li').attr('class', 'category').attr('title', category.name);
+		catLi.append('a').text(category.name);
+		var catDrop = catLi.append('ul').attr('class', 'dropdown-menu');
+		
+		for (var j = 0; j < category.children.length; j++) {
+			var dataset = category.children[j];
+			var dsLi = catDrop.append('li').attr('class', 'dataset').attr('title', dataset.name);
+			dsLi.append('a').text(dataset.name);
+			var dsDrop = dsLi.append('ul').attr('class', 'dropdown-menu');
+			
+			for (var k = 0; k < dataset.children.length; k++) {
+				var indicator = dataset.children[k];
+				var indLi = dsDrop.append('li').append('a')
+					.attr('class', 'indicator')
+					.attr('title', indicator.name)
+					.attr('href', '#')
+					.text(indicator.name);
+			}
+		}
+	}*/
+	
 	d3.select('#primeInd').selectAll('.dataset').selectAll('.indicator').on('click', function() {
 		var datasetName = this.parentNode.parentNode.parentNode.title; // real hokey, will fix eventually
 		var indicatorName = this.title;
@@ -189,6 +220,8 @@ function setDropdownBehavior() {
 		highlight(selected);
 		appendSecondInd(datasetName, indicatorName);
 	});
+	
+	d3.selectAll('.indicator').style('cursor', 'pointer');
 }
 
 function setSearchBehavior() {
