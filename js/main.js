@@ -404,6 +404,7 @@ function displayResultsInFrame(url) {
 	tooltip.classed("hidden", true);
 	
 	//possible non-iframe way to get info
+	//all <body> tags in the return share an id of "responseContent" for grabbing and appending their innerHTML
 	/*
 	d3.xhr(url, function(error, results){
 		console.log(results.responseText);
