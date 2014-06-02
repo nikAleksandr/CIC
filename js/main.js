@@ -545,6 +545,7 @@ function cancelSecondInd() {
 	showingSecond = false;
 	
 	// remove second tooltip
+	//under what conditions do we activate this?  is there a button, etc?
 }
 
 
@@ -690,6 +691,17 @@ function clicked(mouse, l, t, d, i) {
 	      	.style("top", +(mouse[1]+t) +"px");
 	    populateTooltip(d);
 	}
+	console.log(path.centroid(d));
+	
+	var t = path.centroid(d);
+	var s = 6;
+
+  	t[0] = -t[0] * (s - 1);
+  	t[1] = -t[1] * (s - 1);
+	
+	//unsure what the first below function does?
+  zoom.translate(t);
+  g.style("stroke-width", 1 / s).attr("transform", "translate(" + t + ")scale(" + s + ")");
 }
 
 function doubleClicked(d) {
