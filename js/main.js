@@ -2,6 +2,7 @@ d3.select(window).on("resize", throttle);
 
 function toTitleCase(str){ return str.replace(/\w\S*/g, function(txt){return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();}); }
 function isNumFun(data_type) { return (data_type === 'level' || data_type === 'level_np' || data_type === 'percent'); }
+function positionInstruction(){var instructionLeft = (windowWidth * .2) / 2; if(windowWidth > 1125){instructionLeft = (windowWidth - 900)/2;}; d3.select('#instructions').style("left", instructionLeft + "px");}
 
 var format = {
 	"percent": d3.format('.1%'),
@@ -37,8 +38,9 @@ var zoom = d3.behavior.zoom()
     .scaleExtent([1, 10])
     .on("zoom", move);
 
-var width = document.getElementById('container').offsetWidth-60;
-var height = width / 2;
+var width = document.getElementById('container').offsetWidth-60,
+	height = width / 2,
+	windowWidth = $(window).width();;
 
 var projection = d3.geo.albersUsa()
     .scale(width)
@@ -87,33 +89,33 @@ d3.json("data/CICstructure.json", function(error, CICStructure){
 	
 });
 
-function setup(width,height){
-  projection = d3.geo.albersUsa()
-    .translate([0, 0])
-    .scale(width *1.1);
 
-  path = d3.geo.path()
-      .projection(projection);
+function setup(width, height) {
+	projection = d3.geo.albersUsa().translate([0, 0]).scale(width * 1.1);
 
-  svg = d3.select("#map").append("svg")
-      .attr("width", width)
-      .attr("height", height)
-      .append("g")
-      .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")")
-      .call(zoom);
+	path = d3.geo.path().projection(projection);
 
-  g = svg.append("g")
-  		.attr("class", "counties");
-  		
-  d3.select('#map').on('click', function() { if (selected !== null) highlight(selected); });
-  d3.select('#close').on('click', function() { $('#instructions').hide(); });
-		
-  setDropdownBehavior();
-  setSearchBehavior();  
-  
-  //add Not Applicable data box
-  //d3.select("#legendNoData").insert("svg").append("rect").attr({"width": "60", "height": "15", "x": "30", "y": "10"}).style("fill", na_color);
+	svg = d3.select("#map").append("svg").attr("width", width).attr("height", height).append("g").attr("transform", "translate(" + width / 2 + "," + height / 2 + ")").call(zoom);
+
+	g = svg.append("g").attr("class", "counties");
+
+	d3.select('#map').on('click', function() {
+		if (selected !== null)
+			highlight(selected);
+	});
+	d3.select('#close').on('click', function() {
+		$('#instructions').hide();
+	});
+
+	setDropdownBehavior();
+	setSearchBehavior();
+
+	positionInstruction();
+	
+	//add Not Applicable data box
+	//d3.select("#legendNoData").insert("svg").append("rect").attr({"width": "60", "height": "15", "x": "30", "y": "10"}).style("fill", na_color);
 }
+
 	
 
 d3.json("us.json", function(error, us) {
@@ -626,6 +628,7 @@ function doubleClicked(d) {
 function redraw() {
   tooltip.classed("hidden", true);
   
+  windowWidth = $(window).width();
   width = document.getElementById('container').offsetWidth-60;
   height = width / 2;
   d3.select('svg').remove();
