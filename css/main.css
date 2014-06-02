@@ -121,11 +121,11 @@ body {
 #instructions, #fullDefs{
 	display: none;
 	text-align: left;
-	width: 80%;
-	max-width: 900px;
+	width: 50%;
 	height: auto;
 	max-height: 50%;
 	position: absolute;
+	left: 25%;
 	top: 25%;
 	z-index: 100;
 	box-shadow: 0 0 .938em rgba(0, 0, 0, 0.2);
@@ -197,17 +197,20 @@ body {
 	padding: 0 1em;
 	margin-bottom: -1em;
 	box-shadow: 0em 1em .7em 0em rgba(0, 0, 0, 0.2);
-	text-align: left;
 }
 
 #header p {
-	padding:0 2em;
-	margin: 0;
+	width: 90%;
+	margin: 0 auto;
+	font-weight: 100;
+	font-size: 1em;
+	color:rgb(0,64,112);
 }
 #header h1{
 	font-family: 'Arvo', serif;
 	color: #000;
 	font-weight: 100;
+	text-align: left;
 }
 h1 small {
 	color:rgb(0,64,112);
