@@ -68,6 +68,8 @@ var CICstructure,
 var quantById = [], secondQuantById = [], thirdQuantById = [], fourthQuantById = [],
 	s_quantById = [], s_secondQuantById = [], s_thirdQuantById = [], s_fourthQuantById = [],
 	primeInd = {},
+	primeIndObj = {}, secondIndObj = {}, thirdIndObj = {}, fourthIndObj = {},
+	s_primeIndObj = {}, s_secondIndObj = {}, s_thirdIndObj = {}, s_fourthIndObj = {},
 	nameById = [],
 	idByName = {},
 	countyCoords = [],
@@ -361,7 +363,7 @@ function executeSearchMatch(FIPS) {
 	var county = countyObjectById[FIPS];
 	
 	highlight(county);
-	//zoomTo(county);
+	zoomTo(FIPS);
 	doubleClicked(county);
 	
 	//document.getElementById('search_form').reset();				
@@ -378,49 +380,6 @@ function displayResultsInFrame(url) {
   			
 	$('#instructions').show();
 }
-
-function zoomTo(d) {
-	// not working...
-	var t = d3.event.translate;
-	var s = 4;
-	var h = height / 2;
-
-	//t[0] = Math.min(width / 2 * (s - 1), Math.max(width / 2 * (1 - s), t[0]));
-	//t[1] = Math.min(height / 2 * (s - 1), Math.max(height / 2 * (1 - s), t[1]));
-	//original function: t[1] = Math.min(height / 2 * (s - 1) + h * s, Math.max(height / 2 * (1 - s) - h * s, t[1]));
-	//maximum translate value is 1944 (maine) from scale = 10 (t-value of 1902)
-	//1190 from 6 (1145)
-	//743 from 3.7 (626)
-	//343 from 2.2 (339)
-	//167 from 1.3 (132)
-	//0 from 1 (0)
-
-	g.style("stroke-width", 1 / s).attr("transform", "translate(" + [0,0] + ")scale(" + s + ")"); 
-
-}
-
-var frmrFill, frmrActive;
-
-function highlight(d) {
-	if (selected === d) tooltip.classed('hidden', true);
-	
-	if (d && selected !== d) {
-		selected = (d.type === 'Feature') ? d : countyPathById[d.id];
-	  } else {
-	    selected = null;
-	  }
-	
-	g.selectAll("path")
-      .classed("active", selected && function(d) { return d === selected; });
-	
-	if (frmrActive) frmrActive.style("fill", frmrFill);	
-	frmrActive = d3.select(".active");
-	if (frmrActive.empty() !== true) {
-		frmrFill = frmrActive.style("fill");
-		frmrActive.style("fill", null);
-	}
-}
-
 
 
 function update(dataset, indicator) {
@@ -452,18 +411,6 @@ function update(dataset, indicator) {
 		var dataType = primeIndObj.dataType;
 		var isNumeric = isNumFun(dataType);
 
-		if (!isNumeric) {
-			// translating string values to numeric values
-			var numCorrVals = 0, vals = {}, corrVal = 0, corrDomain = [];
-			for (var ind in quantById) {
-				if (!vals.hasOwnProperty(quantById[ind])) {
-					vals[quantById[ind]] = corrVal;
-					corrVal++;
-				}
-				corrDomain[ind] = vals[quantById[ind]];
-			}
-			for (var ind in vals) numCorrVals++;
-		}
 			
 		// define range i.e. color output
 		switch(dataType) {
@@ -483,8 +430,33 @@ function update(dataset, indicator) {
 				range = ['rgb(239,243,255)', 'rgb(189,215,231)', 'rgb(107,174,214)', 'rgb(49,130,189)', 'rgb(8,81,156)'];
 		}
 		
+		// define domain
+		if (isNumeric) {
+			var domain = [];
+			for (var ind in quantById) {
+				if (dataType === 'level') {
+					// for levels, we do not want "zero" to be considered during the quantile categorization
+					if (parseFloat(quantById[ind]) === 0) domain[ind] = ".";
+					else domain[ind] = quantById[ind];
+				} else {
+					domain[ind] = quantById[ind];	
+				}
+			}
+		} else {
+			// translating string values to numeric values
+			var numCorrVals = 0, vals = {}, corrVal = 0, corrDomain = [];
+			for (var ind in quantById) {
+				if (!vals.hasOwnProperty(quantById[ind])) {
+					vals[quantById[ind]] = corrVal;
+					corrVal++;
+				}
+				corrDomain[ind] = vals[quantById[ind]];
+			}
+			for (var ind in vals) numCorrVals++;
+		}
+
 		// set domain and range
-		if (isNumeric) color.domain(quantById).range(range);
+		if (isNumeric) color.domain(domain).range(range);
 		else color.domain(corrDomain).range(range);
 
 		// fill in map colors
@@ -548,8 +520,6 @@ function cancelSecondInd() {
 	//under what conditions do we activate this?  is there a button, etc?
 }
 
-
-var primeIndObj = {}, secondIndObj = {}, thirdIndObj = {}, fourthIndObj = {};
 
 function allData(dataset, indicator){
 	
@@ -657,10 +627,10 @@ function populateTooltip(d) {
 	for (var i = 0; i < obj.length; i++) {
 		var isCurrency = obj[i].hasOwnProperty('unit') ? (obj[i].unit.indexOf("dollar") != -1) : false; // determine if indicator values are currency by checking units
 		var value = format[obj[i].dataType](quant[i][d.id], isCurrency);
-		if (!isNaN(value)) {
-			none_avail = false;
+		if (value === '$NaN' || value === 'NaN' || value === 'NaN%') {
+			value = 'Not Available';
 		} else {
-			value = "Not Available";
+			none_avail = false;
 		}
 
 		if (obj[i].name.indexOf('(') != -1) {
@@ -706,17 +676,8 @@ function clicked(mouse, l, t, d, i) {
 	      	.style("top", +(mouse[1]+t) +"px");
 	    populateTooltip(d);
 	}
-	console.log(path.centroid(d));
 	
-	//Zoom section
-	var t = path.centroid(d);
-	var s = 6;
-
-  	t[0] = -t[0] * (s - 1);
-  	t[1] = -t[1] * (s - 1);
-	
-  zoom.translate(t);
-  g.transition().style("stroke-width", 1 / s).attr("transform", "translate(" + t + ")scale(" + s + ")");
+	zoomTo(d.id);
 }
 
 function doubleClicked(d) {
@@ -729,6 +690,40 @@ function doubleClicked(d) {
 	  	$('#instructions').hide();
 	  	//clicked(countyPathById[d.id].geometry.coordinates[0][0], tooltipOffsetL, tooltipOffsetT, d); // a fake click to get tooltip to appear
   	});*/
+}
+
+function zoomTo(id) {
+	var t = path.centroid(countyPathById[id]);
+	var s = 6;
+
+  	t[0] = -t[0] * (s - 1);
+  	t[1] = -t[1] * (s - 1);
+	
+	//unsure what the first below function does?
+	zoom.translate(t);
+	g.transition().style("stroke-width", 1 / s).attr("transform", "translate(" + t + ")scale(" + s + ")");
+}
+
+var frmrFill, frmrActive;
+
+function highlight(d) {
+	if (selected === d) tooltip.classed('hidden', true);
+	
+	if (d && selected !== d) {
+		selected = (d.type === 'Feature') ? d : countyPathById[d.id];
+	  } else {
+	    selected = null;
+	  }
+	
+	g.selectAll("path")
+      .classed("active", selected && function(d) { return d === selected; });
+	
+	if (frmrActive) frmrActive.style("fill", frmrFill);	
+	frmrActive = d3.select(".active");
+	if (frmrActive.empty() !== true) {
+		frmrFill = frmrActive.style("fill");
+		frmrActive.style("fill", null);
+	}
 }
 
 function redraw() {

@@ -843,12 +843,14 @@
       		"name": "USDA Rural Development",
       		"years": [2009, 2010, 2011, 2012, 2013, 2014],
       		"source": "U.S. Department of Agriculture - Rural Development",
-      		"companions": [["USDA Rural Development", "USDA Total Amount"], ["USDA Rural Development", "USDA Total Amount Growth Rate (from previous year)"], ["USDA Rural Development", "USDA Grant Amount"], ["USDA Rural Development", "USDA Loan Amount"]],
+      		"companions": [["USDA Rural Development", "USDA Total Amount"], ["USDA Rural Development", "USDA Total Annual Growth Rate (from previous year)"], ["USDA Rural Development", "USDA Grant Amount"], ["USDA Rural Development", "USDA Loan Amount"]],
       		"children": [
       			{"name": "USDA Total Amount", "unit": "thousands of dollars", "dataType": "level", "definition": "Funding received for the USDA Rural Development program"},
       			{"name": "USDA Total Annual Growth Rate (from previous year)", "dataType": "percent", "definition": "Percent change in funding for the USDA Rural Development program from the previous year"},
       			{"name": "USDA Grant Amount", "unit": "thousands of dollars", "dataType": "level", "definition": "Grants received for the USDA Rural Development program"},
-      			{"name": "USDA Loan Amount", "unit": "thousands of dollars", "dataType": "level", "definition": "Loans received for the USDA Rural Development program"}
+      			{"name": "USDA Grant Annual Growth Rate (from previous year)", "dataType": "percent", "definition": "Percent change in grants received for the USDA Rural Development program from the previous year"},
+      			{"name": "USDA Loan Amount", "unit": "thousands of dollars", "dataType": "level", "definition": "Loans received for the USDA Rural Development program"},
+      			{"name": "USDA Loan Annual Growth Rate (from previous year)", "dataType": "percent", "definition": "Percent change in loans received for the USDA Rural Development program from the previous year"}
       		]
       	}
       ]
