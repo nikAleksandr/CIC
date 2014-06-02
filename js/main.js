@@ -802,7 +802,7 @@ function redraw() {
   setup(width,height);
   draw(topo, stateMesh);
 }
-
+var frmrS = 1;
 function move() {	
   tooltip.classed("hidden", true);
 	
@@ -821,8 +821,14 @@ function move() {
   	//0 from 1 (0)
 	
   zoom.translate(t);
-  g.transition().style("stroke-width", 1 / s).attr("transform", "translate(" + t + ")scale(" + s + ")");
-
+  	//if statement to call the transition on zoom only, but no transition on panning only
+	if(s === frmrS){
+		g.style("stroke-width", 1 / s).attr("transform", "translate(" + t + ")scale(" + s + ")");
+	}
+	else{
+		g.transition().style("stroke-width", 1 / s).attr("transform", "translate(" + t + ")scale(" + s + ")");
+	}
+	frmrS = s;
 }
 
 var throttleTimer;
