@@ -105,7 +105,7 @@ body {
 #underMap {
 	margin: 0 auto;
 	text-align: left;
-	font-size: .85em;
+	font-size: .9em;
 }
 
 #byline{
@@ -261,10 +261,11 @@ h1 small {
 	z-index:-10;
 }
 
-#resultWindow, #notes {
+#additionalInfo, #notes {
 	text-align: left;
 	font-size: .85em;
 }
+#additionalInfo { margin-top: 10px; }
 
 .result_iframe {
 	width: 100%;
