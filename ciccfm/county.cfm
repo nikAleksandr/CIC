@@ -6,29 +6,6 @@
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
 <link href="../../naco_default.css" rel="stylesheet" type="text/css">
 </head>
-<!--- <SCRIPT LANGUAGE=JAVASCRIPT TYPE="TEXT/JAVASCRIPT"> 
-if   (document.referrer >= "http://www.tax-lien-certificates.com/" &&  document.referrer <= "http://www.tax-lien-certificatesa.com/") 
-		 location.href = "http://www.tax-lien-certificates.com"; 
-			 		 		 		 		 		 
-</SCRIPT> 
-
-<SCRIPT LANGUAGE=JAVASCRIPT TYPE="TEXT/JAVASCRIPT"> 
-if   (document.referrer >= "http://www.tax-deed-sales.com/" &&  document.referrer <= "http://www.tax-deed-sales.com/")
-		 location.href = "http://www.tax-deed-sales.com"; 
-			 		 		 		 		 		 
-</SCRIPT> 
-
-<SCRIPT LANGUAGE=JAVASCRIPT TYPE="TEXT/JAVASCRIPT"> 
-if   (document.referrer >= "http://www.taxsalesinfo.com/" &&  document.referrer <= "http://www.taxsalesinfo.com/")
-		 location.href = "http://www.taxsalesinfo.com"; 
-			 		 		 		 		 		 
-</SCRIPT> 
-
-<SCRIPT LANGUAGE=JAVASCRIPT TYPE="TEXT/JAVASCRIPT"> 
-if   (document.referrer >= "http://www.professorprofits.com/" &&  document.referrer <= "http://www.professorprofits.com/")
-		 location.href = "http://www.professorprofits.com"; 
-			 		 		 		 		 		 
-</SCRIPT>  --->
 
 
 
