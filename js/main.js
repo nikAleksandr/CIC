@@ -294,7 +294,7 @@ function submitSearch() {
 
 	if (search_type === 'state') {
 		// only state; return results of all counties within state
-		displayResultsInFrame('ciccfm/state.cfm?statecode='+encodeURIComponent(state_name));
+		displayResultsInFrame('http://nacocic.naco.org/ciccfm/state.cfm?statecode='+encodeURIComponent(state_name));
 							
 	} else if (search_type === 'county') {
 		// trim out the fat
@@ -386,7 +386,7 @@ function submitSearch() {
 		var city_search_str = '';
 		for (var i = 0; i < search_str_array.length; i++) city_search_str += search_str_array[i];
 		
-		displayResultsInFrame('http://www.uscounties.org/cffiles_web/counties/city_res.cfm?city='+encodeURIComponent(city_search_str.trim()));
+		displayResultsInFrame('http://nacocic.naco.org/ciccfm/city_res.cfm?city='+encodeURIComponent(city_search_str.trim()));
 	}
 }
 
@@ -403,6 +403,26 @@ function executeSearchMatch(FIPS) {
 function displayResultsInFrame(url) {
 	tooltip.classed("hidden", true);
 	
+	//possible non-iframe way to get info
+	//all <body> tags in the return share an id of "responseContent" for grabbing and appending their innerHTML
+	/*
+	d3.xhr(url, function(error, results){
+		console.log(results.responseText);
+		
+		var resText = d3.select(results).select("#content").innerHTML;
+		
+		
+		
+		$('#instructionText').empty();
+		
+		var frame = d3.select('#instructionText').append(resText)
+			.attr('height', '300px'); // very arbitrary, might want to change this
+	  			
+		$('#instructions').show();
+		
+	});
+	*/
+	
 	$('#instructionText').empty();
 	var frame = d3.select('#instructionText').append('iframe')
 		.classed('result_iframe', true)
@@ -410,6 +430,7 @@ function displayResultsInFrame(url) {
 		.attr('src', url);
   			
 	$('#instructions').show();
+	
 }
 
 
@@ -729,7 +750,7 @@ function doubleClicked(d) {
 	
 	var countyID = d.id.toString();
 	if (countyID.length == 4) countyID = "0" + countyID;
-	displayResultsInFrame('http://www.uscounties.org/cffiles_web/counties/county.cfm?id=' + encodeURIComponent(countyID));
+	displayResultsInFrame('http://nacocic.naco.org/ciccfm/county.cfm?id=' + encodeURIComponent(countyID));
 	/*d3.select('#showOnMap').on('click', function() {
 	  	$('#instructions').hide();
 	  	//clicked(countyPathById[d.id].geometry.coordinates[0][0], tooltipOffsetL, tooltipOffsetT, d); // a fake click to get tooltip to appear
