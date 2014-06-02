@@ -9,11 +9,11 @@
 		</CFQUERY> 
 			
 		<CFQUERY NAME="getcounties" datasource="naco_cic">
-		SELECT FIPS,   CountyName, State, countyseat, MemberStatus,  OrgType,
-		Population2010, SquareMiles, founded,  boardsize, GovType
+		SELECT FIPS,   County_Name, State, county_seat, Member_Status,  Org_Type,
+		Population_2010, Square_Miles, founded,  board_size, Gov_Type
 		FROM  County_Data  (NOLOCK)
-		WHERE State='#statecode#' and OrgType in ('County', 'Independent City', 'County W/o Govt Structure', 'Geographical Census Area') 
-		ORDER BY OrgType
+		WHERE State='#statecode#' and Org_Type in ('County', 'Independent City', 'County W/o Govt Structure', 'Geographical Census Area') 
+		ORDER BY Org_Type
 		</CFQUERY> 
      
 
@@ -27,19 +27,19 @@
 
 
 
-<CFOUTPUT QUERY="getcounties" group="orgtype">
+<CFOUTPUT QUERY="getcounties" group="org_type">
 <strong>#getstate.StateName#</strong><P>
 
-<CFIF orgtype NEQ 'County'>
+<CFIF org_type NEQ 'County'>
                
                 <TABLE WIDTH="75%" BORDER="1" cellspacing="0" cellpadding="0">
-                <TR><TD>#orgtype#</TD>
+                <TR><TD>#org_type#</TD>
                 <TD align="right">2010 Population</TD>
                 <TD align="right">Square Miles</TD></TR>
                     <CFOUTPUT>
                     <TR>
-                    <TD>#CountyName#</TD>
-                    <TD align="right">#NumberFormat(Population2010)#</TD><TD align="right">#NumberFormat(SquareMiles)#</TD></TR>
+                    <TD>#County_Name#</TD>
+                    <TD align="right">#NumberFormat(Population_2010)#</TD><TD align="right">#NumberFormat(Square_Miles)#</TD></TR>
                     </CFOUTPUT>
                 </TABLE>
                
@@ -59,24 +59,24 @@
 					<TH>Founded</TH>
 					</TR>
 		
-		      <CFOUTPUT>
+		     <CFOUTPUT>
 				<TR>
-				<TD><a href="http://www.uscounties.org/cffiles_web/counties/county.cfm?id=#FIPS#" >#CountyName#</a>
-				 <CFIF GovType EQ  "Consolidated">*</CFIF>
+				<TD><a href="http://www.uscounties.org/cffiles_web/counties/county.cfm?id=#FIPS#" >#County_Name#</a>
+				 <CFIF Gov_Type EQ  "Consolidated">*</CFIF>
                 </TD>
-				<TD ALIGN="CENTER"><CFIF MemberStatus EQ  'Active'><IMG SRC="images/check2.gif"><CFELSE>&nbsp;</CFIF></TD>
-				<TD ALIGN="RIGHT"><CFIF Population2010 GT 0>#NumberFormat(Population2010)#<CFELSE><em>N/A</em></CFIF> </TD>
-				<TD ALIGN="RIGHT"><CFIF SquareMiles GT 0>#NumberFormat(SquareMiles)#  <CFELSE><em>N/A</em></CFIF> </TD> 
-				<TD ALIGN="LEFT"> #countyseat#&nbsp;</TD> 
-				<TD align="right"> #boardsize#&nbsp;</TD> 
+				<TD ALIGN="CENTER"><CFIF Member_Status EQ  'Active'><IMG SRC="images/check2.gif"><CFELSE>&nbsp;</CFIF></TD>
+				<TD ALIGN="RIGHT"><CFIF Population_2010 GT 0>#NumberFormat(Population_2010)#<CFELSE><em>N/A</em></CFIF> </TD>
+				<TD ALIGN="RIGHT"><CFIF Square_Miles GT 0>#NumberFormat(Square_Miles)#  <CFELSE><em>N/A</em></CFIF> </TD> 
+				<TD ALIGN="LEFT"> #county_seat#&nbsp;</TD> 
+				<TD align="right"> #board_size#&nbsp;</TD> 
 				<TD ALIGN="CENTER">#founded#&nbsp;</TD>
 				</TR>
-		     </CFOUTPUT>
+		     </CFOUTPUT> 
 				</TABLE> 
   
-</CFIF>
+</CFIF> 
 
-</CFOUTPUT>
+</CFOUTPUT> 
 
 
 

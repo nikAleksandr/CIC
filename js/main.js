@@ -799,7 +799,6 @@ function move() {
   	//167 from 1.3 (132)
   	//0 from 1 (0)
 	
-	//unsure what the first below function does?
   zoom.translate(t);
   g.transition().style("stroke-width", 1 / s).attr("transform", "translate(" + t + ")scale(" + s + ")");
 
