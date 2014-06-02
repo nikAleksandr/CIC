@@ -15,12 +15,12 @@ WHERE code = '#statecode#'
 
 <CFQUERY NAME="getcities" DATASOURCE="naco_cic">
 SELECT DISTINCT
-   CITIES.FIPS,  CITIES.City, CensusPlace, IncorporatedArea, CensusPlace,  countyname, county_data.State
+   CITIES.FIPS,  CITIES.City, CensusPlace, IncorporatedArea, CensusPlace,  county_name, county_data.State
 FROM
  CITIES (NOLOCK) INNER JOIN county_data (NOLOCK)  ON CITIES.FIPS = county_data.FIPS
 WHERE CITIES.CITY LIKE   <cfqueryparam cfsqltype="cf_sql_varchar"  Value="%#city#%">  
  and  Abbreviated = 0 and notacity is null
-ORDER BY county_data.STATE, countyname
+ORDER BY county_data.STATE, county_name
 </CFQUERY>
 
  
@@ -62,7 +62,7 @@ ORDER BY county_data.STATE, countyname
 		<TD align="center">#State#</TD>
 		<TD>#CITY#</TD>
  		<TD>#CensusPlace# <CFIF #IncorporatedArea# EQ "Yes"> &nbsp; (Incorporated Area)<CFELSE>&nbsp; </CFIF>  &nbsp; </TD>
-		<TD><!--- <a href="county.cfm?id=#Fips#">#countyname#</A> --->    #countyname#
+		<TD><!--- <a href="county.cfm?id=#Fips#">#countyname#</A> --->    #county_name#
 		</TD>
 	</TR>
 	</CFOUTPUT> 
