@@ -762,7 +762,7 @@ function doubleClicked(d) {
 	
 	var countyID = d.id.toString();
 	if (countyID.length == 4) countyID = "0" + countyID;
-	displayCountyResults(countyID);
+	displayResults('county.cfm?id=' + countyID);
 }
 
 function zoomTo(fips, event) {
