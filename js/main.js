@@ -402,27 +402,50 @@ function executeSearchMatch(FIPS) {
 
 function displayResultsInFrame(url) {
 	tooltip.classed("hidden", true);
+	$('#instructionText').empty();
 	
-	//possible non-iframe way to get info
-	//all <body> tags in the return share an id of "responseContent" for grabbing and appending their innerHTML
 	d3.xhr(url, function(error, results){
-		console.log(results);
-		
-		//<div class="container-fluid">
-		//<table class="table table-striped table-condensed">
-		//
-		
-		var responseObj = jQuery.parseJSON(results.responseText);
-		
-		var responseTable;
-		
-		$('#instructionText').empty();
-		
-		var frame = d3.select('#instructionText').append(responseTable)
-			.attr('height', '300px'); // very arbitrary, might want to change this
-	  			
-		$('#instructions').show();
-		
+		if (!error) {
+			var responseObj = jQuery.parseJSON(results.responseText); // grabbing (string) response and converting to JSON object
+			
+			// re-organize object to arrangement by FIPS
+			var dataObj = {};
+			for (var i = 0; i < responseObj.DATA.FIPS.length; i++) {
+				dataObj[responseObj.DATA.FIPS[i]] = {};
+				for (var ind in responseObj.DATA) {
+					dataObj[responseObj.DATA.FIPS[i]][ind.toLowerCase()] = responseObj.DATA[ind][i];
+				}
+			}
+								
+			var frame = d3.select('#instructionText').append('div')
+				.attr('class', 'container-fluid')
+				.attr('id', 'resultsContainer')
+				.attr('height', '300px');
+			var table = frame.append('table')
+				.attr('class', 'table table-striped table-condensed')
+				.attr('id', 'resultsTable');
+				
+			var title_row = table.append('tr').attr('class', 'resultsRow');
+			title_row.append('td').text('County Name');	
+			title_row.append('td').text('State');	
+			title_row.append('td').text('Government Type');	
+			title_row.append('td').text('County Seat');	
+				
+			for (var ind in dataObj) {
+				var row = table.append('tr').attr('class', 'resultsRow');
+				row.append('td').text(dataObj[ind].county_name);
+				row.append('td').text(dataObj[ind].state);
+				row.append('td').text(dataObj[ind].gov_type);
+				row.append('td').text(dataObj[ind].county_seat);
+			}
+			table.selectAll('td').attr('class', 'resultsCell'); 	
+		  			
+			$('#instructions').show();
+		} else {
+			console.log('Error retrieving data from cfm');
+			console.log(url);
+			console.log(error);
+		}
 	});
 	
 	/*
