@@ -71,7 +71,7 @@
 		
 		     <CFOUTPUT>
 				<TR>
-				<TD><a id="#FIPS#" href="http://www.uscounties.org/cffiles_web/counties/county.cfm?id=#FIPS#" >#County_Name#</a>
+				<TD><a id="#FIPS#" href="county.cfm?id=#FIPS#" >#County_Name#</a>
 				 <CFIF Gov_Type EQ  "Consolidated">*</CFIF>
                 </TD>
 				<TD ALIGN="CENTER"><CFIF Member_Status EQ  'Active'><IMG SRC="images/check2.gif"><CFELSE>&nbsp;</CFIF></TD>

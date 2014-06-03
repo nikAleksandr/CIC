@@ -304,7 +304,8 @@ function submitSearch() {
 
 	if (search_type === 'state') {
 		// only state; return results of all counties within state
-		displayStateResults(state_name);
+		state_search_str = 'state.cfm?state=' + state_name;
+		displayResults(state_search_str);
 							
 	} else if (search_type === 'county') {
 		// trim out the fat
@@ -393,10 +394,10 @@ function submitSearch() {
 	} else if (search_type === 'city') {
 		// city search: use city-county lookup
 		var search_str_array = search_str.toLowerCase().split('city');
-		var city_search_str = '';
+		var city_search_str = 'city_res.cfm?city=';
 		for (var i = 0; i < search_str_array.length; i++) city_search_str += search_str_array[i];
 		
-		displayCityResults(city_search_str);
+		displayResults(city_search_str);
 	}
 }
 
@@ -410,69 +411,22 @@ function executeSearchMatch(FIPS) {
 	//document.getElementById('search_form').reset();				
 };
 
-function displayCityResults(search_str) {
-	tooltip.classed("hidden", true);
-	$('#instructionText').empty();
-	$('#showOnMap').hide();
-	
-	d3.xhr('http://nacocic.naco.org/ciccfm/city_res.cfm?city='+encodeURIComponent(search_str.trim()), function(error, results){
+
+
+function displayResults(url) {
+	d3.xhr('http://nacocic.naco.org/ciccfm/'+ url, function(error, results){
 		if (!error) {
-			var responseObj = jQuery.parseJSON(results.responseText); // grabbing (string) response and converting to JSON object
+			console.log(results);
+			var response = results;
 			
-			// re-organize object to arrangement by FIPS
-			var dataObj = {};
-
-			$('#instructions').show();		
-		} else {
-			console.log('Error retrieving data from city cfm, search string: ' + search_str);
-			console.log(error);
-		}
-	});	
-}
-
-function displayCountyResults(fips) {
-	tooltip.classed("hidden", true);
-	$('#instructionText').empty();
-	$('#showOnMap').show();
-
-	d3.xhr('http://nacocic.naco.org/ciccfm/county.cfm?id=' + encodeURIComponent(fips), function(error, results) {
-		if (!error) {
-			var responseObj = jQuery.parseJSON(results.responseText); // grabbing (string) response and converting to JSON object
-			
-			// re-organize object to arrangement by FIPS
-			var dataObj = {};
-			for (var i = 0; i < responseObj.DATA.FIPS.length; i++) {
-				dataObj[responseObj.DATA.FIPS[i]] = {};
-				for (var ind in responseObj.DATA) {
-					dataObj[responseObj.DATA.FIPS[i]][ind.toLowerCase()] = responseObj.DATA[ind][i];
-				}
-			}
-
-			var frame = d3.select('#instructionText').append('div')
+			var frame = d3.select("#instructionText").append('div')
 				.attr('class', 'container-fluid')
 				.attr('id', 'resultsContainer')
-				.attr('height', '300px');
-			
-			
-			createCountyTable(frame, dataObj);
+				.attr('height', '300px')
+				.append(response);
 			
 			$('#instructions').show();
-		
-		} else {
-			console.log('Error retrieving data from city cfm, search string: ' + search_str);
-			console.log(error);
-		}
-	});		
-}
-
-function displayStateResults(state_name) {
-	tooltip.classed("hidden", true);
-	$('#instructionText').empty();
-	$('#showOnMap').hide();
-	
-	d3.xhr('http://nacocic.naco.org/ciccfm/stateTest.cfm?statecode='+encodeURIComponent(state_name), function(error, results){
-		if (!error) {
-			var responseObj = jQuery.parseJSON(results.responseText); // grabbing (string) response and converting to JSON object
+			/*var responseObj = jQuery.parseJSON(results.responseText); // grabbing (string) response and converting to JSON object
 			
 			// re-organize object to arrangement by FIPS
 			var dataObj = {};
@@ -491,40 +445,13 @@ function displayStateResults(state_name) {
 			createCountyTable(frame, dataObj);
 										  	
 			$('#instructions').show();
+			*/
 		} else {
-			console.log('Error retrieving data from state cfm, state name: ' + state_name);
+			console.log('Error retrieving data from : ' + 'http://nacocic.naco.org/ciccfm/' + url);
 			console.log(error);
 		}
 	});
 }
-
-function createCountyTable(elem, countyObj) {
-	// first argument (elem) is the parent container for the table
-	// second argument (countyObj) is an object arranged by FIPS with the following properties: county_name, state
-	var table = elem.append('table')
-		.attr('class', 'table table-striped table-bordered table-hover table-condensed')
-		.attr('id', 'resultsTable');
-	var tbody = table.append('tbody');
-		
-	var title_row = tbody.append('tr').attr('class', 'resultsRow');
-	title_row.append('td').text('County Name');	
-	title_row.append('td').text('State');	
-	title_row.append('td').text('Government Type');	
-	title_row.append('td').text('County Seat');	
-		
-	for (var ind in countyObj) {
-		var row = tbody.append('tr').attr('class', 'resultsRow');
-		row.append('td').text(countyObj[ind].county_name);
-		row.append('td').text(countyObj[ind].state);
-		row.append('td').text(countyObj[ind].gov_type);
-		row.append('td').text(countyObj[ind].county_seat);
-		(function(fips) {
-			row.on('click', function() { displayCountyResults(fips); });
-		})(ind);
-	}
-	table.selectAll('td').attr('class', 'resultsCell');	
-}
-
 
 function update(dataset, indicator) {
 	tooltip.classed("hidden", true);
