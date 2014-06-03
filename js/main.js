@@ -405,24 +405,27 @@ function displayResultsInFrame(url) {
 	
 	//possible non-iframe way to get info
 	//all <body> tags in the return share an id of "responseContent" for grabbing and appending their innerHTML
-	/*
 	d3.xhr(url, function(error, results){
-		console.log(results.responseText);
+		console.log(results);
 		
-		var resText = d3.select(results).select("#content").innerHTML;
+		//<div class="container-fluid">
+		//<table class="table table-striped table-condensed">
+		//
 		
+		var responseObj = jQuery.parseJSON(results.responseText);
 		
+		var responseTable;
 		
 		$('#instructionText').empty();
 		
-		var frame = d3.select('#instructionText').append(resText)
+		var frame = d3.select('#instructionText').append(responseTable)
 			.attr('height', '300px'); // very arbitrary, might want to change this
 	  			
 		$('#instructions').show();
 		
 	});
-	*/
 	
+	/*
 	$('#instructionText').empty();
 	var frame = d3.select('#instructionText').append('iframe')
 		.classed('result_iframe', true)
@@ -430,7 +433,7 @@ function displayResultsInFrame(url) {
 		.attr('src', url);
   			
 	$('#instructions').show();
-	
+	*/
 }
 
 
@@ -802,7 +805,7 @@ function redraw() {
   setup(width,height);
   draw(topo, stateMesh);
 }
-
+var frmrS = 1;
 function move() {	
   tooltip.classed("hidden", true);
 	
@@ -821,8 +824,14 @@ function move() {
   	//0 from 1 (0)
 	
   zoom.translate(t);
-  g.transition().style("stroke-width", 1 / s).attr("transform", "translate(" + t + ")scale(" + s + ")");
-
+  	//if statement to call the transition on zoom only, but no transition on panning only
+	if(s === frmrS){
+		g.style("stroke-width", 1 / s).attr("transform", "translate(" + t + ")scale(" + s + ")");
+	}
+	else{
+		g.transition().style("stroke-width", 1 / s).attr("transform", "translate(" + t + ")scale(" + s + ")");
+	}
+	frmrS = s;
 }
 
 var throttleTimer;
