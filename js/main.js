@@ -88,7 +88,6 @@ var tooltip = d3.select("#container").append("div").attr("class", "tooltip hidde
 var tipContainer = tooltip.append('div').attr('id', 'tipContainer');
 
 var CICstructure,
-	selectedData, selectedDataset, selectedDataText = "GDP Growth, 2013",
 	showingSecond = false,
 	dataYear,
 	data,
@@ -247,9 +246,9 @@ function setDropdownBehavior() {
 	}*/
 	
 	d3.select('#primeInd').selectAll('.dataset').selectAll('.indicator').on('click', function() {
-		var datasetName = this.parentNode.parentNode.parentNode.title; // real hokey, will fix eventually
+		var datasetName = this.parentNode.parentNode.parentNode.title; // relies on the dataset being exactly 3 parents behind indicator
 		var indicatorName = this.title;
-		d3.select("#primeIndText").html(indicatorName);
+		d3.select("#primeIndText").text(indicatorName);
 		
 		highlight(selected);
 		update(datasetName, indicatorName);
@@ -257,13 +256,21 @@ function setDropdownBehavior() {
 	d3.select('#secondInd').selectAll('.dataset').selectAll('.indicator').on('click', function() {
 		var datasetName = this.parentNode.parentNode.parentNode.title;
 		var indicatorName = this.title;
-		d3.select('#secondIndText').html(indicatorName);
+		d3.select('#secondIndText').text(indicatorName);
 		
-		highlight(selected);
+		//highlight(selected);
 		appendSecondInd(datasetName, indicatorName);
 	});
 	
 	d3.selectAll('.indicator').style('cursor', 'pointer');
+	
+	d3.select('#resetSecondInd').on('click', function() {
+		showingSecond = false;
+		if (d3.select('.active').empty() !== true) {
+			populateTooltip(selected);
+		}
+		d3.select('#secondIndText').text('Secondary Indicator');
+	});
 }
 
 function setSearchBehavior() {
@@ -555,7 +562,6 @@ function update(dataset, indicator) {
 
 function appendSecondInd(dataset, indicator) {
 	showingSecond = true;
-	tooltip.classed("hidden", true);
 	
 	var indObject = allData(dataset, indicator);
 	s_primeIndObj = indObject[0];
@@ -570,10 +576,8 @@ function appendSecondInd(dataset, indicator) {
 			s_thirdQuantById[d.id] =  isNumFun(s_thirdIndObj.dataType) ? parseFloat(d[thirdIndObj.dataset+' - '+thirdIndObj.name]) : d[thirdIndObj.dataset+' - '+thirdIndObj.name];		
 			s_fourthQuantById[d.id] =  isNumFun(s_fourthIndObj.dataType) ? parseFloat(d[fourthIndObj.dataset+' - '+fourthIndObj.name]) : d[fourthIndObj.dataset+' - '+fourthIndObj.name];		
 		});
-		
-		// not written; populate a second tooltip to go side by side with primary tooltip, but only when a second indicator is selected.  Will need a global "comaprison" boolean switch.  See county tracker - comparison branch if need template
-		
-
+				
+		if (d3.select('.active').empty() !== true) populateTooltip(selected);
 	});
 }
 
@@ -676,54 +680,45 @@ function populateTooltip(d) {
     	.attr('id', 'tipLocation')
     	.text(countyObjectById[d.id].geography);
 
-	var obj = [primeIndObj, secondIndObj, thirdIndObj, fourthIndObj],
-		quant = [quantById, secondQuantById, thirdQuantById, fourthQuantById];
+	var p_obj = [primeIndObj, secondIndObj, thirdIndObj, fourthIndObj],
+		p_quant = [quantById, secondQuantById, thirdQuantById, fourthQuantById];
 	if (showingSecond) {
 		s_obj = [s_primeIndObj, s_secondIndObj, s_thirdIndObj, s_fourthIndObj],
 		s_quant = [s_quantById, s_secondQuantById, s_thirdQuantById, s_fourthQuantById];
 	}
 		
 	// loop through primary and all three companions and display corresponding formatted values
-	var tipInfo1 = tipContainer.append('div').attr('id', 'tipInfo1');	
-	var tipTable = tipInfo1.append('table').attr("class", "table");
+	var tipInfo = tipContainer.append('div').attr('id', 'tipInfo');	
+	var tipTable = tipInfo.append('table').attr("class", "table");
 	var none_avail = true;
-	for (var i = 0; i < obj.length; i++) {
-		var isCurrency = obj[i].hasOwnProperty('unit') ? (obj[i].unit.indexOf("dollar") != -1) : false; // determine if indicator values are currency by checking units
-		var value = format_tt[obj[i].dataType](quant[i][d.id], isCurrency);
+	
+	var writeIndicators = function(obj, quant) {
+		var isCurrency = obj.hasOwnProperty('unit') ? (obj.unit.indexOf("dollar") != -1) : false; // determine if indicator values are currency by checking units
+		var value = format_tt[obj.dataType](quant[d.id], isCurrency);
 		if (value === '$NaN' || value === 'NaN' || value === 'NaN%') {
 			value = 'Not Available';
 		} else {
 			none_avail = false;
 		}
 
-		if (obj[i].name.indexOf('(') != -1) {
-			var name = obj[i].name.substring(0, obj[i].name.indexOf('('));
+		if (obj.name.indexOf('(') != -1) {
+			var name = obj.name.substring(0, obj.name.indexOf('('));
 		} else {
-			var name = obj[i].name;
+			var name = obj.name;
 		}
 		
+		row.append('td').attr('class', 'dataName').text(obj.year + ' ' + name + ':');
+		row.append('td').attr('class', 'dataNum').text(value);
+	}
+	
+	for (var i = 0; i < p_obj.length; i++) {
 		var row = tipTable.append('tr')
 			.attr('class', 'tipKey');
-		row.append('td').attr('class', 'dataName').text(obj[i].year + ' ' + name + ':');
-		row.append('td').attr('class', 'dataNum').text(value);
 			
-		if (showingSecond) {
-			var s_isCurrency = s_obj[i].hasOwnProperty('unit') ? (s_obj[i].unit.indexOf("dollar") != -1) : false; // determine if indicator values are currency by checking units
-			var s_value = format_tt[s_obj[i].dataType](s_quant[i][d.id], s_isCurrency);
-			if (s_value === '$NaN' || s_value === 'NaN' || s_value === 'NaN %') {
-				s_value = 'Not Available';
-			}
-	
-			if (obj[i].name.indexOf('(') != -1) {
-				var s_name = s_obj[i].name.substring(0, s_obj[i].name.indexOf('('));
-			} else {
-				var s_name = s_obj[i].name;
-			}
-
-			row.append('td').attr('class', 'dataName').text(s_obj[i].year + ' ' + s_name + ':');
-			row.append('td').attr('class', 'dataNum').text(s_value);			
-		}
+		writeIndicators(p_obj[i], p_quant[i]);
+		if (showingSecond) writeIndicators(s_obj[i], s_quant[i]);
 	}
+
 	/*if (none_avail) {
 		tipTable.selectAll('tr').remove();
 		tipTable.append('tr').attr('class', 'tipKey').html('<td>No data available for this county</td>');
