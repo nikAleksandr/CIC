@@ -167,48 +167,51 @@ d3.json("us.json", function(error, us) {
   topo = counties;
   stateMesh = states;
   
-  draw(topo, stateMesh);
-  
+  draw(topo, stateMesh); 
 });
 
 function draw(topo, stateMesh) {
-  var county = g.selectAll(".county").data(topo);
-  
-  county.enter().insert("path")
-      .attr("class", "county")
-      .attr("d", path)
-      .attr("id", function(d){ return d.id;})
-      .style("fill", function(d) { if(!isNaN(quantById[d.id])){return color(quantById[d.id]);} else{return na_color;} });
+	var county = g.selectAll(".county").data(topo);
 
-  g.append("path")
-		      .datum(stateMesh)
-		      .attr("id", "state-borders")
-		      .attr("d", path);
-  
-  //tooltips
-  var clickCount = 0;
-  county
-    .on('click', function(d, i) {
-    	d3.event.stopPropagation();
-    	var mouse = d3.mouse(svg.node()).map( function(d) { return parseInt(d); } );
-    	var event = d3.event;
+	county.enter().insert("path")
+		.attr("class", "county")
+		.attr("d", path)
+		.attr("id", function(d) { return d.id; })
+		.style("fill", function(d) {
+			return (isNaN(quantById[d.id])) ? na_color : color(quantById[d.id]);
+		});
+
+	g.append("path").datum(stateMesh)
+		.attr("id", "state-borders")
+		.attr("d", path);
 		
-		highlight(d);
-		
-		clickCount++;
-		if (clickCount === 1) {
-			singleClickTimer = setTimeout(function() {
+	var mdownTime = -1;
+	var clickCount = 0;
+	  
+	county.on('mousedown', function(d, i) {
+		mdownTime = $.now();
+	});
+	county.on('click', function(d, i) {
+		if ($.now() - mdownTime < 300) {
+			d3.event.stopPropagation();
+			var mouse = d3.mouse(svg.node()).map(function(d) { return parseInt(d); });
+			var event = d3.event;
+	
+			highlight(d);
+	
+			clickCount++;
+			if (clickCount === 1) {
+				singleClickTimer = setTimeout(function() {
+					clickCount = 0;
+					if (d3.select('.active').empty() !== true) clicked(mouse, event, d, i);
+				}, 300);
+			} else if (clickCount === 2) {
+				clearTimeout(singleClickTimer);
 				clickCount = 0;
-				if (d3.select('.active').empty() !== true) clicked(mouse, event, d, i);
-			}, 300);
-		} else if (clickCount === 2) {
-			clearTimeout(singleClickTimer);
-			clickCount = 0;
-			doubleClicked(d, i);
+				doubleClicked(d, i);
+			}			
 		}
-	}, false);
-    
-   
+	});    
 }
 
 function setDropdownBehavior() {		
@@ -583,7 +586,6 @@ function cancelSecondInd() {
 
 
 function allData(dataset, indicator){
-	
 	var firstObj = getData(dataset, indicator);
 	// grab companion indcators through same function
 	var secondObj = getData(firstObj.companions[0][0], firstObj.companions[0][1]);
@@ -688,7 +690,7 @@ function populateTooltip(d) {
 	for (var i = 0; i < obj.length; i++) {
 		var isCurrency = obj[i].hasOwnProperty('unit') ? (obj[i].unit.indexOf("dollar") != -1) : false; // determine if indicator values are currency by checking units
 		var value = format_tt[obj[i].dataType](quant[i][d.id], isCurrency);
-		if (value === '$NaN' || value === 'NaN' || value === 'NaN %') {
+		if (value === '$NaN' || value === 'NaN' || value === 'NaN%') {
 			value = 'Not Available';
 		} else {
 			none_avail = false;
@@ -731,7 +733,7 @@ function populateTooltip(d) {
 
 function clicked(mouse, event, d, i) {
 	var zoomTransition = zoomTo(d.id, event);
-	tooltip.classed('hidden', true);
+	//tooltip.classed('hidden', true);
 	
 	if (countyObjectById.hasOwnProperty(d.id)) {
 	    populateTooltip(d);
@@ -741,20 +743,23 @@ function clicked(mouse, event, d, i) {
 		    var left = countyCoord.left + countyCoord.width; // appears on rightmost edge of county horizontal-wise
 		    var top = countyCoord.top + 20; // appears 20 below topmost edge of county vertical-wise
 		    
+		    // not necessary since county is always centered
 		    // check if tooltip goes past window and adjust if it does
-		    var ttWidth = $('#tt').width(); // tooltip width and height
+		    /*var ttWidth = $('#tt').width(); // tooltip width and height
 		    var ttHeight = $('#tt').height();	    
 			var dx = windowWidth - (event.pageX + ttWidth); // amount to tweak
 			var dy = windowHeight - (event.pageY + ttHeight);		
 			if (dx < 0) left += dx;
-			if (dy < 0) top += dy;
+			if (dy < 0) top += dy;*/
 			
 		    tooltip
 		      	.style("left", (left) + "px")
 		      	.style("top", (top) + "px");		      	
 		    tooltip.classed('hidden', false);
 		});
-	}	    
+	} else {
+		tooltip.classed('hidden', true);
+	}
 }
 
 function doubleClicked(d) {
@@ -813,7 +818,9 @@ function redraw() {
   setup(width,height);
   draw(topo, stateMesh);
 }
+
 var frmrS = 1;
+
 function move() {	
   tooltip.classed("hidden", true);
 	
@@ -831,8 +838,8 @@ function move() {
   	//167 from 1.3 (132)
   	//0 from 1 (0)
 	
-  zoom.translate(t);
-  	//if statement to call the transition on zoom only, but no transition on panning only
+  	zoom.translate(t);
+  	// if statement to call the transition on zoom only, but no transition on panning only
 	if(s === frmrS){
 		g.style("stroke-width", 1 / s).attr("transform", "translate(" + t + ")scale(" + s + ")");
 	}
