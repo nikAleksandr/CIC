@@ -424,13 +424,8 @@ function displayCountyResults(fips) {
 	tooltip.classed("hidden", true);
 	$('#instructionText').empty();
 	$('#showOnMap').show();
-	
-	/*d3.select('#showOnMap').on('click', function() {
-	  	$('#instructions').hide();
-	  	//clicked(countyPathById[d.id].geometry.coordinates[0][0], tooltipOffsetL, tooltipOffsetT, d); // a fake click to get tooltip to appear
-  	});*/
 
-	d3.xhr('http://nacocic.naco.org/ciccfm/county.cfm?id=' + encodeURIComponent(fips)), function(error, results){
+	d3.xhr('http://nacocic.naco.org/ciccfm/county.cfm?id=' + encodeURIComponent(fips), function(error, results) {
 		if (!error) {
 			var responseObj = jQuery.parseJSON(results.responseText); // grabbing (string) response and converting to JSON object
 			
