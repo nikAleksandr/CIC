@@ -294,7 +294,7 @@ function submitSearch() {
 
 	if (search_type === 'state') {
 		// only state; return results of all counties within state
-		displayResultsInFrame('http://nacocic.naco.org/ciccfm/state.cfm?statecode='+encodeURIComponent(state_name));
+		displayStateResults(state_name);
 							
 	} else if (search_type === 'county') {
 		// trim out the fat
@@ -386,7 +386,7 @@ function submitSearch() {
 		var city_search_str = '';
 		for (var i = 0; i < search_str_array.length; i++) city_search_str += search_str_array[i];
 		
-		displayResultsInFrame('http://nacocic.naco.org/ciccfm/city_res.cfm?city='+encodeURIComponent(city_search_str.trim()));
+		displayCityResults(city_search_str);
 	}
 }
 
@@ -400,11 +400,37 @@ function executeSearchMatch(FIPS) {
 	//document.getElementById('search_form').reset();				
 };
 
-function displayResultsInFrame(url) {
+function displayCityResults(search_str) {
 	tooltip.classed("hidden", true);
 	$('#instructionText').empty();
+	$('#showOnMap').hide();
 	
-	d3.xhr(url, function(error, results){
+	d3.xhr('http://nacocic.naco.org/ciccfm/city_res.cfm?city='+encodeURIComponent(search_str.trim()), function(error, results){
+		if (!error) {
+			var responseObj = jQuery.parseJSON(results.responseText); // grabbing (string) response and converting to JSON object
+			
+			// re-organize object to arrangement by FIPS
+			var dataObj = {};
+
+			$('#instructions').show();		
+		} else {
+			console.log('Error retrieving data from city cfm, search string: ' + search_str);
+			console.log(error);
+		}
+	});	
+}
+
+function displayCountyResults(fips) {
+	tooltip.classed("hidden", true);
+	$('#instructionText').empty();
+	$('#showOnMap').show();
+	
+	/*d3.select('#showOnMap').on('click', function() {
+	  	$('#instructions').hide();
+	  	//clicked(countyPathById[d.id].geometry.coordinates[0][0], tooltipOffsetL, tooltipOffsetT, d); // a fake click to get tooltip to appear
+  	});*/
+
+	d3.xhr('http://nacocic.naco.org/ciccfm/county.cfm?id=' + encodeURIComponent(fips)), function(error, results){
 		if (!error) {
 			var responseObj = jQuery.parseJSON(results.responseText); // grabbing (string) response and converting to JSON object
 			
@@ -416,47 +442,82 @@ function displayResultsInFrame(url) {
 					dataObj[responseObj.DATA.FIPS[i]][ind.toLowerCase()] = responseObj.DATA[ind][i];
 				}
 			}
-								
+
 			var frame = d3.select('#instructionText').append('div')
 				.attr('class', 'container-fluid')
 				.attr('id', 'resultsContainer')
 				.attr('height', '300px');
-			var table = frame.append('table')
-				.attr('class', 'table table-striped table-condensed')
-				.attr('id', 'resultsTable');
-				
-			var title_row = table.append('tr').attr('class', 'resultsRow');
-			title_row.append('td').text('County Name');	
-			title_row.append('td').text('State');	
-			title_row.append('td').text('Government Type');	
-			title_row.append('td').text('County Seat');	
-				
-			for (var ind in dataObj) {
-				var row = table.append('tr').attr('class', 'resultsRow');
-				row.append('td').text(dataObj[ind].county_name);
-				row.append('td').text(dataObj[ind].state);
-				row.append('td').text(dataObj[ind].gov_type);
-				row.append('td').text(dataObj[ind].county_seat);
+			
+			
+			createCountyTable(frame, dataObj);
+			
+			$('#instructions').show();
+		
+		} else {
+			console.log('Error retrieving data from city cfm, search string: ' + search_str);
+			console.log(error);
+		}
+	});		
+}
+
+function displayStateResults(state_name) {
+	tooltip.classed("hidden", true);
+	$('#instructionText').empty();
+	$('#showOnMap').hide();
+	
+	d3.xhr('http://nacocic.naco.org/ciccfm/stateTest.cfm?statecode='+encodeURIComponent(state_name), function(error, results){
+		if (!error) {
+			var responseObj = jQuery.parseJSON(results.responseText); // grabbing (string) response and converting to JSON object
+			
+			// re-organize object to arrangement by FIPS
+			var dataObj = {};
+			for (var i = 0; i < responseObj.DATA.FIPS.length; i++) {
+				dataObj[responseObj.DATA.FIPS[i]] = {};
+				for (var ind in responseObj.DATA) {
+					dataObj[responseObj.DATA.FIPS[i]][ind.toLowerCase()] = responseObj.DATA[ind][i];
+				}
 			}
-			table.selectAll('td').attr('class', 'resultsCell'); 	
-		  			
+			
+			var frame = d3.select('#instructionText').append('div')
+				.attr('class', 'container-fluid')
+				.attr('id', 'resultsContainer')
+				.attr('height', '300px');
+
+			createCountyTable(frame, dataObj);
+										  	
 			$('#instructions').show();
 		} else {
-			console.log('Error retrieving data from cfm');
-			console.log(url);
+			console.log('Error retrieving data from state cfm, state name: ' + state_name);
 			console.log(error);
 		}
 	});
-	
-	/*
-	$('#instructionText').empty();
-	var frame = d3.select('#instructionText').append('iframe')
-		.classed('result_iframe', true)
-		.attr('height', '300px') // very arbitrary, might want to change this
-		.attr('src', url);
-  			
-	$('#instructions').show();
-	*/
+}
+
+function createCountyTable(elem, countyObj) {
+	// first argument (elem) is the parent container for the table
+	// second argument (countyObj) is an object arranged by FIPS with the following properties: county_name, state
+	var table = elem.append('table')
+		.attr('class', 'table table-striped table-bordered table-hover table-condensed')
+		.attr('id', 'resultsTable');
+	var tbody = table.append('tbody');
+		
+	var title_row = tbody.append('tr').attr('class', 'resultsRow');
+	title_row.append('td').text('County Name');	
+	title_row.append('td').text('State');	
+	title_row.append('td').text('Government Type');	
+	title_row.append('td').text('County Seat');	
+		
+	for (var ind in countyObj) {
+		var row = tbody.append('tr').attr('class', 'resultsRow');
+		row.append('td').text(countyObj[ind].county_name);
+		row.append('td').text(countyObj[ind].state);
+		row.append('td').text(countyObj[ind].gov_type);
+		row.append('td').text(countyObj[ind].county_seat);
+		(function(fips) {
+			row.on('click', function() { displayCountyResults(fips); });
+		})(ind);
+	}
+	table.selectAll('td').attr('class', 'resultsCell');	
 }
 
 
@@ -776,11 +837,7 @@ function doubleClicked(d) {
 	
 	var countyID = d.id.toString();
 	if (countyID.length == 4) countyID = "0" + countyID;
-	displayResultsInFrame('http://nacocic.naco.org/ciccfm/county.cfm?id=' + encodeURIComponent(countyID));
-	/*d3.select('#showOnMap').on('click', function() {
-	  	$('#instructions').hide();
-	  	//clicked(countyPathById[d.id].geometry.coordinates[0][0], tooltipOffsetL, tooltipOffsetT, d); // a fake click to get tooltip to appear
-  	});*/
+	displayCountyResults(countyID);
 }
 
 function zoomTo(id) {
