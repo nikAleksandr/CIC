@@ -397,10 +397,13 @@ div.tooltip {
 /*
  * Dropdown stylin'
  */
-#primeIndLi a, #secondIndLi a{
+#primeIndLi a, #secondIndLi a:not(#resetSecondInd){
 	cursor: default;
 }
-
+#resetSecondInd {
+	 text-align: center;
+	 cursor: pointer;
+}
 
 /* ==========================================================================
    Helper classes

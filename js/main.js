@@ -88,7 +88,6 @@ var tooltip = d3.select("#container").append("div").attr("class", "tooltip hidde
 var tipContainer = tooltip.append('div').attr('id', 'tipContainer');
 
 var CICstructure,
-	selectedData, selectedDataset, selectedDataText = "GDP Growth, 2013",
 	showingSecond = false,
 	dataYear,
 	data,
@@ -247,9 +246,9 @@ function setDropdownBehavior() {
 	}*/
 	
 	d3.select('#primeInd').selectAll('.dataset').selectAll('.indicator').on('click', function() {
-		var datasetName = this.parentNode.parentNode.parentNode.title; // real hokey, will fix eventually
+		var datasetName = this.parentNode.parentNode.parentNode.title; // relies on the dataset being exactly 3 parents behind indicator
 		var indicatorName = this.title;
-		d3.select("#primeIndText").html(indicatorName);
+		d3.select("#primeIndText").text(indicatorName);
 		
 		highlight(selected);
 		update(datasetName, indicatorName);
@@ -257,13 +256,21 @@ function setDropdownBehavior() {
 	d3.select('#secondInd').selectAll('.dataset').selectAll('.indicator').on('click', function() {
 		var datasetName = this.parentNode.parentNode.parentNode.title;
 		var indicatorName = this.title;
-		d3.select('#secondIndText').html(indicatorName);
+		d3.select('#secondIndText').text(indicatorName);
 		
-		highlight(selected);
+		//highlight(selected);
 		appendSecondInd(datasetName, indicatorName);
 	});
 	
 	d3.selectAll('.indicator').style('cursor', 'pointer');
+	
+	d3.select('#resetSecondInd').on('click', function() {
+		showingSecond = false;
+		if (d3.select('.active').empty() !== true) {
+			populateTooltip(selected);
+		}
+		d3.select('#secondIndText').text('Secondary Indicator');
+	});
 }
 
 function setSearchBehavior() {
@@ -628,7 +635,6 @@ function update(dataset, indicator) {
 
 function appendSecondInd(dataset, indicator) {
 	showingSecond = true;
-	tooltip.classed("hidden", true);
 	
 	var indObject = allData(dataset, indicator);
 	s_primeIndObj = indObject[0];
@@ -643,10 +649,8 @@ function appendSecondInd(dataset, indicator) {
 			s_thirdQuantById[d.id] =  isNumFun(s_thirdIndObj.dataType) ? parseFloat(d[thirdIndObj.dataset+' - '+thirdIndObj.name]) : d[thirdIndObj.dataset+' - '+thirdIndObj.name];		
 			s_fourthQuantById[d.id] =  isNumFun(s_fourthIndObj.dataType) ? parseFloat(d[fourthIndObj.dataset+' - '+fourthIndObj.name]) : d[fourthIndObj.dataset+' - '+fourthIndObj.name];		
 		});
-		
-		// not written; populate a second tooltip to go side by side with primary tooltip, but only when a second indicator is selected.  Will need a global "comaprison" boolean switch.  See county tracker - comparison branch if need template
-		
-
+				
+		if (d3.select('.active').empty() !== true) populateTooltip(selected);
 	});
 }
 
