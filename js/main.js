@@ -394,7 +394,7 @@ function executeSearchMatch(FIPS) {
 	var county = countyObjectById[FIPS];
 	
 	highlight(county);
-	zoomTo(FIPS);
+	zoomTo(FIPS, false);
 	doubleClicked(county);
 	
 	//document.getElementById('search_form').reset();				
@@ -803,28 +803,31 @@ function populateTooltip(d) {
 }
 
 function clicked(mouse, event, d, i) {
-	zoomTo(d.id);
+	var zoomTransition = zoomTo(d.id, event);
+	tooltip.classed('hidden', true);
 	
 	if (countyObjectById.hasOwnProperty(d.id)) {
 	    populateTooltip(d);
-	    tooltip.classed('hidden', false);
 	    
-		var tooltipOffsetL = document.getElementById('container').offsetLeft+(width/2)+40;   //offsets plus width/height of transform, plus 20 px of padding, plus 20 extra for tooltip offset off mouse
-		var tooltipOffsetT = document.getElementById('container').offsetTop+(height/2)+20;
-
-	    var ttWidth = $('#tt').width(); // tooltip width and height
-	    var ttHeight = $('#tt').height();
-	    
-		var dx = windowWidth - (event.pageX + ttWidth); // if tooltip will go past the window width, fix so it doesnt
-		var dy = windowHeight - (event.pageY + ttHeight); // if tooltip will go past the window height, fix so it doesnt
-		
-		var left = (dx < 0) ? mouse[0] + tooltipOffsetL + dx : mouse[0] + tooltipOffsetL;
-		var top = (dy < 0) ? mouse[1] + tooltipOffsetT + dy : mouse[1] + tooltipOffsetT;
-		
-	    tooltip
-	      	.style("left", (left) + "px")
-	      	.style("top", (top) + "px");
-	}	
+		zoomTransition.each('end', function() {
+		    var countyCoord = event.target.getBoundingClientRect();	    
+		    var left = countyCoord.left + countyCoord.width; // appears on rightmost edge of county horizontal-wise
+		    var top = countyCoord.top + 20; // appears 20 below topmost edge of county vertical-wise
+		    
+		    // check if tooltip goes past window and adjust if it does
+		    var ttWidth = $('#tt').width(); // tooltip width and height
+		    var ttHeight = $('#tt').height();	    
+			var dx = windowWidth - (event.pageX + ttWidth); // amount to tweak
+			var dy = windowHeight - (event.pageY + ttHeight);		
+			if (dx < 0) left += dx;
+			if (dy < 0) top += dy;
+			
+		    tooltip
+		      	.style("left", (left) + "px")
+		      	.style("top", (top) + "px");		      	
+		    tooltip.classed('hidden', false);
+		});
+	}	    
 }
 
 function doubleClicked(d) {
@@ -835,8 +838,8 @@ function doubleClicked(d) {
 	displayCountyResults(countyID);
 }
 
-function zoomTo(id) {
-	var t = path.centroid(countyPathById[id]);
+function zoomTo(fips, event) {
+	var t = path.centroid(countyPathById[fips]);
 	var s = 6;
 
   	t[0] = -t[0] * (s - 1);
@@ -845,7 +848,10 @@ function zoomTo(id) {
 	//unsure what the first below function does?
 	zoom.translate(t);
 	zoom.scale(s);
-	g.transition().style("stroke-width", 1 / s).attr("transform", "translate(" + t + ")scale(" + s + ")");
+	var transition = g.transition()
+		.style("stroke-width", 1 / s)
+		.attr("transform", "translate(" + t + ")scale(" + s + ")");
+	return transition;
 }
 
 var frmrFill, frmrActive;
