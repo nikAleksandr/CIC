@@ -81,20 +81,17 @@ var projection = d3.geo.albersUsa()
     .scale(width)
     .translate([width / 2, height / 2]);
 
-var path = d3.geo.path()
-	.projection(projection);
-
 var topo,stateMesh,projection,path,svg,g;
 
 var tooltip = d3.select("#container").append("div").attr("class", "tooltip hidden").attr("id", "tt");
 var tipContainer = tooltip.append('div').attr('id', 'tipContainer');
 
 var CICstructure,
-	showingSecond = false,
-	dataYear,
-	data,
+	showingSecond = false, // whether currently displaying a secondary indicator
+	data, // all county data
 	legend,
-	selected;
+	selected, // county path that has been selected
+	currentDI; // current dataset/indicator showing
 		
 var quantById = [], secondQuantById = [], thirdQuantById = [], fourthQuantById = [],
 	s_quantById = [], s_secondQuantById = [], s_thirdQuantById = [], s_fourthQuantById = [],
@@ -107,23 +104,9 @@ var quantById = [], secondQuantById = [], thirdQuantById = [], fourthQuantById =
 	countyObjectById = {},
 	countyPathById = {};
 
-var quantOneThird,
-	quantTwoThird,
-	na_color = 'rgb(200,200,200)',
-	range = ['rgb(239,243,255)','rgb(189,215,231)','rgb(107,174,214)','rgb(49,130,189)','rgb(8,81,156)'];
-	
-var color = d3.scale.quantile();
-
-d3.json("data/CICstructure.json", function(error, CICStructure){	
-	CICstructure = CICStructure;
-
-	setDropdownBehavior();
-	setSearchBehavior();  
-
-	// dataset to map first
-	update("Payment in Lieu of Taxes (PILT)", "PILT Amount");
-	
-});
+var na_color = 'rgb(200,200,200)', // color for counties with no data
+	range = ['rgb(239,243,255)','rgb(189,215,231)','rgb(107,174,214)','rgb(49,130,189)','rgb(8,81,156)'], // default color scheme for map
+	color = d3.scale.quantile(); // quantile scale
 
 
 function setup(width, height) {
@@ -153,25 +136,7 @@ function setup(width, height) {
 	});
 
 	positionInstruction();
-}
-
-	
-
-d3.json("us.json", function(error, us) {
-
-  var counties = topojson.feature(us, us.objects.counties).features;
-  var states = topojson.mesh(us, us.objects.states, function(a, b) { return a !== b; });
-
-	counties.forEach(function(d) { 
-	  	countyPathById[d.id] = d;
-	  	//countyCoords[d.id] = d.centroid();
-	});
-
-  topo = counties;
-  stateMesh = states;
-  
-  draw(topo, stateMesh); 
-});
+}	
 
 function draw(topo, stateMesh) {
 	var county = g.selectAll(".county").data(topo);
@@ -857,3 +822,25 @@ function throttle() {
 }
 
 setup(width,height);
+
+d3.json("us.json", function(error, us) {
+	var counties = topojson.feature(us, us.objects.counties).features;
+	var states = topojson.mesh(us, us.objects.states, function(a, b) { return a !== b; });
+
+	counties.forEach(function(d) { countyPathById[d.id] = d; });
+
+	topo = counties;
+	stateMesh = states;
+  
+	draw(topo, stateMesh); 
+});
+
+d3.json("data/CICstructure.json", function(error, CICStructure){	
+	CICstructure = CICStructure;
+
+	setDropdownBehavior();
+	setSearchBehavior();  
+
+	// dataset to map first
+	update("Payment in Lieu of Taxes (PILT)", "PILT Amount");	
+});
