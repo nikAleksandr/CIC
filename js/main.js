@@ -87,11 +87,11 @@ var tooltip = d3.select("#container").append("div").attr("class", "tooltip hidde
 var tipContainer = tooltip.append('div').attr('id', 'tipContainer');
 
 var CICstructure,
-	showingSecond = false, // whether currently displaying a secondary indicator
 	data, // all county data
 	legend,
 	selected, // county path that has been selected
-	currentDI; // current dataset/indicator showing
+	currentDI = '', // current dataset/indicator showing
+	currentSecondDI = ''; // current secondary dataset/indicator showing; empty string if not showing
 		
 var quantById = [], secondQuantById = [], thirdQuantById = [], fourthQuantById = [],
 	s_quantById = [], s_secondQuantById = [], s_thirdQuantById = [], s_fourthQuantById = [],
@@ -216,19 +216,25 @@ function setDropdownBehavior() {
 
 	d3.select('#primeInd').selectAll('.dataset').selectAll('.indicator').on('click', function() {
 		var datasetName = this.parentNode.parentNode.parentNode.title; // relies on the dataset being exactly 3 parents behind indicator
-		var indicatorName = this.title;		
-		update(datasetName, indicatorName);
+		var indicatorName = this.title;
+		if (currentDI !== datasetName + ' - ' + indicatorName) {
+			update(datasetName, indicatorName);
+			d3.select("#primeIndText").text(indicator);
+		}
 	});
 	d3.select('#secondInd').selectAll('.dataset').selectAll('.indicator').on('click', function() {
 		var datasetName = this.parentNode.parentNode.parentNode.title;
 		var indicatorName = this.title;		
-		appendSecondInd(datasetName, indicatorName);
+		if (currentSecondDI !== datasetName + ' - ' + indicatorName) {
+			appendSecondInd(datasetName, indicatorName);
+			d3.select('#secondIndText').text(indicator);
+		}
 	});
 	
 	d3.selectAll('.indicator').style('cursor', 'pointer');
 	
 	d3.select('#resetSecondInd').on('click', function() {
-		showingSecond = false;
+		currentSecondDI = '';
 		if (d3.select('.active').empty() !== true) {
 			populateTooltip(selected);
 		}
@@ -401,7 +407,7 @@ function displayResults(url) {
 }
 
 function update(dataset, indicator) {
-	d3.select("#primeIndText").text(indicator);
+	currentDI = dataset + ' - ' + indicator; 
 	tooltip.classed("hidden", true);
 	
 	var indObject = allData(dataset, indicator); // pull data from JSON and fill primeIndObj, secondIndObj, etc.
@@ -417,7 +423,7 @@ function update(dataset, indicator) {
 		data = countyData;
 
 		countyData.forEach(function(d) {
-			quantById[d.id] =  isNumFun(primeIndObj.dataType) ? parseFloat(d[dataset+' - '+indicator]) : d[dataset+' - '+indicator];					
+			quantById[d.id] =  isNumFun(primeIndObj.dataType) ? parseFloat(d[currentDI]) : d[currentDI];					
 			secondQuantById[d.id] =  isNumFun(secondIndObj.dataType) ? parseFloat(d[secondIndObj.dataset+' - '+secondIndObj.name]) : d[secondIndObj.dataset+' - '+secondIndObj.name];		
 			thirdQuantById[d.id] =  isNumFun(thirdIndObj.dataType) ? parseFloat(d[thirdIndObj.dataset+' - '+thirdIndObj.name]) : d[thirdIndObj.dataset+' - '+thirdIndObj.name];		
 			fourthQuantById[d.id] =  isNumFun(fourthIndObj.dataType) ? parseFloat(d[fourthIndObj.dataset+' - '+fourthIndObj.name]) : d[fourthIndObj.dataset+' - '+fourthIndObj.name];		
@@ -429,26 +435,7 @@ function update(dataset, indicator) {
 		
 		var dataType = primeIndObj.dataType;
 		var isNumeric = isNumFun(dataType);
-
-			
-		// define range i.e. color output
-		switch(dataType) {
-			case "percent":
-				range = ['rgb(239,243,255)', 'rgb(189,215,231)', 'rgb(107,174,214)', 'rgb(49,130,189)', 'rgb(8,81,156)'];
-				break;
-			case "binary":
-				range = ['rgb(201,228,242)', 'rgb(255,204,102)'];
-				break;
-			case "categorical":
-				// max is 5 categories
-				range = [];
-				var availColors = ['rgb(228,26,28)', 'rgb(55,126,184)', 'rgb(77,175,74)', 'rgb(152,78,163)', 'rgb(255,127,0)'];
-				for (var i = 0; i < numCorrVals; i++) range.push(availColors[i]);				
-				break;
-			default:
-				range = ['rgb(239,243,255)', 'rgb(189,215,231)', 'rgb(107,174,214)', 'rgb(49,130,189)', 'rgb(8,81,156)'];
-		}
-		
+	
 		// define domain
 		if (isNumeric) {
 			var domain = [];
@@ -474,11 +461,30 @@ function update(dataset, indicator) {
 			for (var ind in vals) numCorrVals++;
 		}
 
+		// define range i.e. color output
+		switch(dataType) {
+			case "percent":
+				range = ['rgb(239,243,255)', 'rgb(189,215,231)', 'rgb(107,174,214)', 'rgb(49,130,189)', 'rgb(8,81,156)'];
+				break;
+			case "binary":
+				range = ['rgb(201,228,242)', 'rgb(255,204,102)'];
+				break;
+			case "categorical":
+				// max is 5 categories
+				range = [];
+				var availColors = ['rgb(228,26,28)', 'rgb(55,126,184)', 'rgb(77,175,74)', 'rgb(152,78,163)', 'rgb(255,127,0)'];
+				for (var i = 0; i < numCorrVals; i++) range.push(availColors[i]);				
+				break;
+			default:
+				range = ['rgb(239,243,255)', 'rgb(189,215,231)', 'rgb(107,174,214)', 'rgb(49,130,189)', 'rgb(8,81,156)'];
+		}
+
 		// set domain and range
 		if (isNumeric) color.domain(domain).range(range);
 		else color.domain(corrDomain).range(range);
 
 		// fill in map colors
+		selected = null;
 		frmrActive = null;
 		g.selectAll(".counties .county").transition().duration(750).style("fill", function(d) {
 			if (isNumeric) {
@@ -507,8 +513,7 @@ function update(dataset, indicator) {
 }
 
 function appendSecondInd(dataset, indicator) {
-	showingSecond = true;
-	d3.select('#secondIndText').text(indicator);
+	currentSecondDI = dataset + ' - ' + indicator;
 	
 	var indObject = allData(dataset, indicator);
 	s_primeIndObj = indObject[0];
@@ -518,7 +523,7 @@ function appendSecondInd(dataset, indicator) {
 	
 	d3.tsv("data/CData.tsv", function(error, countyData) {
 		countyData.forEach(function(d) {
-			s_quantById[d.id] =  isNumFun(s_primeIndObj.dataType) ? parseFloat(d[dataset+' - '+indicator]) : d[dataset+' - '+indicator];					
+			s_quantById[d.id] =  isNumFun(s_primeIndObj.dataType) ? parseFloat(d[currentSecondDI]) : d[currentSecondDI];					
 			s_secondQuantById[d.id] =  isNumFun(s_secondIndObj.dataType) ? parseFloat(d[s_secondIndObj.dataset+' - '+s_secondIndObj.name]) : d[s_secondIndObj.dataset+' - '+s_secondIndObj.name];		
 			s_thirdQuantById[d.id] =  isNumFun(s_thirdIndObj.dataType) ? parseFloat(d[s_thirdIndObj.dataset+' - '+s_thirdIndObj.name]) : d[s_thirdIndObj.dataset+' - '+s_thirdIndObj.name];		
 			s_fourthQuantById[d.id] =  isNumFun(s_fourthIndObj.dataType) ? parseFloat(d[s_fourthIndObj.dataset+' - '+s_fourthIndObj.name]) : d[s_fourthIndObj.dataset+' - '+s_fourthIndObj.name];		
@@ -527,14 +532,6 @@ function appendSecondInd(dataset, indicator) {
 		if (d3.select('.active').empty() !== true) populateTooltip(selected);
 	});
 }
-
-function cancelSecondInd() {
-	showingSecond = false;
-	
-	// remove second tooltip
-	//under what conditions do we activate this?  is there a button, etc?
-}
-
 
 function allData(dataset, indicator){
 	var firstObj = getData(dataset, indicator);
@@ -629,7 +626,7 @@ function populateTooltip(d) {
 
 	var p_obj = [primeIndObj, secondIndObj, thirdIndObj, fourthIndObj],
 		p_quant = [quantById, secondQuantById, thirdQuantById, fourthQuantById];
-	if (showingSecond) {
+	if (currentSecondDI !== '') {
 		s_obj = [s_primeIndObj, s_secondIndObj, s_thirdIndObj, s_fourthIndObj],
 		s_quant = [s_quantById, s_secondQuantById, s_thirdQuantById, s_fourthQuantById];
 	}
@@ -665,11 +662,8 @@ function populateTooltip(d) {
 		var row = tipTable.append('tr')
 			.attr('class', 'tipKey');
 			
-		writeIndicators(p_obj[i], p_quant[i], secondary=false);
-		tipTable.classed('showingSecond' , showingSecond);
-		if (showingSecond){
-			writeIndicators(s_obj[i], s_quant[i], secondary=true);			
-		} 
+		writeIndicators(p_obj[i], p_quant[i], false);
+		if (currentSecondDI !== '') writeIndicators(s_obj[i], s_quant[i], true);
 	}
 
 	/*if (none_avail) {
@@ -730,10 +724,11 @@ function zoomTo(fips, event) {
 	if (area < 5) s = 8;
 	else if (area < 10) s = 7;
 	else if (area < 50) s = 6;
-	else if (area < 250) s = 5.5;
-	else if (area < 500) s = 5;
-	else if (area < 1000) s = 4.5;
-	else s = 4;
+	else if (area < 200) s = 5.5;
+	else if (area < 400) s = 5;
+	else if (area < 700) s = 4.5;
+	else if (area < 1000) s = 4;
+	else s = 3.5;
 
   	t[0] = -t[0] * (s - 1);
   	t[1] = -t[1] * (s - 1);
