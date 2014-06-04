@@ -324,7 +324,7 @@ function submitSearch() {
 					d3.select('#instructionText').append('p').text('Your search returned ' + pMatchArray.length + ' results');
 					
 				var rTable = d3.select('#instructionText').append('div').attr('class', 'container-fluid').append('table')
-					.attr('class', 'table table-striped table-condensed');
+					.attr('class', 'table table-striped table-condensed').append('tbody');
 				var rTitleRow = rTable.append('tr');
 				var rTitleFIPS = rTitleRow.append('td').text('FIPS');
 				var rTitleCounty = rTitleRow.append('td').text('County Name');
@@ -349,8 +349,7 @@ function submitSearch() {
 				}
 				
 				// styling; in anonymous function for closure in click function
-				rTable.selectAll('tr').selectAll('td')
-					.classed('search_results_cell', true);
+				rTable.selectAll('tr').selectAll('td');
 					
 				$('#instructions').show();
 							
