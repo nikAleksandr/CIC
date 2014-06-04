@@ -273,8 +273,12 @@ function submitSearch() {
 
 	if (search_type === 'state') {
 		// only state; return results of all counties within state
-		state_search_str = 'state.cfm?statecode=' + state_name;
-		displayResults(state_search_str);
+		if (state_name === 'MA' || state_name === 'RI' || state_name === 'CT') {
+			alert('No county data available for this state.');
+		} else {
+			state_search_str = 'state.cfm?statecode=' + state_name;
+			displayResults(state_search_str);
+		}
 							
 	} else if (search_type === 'county') {
 		// trim out the fat
@@ -373,8 +377,7 @@ function submitSearch() {
 }
 
 function executeSearchMatch(FIPS) {
-	FIPS = parseInt(FIPS);
-	
+	FIPS = parseInt(FIPS);	
 	var county = countyObjectById[FIPS];
 	
 	highlight(county);
@@ -383,7 +386,6 @@ function executeSearchMatch(FIPS) {
 	
 	//document.getElementById('search_form').reset();				
 };
-
 
 
 function displayResults(url) {
@@ -682,13 +684,18 @@ function positionTooltip(county) {
 	var top = countyCoord.top + 20; // appears 20 below topmost edge of county vertical-wise
 	
 	// checks if tooltip goes past window and adjust if it does
-	// not necessary since county is always centered
-	/*var ttWidth = $('#tt').width(); // tooltip width and height
-	var ttHeight = $('#tt').height();	    
-	var dx = windowWidth - (event.pageX + ttWidth); // amount to tweak
-	var dy = windowHeight - (event.pageY + ttHeight);		
+	// issue where ttWidth and ttHeight sometimes is 0 and 0
+	var ttWidth = $('#tt').width(); // tooltip width and height
+	var ttHeight = $('#tt').height();
+	var dx = windowWidth - (left + ttWidth); // amount to tweak
+	var dy = windowHeight - (top + ttHeight);
+	
+	console.log('WW, WH: ' + windowWidth + ', ' + windowHeight);
+	console.log('TTW, TTH: ' + ttWidth + ', ' + ttHeight);
+	console.log('dx, dy: ' + dx + ', ' + dy);
+			
 	if (dx < 0) left += dx;
-	if (dy < 0) top += dy;*/
+	if (dy < 0) top += dy;
 	
 	tooltip
 	  	.style("left", (left) + "px")
