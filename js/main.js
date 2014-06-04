@@ -323,12 +323,12 @@ function submitSearch() {
 				$('#instructionText').empty();
 					d3.select('#instructionText').append('p').text('Your search returned ' + pMatchArray.length + ' results');
 					
-				var rTable = d3.select('#instructionText').append('div').attr('class', 'container-fluid').append('table')
-					.attr('class', 'table table-striped table-condensed').append('tbody');
+				var rTable = d3.select('#instructionText').append('div').attr('id', 'multiCountyResult').attr('class', 'container-fluid').append('table')
+					.attr('class', 'table table-striped table-condensed table-hover').append('tbody');
 				var rTitleRow = rTable.append('tr');
-				var rTitleFIPS = rTitleRow.append('td').text('FIPS');
-				var rTitleCounty = rTitleRow.append('td').text('County Name');
-				var rTitleState = rTitleRow.append('td').text('State');
+				var rTitleFIPS = rTitleRow.append('th').text('FIPS');
+				var rTitleCounty = rTitleRow.append('th').text('County Name');
+				var rTitleState = rTitleRow.append('th').text('State');
 					
 				for (var i = 0; i < pMatchArray.length; i++) {
 					var countyObj = countyObjectById[pMatchArray[i]];
