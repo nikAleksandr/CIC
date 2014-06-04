@@ -151,7 +151,7 @@ body {
 	padding-top: 2%;
 }
 
-#instructionText a, #fullDefsText a{
+#instructionText a, #fullDefsText a, .county_link{
 	color:rgb(0,64,112);
 	cursor: pointer;
 }
@@ -180,7 +180,7 @@ body {
 	padding-left: .5em;
 }
 
-#close:hover, #close2:hover, #instructionText a:hover, #help:hover, #showOnMap:hover{
+#close:hover, #close2:hover, #instructionText a:hover, #help:hover, #showOnMap:hover, .county_link:hover{
 	text-decoration:underline;
 }
 
@@ -248,12 +248,7 @@ h1 small {
 	font-size: .85em;
 }
 #additionalInfo { margin-top: 10px; }
-
-.result_iframe {
-	width: 100%;
-	border: none;
-}
-
+/*
 .search_results_table {
 	text-align: center;
 	box-sizing: border-box;
@@ -271,7 +266,7 @@ h1 small {
 	text-decoration: underline;
 	cursor: pointer;
 }
-
+*/
 /*
  * Map and SVG CSS
  */

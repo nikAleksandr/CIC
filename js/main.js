@@ -321,9 +321,11 @@ function submitSearch() {
 			if (pMatchArray.length > 1) {
 				// display all matches if more than one match
 				$('#instructionText').empty();
-				var rTable = d3.select('#instructionText').append('table')
-					.classed('search_results_table', true);
-				var rTitleRow = rTable.append('tr').style('font-weight', 'bold');
+					d3.select('#instructionText').append('p').text('Your search returned ' + pMatchArray.length + ' results');
+					
+				var rTable = d3.select('#instructionText').append('div').attr('class', 'container-fluid').append('table')
+					.attr('class', 'table table-striped table-condensed');
+				var rTitleRow = rTable.append('tr');
 				var rTitleFIPS = rTitleRow.append('td').text('FIPS');
 				var rTitleCounty = rTitleRow.append('td').text('County Name');
 				var rTitleState = rTitleRow.append('td').text('State');
@@ -371,6 +373,8 @@ function submitSearch() {
 }
 
 function executeSearchMatch(FIPS) {
+	FIPS = parseInt(FIPS);
+	
 	var county = countyObjectById[FIPS];
 	
 	highlight(county);
@@ -383,7 +387,7 @@ function executeSearchMatch(FIPS) {
 
 
 function displayResults(url) {
-	d3.select('#resultsContainer').remove();
+	$('#instructionText').empty();
 	
 	d3.xhr('http://nacocic.naco.org/ciccfm/'+ url, function(error, request){
 		if (!error) {
