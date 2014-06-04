@@ -68,7 +68,9 @@ format_tt['level_np'] = format['level'];
 
 var zoom = d3.behavior.zoom()
     .scaleExtent([1, 10])
-    .on("zoom", move);
+    .on("zoomstart", moveStart)
+    .on("zoom", move)
+    .on("zoomend", moveEnd);
 
 var width = document.getElementById('container').offsetWidth-60,
 	height = width / 2,
@@ -723,7 +725,26 @@ function populateTooltip(d) {
 		tipTable.selectAll('tr').remove();
 		tipTable.append('tr').attr('class', 'tipKey').html('<td>No data available for this county</td>');
 	}*/
+}
 
+function positionTooltip(county) {
+	var countyCoord = county.getBoundingClientRect();
+	var left = countyCoord.left + countyCoord.width; // appears on rightmost edge of county horizontal-wise
+	var top = countyCoord.top + 20; // appears 20 below topmost edge of county vertical-wise
+	
+	// checks if tooltip goes past window and adjust if it does
+	// not necessary since county is always centered
+	/*var ttWidth = $('#tt').width(); // tooltip width and height
+	var ttHeight = $('#tt').height();	    
+	var dx = windowWidth - (event.pageX + ttWidth); // amount to tweak
+	var dy = windowHeight - (event.pageY + ttHeight);		
+	if (dx < 0) left += dx;
+	if (dy < 0) top += dy;*/
+	
+	tooltip
+	  	.style("left", (left) + "px")
+	  	.style("top", (top) + "px");		      	
+	tooltip.classed('hidden', false);
 }
 
 function clicked(mouse, event, d, i) {
@@ -734,23 +755,7 @@ function clicked(mouse, event, d, i) {
 	    populateTooltip(d);
 	    
 		zoomTransition.each('end', function() {
-		    var countyCoord = event.target.getBoundingClientRect();	    
-		    var left = countyCoord.left + countyCoord.width; // appears on rightmost edge of county horizontal-wise
-		    var top = countyCoord.top + 20; // appears 20 below topmost edge of county vertical-wise
-		    
-		    // not necessary since county is always centered
-		    // check if tooltip goes past window and adjust if it does
-		    /*var ttWidth = $('#tt').width(); // tooltip width and height
-		    var ttHeight = $('#tt').height();	    
-			var dx = windowWidth - (event.pageX + ttWidth); // amount to tweak
-			var dy = windowHeight - (event.pageY + ttHeight);		
-			if (dx < 0) left += dx;
-			if (dy < 0) top += dy;*/
-			
-		    tooltip
-		      	.style("left", (left) + "px")
-		      	.style("top", (top) + "px");		      	
-		    tooltip.classed('hidden', false);
+			positionTooltip(event.target);
 		});
 	} else {
 		tooltip.classed('hidden', true);
@@ -816,8 +821,11 @@ function redraw() {
 
 var frmrS = 1;
 
+function moveStart() {
+}
+
 function move() {	
-  tooltip.classed("hidden", true);
+  	tooltip.classed("hidden", true); // hides on zoom or pan	
 	
   var t = d3.event.translate;
   var s = d3.event.scale;
@@ -842,6 +850,10 @@ function move() {
 		g.transition().style("stroke-width", 1 / s).attr("transform", "translate(" + t + ")scale(" + s + ")");
 	}
 	frmrS = s;
+}
+
+function moveEnd() {
+	//if (d3.select('.active').empty() !== true) positionTooltip(document.getElementsByClassName('active')[0]);
 }
 
 var throttleTimer;
