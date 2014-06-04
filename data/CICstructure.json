@@ -99,7 +99,7 @@
           "name": "Housing & Community Development Employment",
           "source": "U.S. Census Bureau - Census of Individual Governments: Employment",
           "years": [2007, 2008, 2009, 2010, 2011, 2012],
-          "companions": [["Housing & Community Development Expenditures", "Total Housing & Community Development"], ["Housing & Community Development Employment", "Total Housing & Community Development"], ["Housing & Community Development Employment", "Total"], ["Housing & Community Development Expenditures", "Current Operations"]],
+          "companions": [["Housing & Community Development Expenditures", "Total Housing & Community Development"], ["Housing & Community Development Employment", "Housing & Community Development"], ["Housing & Community Development Employment", "Total"], ["Housing & Community Development Expenditures", "Current Operations"]],
        	  "children": [
             {"name": "Total", "unit": "FTE employees", "dataType": "level", "definition": "The number of Full-time equivalent (FTE) employees for each county is a computed statistic representing the number of full-time employees that could have been employed if the reported number of hours worked by part-time employees had been worked by full-time employees."},
           	{"name": "Housing & Community Development", "unit":"FTE employees", "dataType": "level", "definition": "Number of FTEs working on Construction, operation, and support of housing and redevelopment projects and other activities to promote or aid public and private housing and community development.  Includes: Housing: Planning, construction, furnishing, and operation of public housing projects (generally for persons not adequately served by private sector). Community development: Urban renewal and slum clearance; redevelopment and rehabilitation of substandard or deteriorated facilities and areas; rural redevelopment; and revitalization of commercial areas."}
@@ -121,7 +121,7 @@
           "name": "Justice & Public Safety Employment",
           "source": "U.S. Census Bureau - Census of Individual Governments: Employment",
           "years": [2007, 2008, 2009, 2010, 2011, 2012],
-          "companions": [["Justice & Public Safety Employment", "Total Justice & Public Safety"], ["Justice and Public Safety Employment", "Correction"], ["Justice & Public Safety Employment", "Judicial & Legal Services"], ["Justice & Public Safety Employment", "Police Protection"]],
+          "companions": [["Justice & Public Safety Employment", "Total Justice & Public Safety"], ["Justice & Public Safety Employment", "Correction"], ["Justice & Public Safety Employment", "Judicial & Legal Services"], ["Justice & Public Safety Employment", "Police Protection"]],
       	  "children": [
             {"name": "Total", "unit": "FTE employees", "dataType": "level", "definition": "The number of Full-time equivalent (FTE) employees for each county is a computed statistic representing the number of full-time employees that could have been employed if the reported number of hours worked by part-time employees had been worked by full-time employees."},
             {"name": "Total Justice & Public Safety", "unit":"FTE employees", "dataType": "level", "definition": "Number of FTEs working on correction, judicial and legal services, and police protection. Correctional Institutions: Residential institutions or facilities for the confinement, correction, and rehabilitation of convicted adults, or juveniles adjudicated, delinquent or in need of supervision, and for the detention of adults and juveniles charged with a crime and awaiting trial. Judicial and Legal : Courts (criminal and civil) and activities associated with courts, legal services, and legal counseling of indigent or other needy persons. Police protection: sheriff, state police, and other governmental departments that preserve law and order, protect persons and property from illegal acts, and work to prevent, control, investigate, and reduce crime."},
@@ -159,7 +159,7 @@
           "name": "Utility Employment",
           "source": "U.S. Census Bureau - Census of Individual Governments: Employment",
           "years": [2007, 2008, 2009, 2010, 2011, 2012],
-          "companions": [["Utility Employment", "Total Utility"], ["Utility Employment", "Electric Utility"], ["Utility Employment", "Gas Utilities"], ["Utility Expenditures", "Total Utility"]],
+          "companions": [["Utility Employment", "Total Utility"], ["Utility Employment", "Electric Utilities"], ["Utility Employment", "Gas Utilities"], ["Utility Expenditures", "Total Utility"]],
       	  "children": [
             {"name": "Total", "unit": "FTE employees", "dataType": "level", "definition": "The number of Full-time equivalent (FTE) employees for each county is a computed statistic representing the number of full-time employees that could have been employed if the reported number of hours worked by part-time employees had been worked by full-time employees."},
             {"name": "Total Utility", "unit":"FTE employees", "dataType": "level", "definition": "Number of FTEs working on Electricity Utilities and Gas Utilities."},
@@ -214,7 +214,7 @@
           "name": "Intergovernmental Revenue",
           "source": "U.S. Census Bureau - Census of Individual Governments: Finance",
           "years": [2007],
-          "companions": [["Intergovernmnetal Revenue", "Total Intergovernmental"], ["Intergovernmnetal Revenue", "From Federal Government"], ["Intergovernmnetal Revenue", "From State Government"], ["Intergovernmnetal Revenue", "From Local Government"]],
+          "companions": [["Intergovernmental Revenue", "Total Intergovernmental"], ["Intergovernmental Revenue", "From Federal Government"], ["Intergovernmental Revenue", "From State Government"], ["Intergovernmental Revenue", "From Local Government"]],
           "children": [
           	{"name": "Total", "unit": "thousands of dollars", "dataType": "level", "definition": "All amounts of money received by a government from external sources--net of refunds and other correcting transactions--other than from issuance of debt, liquidation of investments, and as agency and private trust transactions. Note that revenue excludes noncash transactions such as receipt of services, commodities, or other 'receipts in kind.'"},
           	{"name": "Total Intergovernmental", "unit": "thousands of dollars", "dataType": "level", "definition": "Total intergovernmental revenue, including revenue from the federal, local, and state government."},
@@ -227,7 +227,7 @@
           "name": "Tax Revenue",
           "source": "U.S. Census Bureau - Census of Individual Governments: Finance",
           "years": [2007],
-          "companions": [["Tax Revenue", "Total Tax"], ["Tax Revenue", "Income Tax"], ["Tax Revenue", "Property Tax"], ["Tax Revenue", "License Tax"]],
+          "companions": [["Tax Revenue", "Total Tax"], ["Tax Revenue", "Income Taxes"], ["Tax Revenue", "Property Taxes"], ["Tax Revenue", "License Taxes"]],
           "children": [
           	{"name": "Total", "unit": "thousands of dollars", "dataType": "level", "definition": "All amounts of money received by a government from external sources--net of refunds and other correcting transactions--other than from issuance of debt, liquidation of investments, and as agency and private trust transactions. Note that revenue excludes noncash transactions such as receipt of services, commodities, or other 'receipts in kind.'"},
           	{"name": "Total Tax", "unit": "thousands of dollars", "dataType": "level", "definition": "Total tax revenue, including Income Taxes, License Taxes, Other Taxes, Property Taxes, Sales and Gross Receipts Taxes."},
@@ -310,7 +310,7 @@
        	  "name": "Housing & Community Development Expenditures",
           "source": "U.S. Census Bureau - Census of Individual Governments: Finance",
        	  "years": [2007],
-       	  "companions": [["Housing & Community Development Expenditures", "Total Housing & Community Development"], ["Housing & Community Development Employment", "Total Housing & Community Development"], ["Housing & Community Development Expenditures", "Current Operations"], ["Housing & Community Development Expenditures", "Total"]],
+       	  "companions": [["Housing & Community Development Expenditures", "Total Housing & Community Development"], ["Housing & Community Development Employment", "Housing & Community Development"], ["Housing & Community Development Expenditures", "Current Operations"], ["Housing & Community Development Expenditures", "Total"]],
        	  "children": [
        	  	{"name": "Total", "unit": "thousands of dollars", "dataType": "level", "definition": "All amounts of money paid out by a government--net of recoveries and other correcting transactions--other than for retirement of debt, investment in securities, extension of credit, or as agency transactions. Note that expenditure includes only external transactions of a government and excludes non-cash transactions such as the provision of perquisites or other payments in kind."},
        	  	{"name": "Total Housing & Community Development", "unit": "thousands of dollars", "dataType": "level", "definition": "Total housing and community development expenditures, including Current Operations, Construction, Other Capital Outlay, Intergovernmental to State and Intergovernmental to Local."},
@@ -355,7 +355,7 @@
        	  "name": "Justice & Public Safety Expenditures",
           "source": "U.S. Census Bureau - Census of Individual Governments: Finance",
        	  "years": [2007],
-       	  "companions": [["Justice & Public Safety Expenditures", "Total Justice & Public Safety"], ["Justice and Public Safety Expenditures", "Correction"], ["Justice & Public Safety Expenditures", "Judicial & Legal Service"], ["Justice & Public Safety Expenditures", "Police Protection"]],
+       	  "companions": [["Justice & Public Safety Expenditures", "Total Justice & Public Safety"], ["Justice & Public Safety Expenditures", "Correction"], ["Justice & Public Safety Expenditures", "Judicial & Legal Services"], ["Justice & Public Safety Expenditures", "Police Protection"]],
       	  "children": [
        	  	{"name": "Total", "unit": "thousands of dollars", "dataType": "level", "definition": "All amounts of money paid out by a government--net of recoveries and other correcting transactions--other than for retirement of debt, investment in securities, extension of credit, or as agency transactions. Note that expenditure includes only external transactions of a government and excludes non-cash transactions such as the provision of perquisites or other payments in kind."},
 	       	{"name": "Total Justice & Public Safety", "unit": "thousands of dollars", "dataType": "level", "definition": "Total justice and public safety expenditures, including Correction, Judicial and Legal Services, Police Protection, Fire Protection, Protective Inspection, Current Operations, Construction, Other Capital Outlay, Intergovernmental to State, Intergovernmental to Local."},
@@ -394,7 +394,7 @@
        	  "name": "Transportation Expenditures",
           "source": "U.S. Census Bureau - Census of Individual Governments: Finance",
        	  "years": [2007],
-       	  "companions": [["Transportation Expenditures", "Total Transportation"], ["Transportation Expenditures", "Transit"], ["Transportation Expenditures", "Highways"], ["Transportation Expenditures", "Air Transportation"]],
+       	  "companions": [["Transportation Expenditures", "Total Transportation"], ["Transportation Expenditures", "Transit Utilities"], ["Transportation Expenditures", "Highways"], ["Transportation Expenditures", "Air Transportation"]],
       	  "children": [
        	  	{"name": "Total", "unit": "thousands of dollars", "dataType": "level", "definition": "All amounts of money paid out by a government--net of recoveries and other correcting transactions--other than for retirement of debt, investment in securities, extension of credit, or as agency transactions. Note that expenditure includes only external transactions of a government and excludes non-cash transactions such as the provision of perquisites or other payments in kind."},
 	       	{"name": "Total Transportation", "unit": "thousands of dollars", "dataType": "level", "definition": "Total number of transportation expenditures, including Air Transportation, Highways, Parking Facilities, Sea and Inland Port, Transit Utilities, Current Operations, Construction, Other Capital Outlay, Interests on Debt, Intergovernmental to State and Intergovernmental to Local."},
@@ -433,7 +433,7 @@
        	  "name": "Water, Sewerage & Solid Waste Expenditures",
           "source": "U.S. Census Bureau - Census of Individual Governments: Finance",
        	  "years": [2007],
-       	  "companions": [["Water, Sewerage & Solid Waste Expenditures", "Total Water, Sewerage & Solid Waste"], ["Water, Sewerage & Solid Waste Expenditures", "Sewerage"], ["Water, Sewerage & Solid Waste Expenditures", "Solid Waste"], ["Water, Sewerage & Solid Waste Expenditures", "Water Utilities"]],
+       	  "companions": [["Water, Sewerage & Solid Waste Expenditures", "Total Water, Sewerage & Solid Waste Management"], ["Water, Sewerage & Solid Waste Expenditures", "Sewerage"], ["Water, Sewerage & Solid Waste Expenditures", "Solid Waste"], ["Water, Sewerage & Solid Waste Expenditures", "Water Utilities"]],
       	  "children": [
        	  	{"name": "Total", "unit": "thousands of dollars", "dataType": "level", "definition": "All amounts of money paid out by a government--net of recoveries and other correcting transactions--other than for retirement of debt, investment in securities, extension of credit, or as agency transactions. Note that expenditure includes only external transactions of a government and excludes non-cash transactions such as the provision of perquisites or other payments in kind."},
 	       	{"name": "Total Water, Sewerage & Solid Waste Management", "unit": "thousands of dollars", "dataType": "level", "definition": "All amounts of money paid out by a government on Water, Sewerage and Solid Waste Management-net of recoveries and other correcting transactions--other than for retirement of debt, investment in securities, extension of credit, or as agency transactions. Note that expenditure includes only external transactions of a government and excludes non-cash transactions such as the provision of perquisites or other payments in kind."},
@@ -580,7 +580,7 @@
         		"name": "Population Density",
         		"source": "U.S. Census Bureau - Population Estimates Program (PEP)",
         		"years": [2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013],
-        		"companions": [["Population Levels and Trends", "Population Level"], ["Population Levels and Trends", "Population Annual Growth Rate (from previous year)"], ["Population Density", "Population Density"], ["Population by Age/Gender", "Percent 65 and older"]],
+        		"companions": [["Population Levels and Trends", "Population Level"], ["Population Levels and Trends", "Population Annual Growth Rate (from previous year)"], ["Population Density", "Population Density"], ["Population by Age/Gender", "Percent 65 years and older"]],
           		"vintage": 2013,
         		"children": [
         			{"name": "Population Level", "dataType": "level", "definition": "The calculated number of people living in an area as of a specified point in time, usually July 1st. The estimated population is calculated using a component of change model that incorporates information on natural increase (births, deaths) and net migration (net domestic migration, net international migration) that has occurred in an area since the latest decennial census."},
@@ -594,7 +594,7 @@
         	{
         		"name": "Population by Age/Gender",
         		"years": [2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012],
-        		"companions": [["Population Levels and Trends", "Population Level"], ["Population by Age/Gender", "Percent Female"], ["Population by Age/Gender", "Percent 65 and older"], ["Population By Age/Gender", "Percent 5-24 years old"]],
+        		"companions": [["Population Levels and Trends", "Population Level"], ["Population by Age/Gender", "Percent Female"], ["Population by Age/Gender", "Percent 65 years and older"], ["Population by Age/Gender", "Percent 15-24 years old"]],
           		"source": "U.S. Census Bureau - Population Estimates Program (PEP)",
 	       		"vintage": 2012,
         		"children": [
@@ -618,7 +618,7 @@
         	{
         		"name": "Population by Ethnicity",
         		"years": [2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012],
-        		"companions": [["Population Levels and Trends", "Population Level"], ["Population by Ethnicity", "White Population"], ["Population by Ethnicity", "Black or African American Population"], ["Population by Ethnicity", "Hispanic or Latino Origin"]],
+        		"companions": [["Population Levels and Trends", "Population Level"], ["Population by Ethnicity", "White Population"], ["Population by Ethnicity", "Black or African American Population"], ["Population by Ethnicity", "Hispanic or Latino Origin Population"]],
           		"source": "U.S. Census Bureau - Population Estimates Program (PEP)",
 	       		"vintage": 2012,
         		"children": [
@@ -710,7 +710,7 @@
         	"name": "Public Elementary & Secondary Schools",
         	"source": "National Center for Economic Statistics (NCES) - Common Core Data (CCD), Elementary and Secondary Information System (ELSi)",
         	"years": [2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012],
-        	"companions": [["Public Elementary & Secondary Schools", "Number of Local Schools"], ["Public Elementary & Secondary Schools", "Pupil/Teacher Ratip"], ["Public Elementary & Secondary Schools", "Number of Charter Schools"], ["Public Elementary & Secondary Schools", "Total Students"]],
+        	"companions": [["Public Elementary & Secondary Schools", "Number of Local School Districts"], ["Public Elementary & Secondary Schools", "Pupil/Teacher Ratio"], ["Public Elementary & Secondary Schools", "Number of Charter School Agencies"], ["Public Elementary & Secondary Schools", "Total Students"]],
           	"children": [
         		{"name": "Number of Districts", "dataType": "level", "definition": "The number of school districts located in the county."},
         		{"name": "Number Operational Schools", "dataType": "level", "definition": "The number of operational schools located in the county."},
@@ -833,7 +833,7 @@
       		"name": "State Criminal Alien Assistance Program (SCAAP)",
       		"years": [2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013],
       		"source": "U.S. Department of Justice - Bureau of Justice Assistance",
-      		"companions": [["State Criminal Alien Assistance Program (SCAAP)", "SCAAP Amount"], ["State Criminal Alien Assistance Program (SCAAP)", "SCAAP Annual Growth Rate"], ["Housing & Urban Development Grants", "Total HUD Amount"], ["Housing & Urban Development Grants", "HUD Annual Growth Rate (from previous year)"]],
+      		"companions": [["State Criminal Alien Assistance Program (SCAAP)", "SCAAP Level"], ["State Criminal Alien Assistance Program (SCAAP)", "SCAAP Annual Growth Rate (from previous year)"], ["Housing & Urban Development Grants", "Total HUD Amount"], ["Housing & Urban Development Grants", "HUD Annual Growth Rate (from previous year)"]],
       		"children": [
       			{"name": "SCAAP Level", "unit": "thousands of dollars", "dataType": "level", "definition": "Funding received for the State Criminal Alien Assistance Program"},
       			{"name": "SCAAP Annual Growth Rate (from previous year)", "dataType": "percent", "definition": "Percent change in funding for the State Criminal Alien Assistance program from the previous year"}
@@ -986,7 +986,7 @@
         		"name": "Health Insurance",
         		"source": "U.S. Census Bureau - American Community Survey (ACS)",
         		"years": [2009, 2010, 2011, 2012],
-        		"companions": [["Health Insurance", "Percent Insured"], ["Health Insurance", "Population with Private Insurance"], ["Health Insurance", "Population with Public Insurance"], ["Health Insurance", "Percent 6-24 Insured"]],
+        		"companions": [["Health Insurance", "Percent Insured"], ["Health Insurance", "Population with Private Health Insurance"], ["Health Insurance", "Population with Public Health Insurance"], ["Health Insurance", "Percent 6-24 Insured"]],
       		  	"children": [
         			{"name": "Population", "dataType": "level", "definition": "The calculated number of people living in the county."},
         			{"name": "Population Insured", "dataType": "level", "definition": "The number of people that are covered by a public health insurance program or by private health insurance."},
@@ -1017,7 +1017,7 @@
 	          	"name": "Housing & Community Development Employment",
 	          	"source": "U.S. Census Bureau - Census of Individual Governments: Employment",
 	          	"years": [2007, 2008, 2009, 2010, 2011, 2012],
-	          	"companions": [["Housing & Community Development Expenditures", "Total Housing & Community Development"], ["Housing & Community Development Employment", "Total Housing & Community Development"], ["Housing & Community Development Employment", "Total"], ["Housing & Community Development Expenditures", "Current Operations"]],
+	          	"companions": [["Housing & Community Development Expenditures", "Total Housing & Community Development"], ["Housing & Community Development Employment", "Housing & Community Development"], ["Housing & Community Development Employment", "Total"], ["Housing & Community Development Expenditures", "Current Operations"]],
        	  		"children": [
 		            {"name": "Total", "unit": "FTE employees", "dataType": "level", "definition": "The number of Full-time equivalent (FTE) employees for each county is a computed statistic representing the number of full-time employees that could have been employed if the reported number of hours worked by part-time employees had been worked by full-time employees."},
 	          		{"name": "Housing & Community Development", "unit":"FTE employees", "dataType": "level", "definition": "Number of FTEs working on Construction, operation, and support of housing and redevelopment projects and other activities to promote or aid public and private housing and community development.  Includes: Housing: Planning, construction, furnishing, and operation of public housing projects (generally for persons not adequately served by private sector). Community development: Urban renewal and slum clearance; redevelopment and rehabilitation of substandard or deteriorated facilities and areas; rural redevelopment; and revitalization of commercial areas."}
@@ -1027,7 +1027,7 @@
        	  		"name": "Housing & Community Development Expenditures",
         	 	"source": "U.S. Census Bureau - Census of Individual Governments: Finance",
        	  		"years": [2007],
-       	  		"companions": [["Housing & Community Development Expenditures", "Total Housing & Community Development"], ["Housing & Community Development Employment", "Total Housing & Community Development"], ["Housing & Community Development Expenditures", "Current Operations"], ["Housing & Community Development Expenditures", "Total"]],
+       	  		"companions": [["Housing & Community Development Expenditures", "Total Housing & Community Development"], ["Housing & Community Development Employment", "Housing & Community Development"], ["Housing & Community Development Expenditures", "Current Operations"], ["Housing & Community Development Expenditures", "Total"]],
        	  		"children": [
        	  			{"name": "Total", "unit": "thousands of dollars", "dataType": "level", "definition": "All amounts of money paid out by a government--net of recoveries and other correcting transactions--other than for retirement of debt, investment in securities, extension of credit, or as agency transactions. Note that expenditure includes only external transactions of a government and excludes non-cash transactions such as the provision of perquisites or other payments in kind."},
        	  			{"name": "Total Housing & Community Development", "unit": "thousands of dollars", "dataType": "level", "definition": "Total housing and community development expenditures, including Current Operations, Construction, Other Capital Outlay, Intergovernmental to State and Intergovernmental to Local."},
@@ -1042,7 +1042,7 @@
         		"name": "Housing Units",
         		"source": "U.S. Census Bureau - American Community Survey (ACS)",
         		"years": [2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012],
-        		"companions": [["Housing Units", "Number of Housing Units"], ["Housing Units", "Average Household Size"], ["Housing Units", "Percent of Owner-Occupied Housing Units"], ["Housing Units", "Percent of Renter Occupied Housing Units"]],
+        		"companions": [["Housing Units", "Number of Housing Units"], ["Housing Units", "Average Household Size"], ["Housing Units", "Percent of Owner-Occupied Housing Units"], ["Housing Units", "Percent of Renter-Occupied Housing Units"]],
       		  	"children": [
         			{"name": "Population", "dataType": "level", "definition": "The calculated number of people living in the county."},
         			{"name": "Number of Housing Units", "dataType": "level", "definition": "The number of housing units located in the county. A housing unit may be a house, an apartment, a mobile home, a group of rooms or a single room that is occupied (or, if vacant, intended for occupancy) as separate living quarters."},
@@ -1063,7 +1063,7 @@
 	          "name": "Justice & Public Safety Employment",
 	          "source": "U.S. Census Bureau - Census of Individual Governments: Employment",
 	          "years": [2007, 2008, 2009, 2010, 2011, 2012],
-	          "companions": [["Justice & Public Safety Employment", "Total Justice & Public Safety"], ["Justice and Public Safety Employment", "Correction"], ["Justice & Public Safety Employment", "Judicial & Legal Services"], ["Justice & Public Safety Employment", "Police Protection"]],
+	          "companions": [["Justice & Public Safety Employment", "Total Justice & Public Safety"], ["Justice & Public Safety Employment", "Correction"], ["Justice & Public Safety Employment", "Judicial & Legal Services"], ["Justice & Public Safety Employment", "Police Protection"]],
       		  "children": [
 	            {"name": "Total", "unit": "FTE employees", "dataType": "level", "definition": "The number of Full-time equivalent (FTE) employees for each county is a computed statistic representing the number of full-time employees that could have been employed if the reported number of hours worked by part-time employees had been worked by full-time employees."},
 	            {"name": "Total Justice & Public Safety", "unit":"FTE employees", "dataType": "level", "definition": "Number of FTEs working on correction, judicial and legal services, and police protection. Correctional Institutions: Residential institutions or facilities for the confinement, correction, and rehabilitation of convicted adults, or juveniles adjudicated, delinquent or in need of supervision, and for the detention of adults and juveniles charged with a crime and awaiting trial. Judicial and Legal : Courts (criminal and civil) and activities associated with courts, legal services, and legal counseling of indigent or other needy persons. Police protection: sheriff, state police, and other governmental departments that preserve law and order, protect persons and property from illegal acts, and work to prevent, control, investigate, and reduce crime."},
@@ -1077,7 +1077,7 @@
 	       	  "name": "Justice & Public Safety Expenditures",
 	          "source": "U.S. Census Bureau - Census of Individual Governments: Finance",
 	       	  "years": [2007],
-	       	  "companions": [["Justice & Public Safety Expenditures", "Total Justice & Public Safety"], ["Justice and Public Safety Expenditures", "Correction"], ["Justice & Public Safety Expenditures", "Judicial & Legal Service"], ["Justice & Public Safety Expenditures", "Police Protection"]],
+	       	  "companions": [["Justice & Public Safety Expenditures", "Total Justice & Public Safety"], ["Justice & Public Safety Expenditures", "Correction"], ["Justice & Public Safety Expenditures", "Judicial & Legal Services"], ["Justice & Public Safety Expenditures", "Police Protection"]],
       		  "children": [
 	       	  	{"name": "Total", "unit": "thousands of dollars", "dataType": "level", "definition": "All amounts of money paid out by a government--net of recoveries and other correcting transactions--other than for retirement of debt, investment in securities, extension of credit, or as agency transactions. Note that expenditure includes only external transactions of a government and excludes non-cash transactions such as the provision of perquisites or other payments in kind."},
 	       	  	{"name": "Total Justice & Public Safety", "unit": "thousands of dollars", "dataType": "level", "definition": "Total justice and public safety expenditures, including Correction, Judicial and Legal Services, Police Protection, Fire Protection, Protective Inspection, Current Operations, Construction, Other Capital Outlay, Intergovernmental to State, Intergovernmental to Local."},
@@ -1153,7 +1153,7 @@
         		"name": "Jails - Community Supervision",
          		"source": "Bureau of Justice Statistics - Annual Survey of Jails",
       	 		"years": [2008, 2009, 2010, 2011, 2012],
-        		"companions": [["Jails - Community Supervision", "Total Jail Population"], ["Jails - Community Supervision", "Alchohol/Drug Treatment Programs"], ["Jails - Community Supervision", "Electronic Monitoring Program"], ["Jails - Community Supervision", "Community Service"]],
+        		"companions": [["Jails - Community Supervision", "Total Jail Population"], ["Jails - Community Supervision", "Alcohol/Drug Treatment Programs"], ["Jails - Community Supervision", "Electronic Monitoring Program"], ["Jails - Community Supervision", "Community Service"]],
         		"children" : [
         			{"name": "Total Jail Population", "dataType": "level", "definition": "Total inmate population incarcerated or all persons in community-based programs run by jails (e.g., electronic monitoring, house arrest, community service, day reporting, and work programs)."},
         			{"name": "Jail Capacity", "dataType": "level", "definition": "Maximum number of beds or inmates allocated to all jail facilities in the county"},
@@ -1172,7 +1172,7 @@
         	{
         		"name": "Public Safety Structure",
         		"years": [2012],
-        		"companions": [["Public Safety Structure", "Elected Sheriff"], ["Public Safety Structure", "Elected Police Cheif"], ["Public Safety Structure", "Elected Judges"], ["Public Safety Structure", "County Operated Courts"]],
+        		"companions": [["Public Safety Structure", "Elected Sheriff"], ["Public Safety Structure", "Elected Police Chief"], ["Public Safety Structure", "Elected Judges"], ["Public Safety Structure", "County Operated Courts"]],
         		"children": [
         			{"name": "Elected Sheriff", "dataType": "binary", "definition": "Indicates whether the county has a sheriff that is elected by county constituents"},
         			{"name": "County Funded Sheriff Department", "dataType": "binary", "definition": "Indicates whether funding for the Sheriff Department's general operations, administrative operations, personnel, field services and any other operating expenses is budgeted by the county"},
@@ -1312,7 +1312,7 @@
       		  "children": [
 	            {"name": "Total", "unit": "FTE employees", "dataType": "level", "definition": "The number of Full-time equivalent (FTE) employees for each county is a computed statistic representing the number of full-time employees that could have been employed if the reported number of hours worked by part-time employees had been worked by full-time employees."},
 	            {"name": "Total Transportation", "unit":"FTE employees", "dataType": "level", "definition": "Number of FTEs working on Air Transportation, Highways, Sea and Inland Port and Transit Utilities."},
-	          	{"name": "Air Tranportation", "unit":"FTE employees", "dataType": "level", "definition": "Number of FTEs working on Provision, operation, construction, and support of airport facilities serving the public at-large on a scheduled or unscheduled basis."},
+	          	{"name": "Air Transportation", "unit":"FTE employees", "dataType": "level", "definition": "Number of FTEs working on Provision, operation, construction, and support of airport facilities serving the public at-large on a scheduled or unscheduled basis."},
 	            {"name": "Highways", "unit":"FTE employees", "dataType": "level", "definition": "Number of FTEs working on Regular Highway: Maintenance, operation, repair, and construction of highways, streets, roads, alleys, sidewalks, bridges, tunnels, ferry boats, viaducts, and related non-toll structures.Toll Highway: Maintenance, operation, repair, and construction of highways, roads, bridges, ferries, and tunnels operated on a fee or toll basis. Includes: Turnpikes; toll roads, toll bridges, toll ferries (including docks and related terminals), toll tunnels, and all related activities and facilities such as snow and ice removal, highway police and fire protection units IF administered by the toll authority, lighting and light fixtures, design and engineering, garages and administrative buildings of toll authorities, operation of toll booths, drawspans, rest stops, and service areas by the toll authority itself."},
 	            {"name": "Water Transport & Terminals", "unit":"FTE employees", "dataType": "level", "definition": "Number of FTEs working on Construction, maintenance, operation, and support of canals and other waterways, harbors, docks, wharves, and related marine terminal facilities."},
 	            {"name": "Transit", "unit":"FTE employees", "dataType": "level", "definition": "Number of FTEs working on Construction, maintenance, and operation of public mass transit systems--bus, commuter rail, light rail, or subway systems. Excludes systems established solely to transport elementary and secondary school pupils. Ferry systems are classified under Highways."}
@@ -1322,7 +1322,7 @@
 	       	  "name": "Transportation Expenditures",
 	          "source": "U.S. Census Bureau - Census of Individual Governments: Finance",
 	       	  "years": [2007],
-	       	  "companions": [["Transportation Expenditures", "Total Transportation"], ["Transportation Expenditures", "Transit"], ["Transportation Expenditures", "Highways"], ["Transportation Expenditures", "Air Transportation"]],
+	       	  "companions": [["Transportation Expenditures", "Total Transportation"], ["Transportation Expenditures", "Transit Utilities"], ["Transportation Expenditures", "Highways"], ["Transportation Expenditures", "Air Transportation"]],
       		  "children": [
 	       	  	{"name": "Total", "unit": "thousands of dollars", "dataType": "level", "definition": "All amounts of money paid out by a government--net of recoveries and other correcting transactions--other than for retirement of debt, investment in securities, extension of credit, or as agency transactions. Note that expenditure includes only external transactions of a government and excludes non-cash transactions such as the provision of perquisites or other payments in kind."},
 	       	  	{"name": "Total Transportation", "unit": "thousands of dollars", "dataType": "level", "definition": "Total number of transportation expenditures, including Air Transportation, Highways, Parking Facilities, Sea and Inland Port, Transit Utilities, Current Operations, Construction, Other Capital Outlay, Interests on Debt, Intergovernmental to State and Intergovernmental to Local."},
@@ -1384,7 +1384,7 @@
         		"name": "Road Classification",
         		"source": "Federal Highway Administration - Highway Performance Monitoring System",
         		"years": [2011],
-        		"companions": [["Road Classification", "Total Public Road Miles"], ["Road Classification", "Share Interstate"], ["Road Classification", "Share Local"], ["Road Classification", "Share Freeway/Expressway"]],
+        		"companions": [["Road Classification", "Total Public Road Miles"], ["Road Classification", "Share Interstate"], ["Road Classification", "Share Local"], ["Road Classification", "Share Other Freeway/Expressway"]],
       		  	"children": [
         			{"name": "Total Public Road Miles", "dataType": "level", "definition": "Total miles of public roads, which are any roads or streets owned and maintained by a public authority and open to public travel."},
         			{"name": "Interstate Road Miles", "dataType": "level", "definition": "Total miles of interstate highway, defined as a divided arterial highway for through traffic with full or partial control of access and grade separations at major intersections"},
@@ -1409,7 +1409,7 @@
 	       		"years": [2008, 2011],
         		"source": "U.S. Department of Transportation – Federal Highway Administration, Highway Performance Monitoring System",
         		"vintage": 2011,
-        		"companions": [["Road Ownership", "Total Public Road Miles"], ["Road Ownership", "Share County Highway Agency"], ["Road Ownership", "Share State Highway Agency"], ["Road Ownership", "Share Other Local Agency"]],
+        		"companions": [["Road Ownership", "Total Public Road Miles"], ["Road Ownership", "Share County Highway Agency"], ["Road Ownership", "Share State Highway Agency"], ["Road Ownership", "Share Other Local Agencies"]],
       		  	"children": [
         			{"name": "Total Public Road Miles", "dataType": "level", "definition": "Total miles of public roads, which are any roads or streets owned and maintained by a public authority and open to public travel."},
         			{"name": "State Highway Agency Road Miles", "dataType": "level", "definition": "Public road miles that are under the control of a state highway agency."},
@@ -1448,7 +1448,7 @@
 	          "name": "Utility Employment",
 	          "source": "U.S. Census Bureau - Census of Individual Governments: Employment",
 	          "years": [2007, 2008, 2009, 2010, 2011, 2012],
-	          "companions": [["Utility Employment", "Total Utility"], ["Utility Employment", "Electric Utility"], ["Utility Employment", "Gas Utilities"], ["Utility Expenditures", "Total Utility"]],
+	          "companions": [["Utility Employment", "Total Utility"], ["Utility Employment", "Electric Utilities"], ["Utility Employment", "Gas Utilities"], ["Utility Expenditures", "Total Utility"]],
       		  "children": [
 	            {"name": "Total", "unit": "FTE employees", "dataType": "level", "definition": "The number of Full-time equivalent (FTE) employees for each county is a computed statistic representing the number of full-time employees that could have been employed if the reported number of hours worked by part-time employees had been worked by full-time employees."},
 	            {"name": "Total Utility", "unit":"FTE employees", "dataType": "level", "definition": "Number of FTEs working on Electricity Utilities and Gas Utilities."},
@@ -1513,7 +1513,7 @@
 	       	  "years": [2007],
 	       	  "source": "U.S. Census Bureau - Census of Individual Governments: Finance",
 	       	  "vintage": 2014,
-	       	  "companions": [["Water, Sewerage & Solid Waste Expenditures", "Total Water, Sewerage & Solid Waste"], ["Water, Sewerage & Solid Waste Expenditures", "Sewerage"], ["Water, Sewerage & Solid Waste Expenditures", "Solid Waste"], ["Water, Sewerage & Solid Waste Expenditures", "Water Utilities"]],
+	       	  "companions": [["Water, Sewerage & Solid Waste Expenditures", "Total Water, Sewerage & Solid Waste Management"], ["Water, Sewerage & Solid Waste Expenditures", "Sewerage"], ["Water, Sewerage & Solid Waste Expenditures", "Solid Waste"], ["Water, Sewerage & Solid Waste Expenditures", "Water Utilities"]],
       		  "children": [
 	       	  	{"name": "Total", "unit": "thousands of dollars", "dataType": "level", "definition": "All amounts of money paid out by a government--net of recoveries and other correcting transactions--other than for retirement of debt, investment in securities, extension of credit, or as agency transactions. Note that expenditure includes only external transactions of a government and excludes non-cash transactions such as the provision of perquisites or other payments in kind."},
 	       	  	{"name": "Total Water, Sewerage & Solid Waste Management", "unit": "thousands of dollars", "dataType": "level", "definition": "All amounts of money paid out by a government on Water, Sewerage and Solid Waste Management-net of recoveries and other correcting transactions--other than for retirement of debt, investment in securities, extension of credit, or as agency transactions. Note that expenditure includes only external transactions of a government and excludes non-cash transactions such as the provision of perquisites or other payments in kind."},

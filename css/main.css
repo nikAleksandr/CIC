@@ -237,6 +237,8 @@ h1 small {
 	font-size: .71em;
 	padding-right: 3em;
 }
+#search_type { margin-top: 3px; }
+#search_submit { margin-left: 10px; }
 #map {
 	z-index:-10;
 }
@@ -353,7 +355,6 @@ div.tooltip {
   box-shadow: 0px 0px 2px 0px #a6a6a6; 
   opacity: 0.9; 
   position: absolute;
-  max-width: 800px;
   pointer-events: none;
 }
 
@@ -368,21 +369,12 @@ div.tooltip {
 
 #tipLocation {
 	color: #fff;
-	padding: 5px .5em;
+	padding: 8px;
 	font-size: 1.8em;
 	background-color:#333;
 	position: relative;
 }
-#tipInfo1 {
-	top: 0px;
-	left: 0px;
-	max-width: 400px;
-}
-#tipInfo2 {
-	top: 0px;
-	right: 0px;
-	max-width: 400px;
-}
+#tipInfo { padding: 8px; }
 .tipKey {
 	padding:  .1em .5em;
 	font-size: 1.1em;
@@ -402,10 +394,13 @@ div.tooltip {
 /*
  * Dropdown stylin'
  */
-#primeIndLi a {
+#primeIndLi a, #secondIndLi a:not(#resetSecondInd){
 	cursor: default;
 }
-
+#resetSecondInd {
+	 text-align: center;
+	 cursor: pointer;
+}
 
 /* ==========================================================================
    Helper classes
