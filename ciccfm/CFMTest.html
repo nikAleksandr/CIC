@@ -1,0 +1,49 @@
+<div id="countyResponse-titleRow" class="row">
+        
+    <div class="col-md-8">
+    	<H3>#county_name#, #state#</H3>
+	</div>
+    <div class="col-md-4">
+    	<p><CFIF #Member_Status# EQ "Active">NACo Member County</CFIF></p>
+    </div>
+</div>
+    
+<div id="countyResponse-basicInfoRow" class="row">
+    <div id="countyResponse-countyDetails" class="col-md-4">
+        <strong>County Details</strong><BR>
+        <table class="table table-condensed">
+        	<tr><td>Website:</td><td>  </td></tr>
+        	<tr><td>County Seat:</td><td>#County_Seat#</td></tr>
+        	<tr><td>Year Organized:</td><td>#Founded#</td></tr>
+        	<tr><td>Square Miles:</td><td>#Total_Square_Miles#</td></tr>
+        	<tr><td>Persons/Square Mile:</td><td>  </td></tr>
+        	<tr><td>Size of Board:</td><td>#Board_Size#</td></tr>
+        </table>
+    </div>
+    
+    <div id="countyResponse-populations" class="col-md-4">
+        <strong>County Populations</strong><BR>
+        <table class="table table-condensed">
+        	<tr>
+        		<td>2000</td>
+        		<td>2004</td>
+        		<td>2008</td>
+        		<td>2010</td>
+        	</tr>
+        	<tr>
+        		<td></td>
+        		<td></td>
+        		<td></td>
+        		<td>#NumberFormat(Population_2010, "999,999,999,999")#</td>
+        	</tr>
+        </table>
+    </div>
+    
+    <div id="countyResponse-quickLinks" class="col-md-4">
+        <strong>Quick Links</strong><BR>
+        <A HREF="http://quickfacts.census.gov/qfd/states/#StateFIPS#/#fips#.html" target="_blank" title="U.S. Census Bureau: State and County QuickFacts">Census Quick Facts</A><BR>
+        <A HREF="http://www.fedstats.gov/qf/states/#StateFIPS#/#fips#.html" title="Fedstats provides access to the full range of official statistical information produced by the Federal Government">Fed Stats</A><BR>
+        <A HREF="http://maps.google.com/maps?q=#county_Name#,#State#" target="_blank" title="View Google Map of County">Google Map View</A>
+    </div>
+        
+</div>

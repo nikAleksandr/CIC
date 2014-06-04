@@ -19,23 +19,8 @@
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
-<head>
-<title>Find a County</title>
-<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
 
-<link href='http://fonts.googleapis.com/css?family=Roboto:400' rel='stylesheet' type='text/css'>
-<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
-<link rel="stylesheet" href="http://nacocic.naco.org/css/main.css">
-<style>
-#responseContent{
-	background-color: rgba(255,255,255,0);
-}
-</style>
-
-</head>
-<body id="responseContent">
-<div class="container-fluid">
-
+<div id="responseContent class="container-fluid">
 
 <CFOUTPUT QUERY="getcounties" group="org_type">
 <h2 style="text-align:left; padding-bottom:10px;">#getstate.StateName#</h2>
@@ -71,10 +56,10 @@
 		
 		     <CFOUTPUT>
 				<TR>
-				<TD><a id="#FIPS#" href="county.cfm?id=#FIPS#" >#County_Name#</a>
+				<TD><a id="#FIPS#" onclick="executeSearchMatch(#FIPS#)" >#County_Name#</a>
 				 <CFIF Gov_Type EQ  "Consolidated">*</CFIF>
                 </TD>
-				<TD ALIGN="CENTER"><CFIF Member_Status EQ  'Active'><IMG SRC="images/check2.gif"><CFELSE>&nbsp;</CFIF></TD>
+				<TD ALIGN="CENTER"><CFIF Member_Status EQ  'Active'><IMG SRC="img/check2.gif"><CFELSE>&nbsp;</CFIF></TD>
 				<TD ALIGN="RIGHT"><CFIF Population_2010 GT 0>#NumberFormat(Population_2010)#<CFELSE><em>N/A</em></CFIF> </TD>
 				<TD ALIGN="RIGHT"><CFIF Total_Square_Miles GT 0>#NumberFormat(Total_Square_Miles)#  <CFELSE><em>N/A</em></CFIF> </TD> 
 				<TD ALIGN="LEFT"> #county_seat#&nbsp;</TD> 
@@ -88,9 +73,5 @@
 
 </CFOUTPUT> 
 
-
-
 </div>
-
-</body>
 </html>

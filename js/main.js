@@ -246,7 +246,7 @@ function setDropdownBehavior() {
 			}
 		}
 	}*/
-	
+
 	d3.select('#primeInd').selectAll('.dataset').selectAll('.indicator').on('click', function() {
 		var datasetName = this.parentNode.parentNode.parentNode.title; // relies on the dataset being exactly 3 parents behind indicator
 		var indicatorName = this.title;
@@ -304,7 +304,7 @@ function submitSearch() {
 
 	if (search_type === 'state') {
 		// only state; return results of all counties within state
-		state_search_str = 'state.cfm?state=' + state_name;
+		state_search_str = 'state.cfm?statecode=' + state_name;
 		displayResults(state_search_str);
 							
 	} else if (search_type === 'county') {
@@ -414,38 +414,21 @@ function executeSearchMatch(FIPS) {
 
 
 function displayResults(url) {
-	d3.xhr('http://nacocic.naco.org/ciccfm/'+ url, function(error, results){
+	d3.select('#resultsContainer').remove();
+	
+	d3.xhr('http://nacocic.naco.org/ciccfm/'+ url, function(error, request){
 		if (!error) {
-			console.log(results);
-			var response = results;
+			var response = request.responseText;
+			//console.log(response);
 			
 			var frame = d3.select("#instructionText").append('div')
 				.attr('class', 'container-fluid')
 				.attr('id', 'resultsContainer')
-				.attr('height', '300px')
-				.append(response);
-			
+				.attr('height', '400px');
+				
+				frame.html(response);
+		
 			$('#instructions').show();
-			/*var responseObj = jQuery.parseJSON(results.responseText); // grabbing (string) response and converting to JSON object
-			
-			// re-organize object to arrangement by FIPS
-			var dataObj = {};
-			for (var i = 0; i < responseObj.DATA.FIPS.length; i++) {
-				dataObj[responseObj.DATA.FIPS[i]] = {};
-				for (var ind in responseObj.DATA) {
-					dataObj[responseObj.DATA.FIPS[i]][ind.toLowerCase()] = responseObj.DATA[ind][i];
-				}
-			}
-			
-			var frame = d3.select('#instructionText').append('div')
-				.attr('class', 'container-fluid')
-				.attr('id', 'resultsContainer')
-				.attr('height', '300px');
-
-			createCountyTable(frame, dataObj);
-										  	
-			$('#instructions').show();
-			*/
 		} else {
 			console.log('Error retrieving data from : ' + 'http://nacocic.naco.org/ciccfm/' + url);
 			console.log(error);
@@ -555,8 +538,6 @@ function update(dataset, indicator) {
 				.html('<b>' + obj[i].name + '</b>: ' + obj[i].definition);
 		}
 		
-		// change title of dropdown to current indicator
-		d3.select('#primeIndText').text(primeIndObj.name);
 	});
 }
 
@@ -711,7 +692,7 @@ function populateTooltip(d) {
 		
 		row.append('td').attr('class', 'dataName').text(obj.year + ' ' + name + ':');
 		row.append('td').attr('class', 'dataNum').text(value);
-	}
+	};
 	
 	for (var i = 0; i < p_obj.length; i++) {
 		var row = tipTable.append('tr')
@@ -768,6 +749,7 @@ function doubleClicked(d) {
 	var countyID = d.id.toString();
 	if (countyID.length == 4) countyID = "0" + countyID;
 	displayResults('county.cfm?id=' + countyID);
+	console.log(countyID);
 }
 
 function zoomTo(fips, event) {
