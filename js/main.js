@@ -244,7 +244,7 @@ function setDropdownBehavior() {
 			}
 		}
 	}*/
-	
+
 	d3.select('#primeInd').selectAll('.dataset').selectAll('.indicator').on('click', function() {
 		var datasetName = this.parentNode.parentNode.parentNode.title; // relies on the dataset being exactly 3 parents behind indicator
 		var indicatorName = this.title;
@@ -536,8 +536,6 @@ function update(dataset, indicator) {
 				.html('<b>' + obj[i].name + '</b>: ' + obj[i].definition);
 		}
 		
-		// change title of dropdown to current indicator
-		d3.select('#primeIndText').text(primeIndObj.name);
 	});
 }
 
