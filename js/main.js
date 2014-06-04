@@ -641,7 +641,7 @@ function populateTooltip(d) {
 		.style('margin-bottom', '5px'); // bootstrap defaults margin-bottom at 20px
 	var none_avail = true;
 	
-	var writeIndicators = function(obj, quant) {
+	var writeIndicators = function(obj, quant, secondary) {
 		var isCurrency = obj.hasOwnProperty('unit') ? (obj.unit.indexOf("dollar") != -1) : false; // determine if indicator values are currency by checking units
 		var value = format_tt[obj.dataType](quant[d.id], isCurrency);
 		if (value === '$NaN' || value === 'NaN' || value === 'NaN%') {
@@ -656,18 +656,19 @@ function populateTooltip(d) {
 			var name = obj.name;
 		}
 		
-		row.append('td').attr('class', 'dataName').text(obj.year + ' ' + name + ':');
+		row.append('td').attr('class', 'dataName').classed('leftborder', secondary).text(obj.year + ' ' + name + ':');
 		row.append('td').attr('class', 'dataNum').text(value);
+		
 	};
 	
 	for (var i = 0; i < p_obj.length; i++) {
 		var row = tipTable.append('tr')
 			.attr('class', 'tipKey');
 			
-		writeIndicators(p_obj[i], p_quant[i]);
+		writeIndicators(p_obj[i], p_quant[i], secondary=false);
+		tipTable.classed('showingSecond' , showingSecond);
 		if (showingSecond){
-			//tipTable.append('<hr/>');
-			writeIndicators(s_obj[i], s_quant[i]);			
+			writeIndicators(s_obj[i], s_quant[i], secondary=true);			
 		} 
 	}
 

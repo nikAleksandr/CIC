@@ -382,14 +382,17 @@ div.tooltip {
 }
 .tipKey .dataName {
 	text-align: right;
-	padding: 0 1em;
+	padding-right:1em;
 }
 .tipKey .dataNum {
 	text-align:left;
 	vertical-align: bottom;
 	padding-right:.6em;
 }
-
+.leftborder{
+	border-left: 1px solid black;
+	padding-left:.6em;
+}
 /*
  * Dropdown stylin'
  */
