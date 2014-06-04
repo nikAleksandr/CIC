@@ -3,10 +3,11 @@
 <CFPARAM NAME="URL.id" DEFAULT="">
 
 			
-            <CFQUERY NAME="getcountydata" DATASOURCE="naco_cic">
-                         SELECT  FIPS, LEFT(fips,2) as StateFIPS, county_name, state, Org_Type, Founded, Board_Size, Gov_type, Population_2010, Member_Status, County_Seat, Total_Square_Miles
-                         FROM County_data
-                        WHERE FIPS=  '#URL.id#'
+           <CFQUERY NAME="getcountydata" DATASOURCE="naco_cic">
+           SELECT  FIPS, LEFT(fips,2) as StateFIPS, county_name, state, Org_Type, Founded, Board_Size, Gov_type,
+           Population_2010, Member_Status, County_Seat, Total_Square_Miles, Population_1990, Population_1980, Population_2000, county_website
+           FROM County_data
+           WHERE FIPS=  '#URL.id#'
             </CFQUERY> 
                         
 
@@ -29,20 +30,23 @@
             ORDER BY fnctn_code,  Last_Name
             </CFQUERY> 
             
-            
+  
+<CFSET PersonsPerSqMile =    #getcountydata.Population_2010# /   #getcountydata.Total_Square_Miles#>    
             
 			
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 
 <div id="responseContent" class="container-fluid">
-
 <CFOUTPUT query="getcountydata">
+
 <div id="countyResponse-title" class="row">
     <div class="col-md-12">
     	<H3>#county_name#, #state#</H3>
 	</div>
 </div>
+
+
 <CFIF #Member_Status# EQ "Active">   
 	<div id="countyResponse-memberRow" class="row">
 		<div id="countyResponse-nacoMember" class="col-md-12">
@@ -50,16 +54,19 @@
 		</div>
 	</div>   
 </CFIF>
+
+
+
 <div id="countyResponse-basicInfoRow" class="row">
     <div id="countyResponse-countyDetails" class="col-md-6">
         <h4>County Details</h4>
-        <table class="table table-condensed">
-        	<tr><th>Website:</th><td><a href="http://nacocic.naco.org/">NACoCIC.NACo.org</a></td></tr>
-        	<tr><th>County Seat:</th><td>#County_Seat#</td></tr>
-        	<tr><th>Year Organized:</th><td>#Founded#</td></tr>
-        	<tr><th>Square Miles:</th><td>#Total_Square_Miles#</td></tr>
-        	<tr><th>Persons/Square Mile:</th><td> 999,999 </td></tr>
-        	<tr><th>Size of Board:</th><td>#Board_Size#</td></tr>
+        <table class="table table-condensed" >
+        	<tr><td align="right">Website:&nbsp;</td><td><A HREF="#County_Website#" target="_blank">#County_Website#</A></td></tr>
+        	<tr><td align="right">County Seat:&nbsp; </td><td>#County_Seat#</td></tr>
+        	<tr><td align="right">Year Organized:&nbsp;</td><td>#Founded#</td></tr>
+        	<tr><td align="right">Square Miles:&nbsp;</td><td>#Total_Square_Miles#</td></tr>
+        	<tr><td align="right">Persons/Square Mile:&nbsp;</td><td>#NumberFormat(PersonsPerSqMile, "999,999,999.99")# </td></tr>
+        	<tr><td align="right">Size of Board:&nbsp;</td><td>#Board_Size#</td></tr>
         </table>
     </div>
     
@@ -68,15 +75,16 @@
         	<h4>County Populations</h4>
 	        <table class="table table-condensed table-striped">
 	        	<tr>
+	        		<th>1980</th>
+	        		<th>1990</th>
 	        		<th>2000</th>
-	        		<th>2004</th>
-	        		<th>2008</th>
 	        		<th>2010</th>
 	        	</tr>
+                
 	        	<tr>
-	        		<td>999,999</td>
-	        		<td>999,999</td>
-	        		<td>999,999</td>
+	        		<td>#NumberFormat(Population_1980, "999,999,999,999")#</td>
+	        		<td>#NumberFormat(Population_1990, "999,999,999,999")#</td>
+	        		<td>#NumberFormat(Population_2000, "999,999,999,999")#</td>
 	        		<td>#NumberFormat(Population_2010, "999,999,999,999")#</td>
 	        	</tr>
 	        </table>
@@ -97,46 +105,29 @@
 <CFIF getcountydata.Org_Type EQ "County" OR  getcountydata.Org_Type EQ "Independent City"> 
 <div id="countyResponse-electedOfficials" class="row">	
 	<h4>Elected Officials</strong></h4>
-		<Table class="table table-condensed table-striped">
-			<CFOUTPUT QUERY="getEXEC">
-				<TR>
-					<TD><strong>#First_name# #Last_Name# #Suffix#</strong></TD>
-		        	<TD>#title#</TD>
-		        </TR>
-			</CFOUTPUT>
-							
-							
-							
-	<CFOUTPUT QUERY="getofficials">
-			<TR>
-				<TD style="width:50%; text-align:right;">#First_name# #Last_Name# #Suffix# </TD>
-				<CFIF cnty_dist GT 0 and fnctn_code EQ "103" >
-						<CFIF state EQ 'TX'>
-							<TD style="text-align:left;">#title#, Precinct #cnty_Dist#</TD>
-						<CFELSE>
-							<TD style="text-align:left;">#title#, District #cnty_Dist#</TD>
-						</CFIF>		
-				   <CFELSE>
-				 		  <TD style="width: 50%; text-align:left;">#title#</TD>
-				 </CFIF>
-			 </TR>
-	</CFOUTPUT>
-		</Table>
+	<Table class="table table-condensed table-striped">
+		<CFOUTPUT QUERY="getEXEC">
+		<TR><TD>#First_name# #Last_Name# #Suffix#</TD><TD>#title#</TD></TR>
+		</CFOUTPUT>
+		<CFOUTPUT QUERY="getofficials">
+		<TR>
+		<TD style="width:50%; text-align:right;">#First_name# #Last_Name# #Suffix# &nbsp;  </TD>
+		<CFIF cnty_dist GT 0 and fnctn_code EQ "103" >
+		<CFIF state EQ 'TX'><TD style="text-align:left;">#title#, Precinct #cnty_Dist#</TD><br>
+		<CFELSE><TD style="text-align:left;">#title#, District #cnty_Dist#</TD>
+		</CFIF>		
+		<CFELSE><TD style="width: 50%; text-align:left;">#title#</TD>
+		</CFIF>
+		</TR>
+		</CFOUTPUT>
+	</Table>
 	<CFELSE>
-</div>
-
-
 <CFOUTPUT query="getcountydata">#county_name# Has No Form Of County Government</cfoutput> 
-						
 </CFIF>
-
+</div>			
 			
-			
 
-
-</body>
-
-
+</div>
 
 
 </html>
