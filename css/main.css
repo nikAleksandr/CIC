@@ -369,12 +369,12 @@ div.tooltip {
 
 #tipLocation {
 	color: #fff;
-	padding: 8px;
+	padding: 0.3em;
 	font-size: 1.8em;
 	background-color:#333;
 	position: relative;
 }
-#tipInfo { padding: 8px; }
+#tipInfo { padding: .6em; }
 .tipKey {
 	padding:  .1em .5em;
 	font-size: 1.1em;
@@ -382,15 +382,17 @@ div.tooltip {
 }
 .tipKey .dataName {
 	text-align: right;
-	padding: 0 1em;
+	padding-right:1em;
 }
 .tipKey .dataNum {
 	text-align:left;
-	padding-right: .5em;
 	vertical-align: bottom;
-	font-weight: bold;
+	padding-right:.6em;
 }
-
+.leftborder{
+	border-left: 1px solid black;
+	padding-left:.6em;
+}
 /*
  * Dropdown stylin'
  */

@@ -419,7 +419,7 @@ function update(dataset, indicator) {
 	//This is Where GET requests are issued to the server for JSON with fips, county name/state, plus primeInd.name, secondInd.name, thirdInd.name, and fourthInd.name; redefine "data" variable as this JSON
 	//"data" should be structured as a JSON with an array of each county.  each county has properties "id"(fips), "geography"(county name, ST), and each of the indicators specified above and clicked and doubleclicked data
 	//
-	d3.tsv("CData.tsv", function(error, countyData) {
+	d3.tsv("data/CData.tsv", function(error, countyData) {
 		data = countyData;
 
 		countyData.forEach(function(d) {
@@ -521,7 +521,7 @@ function appendSecondInd(dataset, indicator) {
 	s_thirdIndObj = indObject[2];
 	s_fourthIndObj = indObject[3];
 	
-	d3.tsv("CData.tsv", function(error, countyData) {
+	d3.tsv("data/CData.tsv", function(error, countyData) {
 		countyData.forEach(function(d) {
 			s_quantById[d.id] =  isNumFun(s_primeIndObj.dataType) ? parseFloat(d[currentSecondDI]) : d[currentSecondDI];					
 			s_secondQuantById[d.id] =  isNumFun(s_secondIndObj.dataType) ? parseFloat(d[s_secondIndObj.dataset+' - '+s_secondIndObj.name]) : d[s_secondIndObj.dataset+' - '+s_secondIndObj.name];		
@@ -638,7 +638,7 @@ function populateTooltip(d) {
 		.style('margin-bottom', '5px'); // bootstrap defaults margin-bottom at 20px
 	var none_avail = true;
 	
-	var writeIndicators = function(obj, quant) {
+	var writeIndicators = function(obj, quant, secondary) {
 		var isCurrency = obj.hasOwnProperty('unit') ? (obj.unit.indexOf("dollar") != -1) : false; // determine if indicator values are currency by checking units
 		var value = format_tt[obj.dataType](quant[d.id], isCurrency);
 		if (value === '$NaN' || value === 'NaN' || value === 'NaN%') {
@@ -653,16 +653,17 @@ function populateTooltip(d) {
 			var name = obj.name;
 		}
 		
-		row.append('td').attr('class', 'dataName').text(obj.year + ' ' + name + ':');
+		row.append('td').attr('class', 'dataName').classed('leftborder', secondary).text(obj.year + ' ' + name + ':');
 		row.append('td').attr('class', 'dataNum').text(value);
+		
 	};
 	
 	for (var i = 0; i < p_obj.length; i++) {
 		var row = tipTable.append('tr')
 			.attr('class', 'tipKey');
 			
-		writeIndicators(p_obj[i], p_quant[i]);
-		if (currentSecondDI !== '') writeIndicators(s_obj[i], s_quant[i]);
+		writeIndicators(p_obj[i], p_quant[i], false);
+		if (currentSecondDI !== '') writeIndicators(s_obj[i], s_quant[i], true);
 	}
 
 	/*if (none_avail) {
