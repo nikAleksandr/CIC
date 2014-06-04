@@ -297,7 +297,7 @@ function submitSearch() {
 
 	if (search_type === 'state') {
 		// only state; return results of all counties within state
-		state_search_str = 'state.cfm?state=' + state_name;
+		state_search_str = 'state.cfm?statecode=' + state_name;
 		displayResults(state_search_str);
 							
 	} else if (search_type === 'county') {
@@ -407,38 +407,21 @@ function executeSearchMatch(FIPS) {
 
 
 function displayResults(url) {
-	d3.xhr('http://nacocic.naco.org/ciccfm/'+ url, function(error, results){
+	d3.select('#resultsContainer').remove();
+	
+	d3.xhr('http://nacocic.naco.org/ciccfm/'+ url, function(error, request){
 		if (!error) {
-			console.log(results);
-			var response = results;
+			var response = request.responseText;
+			//console.log(response);
 			
 			var frame = d3.select("#instructionText").append('div')
 				.attr('class', 'container-fluid')
 				.attr('id', 'resultsContainer')
-				.attr('height', '300px')
-				.append(response);
-			
-			$('#instructions').show();
-			/*var responseObj = jQuery.parseJSON(results.responseText); // grabbing (string) response and converting to JSON object
-			
-			// re-organize object to arrangement by FIPS
-			var dataObj = {};
-			for (var i = 0; i < responseObj.DATA.FIPS.length; i++) {
-				dataObj[responseObj.DATA.FIPS[i]] = {};
-				for (var ind in responseObj.DATA) {
-					dataObj[responseObj.DATA.FIPS[i]][ind.toLowerCase()] = responseObj.DATA[ind][i];
-				}
-			}
-			
-			var frame = d3.select('#instructionText').append('div')
-				.attr('class', 'container-fluid')
-				.attr('id', 'resultsContainer')
 				.attr('height', '300px');
-
-			createCountyTable(frame, dataObj);
-										  	
+				
+				frame.html(response);
+		
 			$('#instructions').show();
-			*/
 		} else {
 			console.log('Error retrieving data from : ' + 'http://nacocic.naco.org/ciccfm/' + url);
 			console.log(error);
