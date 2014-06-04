@@ -20,7 +20,7 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 
-<div id="responseContent class="container-fluid">
+<div id="responseContent" class="container-fluid">
 
 <CFOUTPUT QUERY="getcounties" group="org_type">
 <h2 style="text-align:left; padding-bottom:10px;">#getstate.StateName#</h2>
@@ -56,7 +56,7 @@
 		
 		     <CFOUTPUT>
 				<TR>
-				<TD><a id="#FIPS#" onclick="executeSearchMatch(#FIPS#)" >#County_Name#</a>
+				<TD><a id="#FIPS#" onclick="executeSearchMatch('#FIPS#')" >#County_Name#</a>
 				 <CFIF Gov_Type EQ  "Consolidated">*</CFIF>
                 </TD>
 				<TD ALIGN="CENTER"><CFIF Member_Status EQ  'Active'><IMG SRC="img/check2.gif"><CFELSE>&nbsp;</CFIF></TD>

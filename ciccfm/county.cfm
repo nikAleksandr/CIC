@@ -35,44 +35,43 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 
-<div id="responseContent class="container-fluid">
+<div id="responseContent" class="container-fluid">
 
 <CFOUTPUT query="getcountydata">
-<div class="row">
+<div id="countyResponse-title" class="row">
     <div class="col-md-12">
     	<H3>#county_name#, #state#</H3>
 	</div>
 </div>
-
-<div id="countyResponse-titleRow" class="row">
- 
-</div>
-    
+<CFIF #Member_Status# EQ "Active">   
+	<div id="countyResponse-memberRow" class="row">
+		<div id="countyResponse-nacoMember" class="col-md-12">
+			<h4>NACo Member County</h4>
+		</div>
+	</div>   
+</CFIF>
 <div id="countyResponse-basicInfoRow" class="row">
     <div id="countyResponse-countyDetails" class="col-md-6">
         <h4>County Details</h4>
         <table class="table table-condensed">
-        	<tr><td>Website:</td><td>  </td></tr>
-        	<tr><td>County Seat:</td><td>#County_Seat#</td></tr>
-        	<tr><td>Year Organized:</td><td>#Founded#</td></tr>
-        	<tr><td>Square Miles:</td><td>#Total_Square_Miles#</td></tr>
-        	<tr><td>Persons/Square Mile:</td><td>  </td></tr>
-        	<tr><td>Size of Board:</td><td>#Board_Size#</td></tr>
+        	<tr><th>Website:</th><td><a href="http://nacocic.naco.org/">NACoCIC.NACo.org</a></td></tr>
+        	<tr><th>County Seat:</th><td>#County_Seat#</td></tr>
+        	<tr><th>Year Organized:</th><td>#Founded#</td></tr>
+        	<tr><th>Square Miles:</th><td>#Total_Square_Miles#</td></tr>
+        	<tr><th>Persons/Square Mile:</th><td> 999,999 </td></tr>
+        	<tr><th>Size of Board:</th><td>#Board_Size#</td></tr>
         </table>
     </div>
     
     <div class="col-md-6">
-    	<div id="countyResponse-nacoMember">
-    		<p><CFIF #Member_Status# EQ "Active">NACo Member County</CFIF></p>
-    	</div>
         <div id="countyResponse-populations">
         	<h4>County Populations</h4>
 	        <table class="table table-condensed table-striped">
 	        	<tr>
-	        		<td>2000</td>
-	        		<td>2004</td>
-	        		<td>2008</td>
-	        		<td>2010</td>
+	        		<th>2000</th>
+	        		<th>2004</th>
+	        		<th>2008</th>
+	        		<th>2010</th>
 	        	</tr>
 	        	<tr>
 	        		<td>999,999</td>
@@ -84,9 +83,11 @@
 		</div>
 		<div id="countyResponse-quickLinks">
 	        <h4>Quick Links</h4>
-	        <A HREF="http://quickfacts.census.gov/qfd/states/#StateFIPS#/#fips#.html" target="_blank" title="U.S. Census Bureau: State and County QuickFacts">Census Quick Facts</A><BR>
-	        <A HREF="http://www.fedstats.gov/qf/states/#StateFIPS#/#fips#.html" title="Fedstats provides access to the full range of official statistical information produced by the Federal Government">Fed Stats</A><BR>
-	        <A HREF="http://maps.google.com/maps?q=#county_Name#,#State#" target="_blank" title="View Google Map of County">Google Map View</A>
+	        <ul>
+	        	<li><A HREF="http://quickfacts.census.gov/qfd/states/#StateFIPS#/#fips#.html" target="_blank" title="U.S. Census Bureau: State and County QuickFacts">Census Quick Facts</A></li>
+	        	<li><A HREF="http://www.fedstats.gov/qf/states/#StateFIPS#/#fips#.html" title="Fedstats provides access to the full range of official statistical information produced by the Federal Government">Fed Stats</A></li>
+	        	<li><A HREF="http://maps.google.com/maps?q=#county_Name#,#State#" target="_blank" title="View Google Map of County">Google Map View</A></li>
+	        </ul>
 	    </div>
     </div>  
 </div>
@@ -95,7 +96,7 @@
 
 <CFIF getcountydata.Org_Type EQ "County" OR  getcountydata.Org_Type EQ "Independent City"> 
 <div id="countyResponse-electedOfficials" class="row">	
-	<strong>Elected Officials</strong></Td><TD width="31%"></strong>
+	<h4>Elected Officials</strong></h4>
 		<Table class="table table-condensed table-striped">
 			<CFOUTPUT QUERY="getEXEC">
 				<TR>
@@ -108,16 +109,16 @@
 							
 	<CFOUTPUT QUERY="getofficials">
 			<TR>
-			<TD>#First_name# #Last_Name# #Suffix# </TD>
-			<CFIF cnty_dist GT 0 and fnctn_code EQ "103" >
-					<CFIF state EQ 'TX'>
-						<TD>#title#, Precinct #cnty_Dist#</TD>
-					<CFELSE>
-						<TD>#title#, District #cnty_Dist#</TD>
-					</CFIF>		
-			   <CFELSE>
-			 		  <TD>#title#</TD>
-			 </CFIF>
+				<TD style="width:50%; text-align:right;">#First_name# #Last_Name# #Suffix# </TD>
+				<CFIF cnty_dist GT 0 and fnctn_code EQ "103" >
+						<CFIF state EQ 'TX'>
+							<TD style="text-align:left;">#title#, Precinct #cnty_Dist#</TD>
+						<CFELSE>
+							<TD style="text-align:left;">#title#, District #cnty_Dist#</TD>
+						</CFIF>		
+				   <CFELSE>
+				 		  <TD style="width: 50%; text-align:left;">#title#</TD>
+				 </CFIF>
 			 </TR>
 	</CFOUTPUT>
 		</Table>
