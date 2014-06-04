@@ -68,7 +68,9 @@ format_tt['level_np'] = format['level'];
 
 var zoom = d3.behavior.zoom()
     .scaleExtent([1, 10])
-    .on("zoom", move);
+    .on("zoomstart", moveStart)
+    .on("zoom", move)
+    .on("zoomend", moveEnd);
 
 var width = document.getElementById('container').offsetWidth-60,
 	height = width / 2,
@@ -129,26 +131,28 @@ function setup(width, height) {
     .translate([0, 0])
     .scale(width *1.1);
 
-  path = d3.geo.path()
-      .projection(projection);
-
-  svg = d3.select("#map").append("svg")
-      .attr("width", width)
-      .attr("height", height)
-      .append("g")
-      .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")")
-      .call(zoom);
-
-  g = svg.append("g")
-  		.attr("class", "counties");
+	path = d3.geo.path().projection(projection);
+	svg = d3.select("#map").append("svg")
+    	.attr("width", width)
+    	.attr("height", height)
+    	.append("g")
+    	.attr("transform", "translate(" + width / 2 + "," + height / 2 + ")")
+    	.call(zoom);
+	g = svg.append("g").attr("class", "counties");
   		
-  d3.select('#map').on('click', function() { if (selected !== null) highlight(selected); });
-  d3.select('#close').on('click', function() { $('#instructions').hide(); });
+	d3.select('#map').on('click', function() { if (selected !== null) highlight(selected); });
+	d3.select('#close').on('click', function() { $('#instructions').hide(); });
+	d3.select('#showOnMap').on('click', function() {
+  		$('#instructions').hide();
+  		if (d3.select('.active').empty() !== true) {
+  			var active_county = document.getElementsByClassName('active')[0];
+  			populateTooltip(active_county);
+  			positionTooltip(active_county);
+  			tooltip.classed('hidden', false);
+  		}
+	});
 
 	positionInstruction();
-	
-	//add Not Applicable data box
-	//d3.select("#legendNoData").insert("svg").append("rect").attr({"width": "60", "height": "15", "x": "30", "y": "10"}).style("fill", na_color);
 }
 
 	
@@ -208,7 +212,7 @@ function draw(topo, stateMesh) {
 				clearTimeout(singleClickTimer);
 				clickCount = 0;
 				doubleClicked(d, i);
-			}			
+			}
 		}
 	});    
 }
@@ -247,16 +251,12 @@ function setDropdownBehavior() {
 
 	d3.select('#primeInd').selectAll('.dataset').selectAll('.indicator').on('click', function() {
 		var datasetName = this.parentNode.parentNode.parentNode.title; // relies on the dataset being exactly 3 parents behind indicator
-		var indicatorName = this.title;
-		d3.select("#primeIndText").text(indicatorName);
-		
+		var indicatorName = this.title;		
 		update(datasetName, indicatorName);
 	});
 	d3.select('#secondInd').selectAll('.dataset').selectAll('.indicator').on('click', function() {
 		var datasetName = this.parentNode.parentNode.parentNode.title;
-		var indicatorName = this.title;
-		d3.select('#secondIndText').text(indicatorName);
-		
+		var indicatorName = this.title;		
 		appendSecondInd(datasetName, indicatorName);
 	});
 	
@@ -425,7 +425,8 @@ function displayResults(url) {
 				.attr('height', '400px');
 				
 				frame.html(response);
-		
+			
+			(url.indexOf('county') != -1) ? $('#showOnMap').show() : $('#showOnMap').hide();
 			$('#instructions').show();
 		} else {
 			console.log('Error retrieving data from : ' + 'http://nacocic.naco.org/ciccfm/' + url);
@@ -435,6 +436,7 @@ function displayResults(url) {
 }
 
 function update(dataset, indicator) {
+	d3.select("#primeIndText").text(indicator);
 	tooltip.classed("hidden", true);
 	
 	var indObject = allData(dataset, indicator); // pull data from JSON and fill primeIndObj, secondIndObj, etc.
@@ -541,6 +543,7 @@ function update(dataset, indicator) {
 
 function appendSecondInd(dataset, indicator) {
 	showingSecond = true;
+	d3.select('#secondIndText').text(indicator);
 	
 	var indObject = allData(dataset, indicator);
 	s_primeIndObj = indObject[0];
@@ -551,9 +554,9 @@ function appendSecondInd(dataset, indicator) {
 	d3.tsv("CData.tsv", function(error, countyData) {
 		countyData.forEach(function(d) {
 			s_quantById[d.id] =  isNumFun(s_primeIndObj.dataType) ? parseFloat(d[dataset+' - '+indicator]) : d[dataset+' - '+indicator];					
-			s_secondQuantById[d.id] =  isNumFun(s_secondIndObj.dataType) ? parseFloat(d[secondIndObj.dataset+' - '+secondIndObj.name]) : d[secondIndObj.dataset+' - '+secondIndObj.name];		
-			s_thirdQuantById[d.id] =  isNumFun(s_thirdIndObj.dataType) ? parseFloat(d[thirdIndObj.dataset+' - '+thirdIndObj.name]) : d[thirdIndObj.dataset+' - '+thirdIndObj.name];		
-			s_fourthQuantById[d.id] =  isNumFun(s_fourthIndObj.dataType) ? parseFloat(d[fourthIndObj.dataset+' - '+fourthIndObj.name]) : d[fourthIndObj.dataset+' - '+fourthIndObj.name];		
+			s_secondQuantById[d.id] =  isNumFun(s_secondIndObj.dataType) ? parseFloat(d[s_secondIndObj.dataset+' - '+s_secondIndObj.name]) : d[s_secondIndObj.dataset+' - '+s_secondIndObj.name];		
+			s_thirdQuantById[d.id] =  isNumFun(s_thirdIndObj.dataType) ? parseFloat(d[s_thirdIndObj.dataset+' - '+s_thirdIndObj.name]) : d[s_thirdIndObj.dataset+' - '+s_thirdIndObj.name];		
+			s_fourthQuantById[d.id] =  isNumFun(s_fourthIndObj.dataType) ? parseFloat(d[s_fourthIndObj.dataset+' - '+s_fourthIndObj.name]) : d[s_fourthIndObj.dataset+' - '+s_fourthIndObj.name];		
 		});
 				
 		if (d3.select('.active').empty() !== true) populateTooltip(selected);
@@ -704,7 +707,26 @@ function populateTooltip(d) {
 		tipTable.selectAll('tr').remove();
 		tipTable.append('tr').attr('class', 'tipKey').html('<td>No data available for this county</td>');
 	}*/
+}
 
+function positionTooltip(county) {
+	var countyCoord = county.getBoundingClientRect();
+	var left = countyCoord.left + countyCoord.width; // appears on rightmost edge of county horizontal-wise
+	var top = countyCoord.top + 20; // appears 20 below topmost edge of county vertical-wise
+	
+	// checks if tooltip goes past window and adjust if it does
+	// not necessary since county is always centered
+	/*var ttWidth = $('#tt').width(); // tooltip width and height
+	var ttHeight = $('#tt').height();	    
+	var dx = windowWidth - (event.pageX + ttWidth); // amount to tweak
+	var dy = windowHeight - (event.pageY + ttHeight);		
+	if (dx < 0) left += dx;
+	if (dy < 0) top += dy;*/
+	
+	tooltip
+	  	.style("left", (left) + "px")
+	  	.style("top", (top) + "px");		      	
+	tooltip.classed('hidden', false);
 }
 
 function clicked(mouse, event, d, i) {
@@ -715,23 +737,7 @@ function clicked(mouse, event, d, i) {
 	    populateTooltip(d);
 	    
 		zoomTransition.each('end', function() {
-		    var countyCoord = event.target.getBoundingClientRect();	    
-		    var left = countyCoord.left + countyCoord.width; // appears on rightmost edge of county horizontal-wise
-		    var top = countyCoord.top + 20; // appears 20 below topmost edge of county vertical-wise
-		    
-		    // not necessary since county is always centered
-		    // check if tooltip goes past window and adjust if it does
-		    /*var ttWidth = $('#tt').width(); // tooltip width and height
-		    var ttHeight = $('#tt').height();	    
-			var dx = windowWidth - (event.pageX + ttWidth); // amount to tweak
-			var dy = windowHeight - (event.pageY + ttHeight);		
-			if (dx < 0) left += dx;
-			if (dy < 0) top += dy;*/
-			
-		    tooltip
-		      	.style("left", (left) + "px")
-		      	.style("top", (top) + "px");		      	
-		    tooltip.classed('hidden', false);
+			positionTooltip(event.target);
 		});
 	} else {
 		tooltip.classed('hidden', true);
@@ -749,7 +755,16 @@ function doubleClicked(d) {
 
 function zoomTo(fips, event) {
 	var t = path.centroid(countyPathById[fips]);
-	var s = 6;
+	var s = 4.5;
+	var area = path.area(countyPathById[fips]); // zoom based on area
+	// smallest counties (area=5) get zoom of 6; medium counties (area=100) get zoom of 5; large counties (area=1000) get zoom of 6
+	if (area < 5) s = 8;
+	else if (area < 10) s = 7;
+	else if (area < 50) s = 6;
+	else if (area < 250) s = 5.5;
+	else if (area < 500) s = 5;
+	else if (area < 1000) s = 4.5;
+	else s = 4;
 
   	t[0] = -t[0] * (s - 1);
   	t[1] = -t[1] * (s - 1);
@@ -798,8 +813,11 @@ function redraw() {
 
 var frmrS = 1;
 
+function moveStart() {
+}
+
 function move() {	
-  tooltip.classed("hidden", true);
+  	tooltip.classed("hidden", true); // hides on zoom or pan	
 	
   var t = d3.event.translate;
   var s = d3.event.scale;
@@ -824,6 +842,10 @@ function move() {
 		g.transition().style("stroke-width", 1 / s).attr("transform", "translate(" + t + ")scale(" + s + ")");
 	}
 	frmrS = s;
+}
+
+function moveEnd() {
+	//if (d3.select('.active').empty() !== true) positionTooltip(document.getElementsByClassName('active')[0]);
 }
 
 var throttleTimer;
