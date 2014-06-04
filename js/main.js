@@ -413,7 +413,7 @@ function update(dataset, indicator) {
 	//This is Where GET requests are issued to the server for JSON with fips, county name/state, plus primeInd.name, secondInd.name, thirdInd.name, and fourthInd.name; redefine "data" variable as this JSON
 	//"data" should be structured as a JSON with an array of each county.  each county has properties "id"(fips), "geography"(county name, ST), and each of the indicators specified above and clicked and doubleclicked data
 	//
-	d3.tsv("CData.tsv", function(error, countyData) {
+	d3.tsv("data/CData.tsv", function(error, countyData) {
 		data = countyData;
 
 		countyData.forEach(function(d) {
@@ -516,7 +516,7 @@ function appendSecondInd(dataset, indicator) {
 	s_thirdIndObj = indObject[2];
 	s_fourthIndObj = indObject[3];
 	
-	d3.tsv("CData.tsv", function(error, countyData) {
+	d3.tsv("data/CData.tsv", function(error, countyData) {
 		countyData.forEach(function(d) {
 			s_quantById[d.id] =  isNumFun(s_primeIndObj.dataType) ? parseFloat(d[dataset+' - '+indicator]) : d[dataset+' - '+indicator];					
 			s_secondQuantById[d.id] =  isNumFun(s_secondIndObj.dataType) ? parseFloat(d[s_secondIndObj.dataset+' - '+s_secondIndObj.name]) : d[s_secondIndObj.dataset+' - '+s_secondIndObj.name];		
