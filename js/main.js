@@ -697,7 +697,10 @@ function populateTooltip(d) {
 			.attr('class', 'tipKey');
 			
 		writeIndicators(p_obj[i], p_quant[i]);
-		if (showingSecond) writeIndicators(s_obj[i], s_quant[i]);
+		if (showingSecond){
+			//tipTable.append('<hr/>');
+			writeIndicators(s_obj[i], s_quant[i]);			
+		} 
 	}
 
 	/*if (none_avail) {
