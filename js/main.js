@@ -422,7 +422,7 @@ function displayResults(url) {
 			var frame = d3.select("#instructionText").append('div')
 				.attr('class', 'container-fluid')
 				.attr('id', 'resultsContainer')
-				.attr('height', '300px');
+				.attr('height', '400px');
 				
 				frame.html(response);
 		
@@ -692,7 +692,7 @@ function populateTooltip(d) {
 		
 		row.append('td').attr('class', 'dataName').text(obj.year + ' ' + name + ':');
 		row.append('td').attr('class', 'dataNum').text(value);
-	}
+	};
 	
 	for (var i = 0; i < p_obj.length; i++) {
 		var row = tipTable.append('tr')
@@ -746,6 +746,7 @@ function doubleClicked(d) {
 	var countyID = d.id.toString();
 	if (countyID.length == 4) countyID = "0" + countyID;
 	displayResults('county.cfm?id=' + countyID);
+	console.log(countyID);
 }
 
 function zoomTo(fips, event) {
