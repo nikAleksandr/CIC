@@ -4,12 +4,23 @@
 # TEAM
 
     <name> -- <role> -- <twitter>
+    Nick Lyell -- Project Lead/Lead Developer -- @NickLyellLyell
+    Jefferson Pecht -- Developer/Data Collection -- 
+    Anne Powell -- Backend Developer/SuperWoman -- 
+    Chris Franco -- Backend Developer -- 
+    Emily Star -- Designer --
+    Anya Nowakowski -- Data Collection --
 
 # THANKS
 
     <name>
+    The entire Research Team for supporting the project.
+    COIN for implementing the project seamlessly into their products.
+    Bert Jarreau
+    David Keen
+    Emilia Istrate
 
 # TECHNOLOGY COLOPHON
 
-    HTML5, CSS3
-    Normalize.css, jQuery, Modernizr
+    HTML5, CSS3, ColdFusion
+    Normalize.css, D3, jQuery, Modernizr, Bootstrap, SmartMenus, ColorLegend.js
