@@ -401,7 +401,56 @@ div.tooltip {
 	 text-align: center;
 	 cursor: pointer;
 }
+/*
+ * Styling for ALL CFM Responses
+ */
+#responseContent{
+	padding-bottom: 3em;
+	/*
+	 * Need to figure out how to scroll within response content, but leave "show on map" and "close" at the top
+	 */
+}
+#responseContent th{
+	font-style: normal;
+	font-weight: normal;
+	color:#000;
+}
+#responseContent h4{
+	color:#000;
+	font-family: 'Arvo', serif;
+	text-align:center;
+}
 
+/* 
+ * County Response, all classes begin with countyResponse-<class>
+ */
+#countyResponse-memberRow #countyResponse-nacoMember{
+	height: 1.4em;
+	margin-top:-1em;
+}
+#countyResponse-nacoMember h4{
+	text-align:right;
+	font-size: .8em;
+}
+#countyResponse-countyDetails table{
+	text-align:left;
+}
+#countyResponse-populations table{
+	text-align:left;
+	font-size: .8em;
+}
+#countyResponse-quickLinks ul{
+	text-align:left;
+	padding-left:30%;
+	list-style:none;
+}
+#countyResponse-electedOfficials table{
+	width:auto;
+	margin: 0 auto;
+}
+#countyResponse-electedOfficials td{
+	padding: inherit 1em;
+}
 /* ==========================================================================
    Helper classes
    ========================================================================== */
