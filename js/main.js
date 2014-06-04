@@ -250,7 +250,6 @@ function setDropdownBehavior() {
 		var indicatorName = this.title;
 		d3.select("#primeIndText").text(indicatorName);
 		
-		highlight(selected);
 		update(datasetName, indicatorName);
 	});
 	d3.select('#secondInd').selectAll('.dataset').selectAll('.indicator').on('click', function() {
@@ -258,7 +257,6 @@ function setDropdownBehavior() {
 		var indicatorName = this.title;
 		d3.select('#secondIndText').text(indicatorName);
 		
-		//highlight(selected);
 		appendSecondInd(datasetName, indicatorName);
 	});
 	
@@ -689,7 +687,9 @@ function populateTooltip(d) {
 		
 	// loop through primary and all three companions and display corresponding formatted values
 	var tipInfo = tipContainer.append('div').attr('id', 'tipInfo');	
-	var tipTable = tipInfo.append('table').attr("class", "table");
+	var tipTable = tipInfo.append('table')
+		.attr('class', 'table')
+		.style('margin-bottom', '5px'); // bootstrap defaults margin-bottom at 20px
 	var none_avail = true;
 	
 	var writeIndicators = function(obj, quant) {
