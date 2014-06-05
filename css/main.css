@@ -354,6 +354,7 @@ svg:not(:root) {
 	padding-top:30px;
 	display: inline-block;
 	font-size: 0.8em;
+	text-align:right;
 }
 
 #quantileLegend .colorlegend-labels {

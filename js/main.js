@@ -394,13 +394,24 @@ function submitSearch() {
 }
 
 function executeSearchMatch(FIPS) {
+	$('#instructions').hide();
+	
 	FIPS = parseInt(FIPS);	
 	var county = countyObjectById[FIPS];
-	
+	console.log(county);
 	highlight(county);
+	var countyPath = $('.active');
 	zoomTo(FIPS, false);
-	doubleClicked(county);
 	
+    if (countyObjectById.hasOwnProperty(county.id)) {
+	    populateTooltip(county);    
+		//zoomTransition.each('end', function() { 
+			positionTooltip(countyPath[0]); 
+			//});
+	} else {
+		tooltip.classed('hidden', true);
+	}
+    
 	//document.getElementById('search_form').reset();				
 };
 
@@ -628,8 +639,8 @@ function createLegend(keyArray) {
 	if (primeIndObj.dataType !== 'none') {
 		var options = {
 			//title : "legend",
-			boxHeight : 15,
-			boxWidth : 60,
+			boxHeight : 18,
+			boxWidth : 70,
 			dataType : primeIndObj.dataType,
 			isCurrency : isCurrency,
 			formatFnArr: format
