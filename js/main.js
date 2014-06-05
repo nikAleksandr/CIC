@@ -401,7 +401,7 @@ function executeSearchMatch(FIPS) {
 	console.log(county);
 	highlight(county);
 	var countyPath = $('.active');
-	zoomTo(FIPS, false);
+	zoomTo(FIPS);
 	
     if (countyObjectById.hasOwnProperty(county.id)) {
 	    populateTooltip(county);    
@@ -728,7 +728,7 @@ function positionTooltip(county) {
 }
 
 function clicked(event, d, i) {
-	var zoomTransition = zoomTo(d.id, event);
+	var zoomTransition = zoomTo(d.id);
 	//tooltip.classed('hidden', true);
 	
 	if (countyObjectById.hasOwnProperty(d.id)) {

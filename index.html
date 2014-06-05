@@ -5438,13 +5438,22 @@
 				    </ul>
 				    <!--right nav-->
 					<ul class="nav navbar-nav navbar-right" id="searchContainer">
-						<li><a>
+						<!--
+						<li>
+							<a style="cursor: default;">Search by</a>
+							<ul class="dropdown-menu">
+								<li><a title="county">County</a></li>
+								<li><a title="city">City</a></li>
+								<li><a title="state">State</a></li>
+							</ul>
+						</li> -->
+						<li><a>	
 							<select id="search_type">
 								<option value="city">City Search</option>
 								<option selected value="county">County Search</option>
 								<option value="state">State Search</option>
 							</select>
-						</a></li>
+						</a></li>	
 						<li><a>
 							<form id="search_form">
 								<input type="search" id="search_field" placeholder="county name">
