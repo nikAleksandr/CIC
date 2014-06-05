@@ -129,15 +129,20 @@ function setup(width, height) {
     	.call(zoom);
 	g = svg.append("g").attr("class", "counties");
   		
-	d3.select('#map').on('click', function() { if (selected !== null) highlight(selected); });
+	d3.select('#map').on('click', function() { 
+		if (selected !== null) highlight(selected);
+	});
 	d3.select('#close').on('click', function() { $('#instructions').hide(); });
 	d3.select('#showOnMap').on('click', function() {
   		$('#instructions').hide();
   		if (d3.select('.active').empty() !== true) {
   			var active_county = document.getElementsByClassName('active')[0];
+  			var zoomTransition = zoomTo(active_county.id);
   			populateTooltip(active_county);
-  			positionTooltip(active_county);
-  			tooltip.classed('hidden', false);
+  			zoomTransition.each('end', function() {
+				positionTooltip(active_county);  				
+	  			tooltip.classed('hidden', false);
+  			});
   		}
 	});
 
@@ -170,18 +175,19 @@ function draw(topo, stateMesh) {
 			d3.event.stopPropagation();
 			var mouse = d3.mouse(svg.node()).map(function(d) { return parseInt(d); });
 			var event = d3.event;
-	
-			highlight(d);
-	
+		
 			clickCount++;
 			if (clickCount === 1) {
 				singleClickTimer = setTimeout(function() {
 					clickCount = 0;
-					if (d3.select('.active').empty() !== true) clicked(mouse, event, d, i);
+					highlight(d);
+					$('#instructions').hide();
+					if (d3.select('.active').empty() !== true) clicked(event, d, i);
 				}, 300);
 			} else if (clickCount === 2) {
 				clearTimeout(singleClickTimer);
 				clickCount = 0;
+				highlight(d);
 				doubleClicked(d, i);
 			}
 		}
@@ -272,7 +278,6 @@ function setSearchBehavior() {
 }
 
 function submitSearch() {
-	console.log('search');
 	d3.event.preventDefault();
 		
 	var search_type = d3.select('#search_type').property('value');
@@ -360,7 +365,8 @@ function submitSearch() {
 						cell.on('click', function() { executeSearchMatch(fips); });
 					})(name_cell, pMatchArray[i]);
 				}
-					
+				
+				$('#showOnMap').hide();
 				$('#instructions').show();
 							
 			} else if (pMatchArray.length == 1) {
@@ -694,10 +700,6 @@ function positionTooltip(county) {
 	var ttHeight = $('#tt').height();
 	var dx = windowWidth - (left + ttWidth); // amount to tweak
 	var dy = windowHeight - (top + ttHeight);
-	
-	console.log('WW, WH: ' + windowWidth + ', ' + windowHeight);
-	console.log('TTW, TTH: ' + ttWidth + ', ' + ttHeight);
-	console.log('dx, dy: ' + dx + ', ' + dy);
 			
 	if (dx < 0) left += dx;
 	if (dy < 0) top += dy;
@@ -708,16 +710,13 @@ function positionTooltip(county) {
 	tooltip.classed('hidden', false);
 }
 
-function clicked(mouse, event, d, i) {
+function clicked(event, d, i) {
 	var zoomTransition = zoomTo(d.id, event);
 	//tooltip.classed('hidden', true);
 	
 	if (countyObjectById.hasOwnProperty(d.id)) {
-	    populateTooltip(d);
-	    
-		zoomTransition.each('end', function() {
-			positionTooltip(event.target);
-		});
+	    populateTooltip(d);    
+		zoomTransition.each('end', function() { positionTooltip(event.target); });
 	} else {
 		tooltip.classed('hidden', true);
 	}
@@ -729,10 +728,9 @@ function doubleClicked(d) {
 	var countyID = d.id.toString();
 	if (countyID.length == 4) countyID = "0" + countyID;
 	displayResults('county.cfm?id=' + countyID);
-	console.log(countyID);
 }
 
-function zoomTo(fips, event) {
+function zoomTo(fips) {
 	var t = path.centroid(countyPathById[fips]);
 	var s = 4.5;
 	var area = path.area(countyPathById[fips]); // zoom based on area
