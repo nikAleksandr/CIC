@@ -126,6 +126,26 @@ var colorlegend = function (target, scale, type, options) {
       	.style('fill', function (d, i) { return colors[i]; })
       	.style('display', function (d, i) { if (i >= colors.length) return 'none'; });
 
+    // additional text on top of color boxes, displaying "top 20%", "bottom 20%", etc.
+    if (isNumeric) {
+	    legendBoxes.append('text')
+	    	.attr('class', 'colorlegend-boxlabels')
+	    	.attr('x', function (d, i) {
+	    		return i * (boxWidth + boxSpacing) + boxWidth;
+	    	})
+	    	.attr('y', boxLabelHeight + 11)
+	    	.style('text-anchor', 'middle')
+	    	.style('pointer-events', 'none')
+	    	.style('fill', function (d, i) {
+	    		if (i === 0) return "black";
+	    		if (i === 4) return "white";
+	    	})
+	    	.text(function (d, i) {
+	    		if (i === 0) return "bottom 20%";
+	    		if (i === 4) return "top 20%";
+	    	});
+	}
+
  	// value labels
   	legendBoxes.append('text')
     	.attr('class', 'colorlegend-labels')
@@ -144,26 +164,7 @@ var colorlegend = function (target, scale, type, options) {
     	    if (type === 'ordinal') return dataValues[i];
     	    else return format[dataType](dataValues[i], isCurrency); // format is defined based on dataType
       	});
-      	
-    // additional text on top of color boxes, displaying "top 20%", "bottom 20%", etc.
-    if (isNumeric) {
-	    legendBoxes.append('text')
-	    	.attr('class', 'colorlegend-boxlabels')
-	    	.attr('x', function (d, i) {
-	    		return i * (boxWidth + boxSpacing) + boxWidth;
-	    	})
-	    	.attr('y', 8)
-	    	.style('text-anchor', 'middle')
-	    	.style('pointer-events', 'none')
-	    	.text(function (d, i) {
-	    		if (i == 0) return "bottom 20%";
-	    		//if (i == 1) return "mid-bottom 20%";
-	    		//if (i == 2) return "middle 20%";
-	    		//if (i == 3) return "mid-top 20%";
-	    		if (i == 4) return "top 20%";
-	    	});
-	}
-  
+      	  
   	// show a title in center of legend (bottom)
   	if (title) {
 	    legend.append('text')

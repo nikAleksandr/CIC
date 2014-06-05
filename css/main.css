@@ -353,7 +353,8 @@ svg:not(:root) {
 }
 
 #quantileLegend .colorlegend-boxlabels {
-  font-size: .71em;
+  font-size: 0.8em;
+  text-align: center;
 }
 
 #legendTitle {
