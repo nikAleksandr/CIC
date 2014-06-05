@@ -881,7 +881,7 @@ d3.json("data/CICstructure.json", function(error, CICStructure){
 	CICstructure = CICStructure;
 
 	setDropdownBehavior();
-	setSearchBehavior();  
+	setSearchBehavior();
 	setMoreDataBehavior();
 
 	// dataset to map first
