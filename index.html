@@ -10,7 +10,7 @@
 
         <link rel="stylesheet" href="css/normalize.css">
 		<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
-		<link href='http://fonts.googleapis.com/css?family=Roboto+Condensed' rel='stylesheet' type='text/css'>
+		<link href='http://fonts.googleapis.com/css?family=Roboto+Condensed:300,400' rel='stylesheet' type='text/css'>
 		<link href='http://fonts.googleapis.com/css?family=Arvo' rel='stylesheet' type='text/css'>
         <link rel="stylesheet" href="css/main.css">
         <!-- SmartMenus jQuery Bootstrap Addon CSS -->
@@ -5506,7 +5506,7 @@
 							</form>
 						</a></li>
 						<li id="moreData">
-							<a id="moreDataButton" href="#">ACCESS MORE DATA</a>
+							<a id="moreDataButton" href="#">ACCESS MORE DATA<img id="moreDataImg" src="img/more_data.svg"/></a>
 						</li>
 					</ul>
 					
@@ -5563,7 +5563,7 @@
 		        	<div class="row">
 		        		<div class="col-md-5"id="byline">Brought to you by <a href="http://www.naco.org/research">NACo Research</a>
 			        		<br/><br/>
-			        		<p>See county economies through recession and recovery: <a href="#">County Tracker</a><br/>
+			        		<p style="color:#333">See county economies through recession and recovery: <a href="#">County Tracker</a><br/>
 			        		View county transportation funding and financing: <a href="#">Road Ahead</a></p>
 			        	</div>
 		        		<div class="col-md-2" id="legendNoData"><svg width="60" height="15" id="na-color"><rect style="fill: rgb(204, 204, 204);" y="0" x="0" height="15" width="60"></rect><text style="font-size: .76em; text-anchor: middle; pointer-events: none; fill: black;" y="11" x="30" class="colorlegend-boxlabels">Not Available</text></svg></div>
@@ -5578,7 +5578,26 @@
 	        		<p><br>Notes:<br>New York City is a consolidation of the five boroughs of the city of New York:<br>&nbsp;&bull; Manhattan (New York County)<br>&nbsp;&bull; The Bronx (Bronx County)<br>&nbsp;&bull; Brooklyn (Kings County)<br>&nbsp;&bull; Queens (Queens County)<br>&nbsp;&bull; Staten Island (Richmond County).</p>
 	        	</div>
 	        </div>
-	        <div id="summary"><p></p></div>
+	        <div style="display:none;">
+	        	<div id="MoreDataContent" class="container-fluid">
+	        		<div class="row">
+	        			<div class="col-md-4"><h3>Full Interactive Map</h3></div>
+	        			<div class="col-md-8"></div>
+	        		</div>
+	        		<div class="row">
+	        			<div class="col-md-4"></div>
+	        			<div class="col-md-8"></div>
+	        		</div>
+	        		<div class="row">
+	        			<div class="col-md-4"><h3>CIC Extraction Tool</h3></div>
+	        			<div class="col-md-8"></div>
+	        		</div>
+	        		<div class="row">
+	        			<div class="col-md-4"></div>
+	        			<div class="col-md-8"></div>
+	        		</div>
+	        	</div>
+	        </div>
 	    </div>
     </body>
 </html>

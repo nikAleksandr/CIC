@@ -118,7 +118,7 @@ table th{
 
 #byline{
 	color: rgb(0,64,112);
-	text-align: right;
+	text-align: left;
 	display: inline-block;
 	font-size: 0.8em
 }
@@ -270,19 +270,24 @@ h1 small {
 #moreDataButton{
 	font-size:1.3em;
 	color:#fff;
+	padding:10px 15px 4px 15px;
+}
+#moreDataImg{
+	height:36px;
+	padding-left:5px;
 }
 #moreDataButton:hover{
-	color:#FFA601;
+	color:rgb(255,204,102);
 	background-color:transparent;
 }
 #zoomIcons {
   position: absolute;
   left: 20px;
-  top: 185px;
+  top: 180px;
   width: 30px;
   background-color: white;
-  opacity: 0.8;
-  z-index: 100;
+  opacity: 0.9;
+  z-index: 1;
   box-shadow: 0px 1px 1px rgba(0,0,0,0.3);
   -moz-box-shadow: 0px 1px 1px rgba(0,0,0,0.3);
   -webkit-box-shadow: 0px 1px 1px rgba(0,0,0,0.3);
@@ -295,7 +300,11 @@ h1 small {
   color: #777;
   cursor: pointer;
 }
-#zoomMinusIcon { border-top: none; }
+#zoomMinusIcon { 
+	border-top: none;
+	font-size:1.5em;
+	line-height:1em;
+}
 
 #additionalInfo, #notes {
 	text-align: left;
@@ -383,10 +392,10 @@ div.tooltip {
   color: #222; 
   background: #fff; 
   text-shadow: #f5f5f5 0 1px 0;
-  border-radius: 2px; 
+  border-radius: 0; 
   box-shadow: 0px 0px 2px 0px #a6a6a6; 
-  opacity: 0.9; 
   position: absolute;
+  opacity:.9;
   pointer-events: none;
 }
 
@@ -404,10 +413,15 @@ div.tooltip {
 	padding: 0.3em;
 	font-family: 'Arvo', serif;
 	font-size: 1.8em;
-	background-color:#FFA601;
+	background-color: rgba(253,156,2, 1);
 	position: relative;
 }
-#tipInfo { padding: .6em; }
+#tipInfo { 
+	font-weight:300;
+	padding: .6em;
+	font-size:1.2em;
+	line-height:1.8em;	
+}
 .tipKey {
 	padding:  .1em .5em;
 	font-size: 1.1em;
