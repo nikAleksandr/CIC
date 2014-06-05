@@ -110,8 +110,8 @@ var quantById = [], secondQuantById = [], thirdQuantById = [], fourthQuantById =
 	countyObjectById = {},
 	countyPathById = {};
 
-var na_color = 'rgb(200,200,200)', // color for counties with no data
-	range = ['rgb(239,243,255)','rgb(189,215,231)','rgb(107,174,214)','rgb(49,130,189)','rgb(8,81,156)'], // default color scheme for map
+var na_color = 'rgb(204,204,204)', // color for counties with no data
+	range = ['rgb(189, 215, 231)','rgb(107, 174, 214)','rgb(49, 130, 189)','rgb(7, 81, 156)','rgb(28, 53, 99)'], // default color scheme for map
 	color = d3.scale.quantile(); // quantile scale
 
 
@@ -481,7 +481,7 @@ function update(dataset, indicator) {
 		// define range i.e. color output
 		switch(dataType) {
 			case "percent":
-				range = ['rgb(239,243,255)', 'rgb(189,215,231)', 'rgb(107,174,214)', 'rgb(49,130,189)', 'rgb(8,81,156)'];
+				range = ['rgb(189, 215, 231)','rgb(107, 174, 214)','rgb(49, 130, 189)','rgb(7, 81, 156)','rgb(28, 53, 99)'];
 				break;
 			case "binary":
 				range = ['rgb(201,228,242)', 'rgb(255,204,102)'];
@@ -493,7 +493,7 @@ function update(dataset, indicator) {
 				for (var i = 0; i < numCorrVals; i++) range.push(availColors[i]);				
 				break;
 			default:
-				range = ['rgb(239,243,255)', 'rgb(189,215,231)', 'rgb(107,174,214)', 'rgb(49,130,189)', 'rgb(8,81,156)'];
+				range = ['rgb(189, 215, 231)','rgb(107, 174, 214)','rgb(49, 130, 189)','rgb(7, 81, 156)','rgb(28, 53, 99)'];
 		}
 
 		// set domain and range

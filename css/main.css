@@ -99,7 +99,7 @@ body {
 	width:100%;
 	background-color: white;
 	text-align: center;
-	font-family: 'Roboto', sans-serif;
+	font-family: 'Roboto Condensed', sans-serif;
 	font-size: 1em;
 }
 
@@ -206,7 +206,7 @@ table th{
 	height: auto;
 	font-size: 1em;
 	margin-bottom: -1em;
-	/*box-shadow: 0em 1em .7em 0em rgba(0, 0, 0, 0.2);*/
+	box-shadow: 0em 1em .7em 0em rgba(0, 0, 0, 0.2);*/
 	text-align: left;
 }
 
@@ -220,6 +220,7 @@ table th{
 	font-weight: 100;
 	width:auto;
 	padding: 0 1em;
+	margin-bottom: 0;
 }
 h1 small {
 	color:rgb(0,64,112);
@@ -227,7 +228,7 @@ h1 small {
 
 #nacoLogo {
 	width:200px;
-	padding: 1.5em;
+	padding: 2em 1.5em 1.5em 1.5em;
 	float:right;
 }
 
@@ -250,13 +251,12 @@ h1 small {
 	text-align: left;
 }
 #searchContainer{
-	font-size: .71em;
+	font-size: .70em;
 	padding-right: 3em;
-	background-color:#428BCA;
+	background-color:rgb(0, 173, 220);
 }
 #searchContainer li:not(#moreData){
 	background-color:#fff;
-	margin-bottom:-4px;
 }
 #search_type { margin-top: 3px; }
 #search_submit { margin-left: 10px; }
@@ -307,7 +307,7 @@ svg:not(:root) {
 }
 .county {
   fill: none;
-  stroke-width: .1px;
+  stroke-width: .2px;
   stroke: rgb(255,255,255);
 }
 .county:hover{
