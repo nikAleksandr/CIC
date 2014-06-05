@@ -146,6 +146,7 @@ function setup(width, height) {
   		}
 	});
 
+	setZoomIcons();
 	positionInstruction();
 }	
 
@@ -791,9 +792,7 @@ function redraw() {
 
 var frmrS = 1;
 
-function moveStart() {
-}
-
+function moveStart() {}
 function move() {	
   	tooltip.classed("hidden", true); // hides on zoom or pan	
 	
@@ -821,9 +820,20 @@ function move() {
 	}
 	frmrS = s;
 }
-
 function moveEnd() {
 	//if (d3.select('.active').empty() !== true) positionTooltip(document.getElementsByClassName('active')[0]);
+}
+
+function setZoomIcons() {
+	var coords = map.getBoundingClientRect();
+	d3.select('#zoomIcons').style('left', (coords.left + 30) + 'px');
+	
+	d3.select('#zoomPlusIcon').on('click', function() {
+		// zoom in
+	});
+	d3.select('#zoomMinusIcon').on('click', function() {
+		// zoom out
+	});
 }
 
 var throttleTimer;
