@@ -182,7 +182,7 @@ function draw(topo, stateMesh) {
 					clickCount = 0;
 					highlight(d);
 					$('#instructions').hide();
-					if (d3.select('.active').empty() !== true) clicked(mouse, event, d, i);
+					if (d3.select('.active').empty() !== true) clicked(event, d, i);
 				}, 300);
 			} else if (clickCount === 2) {
 				clearTimeout(singleClickTimer);

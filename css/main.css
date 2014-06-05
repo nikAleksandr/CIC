@@ -253,7 +253,23 @@ h1 small {
 #search_type { margin-top: 3px; }
 #search_submit { margin-left: 10px; }
 #map {
+	/*position: relative;*/
 	z-index:-10;
+}
+#zoomIcons {
+  position: absolute;
+  left: 20px;
+  top: 20px;
+  width: 30px;
+  z-index: 100;
+}
+#zoomPlusIcon, #zoomMinusIcon {
+  z-index: 100;
+  padding: 5px;
+  width: 100%;
+  border: 1px solid #CCC;
+  backgroundColor: #AAA;
+  cursor: pointer;
 }
 
 #additionalInfo, #notes {
