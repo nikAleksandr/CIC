@@ -3,7 +3,11 @@ d3.select(window).on("resize", throttle);
 function toTitleCase(str){ return str.replace(/\w\S*/g, function(txt){return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();}); }
 function isNumFun(data_type) { return (data_type === 'level' || data_type === 'level_np' || data_type === 'percent'); }
 function positionInstruction(){var instructionLeft = (windowWidth * .2) / 2; if(windowWidth > 1125){instructionLeft = (windowWidth - 900)/2;}; d3.select('#instructions').style("left", instructionLeft + "px");}
-
+function correctNav(){
+	var navHeight = d3.select('#searchContainer');
+	var navList = d3.select('#searchContainer').selectAll("li");
+	console.log(navList);
+}
 // default for noty alert system
 $.noty.defaults.layout = 'center';
 $.noty.defaults.killer = true;
@@ -148,6 +152,7 @@ function setup(width, height) {
 
 	setZoomIcons();
 	positionInstruction();
+	correctNav();
 }	
 
 function draw(topo, stateMesh) {
