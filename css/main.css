@@ -448,7 +448,7 @@ div.tooltip {
 	padding-left:30%;
 	list-style:none;
 }
-#countyResponse-electedOfficials table, #multiCountyResult table{
+#countyResponse-electedOfficials table, #multiCountyResult table, #cityResponse table{
 	width:auto;
 	margin: 0 auto;
 }
