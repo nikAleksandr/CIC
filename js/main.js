@@ -365,7 +365,8 @@ function submitSearch() {
 						cell.on('click', function() { executeSearchMatch(fips); });
 					})(name_cell, pMatchArray[i]);
 				}
-					
+				
+				$('#showOnMap').hide();
 				$('#instructions').show();
 							
 			} else if (pMatchArray.length == 1) {

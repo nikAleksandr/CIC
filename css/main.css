@@ -127,8 +127,7 @@ table th{
 	text-align: left;
 	width: 80%;
 	max-width: 900px;
-	height: auto;
-	max-height: 50%;
+	height: 50%;
 	position: absolute;
 	top: 25%;
 	z-index: 100;
@@ -153,10 +152,15 @@ table th{
 
 #instructionText, #fullDefsText{
 	display: inline-block;
-	width: 100%;
-	font-size: 1em;
+	position: absolute;
+	top: 50px;
+	bottom: 0px;
+	left: 0px;
+	right: 0px;
+	overflow: auto;
+	padding-bottom: 20px;
 	text-align: center;
-	padding-top: 2%;
+	font-size: 1em;
 }
 
 #instructionText a, #fullDefsText a, .county_link{
