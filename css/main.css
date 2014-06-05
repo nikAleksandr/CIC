@@ -206,7 +206,7 @@ table th{
 	height: auto;
 	font-size: 1em;
 	margin-bottom: -1em;
-	box-shadow: 0em 1em .7em 0em rgba(0, 0, 0, 0.2);*/
+	box-shadow: 0em 1em .7em 0em rgba(0, 0, 0, 0.2);
 	text-align: left;
 }
 
@@ -254,9 +254,12 @@ h1 small {
 	font-size: .70em;
 	padding-right: 3em;
 	background-color:rgb(0, 173, 220);
+	overflow:hidden;
 }
 #searchContainer li:not(#moreData){
 	background-color:#fff;
+	margin-bottom:-3px;
+	padding-bottom:3px;
 }
 #search_type { margin-top: 3px; }
 #search_submit { margin-left: 10px; }
