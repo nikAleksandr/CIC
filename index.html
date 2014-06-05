@@ -5502,7 +5502,7 @@
 									<option value="WV">WV</option>
 									<option value="WY">WY</option>
 									</select>
-								<input type="submit" id="search_submit" value="Search">
+								<input type="image" src="img/active-search.svg" width="18px" height="18px" id="search_submit" value="Search">
 							</form>
 						</a></li>
 						<li id="moreData">
@@ -5563,10 +5563,10 @@
 		        	<div class="row">
 		        		<div class="col-md-5"id="byline">Brought to you by <a href="http://www.naco.org/research">NACo Research</a>
 			        		<br/><br/>
-			        		<p style="color:#333">See county economies through recession and recovery: <a href="#">County Tracker</a><br/>
+			        		<p>See county economies through recession and recovery: <a href="#">County Tracker</a><br/>
 			        		View county transportation funding and financing: <a href="#">Road Ahead</a></p>
 			        	</div>
-		        		<div class="col-md-2" id="legendNoData"><svg width="60" height="15" id="na-color"><rect style="fill: rgb(204, 204, 204);" y="0" x="0" height="15" width="60"></rect><text style="font-size: .76em; text-anchor: middle; pointer-events: none; fill: black;" y="11" x="30" class="colorlegend-boxlabels">Not Available</text></svg></div>
+		        		<div class="col-md-2" id="legendNoData"><svg width="70" height="18" id="na-color"><rect style="fill: rgb(204, 204, 204);" y="0" x="0" height="18" width="70"></rect><text style="font-size: 1em; text-anchor: middle; pointer-events: none; fill: black;" y="12" x="35" class="colorlegend-boxlabels">Not Available</text></svg></div>
 			        	<div id="quantileLegend" class="legend col-md-5"></div>
 			        	
 			        </div>
@@ -5578,23 +5578,24 @@
 	        		<p><br>Notes:<br>New York City is a consolidation of the five boroughs of the city of New York:<br>&nbsp;&bull; Manhattan (New York County)<br>&nbsp;&bull; The Bronx (Bronx County)<br>&nbsp;&bull; Brooklyn (Kings County)<br>&nbsp;&bull; Queens (Queens County)<br>&nbsp;&bull; Staten Island (Richmond County).</p>
 	        	</div>
 	        </div>
+	        <!--Access more data content for grabbing and inserting into the #instruction div-->
 	        <div style="display:none;">
-	        	<div id="MoreDataContent" class="container-fluid">
+	        	<div id="moreDataContent" class="container-fluid">
 	        		<div class="row">
-	        			<div class="col-md-4"><h3>Full Interactive Map</h3></div>
-	        			<div class="col-md-8"></div>
+	        			<div class="col-md-5"><h3><a href="#">Full Interactive Map</a></h3><a href="#"><img src="img/CICFullThumb.png"/></a></div>
+	        			<div class="col-md-7">
+	        				<p>Access more datasets and indicators for display on the interactive map.
+	        				<br/><br/>
+	        				Login free to COIN <a href="#">here</a> to access</p>
+	        			</div>
 	        		</div>
 	        		<div class="row">
-	        			<div class="col-md-4"></div>
-	        			<div class="col-md-8"></div>
-	        		</div>
-	        		<div class="row">
-	        			<div class="col-md-4"><h3>CIC Extraction Tool</h3></div>
-	        			<div class="col-md-8"></div>
-	        		</div>
-	        		<div class="row">
-	        			<div class="col-md-4"></div>
-	        			<div class="col-md-8"></div>
+	        			<div class="col-md-5"><h3><a href="#">CIC Extraction Tool</a></h3><a href="#"><img src="img/CICExtractionThumb.png"/></a></div>
+	        			<div class="col-md-7">
+	        				<p>Full access to all 18 categories, 66 datasets, and 889 indicators.
+	        				<br/><br/>
+	        				Customizable data downloads available <a href="#">here</a></p>
+	        			</div>
 	        		</div>
 	        	</div>
 	        </div>

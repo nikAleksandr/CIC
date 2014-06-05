@@ -114,13 +114,18 @@ table th{
 	margin: 0 auto;
 	text-align: left;
 	font-size: .9em;
+	font-weight:300;
 }
 
 #byline{
 	color: rgb(0,64,112);
 	text-align: left;
 	display: inline-block;
-	font-size: 0.8em
+	font-size: 0.8em;
+}
+#byline p{
+	color:#333;
+	margin-left:-1em;
 }
 
 #instructions, #fullDefs{
@@ -128,9 +133,9 @@ table th{
 	text-align: left;
 	width: 80%;
 	max-width: 900px;
-	height: 50%;
+	height: 70%;
 	position: absolute;
-	top: 25%;
+	top: 15%;
 	z-index: 100;
 	box-shadow: 0 0 .938em rgba(0, 0, 0, 0.2);
 	background-attachment: scroll;
@@ -213,6 +218,7 @@ table th{
 #header p {
 	padding:0 2em;
 	margin: 0;
+	font-weight:300;
 }
 #header h1{
 	font-family: 'Arvo', serif;
@@ -220,7 +226,6 @@ table th{
 	font-weight: 100;
 	width:auto;
 	padding: 0 1em;
-	margin-bottom: 0;
 }
 h1 small {
 	color:rgb(0,64,112);
@@ -258,8 +263,8 @@ h1 small {
 }
 #searchContainer li:not(#moreData){
 	background-color:#fff;
-	margin-bottom:-3px;
-	padding-bottom:3px;
+	margin-bottom:-4px;
+	padding-bottom:4px;
 }
 #search_type { margin-top: 3px; }
 #search_submit { margin-left: 10px; }
@@ -365,19 +370,23 @@ svg:not(:root) {
 	font-size: 0.8em;
 	text-align:right;
 }
-
+#quantileLegend{
+	font-weight:400;
+}
 #quantileLegend .colorlegend-labels {
-  font-size: 11px;
+  font-size: 1em;
   fill: black;
 }
 
 #quantileLegend .colorlegend-boxlabels {
-  font-size: 0.8em;
+  font-size: 1em;
   text-align: center;
 }
 
 #legendTitle {
 	text-align: center;
+	font-weight:400;
+	font-size: 1.1em;
 }
 
 /*
@@ -499,6 +508,25 @@ div.tooltip {
 	padding-left:1em;
 	padding-right:1em;
 } 
+/*
+ * Access more data content stylings
+ */
+#moreDataContent{
+	margin-top: -1em;
+	padding-bottom: 2em;
+}
+#moreDataContent h3{
+	font-family:'Arvo', serif;
+}
+#moreDataContent img{
+	height:180px;
+	margin-right:2em;
+}
+#moreDataContent p {
+	margin-top:100px;
+	text-align:left;
+	margin-right:1em;
+}
 /* ==========================================================================
    Helper classes
    ========================================================================== */

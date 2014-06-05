@@ -133,7 +133,7 @@ var colorlegend = function (target, scale, type, options) {
 	    	.attr('x', function (d, i) {
 	    		return i * (boxWidth + boxSpacing) + boxWidth;
 	    	})
-	    	.attr('y', boxLabelHeight + 11)
+	    	.attr('y', boxLabelHeight + 13)
 	    	.style('text-anchor', 'middle')
 	    	.style('pointer-events', 'none')
 	    	.style('fill', function (d, i) {

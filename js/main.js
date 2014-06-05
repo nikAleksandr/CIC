@@ -197,12 +197,8 @@ function draw(topo, stateMesh) {
 function setMoreDataBehavior(){
 	d3.select('#moreDataButton').on('click', function(){
 		$('#instructionText').empty();
-
-		var instructionDiv = d3.select("#instructionText").append('div')
-			.attr('class', 'container-fluid')
-			.attr('id', 'resultsContainer');
-			
 		
+		$('#moreDataContent').appendTo('#instructionText');
 		
 		$('#instructions').show();
 		$('#showOnMap').hide();
@@ -508,12 +504,12 @@ function update(dataset, indicator) {
 				range = ['rgb(189, 215, 231)','rgb(107, 174, 214)','rgb(49, 130, 189)','rgb(7, 81, 156)','rgb(28, 53, 99)'];
 				break;
 			case "binary":
-				range = ['rgb(201,228,242)', 'rgb(255,204,102)'];
+				range = ['rgb(0,153,204)', 'rgb(255,204,102)'];
 				break;
 			case "categorical":
 				// max is 5 categories
 				range = [];
-				var availColors = ['rgb(228,26,28)', 'rgb(55,126,184)', 'rgb(77,175,74)', 'rgb(152,78,163)', 'rgb(255,127,0)'];
+				var availColors = ['rgb(253,156,2)', 'rgb(0,153,9)', 'rgb(70,200,245)', 'rgb(254,207,47)', 'rgb(102,204,204)', 'rgb(69,178,157)'];
 				for (var i = 0; i < numCorrVals; i++) range.push(availColors[i]);				
 				break;
 			default:
