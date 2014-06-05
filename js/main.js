@@ -4,6 +4,12 @@ function toTitleCase(str){ return str.replace(/\w\S*/g, function(txt){return txt
 function isNumFun(data_type) { return (data_type === 'level' || data_type === 'level_np' || data_type === 'percent'); }
 function positionInstruction(){var instructionLeft = (windowWidth * .2) / 2; if(windowWidth > 1125){instructionLeft = (windowWidth - 900)/2;}; d3.select('#instructions').style("left", instructionLeft + "px");}
 
+// default for noty alert system
+$.noty.defaults.layout = 'center';
+$.noty.defaults.killer = true;
+$.noty.defaults.closeWith = ['click', 'button'];
+$.noty.defaults.template = '<div class="noty_message"><div class="noty_text"></div><div class="noty_close"></div></div>'
+
 // general formatting by data type
 var format = {
 	"percent": d3.format('.1%'),
@@ -243,8 +249,10 @@ function setDropdownBehavior() {
 }
 
 function setSearchBehavior() {
-	d3.select('#search_form').on('submit', submitSearch);	
-	var searchField = d3.select('#search_field').on('keyup', function() { if (d3.event.keyCode === 13) submitSearch(); });	
+	// both of these are redundant and causing search to fire multiple times
+	//d3.select('#search_form').on('submit', submitSearch);	
+	//var searchField = d3.select('#search_field').on('keyup', function() { if (d3.event.keyCode === 13) submitSearch(); });
+	var searchField = d3.select('#search_field');
 	d3.select('#search_submit').on('click', submitSearch);
 		
 	var stateDrop = d3.select('#state_drop');
@@ -264,6 +272,7 @@ function setSearchBehavior() {
 }
 
 function submitSearch() {
+	console.log('search');
 	d3.event.preventDefault();
 		
 	var search_type = d3.select('#search_type').property('value');
@@ -274,7 +283,7 @@ function submitSearch() {
 	if (search_type === 'state') {
 		// only state; return results of all counties within state
 		if (state_name === 'MA' || state_name === 'RI' || state_name === 'CT') {
-			alert('No county data available for this state.');
+			noty({text: 'No county data available for this state.'});
 		} else {
 			state_search_str = 'state.cfm?statecode=' + state_name;
 			displayResults(state_search_str);
@@ -351,16 +360,13 @@ function submitSearch() {
 						cell.on('click', function() { executeSearchMatch(fips); });
 					})(name_cell, pMatchArray[i]);
 				}
-				
-				// styling; in anonymous function for closure in click function
-				rTable.selectAll('tr').selectAll('td');
 					
 				$('#instructions').show();
 							
 			} else if (pMatchArray.length == 1) {
 				executeSearchMatch(pMatchArray[0]); // if only one match, display county
 			} else {
-				alert('search not matched :(');
+				noty({text: 'Your search did not match any counties.'});
 				document.getElementById('search_form').reset();	
 			}
 		}
