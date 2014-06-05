@@ -251,7 +251,11 @@ h1 small {
 #map {
 	z-index:-10;
 }
-
+#moreDataButton{
+	font-size:1.4em;
+	color:#fff;
+	background-color:#428BCA;
+}
 #additionalInfo, #notes {
 	text-align: left;
 	font-size: .85em;
@@ -269,11 +273,16 @@ svg {
 svg:not(:root) {
 	overflow: hidden; 
 }
-
 .county {
   fill: none;
+  stroke-width: .1px;
+  stroke: rgb(255,255,255);
 }
-
+.county:hover{
+  stroke: rgb(255,166,1);
+  stroke-width: .7px;
+  opacity: .5;
+}
 .county.active {
 	fill: #FFA601;
 }
@@ -294,17 +303,14 @@ svg:not(:root) {
 
 .legend {
   background-color: #fff;
-  width: 400px;
   height: 60px;
   border: 0;
-  margin: 10px;
   display: inline-block;
   float: left;
 }
 
 #legendNoData {
-	width: auto;
-	padding-top:38px;
+	padding-top:30px;
 	display: inline-block;
 	font-size: 0.8em;
 }
@@ -328,11 +334,7 @@ svg:not(:root) {
  * 
  */
 
-.county:hover{
-  stroke: rgb(255,166,1);
-  stroke-width: .7px;
-  opacity: .5;
-}
+
 div.tooltip {
   z-index: 5;
   color: #222; 
@@ -357,8 +359,9 @@ div.tooltip {
 #tipLocation {
 	color: #fff;
 	padding: 0.3em;
+	font-family: 'Arvo', serif;
 	font-size: 1.8em;
-	background-color:#333;
+	background-color:#FFA601;
 	position: relative;
 }
 #tipInfo { padding: .6em; }

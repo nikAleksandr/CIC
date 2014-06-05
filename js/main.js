@@ -816,10 +816,10 @@ function move() {
   	zoom.translate(t);
   	// if statement to call the transition on zoom only, but no transition on panning only
 	if(s === frmrS){
-		g.style("stroke-width", 1 / s).attr("transform", "translate(" + t + ")scale(" + s + ")");
+		g.attr("transform", "translate(" + t + ")scale(" + s + ")");
 	}
 	else{
-		g.transition().style("stroke-width", 1 / s).attr("transform", "translate(" + t + ")scale(" + s + ")");
+		g.transition().attr("transform", "translate(" + t + ")scale(" + s + ")");
 	}
 	frmrS = s;
 }
