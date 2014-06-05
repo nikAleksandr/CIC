@@ -225,7 +225,7 @@ function setDropdownBehavior() {
 		var indicatorName = this.title;
 		if (currentDI !== datasetName + ' - ' + indicatorName) {
 			update(datasetName, indicatorName);
-			d3.select("#primeIndText").text(indicator);
+			d3.select("#primeIndText").text(indicatorName);
 		}
 	});
 	d3.select('#secondInd').selectAll('.dataset').selectAll('.indicator').on('click', function() {
@@ -233,7 +233,7 @@ function setDropdownBehavior() {
 		var indicatorName = this.title;		
 		if (currentSecondDI !== datasetName + ' - ' + indicatorName) {
 			appendSecondInd(datasetName, indicatorName);
-			d3.select('#secondIndText').text(indicator);
+			d3.select('#secondIndText').text(indicatorName);
 		}
 	});
 	
