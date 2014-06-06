@@ -263,8 +263,8 @@ h1 small {
 }
 #searchContainer li:not(#moreData){
 	background-color:#fff;
-	margin-bottom:-4px;
-	padding-bottom:4px;
+	margin-bottom:-5px;
+	padding-bottom:5px;
 }
 #search_type { margin-top: 3px; }
 #search_submit { margin-left: 10px; }
@@ -315,7 +315,7 @@ h1 small {
 	font-size: .85em;
 }
 #additionalInfo { margin-top: 10px; }
-
+#notes{ padding-bottom: 30px;}
 /*
  * Map and SVG CSS
  */
@@ -403,7 +403,7 @@ div.tooltip {
   border-radius: 0; 
   box-shadow: 0px 0px 2px 0px #a6a6a6; 
   position: absolute;
-  opacity:.9;
+  opacity:.95;
   pointer-events: none;
 }
 
@@ -421,7 +421,7 @@ div.tooltip {
 	padding: 0.3em;
 	font-family: 'Arvo', serif;
 	font-size: 1.8em;
-	background-color: rgba(253,156,2, 1);
+	background-color: rgb(253,156,2);
 	position: relative;
 }
 #tipInfo { 
