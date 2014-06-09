@@ -615,42 +615,42 @@ Transportation	Transportation	Expenditure_Intergovernmental_to_Local_in_T	Transp
 Utility	Utility	KEYID	Utility			
 Utility	Utility	FIPS	Utility			
 Utility	Utility	DATA_YEAR	Utility			
-Utility	Utility	Utility_Empl_TOTAL_COUNTY_FTE	Utility			
-Utility	Utility	Utility_Empl_Total_Utility_FTE	Utility			
-Utility	Utility	Utility_Empl_Electric_Power	Utility			
-Utility	Utility	Utility_Empl_Gas_Supply	Utility			
-Utility	Utility	Utility_Expd_Total	Utility			
-Utility	Utility	Utility_Expd_Total_Utility	Utility			
-Utility	Utility	Utility_Expd_Electric_Utilities	Utility			
-Utility	Utility	Utility_Expd_Gas_Utilities	Utility			
-Utility	Utility	Utility_Expd_Current_Operation	Utility			
-Utility	Utility	Utility_Expd_Construction	Utility			
-Utility	Utility	Utility_Expd_Capital_Outlay	Utility			
-Utility	Utility	Utility_Expd__Interests_on_Debt	Utility			
-Utility	Utility	Utility_Expd_Intergovernmental_to_State	Utility			
-Utility	Utility	Utility_Expd_Intergovernmentalto_Local	Utility			
-Utility	Utility	Utility_Rev_Total	Utility			
-Utility	Utility	Utility_Rev_Total_Utility	Utility			
-Utility	Utility	Utility_Rev_Electric_Power_Systems	Utility			
-Utility	Utility	Utility_Rev_Gas_Supply_Systems	Utility			
-Utility	Utility	Utility_Rev_Public_Mass_Transit_Systems	Utility			
-Utility	Utility	Utility_Rev_Water_Supply_Systems	Utility			
-W_S_SW	W_S_SW	KEYID	W_S_SW			
-W_S_SW	W_S_SW	FIPS	W_S_SW			
-W_S_SW	W_S_SW	DATA_YEAR	W_S_SW			
-W_S_SW	W_S_SW	WSSW_EMPL_TOTAL_COUNTY_FTE	W_S_SW			
-W_S_SW	W_S_SW	WSSW_Empl_Total_Water_Sewerage_Solid_Waste_FTE	W_S_SW			
-W_S_SW	W_S_SW	WSSW_Empl_Sewerage_FTE	W_S_SW			
-W_S_SW	W_S_SW	WSSW_Empl_Solid_Waste_Management_FTE	W_S_SW			
-W_S_SW	W_S_SW	WSSW_Empl_Water_Supply_FTE	W_S_SW			
-W_S_SW	W_S_SW	WSSW_Expd_Total_Expenditure	W_S_SW			
-W_S_SW	W_S_SW	WSSW_Expd_Total_Water_Sewerage_Solid_Waste_Expenditure	W_S_SW			
-W_S_SW	W_S_SW	WSSW_Expd_Sewerage	W_S_SW			
-W_S_SW	W_S_SW	WSSW_Expd_Solid_Waste	W_S_SW			
-W_S_SW	W_S_SW	WSSW_Expd_Water_Utilities	W_S_SW			
-W_S_SW	W_S_SW	WSSW_Expd_Current_Operation	W_S_SW			
-W_S_SW	W_S_SW	WSSW_Expd_Construction	W_S_SW			
-W_S_SW	W_S_SW	WSSW_Expd_Capital_Outlay	W_S_SW			
-W_S_SW	W_S_SW	WSSW_Expd_Interests_on_Debt	W_S_SW			
-W_S_SW	W_S_SW	WSSW_Expd_Intergovernmental_to_State	W_S_SW			
-W_S_SW	W_S_SW	WSSW_Expd_Intergovernmental_to_Local	W_S_SW			
+Utility	Utility	Utility_Empl_TOTAL_COUNTY_FTE	Utility	Utility Employment	Total	
+Utility	Utility	Utility_Empl_Total_Utility_FTE	Utility	Utility Employment	Total Utility	
+Utility	Utility	Utility_Empl_Electric_Power	Utility	Utility Employment	Electric Utilities	
+Utility	Utility	Utility_Empl_Gas_Supply	Utility	Utility Employment	Gas Utilities	
+Utility	Utility	Utility_Expd_Total	Utility	Utility Expenditures	Total	
+Utility	Utility	Utility_Expd_Total_Utility	Utility	Utility Expenditures	Total Utility	
+Utility	Utility	Utility_Expd_Electric_Utilities	Utility	Utility Expenditures	Electric Utilities	
+Utility	Utility	Utility_Expd_Gas_Utilities	Utility	Utility Expenditures	Gas Utilities	
+Utility	Utility	Utility_Expd_Current_Operation	Utility	Utility Expenditures	Current Operations	
+Utility	Utility	Utility_Expd_Construction	Utility	Utility Expenditures	Construction	
+Utility	Utility	Utility_Expd_Capital_Outlay	Utility	Utility Expenditures	Capital Outlay	
+Utility	Utility	Utility_Expd__Interests_on_Debt	Utility	Utility Expenditures	Interest on Debt	
+Utility	Utility	Utility_Expd_Intergovernmental_to_State	Utility	Utility Expenditures	Intergovernmental to State	
+Utility	Utility	Utility_Expd_Intergovernmentalto_Local	Utility	Utility Expenditures	Intergovernmental to Local	
+Utility	Utility	Utility_Rev_Total	Utility	Utility Revenue	Total	
+Utility	Utility	Utility_Rev_Total_Utility	Utility	Utility Revenue	Total Utility	
+Utility	Utility	Utility_Rev_Electric_Power_Systems	Utility	Utility Revenue	Electric Power Systems	
+Utility	Utility	Utility_Rev_Gas_Supply_Systems	Utility	Utility Revenue	Gas Supply Systems	
+Utility	Utility	Utility_Rev_Public_Mass_Transit_Systems	Utility	Utility Revenue	Public Mass Transit Systems	
+Utility	Utility	Utility_Rev_Water_Supply_Systems	Utility	Utility Revenue	Water Supply Systems	
+W_S_SW	W_S_SW	KEYID	"Water, Sewerage & Solid Waste"			
+W_S_SW	W_S_SW	FIPS	"Water, Sewerage & Solid Waste"			
+W_S_SW	W_S_SW	DATA_YEAR	"Water, Sewerage & Solid Waste"			
+W_S_SW	W_S_SW	WSSW_EMPL_TOTAL_COUNTY_FTE	"Water, Sewerage & Solid Waste"	"Water, Sewerage & Solid Waste Employment"	Total	
+W_S_SW	W_S_SW	WSSW_Empl_Total_Water_Sewerage_Solid_Waste_FTE	"Water, Sewerage & Solid Waste"	"Water, Sewerage & Solid Waste Employment"	"Total Water, Sewerage & Solid Waste"	
+W_S_SW	W_S_SW	WSSW_Empl_Sewerage_FTE	"Water, Sewerage & Solid Waste"	"Water, Sewerage & Solid Waste Employment"	Sewarage	
+W_S_SW	W_S_SW	WSSW_Empl_Solid_Waste_Management_FTE	"Water, Sewerage & Solid Waste"	"Water, Sewerage & Solid Waste Employment"	Solid Waste	
+W_S_SW	W_S_SW	WSSW_Empl_Water_Supply_FTE	"Water, Sewerage & Solid Waste"	"Water, Sewerage & Solid Waste Employment"	Water Utilities	
+W_S_SW	W_S_SW	WSSW_Expd_Total_Expenditure	"Water, Sewerage & Solid Waste"	"Water, Sewerage & Solid Waste Expenditures"	Total	
+W_S_SW	W_S_SW	WSSW_Expd_Total_Water_Sewerage_Solid_Waste_Expenditure	"Water, Sewerage & Solid Waste"	"Water, Sewerage & Solid Waste Expenditures"	"Total Water, Sewerage & Solid Waste"	
+W_S_SW	W_S_SW	WSSW_Expd_Sewerage	"Water, Sewerage & Solid Waste"	"Water, Sewerage & Solid Waste Expenditures"	Sewerage	
+W_S_SW	W_S_SW	WSSW_Expd_Solid_Waste	"Water, Sewerage & Solid Waste"	"Water, Sewerage & Solid Waste Expenditures"	Solid Waste	
+W_S_SW	W_S_SW	WSSW_Expd_Water_Utilities	"Water, Sewerage & Solid Waste"	"Water, Sewerage & Solid Waste Expenditures"	Water Utilities	
+W_S_SW	W_S_SW	WSSW_Expd_Current_Operation	"Water, Sewerage & Solid Waste"	"Water, Sewerage & Solid Waste Expenditures"	Current Operations	
+W_S_SW	W_S_SW	WSSW_Expd_Construction	"Water, Sewerage & Solid Waste"	"Water, Sewerage & Solid Waste Expenditures"	Construction	
+W_S_SW	W_S_SW	WSSW_Expd_Capital_Outlay	"Water, Sewerage & Solid Waste"	"Water, Sewerage & Solid Waste Expenditures"	Capital Outlay	
+W_S_SW	W_S_SW	WSSW_Expd_Interests_on_Debt	"Water, Sewerage & Solid Waste"	"Water, Sewerage & Solid Waste Expenditures"	Interest on Debt	
+W_S_SW	W_S_SW	WSSW_Expd_Intergovernmental_to_State	"Water, Sewerage & Solid Waste"	"Water, Sewerage & Solid Waste Expenditures"	Intergovernmental to State	
+W_S_SW	W_S_SW	WSSW_Expd_Intergovernmental_to_Local	"Water, Sewerage & Solid Waste"	"Water, Sewerage & Solid Waste Expenditures"	Intergovernmental to Local	
