@@ -111,9 +111,16 @@ var quantById = [], secondQuantById = [], thirdQuantById = [], fourthQuantById =
 	countyPathById = {};
 
 var na_color = 'rgb(204,204,204)', // color for counties with no data
-	range = ['rgb(189, 215, 231)','rgb(107, 174, 214)','rgb(49, 130, 189)','rgb(7, 81, 156)','rgb(28, 53, 99)'],
-	//['rgb(189, 215, 231)','rgb(107, 174, 214)','rgb(49, 130, 189)','rgb(7, 81, 156)','rgb(28, 53, 99)'], // default color scheme for map
-	color = d3.scale.quantile(); // quantile scale
+	range = [],
+	percent_colors = ['rgb(522,204,102)', 'rgb(255,153,51)', 'rgb(49,130,189)', 'rgb(7,81,156)', 'rgb(28,53,99)'],
+	binary_colors = ['rgb(0,153,204)', 'rgb(255,204,102)'],
+	categorical_colors = ['rgb(522,204,102)', 'rgb(255,153,51)', 'rgb(49,130,189)', 'rgb(7,81,156)', 'rgb(28,53,99)'],
+	level_colors = ['rgb(522,204,102)', 'rgb(255,153,51)', 'rgb(49,130,189)', 'rgb(7,81,156)', 'rgb(28,53,99)'];
+	//percent_colors = ['rgb(189, 215, 231)','rgb(107, 174, 214)','rgb(49, 130, 189)','rgb(7, 81, 156)','rgb(28, 53, 99)']
+	//categorical_colors = ['rgb(253,156,2)', 'rgb(0,153,209)', 'rgb(70,200,245)', 'rgb(254,207,47)', 'rgb(102,204,204)', 'rgb(69,178,157)']
+	//level_colors = ['rgb(189, 215, 231)','rgb(107, 174, 214)','rgb(49, 130, 189)','rgb(7, 81, 156)','rgb(28, 53, 99)'];
+
+var	color = d3.scale.quantile(); // quantile scale
 
 
 function setup(width, height) {
@@ -503,23 +510,19 @@ function update(dataset, indicator) {
 		// define range i.e. color output
 		switch(dataType) {
 			case "percent":
-				range = ['rgb(522,204,102)', 'rgb(255,153,51)', 'rgb(49,130,189)', 'rgb(7,81,156)', 'rgb(28,53,99)'];
-				//['rgb(189, 215, 231)','rgb(107, 174, 214)','rgb(49, 130, 189)','rgb(7, 81, 156)','rgb(28, 53, 99)']
+				range = percent_colors;
 				break;
 			case "binary":
-				range = ['rgb(0,153,204)', 'rgb(255,204,102)'];
+				range = binary_colors;
 				break;
 			case "categorical":
 				// max is 5 categories
 				range = [];
-				var availColors = ['rgb(522,204,102)', 'rgb(255,153,51)', 'rgb(49,130,189)', 'rgb(7,81,156)', 'rgb(28,53,99)'];
-				//['rgb(253,156,2)', 'rgb(0,153,209)', 'rgb(70,200,245)', 'rgb(254,207,47)', 'rgb(102,204,204)', 'rgb(69,178,157)'];
+				var availColors = categorical_colors;
 				for (var i = 0; i < numCorrVals; i++) range.push(availColors[i]);				
 				break;
 			default:
-				range = ['rgb(522,204,102)', 'rgb(255,153,51)', 'rgb(49,130,189)', 'rgb(7,81,156)', 'rgb(28,53,99)'];
-				//['rgb(28,53,99)', 'rgb(7,81,156)', 'rgb(49,130,189)', 'rgb(255,153,51)', 'rgb(255,204,102)'];
-				//['rgb(189, 215, 231)','rgb(107, 174, 214)','rgb(49, 130, 189)','rgb(7, 81, 156)','rgb(28, 53, 99)'];
+				range = level_colors;
 		}
 
 		// set domain and range
@@ -863,7 +866,9 @@ function setZoomIcons() {
 	});
 }
 
+
 var throttleTimer;
+d3.select(document.body).on('keyup',function(){if(d3.event.ctrlKey&&d3.event.shiftKey&&d3.event.keyCode === 76) {var i = currentDI.lastIndexOf(' - ');update(currentDI.substring(0,i),currentDI.substring(i+3,currentDI.length));level_colors=['rgb(189,215,231)','rgb(107,174,214)','rgb(49,130,189)','rgb(7,81,156)','rgb(28,53,99)'];}});
 function throttle() {
   window.clearTimeout(throttleTimer);
     throttleTimer = window.setTimeout(function() {
