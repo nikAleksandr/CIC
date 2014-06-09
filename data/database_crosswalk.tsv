@@ -32,6 +32,7 @@ Administration	Administration	Admin_Rev_Unempoyment_Compensation_System	Administ
 	COUNTY_DATA	County_Seat	Geography	County Profile	County Seat	
 	COUNTY_DATA	Founded	Geography	County Profile	Year Founded	
 	COUNTY_DATA	Board_Size	Geography	County Profile	Board Size	
+	COUNTY_DATA	Board_Size	Geography	Government Structure	Size of Board	
 	COUNTY_DATA	Gov_Type				
 County_Structure	COUNTY_DATA	County_Government_Structure				
 County_Structure	COUNTY_DATA	Structure_Subgroup				
@@ -51,6 +52,8 @@ Geography	COUNTY_DATA	Coastal_Body_of_Water	Geography	Land & Water Area	Body of 
 Geography	COUNTY_DATA	Total_Square_Miles_GEODATA	Geography	County Profile	County Square Mileage	
 Geography	COUNTY_DATA	Census_Region	Geography	County Profile	Census Region	
 Geography	COUNTY_DATA	State_Capital	Geography	County Profile	State Capitol	
+Geography	COUNTY_DATA	CBSA_Code	Geography	County Profile	CBSA Code	
+Geography	COUNTY_DATA	CBSA_Title	Geography	County Profile	CBSA Title	
 Geography	COUNTY_DATA	CBSA_Name				
 Geography	COUNTY_DATA	CBSA_Code	Geography	Metro-Micro Areas (MSA)	CBSA Code	
 Geography	COUNTY_DATA	CBSA_Title	Geography	Metro-Micro Areas (MSA)	CBSA Title	
@@ -341,7 +344,7 @@ Health_Hospitals	Health_Hospitals	Nursing_Home_Number_of_Special_Focus_Facilitie
 Housing_Community_Development	Housing_Community_Development	KEYID	Housing & Community Development			
 Housing_Community_Development	Housing_Community_Development	FIPS	Housing & Community Development			
 Housing_Community_Development	Housing_Community_Development	DATA_YEAR	Housing & Community Development			
-Housing_Community_Development	Housing_Community_Development	Population	Housing & Community Development			
+Housing_Community_Development	Housing_Community_Development	Population	Housing & Community Development	Housing Units	Population	
 Housing_Community_Development	Housing_Community_Development	Population_Size	Housing & Community Development			
 Housing_Community_Development	Housing_Community_Development	HCD_TOTAL_COUNTY_FTE	Housing & Community Development	Housing & Community Development Employment	Total	
 Housing_Community_Development	Housing_Community_Development	Housing_Units	Housing & Community Development	Housing Units	Number of Housing Units	
