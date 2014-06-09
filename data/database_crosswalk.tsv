@@ -1,4 +1,4 @@
-Cat_Name	Cat_Table	Data_Field	Category Name	Dataset Name	Indicator Name	Definition
+db_category	db_dataset	db_indicator	category	dataset	indicator	definition
 Administration	Administration	Admin_Empl_Total_County_FTE	Administration	Administration Employment	Total	
 Administration	Administration	Admin_Empl_Total	Administration	Administration Employment	Total Administration	
 Administration	Administration	Admin_Empl_Financial	Administration	Administration Employment	Financial Administration	
@@ -33,16 +33,16 @@ Administration	Administration	Admin_Rev_Unempoyment_Compensation_System	Administ
 	COUNTY_DATA	Founded	Geography	County Profile	Year Founded	
 	COUNTY_DATA	Board_Size	Geography	County Profile	Board Size	
 	COUNTY_DATA	Gov_Type				
-County_Structure	COUNTY_DATA	County_Government_Structure	County Structure	Government Structure 	County Government Structure 	
-County_Structure	COUNTY_DATA	Structure_Subgroup	County Structure	Government Structure 	Structure Subgroup 	
-County_Structure	COUNTY_DATA	Elected_Executive	County Structure	Government Structure 		
-County_Structure	COUNTY_DATA	Notes	County Structure	Government Structure 	Notes 	
-County_Structure	COUNTY_DATA	County_Administrator	County Structure	Government Structure 		
-County_Structure	COUNTY_DATA	Administrator_title	County Structure	Government Structure 		
-County_Structure	COUNTY_DATA	Region_Code	County Structure	Government Structure 	Region Code	
-County_Structure	COUNTY_DATA	Division_Code	County Structure	Government Structure 	Division Code	
-County_Structure	COUNTY_DATA	Total_Elected_Officials	County Structure	Government Structure 		
-County_Structure	COUNTY_DATA	Total_Other_Elected	County Structure	Government Structure 		
+County_Structure	COUNTY_DATA	County_Government_Structure	County Structure	Government Structure	County Government Structure	
+County_Structure	COUNTY_DATA	Structure_Subgroup	County Structure	Government Structure	Structure Subgroup	
+County_Structure	COUNTY_DATA	Elected_Executive	County Structure	Government Structure		
+County_Structure	COUNTY_DATA	Notes	County Structure	Government Structure	Notes	
+County_Structure	COUNTY_DATA	County_Administrator	County Structure	Government Structure		
+County_Structure	COUNTY_DATA	Administrator_title	County Structure	Government Structure		
+County_Structure	COUNTY_DATA	Region_Code	County Structure	Government Structure	Region Code	
+County_Structure	COUNTY_DATA	Division_Code	County Structure	Government Structure	Division Code	
+County_Structure	COUNTY_DATA	Total_Elected_Officials	County Structure	Government Structure		
+County_Structure	COUNTY_DATA	Total_Other_Elected	County Structure	Government Structure		
 Geography	COUNTY_DATA	Total_Square_Miles	Geography	Land & Water Area	Total Square Miles	
 Geography	COUNTY_DATA	Total_Land_Square_Miles	Geography	Land & Water Area	Total Land Square Miles	
 Geography	COUNTY_DATA	Total_Water_Square_Miles	Geography	Land & Water Area	Total Water Square Miles	
@@ -51,13 +51,13 @@ Geography	COUNTY_DATA	Coastal_Body_of_Water	Geography	Land & Water Area	Body of 
 Geography	COUNTY_DATA	Total_Square_Miles_GEODATA	Geography	Land & Water Area		
 Geography	COUNTY_DATA	Census_Region	Geography	Land & Water Area		
 Geography	COUNTY_DATA	State_Capital	Geography	Land & Water Area		
-Geography	COUNTY_DATA	CBSA_Name	Geography	Metro-Micro Areas (MSA) 		
-Geography	COUNTY_DATA	CBSA_Code	Geography	Metro-Micro Areas (MSA) 	CBSA Code	
-Geography	COUNTY_DATA	CBSA_Title	Geography	Metro-Micro Areas (MSA) 	CBSA Title	
-Geography	COUNTY_DATA	CBSA_Level	Geography	Metro-Micro Areas (MSA) 	Level of CBSA	
-Geography	COUNTY_DATA	CSA_Code	Geography	Metro-Micro Areas (MSA) 	CSA Code	
-Geography	COUNTY_DATA	CSA_Title	Geography	Metro-Micro Areas (MSA) 	CSA Title	
-Geography	COUNTY_DATA	County_Status	Geography	Metro-Micro Areas (MSA) 	County Status	
+Geography	COUNTY_DATA	CBSA_Name	Geography	Metro-Micro Areas (MSA)		
+Geography	COUNTY_DATA	CBSA_Code	Geography	Metro-Micro Areas (MSA)	CBSA Code	
+Geography	COUNTY_DATA	CBSA_Title	Geography	Metro-Micro Areas (MSA)	CBSA Title	
+Geography	COUNTY_DATA	CBSA_Level	Geography	Metro-Micro Areas (MSA)	Level of CBSA	
+Geography	COUNTY_DATA	CSA_Code	Geography	Metro-Micro Areas (MSA)	CSA Code	
+Geography	COUNTY_DATA	CSA_Title	Geography	Metro-Micro Areas (MSA)	CSA Title	
+Geography	COUNTY_DATA	County_Status	Geography	Metro-Micro Areas (MSA)	County Status	
 County_Employment	County_Employment	KEYID	County Employment			
 County_Employment	County_Employment	FIPS	County Employment			
 County_Employment	County_Employment	DATA_YEAR	County Employment			
@@ -382,236 +382,236 @@ Justice_Public_Safety	Justice_Public_Safety	Expenditure_Construction_in_T	Justic
 Justice_Public_Safety	Justice_Public_Safety	Expenditure_Capital_Outlay_in_T	Justice & Public Safety	Justice & Public Safety Expenditures	Other Capital Outlay	
 Justice_Public_Safety	Justice_Public_Safety	Expenditure_Intergovernmental_to_State_in_T	Justice & Public Safety	Justice & Public Safety Expenditures	Intergovernmental to State	
 Justice_Public_Safety	Justice_Public_Safety	Expenditure_Intergovernmental_to_Local_in_T	Justice & Public Safety	Justice & Public Safety Expenditures	Intergovernmental to Local	
-Justice_Public_Safety	Justice_Public_Safety	Demographics_Total_Jail_Population	Justice & Public Safety			
-Justice_Public_Safety	Justice_Public_Safety	Demographics_Adult_Males	Justice & Public Safety			
-Justice_Public_Safety	Justice_Public_Safety	Demographics_Adult_Females	Justice & Public Safety			
-Justice_Public_Safety	Justice_Public_Safety	Demographics_Total_Juveniles	Justice & Public Safety			
-Justice_Public_Safety	Justice_Public_Safety	Demographics_Total_Convicted	Justice & Public Safety			
-Justice_Public_Safety	Justice_Public_Safety	Demographics_Total_Unconvicted	Justice & Public Safety			
-Justice_Public_Safety	Justice_Public_Safety	Demographics_White	Justice & Public Safety			
-Justice_Public_Safety	Justice_Public_Safety	Demographics_Black_or_African_American	Justice & Public Safety			
-Justice_Public_Safety	Justice_Public_Safety	Demographics_Hispanic	Justice & Public Safety			
-Justice_Public_Safety	Justice_Public_Safety	Demographics_American_Indian_or_Alaska_Native	Justice & Public Safety			
-Justice_Public_Safety	Justice_Public_Safety	Demographics_Asian	Justice & Public Safety			
-Justice_Public_Safety	Justice_Public_Safety	Demographics_Native_Hawaiin_or_Pacific_Islander	Justice & Public Safety			
-Justice_Public_Safety	Justice_Public_Safety	Demographics_Two_or_More_Races	Justice & Public Safety			
-Justice_Public_Safety	Justice_Public_Safety	Demographics_Other_Inmate_Races	Justice & Public Safety			
-Justice_Public_Safety	Justice_Public_Safety	Demographics_Race_not_Known	Justice & Public Safety			
-Justice_Public_Safety	Justice_Public_Safety	CS_Total_Jail_Population	Justice & Public Safety			
-Justice_Public_Safety	Justice_Public_Safety	CS_Capacity	Justice & Public Safety			
-Justice_Public_Safety	Justice_Public_Safety	CS_Confined_Persons	Justice & Public Safety			
-Justice_Public_Safety	Justice_Public_Safety	CS_Non_confined_Persons	Justice & Public Safety			
-Justice_Public_Safety	Justice_Public_Safety	CS_Electronic_Monitoring_Program	Justice & Public Safety			
-Justice_Public_Safety	Justice_Public_Safety	CS_Home_Detention	Justice & Public Safety			
-Justice_Public_Safety	Justice_Public_Safety	CS_Community_Service	Justice & Public Safety			
-Justice_Public_Safety	Justice_Public_Safety	CS_Day_Reporting	Justice & Public Safety			
-Justice_Public_Safety	Justice_Public_Safety	CS_Other_Pretrial_Supervision	Justice & Public Safety			
-Justice_Public_Safety	Justice_Public_Safety	CS_Other_Alternative_Work_Programs	Justice & Public Safety			
-Justice_Public_Safety	Justice_Public_Safety	CS_Alcohol_Drug_Treatment_Programs	Justice & Public Safety			
-Justice_Public_Safety	Justice_Public_Safety	CS_Other_Nonconfined_Programs	Justice & Public Safety			
-Justice_Public_Safety	Justice_Public_Safety	Supervised_Total_Jail_Population	Justice & Public Safety			
-Justice_Public_Safety	Justice_Public_Safety	Supervised_Jail_Capacity	Justice & Public Safety			
-Justice_Public_Safety	Justice_Public_Safety	Supervised_Confined_Persons	Justice & Public Safety			
-Justice_Public_Safety	Justice_Public_Safety	Supervised_Non_confined_Persons	Justice & Public Safety			
-Justice_Public_Safety	Justice_Public_Safety	Supervised_Non_US__Citizens	Justice & Public Safety			
-Justice_Public_Safety	Justice_Public_Safety	Supervised_Number_of_Weekenders	Justice & Public Safety			
-Justice_Public_Safety	Justice_Public_Safety	Supervised_Ave_Daily_Population	Justice & Public Safety			
-Justice_Public_Safety	Justice_Public_Safety	SPbA_Total_Jail_Population	Justice & Public Safety			
-Justice_Public_Safety	Justice_Public_Safety	SPbA_Jail_Capacity	Justice & Public Safety			
-Justice_Public_Safety	Justice_Public_Safety	SPbA_Held_for_US_Marshall	Justice & Public Safety			
-Justice_Public_Safety	Justice_Public_Safety	SPbA_Held_for_Federal_Bureau_of_Prisons	Justice & Public Safety			
-Justice_Public_Safety	Justice_Public_Safety	SPbA_Held_for_Immigration_and_Customs	Justice & Public Safety			
-Justice_Public_Safety	Justice_Public_Safety	SPbA_Held_for_Bureau_of_Indian_Affairs	Justice & Public Safety			
-Justice_Public_Safety	Justice_Public_Safety	SPbA_Held_for_Other_Federal_Authorities	Justice & Public Safety			
-Justice_Public_Safety	Justice_Public_Safety	SPbA_Held_for_own_state	Justice & Public Safety			
-Justice_Public_Safety	Justice_Public_Safety	SPbA_Held_for_other_states	Justice & Public Safety			
-Justice_Public_Safety	Justice_Public_Safety	SPbA_Held_for_Local_Jurisdiction_in_State	Justice & Public Safety			
-Justice_Public_Safety	Justice_Public_Safety	SPbA_Held_for_Local_Jurisdiction_Outside_State	Justice & Public Safety			
-Justice_Public_Safety	Justice_Public_Safety	PBS_Elected_Sheriff	Justice & Public Safety			
-Justice_Public_Safety	Justice_Public_Safety	PBS_County_Funded_Sheriff_Dept	Justice & Public Safety			
-Justice_Public_Safety	Justice_Public_Safety	PBS_County_Operated_Sheriff_Dept	Justice & Public Safety			
-Justice_Public_Safety	Justice_Public_Safety	PBS_Elected_Police_Chief	Justice & Public Safety			
-Justice_Public_Safety	Justice_Public_Safety	PBS_County_Funded_Police_Dept	Justice & Public Safety			
-Justice_Public_Safety	Justice_Public_Safety	PBS_County_Operated_Police_Dept	Justice & Public Safety			
-Justice_Public_Safety	Justice_Public_Safety	PBS_County_Funded_Jails	Justice & Public Safety			
-Justice_Public_Safety	Justice_Public_Safety	PBS_County_Operated_Jails	Justice & Public Safety			
-Justice_Public_Safety	Justice_Public_Safety	PBS_County_Funded_Courts_Salaries	Justice & Public Safety			
-Justice_Public_Safety	Justice_Public_Safety	PBS_County_Funded_Courts_Buildings_or_Real_Property	Justice & Public Safety			
-Justice_Public_Safety	Justice_Public_Safety	PBS_County_Funded_Courts_General_Operating_Expenses	Justice & Public Safety			
-Justice_Public_Safety	Justice_Public_Safety	PBS_County_Operated_Courts	Justice & Public Safety			
-Justice_Public_Safety	Justice_Public_Safety	PBS_Elected_Judges	Justice & Public Safety			
-Justice_Public_Safety	Justice_Public_Safety	PBS_Elected_Clerks_of_Court	Justice & Public Safety			
-Justice_Public_Safety	Justice_Public_Safety	PBS_Elected_District_Attorney	Justice & Public Safety			
-Public_Amenity	Public_Amenity	KEYID	Public_Amenity			
-Public_Amenity	Public_Amenity	FIPS	Public_Amenity			
-Public_Amenity	Public_Amenity	DATA_YEAR	Public_Amenity			
-Public_Amenity	Public_Amenity	Number_of_Libraries	Public_Amenity			
-Public_Amenity	Public_Amenity	Library_Number_of_Central_Service_Outlets	Public_Amenity			
-Public_Amenity	Public_Amenity	Library_Number_of_Branches	Public_Amenity			
-Public_Amenity	Public_Amenity	Library_Number_of_Bookmobiles	Public_Amenity			
-Public_Amenity	Public_Amenity	Library_Population_of_Local_Service_Area	Public_Amenity			
-Public_Amenity	Public_Amenity	Library_Full_Time_Librarians	Public_Amenity			
-Public_Amenity	Public_Amenity	Library_Total_FTE_Staff	Public_Amenity			
-Public_Amenity	Public_Amenity	Library_Annual_Hours_All_Outlets	Public_Amenity			
-Public_Amenity	Public_Amenity	Library_Total_Operating_Revenue	Public_Amenity			
-Public_Amenity	Public_Amenity	Library_Operating_Revenue_from_Local_Government	Public_Amenity			
-Public_Amenity	Public_Amenity	Library_Operating_Revenue_from_State_Government	Public_Amenity			
-Public_Amenity	Public_Amenity	Library_Operating_Revenue_from_Federal_Government	Public_Amenity			
-Public_Amenity	Public_Amenity	Library_Other_Operating_Revenue	Public_Amenity			
-Public_Amenity	Public_Amenity	Library_Total_Operating_Expenditures	Public_Amenity			
-Public_Amenity	Public_Amenity	Library_Operating_Expenditures_Salaries_and_Benefits	Public_Amenity			
-Public_Amenity	Public_Amenity	Library_Operating_Expenditures_Library_Collections	Public_Amenity			
-Public_Amenity	Public_Amenity	Library_Other_Operating_Expenditures	Public_Amenity			
-Public_Amenity	Public_Amenity	Library_Total_Capital_Revenues	Public_Amenity			
-Public_Amenity	Public_Amenity	Library_Total_Capital_Expenditures	Public_Amenity			
-Public_Amenity	Public_Amenity	Library_Collections_Print_Materials	Public_Amenity			
-Public_Amenity	Public_Amenity	Library_Collections_Electronic_Books	Public_Amenity			
-Public_Amenity	Public_Amenity	Library_Collections_Audio	Public_Amenity			
-Public_Amenity	Public_Amenity	Library_Collections_Video	Public_Amenity			
-Public_Amenity	Public_Amenity	Library_Total_Annual_Visits	Public_Amenity			
-Public_Amenity	Public_Amenity	Library_Total_Annual_Circulation	Public_Amenity			
-Public_Amenity	Public_Amenity	Library_Number_of_Computers_Available	Public_Amenity			
-Public_Amenity	Public_Amenity	Library_Number_of_Computer_Users	Public_Amenity			
-Public_Amenity	Public_Amenity	Library_Licensed_Databases	Public_Amenity			
-Public_Amenity	Public_Amenity	Library_Registered_Borrowers	Public_Amenity			
-Public_Amenity	Public_Amenity	Library_Total_Programs	Public_Amenity			
-Public_Amenity	Public_Amenity	CAS_Expd_Total_Expenditure	Public_Amenity			
-Public_Amenity	Public_Amenity	CAS_Expd_Total_Public_Amenity_Expenditure	Public_Amenity			
-Public_Amenity	Public_Amenity	CAS_Expd_Libraries	Public_Amenity			
-Public_Amenity	Public_Amenity	CAS_Expd_Natural_Resources	Public_Amenity			
-Public_Amenity	Public_Amenity	CAS_Expd_Parks_Recreation	Public_Amenity			
-Public_Amenity	Public_Amenity	CAS_Expd_Current_Operation	Public_Amenity			
-Public_Amenity	Public_Amenity	CAS_Expd_Construction	Public_Amenity			
-Public_Amenity	Public_Amenity	CAS_Expd_Capital_Outlay	Public_Amenity			
-Public_Amenity	Public_Amenity	CAS_Expd_Intergovernmental_to_State	Public_Amenity			
-Public_Amenity	Public_Amenity	CAS_Expd_Intergovernmental_to_Local	Public_Amenity			
-Public_Amenity	Public_Amenity	PAE_Empl_TOTAL_COUNTY_FTE	Public_Amenity			
-Public_Amenity	Public_Amenity	PAE_Empl_Total_Public_Amenity	Public_Amenity			
-Public_Amenity	Public_Amenity	PAE_Empl_Local_Libraries	Public_Amenity			
-Public_Amenity	Public_Amenity	PAE_Empl_Natural_Resources	Public_Amenity			
-Public_Amenity	Public_Amenity	PAE_Empl_Parks_Recreation	Public_Amenity			
-Public_Welfare	Public_Welfare	KEYID	Public_Welfare			
-Public_Welfare	Public_Welfare	FIPS	Public_Welfare			
-Public_Welfare	Public_Welfare	DATA_YEAR	Public_Welfare			
-Public_Welfare	Public_Welfare	PW_Empl_TOTAL_COUNTY_FTE	Public_Welfare			
-Public_Welfare	Public_Welfare	PW_Empl_FTE	Public_Welfare			
-Public_Welfare	Public_Welfare	PW_Expd_Total_Expenditure	Public_Welfare			
-Public_Welfare	Public_Welfare	PW_Expd_Cash_Assistance	Public_Welfare			
-Public_Welfare	Public_Welfare	PW_Expd_Vendor_Payments	Public_Welfare			
-Public_Welfare	Public_Welfare	PW_Expd_Other	Public_Welfare			
-Public_Welfare	Public_Welfare	PW_Expd_Current_Operation	Public_Welfare			
-Public_Welfare	Public_Welfare	PW_Expd_Construction	Public_Welfare			
-Public_Welfare	Public_Welfare	PW_Expd_Capital_Outlay	Public_Welfare			
-Public_Welfare	Public_Welfare	PW_Expd_Assistance_Subsidies	Public_Welfare			
-Public_Welfare	Public_Welfare	PW_Expd_Intergovernmental_to_State	Public_Welfare			
-Public_Welfare	Public_Welfare	PW_Expd_Intergovernmental_to_Local	Public_Welfare			
+Justice_Public_Safety	Justice_Public_Safety	Demographics_Total_Jail_Population	Justice & Public Safety	Jails - Inmate Demographics	Total Jail Population	
+Justice_Public_Safety	Justice_Public_Safety	Demographics_Adult_Males	Justice & Public Safety	Jails - Inmate Demographics	Adult Males	
+Justice_Public_Safety	Justice_Public_Safety	Demographics_Adult_Females	Justice & Public Safety	Jails - Inmate Demographics	Adult Females	
+Justice_Public_Safety	Justice_Public_Safety	Demographics_Total_Juveniles	Justice & Public Safety	Jails - Inmate Demographics	Total Juveniles	
+Justice_Public_Safety	Justice_Public_Safety	Demographics_Total_Convicted	Justice & Public Safety	Jails - Inmate Demographics	Total Convicted	
+Justice_Public_Safety	Justice_Public_Safety	Demographics_Total_Unconvicted	Justice & Public Safety	Jails - Inmate Demographics	Total Unconvicted	
+Justice_Public_Safety	Justice_Public_Safety	Demographics_White	Justice & Public Safety	Jails - Inmate Demographics	White	
+Justice_Public_Safety	Justice_Public_Safety	Demographics_Black_or_African_American	Justice & Public Safety	Jails - Inmate Demographics	Black or African American	
+Justice_Public_Safety	Justice_Public_Safety	Demographics_Hispanic	Justice & Public Safety	Jails - Inmate Demographics	Hispanic or Latino	
+Justice_Public_Safety	Justice_Public_Safety	Demographics_American_Indian_or_Alaska_Native	Justice & Public Safety	Jails - Inmate Demographics	American Indian or Alaska Native	
+Justice_Public_Safety	Justice_Public_Safety	Demographics_Asian	Justice & Public Safety	Jails - Inmate Demographics	Asian	
+Justice_Public_Safety	Justice_Public_Safety	Demographics_Native_Hawaiin_or_Pacific_Islander	Justice & Public Safety	Jails - Inmate Demographics	Native Hawaiian or Other Pacific Islander	
+Justice_Public_Safety	Justice_Public_Safety	Demographics_Two_or_More_Races	Justice & Public Safety	Jails - Inmate Demographics	Two or More Races	
+Justice_Public_Safety	Justice_Public_Safety	Demographics_Other_Inmate_Races	Justice & Public Safety	Jails - Inmate Demographics	Other Inmate Races	
+Justice_Public_Safety	Justice_Public_Safety	Demographics_Race_not_Known	Justice & Public Safety	Jails - Inmate Demographics	Race Not Known	
+Justice_Public_Safety	Justice_Public_Safety	CS_Total_Jail_Population	Justice & Public Safety	Jails - Community Supervision	Total Jail Population	
+Justice_Public_Safety	Justice_Public_Safety	CS_Capacity	Justice & Public Safety	Jails - Community Supervision	Jail Capacity	
+Justice_Public_Safety	Justice_Public_Safety	CS_Confined_Persons	Justice & Public Safety	Jails - Community Supervision	Confined Persons	
+Justice_Public_Safety	Justice_Public_Safety	CS_Non_confined_Persons	Justice & Public Safety	Jails - Community Supervision	Nonconfined Persons	
+Justice_Public_Safety	Justice_Public_Safety	CS_Electronic_Monitoring_Program	Justice & Public Safety	Jails - Community Supervision	Electronic Monitoring Program	
+Justice_Public_Safety	Justice_Public_Safety	CS_Home_Detention	Justice & Public Safety	Jails - Community Supervision	Home Detention	
+Justice_Public_Safety	Justice_Public_Safety	CS_Community_Service	Justice & Public Safety	Jails - Community Supervision	Community Service	
+Justice_Public_Safety	Justice_Public_Safety	CS_Day_Reporting	Justice & Public Safety	Jails - Community Supervision	Day Reporting	
+Justice_Public_Safety	Justice_Public_Safety	CS_Other_Pretrial_Supervision	Justice & Public Safety	Jails - Community Supervision	Other Pretrial Supervision	
+Justice_Public_Safety	Justice_Public_Safety	CS_Other_Alternative_Work_Programs	Justice & Public Safety	Jails - Community Supervision	Other Alternative Work Programs	
+Justice_Public_Safety	Justice_Public_Safety	CS_Alcohol_Drug_Treatment_Programs	Justice & Public Safety	Jails - Community Supervision	Alcohol/Drug Treatment Programs	
+Justice_Public_Safety	Justice_Public_Safety	CS_Other_Nonconfined_Programs	Justice & Public Safety	Jails - Community Supervision	Other Nonconfined Programs	
+Justice_Public_Safety	Justice_Public_Safety	Supervised_Total_Jail_Population	Justice & Public Safety	Jails - Supervised Population	Total Jail Population	
+Justice_Public_Safety	Justice_Public_Safety	Supervised_Jail_Capacity	Justice & Public Safety	Jails - Supervised Population	Jail Capacity	
+Justice_Public_Safety	Justice_Public_Safety	Supervised_Confined_Persons	Justice & Public Safety	Jails - Supervised Population	Confined Persons	
+Justice_Public_Safety	Justice_Public_Safety	Supervised_Non_confined_Persons	Justice & Public Safety	Jails - Supervised Population	Nonconfined Persons	
+Justice_Public_Safety	Justice_Public_Safety	Supervised_Non_US__Citizens	Justice & Public Safety	Jails - Supervised Population	Non US Citizens	
+Justice_Public_Safety	Justice_Public_Safety	Supervised_Number_of_Weekenders	Justice & Public Safety	Jails - Supervised Population	Weekenders	
+Justice_Public_Safety	Justice_Public_Safety	Supervised_Ave_Daily_Population	Justice & Public Safety	Jails - Supervised Population	Average Daily Population	
+Justice_Public_Safety	Justice_Public_Safety	SPbA_Total_Jail_Population	Justice & Public Safety	Jails - Supervised Population by Agency	Total Jail Population	
+Justice_Public_Safety	Justice_Public_Safety	SPbA_Jail_Capacity	Justice & Public Safety	Jails - Supervised Population by Agency	Jail Capacity	
+Justice_Public_Safety	Justice_Public_Safety	SPbA_Held_for_US_Marshall	Justice & Public Safety	Jails - Supervised Population by Agency	Held for US Marshal's Service	
+Justice_Public_Safety	Justice_Public_Safety	SPbA_Held_for_Federal_Bureau_of_Prisons	Justice & Public Safety	Jails - Supervised Population by Agency	Held for Federal Bureau of Prisons	
+Justice_Public_Safety	Justice_Public_Safety	SPbA_Held_for_Immigration_and_Customs	Justice & Public Safety	Jails - Supervised Population by Agency	Held for Immigration and Customs	
+Justice_Public_Safety	Justice_Public_Safety	SPbA_Held_for_Bureau_of_Indian_Affairs	Justice & Public Safety	Jails - Supervised Population by Agency	Held for Bureau of Indian Affairs	
+Justice_Public_Safety	Justice_Public_Safety	SPbA_Held_for_Other_Federal_Authorities	Justice & Public Safety	Jails - Supervised Population by Agency	Held for Other Federal Authorities	
+Justice_Public_Safety	Justice_Public_Safety	SPbA_Held_for_own_state	Justice & Public Safety	Jails - Supervised Population by Agency	Held for Own State	
+Justice_Public_Safety	Justice_Public_Safety	SPbA_Held_for_other_states	Justice & Public Safety	Jails - Supervised Population by Agency	Held for Other State	
+Justice_Public_Safety	Justice_Public_Safety	SPbA_Held_for_Local_Jurisdiction_in_State	Justice & Public Safety	Jails - Supervised Population by Agency	Held for Local Jurisdiction in State	
+Justice_Public_Safety	Justice_Public_Safety	SPbA_Held_for_Local_Jurisdiction_Outside_State	Justice & Public Safety	Jails - Supervised Population by Agency	Held for Local Jurisdiction outside the State	
+Justice_Public_Safety	Justice_Public_Safety	PBS_Elected_Sheriff	Justice & Public Safety	Public Safety Structure	Elected Sheriff	
+Justice_Public_Safety	Justice_Public_Safety	PBS_County_Funded_Sheriff_Dept	Justice & Public Safety	Public Safety Structure	County Funded Sheriff Department	
+Justice_Public_Safety	Justice_Public_Safety	PBS_County_Operated_Sheriff_Dept	Justice & Public Safety	Public Safety Structure	County Operated Sheriff Department	
+Justice_Public_Safety	Justice_Public_Safety	PBS_Elected_Police_Chief	Justice & Public Safety	Public Safety Structure	Elected Police Chief	
+Justice_Public_Safety	Justice_Public_Safety	PBS_County_Funded_Police_Dept	Justice & Public Safety	Public Safety Structure	County Funded Police Department	
+Justice_Public_Safety	Justice_Public_Safety	PBS_County_Operated_Police_Dept	Justice & Public Safety	Public Safety Structure	County Operated Police Department	
+Justice_Public_Safety	Justice_Public_Safety	PBS_County_Funded_Jails	Justice & Public Safety	Public Safety Structure	County Funded Jails	
+Justice_Public_Safety	Justice_Public_Safety	PBS_County_Operated_Jails	Justice & Public Safety	Public Safety Structure	County Operated Jails	
+Justice_Public_Safety	Justice_Public_Safety	PBS_County_Funded_Courts_Salaries	Justice & Public Safety	Public Safety Structure	County Funded Courts - Salaries	
+Justice_Public_Safety	Justice_Public_Safety	PBS_County_Funded_Courts_Buildings_or_Real_Property	Justice & Public Safety	Public Safety Structure	County Funded Courts - Building/Real Property	
+Justice_Public_Safety	Justice_Public_Safety	PBS_County_Funded_Courts_General_Operating_Expenses	Justice & Public Safety	Public Safety Structure	County Funded Courts - General Operating Expenses	
+Justice_Public_Safety	Justice_Public_Safety	PBS_County_Operated_Courts	Justice & Public Safety	Public Safety Structure	County Operated Courts	
+Justice_Public_Safety	Justice_Public_Safety	PBS_Elected_Judges	Justice & Public Safety	Public Safety Structure	Elected Judges	
+Justice_Public_Safety	Justice_Public_Safety	PBS_Elected_Clerks_of_Court	Justice & Public Safety	Public Safety Structure	Elected Clerks of Court	
+Justice_Public_Safety	Justice_Public_Safety	PBS_Elected_District_Attorney	Justice & Public Safety	Public Safety Structure	Elected District Attorney	
+Public_Amenity	Public_Amenity	KEYID	Public Amenity			
+Public_Amenity	Public_Amenity	FIPS	Public Amenity			
+Public_Amenity	Public_Amenity	DATA_YEAR	Public Amenity			
+Public_Amenity	Public_Amenity	Number_of_Libraries	Public Amenity	Libraries		
+Public_Amenity	Public_Amenity	Library_Number_of_Central_Service_Outlets	Public Amenity	Libraries	Number of Central Service Outlets	
+Public_Amenity	Public_Amenity	Library_Number_of_Branches	Public Amenity	Libraries	Number of Branches	
+Public_Amenity	Public_Amenity	Library_Number_of_Bookmobiles	Public Amenity	Libraries	Number of Bookmobiles	
+Public_Amenity	Public_Amenity	Library_Population_of_Local_Service_Area	Public Amenity	Libraries	Population of Local Service Area	
+Public_Amenity	Public_Amenity	Library_Full_Time_Librarians	Public Amenity	Libraries	Full Time Librarians	
+Public_Amenity	Public_Amenity	Library_Total_FTE_Staff	Public Amenity	Libraries	Total FTE Staff	
+Public_Amenity	Public_Amenity	Library_Annual_Hours_All_Outlets	Public Amenity	Libraries	Annual Hours - All Outlets	
+Public_Amenity	Public_Amenity	Library_Total_Operating_Revenue	Public Amenity	Libraries	Total Operating Revenue	
+Public_Amenity	Public_Amenity	Library_Operating_Revenue_from_Local_Government	Public Amenity	Libraries	Operating Revenue from Local Government	
+Public_Amenity	Public_Amenity	Library_Operating_Revenue_from_State_Government	Public Amenity	Libraries	Operating Revenue from State Government	
+Public_Amenity	Public_Amenity	Library_Operating_Revenue_from_Federal_Government	Public Amenity	Libraries	Operating Revenue from Federal Government	
+Public_Amenity	Public_Amenity	Library_Other_Operating_Revenue	Public Amenity	Libraries	Other Operating Revenue	
+Public_Amenity	Public_Amenity	Library_Total_Operating_Expenditures	Public Amenity	Libraries	Total Operating Expenditures	
+Public_Amenity	Public_Amenity	Library_Operating_Expenditures_Salaries_and_Benefits	Public Amenity	Libraries	Operating Expenditures Salaries and Benefits	
+Public_Amenity	Public_Amenity	Library_Operating_Expenditures_Library_Collections	Public Amenity	Libraries	Operating Expenditures Library Collections	
+Public_Amenity	Public_Amenity	Library_Other_Operating_Expenditures	Public Amenity	Libraries	Other Operating Expenditures	
+Public_Amenity	Public_Amenity	Library_Total_Capital_Revenues	Public Amenity	Libraries	Total Capital Revenue	
+Public_Amenity	Public_Amenity	Library_Total_Capital_Expenditures	Public Amenity	Libraries	Total Capital Expenditures	
+Public_Amenity	Public_Amenity	Library_Collections_Print_Materials	Public Amenity	Libraries	Library Collections - Number of Print Materials	
+Public_Amenity	Public_Amenity	Library_Collections_Electronic_Books	Public Amenity	Libraries	Library Collections - Number of Electronic Books	
+Public_Amenity	Public_Amenity	Library_Collections_Audio	Public Amenity	Libraries	Library Collections - Number of Audio Materials	
+Public_Amenity	Public_Amenity	Library_Collections_Video	Public Amenity	Libraries	Library Collections - Number of Video Materials	
+Public_Amenity	Public_Amenity	Library_Total_Annual_Visits	Public Amenity	Libraries	Total Annual Visits	
+Public_Amenity	Public_Amenity	Library_Total_Annual_Circulation	Public Amenity	Libraries	Total Annual Circulation	
+Public_Amenity	Public_Amenity	Library_Number_of_Computers_Available	Public Amenity	Libraries	Number of Computers Available	
+Public_Amenity	Public_Amenity	Library_Number_of_Computer_Users	Public Amenity	Libraries	Number of Computer Users	
+Public_Amenity	Public_Amenity	Library_Licensed_Databases	Public Amenity	Libraries	Number of Licensed Databases	
+Public_Amenity	Public_Amenity	Library_Registered_Borrowers	Public Amenity	Libraries	Registered Borrowers	
+Public_Amenity	Public_Amenity	Library_Total_Programs	Public Amenity	Libraries	Total Programs	
+Public_Amenity	Public_Amenity	CAS_Expd_Total_Expenditure	Public Amenity	Public Amenity Expenditures	Total	
+Public_Amenity	Public_Amenity	CAS_Expd_Total_Public_Amenity_Expenditure	Public Amenity	Public Amenity Expenditures	Total Public Amenity	
+Public_Amenity	Public_Amenity	CAS_Expd_Libraries	Public Amenity	Public Amenity Expenditures	Libraries	
+Public_Amenity	Public_Amenity	CAS_Expd_Natural_Resources	Public Amenity	Public Amenity Expenditures	Natural Resources	
+Public_Amenity	Public_Amenity	CAS_Expd_Parks_Recreation	Public Amenity	Public Amenity Expenditures	Parks & Recreation	
+Public_Amenity	Public_Amenity	CAS_Expd_Current_Operation	Public Amenity	Public Amenity Expenditures	Current Operations	
+Public_Amenity	Public_Amenity	CAS_Expd_Construction	Public Amenity	Public Amenity Expenditures	Construction	
+Public_Amenity	Public_Amenity	CAS_Expd_Capital_Outlay	Public Amenity	Public Amenity Expenditures	Other Capital Outlay	
+Public_Amenity	Public_Amenity	CAS_Expd_Intergovernmental_to_State	Public Amenity	Public Amenity Expenditures	Intergovernmental to State	
+Public_Amenity	Public_Amenity	CAS_Expd_Intergovernmental_to_Local	Public Amenity	Public Amenity Expenditures	Intergovernmental to Local	
+Public_Amenity	Public_Amenity	PAE_Empl_TOTAL_COUNTY_FTE	Public Amenity	Public Amenity Employment	Total	
+Public_Amenity	Public_Amenity	PAE_Empl_Total_Public_Amenity	Public Amenity	Public Amenity Employment	Total Public Amenity	
+Public_Amenity	Public_Amenity	PAE_Empl_Local_Libraries	Public Amenity	Public Amenity Employment	Libraries	
+Public_Amenity	Public_Amenity	PAE_Empl_Natural_Resources	Public Amenity	Public Amenity Employment	Natural Resources	
+Public_Amenity	Public_Amenity	PAE_Empl_Parks_Recreation	Public Amenity	Public Amenity Employment	Parks & Recreation	
+Public_Welfare	Public_Welfare	KEYID	Public Welfare			
+Public_Welfare	Public_Welfare	FIPS	Public Welfare			
+Public_Welfare	Public_Welfare	DATA_YEAR	Public Welfare			
+Public_Welfare	Public_Welfare	PW_Empl_TOTAL_COUNTY_FTE	Public Welfare	Public Welfare Employment	Total	
+Public_Welfare	Public_Welfare	PW_Empl_FTE	Public Welfare	Public Welfare Employment	Public Welfare	
+Public_Welfare	Public_Welfare	PW_Expd_Total_Expenditure	Public Welfare	Public Welfare Expenditures		
+Public_Welfare	Public_Welfare	PW_Expd_Cash_Assistance	Public Welfare	Public Welfare Expenditures	Cash Assistance	
+Public_Welfare	Public_Welfare	PW_Expd_Vendor_Payments	Public Welfare	Public Welfare Expenditures	Vendor Payments	
+Public_Welfare	Public_Welfare	PW_Expd_Other	Public Welfare	Public Welfare Expenditures	Other Public Welfare	
+Public_Welfare	Public_Welfare	PW_Expd_Current_Operation	Public Welfare	Public Welfare Expenditures	Current Operations	
+Public_Welfare	Public_Welfare	PW_Expd_Construction	Public Welfare	Public Welfare Expenditures	Construction	
+Public_Welfare	Public_Welfare	PW_Expd_Capital_Outlay	Public Welfare	Public Welfare Expenditures	Other Capital Outlay	
+Public_Welfare	Public_Welfare	PW_Expd_Assistance_Subsidies	Public Welfare	Public Welfare Expenditures	Assistance & Subsidies	
+Public_Welfare	Public_Welfare	PW_Expd_Intergovernmental_to_State	Public Welfare	Public Welfare Expenditures	Intergovernmental to State	
+Public_Welfare	Public_Welfare	PW_Expd_Intergovernmental_to_Local	Public Welfare	Public Welfare Expenditures	Intergovernmental to Local	
 Transportation	Transportation	FIPS	Transportation			
 Transportation	Transportation	DATA_YEAR	Transportation			
-Transportation	Transportation	Number_of_Airports	Transportation			
-Transportation	Transportation	Number_of_Publicly_Owned_Airports	Transportation			
-Transportation	Transportation	Number_of_Privately_Owned_Airports	Transportation			
-Transportation	Transportation	Number_of_Military_Owned_Airports	Transportation			
-Transportation	Transportation	RO_Total_Public_Road_Miles	Transportation			
-Transportation	Transportation	RO_State_Highway_Agency_Road_Miles	Transportation			
-Transportation	Transportation	RO_County_Highway_Agency_Road_Miles	Transportation			
-Transportation	Transportation	RO_Town_Highway_Agency_Road_Miles	Transportation			
-Transportation	Transportation	RO_City_Highway_Agency_Road_Miles	Transportation			
-Transportation	Transportation	RO_Federal_Highway_Agency_Road_Miles	Transportation			
-Transportation	Transportation	RO_Privately_Owned_Road_Miles	Transportation			
-Transportation	Transportation	RO_Other_Public_Instrumentality_Road_Miles	Transportation			
-Transportation	Transportation	RO_Indian_Tribe_Nation_Road_Miles	Transportation			
-Transportation	Transportation	RO_Other_State_Agency_Road_Miles	Transportation			
-Transportation	Transportation	RO_Other_Local_Agency_Road_Miles	Transportation			
-Transportation	Transportation	RO_Other_Road_Miles	Transportation			
-Transportation	Transportation	RO_County_Land_Square_Miles	Transportation			
-Transportation	Transportation	RO_Total_Road_Miles_per_Square_mile	Transportation			
-Transportation	Transportation	RO_Total_County_Road_Miles_per_Square_mile	Transportation			
-Transportation	Transportation	RO_Share_State_Highway_Agency	Transportation			
-Transportation	Transportation	RO_Share_County_Highway_Agency	Transportation			
-Transportation	Transportation	RO_Share_Town_or_Township_Highway_Agency	Transportation			
-Transportation	Transportation	RO_Share_City_or_Municipal_Highway_Agency	Transportation			
-Transportation	Transportation	RO_Share_Federal_Highway_Agency	Transportation			
-Transportation	Transportation	RO_Share_Othere_State_Agency	Transportation			
-Transportation	Transportation	RO_Share_Other_Local_Agency	Transportation			
-Transportation	Transportation	RO_Share_Other_Road	Transportation			
-Transportation	Transportation	RO_Share_Other_Public_Instrumentality	Transportation			
-Transportation	Transportation	RO_Share_Indian_Tribe_Nation	Transportation			
-Transportation	Transportation	All_Bridges_Total_Bridges	Transportation			
-Transportation	Transportation	All_Bridges_City_Town_wned	Transportation			
-Transportation	Transportation	All_Bridges_County_Owned	Transportation			
-Transportation	Transportation	All_Bridges_Federal_Owned	Transportation			
-Transportation	Transportation	All_Bridges_Local_Owned	Transportation			
-Transportation	Transportation	All_Bridges_Privately_Owned	Transportation			
-Transportation	Transportation	All_Bridges_State_Owned	Transportation			
-Transportation	Transportation	Structurally_Deficient_Bridges_Total_Bridges	Transportation			
-Transportation	Transportation	Structurally_Deficient_Bridges_City_Town_Owned	Transportation			
-Transportation	Transportation	Structurally_Deficient_Bridges_County_Owned	Transportation			
-Transportation	Transportation	Structurally_Deficient_Bridges_Federal_Owned	Transportation			
-Transportation	Transportation	Structurally_Deficient_Bridges_Local_Owned	Transportation			
-Transportation	Transportation	Structurally_Deficient_Bridges_Privately_Owned	Transportation			
-Transportation	Transportation	Structurally_Deficient_Bridges_State_Owned	Transportation			
-Transportation	Transportation	Functionally_Obsolete_Bridges_Total_Bridges	Transportation			
-Transportation	Transportation	Functionally_Obsolete_Bridges_City_Town_Owned	Transportation			
-Transportation	Transportation	Functionally_Obsolete_Bridges_County_Owned	Transportation			
-Transportation	Transportation	Functionally_Obsolete_Bridges_Federal_Owned	Transportation			
-Transportation	Transportation	Functionally_Obsolete_Bridges_Local_Owned	Transportation			
-Transportation	Transportation	Functionally_Obsolete_Bridges_Privately_Owned	Transportation			
-Transportation	Transportation	Functionally_Obsolete_Bridges_State_Owned	Transportation			
-Transportation	Transportation	RC_Total_Public_Road_Miles	Transportation			
-Transportation	Transportation	RC_Interstate_Road_Miles	Transportation			
-Transportation	Transportation	RC_Other_Freeway_Expressway_Road_Miles	Transportation			
-Transportation	Transportation	RC_Other_Principle_Arterial_Road_Miles	Transportation			
-Transportation	Transportation	RC_Minor_Arterial_Road_Miles	Transportation			
-Transportation	Transportation	RC_Major_Collector_Road_Miles	Transportation			
-Transportation	Transportation	RC_Urban_Minor_Collector_Road_Miles	Transportation			
-Transportation	Transportation	RC_Local_Road_Miles	Transportation			
-Transportation	Transportation	RC_Share_Interstate	Transportation			
-Transportation	Transportation	RC_Share_Other_Freeway_Expressway	Transportation			
-Transportation	Transportation	RC_Share_Other_Principle_Arterial	Transportation			
-Transportation	Transportation	RC_Share_Minor_Arterial	Transportation			
-Transportation	Transportation	RC_Share_Major_Collector	Transportation			
-Transportation	Transportation	RC_Share_Urban_Minor_Collector	Transportation			
-Transportation	Transportation	RC_Share_Local	Transportation			
-Transportation	Transportation	NHS_Total_Road_Miles	Transportation			
-Transportation	Transportation	NHS_State_Highway_Agency_Road_Miles	Transportation			
-Transportation	Transportation	NHS_County_Highway_Agency_Road_Miles	Transportation			
-Transportation	Transportation	NHS_Other_State_Agency_Road_Miles	Transportation			
-Transportation	Transportation	NHS_Other_Local_Agency_Road_Miles	Transportation			
-Transportation	Transportation	NHS_Privately_Owned_Road_Miles	Transportation			
-Transportation	Transportation	NHS_Town_Township_Highway_Agency_Road_Miles	Transportation			
-Transportation	Transportation	NHS_City_Municipal_Highway_Agency_Road_Miles	Transportation			
-Transportation	Transportation	NHS_Federal_Agency_Road_Miles	Transportation			
-Transportation	Transportation	NHS_Other_Public_Instrumentality_Road_Miles	Transportation			
-Transportation	Transportation	NHS_Unknown_Road_Miles	Transportation			
-Transportation	Transportation	NHS_Share_State_Highway_Agency	Transportation			
-Transportation	Transportation	NHS_Share_County_Highway_Agency	Transportation			
-Transportation	Transportation	NHS_Share_Other_State_Agencies	Transportation			
-Transportation	Transportation	NHS_Share_Other_Local_Agencies	Transportation			
-Transportation	Transportation	NHS_Share_Private	Transportation			
-Transportation	Transportation	NHS_Share_Town_Township_Highway_Agency	Transportation			
-Transportation	Transportation	NHS_Share_City_Municipal_Highway_Agency	Transportation			
-Transportation	Transportation	NHS_Share_Federal_Agency	Transportation			
-Transportation	Transportation	NHS_Share_Other_Public_Instrumentality	Transportation			
-Transportation	Transportation	NHS_Share_Unknown	Transportation			
-Transportation	Transportation	Trans_Empl_TOTAL_COUNTY_FTE	Transportation			
-Transportation	Transportation	Trans_Empl_Total_Transportation_FTE	Transportation			
-Transportation	Transportation	Trans_Empl_Air_Transportation	Transportation			
-Transportation	Transportation	Trans_Empl_Highways	Transportation			
-Transportation	Transportation	Trans_Empl_Water_Transport_and_Terminals	Transportation			
-Transportation	Transportation	Trans_Empl_Transit	Transportation			
-Transportation	Transportation	Expenditure_Total_in_T	Transportation			
-Transportation	Transportation	Expenditure_Total_Transportation_in_T	Transportation			
-Transportation	Transportation	Expenditure_Air_Transportation_in_T	Transportation			
-Transportation	Transportation	Expenditure_Highways_in_T	Transportation			
-Transportation	Transportation	Expenditure_Parking_Facilities_in_T	Transportation			
-Transportation	Transportation	Expenditure_Sea_and_Inland_Port_in_T	Transportation			
-Transportation	Transportation	Expenditures_Transit_Utilities_in_T	Transportation			
-Transportation	Transportation	Expenditure_Current_Operation_in_T	Transportation			
-Transportation	Transportation	Expenditure_Construction_in_T	Transportation			
-Transportation	Transportation	Expenditure_Capital_Outlay_in_T	Transportation			
-Transportation	Transportation	Expenditure_Interests_on_Debt_in_T	Transportation			
-Transportation	Transportation	Expenditure_Intergovernmental_to_State_in_T	Transportation			
-Transportation	Transportation	Expenditure_Intergovernmental_to_Local_in_T	Transportation			
+Transportation	Transportation	Number_of_Airports	Transportation	Airports	Number of Airports	
+Transportation	Transportation	Number_of_Publicly_Owned_Airports	Transportation	Airports	Number of Publicly Owned Airports	
+Transportation	Transportation	Number_of_Privately_Owned_Airports	Transportation	Airports	Number of Privately Owned Airports	
+Transportation	Transportation	Number_of_Military_Owned_Airports	Transportation	Airports	Number of Military Owned Airports	
+Transportation	Transportation	RO_Total_Public_Road_Miles	Transportation	Road Ownership	Total Public Road Miles	
+Transportation	Transportation	RO_State_Highway_Agency_Road_Miles	Transportation	Road Ownership	State Highway Agency Road Miles	
+Transportation	Transportation	RO_County_Highway_Agency_Road_Miles	Transportation	Road Ownership	County Highway Agency Road Miles	
+Transportation	Transportation	RO_Town_Highway_Agency_Road_Miles	Transportation	Road Ownership	Town Highway Agency Road Miles	
+Transportation	Transportation	RO_City_Highway_Agency_Road_Miles	Transportation	Road Ownership	City Highway Agency Road Miles	
+Transportation	Transportation	RO_Federal_Highway_Agency_Road_Miles	Transportation	Road Ownership	Federal Highway Agency Road Miles	
+Transportation	Transportation	RO_Privately_Owned_Road_Miles	Transportation	Road Ownership	Privately Owned Road Miles	
+Transportation	Transportation	RO_Other_Public_Instrumentality_Road_Miles	Transportation	Road Ownership	Other Public Instrumentality Road Miles	
+Transportation	Transportation	RO_Indian_Tribe_Nation_Road_Miles	Transportation	Road Ownership	Indian Tribe Nation Road Miles	
+Transportation	Transportation	RO_Other_State_Agency_Road_Miles	Transportation	Road Ownership	Other State Agency Road Miles	
+Transportation	Transportation	RO_Other_Local_Agency_Road_Miles	Transportation	Road Ownership	Other Local Agency Road Miles	
+Transportation	Transportation	RO_Other_Road_Miles	Transportation	Road Ownership	Other Road Miles	
+Transportation	Transportation	RO_County_Land_Square_Miles	Transportation	Road Ownership	County Land Square Miles	
+Transportation	Transportation	RO_Total_Road_Miles_per_Square_mile	Transportation	Road Ownership	Total Road Miles per Square mile	
+Transportation	Transportation	RO_Total_County_Road_Miles_per_Square_mile	Transportation	Road Ownership	Total County Road Miles per Square mile	
+Transportation	Transportation	RO_Share_State_Highway_Agency	Transportation	Road Ownership	Share State Highway Agency	
+Transportation	Transportation	RO_Share_County_Highway_Agency	Transportation	Road Ownership	Share County Highway Agency	
+Transportation	Transportation	RO_Share_Town_or_Township_Highway_Agency	Transportation	Road Ownership	Share Town or Township Highway Agency	
+Transportation	Transportation	RO_Share_City_or_Municipal_Highway_Agency	Transportation	Road Ownership	Share City or Municipal Highway Agency	
+Transportation	Transportation	RO_Share_Federal_Highway_Agency	Transportation	Road Ownership	Share Federal Highway Agency	
+Transportation	Transportation	RO_Share_Othere_State_Agency	Transportation	Road Ownership	Share Othere State Agency	
+Transportation	Transportation	RO_Share_Other_Local_Agency	Transportation	Road Ownership	Share Other Local Agency	
+Transportation	Transportation	RO_Share_Other_Road	Transportation	Road Ownership	Share Other Road	
+Transportation	Transportation	RO_Share_Other_Public_Instrumentality	Transportation	Road Ownership	Share Other Public Instrumentality	
+Transportation	Transportation	RO_Share_Indian_Tribe_Nation	Transportation	Road Ownership	Share Indian Tribe Nation	
+Transportation	Transportation	All_Bridges_Total_Bridges	Transportation	Bridges	All Bridges - Total Bridges	
+Transportation	Transportation	All_Bridges_City_Town_wned	Transportation	Bridges	All Bridges - City/Town Owned	
+Transportation	Transportation	All_Bridges_County_Owned	Transportation	Bridges	All Bridges - County Owned	
+Transportation	Transportation	All_Bridges_Federal_Owned	Transportation	Bridges	All Bridges - Federal Owned	
+Transportation	Transportation	All_Bridges_Local_Owned	Transportation	Bridges	All Bridges - Local Owned	
+Transportation	Transportation	All_Bridges_Privately_Owned	Transportation	Bridges	All Bridges - Privately Owned	
+Transportation	Transportation	All_Bridges_State_Owned	Transportation	Bridges	All Bridges - State Owned	
+Transportation	Transportation	Structurally_Deficient_Bridges_Total_Bridges	Transportation	Bridges	Structurally Deficient Bridges - Total Bridges	
+Transportation	Transportation	Structurally_Deficient_Bridges_City_Town_Owned	Transportation	Bridges	Structurally Deficient Bridges - City/Town Owned	
+Transportation	Transportation	Structurally_Deficient_Bridges_County_Owned	Transportation	Bridges	Structurally Deficient Bridges - County Owned	
+Transportation	Transportation	Structurally_Deficient_Bridges_Federal_Owned	Transportation	Bridges	Structurally Deficient Bridges - Federal Owned	
+Transportation	Transportation	Structurally_Deficient_Bridges_Local_Owned	Transportation	Bridges	Structurally Deficient Bridges - Local Owned	
+Transportation	Transportation	Structurally_Deficient_Bridges_Privately_Owned	Transportation	Bridges	Structurally Deficient Bridges - Privately Owned	
+Transportation	Transportation	Structurally_Deficient_Bridges_State_Owned	Transportation	Bridges	Structurally Deficient Bridges - State Owned	
+Transportation	Transportation	Functionally_Obsolete_Bridges_Total_Bridges	Transportation	Bridges	Functionally Obsolete Bridges - Total Bridges	
+Transportation	Transportation	Functionally_Obsolete_Bridges_City_Town_Owned	Transportation	Bridges	Functionally Obsolete Bridges - City/Town Owned	
+Transportation	Transportation	Functionally_Obsolete_Bridges_County_Owned	Transportation	Bridges	Functionally Obsolete Bridges - County Owned	
+Transportation	Transportation	Functionally_Obsolete_Bridges_Federal_Owned	Transportation	Bridges	Functionally Obsolete Bridges - Federal Owned	
+Transportation	Transportation	Functionally_Obsolete_Bridges_Local_Owned	Transportation	Bridges	Functionally Obsolete Bridges - Local Owned	
+Transportation	Transportation	Functionally_Obsolete_Bridges_Privately_Owned	Transportation	Bridges	Functionally Obsolete Bridges - Privately Owned	
+Transportation	Transportation	Functionally_Obsolete_Bridges_State_Owned	Transportation	Bridges	Functionally Obsolete Bridges - State Owned	
+Transportation	Transportation	RC_Total_Public_Road_Miles	Transportation	Road Classification	Total Public Road Miles	
+Transportation	Transportation	RC_Interstate_Road_Miles	Transportation	Road Classification	Interstate Road Miles	
+Transportation	Transportation	RC_Other_Freeway_Expressway_Road_Miles	Transportation	Road Classification	Other Freeway Expressway Road Miles	
+Transportation	Transportation	RC_Other_Principle_Arterial_Road_Miles	Transportation	Road Classification	Other Principle Arterial Road Miles	
+Transportation	Transportation	RC_Minor_Arterial_Road_Miles	Transportation	Road Classification	Minor Arterial Road Miles	
+Transportation	Transportation	RC_Major_Collector_Road_Miles	Transportation	Road Classification	Major Collector Road Miles	
+Transportation	Transportation	RC_Urban_Minor_Collector_Road_Miles	Transportation	Road Classification	Urban Minor Collector Road Miles	
+Transportation	Transportation	RC_Local_Road_Miles	Transportation	Road Classification	Local Road Miles	
+Transportation	Transportation	RC_Share_Interstate	Transportation	Road Classification	Share Interstate	
+Transportation	Transportation	RC_Share_Other_Freeway_Expressway	Transportation	Road Classification	Share Other Freeway Expressway	
+Transportation	Transportation	RC_Share_Other_Principle_Arterial	Transportation	Road Classification	Share Other Principle Arterial	
+Transportation	Transportation	RC_Share_Minor_Arterial	Transportation	Road Classification	Share Minor Arterial	
+Transportation	Transportation	RC_Share_Major_Collector	Transportation	Road Classification	Share Major Collector	
+Transportation	Transportation	RC_Share_Urban_Minor_Collector	Transportation	Road Classification	Share Urban Minor Collector	
+Transportation	Transportation	RC_Share_Local	Transportation	Road Classification	Share Local	
+Transportation	Transportation	NHS_Total_Road_Miles				
+Transportation	Transportation	NHS_State_Highway_Agency_Road_Miles				
+Transportation	Transportation	NHS_County_Highway_Agency_Road_Miles				
+Transportation	Transportation	NHS_Other_State_Agency_Road_Miles				
+Transportation	Transportation	NHS_Other_Local_Agency_Road_Miles				
+Transportation	Transportation	NHS_Privately_Owned_Road_Miles				
+Transportation	Transportation	NHS_Town_Township_Highway_Agency_Road_Miles				
+Transportation	Transportation	NHS_City_Municipal_Highway_Agency_Road_Miles				
+Transportation	Transportation	NHS_Federal_Agency_Road_Miles				
+Transportation	Transportation	NHS_Other_Public_Instrumentality_Road_Miles				
+Transportation	Transportation	NHS_Unknown_Road_Miles				
+Transportation	Transportation	NHS_Share_State_Highway_Agency				
+Transportation	Transportation	NHS_Share_County_Highway_Agency				
+Transportation	Transportation	NHS_Share_Other_State_Agencies				
+Transportation	Transportation	NHS_Share_Other_Local_Agencies				
+Transportation	Transportation	NHS_Share_Private				
+Transportation	Transportation	NHS_Share_Town_Township_Highway_Agency				
+Transportation	Transportation	NHS_Share_City_Municipal_Highway_Agency				
+Transportation	Transportation	NHS_Share_Federal_Agency				
+Transportation	Transportation	NHS_Share_Other_Public_Instrumentality				
+Transportation	Transportation	NHS_Share_Unknown				
+Transportation	Transportation	Trans_Empl_TOTAL_COUNTY_FTE	Transportation	Transportation Employment	Total	
+Transportation	Transportation	Trans_Empl_Total_Transportation_FTE	Transportation	Transportation Employment	Total Transportation	
+Transportation	Transportation	Trans_Empl_Air_Transportation	Transportation	Transportation Employment	Air Transportation	
+Transportation	Transportation	Trans_Empl_Highways	Transportation	Transportation Employment	Highways	
+Transportation	Transportation	Trans_Empl_Water_Transport_and_Terminals	Transportation	Transportation Employment	Water Transport & Terminals	
+Transportation	Transportation	Trans_Empl_Transit	Transportation	Transportation Employment	Transit	
+Transportation	Transportation	Expenditure_Total_in_T	Transportation	Transportation Expenditures	Total	
+Transportation	Transportation	Expenditure_Total_Transportation_in_T	Transportation	Transportation Expenditures	Total Transportation	
+Transportation	Transportation	Expenditure_Air_Transportation_in_T	Transportation	Transportation Expenditures	Air Transportation	
+Transportation	Transportation	Expenditure_Highways_in_T	Transportation	Transportation Expenditures	Highways	
+Transportation	Transportation	Expenditure_Parking_Facilities_in_T	Transportation	Transportation Expenditures	Parking Facilities	
+Transportation	Transportation	Expenditure_Sea_and_Inland_Port_in_T	Transportation	Transportation Expenditures	Sea & Inland Port	
+Transportation	Transportation	Expenditures_Transit_Utilities_in_T	Transportation	Transportation Expenditures	Transit Utilities	
+Transportation	Transportation	Expenditure_Current_Operation_in_T	Transportation	Transportation Expenditures	Current Operations	
+Transportation	Transportation	Expenditure_Construction_in_T	Transportation	Transportation Expenditures	Construction	
+Transportation	Transportation	Expenditure_Capital_Outlay_in_T	Transportation	Transportation Expenditures	Other Capital Outlay	
+Transportation	Transportation	Expenditure_Interests_on_Debt_in_T	Transportation	Transportation Expenditures	Interest on Debt	
+Transportation	Transportation	Expenditure_Intergovernmental_to_State_in_T	Transportation	Transportation Expenditures	Intergovernmental to State	
+Transportation	Transportation	Expenditure_Intergovernmental_to_Local_in_T	Transportation	Transportation Expenditures	Intergovernmental to Local	
 Utility	Utility	KEYID	Utility			
 Utility	Utility	FIPS	Utility			
 Utility	Utility	DATA_YEAR	Utility			

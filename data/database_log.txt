@@ -1,5 +1,6 @@
 NEEDS TO BE ADDED IN DATABASE:
 	- Secure Rural Schools (SRS)
+	- Public Welfare Expenditures (either Total or Total Public Welfare)
 
 
 NEEDS TO BE UPDATED IN DATABASE:

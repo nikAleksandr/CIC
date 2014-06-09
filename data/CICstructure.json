@@ -1143,6 +1143,7 @@
         			{"name": "Black or African American", "dataType": "level", "definition": "Total number of confined persons who are Black or African American, not of Hispanic origin."},
         			{"name": "Hispanic or Latino", "dataType": "level", "definition": "Total number of confined persons who are Hispanic or Latino."},
         			{"name": "Asian", "dataType": "level", "definition": "Total number of confined persons who are Asian, not of Hispanic origin."},
+        			{"name": "American Indian or Alaska Native", "dataType": "level", "definition": "Total number of confined persons who are American Indian or an Alaska Native, not of Hispanic origin."},
         			{"name": "Native Hawaiian or Other Pacific Islander", "dataType": "level", "definition": "Total number of confined persons who are Native Hawaiian or other Pacific Island, not of Hispanic Origin."},
         			{"name": "Two or More Races", "dataType": "level", "definition": "Total number of confined inmates of two or more races, not of Hispanic origin."},
         			{"name": "Other Inmate Races", "dataType": "level", "definition": "Total number of confined inmates of other races."},
