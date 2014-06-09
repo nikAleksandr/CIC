@@ -89,8 +89,8 @@ var projection = d3.geo.albersUsa()
 
 var topo,stateMesh,projection,path,svg,g;
 
-var tooltip = d3.select("#container").append("div").attr("class", "tooltip hidden").attr("id", "tt");
-var tipContainer = tooltip.append('div').attr('id', 'tipContainer');
+var tooltip = d3.select('#tt');
+var tipContainer = d3.select('#tipContainer');
 
 var CICstructure,
 	data, // all county data
@@ -712,14 +712,15 @@ function populateTooltip(d) {
 }
 
 function positionTooltip(county) {
-	var countyCoord = county.getBoundingClientRect();
-	var left = countyCoord.left + countyCoord.width; // appears on rightmost edge of county horizontal-wise
-	var top = countyCoord.top + 20; // appears 20 below topmost edge of county vertical-wise
-	
-	// checks if tooltip goes past window and adjust if it does
 	// issue where ttWidth and ttHeight sometimes is 0 and 0
 	var ttWidth = $('#tt').width(); // tooltip width and height
 	var ttHeight = $('#tt').height();
+	
+	var countyCoord = county.getBoundingClientRect();
+	var left = countyCoord.left + countyCoord.width - ttWidth + document.body.scrollLeft;
+	var top = countyCoord.top - ttHeight + document.body.scrollTop - 10;
+	
+	// checks if tooltip goes past window and adjust if it does
 	var dx = windowWidth - (left + ttWidth); // amount to tweak
 	var dy = windowHeight - (top + ttHeight);
 			
@@ -755,8 +756,10 @@ function doubleClicked(d) {
 function zoomTo(fips) {
 	var t = path.centroid(countyPathById[fips]);
 	var s = 4.5;
+	var coordAdjust = 1.215; // adjust to center on county on zoom
+	var transAdjust = 20; // adjust so county appears towards the bottom to provide room for tooltip
 	var area = path.area(countyPathById[fips]); // zoom based on area
-	// smallest counties (area=5) get zoom of 6; medium counties (area=100) get zoom of 5; large counties (area=1000) get zoom of 6
+	// smallest counties (area=5) get more zoom; medium counties (area=100) get medium zoom; large counties (area=1000) get small zoom
 	if (area < 5) s = 8;
 	else if (area < 10) s = 7;
 	else if (area < 50) s = 6;
@@ -766,10 +769,9 @@ function zoomTo(fips) {
 	else if (area < 1000) s = 4;
 	else s = 3.5;
 
-  	t[0] = -t[0] * (s - 1);
-  	t[1] = -t[1] * (s - 1);
+  	t[0] = -t[0] * (s - 1) * coordAdjust;
+  	t[1] = (transAdjust - t[1]) * (s - 1) * coordAdjust;
 	
-	//unsure what the first below function does?
 	zoom.translate(t);
 	zoom.scale(s);
 	var transition = g.transition()
