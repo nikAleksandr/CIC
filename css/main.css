@@ -245,6 +245,13 @@ h1 small {
 	margin-bottom: 10px;
 	color: #CCC;
 	font-size:.8em;
+	min-height:47px;
+	max-height:47px;
+}
+
+.navbar-nav > li > a{
+	padding-top:10px;
+	padding-bottom:10px;
 }
 .navbar a {
 	color:#000;
@@ -257,30 +264,31 @@ h1 small {
 	text-align: left;
 }
 #searchContainer{
-	font-size: .70em;
-	padding-right: 3em;
+	font-size: .8em;
+	padding-right: 1.2em;
 	background-color:rgb(0, 173, 220);
 	overflow:hidden;
 }
 #searchContainer li:not(#moreData){
 	background-color:#fff;
 	margin-bottom:-5px;
-	padding-bottom:5px;
+	padding-bottom:4px;
 }
-#search_type { margin-top: 3px; }
+#search_type { margin-top: 4px; }
 #search_submit { margin-left: 10px; }
 #map {
 	/*position: relative;*/
 	z-index:-10;
 }
 #moreDataButton{
-	font-size:1.3em;
+	font-size:1.0em;
 	color:#fff;
-	padding:12px 15px 0px 15px;
+	padding:12px 15px 5px 15px;
 }
 #moreDataImg{
 	height:30px;
-	padding-left:5px;
+	width:30px;
+	margin-left:5px;
 }
 #moreDataButton:hover{
 	color:rgb(255,204,102);
