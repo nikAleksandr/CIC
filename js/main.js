@@ -649,7 +649,7 @@ function createLegend(keyArray) {
 		var options = {
 			//title : "legend",
 			boxHeight : 18,
-			boxWidth : 70,
+			boxWidth : 58,
 			dataType : primeIndObj.dataType,
 			isCurrency : isCurrency,
 			formatFnArr: format
