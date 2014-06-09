@@ -407,6 +407,24 @@ div.tooltip {
   pointer-events: none;
 }
 
+.arrow_box {
+	position: relative;
+	background: #fff;
+}
+.arrow_box:after {
+	top: 100%;
+	right: 20px;
+	border: solid transparent;
+	content: " ";
+	height: 0;
+	width: 0;
+	position: absolute;
+	pointer-events: none;
+	border-color: rgba(136, 183, 213, 0);
+	border-top-color: #fff;
+	border-width: 15px;
+}
+
 /*
 #tt { pointer-events: none;color:white;}
 #tipContainer { font-size:16px;position:absolute;width:180px;z-index:100;background-repeat:no-repeat;text-align:left;line-height:20px;}
