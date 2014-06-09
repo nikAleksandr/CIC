@@ -905,10 +905,12 @@ d3.json("data/CICstructure.json", function(error, CICStructure){
 		// collect database indicators
 		var db_ind = [];
 		for (var i = 0; i < data_array.length; i++) {
-			db_ind.push(data_array[i].dataset + ' - ' + data_array[i].indicator);
+			if (data_array[i].indicator !== '') {
+				db_ind.push(data_array[i].dataset + ' - ' + data_array[i].indicator);
+			}
 		}					
 		// check to see if indicator names match names in CICstructure
-		for (var i = 0; i < db_ind.length; i++) {
+		/*for (var i = 0; i < db_ind.length; i++) {
 			var name_match = false;
 			for (var j = 0; j < cic_ind.length; j++) {
 				if (db_ind[i] === cic_ind[j]) {
@@ -917,7 +919,7 @@ d3.json("data/CICstructure.json", function(error, CICStructure){
 				}
 			}
 			if (name_match === false) console.log('Name mismatch in Database Crosswalk to CICstructure: ' + db_ind[i]);
-		}
+		}*/
 		
 		// check to see if indicators are missing
 		/*for (var i = 0; i < cic_ind.length; i++) {

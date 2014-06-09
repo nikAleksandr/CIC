@@ -1,18 +1,36 @@
-NEEDS TO BE ADDED IN DATABASE:
-	- Secure Rural Schools (SRS)
-	- Public Welfare Expenditures (either Total or Total Public Welfare)
+MISSING INDICATORS - NEEDS TO BE ADDED IN DATABASE:
+	- Secure Rural Schools (SRS) - entire dataset
+	- Public Welfare Expenditures -> "Total Public Welfare" indicator (either Total or Total Public Welfare)
+	- County Profile - Fiscal Year End Date
+	- County Profile - Year Consolidated
+	
+	- 2008/2011 Road Discrepancy (database possibly matching 2008 indicators)
+		- Road Ownership - Unknown Road Mile
+		- Road Ownership - Share Private
+		- Road Ownership - Share Unknown
+
+
+	- Health Insurance (check CIC data first)
+		- missing share indicators
+		- also may have to change age group (5-24 -> 5-14, 15-24)
+		
+	- Housing Units - Population (possible to delete)
 
 
 NEEDS TO BE UPDATED IN DATABASE:
+	- Population by Age and Gender
+		- An older file was added into the database (years are different 5-24 -> 5-14, 15-24)
 	- Public Elementary & Secondary Schools
-		- An older file was added into the database
+		- An older file was added into the database (now divided by county instead of per district)
 
 
-NOT IN CIC DATA BUT IN JSON:
-	- Health Insurance
-		- missing share indicators
-		- also may have to change age group (5-24 -> 5-14, 15-24)
+DUPLICATE INDICATORS (listed only once in database):
+	- Government Structure - Size of Board (this currently exists in "County Profile -> Board Size")
+	- County Profile - CBSA Title (exists in Metro-Micro Areas)
+	- County Profile - CBSA Code (exists in Metro-Micro Areas)
 
 
-OTHER:
-	- Geography needs to be further looked into
+
+DUPLICATE INDICATORS (not a concern right now):	
+	- demographics - population
+	- jails - jail capacity
