@@ -503,7 +503,8 @@ function update(dataset, indicator) {
 		// define range i.e. color output
 		switch(dataType) {
 			case "percent":
-				range = ['rgb(189, 215, 231)','rgb(107, 174, 214)','rgb(49, 130, 189)','rgb(7, 81, 156)','rgb(28, 53, 99)'];
+				range = ['rgb(522,204,102)', 'rgb(255,153,51)', 'rgb(49,130,189)', 'rgb(7,81,156)', 'rgb(28,53,99)'];
+				//['rgb(189, 215, 231)','rgb(107, 174, 214)','rgb(49, 130, 189)','rgb(7, 81, 156)','rgb(28, 53, 99)']
 				break;
 			case "binary":
 				range = ['rgb(0,153,204)', 'rgb(255,204,102)'];
@@ -511,11 +512,14 @@ function update(dataset, indicator) {
 			case "categorical":
 				// max is 5 categories
 				range = [];
-				var availColors = ['rgb(253,156,2)', 'rgb(0,153,209)', 'rgb(70,200,245)', 'rgb(254,207,47)', 'rgb(102,204,204)', 'rgb(69,178,157)'];
+				var availColors = ['rgb(522,204,102)', 'rgb(255,153,51)', 'rgb(49,130,189)', 'rgb(7,81,156)', 'rgb(28,53,99)'];
+				//['rgb(253,156,2)', 'rgb(0,153,209)', 'rgb(70,200,245)', 'rgb(254,207,47)', 'rgb(102,204,204)', 'rgb(69,178,157)'];
 				for (var i = 0; i < numCorrVals; i++) range.push(availColors[i]);				
 				break;
 			default:
-				range = ['rgb(189, 215, 231)','rgb(107, 174, 214)','rgb(49, 130, 189)','rgb(7, 81, 156)','rgb(28, 53, 99)'];
+				range = ['rgb(522,204,102)', 'rgb(255,153,51)', 'rgb(49,130,189)', 'rgb(7,81,156)', 'rgb(28,53,99)'];
+				//['rgb(28,53,99)', 'rgb(7,81,156)', 'rgb(49,130,189)', 'rgb(255,153,51)', 'rgb(255,204,102)'];
+				//['rgb(189, 215, 231)','rgb(107, 174, 214)','rgb(49, 130, 189)','rgb(7, 81, 156)','rgb(28, 53, 99)'];
 		}
 
 		// set domain and range
