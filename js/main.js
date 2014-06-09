@@ -888,6 +888,51 @@ d3.json("us.json", function(error, us) {
 d3.json("data/CICstructure.json", function(error, CICStructure){	
 	CICstructure = CICStructure;
 
+	// temp check to see if all indicators are in crosswalk
+	d3.tsv('data/database_crosswalk.tsv', function(error, data_array) {
+		// collect cicstructure indicators
+		var cic_ind = [];
+		for (var i = 0; i < CICstructure.children.length; i++) {
+			var category = CICstructure.children[i];
+			for (var j = 0; j < category.children.length; j++) {
+				var dataset = category.children[j];
+				for (var k = 0; k < dataset.children.length; k++) {
+					var indicator = dataset.children[k];
+					cic_ind.push(dataset.name + ' - ' + indicator.name);
+				}
+			}
+		}		
+		// collect database indicators
+		var db_ind = [];
+		for (var i = 0; i < data_array.length; i++) {
+			db_ind.push(data_array[i].dataset + ' - ' + data_array[i].indicator);
+		}					
+		// check to see if indicator names match names in CICstructure
+		for (var i = 0; i < db_ind.length; i++) {
+			var name_match = false;
+			for (var j = 0; j < cic_ind.length; j++) {
+				if (db_ind[i] === cic_ind[j]) {
+					name_match = true;
+					break;
+				}
+			}
+			if (name_match === false) console.log('Name mismatch in Database Crosswalk to CICstructure: ' + db_ind[i]);
+		}
+		
+		// check to see if indicators are missing
+		/*for (var i = 0; i < cic_ind.length; i++) {
+			var ind_match = false;
+			for (var j = 0; j < db_ind.length; j++) {
+				if (cic_ind[i] === db_ind[j]) {
+					ind_match = true;
+					break;
+				}	
+			}
+			if (ind_match === false) console.log('Missing indicator in Database Crosswalk: ' + cic_ind[i]);
+		}*/
+	});
+
+
 	setDropdownBehavior();
 	setSearchBehavior();
 	setMoreDataBehavior();
