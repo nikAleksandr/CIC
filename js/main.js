@@ -207,8 +207,8 @@ function setMoreDataBehavior(){
 	});
 }
 function setDropdownBehavior() {		
-	// this script is ONLY used to create html to COPY over to index.html
-	/*$('#primeIndLi').empty();
+	// don't delete: this script is ONLY used to create html to COPY over to index.html
+	$('#primeIndLi').empty();
 	var primeList = d3.select('#primeIndLi');
 	primeList.append('a')
 		.attr('id', 'primeIndText')
@@ -236,7 +236,7 @@ function setDropdownBehavior() {
 					.text(indicator.name);
 			}
 		}
-	}*/
+	}
 
 	d3.select('#primeInd').selectAll('.dataset').selectAll('.indicator').on('click', function() {
 		var datasetName = this.parentNode.parentNode.parentNode.title; // relies on the dataset being exactly 3 parents behind indicator
