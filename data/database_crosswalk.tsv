@@ -33,25 +33,25 @@ Administration	Administration	Admin_Rev_Unempoyment_Compensation_System	Administ
 	COUNTY_DATA	Founded	Geography	County Profile	Year Founded	
 	COUNTY_DATA	Board_Size	Geography	County Profile	Board Size	
 	COUNTY_DATA	Gov_Type				
-County_Structure	COUNTY_DATA	County_Government_Structure	County Structure	Government Structure	County Government Structure	
-County_Structure	COUNTY_DATA	Structure_Subgroup	County Structure	Government Structure	Structure Subgroup	
-County_Structure	COUNTY_DATA	Elected_Executive	County Structure	Government Structure		
-County_Structure	COUNTY_DATA	Notes	County Structure	Government Structure	Notes	
-County_Structure	COUNTY_DATA	County_Administrator	County Structure	Government Structure		
-County_Structure	COUNTY_DATA	Administrator_title	County Structure	Government Structure		
-County_Structure	COUNTY_DATA	Region_Code	County Structure	Government Structure	Region Code	
-County_Structure	COUNTY_DATA	Division_Code	County Structure	Government Structure	Division Code	
-County_Structure	COUNTY_DATA	Total_Elected_Officials	County Structure	Government Structure		
-County_Structure	COUNTY_DATA	Total_Other_Elected	County Structure	Government Structure		
+County_Structure	COUNTY_DATA	County_Government_Structure				
+County_Structure	COUNTY_DATA	Structure_Subgroup				
+County_Structure	COUNTY_DATA	Elected_Executive	County Structure	Government Structure	Elected Executive	
+County_Structure	COUNTY_DATA	Notes				
+County_Structure	COUNTY_DATA	County_Administrator	County Structure	Government Structure	County Administrator	
+County_Structure	COUNTY_DATA	Administrator_title				
+County_Structure	COUNTY_DATA	Region_Code				
+County_Structure	COUNTY_DATA	Division_Code				
+County_Structure	COUNTY_DATA	Total_Elected_Officials	County Structure	Government Structure	Total Elected Officials	
+County_Structure	COUNTY_DATA	Total_Other_Elected	County Structure	Government Structure	Number of Other Elected Officials	
 Geography	COUNTY_DATA	Total_Square_Miles	Geography	Land & Water Area	Total Square Miles	
 Geography	COUNTY_DATA	Total_Land_Square_Miles	Geography	Land & Water Area	Total Land Square Miles	
 Geography	COUNTY_DATA	Total_Water_Square_Miles	Geography	Land & Water Area	Total Water Square Miles	
 Geography	COUNTY_DATA	Coastal_Status	Geography	Land & Water Area	Coastal Status	
 Geography	COUNTY_DATA	Coastal_Body_of_Water	Geography	Land & Water Area	Body of Water	
-Geography	COUNTY_DATA	Total_Square_Miles_GEODATA	Geography	Land & Water Area		
-Geography	COUNTY_DATA	Census_Region	Geography	Land & Water Area		
-Geography	COUNTY_DATA	State_Capital	Geography	Land & Water Area		
-Geography	COUNTY_DATA	CBSA_Name	Geography	Metro-Micro Areas (MSA)		
+Geography	COUNTY_DATA	Total_Square_Miles_GEODATA	Geography	County Profile	County Square Mileage	
+Geography	COUNTY_DATA	Census_Region	Geography	County Profile	Census Region	
+Geography	COUNTY_DATA	State_Capital	Geography	County Profile	State Capitol	
+Geography	COUNTY_DATA	CBSA_Name				
 Geography	COUNTY_DATA	CBSA_Code	Geography	Metro-Micro Areas (MSA)	CBSA Code	
 Geography	COUNTY_DATA	CBSA_Title	Geography	Metro-Micro Areas (MSA)	CBSA Title	
 Geography	COUNTY_DATA	CBSA_Level	Geography	Metro-Micro Areas (MSA)	Level of CBSA	
@@ -125,7 +125,7 @@ Demographics	Demographics_Population_by_Age_and_Gender	Population_under_5_years_
 Demographics	Demographics_Population_by_Age_and_Gender	Percent_under_5_years_old	Demographics	Population by Age/Gender	Percent Under 5 years old	
 Demographics	Demographics_Population_by_Age_and_Gender	Population_5_to_24_years_old	Demographics	Population by Age/Gender		
 Demographics	Demographics_Population_by_Age_and_Gender	Percent_5_to_24_years_old	Demographics	Population by Age/Gender		
-Demographics	Demographics_Population_by_Age_and_Gender	Population_25_to_64_years_old	Demographics	Population by Age/Gender	Population 25-64 years old	
+Demographics	Demographics_Population_by_Age_and_Gender	Population_25_to_64_years_old	Demographics	Population by Age/Gender	25-64 years old Population	
 Demographics	Demographics_Population_by_Age_and_Gender	Percent_25_to_64_years_old	Demographics	Population by Age/Gender	Percent 25-64 years old	
 Demographics	Demographics_Population_by_Age_and_Gender	Population_65_years_and_older	Demographics	Population by Age/Gender	65 years and older Population	
 Demographics	Demographics_Population_by_Age_and_Gender	Percent_65_years_and_older	Demographics	Population by Age/Gender	Percent 65 years and older	
@@ -144,7 +144,7 @@ Demographics	Demographics_Population_Change_Component	Natural_Population_Increas
 Demographics	Demographics_Population_Change_Component	International_Migration	Demographics	Population Change Components	International Migration	
 Demographics	Demographics_Population_Change_Component	Domestic_Migration	Demographics	Population Change Components	Domestic Migration	
 Demographics	Demographics_Population_Change_Component	Net_Migration	Demographics	Population Change Components	Net Migration	
-Demographics	Demographics_Population_Change_Component	Birth_Rate	Demographics	Population Change Components	Birth rate	
+Demographics	Demographics_Population_Change_Component	Birth_Rate	Demographics	Population Change Components	Birth Rate	
 Demographics	Demographics_Population_Change_Component	Death_Rate	Demographics	Population Change Components	Death Rate	
 Demographics	Demographics_Population_Change_Component	Natural_Population_Increase_Rate	Demographics	Population Change Components	Natural Population Increase Rate	
 Demographics	Demographics_Population_Change_Component	International_Migration_Rate	Demographics	Population Change Components	International Migration Rate	
@@ -157,27 +157,27 @@ Demographics	Demographics_Population_Density	State	Demographics	Population Densi
 Demographics	Demographics_Population_Density	Gov_Type	Demographics	Population Density		
 Demographics	Demographics_Population_Density	Population_Size	Demographics	Population Density		
 Demographics	Demographics_Population_Density	Census_Region	Demographics	Population Density		
-Demographics	Demographics_Population_Density	Population	Demographics	Population Density	Population	
+Demographics	Demographics_Population_Density	Population	Demographics	Population Density	Population Level	
 Demographics	Demographics_Population_Density	Population_Density	Demographics	Population Density	Population Density	
 Demographics	Demographics_Population_Density	Population_Density_Growth_Rate_from_previous_year	Demographics	Population Density	Population Density Growth Rate (from previous year)	
 Demographics	Demographics_Population_Density	Total_Land	Demographics	Population Density	Total Land Area	
 Demographics	Demographics_Population_Density	Total_Federal_Land	Demographics	Population Density	Total Federal Land Area	
 Demographics	Demographics_Population_Density	Inhabitable_Land	Demographics	Population Density	Inhabitable Land Area	
-Demographics	Demographics_Population_Ethnicity	FIPS	Demographics	Population Ethnicity		
-Demographics	Demographics_Population_Ethnicity	Year	Demographics	Population Ethnicity		
-Demographics	Demographics_Population_Ethnicity	County	Demographics	Population Ethnicity		
-Demographics	Demographics_Population_Ethnicity	State	Demographics	Population Ethnicity		
-Demographics	Demographics_Population_Ethnicity	Gov_Type	Demographics	Population Ethnicity		
-Demographics	Demographics_Population_Ethnicity	Population_Size	Demographics	Population Ethnicity		
-Demographics	Demographics_Population_Ethnicity	Census_Region	Demographics	Population Ethnicity		
-Demographics	Demographics_Population_Ethnicity	Total_Population	Demographics	Population Ethnicity	Total Population	
-Demographics	Demographics_Population_Ethnicity	White	Demographics	Population Ethnicity	White Population	
-Demographics	Demographics_Population_Ethnicity	Black_or_African_American	Demographics	Population Ethnicity	Black or African American Population	
-Demographics	Demographics_Population_Ethnicity	American_Indian_and_Alaska_Native	Demographics	Population Ethnicity	American Indian and Alaska Native Population	
-Demographics	Demographics_Population_Ethnicity	Asian	Demographics	Population Ethnicity	Asian Population	
-Demographics	Demographics_Population_Ethnicity	Native_Hawaiian_and_Other_Pacific_Islander	Demographics	Population Ethnicity	Native Hawaiian and Other Pacific Islander Population	
-Demographics	Demographics_Population_Ethnicity	Two_or_More_Races	Demographics	Population Ethnicity	Two or More Races Population	
-Demographics	Demographics_Population_Ethnicity	Hispanic	Demographics	Population Ethnicity	Hispanic or Latino Origin Population	
+Demographics	Demographics_Population_Ethnicity	FIPS	Demographics	Population by Ethnicity		
+Demographics	Demographics_Population_Ethnicity	Year	Demographics	Population by Ethnicity		
+Demographics	Demographics_Population_Ethnicity	County	Demographics	Population by Ethnicity		
+Demographics	Demographics_Population_Ethnicity	State	Demographics	Population by Ethnicity		
+Demographics	Demographics_Population_Ethnicity	Gov_Type	Demographics	Population by Ethnicity		
+Demographics	Demographics_Population_Ethnicity	Population_Size	Demographics	Population by Ethnicity		
+Demographics	Demographics_Population_Ethnicity	Census_Region	Demographics	Population by Ethnicity		
+Demographics	Demographics_Population_Ethnicity	Total_Population	Demographics	Population by Ethnicity	Total Population	
+Demographics	Demographics_Population_Ethnicity	White	Demographics	Population by Ethnicity	White Population	
+Demographics	Demographics_Population_Ethnicity	Black_or_African_American	Demographics	Population by Ethnicity	Black or African American Population	
+Demographics	Demographics_Population_Ethnicity	American_Indian_and_Alaska_Native	Demographics	Population by Ethnicity	American Indian and Alaskan Native Population	
+Demographics	Demographics_Population_Ethnicity	Asian	Demographics	Population by Ethnicity	Asian Population	
+Demographics	Demographics_Population_Ethnicity	Native_Hawaiian_and_Other_Pacific_Islander	Demographics	Population by Ethnicity	Native Hawaiian and Other Pacific Islander Population	
+Demographics	Demographics_Population_Ethnicity	Two_or_More_Races	Demographics	Population by Ethnicity	Two or More Races Population	
+Demographics	Demographics_Population_Ethnicity	Hispanic	Demographics	Population by Ethnicity	Hispanic or Latino Origin Population	
 Demographics	Demographics_Population_Levels_and_Trends	FIPS	Demographics	Population Levels and Trends		
 Demographics	Demographics_Population_Levels_and_Trends	Year	Demographics	Population Levels and Trends		
 Demographics	Demographics_Population_Levels_and_Trends	Population_Size	Demographics	Population Levels and Trends		
@@ -212,7 +212,7 @@ Education	Education	DATA_YEAR	Education
 Education	Education	Number_of_Institutions	Education	Colleges & Universities	Number of Institutions	
 Education	Education	Number_of_Public_Institutions	Education	Colleges & Universities	Number of Public Institutions	
 Education	Education	Num_of_less_than_4yr_Institutions	Education	Colleges & Universities	Number of less than 4 year Institutions	
-Education	Education	Num_of_4yr_or_Higher_Institutions	Education	Colleges & Universities	Number of 4 year of Higher Institutions	
+Education	Education	Num_of_4yr_or_Higher_Institutions	Education	Colleges & Universities	Number of 4 year or Higher Institutions	
 Education	Education	Total_Enrollment	Education	Colleges & Universities	Total Enrollment	
 Education	Education	Male_Enrollment	Education	Colleges & Universities	Male Enrollment	
 Education	Education	Female_Enrollment	Education	Colleges & Universities	Female Enrollment	
@@ -296,19 +296,19 @@ Health_Hospitals	Health_Hospitals	Health_Insruance_Population	Health & Hospitals
 Health_Hospitals	Health_Hospitals	Health_Insruance_Population_Insured	Health & Hospitals	Health Insurance	Population Insured	
 Health_Hospitals	Health_Hospitals	Health_Insruance_Population_Uninsured	Health & Hospitals	Health Insurance	Population Uninsured	
 Health_Hospitals	Health_Hospitals	Health_Insruance_Population_with_Private_Health_Insurance	Health & Hospitals	Health Insurance	Population with Private Health Insurance	
-Health_Hospitals	Health_Hospitals	Health_Insruance_Population_with_Public_Health_Insurance	Health & Hospitals	Health Insurance	Population with Public Health Insurnace	
+Health_Hospitals	Health_Hospitals	Health_Insruance_Population_with_Public_Health_Insurance	Health & Hospitals	Health Insurance	Population with Public Health Insurance	
 Health_Hospitals	Health_Hospitals	Health_Insruance_Population_under_6	Health & Hospitals	Health Insurance	Population Under 6	
 Health_Hospitals	Health_Hospitals	Health_Insruance_Population_under_6_Insured	Health & Hospitals	Health Insurance	Population Under 6 Insured	
-Health_Hospitals	Health_Hospitals	Health_Insruance_Population_under_6_Uninsured	Health & Hospitals	Health Insurance	Population Under 6 Uninsured	
+Health_Hospitals	Health_Hospitals	Health_Insruance_Population_under_6_Uninsured	Health & Hospitals	Health Insurance		
 Health_Hospitals	Health_Hospitals	Health_Insruance_Population_6_24	Health & Hospitals	Health Insurance	Population 6-24	
 Health_Hospitals	Health_Hospitals	Health_Insruance_Population_6_24_Insured	Health & Hospitals	Health Insurance	Population 6-24 Insured	
-Health_Hospitals	Health_Hospitals	Health_Insruance_Population_6_24_Uninsured	Health & Hospitals	Health Insurance	Population 6-24 Uninsured	
+Health_Hospitals	Health_Hospitals	Health_Insruance_Population_6_24_Uninsured	Health & Hospitals	Health Insurance		
 Health_Hospitals	Health_Hospitals	Health_Insruance_Population_25_64	Health & Hospitals	Health Insurance	Population 25-64	
 Health_Hospitals	Health_Hospitals	Health_Insruance_Population_25_64_Insured	Health & Hospitals	Health Insurance	Population 25-64 Insured	
-Health_Hospitals	Health_Hospitals	Health_Insruance_Population_25_64_Uninsured	Health & Hospitals	Health Insurance	Population 25-64 Uninsured	
+Health_Hospitals	Health_Hospitals	Health_Insruance_Population_25_64_Uninsured	Health & Hospitals	Health Insurance		
 Health_Hospitals	Health_Hospitals	Health_Insruance_Population_65_and_over	Health & Hospitals	Health Insurance	Population 65 and Over	
 Health_Hospitals	Health_Hospitals	Health_Insruance_Population_65_and_over_Insured	Health & Hospitals	Health Insurance	Population 65 and Over Insured	
-Health_Hospitals	Health_Hospitals	Health_Insruance_Population_65_and_over_Uninsured	Health & Hospitals	Health Insurance	Population 65 and Over Uninsured	
+Health_Hospitals	Health_Hospitals	Health_Insruance_Population_65_and_over_Uninsured	Health & Hospitals	Health Insurance		
 Health_Hospitals	Health_Hospitals	Hospitals_Number_of_Hospitals	Health & Hospitals	Hospitals	Number of Hospitals	
 Health_Hospitals	Health_Hospitals	Hospitals_Number_of_City_Facilities	Health & Hospitals	Hospitals	Number of City Facilities	
 Health_Hospitals	Health_Hospitals	Hospitals_Number_of_County_Facilities	Health & Hospitals	Hospitals	Number of County Facilities	
@@ -391,7 +391,7 @@ Justice_Public_Safety	Justice_Public_Safety	Demographics_Total_Unconvicted	Justi
 Justice_Public_Safety	Justice_Public_Safety	Demographics_White	Justice & Public Safety	Jails - Inmate Demographics	White	
 Justice_Public_Safety	Justice_Public_Safety	Demographics_Black_or_African_American	Justice & Public Safety	Jails - Inmate Demographics	Black or African American	
 Justice_Public_Safety	Justice_Public_Safety	Demographics_Hispanic	Justice & Public Safety	Jails - Inmate Demographics	Hispanic or Latino	
-Justice_Public_Safety	Justice_Public_Safety	Demographics_American_Indian_or_Alaska_Native	Justice & Public Safety	Jails - Inmate Demographics	American Indian or Alaska Native	
+Justice_Public_Safety	Justice_Public_Safety	Demographics_American_Indian_or_Alaska_Native	Justice & Public Safety	Jails - Inmate Demographics	American Indian or Alaskan Native	
 Justice_Public_Safety	Justice_Public_Safety	Demographics_Asian	Justice & Public Safety	Jails - Inmate Demographics	Asian	
 Justice_Public_Safety	Justice_Public_Safety	Demographics_Native_Hawaiin_or_Pacific_Islander	Justice & Public Safety	Jails - Inmate Demographics	Native Hawaiian or Other Pacific Islander	
 Justice_Public_Safety	Justice_Public_Safety	Demographics_Two_or_More_Races	Justice & Public Safety	Jails - Inmate Demographics	Two or More Races	
@@ -420,7 +420,7 @@ Justice_Public_Safety	Justice_Public_Safety	SPbA_Total_Jail_Population	Justice &
 Justice_Public_Safety	Justice_Public_Safety	SPbA_Jail_Capacity	Justice & Public Safety	Jails - Supervised Population by Agency	Jail Capacity	
 Justice_Public_Safety	Justice_Public_Safety	SPbA_Held_for_US_Marshall	Justice & Public Safety	Jails - Supervised Population by Agency	Held for US Marshal's Service	
 Justice_Public_Safety	Justice_Public_Safety	SPbA_Held_for_Federal_Bureau_of_Prisons	Justice & Public Safety	Jails - Supervised Population by Agency	Held for Federal Bureau of Prisons	
-Justice_Public_Safety	Justice_Public_Safety	SPbA_Held_for_Immigration_and_Customs	Justice & Public Safety	Jails - Supervised Population by Agency	Held for Immigration and Customs	
+Justice_Public_Safety	Justice_Public_Safety	SPbA_Held_for_Immigration_and_Customs	Justice & Public Safety	Jails - Supervised Population by Agency	Held for Immigration & Customs	
 Justice_Public_Safety	Justice_Public_Safety	SPbA_Held_for_Bureau_of_Indian_Affairs	Justice & Public Safety	Jails - Supervised Population by Agency	Held for Bureau of Indian Affairs	
 Justice_Public_Safety	Justice_Public_Safety	SPbA_Held_for_Other_Federal_Authorities	Justice & Public Safety	Jails - Supervised Population by Agency	Held for Other Federal Authorities	
 Justice_Public_Safety	Justice_Public_Safety	SPbA_Held_for_own_state	Justice & Public Safety	Jails - Supervised Population by Agency	Held for Own State	
@@ -514,28 +514,28 @@ Transportation	Transportation	Number_of_Military_Owned_Airports	Transportation	A
 Transportation	Transportation	RO_Total_Public_Road_Miles	Transportation	Road Ownership	Total Public Road Miles	
 Transportation	Transportation	RO_State_Highway_Agency_Road_Miles	Transportation	Road Ownership	State Highway Agency Road Miles	
 Transportation	Transportation	RO_County_Highway_Agency_Road_Miles	Transportation	Road Ownership	County Highway Agency Road Miles	
-Transportation	Transportation	RO_Town_Highway_Agency_Road_Miles	Transportation	Road Ownership	Town Highway Agency Road Miles	
-Transportation	Transportation	RO_City_Highway_Agency_Road_Miles	Transportation	Road Ownership	City Highway Agency Road Miles	
-Transportation	Transportation	RO_Federal_Highway_Agency_Road_Miles	Transportation	Road Ownership	Federal Highway Agency Road Miles	
+Transportation	Transportation	RO_Town_Highway_Agency_Road_Miles	Transportation	Road Ownership	Town or Township Highway Agency Road Miles	
+Transportation	Transportation	RO_City_Highway_Agency_Road_Miles	Transportation	Road Ownership	City or Municipal Highway Agency Road Miles	
+Transportation	Transportation	RO_Federal_Highway_Agency_Road_Miles	Transportation	Road Ownership	Federal Agency Road Miles	
 Transportation	Transportation	RO_Privately_Owned_Road_Miles	Transportation	Road Ownership	Privately Owned Road Miles	
 Transportation	Transportation	RO_Other_Public_Instrumentality_Road_Miles	Transportation	Road Ownership	Other Public Instrumentality Road Miles	
-Transportation	Transportation	RO_Indian_Tribe_Nation_Road_Miles	Transportation	Road Ownership	Indian Tribe Nation Road Miles	
+Transportation	Transportation	RO_Indian_Tribe_Nation_Road_Miles	Transportation	Road Ownership	Indian Tribe/Nation Road Miles	
 Transportation	Transportation	RO_Other_State_Agency_Road_Miles	Transportation	Road Ownership	Other State Agency Road Miles	
 Transportation	Transportation	RO_Other_Local_Agency_Road_Miles	Transportation	Road Ownership	Other Local Agency Road Miles	
-Transportation	Transportation	RO_Other_Road_Miles	Transportation	Road Ownership	Other Road Miles	
+Transportation	Transportation	RO_Other_Road_Miles	Transportation	Road Ownership		
 Transportation	Transportation	RO_County_Land_Square_Miles	Transportation	Road Ownership	County Land Square Miles	
-Transportation	Transportation	RO_Total_Road_Miles_per_Square_mile	Transportation	Road Ownership	Total Road Miles per Square mile	
-Transportation	Transportation	RO_Total_County_Road_Miles_per_Square_mile	Transportation	Road Ownership	Total County Road Miles per Square mile	
+Transportation	Transportation	RO_Total_Road_Miles_per_Square_mile	Transportation	Road Ownership	Total Road Miles per Square Mile	
+Transportation	Transportation	RO_Total_County_Road_Miles_per_Square_mile	Transportation	Road Ownership	Total County Road Miles per Square Mile	
 Transportation	Transportation	RO_Share_State_Highway_Agency	Transportation	Road Ownership	Share State Highway Agency	
 Transportation	Transportation	RO_Share_County_Highway_Agency	Transportation	Road Ownership	Share County Highway Agency	
 Transportation	Transportation	RO_Share_Town_or_Township_Highway_Agency	Transportation	Road Ownership	Share Town or Township Highway Agency	
 Transportation	Transportation	RO_Share_City_or_Municipal_Highway_Agency	Transportation	Road Ownership	Share City or Municipal Highway Agency	
-Transportation	Transportation	RO_Share_Federal_Highway_Agency	Transportation	Road Ownership	Share Federal Highway Agency	
-Transportation	Transportation	RO_Share_Othere_State_Agency	Transportation	Road Ownership	Share Othere State Agency	
-Transportation	Transportation	RO_Share_Other_Local_Agency	Transportation	Road Ownership	Share Other Local Agency	
-Transportation	Transportation	RO_Share_Other_Road	Transportation	Road Ownership	Share Other Road	
+Transportation	Transportation	RO_Share_Federal_Highway_Agency	Transportation	Road Ownership	Share Federal Agency	
+Transportation	Transportation	RO_Share_Othere_State_Agency	Transportation	Road Ownership	Share Other State Agencies	
+Transportation	Transportation	RO_Share_Other_Local_Agency	Transportation	Road Ownership	Share Other Local Agencies	
+Transportation	Transportation	RO_Share_Other_Road	Transportation	Road Ownership		
 Transportation	Transportation	RO_Share_Other_Public_Instrumentality	Transportation	Road Ownership	Share Other Public Instrumentality	
-Transportation	Transportation	RO_Share_Indian_Tribe_Nation	Transportation	Road Ownership	Share Indian Tribe Nation	
+Transportation	Transportation	RO_Share_Indian_Tribe_Nation	Transportation	Road Ownership	Share Indian Tribe/Nation	
 Transportation	Transportation	All_Bridges_Total_Bridges	Transportation	Bridges	All Bridges - Total Bridges	
 Transportation	Transportation	All_Bridges_City_Town_wned	Transportation	Bridges	All Bridges - City/Town Owned	
 Transportation	Transportation	All_Bridges_County_Owned	Transportation	Bridges	All Bridges - County Owned	
@@ -559,14 +559,14 @@ Transportation	Transportation	Functionally_Obsolete_Bridges_Privately_Owned	Tran
 Transportation	Transportation	Functionally_Obsolete_Bridges_State_Owned	Transportation	Bridges	Functionally Obsolete Bridges - State Owned	
 Transportation	Transportation	RC_Total_Public_Road_Miles	Transportation	Road Classification	Total Public Road Miles	
 Transportation	Transportation	RC_Interstate_Road_Miles	Transportation	Road Classification	Interstate Road Miles	
-Transportation	Transportation	RC_Other_Freeway_Expressway_Road_Miles	Transportation	Road Classification	Other Freeway Expressway Road Miles	
+Transportation	Transportation	RC_Other_Freeway_Expressway_Road_Miles	Transportation	Road Classification	Other Freeway/Expressway Road Miles	
 Transportation	Transportation	RC_Other_Principle_Arterial_Road_Miles	Transportation	Road Classification	Other Principle Arterial Road Miles	
 Transportation	Transportation	RC_Minor_Arterial_Road_Miles	Transportation	Road Classification	Minor Arterial Road Miles	
 Transportation	Transportation	RC_Major_Collector_Road_Miles	Transportation	Road Classification	Major Collector Road Miles	
 Transportation	Transportation	RC_Urban_Minor_Collector_Road_Miles	Transportation	Road Classification	Urban Minor Collector Road Miles	
 Transportation	Transportation	RC_Local_Road_Miles	Transportation	Road Classification	Local Road Miles	
 Transportation	Transportation	RC_Share_Interstate	Transportation	Road Classification	Share Interstate	
-Transportation	Transportation	RC_Share_Other_Freeway_Expressway	Transportation	Road Classification	Share Other Freeway Expressway	
+Transportation	Transportation	RC_Share_Other_Freeway_Expressway	Transportation	Road Classification	Share Other Freeway/Expressway	
 Transportation	Transportation	RC_Share_Other_Principle_Arterial	Transportation	Road Classification	Share Other Principle Arterial	
 Transportation	Transportation	RC_Share_Minor_Arterial	Transportation	Road Classification	Share Minor Arterial	
 Transportation	Transportation	RC_Share_Major_Collector	Transportation	Road Classification	Share Major Collector	
@@ -625,7 +625,7 @@ Utility	Utility	Utility_Expd_Electric_Utilities	Utility	Utility Expenditures	Ele
 Utility	Utility	Utility_Expd_Gas_Utilities	Utility	Utility Expenditures	Gas Utilities	
 Utility	Utility	Utility_Expd_Current_Operation	Utility	Utility Expenditures	Current Operations	
 Utility	Utility	Utility_Expd_Construction	Utility	Utility Expenditures	Construction	
-Utility	Utility	Utility_Expd_Capital_Outlay	Utility	Utility Expenditures	Capital Outlay	
+Utility	Utility	Utility_Expd_Capital_Outlay	Utility	Utility Expenditures	Other Capital Outlay	
 Utility	Utility	Utility_Expd__Interests_on_Debt	Utility	Utility Expenditures	Interest on Debt	
 Utility	Utility	Utility_Expd_Intergovernmental_to_State	Utility	Utility Expenditures	Intergovernmental to State	
 Utility	Utility	Utility_Expd_Intergovernmentalto_Local	Utility	Utility Expenditures	Intergovernmental to Local	
@@ -640,17 +640,17 @@ W_S_SW	W_S_SW	FIPS	"Water, Sewerage & Solid Waste"
 W_S_SW	W_S_SW	DATA_YEAR	"Water, Sewerage & Solid Waste"			
 W_S_SW	W_S_SW	WSSW_EMPL_TOTAL_COUNTY_FTE	"Water, Sewerage & Solid Waste"	"Water, Sewerage & Solid Waste Employment"	Total	
 W_S_SW	W_S_SW	WSSW_Empl_Total_Water_Sewerage_Solid_Waste_FTE	"Water, Sewerage & Solid Waste"	"Water, Sewerage & Solid Waste Employment"	"Total Water, Sewerage & Solid Waste"	
-W_S_SW	W_S_SW	WSSW_Empl_Sewerage_FTE	"Water, Sewerage & Solid Waste"	"Water, Sewerage & Solid Waste Employment"	Sewarage	
+W_S_SW	W_S_SW	WSSW_Empl_Sewerage_FTE	"Water, Sewerage & Solid Waste"	"Water, Sewerage & Solid Waste Employment"	Sewerage	
 W_S_SW	W_S_SW	WSSW_Empl_Solid_Waste_Management_FTE	"Water, Sewerage & Solid Waste"	"Water, Sewerage & Solid Waste Employment"	Solid Waste	
 W_S_SW	W_S_SW	WSSW_Empl_Water_Supply_FTE	"Water, Sewerage & Solid Waste"	"Water, Sewerage & Solid Waste Employment"	Water Utilities	
 W_S_SW	W_S_SW	WSSW_Expd_Total_Expenditure	"Water, Sewerage & Solid Waste"	"Water, Sewerage & Solid Waste Expenditures"	Total	
-W_S_SW	W_S_SW	WSSW_Expd_Total_Water_Sewerage_Solid_Waste_Expenditure	"Water, Sewerage & Solid Waste"	"Water, Sewerage & Solid Waste Expenditures"	"Total Water, Sewerage & Solid Waste"	
+W_S_SW	W_S_SW	WSSW_Expd_Total_Water_Sewerage_Solid_Waste_Expenditure	"Water, Sewerage & Solid Waste"	"Water, Sewerage & Solid Waste Expenditures"	"Total Water, Sewerage & Solid Waste Management"	
 W_S_SW	W_S_SW	WSSW_Expd_Sewerage	"Water, Sewerage & Solid Waste"	"Water, Sewerage & Solid Waste Expenditures"	Sewerage	
 W_S_SW	W_S_SW	WSSW_Expd_Solid_Waste	"Water, Sewerage & Solid Waste"	"Water, Sewerage & Solid Waste Expenditures"	Solid Waste	
 W_S_SW	W_S_SW	WSSW_Expd_Water_Utilities	"Water, Sewerage & Solid Waste"	"Water, Sewerage & Solid Waste Expenditures"	Water Utilities	
 W_S_SW	W_S_SW	WSSW_Expd_Current_Operation	"Water, Sewerage & Solid Waste"	"Water, Sewerage & Solid Waste Expenditures"	Current Operations	
 W_S_SW	W_S_SW	WSSW_Expd_Construction	"Water, Sewerage & Solid Waste"	"Water, Sewerage & Solid Waste Expenditures"	Construction	
-W_S_SW	W_S_SW	WSSW_Expd_Capital_Outlay	"Water, Sewerage & Solid Waste"	"Water, Sewerage & Solid Waste Expenditures"	Capital Outlay	
+W_S_SW	W_S_SW	WSSW_Expd_Capital_Outlay	"Water, Sewerage & Solid Waste"	"Water, Sewerage & Solid Waste Expenditures"	Other Capital Outlay	
 W_S_SW	W_S_SW	WSSW_Expd_Interests_on_Debt	"Water, Sewerage & Solid Waste"	"Water, Sewerage & Solid Waste Expenditures"	Interest on Debt	
 W_S_SW	W_S_SW	WSSW_Expd_Intergovernmental_to_State	"Water, Sewerage & Solid Waste"	"Water, Sewerage & Solid Waste Expenditures"	Intergovernmental to State	
 W_S_SW	W_S_SW	WSSW_Expd_Intergovernmental_to_Local	"Water, Sewerage & Solid Waste"	"Water, Sewerage & Solid Waste Expenditures"	Intergovernmental to Local	
