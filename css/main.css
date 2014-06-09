@@ -214,16 +214,17 @@ table th{
 }
 
 #header p {
-	margin:0 2em;
+	margin:0 3em;
 	padding: 0;
 	font-weight:300;
+	font-size:.8em;
 }
 #header h1{
 	font-family: 'Arvo', serif;
 	color: #000;
 	font-weight: 100;
 	width:auto;
-	margin: 1.1em 0 0 1.1em;
+	margin: 1.0em 0 .5em 1.1em;
 	font-size:2.0em;
 }
 h1 small {
@@ -232,7 +233,7 @@ h1 small {
 
 #nacoLogo {
 	width:154px;
-	margin: 2em 2em 0 0;
+	margin: 2.2em 2.2em 0 0;
 	float:right;
 }
 
@@ -243,6 +244,14 @@ h1 small {
 	border-radius: 0;
 	margin-bottom: 10px;
 	color: #CCC;
+	font-size:.8em;
+	min-height:47px;
+	max-height:47px;
+}
+
+.navbar-nav > li > a{
+	padding-top:10px;
+	padding-bottom:10px;
 }
 .navbar a {
 	color:#000;
@@ -255,30 +264,31 @@ h1 small {
 	text-align: left;
 }
 #searchContainer{
-	font-size: .70em;
-	padding-right: 3em;
+	font-size: .8em;
+	padding-right: 1.2em;
 	background-color:rgb(0, 173, 220);
 	overflow:hidden;
 }
 #searchContainer li:not(#moreData){
 	background-color:#fff;
 	margin-bottom:-5px;
-	padding-bottom:5px;
+	padding-bottom:4px;
 }
-#search_type { margin-top: 3px; }
+#search_type { margin-top: 4px; }
 #search_submit { margin-left: 10px; }
 #map {
 	/*position: relative;*/
 	z-index:-10;
 }
 #moreDataButton{
-	font-size:1.3em;
+	font-size:1.0em;
 	color:#fff;
-	padding:10px 15px 4px 15px;
+	padding:12px 15px 5px 15px;
 }
 #moreDataImg{
-	height:36px;
-	padding-left:5px;
+	height:30px;
+	width:30px;
+	margin-left:5px;
 }
 #moreDataButton:hover{
 	color:rgb(255,204,102);
@@ -468,6 +478,9 @@ div.tooltip {
 /*
  * Dropdown stylin'
  */
+#primeIndLi{
+	margin-left:.7em;
+}
 #primeIndLi a, #secondIndLi a:not(#resetSecondInd){
 	cursor: default;
 }
