@@ -111,7 +111,8 @@ var quantById = [], secondQuantById = [], thirdQuantById = [], fourthQuantById =
 	countyPathById = {};
 
 var na_color = 'rgb(204,204,204)', // color for counties with no data
-	range = ['rgb(189, 215, 231)','rgb(107, 174, 214)','rgb(49, 130, 189)','rgb(7, 81, 156)','rgb(28, 53, 99)'], // default color scheme for map
+	range = ['rgb(189, 215, 231)','rgb(107, 174, 214)','rgb(49, 130, 189)','rgb(7, 81, 156)','rgb(28, 53, 99)'],
+	//['rgb(189, 215, 231)','rgb(107, 174, 214)','rgb(49, 130, 189)','rgb(7, 81, 156)','rgb(28, 53, 99)'], // default color scheme for map
 	color = d3.scale.quantile(); // quantile scale
 
 
@@ -510,7 +511,7 @@ function update(dataset, indicator) {
 			case "categorical":
 				// max is 5 categories
 				range = [];
-				var availColors = ['rgb(253,156,2)', 'rgb(0,153,9)', 'rgb(70,200,245)', 'rgb(254,207,47)', 'rgb(102,204,204)', 'rgb(69,178,157)'];
+				var availColors = ['rgb(253,156,2)', 'rgb(0,153,209)', 'rgb(70,200,245)', 'rgb(254,207,47)', 'rgb(102,204,204)', 'rgb(69,178,157)'];
 				for (var i = 0; i < numCorrVals; i++) range.push(availColors[i]);				
 				break;
 			default:
