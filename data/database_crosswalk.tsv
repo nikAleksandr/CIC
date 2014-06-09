@@ -22,17 +22,17 @@ Administration	Administration	Admin_Rev_Misc_General	Administration	Administrati
 Administration	Administration	Admin_Rev_Liquor_Store	Administration	Administration Revenue	Liquor Stores	
 Administration	Administration	Admin_Rev_Pub_Employee_Retirement_System	Administration	Administration Revenue	Public Employee Retirement Systems	
 Administration	Administration	Admin_Rev_Unempoyment_Compensation_System	Administration	Administration Revenue	Unemployment Compensation Systems	
-	COUNTY_DATA	FIPS	Geography	County Profile		
-	COUNTY_DATA	Org_Type	Geography	County Profile		
-	COUNTY_DATA	Member_Status	Geography	County Profile		
-	COUNTY_DATA	County_Name	Geography	County Profile		
-	COUNTY_DATA	State	Geography	County Profile		
-	COUNTY_DATA	Population_2010	Geography	County Profile		
-	COUNTY_DATA	Population_Size	Geography	County Profile		
+	COUNTY_DATA	FIPS	Geography			
+	COUNTY_DATA	Org_Type	Geography			
+	COUNTY_DATA	Member_Status	Geography			
+	COUNTY_DATA	County_Name	Geography			
+	COUNTY_DATA	State	Geography			
+	COUNTY_DATA	Population_2010	Geography			
+	COUNTY_DATA	Population_Size	Geography			
 	COUNTY_DATA	County_Seat	Geography	County Profile	County Seat	
 	COUNTY_DATA	Founded	Geography	County Profile	Year Founded	
 	COUNTY_DATA	Board_Size	Geography	County Profile	Board Size	
-	COUNTY_DATA	Gov_Type	Geography	County Profile		
+	COUNTY_DATA	Gov_Type				
 County_Structure	COUNTY_DATA	County_Government_Structure	County Structure	Government Structure 	County Government Structure 	
 County_Structure	COUNTY_DATA	Structure_Subgroup	County Structure	Government Structure 	Structure Subgroup 	
 County_Structure	COUNTY_DATA	Elected_Executive	County Structure	Government Structure 		
@@ -43,405 +43,405 @@ County_Structure	COUNTY_DATA	Region_Code	County Structure	Government Structure 	
 County_Structure	COUNTY_DATA	Division_Code	County Structure	Government Structure 	Division Code	
 County_Structure	COUNTY_DATA	Total_Elected_Officials	County Structure	Government Structure 		
 County_Structure	COUNTY_DATA	Total_Other_Elected	County Structure	Government Structure 		
-Geography	COUNTY_DATA	Total_Square_Miles	Geography	Land & Water Area		
-Geography	COUNTY_DATA	Total_Land_Square_Miles	Geography	Land & Water Area		
-Geography	COUNTY_DATA	Total_Water_Square_Miles	Geography	Land & Water Area		
-Geography	COUNTY_DATA	Coastal_Status	Geography	Land & Water Area		
-Geography	COUNTY_DATA	Coastal_Body_of_Water	Geography	Land & Water Area		
+Geography	COUNTY_DATA	Total_Square_Miles	Geography	Land & Water Area	Total Square Miles	
+Geography	COUNTY_DATA	Total_Land_Square_Miles	Geography	Land & Water Area	Total Land Square Miles	
+Geography	COUNTY_DATA	Total_Water_Square_Miles	Geography	Land & Water Area	Total Water Square Miles	
+Geography	COUNTY_DATA	Coastal_Status	Geography	Land & Water Area	Coastal Status	
+Geography	COUNTY_DATA	Coastal_Body_of_Water	Geography	Land & Water Area	Body of Water	
 Geography	COUNTY_DATA	Total_Square_Miles_GEODATA	Geography	Land & Water Area		
 Geography	COUNTY_DATA	Census_Region	Geography	Land & Water Area		
 Geography	COUNTY_DATA	State_Capital	Geography	Land & Water Area		
 Geography	COUNTY_DATA	CBSA_Name	Geography	Metro-Micro Areas (MSA) 		
-Geography	COUNTY_DATA	CBSA_Code	Geography	Metro-Micro Areas (MSA) 		
-Geography	COUNTY_DATA	CBSA_Title	Geography	Metro-Micro Areas (MSA) 		
-Geography	COUNTY_DATA	CBSA_Level	Geography	Metro-Micro Areas (MSA) 		
-Geography	COUNTY_DATA	CSA_Code	Geography	Metro-Micro Areas (MSA) 		
-Geography	COUNTY_DATA	CSA_Title	Geography	Metro-Micro Areas (MSA) 		
-Geography	COUNTY_DATA	County_Status	Geography	Metro-Micro Areas (MSA) 		
-County_Employment	County_Employment	KEYID	County_Employment			
-County_Employment	County_Employment	FIPS	County_Employment			
-County_Employment	County_Employment	DATA_YEAR	County_Employment			
-County_Employment	County_Employment	Empl_Total_County_FTE	County_Employment			
-County_Employment	County_Employment	Empl_All_Other_Unallocable_County_FTE	County_Employment			
-County_Finance	County_Finance	KEYID	County_Finance			
-County_Finance	County_Finance	FIPS	County_Finance			
-County_Finance	County_Finance	Year	County_Finance			
-County_Finance	County_Finance	Expenditures_Total_Expenditures	County_Finance			
-County_Finance	County_Finance	Expenditures_General_Government	County_Finance			
-County_Finance	County_Finance	Expenditures_Public_Works_and_Bldgs_and_Trans	County_Finance			
-County_Finance	County_Finance	Expenditures_Public_Safety_and_Court_Related	County_Finance			
-County_Finance	County_Finance	Expenditures_Health_and_Human_Services	County_Finance			
-County_Finance	County_Finance	Expenditures_Education_and_Culture_and_Recreation	County_Finance			
-County_Finance	County_Finance	Expenditures_Intergovernmental	County_Finance			
-County_Finance	County_Finance	Expenditures_Environmental_Protection_Natural_Resources	County_Finance			
-County_Finance	County_Finance	Expenditures_Community_and_Economic_Development	County_Finance			
-County_Finance	County_Finance	Expenditures_Total_Debt	County_Finance			
-County_Finance	County_Finance	Expenditures_Capital_Projects	County_Finance			
-County_Finance	County_Finance	Expenditures_Other	County_Finance			
-County_Finance	County_Finance	CAFR_Rev_Total_Revenue	County_Finance			
-County_Finance	County_Finance	CAFR_Rev_Total_Taxes	County_Finance			
-County_Finance	County_Finance	CAFR_Rev_Licenses_and_Permits	County_Finance			
-County_Finance	County_Finance	CAFR_Rev_Fines_Fees_Forfeits	County_Finance			
-County_Finance	County_Finance	CAFR_Rev_intergovernmental	County_Finance			
-County_Finance	County_Finance	CAFR_Rev_Use_of_Money_and_Property	County_Finance			
-County_Finance	County_Finance	CAFR_Rev_nvestment_Earnings	County_Finance			
-County_Finance	County_Finance	CAFR_Rev_Charges_for_Services	County_Finance			
-County_Finance	County_Finance	CAFR_Rev_Other	County_Finance			
-County_Finance	County_Finance	FinExp_Total_Expenditures_in_T	County_Finance			
-County_Finance	County_Finance	FinExp_Total_Financial_Expenditures_in_T	County_Finance			
-County_Finance	County_Finance	FinExp_Insurance_Trust_Expenditure_Employee_Retirement	County_Finance			
-County_Finance	County_Finance	FinExp_Insurance_Trust_Expenditure__Unemployment_	County_Finance			
-County_Finance	County_Finance	FinExp_Interest_on_General_Debt	County_Finance			
-County_Finance	County_Finance	Intergovt_Rev_Total	County_Finance			
-County_Finance	County_Finance	Intergovt_Rev_Total_Intergovernmental	County_Finance			
-County_Finance	County_Finance	Intergovt_Rev_From_Federal_Government	County_Finance			
-County_Finance	County_Finance	Intergovt_Rev_From_Local_Government	County_Finance			
-County_Finance	County_Finance	Intergovt_Rev_From_State_Government	County_Finance			
-County_Finance	County_Finance	Other_Exp_Total_Expenditures_in_T	County_Finance			
-County_Finance	County_Finance	Other_Exp_Total_Other_Expenditures_in_T	County_Finance			
-County_Finance	County_Finance	Other_Exp_Misc_Commercial_Activities	County_Finance			
-County_Finance	County_Finance	Other_Exp_Other_and_Unallocable	County_Finance			
-County_Finance	County_Finance	Other_Exp_General_Public_Buildings	County_Finance			
-County_Finance	County_Finance	Tax_Rev_Total	County_Finance			
-County_Finance	County_Finance	Tax_Rev_Total_Taxes	County_Finance			
-County_Finance	County_Finance	Tax_Rev_Income_Taxes	County_Finance			
-County_Finance	County_Finance	Tax_Rev_License_Taxes	County_Finance			
-County_Finance	County_Finance	Tax_Rev_Other_Taxes	County_Finance			
-County_Finance	County_Finance	Tax_Rev_Property_Taxes	County_Finance			
-County_Finance	County_Finance	Tax_Rev_Sales_and_Gross_Receipts_Taxes	County_Finance			
-Demographics	Demographics_Population_by_Age_and_Gender	FIPS	Demographics			
-Demographics	Demographics_Population_by_Age_and_Gender	DATA_YEAR	Demographics			
-Demographics	Demographics_Population_by_Age_and_Gender	County	Demographics			
-Demographics	Demographics_Population_by_Age_and_Gender	State	Demographics			
-Demographics	Demographics_Population_by_Age_and_Gender	Gov_Type	Demographics			
-Demographics	Demographics_Population_by_Age_and_Gender	Population_Size	Demographics			
-Demographics	Demographics_Population_by_Age_and_Gender	Census_Region	Demographics			
-Demographics	Demographics_Population_by_Age_and_Gender	Total_Population	Demographics			
-Demographics	Demographics_Population_by_Age_and_Gender	Male_Population	Demographics			
-Demographics	Demographics_Population_by_Age_and_Gender	Percent_Male	Demographics			
-Demographics	Demographics_Population_by_Age_and_Gender	Female_Population	Demographics			
-Demographics	Demographics_Population_by_Age_and_Gender	Percent_Female	Demographics			
-Demographics	Demographics_Population_by_Age_and_Gender	Population_under_5_years_old	Demographics			
-Demographics	Demographics_Population_by_Age_and_Gender	Percent_under_5_years_old	Demographics			
-Demographics	Demographics_Population_by_Age_and_Gender	Population_5_to_24_years_old	Demographics			
-Demographics	Demographics_Population_by_Age_and_Gender	Percent_5_to_24_years_old	Demographics			
-Demographics	Demographics_Population_by_Age_and_Gender	Population_25_to_64_years_old	Demographics			
-Demographics	Demographics_Population_by_Age_and_Gender	Percent_25_to_64_years_old	Demographics			
-Demographics	Demographics_Population_by_Age_and_Gender	Population_65_years_and_older	Demographics			
-Demographics	Demographics_Population_by_Age_and_Gender	Percent_65_years_and_older	Demographics			
-Demographics	Demographics_Population_Change_Component	FIPS	Demographics			
-Demographics	Demographics_Population_Change_Component	Year	Demographics			
-Demographics	Demographics_Population_Change_Component	County	Demographics			
-Demographics	Demographics_Population_Change_Component	State	Demographics			
-Demographics	Demographics_Population_Change_Component	Gov_Type	Demographics			
-Demographics	Demographics_Population_Change_Component	Population_Size	Demographics			
-Demographics	Demographics_Population_Change_Component	Census_Region	Demographics			
-Demographics	Demographics_Population_Change_Component	Population	Demographics			
-Demographics	Demographics_Population_Change_Component	Change_in_Population	Demographics			
-Demographics	Demographics_Population_Change_Component	Births	Demographics			
-Demographics	Demographics_Population_Change_Component	Deaths	Demographics			
-Demographics	Demographics_Population_Change_Component	Natural_Population_Increase	Demographics			
-Demographics	Demographics_Population_Change_Component	International_Migration	Demographics			
-Demographics	Demographics_Population_Change_Component	Domestic_Migration	Demographics			
-Demographics	Demographics_Population_Change_Component	Net_Migration	Demographics			
-Demographics	Demographics_Population_Change_Component	Birth_Rate	Demographics			
-Demographics	Demographics_Population_Change_Component	Death_Rate	Demographics			
-Demographics	Demographics_Population_Change_Component	Natural_Population_Increase_Rate	Demographics			
-Demographics	Demographics_Population_Change_Component	International_Migration_Rate	Demographics			
-Demographics	Demographics_Population_Change_Component	Domestic_Migration_Rate	Demographics			
-Demographics	Demographics_Population_Change_Component	Net_Migration_Rate	Demographics			
-Demographics	Demographics_Population_Density	FIPS	Demographics			
-Demographics	Demographics_Population_Density	Year_of_Primary_Data	Demographics			
-Demographics	Demographics_Population_Density	County	Demographics			
-Demographics	Demographics_Population_Density	State	Demographics			
-Demographics	Demographics_Population_Density	Gov_Type	Demographics			
-Demographics	Demographics_Population_Density	Population_Size	Demographics			
-Demographics	Demographics_Population_Density	Census_Region	Demographics			
-Demographics	Demographics_Population_Density	Population	Demographics			
-Demographics	Demographics_Population_Density	Population_Density	Demographics			
-Demographics	Demographics_Population_Density	Population_Density_Growth_Rate_from_previous_year	Demographics			
-Demographics	Demographics_Population_Density	Total_Land	Demographics			
-Demographics	Demographics_Population_Density	Total_Federal_Land	Demographics			
-Demographics	Demographics_Population_Density	Inhabitable_Land	Demographics			
-Demographics	Demographics_Population_Ethnicity	FIPS	Demographics			
-Demographics	Demographics_Population_Ethnicity	Year	Demographics			
-Demographics	Demographics_Population_Ethnicity	County	Demographics			
-Demographics	Demographics_Population_Ethnicity	State	Demographics			
-Demographics	Demographics_Population_Ethnicity	Gov_Type	Demographics			
-Demographics	Demographics_Population_Ethnicity	Population_Size	Demographics			
-Demographics	Demographics_Population_Ethnicity	Census_Region	Demographics			
-Demographics	Demographics_Population_Ethnicity	Total_Population	Demographics			
-Demographics	Demographics_Population_Ethnicity	White	Demographics			
-Demographics	Demographics_Population_Ethnicity	Black_or_African_American	Demographics			
-Demographics	Demographics_Population_Ethnicity	American_Indian_and_Alaska_Native	Demographics			
-Demographics	Demographics_Population_Ethnicity	Asian	Demographics			
-Demographics	Demographics_Population_Ethnicity	Native_Hawaiian_and_Other_Pacific_Islander	Demographics			
-Demographics	Demographics_Population_Ethnicity	Two_or_More_Races	Demographics			
-Demographics	Demographics_Population_Ethnicity	Hispanic	Demographics			
-Demographics	Demographics_Population_Levels_and_Trends	FIPS	Demographics			
-Demographics	Demographics_Population_Levels_and_Trends	Year	Demographics			
-Demographics	Demographics_Population_Levels_and_Trends	Population_Size	Demographics			
-Demographics	Demographics_Population_Levels_and_Trends	Census_Region	Demographics			
-Demographics	Demographics_Population_Levels_and_Trends	Population	Demographics			
-Demographics	Demographics_Population_Levels_and_Trends	Population_Growth_Rate	Demographics			
+Geography	COUNTY_DATA	CBSA_Code	Geography	Metro-Micro Areas (MSA) 	CBSA Code	
+Geography	COUNTY_DATA	CBSA_Title	Geography	Metro-Micro Areas (MSA) 	CBSA Title	
+Geography	COUNTY_DATA	CBSA_Level	Geography	Metro-Micro Areas (MSA) 	Level of CBSA	
+Geography	COUNTY_DATA	CSA_Code	Geography	Metro-Micro Areas (MSA) 	CSA Code	
+Geography	COUNTY_DATA	CSA_Title	Geography	Metro-Micro Areas (MSA) 	CSA Title	
+Geography	COUNTY_DATA	County_Status	Geography	Metro-Micro Areas (MSA) 	County Status	
+County_Employment	County_Employment	KEYID	County Employment			
+County_Employment	County_Employment	FIPS	County Employment			
+County_Employment	County_Employment	DATA_YEAR	County Employment			
+County_Employment	County_Employment	Empl_Total_County_FTE	County Employment	Other Employment	Total	
+County_Employment	County_Employment	Empl_All_Other_Unallocable_County_FTE	County Employment	Other Employment	Other & Unallocable	
+County_Finance	County_Finance	KEYID	County Finance			
+County_Finance	County_Finance	FIPS	County Finance			
+County_Finance	County_Finance	Year	County Finance			
+County_Finance	County_Finance	Expenditures_Total_Expenditures	County Finance	Annual Financial Report - Expenses	Total Expenditures	
+County_Finance	County_Finance	Expenditures_General_Government	County Finance	Annual Financial Report - Expenses	General Government	
+County_Finance	County_Finance	Expenditures_Public_Works_and_Bldgs_and_Trans	County Finance	Annual Financial Report - Expenses	"Public Works, Buildings & Transportation"	
+County_Finance	County_Finance	Expenditures_Public_Safety_and_Court_Related	County Finance	Annual Financial Report - Expenses	Public Safety & Court Related	
+County_Finance	County_Finance	Expenditures_Health_and_Human_Services	County Finance	Annual Financial Report - Expenses	Health & Human Services	
+County_Finance	County_Finance	Expenditures_Education_and_Culture_and_Recreation	County Finance	Annual Financial Report - Expenses	"Education, Culture & Recreation"	
+County_Finance	County_Finance	Expenditures_Intergovernmental	County Finance	Annual Financial Report - Expenses	Intergovernmental	
+County_Finance	County_Finance	Expenditures_Environmental_Protection_Natural_Resources	County Finance	Annual Financial Report - Expenses	Environmental Protection/Natural Resources	
+County_Finance	County_Finance	Expenditures_Community_and_Economic_Development	County Finance	Annual Financial Report - Expenses	Community & Economic Development	
+County_Finance	County_Finance	Expenditures_Total_Debt	County Finance	Annual Financial Report - Expenses	Total Debt	
+County_Finance	County_Finance	Expenditures_Capital_Projects	County Finance	Annual Financial Report - Expenses	Capital Projects	
+County_Finance	County_Finance	Expenditures_Other	County Finance	Annual Financial Report - Expenses	Other	
+County_Finance	County_Finance	CAFR_Rev_Total_Revenue	County Finance	Annual Financial Report - Revenue	Total Revenue	
+County_Finance	County_Finance	CAFR_Rev_Total_Taxes	County Finance	Annual Financial Report - Revenue	Total Taxes	
+County_Finance	County_Finance	CAFR_Rev_Licenses_and_Permits	County Finance	Annual Financial Report - Revenue	Licenses and Permits	
+County_Finance	County_Finance	CAFR_Rev_Fines_Fees_Forfeits	County Finance	Annual Financial Report - Revenue	"Fines, Fees & Forfeits"	
+County_Finance	County_Finance	CAFR_Rev_intergovernmental	County Finance	Annual Financial Report - Revenue	Intergovernmental	
+County_Finance	County_Finance	CAFR_Rev_Use_of_Money_and_Property	County Finance	Annual Financial Report - Revenue	Use of Money & Property	
+County_Finance	County_Finance	CAFR_Rev_nvestment_Earnings	County Finance	Annual Financial Report - Revenue	Investment Earnings	
+County_Finance	County_Finance	CAFR_Rev_Charges_for_Services	County Finance	Annual Financial Report - Revenue	Charges for Services	
+County_Finance	County_Finance	CAFR_Rev_Other	County Finance	Annual Financial Report - Revenue	Other	
+County_Finance	County_Finance	FinExp_Total_Expenditures_in_T	County Finance	Financial Expenditures	Total	
+County_Finance	County_Finance	FinExp_Total_Financial_Expenditures_in_T	County Finance	Financial Expenditures	Total Financial	
+County_Finance	County_Finance	FinExp_Insurance_Trust_Expenditure_Employee_Retirement	County Finance	Financial Expenditures	Insurance Trust - Employee Retirement	
+County_Finance	County_Finance	FinExp_Insurance_Trust_Expenditure__Unemployment_	County Finance	Financial Expenditures	Insurance Trust - Unemployment	
+County_Finance	County_Finance	FinExp_Interest_on_General_Debt	County Finance	Financial Expenditures	Interest on General Debt	
+County_Finance	County_Finance	Intergovt_Rev_Total	County Finance	Intergovernmental Revenue	Total	
+County_Finance	County_Finance	Intergovt_Rev_Total_Intergovernmental	County Finance	Intergovernmental Revenue	Total Intergovernmental	
+County_Finance	County_Finance	Intergovt_Rev_From_Federal_Government	County Finance	Intergovernmental Revenue	From Federal Government	
+County_Finance	County_Finance	Intergovt_Rev_From_Local_Government	County Finance	Intergovernmental Revenue	From Local Government	
+County_Finance	County_Finance	Intergovt_Rev_From_State_Government	County Finance	Intergovernmental Revenue	From State Government	
+County_Finance	County_Finance	Other_Exp_Total_Expenditures_in_T	County Finance	Other Expenditures	Total	
+County_Finance	County_Finance	Other_Exp_Total_Other_Expenditures_in_T	County Finance	Other Expenditures	Total Other	
+County_Finance	County_Finance	Other_Exp_Misc_Commercial_Activities	County Finance	Other Expenditures	Misc. Commercial Activities	
+County_Finance	County_Finance	Other_Exp_Other_and_Unallocable	County Finance	Other Expenditures	Other & Unallocable	
+County_Finance	County_Finance	Other_Exp_General_Public_Buildings	County Finance	Other Expenditures	General Public Buildings	
+County_Finance	County_Finance	Tax_Rev_Total	County Finance	Tax Revenue	Total	
+County_Finance	County_Finance	Tax_Rev_Total_Taxes	County Finance	Tax Revenue	Total Taxes	
+County_Finance	County_Finance	Tax_Rev_Income_Taxes	County Finance	Tax Revenue	Income Taxes	
+County_Finance	County_Finance	Tax_Rev_License_Taxes	County Finance	Tax Revenue	License Taxes	
+County_Finance	County_Finance	Tax_Rev_Other_Taxes	County Finance	Tax Revenue	Other Taxes	
+County_Finance	County_Finance	Tax_Rev_Property_Taxes	County Finance	Tax Revenue	Property Taxes	
+County_Finance	County_Finance	Tax_Rev_Sales_and_Gross_Receipts_Taxes	County Finance	Tax Revenue	Sales & Gross Receipts Taxes	
+Demographics	Demographics_Population_by_Age_and_Gender	FIPS	Demographics	Population by Age/Gender		
+Demographics	Demographics_Population_by_Age_and_Gender	DATA_YEAR	Demographics	Population by Age/Gender		
+Demographics	Demographics_Population_by_Age_and_Gender	County	Demographics	Population by Age/Gender		
+Demographics	Demographics_Population_by_Age_and_Gender	State	Demographics	Population by Age/Gender		
+Demographics	Demographics_Population_by_Age_and_Gender	Gov_Type	Demographics	Population by Age/Gender		
+Demographics	Demographics_Population_by_Age_and_Gender	Population_Size	Demographics	Population by Age/Gender		
+Demographics	Demographics_Population_by_Age_and_Gender	Census_Region	Demographics	Population by Age/Gender		
+Demographics	Demographics_Population_by_Age_and_Gender	Total_Population	Demographics	Population by Age/Gender	Total Population Level	
+Demographics	Demographics_Population_by_Age_and_Gender	Male_Population	Demographics	Population by Age/Gender	Male Population	
+Demographics	Demographics_Population_by_Age_and_Gender	Percent_Male	Demographics	Population by Age/Gender	Percent Male	
+Demographics	Demographics_Population_by_Age_and_Gender	Female_Population	Demographics	Population by Age/Gender	Female Population	
+Demographics	Demographics_Population_by_Age_and_Gender	Percent_Female	Demographics	Population by Age/Gender	Percent Female	
+Demographics	Demographics_Population_by_Age_and_Gender	Population_under_5_years_old	Demographics	Population by Age/Gender	Under 5 years old Population	
+Demographics	Demographics_Population_by_Age_and_Gender	Percent_under_5_years_old	Demographics	Population by Age/Gender	Percent Under 5 years old	
+Demographics	Demographics_Population_by_Age_and_Gender	Population_5_to_24_years_old	Demographics	Population by Age/Gender		
+Demographics	Demographics_Population_by_Age_and_Gender	Percent_5_to_24_years_old	Demographics	Population by Age/Gender		
+Demographics	Demographics_Population_by_Age_and_Gender	Population_25_to_64_years_old	Demographics	Population by Age/Gender	Population 25-64 years old	
+Demographics	Demographics_Population_by_Age_and_Gender	Percent_25_to_64_years_old	Demographics	Population by Age/Gender	Percent 25-64 years old	
+Demographics	Demographics_Population_by_Age_and_Gender	Population_65_years_and_older	Demographics	Population by Age/Gender	65 years and older Population	
+Demographics	Demographics_Population_by_Age_and_Gender	Percent_65_years_and_older	Demographics	Population by Age/Gender	Percent 65 years and older	
+Demographics	Demographics_Population_Change_Component	FIPS	Demographics	Population Change Components		
+Demographics	Demographics_Population_Change_Component	Year	Demographics	Population Change Components		
+Demographics	Demographics_Population_Change_Component	County	Demographics	Population Change Components		
+Demographics	Demographics_Population_Change_Component	State	Demographics	Population Change Components		
+Demographics	Demographics_Population_Change_Component	Gov_Type	Demographics	Population Change Components		
+Demographics	Demographics_Population_Change_Component	Population_Size	Demographics	Population Change Components		
+Demographics	Demographics_Population_Change_Component	Census_Region	Demographics	Population Change Components		
+Demographics	Demographics_Population_Change_Component	Population	Demographics	Population Change Components	Population Level	
+Demographics	Demographics_Population_Change_Component	Change_in_Population	Demographics	Population Change Components	Change in Population (from previous year)	
+Demographics	Demographics_Population_Change_Component	Births	Demographics	Population Change Components	Births	
+Demographics	Demographics_Population_Change_Component	Deaths	Demographics	Population Change Components	Deaths	
+Demographics	Demographics_Population_Change_Component	Natural_Population_Increase	Demographics	Population Change Components	Natural Population Increase	
+Demographics	Demographics_Population_Change_Component	International_Migration	Demographics	Population Change Components	International Migration	
+Demographics	Demographics_Population_Change_Component	Domestic_Migration	Demographics	Population Change Components	Domestic Migration	
+Demographics	Demographics_Population_Change_Component	Net_Migration	Demographics	Population Change Components	Net Migration	
+Demographics	Demographics_Population_Change_Component	Birth_Rate	Demographics	Population Change Components	Birth rate	
+Demographics	Demographics_Population_Change_Component	Death_Rate	Demographics	Population Change Components	Death Rate	
+Demographics	Demographics_Population_Change_Component	Natural_Population_Increase_Rate	Demographics	Population Change Components	Natural Population Increase Rate	
+Demographics	Demographics_Population_Change_Component	International_Migration_Rate	Demographics	Population Change Components	International Migration Rate	
+Demographics	Demographics_Population_Change_Component	Domestic_Migration_Rate	Demographics	Population Change Components	Domestic Migration Rate	
+Demographics	Demographics_Population_Change_Component	Net_Migration_Rate	Demographics	Population Change Components	Net Migration Rate	
+Demographics	Demographics_Population_Density	FIPS	Demographics	Population Density		
+Demographics	Demographics_Population_Density	Year_of_Primary_Data	Demographics	Population Density		
+Demographics	Demographics_Population_Density	County	Demographics	Population Density		
+Demographics	Demographics_Population_Density	State	Demographics	Population Density		
+Demographics	Demographics_Population_Density	Gov_Type	Demographics	Population Density		
+Demographics	Demographics_Population_Density	Population_Size	Demographics	Population Density		
+Demographics	Demographics_Population_Density	Census_Region	Demographics	Population Density		
+Demographics	Demographics_Population_Density	Population	Demographics	Population Density	Population	
+Demographics	Demographics_Population_Density	Population_Density	Demographics	Population Density	Population Density	
+Demographics	Demographics_Population_Density	Population_Density_Growth_Rate_from_previous_year	Demographics	Population Density	Population Density Growth Rate (from previous year)	
+Demographics	Demographics_Population_Density	Total_Land	Demographics	Population Density	Total Land Area	
+Demographics	Demographics_Population_Density	Total_Federal_Land	Demographics	Population Density	Total Federal Land Area	
+Demographics	Demographics_Population_Density	Inhabitable_Land	Demographics	Population Density	Inhabitable Land Area	
+Demographics	Demographics_Population_Ethnicity	FIPS	Demographics	Population Ethnicity		
+Demographics	Demographics_Population_Ethnicity	Year	Demographics	Population Ethnicity		
+Demographics	Demographics_Population_Ethnicity	County	Demographics	Population Ethnicity		
+Demographics	Demographics_Population_Ethnicity	State	Demographics	Population Ethnicity		
+Demographics	Demographics_Population_Ethnicity	Gov_Type	Demographics	Population Ethnicity		
+Demographics	Demographics_Population_Ethnicity	Population_Size	Demographics	Population Ethnicity		
+Demographics	Demographics_Population_Ethnicity	Census_Region	Demographics	Population Ethnicity		
+Demographics	Demographics_Population_Ethnicity	Total_Population	Demographics	Population Ethnicity	Total Population	
+Demographics	Demographics_Population_Ethnicity	White	Demographics	Population Ethnicity	White Population	
+Demographics	Demographics_Population_Ethnicity	Black_or_African_American	Demographics	Population Ethnicity	Black or African American Population	
+Demographics	Demographics_Population_Ethnicity	American_Indian_and_Alaska_Native	Demographics	Population Ethnicity	American Indian and Alaska Native Population	
+Demographics	Demographics_Population_Ethnicity	Asian	Demographics	Population Ethnicity	Asian Population	
+Demographics	Demographics_Population_Ethnicity	Native_Hawaiian_and_Other_Pacific_Islander	Demographics	Population Ethnicity	Native Hawaiian and Other Pacific Islander Population	
+Demographics	Demographics_Population_Ethnicity	Two_or_More_Races	Demographics	Population Ethnicity	Two or More Races Population	
+Demographics	Demographics_Population_Ethnicity	Hispanic	Demographics	Population Ethnicity	Hispanic or Latino Origin Population	
+Demographics	Demographics_Population_Levels_and_Trends	FIPS	Demographics	Population Levels and Trends		
+Demographics	Demographics_Population_Levels_and_Trends	Year	Demographics	Population Levels and Trends		
+Demographics	Demographics_Population_Levels_and_Trends	Population_Size	Demographics	Population Levels and Trends		
+Demographics	Demographics_Population_Levels_and_Trends	Census_Region	Demographics	Population Levels and Trends		
+Demographics	Demographics_Population_Levels_and_Trends	Population	Demographics	Population Levels and Trends	Population Level	
+Demographics	Demographics_Population_Levels_and_Trends	Population_Growth_Rate	Demographics	Population Levels and Trends	Population Annual Growth Rate (from previous year)	
 Economy	Economy	KEYID	Economy			
 Economy	Economy	FIPS	Economy			
 Economy	Economy	DATA_YEAR	Economy			
-Economy	Economy	Total_Households	Economy			
-Economy	Economy	Per_Capita_Income	Economy			
-Economy	Economy	Median_Household_Income	Economy			
-Economy	Economy	Number_of_Households_Income_Less_than_10000	Economy			
-Economy	Economy	Percent_of_Households_with_Income_Less_than_10000	Economy			
-Economy	Economy	Number_of_Households_with_Income_10000_24999	Economy			
-Economy	Economy	Percent_of_Households_with_Income_10000_24999	Economy			
-Economy	Economy	Number_of_Households_with_Income_25000_49999	Economy			
-Economy	Economy	Percent_of_Households_with_Income_25000_49999	Economy			
-Economy	Economy	Number_of_Households_with_Income_50000_99999	Economy			
-Economy	Economy	Percent_of_Households_with_Income_50000_99999	Economy			
-Economy	Economy	Number_of_Householdss_with_Income_100000_199999	Economy			
-Economy	Economy	Percent_of_Households_with_Income_10000_199999	Economy			
-Economy	Economy	Number_of_Households_with_Income_200000_or_more	Economy			
-Economy	Economy	Percent_of_Households_with_Income_200000_or_more	Economy			
-Economy	Economy	Civilian_Labor_Force	Economy			
-Economy	Economy	Number_Employed	Economy			
-Economy	Economy	Number_Unemployed	Economy			
-Economy	Economy	Percent_Unemployed	Economy			
+Economy	Economy	Total_Households	Economy	Household Income	Total Households	
+Economy	Economy	Per_Capita_Income	Economy	Household Income	Per Capita Income	
+Economy	Economy	Median_Household_Income	Economy	Household Income	Median Household Income	
+Economy	Economy	Number_of_Households_Income_Less_than_10000	Economy	Household Income	"Number of Households with Income Less than $10,000"	
+Economy	Economy	Percent_of_Households_with_Income_Less_than_10000	Economy	Household Income	"Percent of Households with Income Less than $10,000"	
+Economy	Economy	Number_of_Households_with_Income_10000_24999	Economy	Household Income	"Number of Households with Income Between $10,000 - $24,999"	
+Economy	Economy	Percent_of_Households_with_Income_10000_24999	Economy	Household Income	"Percent of Households with Income Between $10,000 - $24,999"	
+Economy	Economy	Number_of_Households_with_Income_25000_49999	Economy	Household Income	"Number of Households with Income Between $25,000 - $49,999"	
+Economy	Economy	Percent_of_Households_with_Income_25000_49999	Economy	Household Income	"Percent of Households with Income Between $25,000 - $49,999"	
+Economy	Economy	Number_of_Households_with_Income_50000_99999	Economy	Household Income	"Number of Households with Income Between $50,000 - $99,999"	
+Economy	Economy	Percent_of_Households_with_Income_50000_99999	Economy	Household Income	"Percent of Households with Income Between $50,000 - $99,999"	
+Economy	Economy	Number_of_Householdss_with_Income_100000_199999	Economy	Household Income	"Number of Households with Income Between $100,000 - $199,999"	
+Economy	Economy	Percent_of_Households_with_Income_10000_199999	Economy	Household Income	"Percent of Households with Income Between $100,000 - $199,999"	
+Economy	Economy	Number_of_Households_with_Income_200000_or_more	Economy	Household Income	"Number of Households with Income of $200,000 or more"	
+Economy	Economy	Percent_of_Households_with_Income_200000_or_more	Economy	Household Income	"Percent of Households with Income of $200,000 or more"	
+Economy	Economy	Civilian_Labor_Force	Economy	Labor Force	Civilian Labor Force Population	
+Economy	Economy	Number_Employed	Economy	Labor Force	Number Employed	
+Economy	Economy	Number_Unemployed	Economy	Labor Force	Number Unemployed	
+Economy	Economy	Percent_Unemployed	Economy	Labor Force	Unemployment Rate	
 Education	Education	KEYID	Education			
 Education	Education	FIPS	Education			
 Education	Education	DATA_YEAR	Education			
-Education	Education	Number_of_Institutions	Education			
-Education	Education	Number_of_Public_Institutions	Education			
-Education	Education	Num_of_less_than_4yr_Institutions	Education			
-Education	Education	Num_of_4yr_or_Higher_Institutions	Education			
-Education	Education	Total_Enrollment	Education			
-Education	Education	Male_Enrollment	Education			
-Education	Education	Female_Enrollment	Education			
-Education	Education	Ave_In_State_Tuition	Education			
-Education	Education	Ave_Out_of_State_Tuition	Education			
-Education	Education	Employment_Total_FTE	Education			
-Education	Education	Employment_Total_Education	Education			
-Education	Education	Employment_Elementary_Education	Education			
-Education	Education	Employment_Higher_Education	Education			
-Education	Education	Expenditures_Total_in_T	Education			
-Education	Education	Expenditures_Total_Education_in_T	Education			
-Education	Education	Expenditures_Elementary_and_Secondary_Education_in_T	Education			
-Education	Education	Expenditures_Higher_Education_in_T	Education			
-Education	Education	Expenditures_Current_Operation_in_T	Education			
-Education	Education	Expenditures_Construction_in_T	Education			
-Education	Education	Expenditures_Capital_Outlay_in_T	Education			
-Education	Education	Expenditures_Intergovernmental_to_State_in_T	Education			
-Education	Education	Expenditures_Intergovernmental_to_Local_in_T	Education			
-Education	Education_Public_Elementary_and_Secondary	FIPS	Education			
-Education	Education_Public_Elementary_and_Secondary	DATA_YEAR	Education			
-Education	Education_Public_Elementary_and_Secondary	District_Name	Education			
-Education	Education_Public_Elementary_and_Secondary	District_Address	Education			
-Education	Education_Public_Elementary_and_Secondary	District_City	Education			
-Education	Education_Public_Elementary_and_Secondary	District_State	Education			
-Education	Education_Public_Elementary_and_Secondary	District_Zip	Education			
-Education	Education_Public_Elementary_and_Secondary	District_Phone	Education			
-Education	Education_Public_Elementary_and_Secondary	Total_Number_Operational_Schools	Education			
-Education	Education_Public_Elementary_and_Secondary	District_Type	Education			
-Education	Education_Public_Elementary_and_Secondary	Lowest_Grade_Offered	Education			
-Education	Education_Public_Elementary_and_Secondary	Highest_Grade_Offered	Education			
-Education	Education_Public_Elementary_and_Secondary	Total_Students	Education			
-Education	Education_Public_Elementary_and_Secondary	FTE_Teachers	Education			
-Education	Education_Public_Elementary_and_Secondary	Pupil_Teacher_Ratio	Education			
-Federal_Funding	Federal_Funding	FIPS	Federal_Funding			
-Federal_Funding	Federal_Funding	DATA_YEAR	Federal_Funding			
-Federal_Funding	Federal_Funding	ADDI	Federal_Funding			
-Federal_Funding	Federal_Funding	ADDI_Trend	Federal_Funding			
-Federal_Funding	Federal_Funding	CDBG	Federal_Funding			
-Federal_Funding	Federal_Funding	CDBG_Trend	Federal_Funding			
-Federal_Funding	Federal_Funding	ESG_2011_Stage1	Federal_Funding			
-Federal_Funding	Federal_Funding	ESG_2011_Stage2	Federal_Funding			
-Federal_Funding	Federal_Funding	ESG_TOTAL	Federal_Funding			
-Federal_Funding	Federal_Funding	ESG_Trend	Federal_Funding			
-Federal_Funding	Federal_Funding	HOME	Federal_Funding			
-Federal_Funding	Federal_Funding	HOME_Trend	Federal_Funding			
-Federal_Funding	Federal_Funding	HUD	Federal_Funding			
-Federal_Funding	Federal_Funding	HUD_Trend	Federal_Funding			
-Federal_Funding	Federal_Funding	HOPWA	Federal_Funding			
-Federal_Funding	Federal_Funding	HOPWA_Trend	Federal_Funding			
-Federal_Funding	Federal_Funding	SCAAP	Federal_Funding			
-Federal_Funding	Federal_Funding	SCAAP_Trend	Federal_Funding			
-Federal_Funding	Federal_Funding	USDA_Grant	Federal_Funding			
-Federal_Funding	Federal_Funding	USDA_Loan	Federal_Funding			
-Federal_Funding	Federal_Funding	USDA_Total	Federal_Funding			
-Federal_Funding	Federal_Funding	USDA_Grant_Trend	Federal_Funding			
-Federal_Funding	Federal_Funding	USDA_Loan_Trend	Federal_Funding			
-Federal_Funding	Federal_Funding	USDA_Total_Trend	Federal_Funding			
-Federal_Funding	Federal_Funding	PILT_Allocation	Federal_Funding			
-Federal_Funding	Federal_Funding	Total_Federal_Land_Area	Federal_Funding			
-Federal_Funding	Federal_Funding	Total_County_Area	Federal_Funding			
-Federal_Funding	Federal_Funding	Percentage_of_Federal_Land	Federal_Funding			
-Federal_Funding	Federal_Funding	PILT_per_square_mile	Federal_Funding			
-Federal_Funding	Federal_Funding	PILT_Trend	Federal_Funding			
-Health_Hospitals	Health_Hospitals	KEYID	Health_Hospitals			
-Health_Hospitals	Health_Hospitals	FIPS	Health_Hospitals			
-Health_Hospitals	Health_Hospitals	DATA_YEAR	Health_Hospitals			
-Health_Hospitals	Health_Hospitals	HH_Empl_TOTAL_COUNTY_FTE	Health_Hospitals			
-Health_Hospitals	Health_Hospitals	HH_Empl_Total_Health_Hospitals_FTE	Health_Hospitals			
-Health_Hospitals	Health_Hospitals	HH_Empl_Health_FTE	Health_Hospitals			
-Health_Hospitals	Health_Hospitals	HH_Empl_Hospitals_FTE	Health_Hospitals			
-Health_Hospitals	Health_Hospitals	HH_Expd_Total_Expenditure	Health_Hospitals			
-Health_Hospitals	Health_Hospitals	HH_Expd_Total_Health_Hospitals_Expenditure	Health_Hospitals			
-Health_Hospitals	Health_Hospitals	HH_Expd_Health	Health_Hospitals			
-Health_Hospitals	Health_Hospitals	HH_Expd_Hospitals	Health_Hospitals			
-Health_Hospitals	Health_Hospitals	HH_Expd_Current_Operation	Health_Hospitals			
-Health_Hospitals	Health_Hospitals	HH_Expd_Construction	Health_Hospitals			
-Health_Hospitals	Health_Hospitals	HH_Expd_Other_Capital_Outla	Health_Hospitals			
-Health_Hospitals	Health_Hospitals	HH_Expd_Intergovernmental_to_State	Health_Hospitals			
-Health_Hospitals	Health_Hospitals	HH_Expd_Intergovernmental_to_Local	Health_Hospitals			
-Health_Hospitals	Health_Hospitals	Health_Insruance_Population	Health_Hospitals			
-Health_Hospitals	Health_Hospitals	Health_Insruance_Population_Insured	Health_Hospitals			
-Health_Hospitals	Health_Hospitals	Health_Insruance_Population_Uninsured	Health_Hospitals			
-Health_Hospitals	Health_Hospitals	Health_Insruance_Population_with_Private_Health_Insurance	Health_Hospitals			
-Health_Hospitals	Health_Hospitals	Health_Insruance_Population_with_Public_Health_Insurance	Health_Hospitals			
-Health_Hospitals	Health_Hospitals	Health_Insruance_Population_under_6	Health_Hospitals			
-Health_Hospitals	Health_Hospitals	Health_Insruance_Population_under_6_Insured	Health_Hospitals			
-Health_Hospitals	Health_Hospitals	Health_Insruance_Population_under_6_Uninsured	Health_Hospitals			
-Health_Hospitals	Health_Hospitals	Health_Insruance_Population_6_24	Health_Hospitals			
-Health_Hospitals	Health_Hospitals	Health_Insruance_Population_6_24_Insured	Health_Hospitals			
-Health_Hospitals	Health_Hospitals	Health_Insruance_Population_6_24_Uninsured	Health_Hospitals			
-Health_Hospitals	Health_Hospitals	Health_Insruance_Population_25_64	Health_Hospitals			
-Health_Hospitals	Health_Hospitals	Health_Insruance_Population_25_64_Insured	Health_Hospitals			
-Health_Hospitals	Health_Hospitals	Health_Insruance_Population_25_64_Uninsured	Health_Hospitals			
-Health_Hospitals	Health_Hospitals	Health_Insruance_Population_65_and_over	Health_Hospitals			
-Health_Hospitals	Health_Hospitals	Health_Insruance_Population_65_and_over_Insured	Health_Hospitals			
-Health_Hospitals	Health_Hospitals	Health_Insruance_Population_65_and_over_Uninsured	Health_Hospitals			
-Health_Hospitals	Health_Hospitals	Hospitals_Number_of_Hospitals	Health_Hospitals			
-Health_Hospitals	Health_Hospitals	Hospitals_Number_of_City_Facilities	Health_Hospitals			
-Health_Hospitals	Health_Hospitals	Hospitals_Number_of_County_Facilities	Health_Hospitals			
-Health_Hospitals	Health_Hospitals	Hospitals_Number_of_City_County_Facilities	Health_Hospitals			
-Health_Hospitals	Health_Hospitals	Hospitals_Number_of_Hopstial_District_Facilities	Health_Hospitals			
-Health_Hospitals	Health_Hospitals	Hospitals_Number_of_Other_Government_Facilities	Health_Hospitals			
-Health_Hospitals	Health_Hospitals	Hospitals_Number_of_Proprietary_Facilities	Health_Hospitals			
-Health_Hospitals	Health_Hospitals	Hospitals_Number_of_NonProfit_Facilities	Health_Hospitals			
-Health_Hospitals	Health_Hospitals	Hospitals_Number_of_Beds	Health_Hospitals			
-Health_Hospitals	Health_Hospitals	Hospitals_Number_of_Employees	Health_Hospitals			
-Health_Hospitals	Health_Hospitals	Hospitals_Gross_Revenue	Health_Hospitals			
-Health_Hospitals	Health_Hospitals	Hospitals_Medicare_Revenue	Health_Hospitals			
-Health_Hospitals	Health_Hospitals	Hospitals_Medicaid_Revenue	Health_Hospitals			
-Health_Hospitals	Health_Hospitals	Hospitals_Patient_Days	Health_Hospitals			
-Health_Hospitals	Health_Hospitals	Hospitals_Revenue_per_Day	Health_Hospitals			
-Health_Hospitals	Health_Hospitals	Hospitals_Revenue_per_Patient_Day	Health_Hospitals			
-Health_Hospitals	Health_Hospitals	Nursing_Home_Number_Nursing_Home_Facilities	Health_Hospitals			
-Health_Hospitals	Health_Hospitals	Nursing_Home_Number_of_City_Facilities	Health_Hospitals			
-Health_Hospitals	Health_Hospitals	Nursing_Home_Number_of_County_Facilities	Health_Hospitals			
-Health_Hospitals	Health_Hospitals	Nursing_Home_Number_of_City_CountyFacilities	Health_Hospitals			
-Health_Hospitals	Health_Hospitals	Nursing_Home_Number_of_Hospital_District_Facilities	Health_Hospitals			
-Health_Hospitals	Health_Hospitals	Nursing_Home_Number_of_Other_Government_Facilities	Health_Hospitals			
-Health_Hospitals	Health_Hospitals	Nursing_Home_Number_of_ForProfit_Facilities	Health_Hospitals			
-Health_Hospitals	Health_Hospitals	Nursing_Home_Number_of_NonProfit_Facilities	Health_Hospitals			
-Health_Hospitals	Health_Hospitals	Nursing_Home_Number_of_Certified_Beds	Health_Hospitals			
-Health_Hospitals	Health_Hospitals	Nursing_Home_Number_of_Residents	Health_Hospitals			
-Health_Hospitals	Health_Hospitals	Nursing_Home_Percent_of_Occupied_Beds	Health_Hospitals			
-Health_Hospitals	Health_Hospitals	Nursing_Home_Number_of_Continuing_Care_Retirement_Facilities	Health_Hospitals			
-Health_Hospitals	Health_Hospitals	Nursing_Home_Number_of_Special_Focus_Facilities	Health_Hospitals			
-Housing_Community_Development	Housing_Community_Development	KEYID	Housing_Community_Development			
-Housing_Community_Development	Housing_Community_Development	FIPS	Housing_Community_Development			
-Housing_Community_Development	Housing_Community_Development	DATA_YEAR	Housing_Community_Development			
-Housing_Community_Development	Housing_Community_Development	Population	Housing_Community_Development			
-Housing_Community_Development	Housing_Community_Development	Population_Size	Housing_Community_Development			
-Housing_Community_Development	Housing_Community_Development	HCD_TOTAL_COUNTY_FTE	Housing_Community_Development			
-Housing_Community_Development	Housing_Community_Development	Housing_Units	Housing_Community_Development			
-Housing_Community_Development	Housing_Community_Development	Average_Household_Size	Housing_Community_Development			
-Housing_Community_Development	Housing_Community_Development	Occupied_Housing_Units	Housing_Community_Development			
-Housing_Community_Development	Housing_Community_Development	Owner_occupied_Housing_Units	Housing_Community_Development			
-Housing_Community_Development	Housing_Community_Development	Percent_of_Owner_occupied	Housing_Community_Development			
-Housing_Community_Development	Housing_Community_Development	Renter_Occupied_Housing_Units	Housing_Community_Development			
-Housing_Community_Development	Housing_Community_Development	Percent_of_Renter_Occupied	Housing_Community_Development			
-Housing_Community_Development	Housing_Community_Development	HCD	Housing_Community_Development			
-Housing_Community_Development	Housing_Community_Development	HCD_Expd_Total_Expenditure	Housing_Community_Development			
-Housing_Community_Development	Housing_Community_Development	HCD_Expd_Total_HCD	Housing_Community_Development			
-Housing_Community_Development	Housing_Community_Development	HCD_Expd_Current_Operation	Housing_Community_Development			
-Housing_Community_Development	Housing_Community_Development	HCD_Expd_Construction	Housing_Community_Development			
-Housing_Community_Development	Housing_Community_Development	HCD_Expd_Capital_Outlay	Housing_Community_Development			
-Housing_Community_Development	Housing_Community_Development	HCD_Expd_Intergovernmental_to_State	Housing_Community_Development			
-Housing_Community_Development	Housing_Community_Development	HCD_Expd_Intergovernmental_to_Local	Housing_Community_Development			
-Justice_Public_Safety	Justice_Public_Safety	KEYID	Justice_Public_Safety			
-Justice_Public_Safety	Justice_Public_Safety	FIPS	Justice_Public_Safety			
-Justice_Public_Safety	Justice_Public_Safety	DATA_YEAR	Justice_Public_Safety			
-Justice_Public_Safety	Justice_Public_Safety	JPS_Empl_TOTAL_COUNTY_FTE	Justice_Public_Safety			
-Justice_Public_Safety	Justice_Public_Safety	Employment_Total_Justice_and_Public_Safety	Justice_Public_Safety			
-Justice_Public_Safety	Justice_Public_Safety	Employment_Corrections	Justice_Public_Safety			
-Justice_Public_Safety	Justice_Public_Safety	Employment_Judicial_and_Legal	Justice_Public_Safety			
-Justice_Public_Safety	Justice_Public_Safety	Employment_Police_Protection	Justice_Public_Safety			
-Justice_Public_Safety	Justice_Public_Safety	Employment_Fire_Protection_Total	Justice_Public_Safety			
-Justice_Public_Safety	Justice_Public_Safety	Employment_Fire_Protection_Firefighter	Justice_Public_Safety			
-Justice_Public_Safety	Justice_Public_Safety	Employment_Fire_Protection_Other	Justice_Public_Safety			
-Justice_Public_Safety	Justice_Public_Safety	Expenditure_Total_in_T	Justice_Public_Safety			
-Justice_Public_Safety	Justice_Public_Safety	Expenditure_Total_Justice_and_Public_Safety_in_T	Justice_Public_Safety			
-Justice_Public_Safety	Justice_Public_Safety	Expenditure_Correction_in_T	Justice_Public_Safety			
-Justice_Public_Safety	Justice_Public_Safety	Expenditure_Judicial_and_Legal_Services_in_T	Justice_Public_Safety			
-Justice_Public_Safety	Justice_Public_Safety	Expenditure_Police_Protection_in_T	Justice_Public_Safety			
-Justice_Public_Safety	Justice_Public_Safety	Expenditure_Fire_Protection_in_T	Justice_Public_Safety			
-Justice_Public_Safety	Justice_Public_Safety	Expenditure_Protective_Inspection_in_T	Justice_Public_Safety			
-Justice_Public_Safety	Justice_Public_Safety	Expenditure_Current_Operation_in_T	Justice_Public_Safety			
-Justice_Public_Safety	Justice_Public_Safety	Expenditure_Construction_in_T	Justice_Public_Safety			
-Justice_Public_Safety	Justice_Public_Safety	Expenditure_Capital_Outlay_in_T	Justice_Public_Safety			
-Justice_Public_Safety	Justice_Public_Safety	Expenditure_Intergovernmental_to_State_in_T	Justice_Public_Safety			
-Justice_Public_Safety	Justice_Public_Safety	Expenditure_Intergovernmental_to_Local_in_T	Justice_Public_Safety			
-Justice_Public_Safety	Justice_Public_Safety	Demographics_Total_Jail_Population	Justice_Public_Safety			
-Justice_Public_Safety	Justice_Public_Safety	Demographics_Adult_Males	Justice_Public_Safety			
-Justice_Public_Safety	Justice_Public_Safety	Demographics_Adult_Females	Justice_Public_Safety			
-Justice_Public_Safety	Justice_Public_Safety	Demographics_Total_Juveniles	Justice_Public_Safety			
-Justice_Public_Safety	Justice_Public_Safety	Demographics_Total_Convicted	Justice_Public_Safety			
-Justice_Public_Safety	Justice_Public_Safety	Demographics_Total_Unconvicted	Justice_Public_Safety			
-Justice_Public_Safety	Justice_Public_Safety	Demographics_White	Justice_Public_Safety			
-Justice_Public_Safety	Justice_Public_Safety	Demographics_Black_or_African_American	Justice_Public_Safety			
-Justice_Public_Safety	Justice_Public_Safety	Demographics_Hispanic	Justice_Public_Safety			
-Justice_Public_Safety	Justice_Public_Safety	Demographics_American_Indian_or_Alaska_Native	Justice_Public_Safety			
-Justice_Public_Safety	Justice_Public_Safety	Demographics_Asian	Justice_Public_Safety			
-Justice_Public_Safety	Justice_Public_Safety	Demographics_Native_Hawaiin_or_Pacific_Islander	Justice_Public_Safety			
-Justice_Public_Safety	Justice_Public_Safety	Demographics_Two_or_More_Races	Justice_Public_Safety			
-Justice_Public_Safety	Justice_Public_Safety	Demographics_Other_Inmate_Races	Justice_Public_Safety			
-Justice_Public_Safety	Justice_Public_Safety	Demographics_Race_not_Known	Justice_Public_Safety			
-Justice_Public_Safety	Justice_Public_Safety	CS_Total_Jail_Population	Justice_Public_Safety			
-Justice_Public_Safety	Justice_Public_Safety	CS_Capacity	Justice_Public_Safety			
-Justice_Public_Safety	Justice_Public_Safety	CS_Confined_Persons	Justice_Public_Safety			
-Justice_Public_Safety	Justice_Public_Safety	CS_Non_confined_Persons	Justice_Public_Safety			
-Justice_Public_Safety	Justice_Public_Safety	CS_Electronic_Monitoring_Program	Justice_Public_Safety			
-Justice_Public_Safety	Justice_Public_Safety	CS_Home_Detention	Justice_Public_Safety			
-Justice_Public_Safety	Justice_Public_Safety	CS_Community_Service	Justice_Public_Safety			
-Justice_Public_Safety	Justice_Public_Safety	CS_Day_Reporting	Justice_Public_Safety			
-Justice_Public_Safety	Justice_Public_Safety	CS_Other_Pretrial_Supervision	Justice_Public_Safety			
-Justice_Public_Safety	Justice_Public_Safety	CS_Other_Alternative_Work_Programs	Justice_Public_Safety			
-Justice_Public_Safety	Justice_Public_Safety	CS_Alcohol_Drug_Treatment_Programs	Justice_Public_Safety			
-Justice_Public_Safety	Justice_Public_Safety	CS_Other_Nonconfined_Programs	Justice_Public_Safety			
-Justice_Public_Safety	Justice_Public_Safety	Supervised_Total_Jail_Population	Justice_Public_Safety			
-Justice_Public_Safety	Justice_Public_Safety	Supervised_Jail_Capacity	Justice_Public_Safety			
-Justice_Public_Safety	Justice_Public_Safety	Supervised_Confined_Persons	Justice_Public_Safety			
-Justice_Public_Safety	Justice_Public_Safety	Supervised_Non_confined_Persons	Justice_Public_Safety			
-Justice_Public_Safety	Justice_Public_Safety	Supervised_Non_US__Citizens	Justice_Public_Safety			
-Justice_Public_Safety	Justice_Public_Safety	Supervised_Number_of_Weekenders	Justice_Public_Safety			
-Justice_Public_Safety	Justice_Public_Safety	Supervised_Ave_Daily_Population	Justice_Public_Safety			
-Justice_Public_Safety	Justice_Public_Safety	SPbA_Total_Jail_Population	Justice_Public_Safety			
-Justice_Public_Safety	Justice_Public_Safety	SPbA_Jail_Capacity	Justice_Public_Safety			
-Justice_Public_Safety	Justice_Public_Safety	SPbA_Held_for_US_Marshall	Justice_Public_Safety			
-Justice_Public_Safety	Justice_Public_Safety	SPbA_Held_for_Federal_Bureau_of_Prisons	Justice_Public_Safety			
-Justice_Public_Safety	Justice_Public_Safety	SPbA_Held_for_Immigration_and_Customs	Justice_Public_Safety			
-Justice_Public_Safety	Justice_Public_Safety	SPbA_Held_for_Bureau_of_Indian_Affairs	Justice_Public_Safety			
-Justice_Public_Safety	Justice_Public_Safety	SPbA_Held_for_Other_Federal_Authorities	Justice_Public_Safety			
-Justice_Public_Safety	Justice_Public_Safety	SPbA_Held_for_own_state	Justice_Public_Safety			
-Justice_Public_Safety	Justice_Public_Safety	SPbA_Held_for_other_states	Justice_Public_Safety			
-Justice_Public_Safety	Justice_Public_Safety	SPbA_Held_for_Local_Jurisdiction_in_State	Justice_Public_Safety			
-Justice_Public_Safety	Justice_Public_Safety	SPbA_Held_for_Local_Jurisdiction_Outside_State	Justice_Public_Safety			
-Justice_Public_Safety	Justice_Public_Safety	PBS_Elected_Sheriff	Justice_Public_Safety			
-Justice_Public_Safety	Justice_Public_Safety	PBS_County_Funded_Sheriff_Dept	Justice_Public_Safety			
-Justice_Public_Safety	Justice_Public_Safety	PBS_County_Operated_Sheriff_Dept	Justice_Public_Safety			
-Justice_Public_Safety	Justice_Public_Safety	PBS_Elected_Police_Chief	Justice_Public_Safety			
-Justice_Public_Safety	Justice_Public_Safety	PBS_County_Funded_Police_Dept	Justice_Public_Safety			
-Justice_Public_Safety	Justice_Public_Safety	PBS_County_Operated_Police_Dept	Justice_Public_Safety			
-Justice_Public_Safety	Justice_Public_Safety	PBS_County_Funded_Jails	Justice_Public_Safety			
-Justice_Public_Safety	Justice_Public_Safety	PBS_County_Operated_Jails	Justice_Public_Safety			
-Justice_Public_Safety	Justice_Public_Safety	PBS_County_Funded_Courts_Salaries	Justice_Public_Safety			
-Justice_Public_Safety	Justice_Public_Safety	PBS_County_Funded_Courts_Buildings_or_Real_Property	Justice_Public_Safety			
-Justice_Public_Safety	Justice_Public_Safety	PBS_County_Funded_Courts_General_Operating_Expenses	Justice_Public_Safety			
-Justice_Public_Safety	Justice_Public_Safety	PBS_County_Operated_Courts	Justice_Public_Safety			
-Justice_Public_Safety	Justice_Public_Safety	PBS_Elected_Judges	Justice_Public_Safety			
-Justice_Public_Safety	Justice_Public_Safety	PBS_Elected_Clerks_of_Court	Justice_Public_Safety			
-Justice_Public_Safety	Justice_Public_Safety	PBS_Elected_District_Attorney	Justice_Public_Safety			
+Education	Education	Number_of_Institutions	Education	Colleges & Universities	Number of Institutions	
+Education	Education	Number_of_Public_Institutions	Education	Colleges & Universities	Number of Public Institutions	
+Education	Education	Num_of_less_than_4yr_Institutions	Education	Colleges & Universities	Number of less than 4 year Institutions	
+Education	Education	Num_of_4yr_or_Higher_Institutions	Education	Colleges & Universities	Number of 4 year of Higher Institutions	
+Education	Education	Total_Enrollment	Education	Colleges & Universities	Total Enrollment	
+Education	Education	Male_Enrollment	Education	Colleges & Universities	Male Enrollment	
+Education	Education	Female_Enrollment	Education	Colleges & Universities	Female Enrollment	
+Education	Education	Ave_In_State_Tuition	Education	Colleges & Universities	Average In-State Tuition	
+Education	Education	Ave_Out_of_State_Tuition	Education	Colleges & Universities	Average Out-of-State Tuition	
+Education	Education	Employment_Total_FTE	Education	Education Employment	Total	
+Education	Education	Employment_Total_Education	Education	Education Employment	Total Education	
+Education	Education	Employment_Elementary_Education	Education	Education Employment	Elementary & Secondary Education	
+Education	Education	Employment_Higher_Education	Education	Education Employment	Higher Education	
+Education	Education	Expenditures_Total_in_T	Education	Education Expenditures	Total	
+Education	Education	Expenditures_Total_Education_in_T	Education	Education Expenditures	Total Education	
+Education	Education	Expenditures_Elementary_and_Secondary_Education_in_T	Education	Education Expenditures	Elementary & Secondary Education	
+Education	Education	Expenditures_Higher_Education_in_T	Education	Education Expenditures	Higher Education	
+Education	Education	Expenditures_Current_Operation_in_T	Education	Education Expenditures	Current Operations	
+Education	Education	Expenditures_Construction_in_T	Education	Education Expenditures	Construction	
+Education	Education	Expenditures_Capital_Outlay_in_T	Education	Education Expenditures	Other Capital Outlay	
+Education	Education	Expenditures_Intergovernmental_to_State_in_T	Education	Education Expenditures	Intergovernmental to State	
+Education	Education	Expenditures_Intergovernmental_to_Local_in_T	Education	Education Expenditures	Intergovernmental to Local	
+Education	Education_Public_Elementary_and_Secondary	FIPS	Education	Public Elementary & Secondary Schools		
+Education	Education_Public_Elementary_and_Secondary	DATA_YEAR	Education	Public Elementary & Secondary Schools		
+Education	Education_Public_Elementary_and_Secondary	District_Name	Education	Public Elementary & Secondary Schools		
+Education	Education_Public_Elementary_and_Secondary	District_Address	Education	Public Elementary & Secondary Schools		
+Education	Education_Public_Elementary_and_Secondary	District_City	Education	Public Elementary & Secondary Schools		
+Education	Education_Public_Elementary_and_Secondary	District_State	Education	Public Elementary & Secondary Schools		
+Education	Education_Public_Elementary_and_Secondary	District_Zip	Education	Public Elementary & Secondary Schools		
+Education	Education_Public_Elementary_and_Secondary	District_Phone	Education	Public Elementary & Secondary Schools		
+Education	Education_Public_Elementary_and_Secondary	Total_Number_Operational_Schools	Education	Public Elementary & Secondary Schools		
+Education	Education_Public_Elementary_and_Secondary	District_Type	Education	Public Elementary & Secondary Schools		
+Education	Education_Public_Elementary_and_Secondary	Lowest_Grade_Offered	Education	Public Elementary & Secondary Schools		
+Education	Education_Public_Elementary_and_Secondary	Highest_Grade_Offered	Education	Public Elementary & Secondary Schools		
+Education	Education_Public_Elementary_and_Secondary	Total_Students	Education	Public Elementary & Secondary Schools		
+Education	Education_Public_Elementary_and_Secondary	FTE_Teachers	Education	Public Elementary & Secondary Schools		
+Education	Education_Public_Elementary_and_Secondary	Pupil_Teacher_Ratio	Education	Public Elementary & Secondary Schools		
+Federal_Funding	Federal_Funding	FIPS	Federal Funding			
+Federal_Funding	Federal_Funding	DATA_YEAR	Federal Funding			
+Federal_Funding	Federal_Funding	ADDI	Federal Funding	American Dream Downpayment Initiative (ADDI)	ADDI Amount	
+Federal_Funding	Federal_Funding	ADDI_Trend	Federal Funding	American Dream Downpayment Initiative (ADDI)	ADDI Annual Growth Rate (from previous year)	
+Federal_Funding	Federal_Funding	CDBG	Federal Funding	Community Development Block Grants (CDBG)	CDBG Amount	
+Federal_Funding	Federal_Funding	CDBG_Trend	Federal Funding	Community Development Block Grants (CDBG)	CDBG Annual Growth Rate (from previous year)	
+Federal_Funding	Federal_Funding	ESG_2011_Stage1	Federal Funding	Emergency Shelter Grants (ESG)		
+Federal_Funding	Federal_Funding	ESG_2011_Stage2	Federal Funding	Emergency Shelter Grants (ESG)		
+Federal_Funding	Federal_Funding	ESG_TOTAL	Federal Funding	Emergency Shelter Grants (ESG)	ESG Amount	
+Federal_Funding	Federal_Funding	ESG_Trend	Federal Funding	Emergency Shelter Grants (ESG)	ESG Annual Growth Rate (from previous year)	
+Federal_Funding	Federal_Funding	HOME	Federal Funding	HOME Investment Partnership Program	HOME Amount	
+Federal_Funding	Federal_Funding	HOME_Trend	Federal Funding	HOME Investment Partnership Program	HOME Annual Growth Rate (from previous year)	
+Federal_Funding	Federal_Funding	HUD	Federal Funding	Housing & Urban Development Grants	Total HUD Amount	
+Federal_Funding	Federal_Funding	HUD_Trend	Federal Funding	Housing & Urban Development Grants	HUD Annual Growth Rate (from previous year)	
+Federal_Funding	Federal_Funding	HOPWA	Federal Funding	Housing Opportunities for Persons with AIDS (HOPWA)	HOPWA Amount	
+Federal_Funding	Federal_Funding	HOPWA_Trend	Federal Funding	Housing Opportunities for Persons with AIDS (HOPWA)	HOPWA Annual Growth Rate (from previous year)	
+Federal_Funding	Federal_Funding	SCAAP	Federal Funding	State Criminal Alien Assistance Program (SCAAP)	SCAAP Amount	
+Federal_Funding	Federal_Funding	SCAAP_Trend	Federal Funding	State Criminal Alien Assistance Program (SCAAP)	SCAAP Annual Growth Rate (from previous year)	
+Federal_Funding	Federal_Funding	USDA_Grant	Federal Funding	USDA Rural Development	USDA Grant Amount	
+Federal_Funding	Federal_Funding	USDA_Loan	Federal Funding	USDA Rural Development	USDA Loan Amount	
+Federal_Funding	Federal_Funding	USDA_Total	Federal Funding	USDA Rural Development	USDA Total Amount	
+Federal_Funding	Federal_Funding	USDA_Grant_Trend	Federal Funding	USDA Rural Development	USDA Grant Annual Growth Rate (from previous year)	
+Federal_Funding	Federal_Funding	USDA_Loan_Trend	Federal Funding	USDA Rural Development	USDA Loan Annual Growth Rate (from previous year)	
+Federal_Funding	Federal_Funding	USDA_Total_Trend	Federal Funding	USDA Rural Development	USDA Total Annual Growth Rate (from previous year)	
+Federal_Funding	Federal_Funding	PILT_Allocation	Federal Funding	Payment in Lieu of Taxes (PILT)	PILT Amount	
+Federal_Funding	Federal_Funding	Total_Federal_Land_Area	Federal Funding	Payment in Lieu of Taxes (PILT)	Total Federal Land Area	
+Federal_Funding	Federal_Funding	Total_County_Area	Federal Funding	Payment in Lieu of Taxes (PILT)	Total County Area	
+Federal_Funding	Federal_Funding	Percentage_of_Federal_Land	Federal Funding	Payment in Lieu of Taxes (PILT)	Percent of Federal Land	
+Federal_Funding	Federal_Funding	PILT_per_square_mile	Federal Funding	Payment in Lieu of Taxes (PILT)	PILT per Square Mile	
+Federal_Funding	Federal_Funding	PILT_Trend	Federal Funding	Payment in Lieu of Taxes (PILT)	PILT Annual Growth Rate (from previous year)	
+Health_Hospitals	Health_Hospitals	KEYID	Health & Hospitals			
+Health_Hospitals	Health_Hospitals	FIPS	Health & Hospitals			
+Health_Hospitals	Health_Hospitals	DATA_YEAR	Health & Hospitals			
+Health_Hospitals	Health_Hospitals	HH_Empl_TOTAL_COUNTY_FTE	Health & Hospitals	Health & Hospitals Employment	Total	
+Health_Hospitals	Health_Hospitals	HH_Empl_Total_Health_Hospitals_FTE	Health & Hospitals	Health & Hospitals Employment	Total Health & Hospitals	
+Health_Hospitals	Health_Hospitals	HH_Empl_Health_FTE	Health & Hospitals	Health & Hospitals Employment	Health	
+Health_Hospitals	Health_Hospitals	HH_Empl_Hospitals_FTE	Health & Hospitals	Health & Hospitals Employment	Hospitals	
+Health_Hospitals	Health_Hospitals	HH_Expd_Total_Expenditure	Health & Hospitals	Health & Hospitals Expenditures	Total	
+Health_Hospitals	Health_Hospitals	HH_Expd_Total_Health_Hospitals_Expenditure	Health & Hospitals	Health & Hospitals Expenditures	Total Health & Hospitals	
+Health_Hospitals	Health_Hospitals	HH_Expd_Health	Health & Hospitals	Health & Hospitals Expenditures	Health	
+Health_Hospitals	Health_Hospitals	HH_Expd_Hospitals	Health & Hospitals	Health & Hospitals Expenditures	Hospitals	
+Health_Hospitals	Health_Hospitals	HH_Expd_Current_Operation	Health & Hospitals	Health & Hospitals Expenditures	Current Operations	
+Health_Hospitals	Health_Hospitals	HH_Expd_Construction	Health & Hospitals	Health & Hospitals Expenditures	Construction	
+Health_Hospitals	Health_Hospitals	HH_Expd_Other_Capital_Outla	Health & Hospitals	Health & Hospitals Expenditures	Other Capital Outlay	
+Health_Hospitals	Health_Hospitals	HH_Expd_Intergovernmental_to_State	Health & Hospitals	Health & Hospitals Expenditures	Intergovernmental to State	
+Health_Hospitals	Health_Hospitals	HH_Expd_Intergovernmental_to_Local	Health & Hospitals	Health & Hospitals Expenditures	Intergovernmental to Local	
+Health_Hospitals	Health_Hospitals	Health_Insruance_Population	Health & Hospitals	Health Insurance	Population Level	
+Health_Hospitals	Health_Hospitals	Health_Insruance_Population_Insured	Health & Hospitals	Health Insurance	Population Insured	
+Health_Hospitals	Health_Hospitals	Health_Insruance_Population_Uninsured	Health & Hospitals	Health Insurance	Population Uninsured	
+Health_Hospitals	Health_Hospitals	Health_Insruance_Population_with_Private_Health_Insurance	Health & Hospitals	Health Insurance	Population with Private Health Insurance	
+Health_Hospitals	Health_Hospitals	Health_Insruance_Population_with_Public_Health_Insurance	Health & Hospitals	Health Insurance	Population with Public Health Insurnace	
+Health_Hospitals	Health_Hospitals	Health_Insruance_Population_under_6	Health & Hospitals	Health Insurance	Population Under 6	
+Health_Hospitals	Health_Hospitals	Health_Insruance_Population_under_6_Insured	Health & Hospitals	Health Insurance	Population Under 6 Insured	
+Health_Hospitals	Health_Hospitals	Health_Insruance_Population_under_6_Uninsured	Health & Hospitals	Health Insurance	Population Under 6 Uninsured	
+Health_Hospitals	Health_Hospitals	Health_Insruance_Population_6_24	Health & Hospitals	Health Insurance	Population 6-24	
+Health_Hospitals	Health_Hospitals	Health_Insruance_Population_6_24_Insured	Health & Hospitals	Health Insurance	Population 6-24 Insured	
+Health_Hospitals	Health_Hospitals	Health_Insruance_Population_6_24_Uninsured	Health & Hospitals	Health Insurance	Population 6-24 Uninsured	
+Health_Hospitals	Health_Hospitals	Health_Insruance_Population_25_64	Health & Hospitals	Health Insurance	Population 25-64	
+Health_Hospitals	Health_Hospitals	Health_Insruance_Population_25_64_Insured	Health & Hospitals	Health Insurance	Population 25-64 Insured	
+Health_Hospitals	Health_Hospitals	Health_Insruance_Population_25_64_Uninsured	Health & Hospitals	Health Insurance	Population 25-64 Uninsured	
+Health_Hospitals	Health_Hospitals	Health_Insruance_Population_65_and_over	Health & Hospitals	Health Insurance	Population 65 and Over	
+Health_Hospitals	Health_Hospitals	Health_Insruance_Population_65_and_over_Insured	Health & Hospitals	Health Insurance	Population 65 and Over Insured	
+Health_Hospitals	Health_Hospitals	Health_Insruance_Population_65_and_over_Uninsured	Health & Hospitals	Health Insurance	Population 65 and Over Uninsured	
+Health_Hospitals	Health_Hospitals	Hospitals_Number_of_Hospitals	Health & Hospitals	Hospitals	Number of Hospitals	
+Health_Hospitals	Health_Hospitals	Hospitals_Number_of_City_Facilities	Health & Hospitals	Hospitals	Number of City Facilities	
+Health_Hospitals	Health_Hospitals	Hospitals_Number_of_County_Facilities	Health & Hospitals	Hospitals	Number of County Facilities	
+Health_Hospitals	Health_Hospitals	Hospitals_Number_of_City_County_Facilities	Health & Hospitals	Hospitals	Number of City-County Facilities	
+Health_Hospitals	Health_Hospitals	Hospitals_Number_of_Hopstial_District_Facilities	Health & Hospitals	Hospitals	Number of Hospital District Facilities	
+Health_Hospitals	Health_Hospitals	Hospitals_Number_of_Other_Government_Facilities	Health & Hospitals	Hospitals	Number of Other Government Facilities	
+Health_Hospitals	Health_Hospitals	Hospitals_Number_of_Proprietary_Facilities	Health & Hospitals	Hospitals	Number of Proprietary Facilities	
+Health_Hospitals	Health_Hospitals	Hospitals_Number_of_NonProfit_Facilities	Health & Hospitals	Hospitals	Number of Nonprofit Facilities	
+Health_Hospitals	Health_Hospitals	Hospitals_Number_of_Beds	Health & Hospitals	Hospitals	Number of Beds	
+Health_Hospitals	Health_Hospitals	Hospitals_Number_of_Employees	Health & Hospitals	Hospitals	Number of Employees	
+Health_Hospitals	Health_Hospitals	Hospitals_Gross_Revenue	Health & Hospitals	Hospitals	Gross Revenue	
+Health_Hospitals	Health_Hospitals	Hospitals_Medicare_Revenue	Health & Hospitals	Hospitals	Medicare Revenue	
+Health_Hospitals	Health_Hospitals	Hospitals_Medicaid_Revenue	Health & Hospitals	Hospitals	Medicaid Revenue	
+Health_Hospitals	Health_Hospitals	Hospitals_Patient_Days	Health & Hospitals	Hospitals	Patient Days	
+Health_Hospitals	Health_Hospitals	Hospitals_Revenue_per_Day	Health & Hospitals	Hospitals	Revenue per Bed	
+Health_Hospitals	Health_Hospitals	Hospitals_Revenue_per_Patient_Day	Health & Hospitals	Hospitals	Revenue per Patient Day	
+Health_Hospitals	Health_Hospitals	Nursing_Home_Number_Nursing_Home_Facilities	Health & Hospitals	Nursing Homes	Number of Nursing Homes	
+Health_Hospitals	Health_Hospitals	Nursing_Home_Number_of_City_Facilities	Health & Hospitals	Nursing Homes	Number of City Facilities	
+Health_Hospitals	Health_Hospitals	Nursing_Home_Number_of_County_Facilities	Health & Hospitals	Nursing Homes	Number of County Facilities	
+Health_Hospitals	Health_Hospitals	Nursing_Home_Number_of_City_CountyFacilities	Health & Hospitals	Nursing Homes	Number of City-County Facilities	
+Health_Hospitals	Health_Hospitals	Nursing_Home_Number_of_Hospital_District_Facilities	Health & Hospitals	Nursing Homes	Number of Hospital District Facilities	
+Health_Hospitals	Health_Hospitals	Nursing_Home_Number_of_Other_Government_Facilities	Health & Hospitals	Nursing Homes	Number of Other Government Facilities	
+Health_Hospitals	Health_Hospitals	Nursing_Home_Number_of_ForProfit_Facilities	Health & Hospitals	Nursing Homes	Number of For Profit Facilities	
+Health_Hospitals	Health_Hospitals	Nursing_Home_Number_of_NonProfit_Facilities	Health & Hospitals	Nursing Homes	Number of Nonprofit Facilities	
+Health_Hospitals	Health_Hospitals	Nursing_Home_Number_of_Certified_Beds	Health & Hospitals	Nursing Homes	Number of Certified Beds	
+Health_Hospitals	Health_Hospitals	Nursing_Home_Number_of_Residents	Health & Hospitals	Nursing Homes	Number of Residents	
+Health_Hospitals	Health_Hospitals	Nursing_Home_Percent_of_Occupied_Beds	Health & Hospitals	Nursing Homes	Percent of Occupied Beds	
+Health_Hospitals	Health_Hospitals	Nursing_Home_Number_of_Continuing_Care_Retirement_Facilities	Health & Hospitals	Nursing Homes	Number of Continuing Care Retirement Facilities	
+Health_Hospitals	Health_Hospitals	Nursing_Home_Number_of_Special_Focus_Facilities	Health & Hospitals	Nursing Homes	Number of Special Focus Facilities	
+Housing_Community_Development	Housing_Community_Development	KEYID	Housing & Community Development			
+Housing_Community_Development	Housing_Community_Development	FIPS	Housing & Community Development			
+Housing_Community_Development	Housing_Community_Development	DATA_YEAR	Housing & Community Development			
+Housing_Community_Development	Housing_Community_Development	Population	Housing & Community Development			
+Housing_Community_Development	Housing_Community_Development	Population_Size	Housing & Community Development			
+Housing_Community_Development	Housing_Community_Development	HCD_TOTAL_COUNTY_FTE	Housing & Community Development	Housing & Community Development Employment	Total	
+Housing_Community_Development	Housing_Community_Development	Housing_Units	Housing & Community Development	Housing Units	Number of Housing Units	
+Housing_Community_Development	Housing_Community_Development	Average_Household_Size	Housing & Community Development	Housing Units	Average Household Size	
+Housing_Community_Development	Housing_Community_Development	Occupied_Housing_Units	Housing & Community Development	Housing Units	Occupied Housing Units	
+Housing_Community_Development	Housing_Community_Development	Owner_occupied_Housing_Units	Housing & Community Development	Housing Units	Owner-Occupied Housing Units	
+Housing_Community_Development	Housing_Community_Development	Percent_of_Owner_occupied	Housing & Community Development	Housing Units	Percent of Owner-Occupied Housing Units	
+Housing_Community_Development	Housing_Community_Development	Renter_Occupied_Housing_Units	Housing & Community Development	Housing Units	Renter-Occupied Housing Units	
+Housing_Community_Development	Housing_Community_Development	Percent_of_Renter_Occupied	Housing & Community Development	Housing Units	Percent of Renter-Occupied Housing Units	
+Housing_Community_Development	Housing_Community_Development	HCD	Housing & Community Development	Housing & Community Development Employment	Housing & Community Development	
+Housing_Community_Development	Housing_Community_Development	HCD_Expd_Total_Expenditure	Housing & Community Development	Housing & Community Development Expenditures	Total	
+Housing_Community_Development	Housing_Community_Development	HCD_Expd_Total_HCD	Housing & Community Development	Housing & Community Development Expenditures	Total Housing & Community Development	
+Housing_Community_Development	Housing_Community_Development	HCD_Expd_Current_Operation	Housing & Community Development	Housing & Community Development Expenditures	Current Operations	
+Housing_Community_Development	Housing_Community_Development	HCD_Expd_Construction	Housing & Community Development	Housing & Community Development Expenditures	Construction	
+Housing_Community_Development	Housing_Community_Development	HCD_Expd_Capital_Outlay	Housing & Community Development	Housing & Community Development Expenditures	Other Capital Outlay	
+Housing_Community_Development	Housing_Community_Development	HCD_Expd_Intergovernmental_to_State	Housing & Community Development	Housing & Community Development Expenditures	Intergovernmental to State	
+Housing_Community_Development	Housing_Community_Development	HCD_Expd_Intergovernmental_to_Local	Housing & Community Development	Housing & Community Development Expenditures	Intergovernmental to Local	
+Justice_Public_Safety	Justice_Public_Safety	KEYID	Justice & Public Safety			
+Justice_Public_Safety	Justice_Public_Safety	FIPS	Justice & Public Safety			
+Justice_Public_Safety	Justice_Public_Safety	DATA_YEAR	Justice & Public Safety			
+Justice_Public_Safety	Justice_Public_Safety	JPS_Empl_TOTAL_COUNTY_FTE	Justice & Public Safety	Justice & Public Safety Employment	Total	
+Justice_Public_Safety	Justice_Public_Safety	Employment_Total_Justice_and_Public_Safety	Justice & Public Safety	Justice & Public Safety Employment	Total Justice & Public Safety	
+Justice_Public_Safety	Justice_Public_Safety	Employment_Corrections	Justice & Public Safety	Justice & Public Safety Employment	Correction	
+Justice_Public_Safety	Justice_Public_Safety	Employment_Judicial_and_Legal	Justice & Public Safety	Justice & Public Safety Employment	Judicial & Legal Services	
+Justice_Public_Safety	Justice_Public_Safety	Employment_Police_Protection	Justice & Public Safety	Justice & Public Safety Employment	Police Protection	
+Justice_Public_Safety	Justice_Public_Safety	Employment_Fire_Protection_Total	Justice & Public Safety	Justice & Public Safety Employment	Fire Protection	
+Justice_Public_Safety	Justice_Public_Safety	Employment_Fire_Protection_Firefighter	Justice & Public Safety	Justice & Public Safety Employment		
+Justice_Public_Safety	Justice_Public_Safety	Employment_Fire_Protection_Other	Justice & Public Safety	Justice & Public Safety Employment		
+Justice_Public_Safety	Justice_Public_Safety	Expenditure_Total_in_T	Justice & Public Safety	Justice & Public Safety Expenditures	Total	
+Justice_Public_Safety	Justice_Public_Safety	Expenditure_Total_Justice_and_Public_Safety_in_T	Justice & Public Safety	Justice & Public Safety Expenditures	Total Justice & Public Safety	
+Justice_Public_Safety	Justice_Public_Safety	Expenditure_Correction_in_T	Justice & Public Safety	Justice & Public Safety Expenditures	Correction	
+Justice_Public_Safety	Justice_Public_Safety	Expenditure_Judicial_and_Legal_Services_in_T	Justice & Public Safety	Justice & Public Safety Expenditures	Judicial & Legal Services	
+Justice_Public_Safety	Justice_Public_Safety	Expenditure_Police_Protection_in_T	Justice & Public Safety	Justice & Public Safety Expenditures	Police Protection	
+Justice_Public_Safety	Justice_Public_Safety	Expenditure_Fire_Protection_in_T	Justice & Public Safety	Justice & Public Safety Expenditures	Fire Protection	
+Justice_Public_Safety	Justice_Public_Safety	Expenditure_Protective_Inspection_in_T	Justice & Public Safety	Justice & Public Safety Expenditures	Protective Inspection	
+Justice_Public_Safety	Justice_Public_Safety	Expenditure_Current_Operation_in_T	Justice & Public Safety	Justice & Public Safety Expenditures	Current Operations	
+Justice_Public_Safety	Justice_Public_Safety	Expenditure_Construction_in_T	Justice & Public Safety	Justice & Public Safety Expenditures	Construction	
+Justice_Public_Safety	Justice_Public_Safety	Expenditure_Capital_Outlay_in_T	Justice & Public Safety	Justice & Public Safety Expenditures	Other Capital Outlay	
+Justice_Public_Safety	Justice_Public_Safety	Expenditure_Intergovernmental_to_State_in_T	Justice & Public Safety	Justice & Public Safety Expenditures	Intergovernmental to State	
+Justice_Public_Safety	Justice_Public_Safety	Expenditure_Intergovernmental_to_Local_in_T	Justice & Public Safety	Justice & Public Safety Expenditures	Intergovernmental to Local	
+Justice_Public_Safety	Justice_Public_Safety	Demographics_Total_Jail_Population	Justice & Public Safety			
+Justice_Public_Safety	Justice_Public_Safety	Demographics_Adult_Males	Justice & Public Safety			
+Justice_Public_Safety	Justice_Public_Safety	Demographics_Adult_Females	Justice & Public Safety			
+Justice_Public_Safety	Justice_Public_Safety	Demographics_Total_Juveniles	Justice & Public Safety			
+Justice_Public_Safety	Justice_Public_Safety	Demographics_Total_Convicted	Justice & Public Safety			
+Justice_Public_Safety	Justice_Public_Safety	Demographics_Total_Unconvicted	Justice & Public Safety			
+Justice_Public_Safety	Justice_Public_Safety	Demographics_White	Justice & Public Safety			
+Justice_Public_Safety	Justice_Public_Safety	Demographics_Black_or_African_American	Justice & Public Safety			
+Justice_Public_Safety	Justice_Public_Safety	Demographics_Hispanic	Justice & Public Safety			
+Justice_Public_Safety	Justice_Public_Safety	Demographics_American_Indian_or_Alaska_Native	Justice & Public Safety			
+Justice_Public_Safety	Justice_Public_Safety	Demographics_Asian	Justice & Public Safety			
+Justice_Public_Safety	Justice_Public_Safety	Demographics_Native_Hawaiin_or_Pacific_Islander	Justice & Public Safety			
+Justice_Public_Safety	Justice_Public_Safety	Demographics_Two_or_More_Races	Justice & Public Safety			
+Justice_Public_Safety	Justice_Public_Safety	Demographics_Other_Inmate_Races	Justice & Public Safety			
+Justice_Public_Safety	Justice_Public_Safety	Demographics_Race_not_Known	Justice & Public Safety			
+Justice_Public_Safety	Justice_Public_Safety	CS_Total_Jail_Population	Justice & Public Safety			
+Justice_Public_Safety	Justice_Public_Safety	CS_Capacity	Justice & Public Safety			
+Justice_Public_Safety	Justice_Public_Safety	CS_Confined_Persons	Justice & Public Safety			
+Justice_Public_Safety	Justice_Public_Safety	CS_Non_confined_Persons	Justice & Public Safety			
+Justice_Public_Safety	Justice_Public_Safety	CS_Electronic_Monitoring_Program	Justice & Public Safety			
+Justice_Public_Safety	Justice_Public_Safety	CS_Home_Detention	Justice & Public Safety			
+Justice_Public_Safety	Justice_Public_Safety	CS_Community_Service	Justice & Public Safety			
+Justice_Public_Safety	Justice_Public_Safety	CS_Day_Reporting	Justice & Public Safety			
+Justice_Public_Safety	Justice_Public_Safety	CS_Other_Pretrial_Supervision	Justice & Public Safety			
+Justice_Public_Safety	Justice_Public_Safety	CS_Other_Alternative_Work_Programs	Justice & Public Safety			
+Justice_Public_Safety	Justice_Public_Safety	CS_Alcohol_Drug_Treatment_Programs	Justice & Public Safety			
+Justice_Public_Safety	Justice_Public_Safety	CS_Other_Nonconfined_Programs	Justice & Public Safety			
+Justice_Public_Safety	Justice_Public_Safety	Supervised_Total_Jail_Population	Justice & Public Safety			
+Justice_Public_Safety	Justice_Public_Safety	Supervised_Jail_Capacity	Justice & Public Safety			
+Justice_Public_Safety	Justice_Public_Safety	Supervised_Confined_Persons	Justice & Public Safety			
+Justice_Public_Safety	Justice_Public_Safety	Supervised_Non_confined_Persons	Justice & Public Safety			
+Justice_Public_Safety	Justice_Public_Safety	Supervised_Non_US__Citizens	Justice & Public Safety			
+Justice_Public_Safety	Justice_Public_Safety	Supervised_Number_of_Weekenders	Justice & Public Safety			
+Justice_Public_Safety	Justice_Public_Safety	Supervised_Ave_Daily_Population	Justice & Public Safety			
+Justice_Public_Safety	Justice_Public_Safety	SPbA_Total_Jail_Population	Justice & Public Safety			
+Justice_Public_Safety	Justice_Public_Safety	SPbA_Jail_Capacity	Justice & Public Safety			
+Justice_Public_Safety	Justice_Public_Safety	SPbA_Held_for_US_Marshall	Justice & Public Safety			
+Justice_Public_Safety	Justice_Public_Safety	SPbA_Held_for_Federal_Bureau_of_Prisons	Justice & Public Safety			
+Justice_Public_Safety	Justice_Public_Safety	SPbA_Held_for_Immigration_and_Customs	Justice & Public Safety			
+Justice_Public_Safety	Justice_Public_Safety	SPbA_Held_for_Bureau_of_Indian_Affairs	Justice & Public Safety			
+Justice_Public_Safety	Justice_Public_Safety	SPbA_Held_for_Other_Federal_Authorities	Justice & Public Safety			
+Justice_Public_Safety	Justice_Public_Safety	SPbA_Held_for_own_state	Justice & Public Safety			
+Justice_Public_Safety	Justice_Public_Safety	SPbA_Held_for_other_states	Justice & Public Safety			
+Justice_Public_Safety	Justice_Public_Safety	SPbA_Held_for_Local_Jurisdiction_in_State	Justice & Public Safety			
+Justice_Public_Safety	Justice_Public_Safety	SPbA_Held_for_Local_Jurisdiction_Outside_State	Justice & Public Safety			
+Justice_Public_Safety	Justice_Public_Safety	PBS_Elected_Sheriff	Justice & Public Safety			
+Justice_Public_Safety	Justice_Public_Safety	PBS_County_Funded_Sheriff_Dept	Justice & Public Safety			
+Justice_Public_Safety	Justice_Public_Safety	PBS_County_Operated_Sheriff_Dept	Justice & Public Safety			
+Justice_Public_Safety	Justice_Public_Safety	PBS_Elected_Police_Chief	Justice & Public Safety			
+Justice_Public_Safety	Justice_Public_Safety	PBS_County_Funded_Police_Dept	Justice & Public Safety			
+Justice_Public_Safety	Justice_Public_Safety	PBS_County_Operated_Police_Dept	Justice & Public Safety			
+Justice_Public_Safety	Justice_Public_Safety	PBS_County_Funded_Jails	Justice & Public Safety			
+Justice_Public_Safety	Justice_Public_Safety	PBS_County_Operated_Jails	Justice & Public Safety			
+Justice_Public_Safety	Justice_Public_Safety	PBS_County_Funded_Courts_Salaries	Justice & Public Safety			
+Justice_Public_Safety	Justice_Public_Safety	PBS_County_Funded_Courts_Buildings_or_Real_Property	Justice & Public Safety			
+Justice_Public_Safety	Justice_Public_Safety	PBS_County_Funded_Courts_General_Operating_Expenses	Justice & Public Safety			
+Justice_Public_Safety	Justice_Public_Safety	PBS_County_Operated_Courts	Justice & Public Safety			
+Justice_Public_Safety	Justice_Public_Safety	PBS_Elected_Judges	Justice & Public Safety			
+Justice_Public_Safety	Justice_Public_Safety	PBS_Elected_Clerks_of_Court	Justice & Public Safety			
+Justice_Public_Safety	Justice_Public_Safety	PBS_Elected_District_Attorney	Justice & Public Safety			
 Public_Amenity	Public_Amenity	KEYID	Public_Amenity			
 Public_Amenity	Public_Amenity	FIPS	Public_Amenity			
 Public_Amenity	Public_Amenity	DATA_YEAR	Public_Amenity			

@@ -227,10 +227,10 @@
           "name": "Tax Revenue",
           "source": "U.S. Census Bureau - Census of Individual Governments: Finance",
           "years": [2007],
-          "companions": [["Tax Revenue", "Total Tax"], ["Tax Revenue", "Income Taxes"], ["Tax Revenue", "Property Taxes"], ["Tax Revenue", "License Taxes"]],
+          "companions": [["Tax Revenue", "Total Taxes"], ["Tax Revenue", "Income Taxes"], ["Tax Revenue", "Property Taxes"], ["Tax Revenue", "License Taxes"]],
           "children": [
           	{"name": "Total", "unit": "thousands of dollars", "dataType": "level", "definition": "All amounts of money received by a government from external sources--net of refunds and other correcting transactions--other than from issuance of debt, liquidation of investments, and as agency and private trust transactions. Note that revenue excludes noncash transactions such as receipt of services, commodities, or other 'receipts in kind.'"},
-          	{"name": "Total Tax", "unit": "thousands of dollars", "dataType": "level", "definition": "Total tax revenue, including Income Taxes, License Taxes, Other Taxes, Property Taxes, Sales and Gross Receipts Taxes."},
+          	{"name": "Total Taxes", "unit": "thousands of dollars", "dataType": "level", "definition": "Total tax revenue, including Income Taxes, License Taxes, Other Taxes, Property Taxes, Sales and Gross Receipts Taxes."},
           	{"name": "Income Taxes", "unit": "thousands of dollars", "dataType": "level", "definition": "Taxes levied on the gross income of individuals or on the net income of corporations and businesses (i.e., after allowable deductions). Include indivdiual income taxes: Taxes on individuals measured by net income and taxes on special types of income (e.g., interest, dividends, income from intangible property, etc.); And Corporation Net Income Taxes: Taxes on corporations and unincorporated businesses (when taxed separately from individual income), measured by net income, whether on corporations in general or on specific  kinds of corporations, such as financial institutions."},
            	{"name": "License Taxes", "unit": "thousands of dollars", "dataType": "level", "definition": "Taxes exacted (either for revenue raising or for regulation) as a condition to the exercise of a business or nonbusiness privilege. Can be levied at a flat rate or by such bases as capital stock or surplus, number of business units, or capacity. Generally, includes taxes on property levied on some basis other than  assessed value (e.g., on corporate stock or bank deposits). Also includes “fees” related to licensing activities as well as license taxes producing substantial revenues.  Excludes taxes measured directly by transactions, by gross or net income and receipts, or by value of property, except those with only minor rates (report at appropriate Tax code related to the type of measurement concerned)."},
            	{"name": "Other Taxes", "unit": "thousands of dollars", "dataType": "level", "definition": "Selective sales and gross receipts taxes relating to specific commodities, businesses, or services not separately enumerated (lubrication oil, fuel other than motor fuel, meals, margarine, cement, etc.)."},
@@ -833,9 +833,9 @@
       		"name": "State Criminal Alien Assistance Program (SCAAP)",
       		"years": [2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013],
       		"source": "U.S. Department of Justice - Bureau of Justice Assistance",
-      		"companions": [["State Criminal Alien Assistance Program (SCAAP)", "SCAAP Level"], ["State Criminal Alien Assistance Program (SCAAP)", "SCAAP Annual Growth Rate (from previous year)"], ["Housing & Urban Development Grants", "Total HUD Amount"], ["Housing & Urban Development Grants", "HUD Annual Growth Rate (from previous year)"]],
+      		"companions": [["State Criminal Alien Assistance Program (SCAAP)", "SCAAP Amount"], ["State Criminal Alien Assistance Program (SCAAP)", "SCAAP Annual Growth Rate (from previous year)"], ["Housing & Urban Development Grants", "Total HUD Amount"], ["Housing & Urban Development Grants", "HUD Annual Growth Rate (from previous year)"]],
       		"children": [
-      			{"name": "SCAAP Level", "unit": "thousands of dollars", "dataType": "level", "definition": "Funding received for the State Criminal Alien Assistance Program"},
+      			{"name": "SCAAP Amount", "unit": "thousands of dollars", "dataType": "level", "definition": "Funding received for the State Criminal Alien Assistance Program"},
       			{"name": "SCAAP Annual Growth Rate (from previous year)", "dataType": "percent", "definition": "Percent change in funding for the State Criminal Alien Assistance program from the previous year"}
       		]
       	},
@@ -988,7 +988,7 @@
         		"years": [2009, 2010, 2011, 2012],
         		"companions": [["Health Insurance", "Percent Insured"], ["Health Insurance", "Population with Private Health Insurance"], ["Health Insurance", "Population with Public Health Insurance"], ["Health Insurance", "Percent 6-24 Insured"]],
       		  	"children": [
-        			{"name": "Population", "dataType": "level", "definition": "The calculated number of people living in the county."},
+        			{"name": "Population Level", "dataType": "level", "definition": "The calculated number of people living in the county."},
         			{"name": "Population Insured", "dataType": "level", "definition": "The number of people that are covered by a public health insurance program or by private health insurance."},
         			{"name": "Percent Insured", "dataType": "percent", "definition": "The percentage of people that are covered by a public health insurance program or by private health insurance."},
         			{"name": "Population Uninsured", "dataType": "level", "definition": "The number of people that are not covered by a health insurance plan."},
