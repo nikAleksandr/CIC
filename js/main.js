@@ -96,17 +96,18 @@ var CICstructure,
 	data, // all county data
 	legend,
 	selected, // county path that has been selected
+	currentDataType = '', // current datatype showing
 	currentDI = '', // current dataset/indicator showing
 	currentSecondDI = ''; // current secondary dataset/indicator showing; empty string if not showing
 		
-var quantById = [], secondQuantById = [], thirdQuantById = [], fourthQuantById = [],
-	s_quantById = [], s_secondQuantById = [], s_thirdQuantById = [], s_fourthQuantById = [],
+var range, // output of data (only numbers; i.e. for categorical: 0, 1, 2)
+	corrDomain = [], // only used for categorical data; a crosswalk for the range between text and numbers
+	quantById = [], secondQuantById = [], thirdQuantById = [], fourthQuantById = [], // the range of data displayed in the tooltip
+	s_quantById = [], s_secondQuantById = [], s_thirdQuantById = [], s_fourthQuantById = [], // the range of data displayed in the tooltip for the secondary indicator
 	primeInd = {},
-	primeIndObj = {}, secondIndObj = {}, thirdIndObj = {}, fourthIndObj = {},
-	s_primeIndObj = {}, s_secondIndObj = {}, s_thirdIndObj = {}, s_fourthIndObj = {},
-	nameById = [],
+	primeIndObj = {}, secondIndObj = {}, thirdIndObj = {}, fourthIndObj = {}, // info about the indicators and companions
+	s_primeIndObj = {}, s_secondIndObj = {}, s_thirdIndObj = {}, s_fourthIndObj = {}, // info about the secondary indicators and companions
 	idByName = {},
-	countyCoords = [],
 	countyObjectById = {},
 	countyPathById = {};
 
@@ -121,13 +122,13 @@ var na_color = 'rgb(204,204,204)', // color for counties with no data
 	//level_colors = ['rgb(189, 215, 231)','rgb(107, 174, 214)','rgb(49, 130, 189)','rgb(7, 81, 156)','rgb(28, 53, 99)'];
 
 var	color = d3.scale.quantile(); // quantile scale
-var frmrS = 1, frmrT = [0, 0]; // keep track of current translate and scale values
+var frmrS, frmrT; // keep track of current translate and scale values
 
 function setup(width, height) {
 	projection = d3.geo.albersUsa()
     .translate([0, 0])
     .scale(width *1.1);
-
+    
 	path = d3.geo.path().projection(projection);
 	svg = d3.select("#map").insert("svg", "div")
     	.attr("width", width)
@@ -137,7 +138,15 @@ function setup(width, height) {
     	.call(zoom);
 	
 	g = svg.append("g").attr("class", "counties");
-  		
+	
+	// reset scale and translate values
+    frmrS = 1;
+    frmrT = [0, 0];	
+	zoom.scale(frmrS);
+	zoom.translate(frmrT);
+}
+
+function setBehaviors() { 		
 	d3.select('#map').on('click', function() { 
 		if (selected !== null) highlight(selected);
 	});
@@ -154,7 +163,7 @@ function setup(width, height) {
   			});
   		}
 	});
-	
+
 	/*var icons = d3.select('#map').append('div')
 			.attr('id', 'iconsGroup');
 		icons.append('img').attr('class', 'icons').attr('src', 'img/active-search.svg');
@@ -163,6 +172,10 @@ function setup(width, height) {
 		icons.append('img').attr('class', 'icons').attr('src', '');
 		icons.append('img').attr('class', 'icons').attr('src', '');
 	*/
+
+	setDropdownBehavior();
+	setSearchBehavior();
+	setMoreDataBehavior();
 	setZoomIcons();
 	positionInstruction();
 }	
@@ -173,10 +186,7 @@ function draw(topo, stateMesh) {
 	county.enter().insert("path")
 		.attr("class", "county")
 		.attr("d", path)
-		.attr("id", function(d) { return d.id; })
-		.style("fill", function(d) {
-			return (isNaN(quantById[d.id])) ? na_color : color(quantById[d.id]);
-		});
+		.attr("id", function(d) { return d.id; });
 
 	g.append("path").datum(stateMesh)
 		.attr("id", "state-borders")
@@ -209,7 +219,9 @@ function draw(topo, stateMesh) {
 				doubleClicked(d, i);
 			}
 		}
-	});    
+	});
+	
+	fillMapColors();
 }
 var moreDataContent = '<div id="moreDataContent" class="container-fluid"><div class="row"><div class="col-md-5"><h3><a href="#">Full Interactive Map</a></h3><a href="#"><img src="img/CICFullThumb.png"/></a></div><div class="col-md-7"><p>Access more datasets and indicators for display on the interactive map.<br/><br/>Login free to COIN <a href="#">here</a> to access</p></div></div><div class="row"><div class="col-md-5"><h3><a href="#">CIC Extraction Tool</a></h3><a href="#"><img src="img/CICExtractionThumb.png"/></a></div><div class="col-md-7"><p>Full access to all 18 categories, 66 datasets, and 889 indicators.<br/><br/>Customizable data downloads available <a href="#">here</a></p></div></div></div>';
 function setMoreDataBehavior(){
@@ -273,18 +285,18 @@ function setDropdownBehavior() {
 	d3.select('#primeInd').selectAll('.dataset').selectAll('.indicator').on('click', function() {
 		var datasetName = this.parentNode.parentNode.parentNode.title; // relies on the dataset being exactly 3 parents behind indicator
 		var indicatorName = this.title;
-		if (currentDI !== datasetName + ' - ' + indicatorName) {
+		//if (currentDI !== datasetName + ' - ' + indicatorName) {
 			update(datasetName, indicatorName);
 			d3.select("#primeIndText").text(this.innerHTML);
-		}
+		//}
 	});
 	d3.select('#secondInd').selectAll('.dataset').selectAll('.indicator').on('click', function() {
 		var datasetName = this.parentNode.parentNode.parentNode.title;
 		var indicatorName = this.title;		
-		if (currentSecondDI !== datasetName + ' - ' + indicatorName) {
+		//if (currentSecondDI !== datasetName + ' - ' + indicatorName) {
 			appendSecondInd(datasetName, indicatorName);
 			d3.select('#secondIndText').text(this.innerHTML);
-		}
+		//}
 	});
 	
 	d3.selectAll('.indicator').style('cursor', 'pointer');
@@ -473,6 +485,8 @@ function update(dataset, indicator) {
 	secondIndObj = indObject[1];
 	thirdIndObj = indObject[2];
 	fourthIndObj = indObject[3];
+	
+	currentDataType = primeIndObj.dataType;
 
 	//This is Where GET requests are issued to the server for JSON with fips, county name/state, plus primeInd.name, secondInd.name, thirdInd.name, and fourthInd.name; redefine "data" variable as this JSON
 	//"data" should be structured as a JSON with an array of each county.  each county has properties "id"(fips), "geography"(county name, ST), and each of the indicators specified above and clicked and doubleclicked data
@@ -486,7 +500,6 @@ function update(dataset, indicator) {
 			thirdQuantById[d.id] =  isNumFun(thirdIndObj.dataType) ? parseFloat(d[thirdIndObj.dataset+' - '+thirdIndObj.name]) : d[thirdIndObj.dataset+' - '+thirdIndObj.name];		
 			fourthQuantById[d.id] =  isNumFun(fourthIndObj.dataType) ? parseFloat(d[fourthIndObj.dataset+' - '+fourthIndObj.name]) : d[fourthIndObj.dataset+' - '+fourthIndObj.name];		
 
-			nameById[d.id] = d.geography;
 			idByName[d.geography] = d.id;
 			countyObjectById[d.id] = d;
 		});
@@ -508,7 +521,7 @@ function update(dataset, indicator) {
 			}
 		} else {
 			// translating string values to numeric values
-			var numCorrVals = 0, vals = {}, corrVal = 0, corrDomain = [];
+			var numCorrVals = 0, vals = {}, corrVal = 0;
 			for (var ind in quantById) {
 				if (!vals.hasOwnProperty(quantById[ind])) {
 					vals[quantById[ind]] = corrVal;
@@ -541,18 +554,8 @@ function update(dataset, indicator) {
 		if (isNumeric) color.domain(domain).range(range);
 		else color.domain(corrDomain).range(range);
 
-		// fill in map colors
-		selected = null;
-		frmrActive = null;
-		g.selectAll(".counties .county").transition().duration(750).style("fill", function(d) {
-			if (isNumeric) {
-				return isNaN(quantById[d.id]) ? na_color : color(quantById[d.id]);
-			} else {
-				return isNaN(corrDomain[d.id]) ? na_color : range[corrDomain[d.id]];
-			}
-		});
-
-		isNumeric ? createLegend() : createLegend(vals); // note: vals is a correspondence array linking strings with numbers for categorical dataTypes
+		fillMapColors(); // fill in map colors
+		isNumeric ? createLegend() : createLegend(vals); // create the legend; note: vals is a correspondence array linking strings with numbers for categorical dataTypes
 		
 		// list source
 		d3.select("#additionalInfo").selectAll("p").remove();
@@ -652,6 +655,18 @@ function getData(dataset, indicator){
 	return selectedInd;
 }
 
+function fillMapColors() {
+	selected = null;
+	frmrActive = null;
+	g.selectAll(".counties .county").transition().duration(750).style("fill", function(d) {
+		if (isNumFun(currentDataType)) {
+			return isNaN(quantById[d.id]) ? na_color : color(quantById[d.id]);
+		} else {
+			return isNaN(corrDomain[d.id]) ? na_color : range[corrDomain[d.id]];
+		}
+	});
+}
+
 function createLegend(keyArray) {
 	d3.selectAll(".legend svg").remove();
 	d3.select("#legendTitle").remove();
@@ -746,9 +761,9 @@ function positionTooltip(county) {
 	if (dx < 0) left += dx;
 	if (dy < 0) top += dy;
 	
-	tooltip
+	tooltip.transition()
 	  	.style("left", (left) + "px")
-	  	.style("top", (top) + "px");		      	
+	  	.style("top", (top) + "px");
 }
 
 
@@ -864,15 +879,18 @@ function setZoomIcons() {
 		// zoom in
 		var s = (frmrS > 9) ? 10 : frmrS + 1;
 		var t = [0, 0];
-		for (var i = 0; i < frmrT.length; i++) t[i] = frmrT[i] * (s / frmrS);		
 		zoomMap(t, s);
+		tooltip.classed('hidden', true);
 	});
 	d3.select('#zoomMinusIcon').on('click', function() {
 		// zoom out
 		var s = (frmrS < 2) ? 1 : frmrS - 1;
 		var t = [0, 0];
-		for (var i = 0; i < frmrT.length; i++) t[i] = frmrT[i] * (s / frmrS);		
+		if (s !== 1) {
+			for (var i = 0; i < frmrT.length; i++) t[i] = frmrT[i] * (s / frmrS);
+		}		
 		zoomMap(t, s);
+		tooltip.classed('hidden', true);
 	});
 }
 
@@ -949,10 +967,7 @@ d3.json("data/CICstructure.json", function(error, CICStructure){
 		}*/
 	});
 
-
-	setDropdownBehavior();
-	setSearchBehavior();
-	setMoreDataBehavior();
+	setBehaviors();
 
 	// dataset to map first
 	update("Population Levels and Trends", "Population Level");	
