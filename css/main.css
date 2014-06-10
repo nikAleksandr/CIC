@@ -328,8 +328,9 @@ h1 small {
 /*
  * Map and SVG CSS
  */
-svg:not(:root) {
-	overflow: hidden; 
+#mapSvg{
+	position:relative;
+	background-color:#ffffff;
 }
 .county {
   fill: none;
@@ -369,6 +370,12 @@ svg:not(:root) {
 	width:30px;
 	height:30px;
 	margin: 15px;
+}
+#rrssbContainer{
+	position:absolute;
+	right: 36px;
+	top:50%;
+	width:250px;
 }
 /*
  * 
