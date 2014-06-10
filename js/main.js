@@ -248,18 +248,18 @@ function setDropdownBehavior() {
 	d3.select('#primeInd').selectAll('.dataset').selectAll('.indicator').on('click', function() {
 		var datasetName = this.parentNode.parentNode.parentNode.title; // relies on the dataset being exactly 3 parents behind indicator
 		var indicatorName = this.title;
-		if (currentDI !== datasetName + ' - ' + indicatorName) {
+		//if (currentDI !== datasetName + ' - ' + indicatorName) {
 			update(datasetName, indicatorName);
 			d3.select("#primeIndText").text(this.innerHTML);
-		}
+		//}
 	});
 	d3.select('#secondInd').selectAll('.dataset').selectAll('.indicator').on('click', function() {
 		var datasetName = this.parentNode.parentNode.parentNode.title;
 		var indicatorName = this.title;		
-		if (currentSecondDI !== datasetName + ' - ' + indicatorName) {
+		//if (currentSecondDI !== datasetName + ' - ' + indicatorName) {
 			appendSecondInd(datasetName, indicatorName);
 			d3.select('#secondIndText').text(this.innerHTML);
-		}
+		//}
 	});
 	
 	d3.selectAll('.indicator').style('cursor', 'pointer');
@@ -730,7 +730,7 @@ function positionTooltip(county) {
 	
 	tooltip.transition()
 	  	.style("left", (left) + "px")
-	  	.style("top", (top) + "px");		      	
+	  	.style("top", (top) + "px");
 }
 
 
@@ -846,15 +846,18 @@ function setZoomIcons() {
 		// zoom in
 		var s = (frmrS > 9) ? 10 : frmrS + 1;
 		var t = [0, 0];
-		for (var i = 0; i < frmrT.length; i++) t[i] = frmrT[i] * (s / frmrS);		
 		zoomMap(t, s);
+		tooltip.classed('hidden', true);
 	});
 	d3.select('#zoomMinusIcon').on('click', function() {
 		// zoom out
 		var s = (frmrS < 2) ? 1 : frmrS - 1;
 		var t = [0, 0];
-		for (var i = 0; i < frmrT.length; i++) t[i] = frmrT[i] * (s / frmrS);		
+		if (s !== 1) {
+			for (var i = 0; i < frmrT.length; i++) t[i] = frmrT[i] * (s / frmrS);
+		}		
 		zoomMap(t, s);
+		tooltip.classed('hidden', true);
 	});
 }
 
