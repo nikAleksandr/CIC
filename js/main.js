@@ -728,7 +728,7 @@ function positionTooltip(county) {
 	if (dx < 0) left += dx;
 	if (dy < 0) top += dy;
 	
-	tooltip
+	tooltip.transition()
 	  	.style("left", (left) + "px")
 	  	.style("top", (top) + "px");		      	
 }
