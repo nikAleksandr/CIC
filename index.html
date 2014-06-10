@@ -5381,7 +5381,7 @@
 								</li>
 								<li class="divider"></li>
 								<li>
-									<a onclick="resetAll();" id="resetSecondInd" href="#">Primary Indicator Only</a>
+									<a onclick="resetAll();" id="resetSecondInd" title="Reset" href="#">Primary Indicator Only</a>
 								</li>
 							</ul>
 						</li>
@@ -5389,73 +5389,79 @@
 				    </ul>
 				    <!--right nav-->
 					<ul class="nav navbar-nav navbar-right" id="searchContainer">
-						<li id="searchTypeLi">
-							<a id="searchTypeText">County Search:</a>
-							<ul id="searchTypeDrop" class="dropdown-menu">
-								<li><a title="county" href="#">County Search</a></li>
-								<li><a title="city" href="#">City Search</a></li>
-								<li><a title="state" href="#">State Search</a></li>
+						<!--
+						<li>
+							<a style="cursor: default;">Search by</a>
+							<ul class="dropdown-menu">
+								<li><a title="county">County</a></li>
+								<li><a title="city">City</a></li>
+								<li><a title="state">State</a></li>
 							</ul>
-						</li>
-						<li id="stateDropLi">
-							<a id="stateDropText">State</a>
-							<ul id="stateDrop" class="dropdown-menu">
-								<li><a title="">All States</a></li>
-								<li><a title="AK">AK</a></li>							
-								<li><a title="AL">AL</a></li>
-								<li><a title="AR">AR</a></li>
-								<li><a title="AZ">AZ</a></li>
-								<li><a title="CA">CA</a></li>							
-								<li><a title="CO">CO</a></li>
-								<li><a title="CT">CT</a></li>
-								<li><a title="DC">DC</a></li>
-								<li><a title="DE">DE</a></li>							
-								<li><a title="FL">FL</a></li>
-								<li><a title="GA">GA</a></li>
-								<li><a title="HI">HI</a></li>
-								<li><a title="IA">IA</a></li>							
-								<li><a title="ID">ID</a></li>
-								<li><a title="IL">IL</a></li>
-								<li><a title="IN">IN</a></li>
-								<li><a title="KS">KS</a></li>							
-								<li><a title="KY">KY</a></li>
-								<li><a title="LA">LA</a></li>
-								<li><a title="MA">MA</a></li>
-								<li><a title="MD">MD</a></li>							
-								<li><a title="ME">ME</a></li>
-								<li><a title="MI">MI</a></li>
-								<li><a title="MN">MN</a></li>
-								<li><a title="MO">MO</a></li>							
-								<li><a title="MS">MS</a></li>
-								<li><a title="MT">MT</a></li>
-								<li><a title="NC">NC</a></li>
-								<li><a title="ND">ND</a></li>							
-								<li><a title="NE">NE</a></li>
-								<li><a title="NH">NH</a></li>
-								<li><a title="NJ">NJ</a></li>
-								<li><a title="NM">NM</a></li>							
-								<li><a title="NV">NV</a></li>
-								<li><a title="NY">NY</a></li>
-								<li><a title="OH">OH</a></li>
-								<li><a title="OK">OK</a></li>							
-								<li><a title="OR">OR</a></li>
-								<li><a title="PA">PA</a></li>
-								<li><a title="RI">RI</a></li>
-								<li><a title="SC">SC</a></li>							
-								<li><a title="SD">SD</a></li>
-								<li><a title="TN">TN</a></li>
-								<li><a title="TX">TX</a></li>
-								<li><a title="UT">UT</a></li>							
-								<li><a title="VA">VA</a></li>
-								<li><a title="VT">VT</a></li>
-								<li><a title="WA">WA</a></li>
-								<li><a title="WI">WI</a></li>							
-								<li><a title="WV">WV</a></li>
-								<li><a title="WY">WY</a></li>
-							</ul>
+						</li> -->
+						<li><a>	
+							<select id="search_type">
+								<option value="city">City Search</option>
+								<option selected value="county">County Search</option>
+								<option value="state">State Search</option>
+							</select>
+						</a></li>	
 						<li><a>
 							<form id="search_form">
 								<input type="search" id="search_field" placeholder="county name">
+								<select id="state_drop">
+									<option value="">State</option>
+									<option value="AK">AK</option>							
+									<option value="AL">AL</option>
+									<option value="AR">AR</option>
+									<option value="AZ">AZ</option>
+									<option value="CA">CA</option>							
+									<option value="CO">CO</option>
+									<option value="CT">CT</option>
+									<option value="DC">DC</option>
+									<option value="DE">DE</option>							
+									<option value="FL">FL</option>
+									<option value="GA">GA</option>
+									<option value="HI">HI</option>
+									<option value="IA">IA</option>							
+									<option value="ID">ID</option>
+									<option value="IL">IL</option>
+									<option value="IN">IN</option>
+									<option value="KS">KS</option>							
+									<option value="KY">KY</option>
+									<option value="LA">LA</option>
+									<option value="MA">MA</option>
+									<option value="MD">MD</option>							
+									<option value="ME">ME</option>
+									<option value="MI">MI</option>
+									<option value="MN">MN</option>
+									<option value="MO">MO</option>							
+									<option value="MS">MS</option>
+									<option value="MT">MT</option>
+									<option value="NC">NC</option>
+									<option value="ND">ND</option>							
+									<option value="NE">NE</option>
+									<option value="NH">NH</option>
+									<option value="NJ">NJ</option>
+									<option value="NM">NM</option>							
+									<option value="NV">NV</option>
+									<option value="NY">NY</option>
+									<option value="OH">OH</option>
+									<option value="OK">OK</option>							
+									<option value="OR">OR</option>
+									<option value="PA">PA</option>
+									<option value="RI">RI</option>
+									<option value="SC">SC</option>							
+									<option value="SD">SD</option>
+									<option value="TN">TN</option>
+									<option value="TX">TX</option>
+									<option value="UT">UT</option>							
+									<option value="VA">VA</option>
+									<option value="VT">VT</option>
+									<option value="WA">WA</option>
+									<option value="WI">WI</option>							
+									<option value="WV">WV</option>
+									<option value="WY">WY</option>
+									</select>
 								<input type="image" src="img/active-search.svg" width="18px" height="18px" id="search_submit" value="Search">
 							</form>
 						</a></li>
@@ -5493,6 +5499,10 @@
 	        </div>
 	        <div id="tt" class="tooltip hidden">
 	        	<div id="tipContainer"></div>
+	        	<div id="twitterBox">
+	        		<a href="https://twitter.com/share" class="twitter-share-button" data-lang="en">Tweet</a>
+					<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+	        	</div>
 	        	<div class="arrow_box"></div>
 	        </div>
 			<!--Under map area -->
@@ -5624,7 +5634,7 @@
 		  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
 		  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 		
-		  ga('create', 'UA-XXXXXXX-X', 'example.org');
+		  ga('create', 'UA-44457538-4', 'naco.org');
 		  ga('send', 'pageview');
 		
 		</script>

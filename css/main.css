@@ -373,9 +373,9 @@ h1 small {
 }
 #rrssbContainer{
 	position:absolute;
-	right: 36px;
-	top:50%;
-	width:250px;
+	right: -200px;
+	top:51%;
+	width:200px;
 }
 /*
  * 
