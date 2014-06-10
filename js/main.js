@@ -121,7 +121,7 @@ var na_color = 'rgb(204,204,204)', // color for counties with no data
 	//level_colors = ['rgb(189, 215, 231)','rgb(107, 174, 214)','rgb(49, 130, 189)','rgb(7, 81, 156)','rgb(28, 53, 99)'];
 
 var	color = d3.scale.quantile(); // quantile scale
-
+var frmrS = 1, frmrT = [0, 0]; // keep track of current translate and scale values
 
 function setup(width, height) {
 	projection = d3.geo.albersUsa()
@@ -191,7 +191,7 @@ function draw(topo, stateMesh) {
 					clickCount = 0;
 					highlight(d);
 					$('#instructions').hide();
-					if (d3.select('.active').empty() !== true) clicked(event, d, i);
+					if (d3.select('.active').empty() !== true) executeSearchMatch(event.target.id);
 				}, 300);
 			} else if (clickCount === 2) {
 				clearTimeout(singleClickTimer);
@@ -409,23 +409,17 @@ function submitSearch() {
 function executeSearchMatch(FIPS) {
 	$('#instructions').hide();
 	
-	FIPS = parseInt(FIPS);	
-	var county = countyObjectById[FIPS];
-	console.log(county);
-	highlight(county);
-	var countyPath = $('.active');
-	zoomTo(FIPS);
-	
-    if (countyObjectById.hasOwnProperty(county.id)) {
+	var county = countyObjectById[parseInt(FIPS)];
+    if (county) {
+		highlight(county);
+		var zoomTransition = zoomTo(FIPS);
 	    populateTooltip(county);    
-		//zoomTransition.each('end', function() { 
-			positionTooltip(countyPath[0]); 
-			//});
+		zoomTransition.each('end', function() { 
+			positionTooltip($('.active')[0]); 
+		});
 	} else {
 		tooltip.classed('hidden', true);
-	}
-    
-	//document.getElementById('search_form').reset();				
+	}    
 };
 
 
@@ -740,17 +734,6 @@ function positionTooltip(county) {
 	tooltip.classed('hidden', false);
 }
 
-function clicked(event, d, i) {
-	var zoomTransition = zoomTo(d.id);
-	//tooltip.classed('hidden', true);
-	
-	if (countyObjectById.hasOwnProperty(d.id)) {
-	    populateTooltip(d);    
-		zoomTransition.each('end', function() { positionTooltip(event.target); });
-	} else {
-		tooltip.classed('hidden', true);
-	}
-}
 
 function doubleClicked(d) {
 	tooltip.classed("hidden", true);
@@ -781,6 +764,8 @@ function zoomTo(fips) {
 	
 	zoom.translate(t);
 	zoom.scale(s);
+	frmrS = s;
+	frmrT = t;
 	var transition = g.transition()
 		.style("stroke-width", 1 / s)
 		.attr("transform", "translate(" + t + ")scale(" + s + ")");
@@ -820,8 +805,6 @@ function redraw() {
   draw(topo, stateMesh);
 }
 
-var frmrS = 1;
-
 function moveStart() {}
 function move() {	
   	tooltip.classed("hidden", true); // hides on zoom or pan	
@@ -849,6 +832,7 @@ function move() {
 		g.transition().attr("transform", "translate(" + t + ")scale(" + s + ")");
 	}
 	frmrS = s;
+	frmrT = t;
 }
 function moveEnd() {
 	//if (d3.select('.active').empty() !== true) positionTooltip(document.getElementsByClassName('active')[0]);
@@ -860,9 +844,17 @@ function setZoomIcons() {
 	
 	d3.select('#zoomPlusIcon').on('click', function() {
 		// zoom in
+		
+		
+		frmrS = s;
+		frmrT = t;
 	});
 	d3.select('#zoomMinusIcon').on('click', function() {
 		// zoom out
+		
+		
+		frmrS = s;
+		frmrT = t;
 	});
 }
 
