@@ -911,7 +911,7 @@ d3.json("us.json", function(error, us) {
 	draw(topo, stateMesh); 
 });
 
-d3.json("data/CICstructure.json", function(error, CICStructure){	
+d3.json("data/CICstructure.json", function(error, CICStructure){
 	CICstructure = CICStructure;
 
 	// temp check to see if all indicators are in crosswalk
@@ -934,7 +934,7 @@ d3.json("data/CICstructure.json", function(error, CICStructure){
 			if (data_array[i].indicator !== '') {
 				db_ind.push(data_array[i].dataset + ' - ' + data_array[i].indicator);
 			}
-		}					
+		}	
 		// check to see if indicator names match names in CICstructure
 		/*for (var i = 0; i < db_ind.length; i++) {
 			var name_match = false;
