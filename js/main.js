@@ -121,7 +121,7 @@ var na_color = 'rgb(204,204,204)', // color for counties with no data
 	//level_colors = ['rgb(189, 215, 231)','rgb(107, 174, 214)','rgb(49, 130, 189)','rgb(7, 81, 156)','rgb(28, 53, 99)'];
 
 var	color = d3.scale.quantile(); // quantile scale
-
+var frmrS = 1, frmrT = [0, 0]; // keep track of current translate and scale values
 
 function setup(width, height) {
 	projection = d3.geo.albersUsa()
@@ -191,7 +191,7 @@ function draw(topo, stateMesh) {
 					clickCount = 0;
 					highlight(d);
 					$('#instructions').hide();
-					if (d3.select('.active').empty() !== true) clicked(event, d, i);
+					if (d3.select('.active').empty() !== true) executeSearchMatch(event.target.id);
 				}, 300);
 			} else if (clickCount === 2) {
 				clearTimeout(singleClickTimer);
@@ -409,23 +409,17 @@ function submitSearch() {
 function executeSearchMatch(FIPS) {
 	$('#instructions').hide();
 	
-	FIPS = parseInt(FIPS);	
-	var county = countyObjectById[FIPS];
-	console.log(county);
-	highlight(county);
-	var countyPath = $('.active');
-	zoomTo(FIPS);
-	
-    if (countyObjectById.hasOwnProperty(county.id)) {
+	var county = countyObjectById[parseInt(FIPS)];
+    if (county) {
+		highlight(county);
+		var zoomTransition = zoomTo(FIPS);
 	    populateTooltip(county);    
-		//zoomTransition.each('end', function() { 
-			positionTooltip(countyPath[0]); 
-			//});
+		zoomTransition.each('end', function() { 
+			positionTooltip($('.active')[0]); 
+		});
 	} else {
 		tooltip.classed('hidden', true);
-	}
-    
-	//document.getElementById('search_form').reset();				
+	}    
 };
 
 
@@ -740,17 +734,6 @@ function positionTooltip(county) {
 	tooltip.classed('hidden', false);
 }
 
-function clicked(event, d, i) {
-	var zoomTransition = zoomTo(d.id);
-	//tooltip.classed('hidden', true);
-	
-	if (countyObjectById.hasOwnProperty(d.id)) {
-	    populateTooltip(d);    
-		zoomTransition.each('end', function() { positionTooltip(event.target); });
-	} else {
-		tooltip.classed('hidden', true);
-	}
-}
 
 function doubleClicked(d) {
 	tooltip.classed("hidden", true);
@@ -778,12 +761,8 @@ function zoomTo(fips) {
 
   	t[0] = -t[0] * (s - 1) * coordAdjust;
   	t[1] = (transAdjust - t[1]) * (s - 1) * coordAdjust;
-	
-	zoom.translate(t);
-	zoom.scale(s);
-	var transition = g.transition()
-		.style("stroke-width", 1 / s)
-		.attr("transform", "translate(" + t + ")scale(" + s + ")");
+  	
+ 	var transition = zoomMap(t, s);
 	return transition;
 }
 
@@ -820,8 +799,6 @@ function redraw() {
   draw(topo, stateMesh);
 }
 
-var frmrS = 1;
-
 function moveStart() {}
 function move() {	
   	tooltip.classed("hidden", true); // hides on zoom or pan	
@@ -840,18 +817,26 @@ function move() {
   	//167 from 1.3 (132)
   	//0 from 1 (0)
 	
-  	zoom.translate(t);
-  	// if statement to call the transition on zoom only, but no transition on panning only
-	if(s === frmrS){
-		g.attr("transform", "translate(" + t + ")scale(" + s + ")");
-	}
-	else{
-		g.transition().attr("transform", "translate(" + t + ")scale(" + s + ")");
-	}
-	frmrS = s;
+  	var zoomSmoothly = !(s === frmrS); // dont do smoothly if panning
+	zoomMap(t, s, zoomSmoothly);
 }
 function moveEnd() {
 	//if (d3.select('.active').empty() !== true) positionTooltip(document.getElementsByClassName('active')[0]);
+}
+
+function zoomMap(t, s, smooth) {
+	if (typeof smooth === 'undefined') var smooth = true;
+	zoom.translate(t);
+	zoom.scale(s);
+	frmrS = s;
+	frmrT = t;
+	if (smooth) {
+		var transition = g.transition().attr('transform', 'translate(' + t + ')scale(' + s + ')');
+		return transition;
+	} else {
+		g.attr('transform', 'translate(' + t + ')scale(' + s + ')');
+		return false;		
+	}	
 }
 
 function setZoomIcons() {
@@ -860,15 +845,23 @@ function setZoomIcons() {
 	
 	d3.select('#zoomPlusIcon').on('click', function() {
 		// zoom in
+		var s = (frmrS > 9) ? 10 : frmrS + 1;
+		var t = [0, 0];
+		for (var i = 0; i < frmrT.length; i++) t[i] = frmrT[i] * (s / frmrS);		
+		zoomMap(t, s);
 	});
 	d3.select('#zoomMinusIcon').on('click', function() {
 		// zoom out
+		var s = (frmrS < 2) ? 1 : frmrS - 1;
+		var t = [0, 0];
+		for (var i = 0; i < frmrT.length; i++) t[i] = frmrT[i] * (s / frmrS);		
+		zoomMap(t, s);
 	});
 }
 
 
 var throttleTimer;
-d3.select(document.body).on('keyup',function(){if(d3.event.ctrlKey&&d3.event.shiftKey&&d3.event.keyCode === 76) {var i = currentDI.lastIndexOf(' - ');update(currentDI.substring(0,i),currentDI.substring(i+3,currentDI.length));level_colors=['rgb(189,215,231)','rgb(107,174,214)','rgb(49,130,189)','rgb(7,81,156)','rgb(28,53,99)'];}});
+d3.select(document.body).on('keyup',function(){if(d3.event.ctrlKey&&d3.event.shiftKey&&d3.event.keyCode===76){var i=currentDI.lastIndexOf(' - ');update(currentDI.substring(0,i),currentDI.substring(i+3,currentDI.length));level_colors=['rgb(189,215,231)','rgb(107,174,214)','rgb(49,130,189)','rgb(7,81,156)','rgb(28,53,99)'];}});
 function throttle() {
   window.clearTimeout(throttleTimer);
     throttleTimer = window.setTimeout(function() {
