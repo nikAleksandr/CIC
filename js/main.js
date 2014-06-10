@@ -761,14 +761,8 @@ function zoomTo(fips) {
 
   	t[0] = -t[0] * (s - 1) * coordAdjust;
   	t[1] = (transAdjust - t[1]) * (s - 1) * coordAdjust;
-	
-	zoom.translate(t);
-	zoom.scale(s);
-	frmrS = s;
-	frmrT = t;
-	var transition = g.transition()
-		.style("stroke-width", 1 / s)
-		.attr("transform", "translate(" + t + ")scale(" + s + ")");
+  	
+ 	var transition = zoomMap(t, s);
 	return transition;
 }
 
@@ -823,19 +817,26 @@ function move() {
   	//167 from 1.3 (132)
   	//0 from 1 (0)
 	
-  	zoom.translate(t);
-  	// if statement to call the transition on zoom only, but no transition on panning only
-	if(s === frmrS){
-		g.attr("transform", "translate(" + t + ")scale(" + s + ")");
-	}
-	else{
-		g.transition().attr("transform", "translate(" + t + ")scale(" + s + ")");
-	}
-	frmrS = s;
-	frmrT = t;
+  	var zoomSmoothly = !(s === frmrS); // dont do smoothly if panning
+	zoomMap(t, s, zoomSmoothly);
 }
 function moveEnd() {
 	//if (d3.select('.active').empty() !== true) positionTooltip(document.getElementsByClassName('active')[0]);
+}
+
+function zoomMap(t, s, smooth) {
+	if (typeof smooth === 'undefined') var smooth = true;
+	zoom.translate(t);
+	zoom.scale(s);
+	frmrS = s;
+	frmrT = t;
+	if (smooth) {
+		var transition = g.transition().attr('transform', 'translate(' + t + ')scale(' + s + ')');
+		return transition;
+	} else {
+		g.attr('transform', 'translate(' + t + ')scale(' + s + ')');
+		return false;		
+	}	
 }
 
 function setZoomIcons() {
@@ -844,23 +845,23 @@ function setZoomIcons() {
 	
 	d3.select('#zoomPlusIcon').on('click', function() {
 		// zoom in
-		
-		
-		frmrS = s;
-		frmrT = t;
+		var s = (frmrS > 9) ? 10 : frmrS + 1;
+		var t = [0, 0];
+		for (var i = 0; i < frmrT.length; i++) t[i] = frmrT[i] * (s / frmrS);		
+		zoomMap(t, s);
 	});
 	d3.select('#zoomMinusIcon').on('click', function() {
 		// zoom out
-		
-		
-		frmrS = s;
-		frmrT = t;
+		var s = (frmrS < 2) ? 1 : frmrS - 1;
+		var t = [0, 0];
+		for (var i = 0; i < frmrT.length; i++) t[i] = frmrT[i] * (s / frmrS);		
+		zoomMap(t, s);
 	});
 }
 
 
 var throttleTimer;
-d3.select(document.body).on('keyup',function(){if(d3.event.ctrlKey&&d3.event.shiftKey&&d3.event.keyCode === 76) {var i = currentDI.lastIndexOf(' - ');update(currentDI.substring(0,i),currentDI.substring(i+3,currentDI.length));level_colors=['rgb(189,215,231)','rgb(107,174,214)','rgb(49,130,189)','rgb(7,81,156)','rgb(28,53,99)'];}});
+d3.select(document.body).on('keyup',function(){if(d3.event.ctrlKey&&d3.event.shiftKey&&d3.event.keyCode===76){var i=currentDI.lastIndexOf(' - ');update(currentDI.substring(0,i),currentDI.substring(i+3,currentDI.length));level_colors=['rgb(189,215,231)','rgb(107,174,214)','rgb(49,130,189)','rgb(7,81,156)','rgb(28,53,99)'];}});
 function throttle() {
   window.clearTimeout(throttleTimer);
     throttleTimer = window.setTimeout(function() {
