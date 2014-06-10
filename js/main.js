@@ -250,7 +250,7 @@ function setDropdownBehavior() {
 		var indicatorName = this.title;
 		if (currentDI !== datasetName + ' - ' + indicatorName) {
 			update(datasetName, indicatorName);
-			d3.select("#primeIndText").text(indicatorName);
+			d3.select("#primeIndText").text(this.innerHTML);
 		}
 	});
 	d3.select('#secondInd').selectAll('.dataset').selectAll('.indicator').on('click', function() {
@@ -258,7 +258,7 @@ function setDropdownBehavior() {
 		var indicatorName = this.title;		
 		if (currentSecondDI !== datasetName + ' - ' + indicatorName) {
 			appendSecondInd(datasetName, indicatorName);
-			d3.select('#secondIndText').text(indicatorName);
+			d3.select('#secondIndText').text(this.innerHTML);
 		}
 	});
 	
@@ -413,7 +413,7 @@ function executeSearchMatch(FIPS) {
     if (county) {
 		highlight(county);
 		var zoomTransition = zoomTo(FIPS);
-	    populateTooltip(county);    
+	    populateTooltip(county);
 		zoomTransition.each('end', function() { 
 			positionTooltip($('.active')[0]); 
 		});
@@ -713,7 +713,7 @@ function populateTooltip(d) {
 }
 
 function positionTooltip(county) {
-	// issue where ttWidth and ttHeight sometimes is 0 and 0
+	tooltip.classed('hidden', false);
 	var ttWidth = $('#tt').width(); // tooltip width and height
 	var ttHeight = $('#tt').height();
 	
@@ -731,7 +731,6 @@ function positionTooltip(county) {
 	tooltip
 	  	.style("left", (left) + "px")
 	  	.style("top", (top) + "px");		      	
-	tooltip.classed('hidden', false);
 }
 
 

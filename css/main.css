@@ -442,7 +442,7 @@ div.tooltip {
 .tipKey {font-weight:normal;font-size:10px;color:#333;margin:0px;padding:5px 2px 5px 10px;background:rgba(255,255,255,0.8);}
 .tipClear { clear:both;} 
 */
-
+#tt {display: inline;}
 #tipLocation {
 	color: #fff;
 	padding: 0.3em;
