@@ -78,7 +78,7 @@ var zoom = d3.behavior.zoom()
     .on("zoom", move)
     .on("zoomend", moveEnd);
 
-var width = document.getElementById('container').offsetWidth-60,
+var width = document.getElementById('container').offsetWidth-90,
 	height = width / 2,
 	windowWidth = $(window).width(),
 	windowHeight = $(window).height();
@@ -129,12 +129,13 @@ function setup(width, height) {
     .scale(width *1.1);
 
 	path = d3.geo.path().projection(projection);
-	svg = d3.select("#map").append("svg")
+	svg = d3.select("#map").insert("svg", "div")
     	.attr("width", width)
     	.attr("height", height)
     	.append("g")
     	.attr("transform", "translate(" + width / 2 + "," + height / 2 + ")")
     	.call(zoom);
+	
 	g = svg.append("g").attr("class", "counties");
   		
 	d3.select('#map').on('click', function() { 
@@ -153,7 +154,15 @@ function setup(width, height) {
   			});
   		}
 	});
-
+	
+	/*var icons = d3.select('#map').append('div')
+			.attr('id', 'iconsGroup');
+		icons.append('img').attr('class', 'icons').attr('src', 'img/active-search.svg');
+		icons.append('img').attr('class', 'icons').attr('src', 'img/active-search.svg');
+		icons.append('img').attr('class', 'icons').attr('src', '');
+		icons.append('img').attr('class', 'icons').attr('src', '');
+		icons.append('img').attr('class', 'icons').attr('src', '');
+	*/
 	setZoomIcons();
 	positionInstruction();
 }	
@@ -792,7 +801,7 @@ function redraw() {
   tooltip.classed("hidden", true);
   
   windowWidth = $(window).width();
-  width = document.getElementById('container').offsetWidth-60;
+  width = document.getElementById('container').offsetWidth-90;
   height = width / 2;
   d3.select('svg').remove();
   setup(width,height);
