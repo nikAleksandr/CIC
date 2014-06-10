@@ -144,6 +144,9 @@ function setup(width, height) {
     frmrT = [0, 0];	
 	zoom.scale(frmrS);
 	zoom.translate(frmrT);
+	
+	setZoomIcons();	
+	positionInstruction();
 }
 
 function setBehaviors() { 		
@@ -164,20 +167,9 @@ function setBehaviors() {
   		}
 	});
 
-	/*var icons = d3.select('#map').append('div')
-			.attr('id', 'iconsGroup');
-		icons.append('img').attr('class', 'icons').attr('src', 'img/active-search.svg');
-		icons.append('img').attr('class', 'icons').attr('src', 'img/active-search.svg');
-		icons.append('img').attr('class', 'icons').attr('src', '');
-		icons.append('img').attr('class', 'icons').attr('src', '');
-		icons.append('img').attr('class', 'icons').attr('src', '');
-	*/
-
 	setDropdownBehavior();
 	setSearchBehavior();
 	setMoreDataBehavior();
-	setZoomIcons();
-	positionInstruction();
 }	
 
 function draw(topo, stateMesh) {
@@ -870,6 +862,7 @@ function setZoomIcons() {
 		// zoom in
 		var s = (frmrS > 9) ? 10 : frmrS + 1;
 		var t = [0, 0];
+		for (var i = 0; i < frmrT.length; i++) t[i] = frmrT[i] * (s / frmrS);
 		zoomMap(t, s);
 		tooltip.classed('hidden', true);
 	});
