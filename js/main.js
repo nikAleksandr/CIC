@@ -275,25 +275,34 @@ function setDropdownBehavior() {
 			}
 		}
 	}*/
-
-	d3.select('#primeInd').selectAll('.dataset').selectAll('.indicator').on('click', function() {
-		var datasetName = this.parentNode.parentNode.parentNode.title; // relies on the dataset being exactly 3 parents behind indicator
-		var indicatorName = this.title;
-		//if (currentDI !== datasetName + ' - ' + indicatorName) {
-			update(datasetName, indicatorName);			
-			d3.select("#primeIndText").html(this.innerHTML + '<span class="sub-arrow"></span>');
-		//}
-	});
-	d3.select('#secondInd').selectAll('.dataset').selectAll('.indicator').on('click', function() {
-		var datasetName = this.parentNode.parentNode.parentNode.title;
-		var indicatorName = this.title;		
-		//if (currentSecondDI !== datasetName + ' - ' + indicatorName) {
-			appendSecondInd(datasetName, indicatorName);
-			d3.select('#secondIndText').html(this.innerHTML + '<span class="sub-arrow"></span>');
-		//}
+	
+	// NEED TO DO: clicking on disabled should do nothing
+	d3.select('#primeInd').selectAll('.dataset').each(function() {
+		var dataset = d3.select(this);
+		var datasetName = dataset.attr('name');
+		dataset.selectAll('.indicator').on('click', function() {			
+			var indicatorName = d3.select(this).attr('name');
+			//if (currentDI !== datasetName + ' - ' + indicatorName) {
+				update(datasetName, indicatorName);			
+				d3.select('#primeIndText').html(this.innerHTML + '<span class="sub-arrow"></span>');
+			//}
+		});
 	});
 	
-	d3.selectAll('.indicator').style('cursor', 'pointer');
+	d3.select('#secondInd').selectAll('.dataset').each(function() {
+		var dataset = d3.select(this);
+		var datasetName = dataset.attr('name');
+		dataset.selectAll('.indicator').on('click', function() {			
+			var indicatorName = d3.select(this).attr('name');
+			//if (currentSecondDI !== datasetName + ' - ' + indicatorName) {
+				appendSecondInd(datasetName, indicatorName);
+				d3.select('#secondIndText').html(this.innerHTML + '<span class="sub-arrow"></span>');
+			//}
+		});
+	});
+			
+	//d3.selectAll('.indicator').style('cursor', 'pointer'); // uncomment if you want disabled to also cursor: pointer
+	d3.selectAll('.dataset').selectAll('li:not(.disabled)').selectAll('.indicator').style('cursor', 'pointer');
 }
 
 function setSearchBehavior() {
@@ -306,9 +315,9 @@ function setSearchBehavior() {
 	d3.select('#search_submit').on('click', submitSearch);
 		
 	d3.select('#searchTypeDrop').selectAll('a').on('click', function() {
-		if (searchType !== this.title) {
-			searchType = this.title;
-			d3.select('#searchTypeText').html(searchType.charAt(0).toUpperCase() + searchType.slice(1) + ' Search:' + '<span class="sub-arrow"></span>');
+		if (searchType !== this.name) {
+			searchType = this.name;
+			d3.select('#searchTypeText').html(toTitleCase(searchType) + ' Search:' + '<span class="sub-arrow"></span>');
 			
 			if (searchType === 'state') searchField.classed('hidden', true);
 			else searchField.classed('hidden', false);
@@ -318,8 +327,8 @@ function setSearchBehavior() {
 		}	
 	});
 	d3.select('#stateDrop').selectAll('a').on('click', function() {
-		if (searchState !== this.title) {
-			searchState = this.title;		
+		if (searchState !== this.name) {
+			searchState = this.name;		
 			d3.select('#stateDropText').html(searchState  + '<span class="sub-arrow"></span>');
 			
 			//if (searchType === 'state' && searchState !== '') submitSearch();
