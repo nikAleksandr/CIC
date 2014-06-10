@@ -98,7 +98,9 @@ var CICstructure,
 	selected, // county path that has been selected
 	currentDataType = '', // current datatype showing
 	currentDI = '', // current dataset/indicator showing
-	currentSecondDI = ''; // current secondary dataset/indicator showing; empty string if not showing
+	currentSecondDI = '', // current secondary dataset/indicator showing; empty string if not showing
+	searchType = 'county',
+	searchState = '';
 		
 var range, // output of data (only numbers; i.e. for categorical: 0, 1, 2)
 	corrDomain = [], // only used for categorical data; a crosswalk for the range between text and numbers
@@ -300,42 +302,48 @@ function setSearchBehavior() {
 	//d3.select('#search_form').on('submit', submitSearch);	
 	//var searchField = d3.select('#search_field').on('keyup', function() { if (d3.event.keyCode === 13) submitSearch(); });
 	var searchField = d3.select('#search_field');
+	var stateDrop = d3.select('#stateDropLi');
+	
 	d3.select('#search_submit').on('click', submitSearch);
 		
-	var stateDrop = d3.select('#state_drop');
-	var typeDrop = d3.select('#search_type');
-		
-	typeDrop.on('change', function() {
-		var type = typeDrop.property('value');
-		
-		if (type === 'state') searchField.style('display', 'none');
-		else searchField.style('display', '');
-
-		if (type === 'city') stateDrop.style('display', 'none');
-		else stateDrop.style('display', '');
-		
-		searchField.attr('placeholder', type + ' name');
+	d3.select('#searchTypeDrop').selectAll('a').on('click', function() {
+		if (searchType !== this.title) {
+			searchType = this.title;
+			d3.select('#searchTypeText').text(searchType.charAt(0).toUpperCase() + searchType.slice(1) + ' Search:');
+			
+			if (searchType === 'state') searchField.classed('hidden', true);
+			else searchField.classed('hidden', false);
+	
+			if (searchType === 'city') stateDrop.classed('hidden', true);
+			else stateDrop.classed('hidden', false);
+		}	
+	});
+	d3.select('#stateDrop').selectAll('a').on('click', function() {
+		if (searchState !== this.title) {
+			searchState = this.title;		
+			d3.select('#stateDropText').text(searchState);
+			
+			//if (searchType === 'state' && searchState !== '') submitSearch();
+		} 
 	});
 }
 
 function submitSearch() {
 	d3.event.preventDefault();
 		
-	var search_type = d3.select('#search_type').property('value');
 	var search_str = d3.select('#search_field').property('value');
-	var state_name = d3.select('#state_drop').property('value');
 	var results_container = d3.select('#container');
 
-	if (search_type === 'state') {
+	if (searchType === 'state') {
 		// only state; return results of all counties within state
-		if (state_name === 'MA' || state_name === 'RI' || state_name === 'CT') {
+		if (searchState === 'MA' || searchState === 'RI' || searchState === 'CT') {
 			noty({text: 'No county data available for this state.'});
 		} else {
-			state_search_str = 'state.cfm?statecode=' + state_name;
+			state_search_str = 'state.cfm?statecode=' + searchState;
 			displayResults(state_search_str);
 		}
 							
-	} else if (search_type === 'county') {
+	} else if (searchType === 'county') {
 		// trim out the fat
 		var search_arr = search_str.split(" ");
 		var geoDesc = ["County", "County,", "City", "City,", "city", "city,", "Borough", "Borough,", "Parish", "Parish,"];
@@ -356,7 +364,7 @@ function submitSearch() {
 		// check for entire phrase matches
 		var search_comb = "", full_match = false;
 		for (var j = 0; j < geoDesc.length; j++) {
-			search_comb = toTitleCase(countyName) + geoDesc[j] + " " + state_name;
+			search_comb = toTitleCase(countyName) + geoDesc[j] + " " + searchState;
 			if (idByName[search_comb]) {
 				full_match = true;
 				foundId = parseInt(idByName[search_comb]);
@@ -370,7 +378,7 @@ function submitSearch() {
 			var pMatchArray = [];
 			for (var ind in idByName) {
 				var db_array = ind.split(', ');
-				if (db_array[1] === state_name || state_name === '') {
+				if (db_array[1] === searchState || searchState === '') {
 					if (db_array[0].toLowerCase().indexOf(countyName.toLowerCase().trim()) != -1) {
 						pMatchArray.push(parseInt(idByName[ind]));
 					}
@@ -418,7 +426,7 @@ function submitSearch() {
 			}
 		}
 		
-	} else if (search_type === 'city') {
+	} else if (searchType === 'city') {
 		// city search: use city-county lookup
 		var search_str_array = search_str.toLowerCase().split('city');
 		var city_search_str = 'city_res.cfm?city=';

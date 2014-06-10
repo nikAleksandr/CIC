@@ -12,9 +12,6 @@
 
 html {
     color: #222;
-}
-
-html {
     font-size: 1em;
     line-height: 1.4;
 }
@@ -263,11 +260,11 @@ h1 small {
 .dropdown-menu {
 	text-align: left;
 }
+
 #searchContainer{
 	font-size: .8em;
 	padding-right: 2.5em;
 	background-color:rgb(0, 173, 220);
-	overflow:hidden;
 }
 #searchContainer li:not(#moreData){
 	background-color:#fff;
@@ -487,13 +484,17 @@ div.tooltip {
 #primeIndLi{
 	margin-left:.7em;
 }
-#primeIndLi a, #secondIndLi a:not(#resetSecondInd){
-	cursor: default;
+#primeIndLi a, #secondIndLi a:not(#resetSecondInd), #searchTypeText, #stateDropText {
+	cursor: default; 
+}
+#searchTypeDrop a, #stateDrop a {
+	cursor: pointer;
 }
 #resetSecondInd {
 	 text-align: center;
 	 cursor: pointer;
 }
+
 /*
  * Styling for ALL CFM Responses
  */
