@@ -1,4 +1,5 @@
 d3.select(window).on("resize", throttle);
+//d3.select('.rrssb-buttons').style('display', 'none');
 
 function toTitleCase(str){ return str.replace(/\w\S*/g, function(txt){return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();}); }
 function isNumFun(data_type) { return (data_type === 'level' || data_type === 'level_np' || data_type === 'percent'); }
@@ -135,6 +136,7 @@ function setup(width, height) {
 	svg = d3.select("#map").insert("svg", "div")
     	.attr("width", width)
     	.attr("height", height)
+    	.attr("id", "#mapSvg")
     	.append("g")
     	.attr("transform", "translate(" + width / 2 + "," + height / 2 + ")")
     	.call(zoom);
@@ -244,6 +246,23 @@ function resetAll() {
 	}
 	d3.select('#secondIndText').html('Secondary Indicator' + '<span class="sub-arrow"></span>');
 }
+
+var rrssbHidden=true;
+function showHideRrssb(){
+	var rrssbContainer = d3.select('#rrssbContainer');
+	if(rrssbHidden){
+		//d3.select('.rrssb-buttons').style('display', 'block');
+		rrssbContainer.transition().duration(500).style('right', '22px');
+		rrssbHidden = false;
+	}
+	else{
+		rrssbContainer.transition().duration(500).style('right', '-200px');
+		//d3.select('.rrssb-buttons').style('display', 'none');
+		rrssbHidden=true;
+	}
+	
+}
+//End icon functions
 function setDropdownBehavior() {		
 	// don't delete: this script is ONLY used to create html to COPY over to index.html
 	/*$('#primeIndLi').empty();
