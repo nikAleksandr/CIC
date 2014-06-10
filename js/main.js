@@ -238,11 +238,11 @@ function helpText(){
 	$('#showOnMap').hide();
 }
 function resetAll() {
-		currentSecondDI = '';
-		if (d3.select('.active').empty() !== true) {
-			populateTooltip(selected);
-		}
-		d3.select('#secondIndText').text('Secondary Indicator');
+	currentSecondDI = '';
+	if (d3.select('.active').empty() !== true) {
+		populateTooltip(selected);
+	}
+	d3.select('#secondIndText').html('Secondary Indicator' + '<span class="sub-arrow"></span>');
 }
 function setDropdownBehavior() {		
 	// don't delete: this script is ONLY used to create html to COPY over to index.html
@@ -280,8 +280,8 @@ function setDropdownBehavior() {
 		var datasetName = this.parentNode.parentNode.parentNode.title; // relies on the dataset being exactly 3 parents behind indicator
 		var indicatorName = this.title;
 		//if (currentDI !== datasetName + ' - ' + indicatorName) {
-			update(datasetName, indicatorName);
-			d3.select("#primeIndText").text(this.innerHTML);
+			update(datasetName, indicatorName);			
+			d3.select("#primeIndText").html(this.innerHTML + '<span class="sub-arrow"></span>');
 		//}
 	});
 	d3.select('#secondInd').selectAll('.dataset').selectAll('.indicator').on('click', function() {
@@ -289,12 +289,11 @@ function setDropdownBehavior() {
 		var indicatorName = this.title;		
 		//if (currentSecondDI !== datasetName + ' - ' + indicatorName) {
 			appendSecondInd(datasetName, indicatorName);
-			d3.select('#secondIndText').text(this.innerHTML);
+			d3.select('#secondIndText').html(this.innerHTML + '<span class="sub-arrow"></span>');
 		//}
 	});
 	
 	d3.selectAll('.indicator').style('cursor', 'pointer');
-	
 }
 
 function setSearchBehavior() {
@@ -309,7 +308,7 @@ function setSearchBehavior() {
 	d3.select('#searchTypeDrop').selectAll('a').on('click', function() {
 		if (searchType !== this.title) {
 			searchType = this.title;
-			d3.select('#searchTypeText').text(searchType.charAt(0).toUpperCase() + searchType.slice(1) + ' Search:');
+			d3.select('#searchTypeText').html(searchType.charAt(0).toUpperCase() + searchType.slice(1) + ' Search:' + '<span class="sub-arrow"></span>');
 			
 			if (searchType === 'state') searchField.classed('hidden', true);
 			else searchField.classed('hidden', false);
@@ -321,7 +320,7 @@ function setSearchBehavior() {
 	d3.select('#stateDrop').selectAll('a').on('click', function() {
 		if (searchState !== this.title) {
 			searchState = this.title;		
-			d3.select('#stateDropText').text(searchState);
+			d3.select('#stateDropText').html(searchState  + '<span class="sub-arrow"></span>');
 			
 			//if (searchType === 'state' && searchState !== '') submitSearch();
 		} 
