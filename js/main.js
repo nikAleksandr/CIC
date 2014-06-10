@@ -222,6 +222,22 @@ function setMoreDataBehavior(){
 		$('#showOnMap').hide();
 	});
 }
+//Functions for Icons
+function helpText(){
+	$('#instructionText').empty();
+	
+	d3.select('#instructionText').html('<p>Here is all the help text.</p><p>Coming Soon!</p>');
+	
+	$('#instructions').show();
+	$('#showOnMap').hide();
+}
+function resetAll() {
+		currentSecondDI = '';
+		if (d3.select('.active').empty() !== true) {
+			populateTooltip(selected);
+		}
+		d3.select('#secondIndText').text('Secondary Indicator');
+}
 function setDropdownBehavior() {		
 	// don't delete: this script is ONLY used to create html to COPY over to index.html
 	/*$('#primeIndLi').empty();
@@ -273,13 +289,6 @@ function setDropdownBehavior() {
 	
 	d3.selectAll('.indicator').style('cursor', 'pointer');
 	
-	d3.select('#resetSecondInd').on('click', function() {
-		currentSecondDI = '';
-		if (d3.select('.active').empty() !== true) {
-			populateTooltip(selected);
-		}
-		d3.select('#secondIndText').text('Secondary Indicator');
-	});
 }
 
 function setSearchBehavior() {
