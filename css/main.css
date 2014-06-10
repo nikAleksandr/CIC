@@ -360,6 +360,23 @@ svg:not(:root) {
 }
 /*
  * 
+ * Icons CSS
+ * 
+ */
+#iconsGroup{
+	position:relative;
+	width:30px;
+	height:auto;
+	float:right;
+	display:inline-block;
+}
+.icons{
+	width:30px;
+	height:30px;
+	margin: 15px;
+}
+/*
+ * 
  * Legend CSS
  * 
  */
