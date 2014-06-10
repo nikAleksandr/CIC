@@ -331,11 +331,6 @@ h1 small {
 /*
  * Map and SVG CSS
  */
-
-svg { 
-	background:rgb(255,255,255);
-	position:relative;
-}
 svg:not(:root) {
 	overflow: hidden; 
 }
@@ -373,7 +368,7 @@ svg:not(:root) {
 	float:right;
 	display:inline-block;
 }
-.icons{
+.my-icons{
 	width:30px;
 	height:30px;
 	margin: 15px;
