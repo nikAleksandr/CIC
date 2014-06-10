@@ -1156,6 +1156,7 @@
         	{
         		"name": "Public Safety Structure",
         		"years": [2012],
+        		"source": "NACo Research",
         		"companions": [["Public Safety Structure", "Elected Sheriff"], ["Public Safety Structure", "Elected Police Chief"], ["Public Safety Structure", "Elected Judges"], ["Public Safety Structure", "County Operated Courts"]],
         		"children": [
         			{"name": "Elected Sheriff", "dataType": "binary", "definition": "Indicates whether the county has a sheriff that is elected by county constituents"},

@@ -144,6 +144,9 @@ function setup(width, height) {
     frmrT = [0, 0];	
 	zoom.scale(frmrS);
 	zoom.translate(frmrT);
+	
+	setZoomIcons();	
+	positionInstruction();
 }
 
 function setBehaviors() { 		
@@ -164,20 +167,9 @@ function setBehaviors() {
   		}
 	});
 
-	/*var icons = d3.select('#map').append('div')
-			.attr('id', 'iconsGroup');
-		icons.append('img').attr('class', 'icons').attr('src', 'img/active-search.svg');
-		icons.append('img').attr('class', 'icons').attr('src', 'img/active-search.svg');
-		icons.append('img').attr('class', 'icons').attr('src', '');
-		icons.append('img').attr('class', 'icons').attr('src', '');
-		icons.append('img').attr('class', 'icons').attr('src', '');
-	*/
-
 	setDropdownBehavior();
 	setSearchBehavior();
 	setMoreDataBehavior();
-	setZoomIcons();
-	positionInstruction();
 }	
 
 function draw(topo, stateMesh) {
@@ -879,6 +871,7 @@ function setZoomIcons() {
 		// zoom in
 		var s = (frmrS > 9) ? 10 : frmrS + 1;
 		var t = [0, 0];
+		for (var i = 0; i < frmrT.length; i++) t[i] = frmrT[i] * (s / frmrS);
 		zoomMap(t, s);
 		tooltip.classed('hidden', true);
 	});
@@ -918,7 +911,7 @@ d3.json("us.json", function(error, us) {
 	draw(topo, stateMesh); 
 });
 
-d3.json("data/CICstructure.json", function(error, CICStructure){	
+d3.json("data/CICstructure.json", function(error, CICStructure){
 	CICstructure = CICStructure;
 
 	// temp check to see if all indicators are in crosswalk
@@ -941,7 +934,7 @@ d3.json("data/CICstructure.json", function(error, CICStructure){
 			if (data_array[i].indicator !== '') {
 				db_ind.push(data_array[i].dataset + ' - ' + data_array[i].indicator);
 			}
-		}					
+		}	
 		// check to see if indicator names match names in CICstructure
 		/*for (var i = 0; i < db_ind.length; i++) {
 			var name_match = false;
