@@ -449,11 +449,6 @@ div.tooltip {
 	border-width: 15px;
 }
 
-#twitterBox{
-	padding: 0px 20px 10px 10px;
-	text-align: left;
-}
-.twitter-share-button { cursor: pointer; }
 #tipLocation {
 	color: #fff;
 	padding: 0.3em;
