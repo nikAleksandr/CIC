@@ -265,7 +265,7 @@ h1 small {
 }
 #searchContainer{
 	font-size: .8em;
-	padding-right: 1.2em;
+	padding-right: 2.5em;
 	background-color:rgb(0, 173, 220);
 	overflow:hidden;
 }
@@ -281,7 +281,7 @@ h1 small {
 	z-index:-10;
 }
 #moreDataButton{
-	font-size:1.0em;
+	font-size:1.2em;
 	color:#fff;
 	padding:12px 15px 5px 15px;
 }
