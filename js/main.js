@@ -106,10 +106,7 @@ var CICstructure,
 		
 var range, // output of data (only numbers; i.e. for categorical: 0, 1, 2)
 	corrDomain = [], // only used for categorical data; a crosswalk for the range between text and numbers
-	quantById = [], secondQuantById = [], thirdQuantById = [], fourthQuantById = [], // the range of data displayed in the tooltip
-	s_quantById = [], s_secondQuantById = [], s_thirdQuantById = [], s_fourthQuantById = [], // the range of data displayed in the tooltip for the secondary indicator
-	primeIndObj = {}, secondIndObj = {}, thirdIndObj = {}, fourthIndObj = {}, // info about the indicators and companions
-	s_primeIndObj = {}, s_secondIndObj = {}, s_thirdIndObj = {}, s_fourthIndObj = {}, // info about the secondary indicators and companions
+	quantByIds = [], s_quantByIds = [], indObjects = {}, s_indObjects = {},
 	idByName = {},
 	countyObjectById = {},
 	countyPathById = {};
@@ -527,38 +524,34 @@ function update(dataset, indicator) {
 	currentDI = dataset + ' - ' + indicator; 
 	tooltip.classed("hidden", true);
 	
-	var indObject = allData(dataset, indicator); // pull data from JSON and fill primeIndObj, secondIndObj, etc.
-	primeIndObj = indObject[0];
-	secondIndObj = indObject[1];
-	thirdIndObj = indObject[2];
-	fourthIndObj = indObject[3];
-	
-	currentDataType = primeIndObj.dataType;
+	indObjects = allData(dataset, indicator); // pull data from JSON and fill primeIndObj, secondIndObj, etc.
+	currentDataType = indObjects[0].dataType;
 
 	//This is Where GET requests are issued to the server for JSON with fips, county name/state, plus primeInd.name, secondInd.name, thirdInd.name, and fourthInd.name; redefine "data" variable as this JSON
 	//"data" should be structured as a JSON with an array of each county.  each county has properties "id"(fips), "geography"(county name, ST), and each of the indicators specified above and clicked and doubleclicked data
 	//
 	d3.tsv("data/CData.tsv", function(error, countyData) {
 		data = countyData;
-
-		countyData.forEach(function(d) {
-			quantById[d.id] =  isNumFun(primeIndObj.dataType) ? parseFloat(d[currentDI]) : d[currentDI];					
-			secondQuantById[d.id] =  isNumFun(secondIndObj.dataType) ? parseFloat(d[secondIndObj.dataset+' - '+secondIndObj.name]) : d[secondIndObj.dataset+' - '+secondIndObj.name];		
-			thirdQuantById[d.id] =  isNumFun(thirdIndObj.dataType) ? parseFloat(d[thirdIndObj.dataset+' - '+thirdIndObj.name]) : d[thirdIndObj.dataset+' - '+thirdIndObj.name];		
-			fourthQuantById[d.id] =  isNumFun(fourthIndObj.dataType) ? parseFloat(d[fourthIndObj.dataset+' - '+fourthIndObj.name]) : d[fourthIndObj.dataset+' - '+fourthIndObj.name];		
+		quantByIds = [];
+		for (var i = 0; i < indObjects.length; i++) quantByIds.push([]);
+		
+		countyData.forEach(function(d) {			
+			for (var i = 0; i < indObjects.length; i++) {
+				quantByIds[i][d.id] = isNumFun(indObjects[i].dataType) ? parseFloat(d[indObjects[i].dataset+' - '+indObjects[i].name]) : d[indObjects[i].dataset+' - '+indObjects[i].name];
+			}
 
 			idByName[d.geography] = d.id;
 			countyObjectById[d.id] = d;
 		});
 		
-		var dataType = primeIndObj.dataType;
-		var isNumeric = isNumFun(dataType);
+		var isNumeric = isNumFun(currentDataType);
+		var quantById = quantByIds[0];
 	
 		// define domain
 		if (isNumeric) {
 			var domain = [];
 			for (var ind in quantById) {
-				if (dataType === 'level') {
+				if (currentDataType === 'level') {
 					// for levels, we do not want "zero" to be considered during the quantile categorization
 					if (parseFloat(quantById[ind]) === 0) domain[ind] = ".";
 					else domain[ind] = quantById[ind];
@@ -580,7 +573,7 @@ function update(dataset, indicator) {
 		}
 
 		// define range i.e. color output
-		switch(dataType) {
+		switch(currentDataType) {
 			case "percent":
 				range = percent_colors;
 				break;
@@ -607,14 +600,13 @@ function update(dataset, indicator) {
 		// list source
 		d3.select("#additionalInfo").selectAll("p").remove();
 		var sourceContainer = d3.select('#additionalInfo').append('p').attr("id", "sourceText")
-			.html('<i>Source</i>: ' + primeIndObj.source + ', ' + primeIndObj.year);
+			.html('<i>Source</i>: ' + indObjects[0].source + ', ' + indObjects[0].year);
 		
 		// list definitions
-		var obj = [primeIndObj, secondIndObj, thirdIndObj, fourthIndObj];
 		var defContainer = d3.select("#additionalInfo").append("p").attr("id", "definitionsText");
-		for (var i = 0; i < obj.length; i++) {
+		for (var i = 0; i < indObjects.length; i++) {
 			defContainer.append('div')
-				.html('<b>' + obj[i].name + '</b>: ' + obj[i].definition);
+				.html('<b>' + indObjects[i].name + '</b>: ' + indObjects[i].definition);
 		}
 		
 	});
@@ -622,19 +614,16 @@ function update(dataset, indicator) {
 
 function appendSecondInd(dataset, indicator) {
 	currentSecondDI = dataset + ' - ' + indicator;
-	
-	var indObject = allData(dataset, indicator);
-	s_primeIndObj = indObject[0];
-	s_secondIndObj = indObject[1];
-	s_thirdIndObj = indObject[2];
-	s_fourthIndObj = indObject[3];
+	s_indObjects = allData(dataset, indicator);
 	
 	d3.tsv("data/CData.tsv", function(error, countyData) {
+		s_quantByIds = [];
+		for (var i = 0; i < s_indObjects.length; i++) s_quantByIds.push([]);
+		
 		countyData.forEach(function(d) {
-			s_quantById[d.id] =  isNumFun(s_primeIndObj.dataType) ? parseFloat(d[currentSecondDI]) : d[currentSecondDI];					
-			s_secondQuantById[d.id] =  isNumFun(s_secondIndObj.dataType) ? parseFloat(d[s_secondIndObj.dataset+' - '+s_secondIndObj.name]) : d[s_secondIndObj.dataset+' - '+s_secondIndObj.name];		
-			s_thirdQuantById[d.id] =  isNumFun(s_thirdIndObj.dataType) ? parseFloat(d[s_thirdIndObj.dataset+' - '+s_thirdIndObj.name]) : d[s_thirdIndObj.dataset+' - '+s_thirdIndObj.name];		
-			s_fourthQuantById[d.id] =  isNumFun(s_fourthIndObj.dataType) ? parseFloat(d[s_fourthIndObj.dataset+' - '+s_fourthIndObj.name]) : d[s_fourthIndObj.dataset+' - '+s_fourthIndObj.name];		
+			for (var i = 0; i < s_indObjects.length; i++) {
+				s_quantByIds[i][d.id] = isNumFun(s_indObjects[i].dataType) ? parseFloat(d[s_quantByIds[i].dataset+' - '+s_quantByIds[i].name]) : d[s_quantByIds[i].dataset+' - '+s_quantByIds[i].name];
+			}
 		});
 				
 		if (d3.select('.active').empty() !== true) populateTooltip(selected);
@@ -643,26 +632,13 @@ function appendSecondInd(dataset, indicator) {
 
 function allData(dataset, indicator){
 	var firstObj = getData(dataset, indicator);
-	// grab companion indcators through same function
-	var secondObj = getData(firstObj.companions[0][0], firstObj.companions[0][1]);
-	var thirdObj = getData(firstObj.companions[1][0], firstObj.companions[1][1]);
-	var fourthObj = getData(firstObj.companions[2][0], firstObj.companions[2][1]);
-	
-	//ensure no duplicates between primeInd and one of its companions;
-	if(secondObj.name === firstObj.name){
-		secondObj = thirdObj;
-		thirdObj = fourthObj;
-		fourthObj = getData(firstObj.companions[3][0], firstObj.companions[3][1]);
-	}
-	else if (thirdObj.name === firstObj.name){
-		thirdObj = fourthObj;
-		fourthObj = getData(firstObj.companions[3][0], firstObj.companions[3][1]);
-	}
-	else if (fourthObj.name === firstObj.name){
-		fourthObj = getData(firstObj.companions[3][0], firstObj.companions[3][1]);
-	}
-	
-	return [firstObj, secondObj, thirdObj, fourthObj];
+	var objArray = [firstObj];
+	for (var i = 0; i < firstObj.companions.length; i++) {
+		var obj = getData(firstObj.companions[i][0], firstObj.companions[i][1]);
+		if (obj.name !== firstObj.name && objArray.length < firstObj.companions.length) objArray.push(obj);	
+
+	}	
+	return objArray;
 }
 
 //Alternative to this big lookup is to list a i,j,h "JSON address" in the HTML anchor properties.  Would still likely require some type of HTML or JSON lookup for companion indicators though
@@ -707,7 +683,7 @@ function fillMapColors() {
 	frmrActive = null;
 	g.selectAll(".counties .county").transition().duration(750).style("fill", function(d) {
 		if (isNumFun(currentDataType)) {
-			return isNaN(quantById[d.id]) ? na_color : color(quantById[d.id]);
+			return isNaN(quantByIds[0][d.id]) ? na_color : color(quantByIds[0][d.id]);
 		} else {
 			return isNaN(corrDomain[d.id]) ? na_color : range[corrDomain[d.id]];
 		}
@@ -718,6 +694,7 @@ function createLegend(keyArray) {
 	d3.selectAll(".legend svg").remove();
 	d3.select("#legendTitle").remove();
 
+	var primeIndObj = indObjects[0];
 	var isCurrency = (primeIndObj.hasOwnProperty('unit')) ? (primeIndObj.unit.indexOf("dollar") != -1) : false; // determine if indicator values are currency by checking units
 	var legendTitle = primeIndObj.year + " " + primeIndObj.name;
 	//if (primeIndObj.dataType !== 'binary' && primeIndObj.dataType !== 'categorical') legendTitle += " in " + primeIndObj.unit; 
@@ -743,13 +720,6 @@ function populateTooltip(d) {
     tipContainer.append('div')
     	.attr('id', 'tipLocation')
     	.text(countyObjectById[d.id].geography);
-
-	var p_obj = [primeIndObj, secondIndObj, thirdIndObj, fourthIndObj],
-		p_quant = [quantById, secondQuantById, thirdQuantById, fourthQuantById];
-	if (currentSecondDI !== '') {
-		s_obj = [s_primeIndObj, s_secondIndObj, s_thirdIndObj, s_fourthIndObj],
-		s_quant = [s_quantById, s_secondQuantById, s_thirdQuantById, s_fourthQuantById];
-	}
 		
 	// loop through primary and all three companions and display corresponding formatted values
 	var tipInfo = tipContainer.append('div').attr('id', 'tipInfo');	
@@ -778,12 +748,12 @@ function populateTooltip(d) {
 		
 	};
 	
-	for (var i = 0; i < p_obj.length; i++) {
+	for (var i = 0; i < indObjects.length; i++) {
 		var row = tipTable.append('tr')
 			.attr('class', 'tipKey');
 			
-		writeIndicators(p_obj[i], p_quant[i], false);
-		if (currentSecondDI !== '') writeIndicators(s_obj[i], s_quant[i], true);
+		writeIndicators(indObjects[i], quantByIds[i], false);
+		if (currentSecondDI !== '' && i < s_indObjects.length) writeIndicators(s_indObjects[i], s_quantByIds[i], true);
 	}
 
 	/*if (none_avail) {
