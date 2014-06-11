@@ -33,7 +33,7 @@ var colorlegend = function (target, scale, type, options) {
     	, w = htmlElement.offsetWidth // width of container element
     	, h = htmlElement.offsetHeight // height of container element
     	, colors = []
-    	, padding = [2, 4, 10, 4] // top, right, bottom, left
+    	, padding = [0, 4, 10, (w-350)/2] // top, right, bottom, left
     	, boxSpacing = type === 'ordinal' ? 3 : 0 // spacing between boxes
     	, titlePadding = title ? 22 : 0
     	, boxLabelHeight = 10
