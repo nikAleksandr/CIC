@@ -294,13 +294,20 @@ function setDropdownBehavior() {
 			}
 		}
 	}*/
+
+	// stop from closing the menu when clicking non-indicator
+	d3.selectAll('#primeInd, #secondInd').on('click', function() { 
+		if (!d3.select(d3.event.target).classed('indicator')) {
+			d3.event.stopPropagation();
+		} 
+	});
 	
 	d3.select('#primeInd').selectAll('.dataset').each(function() {
-		var dataset = d3.select(this);
+		var dataset = d3.select(this);		
 		var datasetName = dataset.attr('name');
+
 		dataset.selectAll('li').on('click', function() {
-			var isDisabled = d3.select(this).classed('disabled');
-			if (!isDisabled) {
+			if (!d3.select(this).classed('disabled')) {
 				var indicatorName = d3.select(this).select('.indicator').attr('name');
 				if (currentDI === datasetName + ' - ' + indicatorName) {
 					noty({text: 'Already showing "' + indicatorName + '"!'});
@@ -308,6 +315,8 @@ function setDropdownBehavior() {
 					update(datasetName, indicatorName);			
 					d3.select('#primeIndText').html(this.innerHTML + '<span class="sub-arrow"></span>');
 				}
+			} else {
+				//d3.event.stopPropagation();
 			}
 		});
 	});
@@ -316,13 +325,14 @@ function setDropdownBehavior() {
 		var dataset = d3.select(this);
 		var datasetName = dataset.attr('name');
 		dataset.selectAll('li').on('click', function() {
-			var isDisabled = d3.select(this).classed('disabled');
-			if (!isDisabled) {
+			if (!d3.select(this).classed('disabled')) {
 				var indicatorName = d3.select(this).select('.indicator').attr('name');
 				if (currentSecondDI !== datasetName + ' - ' + indicatorName) {
 					appendSecondInd(datasetName, indicatorName);
 					d3.select('#secondIndText').html(this.innerHTML + '<span class="sub-arrow"></span>');
 				}
+			} else {
+				d3.event.stopPropagation();
 			}
 		});
 	});
