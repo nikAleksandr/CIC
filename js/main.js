@@ -101,7 +101,7 @@ var CICstructure,
 	currentDI = '', // current dataset/indicator showing
 	currentSecondDI = '', // current secondary dataset/indicator showing; empty string if not showing
 	searchType = 'county',
-	searchState = '';
+	searchState = 'State';
 		
 var range, // output of data (only numbers; i.e. for categorical: 0, 1, 2)
 	corrDomain = [], // only used for categorical data; a crosswalk for the range between text and numbers
@@ -299,13 +299,6 @@ function setDropdownBehavior() {
 			}
 		}
 	}*/
-
-	// stop from closing the menu when clicking non-indicator
-	d3.selectAll('#primeInd, #secondInd').on('click', function() { 
-		if (!d3.select(d3.event.target).classed('indicator')) {
-			d3.event.stopPropagation();
-		} 
-	});
 	
 	d3.select('#primeInd').selectAll('.dataset').each(function() {
 		var dataset = d3.select(this);		
@@ -357,22 +350,23 @@ function setSearchBehavior() {
 		
 	d3.select('#searchTypeDrop').selectAll('a').on('click', function() {
 		if (searchType !== this.name) {
-			searchType = this.name;
-			d3.select('#searchTypeText').html(toTitleCase(searchType) + ' Search:' + '<span class="sub-arrow"></span>');
+			$('#search_field').val('');
 			
-			if (searchType === 'state') searchField.classed('hidden', true);
+			if (this.name === 'state') searchField.classed('hidden', true);
 			else searchField.classed('hidden', false);
 	
-			if (searchType === 'city') stateDrop.classed('hidden', true);
+			if (this.name === 'city') stateDrop.classed('hidden', true);
 			else stateDrop.classed('hidden', false);
 		}	
+		searchType = this.name;
+		d3.select('#searchTypeText').html(toTitleCase(searchType) + ' Search' + '<span class="sub-arrow"></span>');
 	});
 	d3.select('#stateDrop').selectAll('a').on('click', function() {
 		if (searchState !== this.name) {
 			searchState = this.name;		
 			d3.select('#stateDropText').html(searchState  + '<span class="sub-arrow"></span>');
 			
-			//if (searchType === 'state' && searchState !== '') submitSearch();
+			//if (searchType === 'state' && searchState !== 'State') submitSearch();
 		} 
 	});
 }
@@ -427,7 +421,7 @@ function submitSearch() {
 			var pMatchArray = [];
 			for (var ind in idByName) {
 				var db_array = ind.split(', ');
-				if (db_array[1] === searchState || searchState === '') {
+				if (db_array[1] === searchState || searchState === 'State') {
 					if (db_array[0].toLowerCase().indexOf(countyName.toLowerCase().trim()) != -1) {
 						pMatchArray.push(parseInt(idByName[ind]));
 					}
@@ -487,6 +481,8 @@ function submitSearch() {
 
 function executeSearchMatch(FIPS) {
 	$('#instructions').hide();
+	$('#search_field').val('');
+	//$('#stateDropLi').val('State'); // doesnt work right now
 	
 	var county = countyObjectById[parseInt(FIPS)];
     if (county) {
