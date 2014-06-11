@@ -162,8 +162,9 @@ table th{
 	right: 0px;
 	overflow: auto;
 	padding-bottom: 20px;
-	text-align: center;
+	text-align: left;
 	font-size: 1em;
+	padding: 20px;
 }
 
 #instructionText a, #fullDefsText a, .county_link{
