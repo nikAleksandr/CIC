@@ -82,7 +82,8 @@ var zoom = d3.behavior.zoom()
 var width = document.getElementById('container').offsetWidth-90,
 	height = width / 2,
 	windowWidth = $(window).width(),
-	windowHeight = $(window).height();
+	windowHeight = $(window).height(),
+	headHeight = $('#header').height();
 
 var projection = d3.geo.albersUsa()
     .scale(width)
@@ -237,9 +238,10 @@ function resetAll() {
 var rrssbHidden=true;
 function showHideRrssb(){
 	var rrssbContainer = d3.select('#rrssbContainer');
+	var placement = (windowWidth - width)/2;
 	if(rrssbHidden){
 		d3.select('.rrssb-buttons').style('display', 'block');
-		rrssbContainer.transition().duration(500).style({'right': '22px', 'width': '200px'});
+		rrssbContainer.transition().duration(500).style('right', placement + "px");
 		rrssbHidden = false;
 	}
 	else{
@@ -871,6 +873,7 @@ function redraw() {
   windowWidth = $(window).width();
   width = document.getElementById('container').offsetWidth-90;
   height = width / 2;
+  headHeight = $('#header').height();
   d3.select('svg').remove();
   setup(width,height);
   draw(topo, stateMesh);
@@ -918,7 +921,7 @@ function zoomMap(t, s, smooth) {
 
 function setZoomIcons() {
 	var coords = map.getBoundingClientRect();
-	d3.select('#zoomIcons').style('left', (coords.left + 30) + 'px');
+	d3.select('#zoomIcons').style({'left': (coords.left + 30) + 'px', 'top': headHeight + 15 + 'px'});
 	
 	d3.select('#zoomPlusIcon').on('click', function() {
 		// zoom in
