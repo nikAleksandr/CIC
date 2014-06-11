@@ -129,7 +129,7 @@ var frmrS, frmrT; // keep track of current translate and scale values
 function setup(width, height) {
 	projection = d3.geo.albersUsa()
     .translate([0, 0])
-    .scale(width *1.0);
+    .scale(width *1.1);
     
 	path = d3.geo.path().projection(projection);
 	svg = d3.select("#map").insert("svg", "div")
@@ -172,6 +172,7 @@ function setBehaviors() {
 
 	setDropdownBehavior();
 	setSearchBehavior();
+	setMoreDataBehavior();
 }	
 
 function draw(topo, stateMesh) {
@@ -217,6 +218,17 @@ function draw(topo, stateMesh) {
 	
 	fillMapColors();
 }
+var moreDataContent = '<div id="moreDataContent" class="container-fluid"><div class="row"><div class="col-md-5"><h3><a href="#">Full Interactive Map</a></h3><a href="#"><img src="img/CICFullThumb.png"/></a></div><div class="col-md-7"><p>Access more datasets and indicators for display on the interactive map.<br/><br/>Login free to COIN <a href="#">here</a> to access</p></div></div><div class="row"><div class="col-md-5"><h3><a href="#">CIC Extraction Tool</a></h3><a href="#"><img src="img/CICExtractionThumb.png"/></a></div><div class="col-md-7"><p>Full access to all 18 categories, 66 datasets, and 889 indicators.<br/><br/>Customizable data downloads available <a href="#">here</a></p></div></div></div>';
+function setMoreDataBehavior(){
+	d3.select('#moreDataButton').on('click', function(){
+		$('#instructionText').empty();
+		
+		d3.select('#instructionText').html(moreDataContent);
+		
+		$('#instructions').show();
+		$('#showOnMap').hide();
+	});
+}
 //Functions for Icons
 function helpText(){
 	$('#instructionText').empty();
@@ -238,32 +250,14 @@ var rrssbHidden=true;
 function showHideRrssb(){
 	var rrssbContainer = d3.select('#rrssbContainer');
 	if(rrssbHidden){
-		d3.select('.rrssb-buttons').style('display', 'block');
-		rrssbContainer.transition().duration(500).style({'right': '22px', 'width': '200px'});
+		//d3.select('.rrssb-buttons').style('display', 'block');
+		rrssbContainer.transition().duration(500).style('right', '22px');
 		rrssbHidden = false;
 	}
 	else{
 		rrssbContainer.transition().duration(500).style('right', '-200px');
-		d3.select('.rrssb-buttons').style('display', 'none');
+		//d3.select('.rrssb-buttons').style('display', 'none');
 		rrssbHidden=true;
-	}
-	
-}
-var moreDataContent = '<div id="moreDataContent" class="container-fluid"><div class="row"><div class="col-md-5"><h3><a href="#">Full Interactive Map</a></h3><a href="#"><img src="img/CICFullThumb.png"/></a></div><div class="col-md-7"><p>Access more datasets and indicators for display on the interactive map.<br/><br/>Login free to COIN <a href="#">here</a> to access</p></div></div><div class="row"><div class="col-md-5"><h3><a href="#">CIC Extraction Tool</a></h3><a href="#"><img src="img/CICExtractionThumb.png"/></a></div><div class="col-md-7"><p>Full access to all 18 categories, 66 datasets, and 889 indicators.<br/><br/>Customizable data downloads available <a href="#">here</a></p></div></div></div>';
-var moreDataHidden = true;
-function moreDataShow(){
-	if(moreDataHidden){
-		$('#instructionText').empty();
-	
-		d3.select('#instructionText').html(moreDataContent);
-		
-		$('#instructions').show();
-		$('#showOnMap').hide();
-		moreDataHidden = false;
-	}
-	else{
-		$('#instructions').hide();
-		moreDataHidden = true;
 	}
 	
 }
@@ -641,26 +635,12 @@ function appendSecondInd(dataset, indicator) {
 
 function allData(dataset, indicator){
 	var firstObj = getData(dataset, indicator);
-	// grab companion indcators through same function
-	var secondObj = getData(firstObj.companions[0][0], firstObj.companions[0][1]);
-	var thirdObj = getData(firstObj.companions[1][0], firstObj.companions[1][1]);
-	var fourthObj = getData(firstObj.companions[2][0], firstObj.companions[2][1]);
-	
-	//ensure no duplicates between primeInd and one of its companions;
-	if(secondObj.name === firstObj.name){
-		secondObj = thirdObj;
-		thirdObj = fourthObj;
-		fourthObj = getData(firstObj.companions[3][0], firstObj.companions[3][1]);
-	}
-	else if (thirdObj.name === firstObj.name){
-		thirdObj = fourthObj;
-		fourthObj = getData(firstObj.companions[3][0], firstObj.companions[3][1]);
-	}
-	else if (fourthObj.name === firstObj.name){
-		fourthObj = getData(firstObj.companions[3][0], firstObj.companions[3][1]);
-	}
-	
-	return [firstObj, secondObj, thirdObj, fourthObj];
+	var objArray = [firstObj];
+	for (var i = 0; i < firstObj.companions.length; i++) {
+		var obj = getData(firstObj.companions[i][0], firstObj.companions[i][1]);
+		if (obj.name !== firstObj.name && objArray.length < firstObj.companions.length) objArray.push(obj);	
+	}	
+	return objArray;
 }
 
 //Alternative to this big lookup is to list a i,j,h "JSON address" in the HTML anchor properties.  Would still likely require some type of HTML or JSON lookup for companion indicators though

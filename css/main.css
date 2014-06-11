@@ -119,7 +119,6 @@ table th{
 	text-align: left;
 	display: inline-block;
 	font-size: 0.8em;
-	margin-top:1em;
 }
 #byline p{
 	color:#333;
@@ -267,16 +266,13 @@ h1 small {
 	padding-right: 2.5em;
 	background-color:rgb(0, 173, 220);
 }
-#searchContainer li:not(#searchDrop) {
-	margin-bottom:-7px;
-	padding-bottom:8px;
-}
-#searchDrop{
-	padding-bottom:4px;
-}
 #searchContainer li:not(#moreData){
 	background-color:#fff;
+	margin-bottom:-5px;
+	padding-bottom:4px;
 }
+#search_type { margin-top: 4px; }
+#search_submit { margin-left: 10px; }
 #map {
 	/*position: relative;*/
 	z-index:-10;
@@ -380,7 +376,6 @@ h1 small {
 	right: -200px;
 	top:51%;
 	width:200px;
-	min-width:200px;
 }
 /*
  * 
@@ -397,7 +392,7 @@ h1 small {
 }
 
 #legendNoData {
-	padding-top:35px;
+	padding-top:30px;
 	display: inline-block;
 	font-size: 0.8em;
 	text-align:right;
