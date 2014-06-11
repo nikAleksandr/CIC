@@ -267,13 +267,16 @@ h1 small {
 	padding-right: 2.5em;
 	background-color:rgb(0, 173, 220);
 }
-#searchContainer li:not(#moreData){
-	background-color:#fff;
-	margin-bottom:-5px;
+#searchContainer li:not(#searchDrop) {
+	margin-bottom:-8px;
+	padding-bottom:8px;
+}
+#searchDrop{
 	padding-bottom:4px;
 }
-#search_type { margin-top: 4px; }
-#search_submit { margin-left: 10px; }
+#searchContainer li:not(#moreData){
+	background-color:#fff;
+}
 #map {
 	/*position: relative;*/
 	z-index:-10;
