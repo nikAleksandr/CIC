@@ -82,7 +82,8 @@ var zoom = d3.behavior.zoom()
 var width = document.getElementById('container').offsetWidth-90,
 	height = width / 2,
 	windowWidth = $(window).width(),
-	windowHeight = $(window).height();
+	windowHeight = $(window).height(),
+	headHeight = $('#header').height();
 
 var projection = d3.geo.albersUsa()
     .scale(width)
@@ -106,12 +107,6 @@ var CICstructure,
 var range, // output of data (only numbers; i.e. for categorical: 0, 1, 2)
 	corrDomain = [], // only used for categorical data; a crosswalk for the range between text and numbers
 	quantByIds = [], s_quantByIds = [], indObjects = {}, s_indObjects = {},
-	
-	
-	quantById = [], secondQuantById = [], thirdQuantById = [], fourthQuantById = [], // the range of data displayed in the tooltip
-	s_quantById = [], s_secondQuantById = [], s_thirdQuantById = [], s_fourthQuantById = [], // the range of data displayed in the tooltip for the secondary indicator
-	primeIndObj = {}, secondIndObj = {}, thirdIndObj = {}, fourthIndObj = {}, // info about the indicators and companions
-	s_primeIndObj = {}, s_secondIndObj = {}, s_thirdIndObj = {}, s_fourthIndObj = {}, // info about the secondary indicators and companions
 	idByName = {},
 	countyObjectById = {},
 	countyPathById = {};
@@ -132,7 +127,7 @@ var frmrS, frmrT; // keep track of current translate and scale values
 function setup(width, height) {
 	projection = d3.geo.albersUsa()
     .translate([0, 0])
-    .scale(width *1.1);
+    .scale(width *1.0);
     
 	path = d3.geo.path().projection(projection);
 	svg = d3.select("#map").insert("svg", "div")
@@ -175,7 +170,6 @@ function setBehaviors() {
 
 	setDropdownBehavior();
 	setSearchBehavior();
-	setMoreDataBehavior();
 }	
 
 function draw(topo, stateMesh) {
@@ -221,17 +215,6 @@ function draw(topo, stateMesh) {
 	
 	fillMapColors();
 }
-var moreDataContent = '<div id="moreDataContent" class="container-fluid"><div class="row"><div class="col-md-5"><h3><a href="#">Full Interactive Map</a></h3><a href="#"><img src="img/CICFullThumb.png"/></a></div><div class="col-md-7"><p>Access more datasets and indicators for display on the interactive map.<br/><br/>Login free to COIN <a href="#">here</a> to access</p></div></div><div class="row"><div class="col-md-5"><h3><a href="#">CIC Extraction Tool</a></h3><a href="#"><img src="img/CICExtractionThumb.png"/></a></div><div class="col-md-7"><p>Full access to all 18 categories, 66 datasets, and 889 indicators.<br/><br/>Customizable data downloads available <a href="#">here</a></p></div></div></div>';
-function setMoreDataBehavior(){
-	d3.select('#moreDataButton').on('click', function(){
-		$('#instructionText').empty();
-		
-		d3.select('#instructionText').html(moreDataContent);
-		
-		$('#instructions').show();
-		$('#showOnMap').hide();
-	});
-}
 //Functions for Icons
 function helpText(){
 	$('#instructionText').empty();
@@ -252,15 +235,34 @@ function resetAll() {
 var rrssbHidden=true;
 function showHideRrssb(){
 	var rrssbContainer = d3.select('#rrssbContainer');
+	var placement = (windowWidth - width)/2;
 	if(rrssbHidden){
-		//d3.select('.rrssb-buttons').style('display', 'block');
-		rrssbContainer.transition().duration(500).style('right', '22px');
+		d3.select('.rrssb-buttons').style('display', 'block');
+		rrssbContainer.transition().duration(500).style('right', placement + "px");
 		rrssbHidden = false;
 	}
 	else{
 		rrssbContainer.transition().duration(500).style('right', '-200px');
-		//d3.select('.rrssb-buttons').style('display', 'none');
+		d3.select('.rrssb-buttons').style('display', 'none');
 		rrssbHidden=true;
+	}
+	
+}
+var moreDataContent = '<div id="moreDataContent" class="container-fluid"><div class="row"><div class="col-md-5"><h3><a href="#">Full Interactive Map</a></h3><a href="#"><img src="img/CICFullThumb.png"/></a></div><div class="col-md-7"><p>Access more datasets and indicators for display on the interactive map.<br/><br/>Login free to COIN <a href="#">here</a> to access</p></div></div><div class="row"><div class="col-md-5"><h3><a href="#">CIC Extraction Tool</a></h3><a href="#"><img src="img/CICExtractionThumb.png"/></a></div><div class="col-md-7"><p>Full access to all 18 categories, 66 datasets, and 889 indicators.<br/><br/>Customizable data downloads available <a href="#">here</a></p></div></div></div>';
+var moreDataHidden = true;
+function moreDataShow(){
+	if(moreDataHidden){
+		$('#instructionText').empty();
+	
+		d3.select('#instructionText').html(moreDataContent);
+		
+		$('#instructions').show();
+		$('#showOnMap').hide();
+		moreDataHidden = false;
+	}
+	else{
+		$('#instructions').hide();
+		moreDataHidden = true;
 	}
 	
 }
@@ -633,7 +635,8 @@ function allData(dataset, indicator){
 	var objArray = [firstObj];
 	for (var i = 0; i < firstObj.companions.length; i++) {
 		var obj = getData(firstObj.companions[i][0], firstObj.companions[i][1]);
-		if (obj.name !== firstObj.name && objArray.length < firstObj.companions.length) objArray.push(obj);	
+		if (obj.name !== firstObj.name && objArray.length < firstObj.companions.length) objArray.push(obj);	
+
 	}	
 	return objArray;
 }
@@ -840,6 +843,7 @@ function redraw() {
   windowWidth = $(window).width();
   width = document.getElementById('container').offsetWidth-90;
   height = width / 2;
+  headHeight = $('#header').height();
   d3.select('svg').remove();
   setup(width,height);
   draw(topo, stateMesh);
@@ -887,7 +891,7 @@ function zoomMap(t, s, smooth) {
 
 function setZoomIcons() {
 	var coords = map.getBoundingClientRect();
-	d3.select('#zoomIcons').style('left', (coords.left + 30) + 'px');
+	d3.select('#zoomIcons').style({'left': (coords.left + 30) + 'px', 'top': headHeight + 15 + 'px'});
 	
 	d3.select('#zoomPlusIcon').on('click', function() {
 		// zoom in

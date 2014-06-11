@@ -572,6 +572,7 @@ div.tooltip {
 	text-align:left;
 	margin-right:1em;
 }
+ 
 /* ==========================================================================
    Helper classes
    ========================================================================== */
@@ -656,7 +657,11 @@ div.tooltip {
 		display: none;
 	}
 }
-
+@media (max-width: 800px){
+	#moreDataText {
+		display:none;
+	}
+}
 @media (min-width: 640px) {
     /* Style adjustments for viewports that meet the condition */
 	.navbar-brand {
