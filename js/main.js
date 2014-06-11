@@ -251,13 +251,13 @@ var rrssbHidden=true;
 function showHideRrssb(){
 	var rrssbContainer = d3.select('#rrssbContainer');
 	if(rrssbHidden){
-		//d3.select('.rrssb-buttons').style('display', 'block');
-		rrssbContainer.transition().duration(500).style('right', '22px');
+		d3.select('.rrssb-buttons').style('display', 'block');
+		rrssbContainer.transition().duration(500).style({'right': '22px', 'width': '200px'});
 		rrssbHidden = false;
 	}
 	else{
 		rrssbContainer.transition().duration(500).style('right', '-200px');
-		//d3.select('.rrssb-buttons').style('display', 'none');
+		d3.select('.rrssb-buttons').style('display', 'none');
 		rrssbHidden=true;
 	}
 	

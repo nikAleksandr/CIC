@@ -376,6 +376,7 @@ h1 small {
 	right: -200px;
 	top:51%;
 	width:200px;
+	min-width:200px;
 }
 /*
  * 
