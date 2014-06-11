@@ -384,11 +384,10 @@ h1 small {
  */
 
 .legend {
-  background-color: #fff;
-  height: 60px;
   border: 0;
   display: inline-block;
-  float: left;
+  text-align:center;
+  height:60px;
 }
 
 #legendNoData {
