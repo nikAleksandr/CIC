@@ -119,6 +119,7 @@ table th{
 	text-align: left;
 	display: inline-block;
 	font-size: 0.8em;
+	margin-top:1em;
 }
 #byline p{
 	color:#333;
@@ -393,7 +394,7 @@ h1 small {
 }
 
 #legendNoData {
-	padding-top:30px;
+	padding-top:35px;
 	display: inline-block;
 	font-size: 0.8em;
 	text-align:right;
