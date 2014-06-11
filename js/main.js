@@ -129,7 +129,7 @@ var frmrS, frmrT; // keep track of current translate and scale values
 function setup(width, height) {
 	projection = d3.geo.albersUsa()
     .translate([0, 0])
-    .scale(width *1.1);
+    .scale(width *1.0);
     
 	path = d3.geo.path().projection(projection);
 	svg = d3.select("#map").insert("svg", "div")
