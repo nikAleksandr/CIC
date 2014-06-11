@@ -219,7 +219,7 @@ function draw(topo, stateMesh) {
 function helpText(){
 	$('#instructionText').empty();
 	
-	d3.select('#instructionText').html('<p>Here is all the help text.</p><p>Coming Soon!</p>');
+	d3.select('#instructionText').html('<p><b>Instructions</b></p><br><p>&bull; Pick a statistic by clicking on &quot;Primary Indicator&quot; on the top left of the screen and choosing an indicator.<br>&bull; Click on a county on the map to show the statistics for that county.<br>&bull; Or search for a county with the search bar on the top right of the screen.</p><br><p>To show additional statistics, click on &quot;Secondary Indicator&quot; on the top left of the screen and choose another indicator.</p><br><p><img src="img/Back_to_US.svg"></img> - Click this to fully zoom out and see the entire map</p><p><img src="img/Reset_indicators.svg"></img> - Click this to no longer see the secondary indicator</p><p><img src="img/Share.svg"></img> - Click this to share on social media</p><p><img src="img/More_interactives.svg"></img> - Click this to access more data through COIN</p>');
 	
 	$('#instructions').show();
 	$('#showOnMap').hide();
@@ -524,10 +524,10 @@ function update(dataset, indicator) {
 	currentDI = dataset + ' - ' + indicator; 
 	tooltip.classed("hidden", true);
 	
-	indObjects = allData(dataset, indicator); // pull data from JSON and fill primeIndObj, secondIndObj, etc.
+	indObjects = allData(dataset, indicator); // pull data from JSON
 	currentDataType = indObjects[0].dataType;
 
-	//This is Where GET requests are issued to the server for JSON with fips, county name/state, plus primeInd.name, secondInd.name, thirdInd.name, and fourthInd.name; redefine "data" variable as this JSON
+	//This is Where GET requests are issued to the server for JSON with fips, county name/state, plus indicator properties; redefine "data" variable as this JSON
 	//"data" should be structured as a JSON with an array of each county.  each county has properties "id"(fips), "geography"(county name, ST), and each of the indicators specified above and clicked and doubleclicked data
 	//
 	d3.tsv("data/CData.tsv", function(error, countyData) {
