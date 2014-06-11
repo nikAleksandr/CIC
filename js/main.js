@@ -295,32 +295,39 @@ function setDropdownBehavior() {
 		}
 	}*/
 	
-	// NEED TO DO: clicking on disabled should do nothing
 	d3.select('#primeInd').selectAll('.dataset').each(function() {
 		var dataset = d3.select(this);
 		var datasetName = dataset.attr('name');
-		dataset.selectAll('.indicator').on('click', function() {			
-			var indicatorName = d3.select(this).attr('name');
-			//if (currentDI !== datasetName + ' - ' + indicatorName) {
-				update(datasetName, indicatorName);			
-				d3.select('#primeIndText').html(this.innerHTML + '<span class="sub-arrow"></span>');
-			//}
+		dataset.selectAll('li').on('click', function() {
+			var isDisabled = d3.select(this).classed('disabled');
+			if (!isDisabled) {
+				var indicatorName = d3.select(this).select('.indicator').attr('name');
+				if (currentDI === datasetName + ' - ' + indicatorName) {
+					noty({text: 'Already showing "' + indicatorName + '"!'});
+				} else {
+					update(datasetName, indicatorName);			
+					d3.select('#primeIndText').html(this.innerHTML + '<span class="sub-arrow"></span>');
+				}
+			}
 		});
 	});
 	
 	d3.select('#secondInd').selectAll('.dataset').each(function() {
 		var dataset = d3.select(this);
 		var datasetName = dataset.attr('name');
-		dataset.selectAll('.indicator').on('click', function() {			
-			var indicatorName = d3.select(this).attr('name');
-			//if (currentSecondDI !== datasetName + ' - ' + indicatorName) {
-				appendSecondInd(datasetName, indicatorName);
-				d3.select('#secondIndText').html(this.innerHTML + '<span class="sub-arrow"></span>');
-			//}
+		dataset.selectAll('li').on('click', function() {
+			var isDisabled = d3.select(this).classed('disabled');
+			if (!isDisabled) {
+				var indicatorName = d3.select(this).select('.indicator').attr('name');
+				if (currentSecondDI !== datasetName + ' - ' + indicatorName) {
+					appendSecondInd(datasetName, indicatorName);
+					d3.select('#secondIndText').html(this.innerHTML + '<span class="sub-arrow"></span>');
+				}
+			}
 		});
 	});
 			
-	//d3.selectAll('.indicator').style('cursor', 'pointer'); // uncomment if you want disabled to also cursor: pointer
+	//d3.selectAll('.indicator').style('cursor', 'pointer'); // uncomment if you want disabled to cursor: pointer
 	d3.selectAll('.dataset').selectAll('li:not(.disabled)').selectAll('.indicator').style('cursor', 'pointer');
 }
 
