@@ -5453,7 +5453,7 @@
 								<li><a name="WV">WV</a></li>
 								<li><a name="WY">WY</a></li>
 							</ul>
-						<li id="searchDrop"><a>
+						<li><a>
 							<form id="search_form">
 								<input type="search" id="search_field" placeholder="county name">
 								<input type="image" src="img/active-search.svg" width="18px" height="18px" id="search_submit" value="Search">
@@ -5480,7 +5480,7 @@
 					<a onclick="zoomMap([0,0], 1);" title="Back to US Map" href="#"><img class="my-icons" alt="Back to US Map" src="img/Back_to_US.svg"/></a>
 					<a onclick="resetAll();" title="Reset Indicators" href="#"><img class="my-icons" alt="Reset Indicators" src="img/Reset_indicators.svg"/></a>
 					<a onclick="showHideRrssb();" title="Share this info" href="#"><img class="my-icons" alt="Share this info" src="img/Share.svg"/></a>
-					<a onclick="moreDataShow();" title="Access more data" href="#"><img class="my-icons" alt="Access more data" src="img/More_interactives.svg"/></a>
+					<a onclick="" title="Access more data" href="#"><img class="my-icons" alt="Access more data" src="img/More_interactives.svg"/></a>
 				</div>
 			</div>
 			<div id="zoomIcons">
@@ -5489,22 +5489,24 @@
 	        </div>
 	        <div id="tt" class="tooltip hidden">
 	        	<div id="tipContainer"></div>
+	        	<div id="twitterBox">
+	        		<a href="https://twitter.com/share" class="twitter-share-button" data-lang="en">Tweet</a>
+					<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+	        	</div>
 	        	<div class="arrow_box"></div>
 	        </div>
 			<!--Under map area -->
 	        <div id="underMap">
 	        	<div class="container-fluid">
 		        	<div class="row">
-		        		<div id="quantileLegend" class="legend col-md-5 col-md-push-7"></div>
-			        	
-		        		<div class="col-md-2" id="legendNoData"><svg width="70" height="18" id="na-color"><rect style="fill: rgb(204, 204, 204);" y="0" x="0" height="18" width="70"></rect><text style="font-size: 1em; text-anchor: middle; pointer-events: none; fill: black;" y="12" x="35" class="colorlegend-boxlabels">not available</text></svg></div>
-			        	
-		        		<div class="col-md-5 col-md-pull-7"id="byline">Brought to you by <a href="http://www.naco.org/research">NACo Research</a>
+		        		<div class="col-md-5"id="byline">Brought to you by <a href="http://www.naco.org/research">NACo Research</a>
 			        		<br/><br/>
 			        		<p>See county economies through recession and recovery: <a href="#">County Tracker</a><br/>
 			        		View county transportation funding and financing: <a href="#">Road Ahead</a></p>
 			        	</div>
-		        		
+		        		<div class="col-md-2" id="legendNoData"><svg width="70" height="18" id="na-color"><rect style="fill: rgb(204, 204, 204);" y="0" x="0" height="18" width="70"></rect><text style="font-size: 1em; text-anchor: middle; pointer-events: none; fill: black;" y="12" x="35" class="colorlegend-boxlabels">Not Available</text></svg></div>
+			        	<div id="quantileLegend" class="legend col-md-5"></div>
+			        	
 			        </div>
 		        </div>
 	        	<div id="additionalInfo">
@@ -5516,7 +5518,7 @@
 	        </div>
 	        <!-- Buttons start here.-->
             <div id="rrssbContainer">
-                <ul class="rrssb-buttons clearfix" style="display: none;">
+                <ul class="rrssb-buttons clearfix">
                     <li class="email">
 
                         <!-- Replace subject with your message using URL Endocding: http://meyerweb.com/eric/tools/dencoder/ -->
