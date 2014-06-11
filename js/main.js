@@ -172,7 +172,6 @@ function setBehaviors() {
 
 	setDropdownBehavior();
 	setSearchBehavior();
-	setMoreDataBehavior();
 }	
 
 function draw(topo, stateMesh) {
@@ -218,17 +217,6 @@ function draw(topo, stateMesh) {
 	
 	fillMapColors();
 }
-var moreDataContent = '<div id="moreDataContent" class="container-fluid"><div class="row"><div class="col-md-5"><h3><a href="#">Full Interactive Map</a></h3><a href="#"><img src="img/CICFullThumb.png"/></a></div><div class="col-md-7"><p>Access more datasets and indicators for display on the interactive map.<br/><br/>Login free to COIN <a href="#">here</a> to access</p></div></div><div class="row"><div class="col-md-5"><h3><a href="#">CIC Extraction Tool</a></h3><a href="#"><img src="img/CICExtractionThumb.png"/></a></div><div class="col-md-7"><p>Full access to all 18 categories, 66 datasets, and 889 indicators.<br/><br/>Customizable data downloads available <a href="#">here</a></p></div></div></div>';
-function setMoreDataBehavior(){
-	d3.select('#moreDataButton').on('click', function(){
-		$('#instructionText').empty();
-		
-		d3.select('#instructionText').html(moreDataContent);
-		
-		$('#instructions').show();
-		$('#showOnMap').hide();
-	});
-}
 //Functions for Icons
 function helpText(){
 	$('#instructionText').empty();
@@ -260,6 +248,15 @@ function showHideRrssb(){
 		rrssbHidden=true;
 	}
 	
+}
+var moreDataContent = '<div id="moreDataContent" class="container-fluid"><div class="row"><div class="col-md-5"><h3><a href="#">Full Interactive Map</a></h3><a href="#"><img src="img/CICFullThumb.png"/></a></div><div class="col-md-7"><p>Access more datasets and indicators for display on the interactive map.<br/><br/>Login free to COIN <a href="#">here</a> to access</p></div></div><div class="row"><div class="col-md-5"><h3><a href="#">CIC Extraction Tool</a></h3><a href="#"><img src="img/CICExtractionThumb.png"/></a></div><div class="col-md-7"><p>Full access to all 18 categories, 66 datasets, and 889 indicators.<br/><br/>Customizable data downloads available <a href="#">here</a></p></div></div></div>';
+function moreDataShow(){
+	$('#instructionText').empty();
+	
+	d3.select('#instructionText').html(moreDataContent);
+	
+	$('#instructions').show();
+	$('#showOnMap').hide();
 }
 //End icon functions
 function setDropdownBehavior() {		
