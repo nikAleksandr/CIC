@@ -635,26 +635,12 @@ function appendSecondInd(dataset, indicator) {
 
 function allData(dataset, indicator){
 	var firstObj = getData(dataset, indicator);
-	// grab companion indcators through same function
-	var secondObj = getData(firstObj.companions[0][0], firstObj.companions[0][1]);
-	var thirdObj = getData(firstObj.companions[1][0], firstObj.companions[1][1]);
-	var fourthObj = getData(firstObj.companions[2][0], firstObj.companions[2][1]);
-	
-	//ensure no duplicates between primeInd and one of its companions;
-	if(secondObj.name === firstObj.name){
-		secondObj = thirdObj;
-		thirdObj = fourthObj;
-		fourthObj = getData(firstObj.companions[3][0], firstObj.companions[3][1]);
-	}
-	else if (thirdObj.name === firstObj.name){
-		thirdObj = fourthObj;
-		fourthObj = getData(firstObj.companions[3][0], firstObj.companions[3][1]);
-	}
-	else if (fourthObj.name === firstObj.name){
-		fourthObj = getData(firstObj.companions[3][0], firstObj.companions[3][1]);
-	}
-	
-	return [firstObj, secondObj, thirdObj, fourthObj];
+	var objArray = [firstObj];
+	for (var i = 0; i < firstObj.companions.length; i++) {
+		var obj = getData(firstObj.companions[i][0], firstObj.companions[i][1]);
+		if (obj.name !== firstObj.name && objArray.length < firstObj.companions.length) objArray.push(obj);	
+	}	
+	return objArray;
 }
 
 //Alternative to this big lookup is to list a i,j,h "JSON address" in the HTML anchor properties.  Would still likely require some type of HTML or JSON lookup for companion indicators though
