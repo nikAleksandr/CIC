@@ -107,7 +107,6 @@ var range, // output of data (only numbers; i.e. for categorical: 0, 1, 2)
 	corrDomain = [], // only used for categorical data; a crosswalk for the range between text and numbers
 	quantById = [], secondQuantById = [], thirdQuantById = [], fourthQuantById = [], // the range of data displayed in the tooltip
 	s_quantById = [], s_secondQuantById = [], s_thirdQuantById = [], s_fourthQuantById = [], // the range of data displayed in the tooltip for the secondary indicator
-	primeInd = {},
 	primeIndObj = {}, secondIndObj = {}, thirdIndObj = {}, fourthIndObj = {}, // info about the indicators and companions
 	s_primeIndObj = {}, s_secondIndObj = {}, s_thirdIndObj = {}, s_fourthIndObj = {}, // info about the secondary indicators and companions
 	idByName = {},
