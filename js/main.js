@@ -524,10 +524,10 @@ function update(dataset, indicator) {
 	currentDI = dataset + ' - ' + indicator; 
 	tooltip.classed("hidden", true);
 	
-	indObjects = allData(dataset, indicator); // pull data from JSON and fill primeIndObj, secondIndObj, etc.
+	indObjects = allData(dataset, indicator); // pull data from JSON
 	currentDataType = indObjects[0].dataType;
 
-	//This is Where GET requests are issued to the server for JSON with fips, county name/state, plus primeInd.name, secondInd.name, thirdInd.name, and fourthInd.name; redefine "data" variable as this JSON
+	//This is Where GET requests are issued to the server for JSON with fips, county name/state, plus indicator properties; redefine "data" variable as this JSON
 	//"data" should be structured as a JSON with an array of each county.  each county has properties "id"(fips), "geography"(county name, ST), and each of the indicators specified above and clicked and doubleclicked data
 	//
 	d3.tsv("data/CData.tsv", function(error, countyData) {
