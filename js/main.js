@@ -714,7 +714,13 @@ function createLegend(keyArray) {
 		legend = colorlegend("#quantileLegend", color, "quantile", options);
 	}
 }
-
+function moveLegend(){
+	var parentWidth = $('#quantileLegend').width();
+		if(parentWidth<350){
+			parentWidth=350;
+		}
+	d3.select('.colorlegend').attr('transform', 'translate(' + (parentWidth-350)/2 + ',' + 0 + ')');
+}
 function populateTooltip(d) {
 	$('#tipContainer').empty();
     tipContainer.append('div')
@@ -847,6 +853,7 @@ function redraw() {
   d3.select('svg').remove();
   setup(width,height);
   draw(topo, stateMesh);
+  moveLegend();
 }
 
 function moveStart() {}
