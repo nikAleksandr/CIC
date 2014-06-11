@@ -107,7 +107,6 @@ var range, // output of data (only numbers; i.e. for categorical: 0, 1, 2)
 	corrDomain = [], // only used for categorical data; a crosswalk for the range between text and numbers
 	quantById = [], secondQuantById = [], thirdQuantById = [], fourthQuantById = [], // the range of data displayed in the tooltip
 	s_quantById = [], s_secondQuantById = [], s_thirdQuantById = [], s_fourthQuantById = [], // the range of data displayed in the tooltip for the secondary indicator
-	primeInd = {},
 	primeIndObj = {}, secondIndObj = {}, thirdIndObj = {}, fourthIndObj = {}, // info about the indicators and companions
 	s_primeIndObj = {}, s_secondIndObj = {}, s_thirdIndObj = {}, s_fourthIndObj = {}, // info about the secondary indicators and companions
 	idByName = {},
@@ -294,33 +293,50 @@ function setDropdownBehavior() {
 			}
 		}
 	}*/
+
+	// stop from closing the menu when clicking non-indicator
+	d3.selectAll('#primeInd, #secondInd').on('click', function() { 
+		if (!d3.select(d3.event.target).classed('indicator')) {
+			d3.event.stopPropagation();
+		} 
+	});
 	
-	// NEED TO DO: clicking on disabled should do nothing
 	d3.select('#primeInd').selectAll('.dataset').each(function() {
-		var dataset = d3.select(this);
+		var dataset = d3.select(this);		
 		var datasetName = dataset.attr('name');
-		dataset.selectAll('.indicator').on('click', function() {			
-			var indicatorName = d3.select(this).attr('name');
-			//if (currentDI !== datasetName + ' - ' + indicatorName) {
-				update(datasetName, indicatorName);			
-				d3.select('#primeIndText').html(this.innerHTML + '<span class="sub-arrow"></span>');
-			//}
+
+		dataset.selectAll('li').on('click', function() {
+			if (!d3.select(this).classed('disabled')) {
+				var indicatorName = d3.select(this).select('.indicator').attr('name');
+				if (currentDI === datasetName + ' - ' + indicatorName) {
+					noty({text: 'Already showing "' + indicatorName + '"!'});
+				} else {
+					update(datasetName, indicatorName);			
+					d3.select('#primeIndText').html(this.innerHTML + '<span class="sub-arrow"></span>');
+				}
+			} else {
+				//d3.event.stopPropagation();
+			}
 		});
 	});
 	
 	d3.select('#secondInd').selectAll('.dataset').each(function() {
 		var dataset = d3.select(this);
 		var datasetName = dataset.attr('name');
-		dataset.selectAll('.indicator').on('click', function() {			
-			var indicatorName = d3.select(this).attr('name');
-			//if (currentSecondDI !== datasetName + ' - ' + indicatorName) {
-				appendSecondInd(datasetName, indicatorName);
-				d3.select('#secondIndText').html(this.innerHTML + '<span class="sub-arrow"></span>');
-			//}
+		dataset.selectAll('li').on('click', function() {
+			if (!d3.select(this).classed('disabled')) {
+				var indicatorName = d3.select(this).select('.indicator').attr('name');
+				if (currentSecondDI !== datasetName + ' - ' + indicatorName) {
+					appendSecondInd(datasetName, indicatorName);
+					d3.select('#secondIndText').html(this.innerHTML + '<span class="sub-arrow"></span>');
+				}
+			} else {
+				d3.event.stopPropagation();
+			}
 		});
 	});
 			
-	//d3.selectAll('.indicator').style('cursor', 'pointer'); // uncomment if you want disabled to also cursor: pointer
+	//d3.selectAll('.indicator').style('cursor', 'pointer'); // uncomment if you want disabled to cursor: pointer
 	d3.selectAll('.dataset').selectAll('li:not(.disabled)').selectAll('.indicator').style('cursor', 'pointer');
 }
 
