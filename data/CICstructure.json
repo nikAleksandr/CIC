@@ -812,7 +812,7 @@
       		"name": "State Criminal Alien Assistance Program (SCAAP)",
       		"years": [2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013],
       		"source": "U.S. Department of Justice - Bureau of Justice Assistance",
-      		"companions": [["State Criminal Alien Assistance Program (SCAAP)", "SCAAP Amount"], ["State Criminal Alien Assistance Program (SCAAP)", "SCAAP Annual Growth Rate (from previous year)"], ["Housing & Urban Development Grants", "Total HUD Amount"], ["Housing & Urban Development Grants", "HUD Annual Growth Rate (from previous year)"]],
+      		"companions": [["State Criminal Alien Assistance Program (SCAAP)", "SCAAP Amount"], ["State Criminal Alien Assistance Program (SCAAP)", "SCAAP Annual Growth Rate (from previous year)"]],
       		"children": [
       			{"name": "SCAAP Amount", "unit": "thousands of dollars", "dataType": "level", "definition": "Funding received for the State Criminal Alien Assistance Program"},
       			{"name": "SCAAP Annual Growth Rate (from previous year)", "dataType": "percent", "definition": "Percent change in funding for the State Criminal Alien Assistance program from the previous year"}
