@@ -73,6 +73,8 @@ var format_tt = {
 };
 format_tt['level_np'] = format['level'];
 
+var localVersion = true;
+
 var zoom = d3.behavior.zoom()
     .scaleExtent([1, 10])
     .on("zoomstart", moveStart)
@@ -540,26 +542,11 @@ function update(dataset, indicator) {
 	indObjects = allData(dataset, indicator); // pull data from JSON
 	currentDataType = indObjects[0].dataType;
 
-	//This is Where GET requests are issued to the server for JSON with fips, county name/state, plus indicator properties; redefine "data" variable as this JSON
-	//"data" should be structured as a JSON with an array of each county.  each county has properties "id"(fips), "geography"(county name, ST), and each of the indicators specified above and clicked and doubleclicked data
-	//
-	d3.tsv("data/CData.tsv", function(error, countyData) {
-		data = countyData;
-		quantByIds = [];
-		for (var i = 0; i < indObjects.length; i++) quantByIds.push([]);
-		
-		countyData.forEach(function(d) {			
-			for (var i = 0; i < indObjects.length; i++) {
-				quantByIds[i][d.id] = isNumFun(indObjects[i].dataType) ? parseFloat(d[indObjects[i].dataset+' - '+indObjects[i].name]) : d[indObjects[i].dataset+' - '+indObjects[i].name];
-			}
 
-			idByName[d.geography] = d.id;
-			countyObjectById[d.id] = d;
-		});
-		
+	var execUpdate = function() {
 		var isNumeric = isNumFun(currentDataType);
-		var quantById = quantByIds[0];
-	
+		var quantById = quantByIds[0];	
+
 		// define domain
 		if (isNumeric) {
 			var domain = [];
@@ -620,9 +607,79 @@ function update(dataset, indicator) {
 		for (var i = 0; i < indObjects.length; i++) {
 			defContainer.append('div')
 				.html('<b>' + indObjects[i].name + '</b>: ' + indObjects[i].definition);
-		}
-		
-	});
+		}		
+	};
+ 	
+ 	// grab data and set up quantByIds and other objects
+ 	if (localVersion) {
+ 		d3.tsv("data/CData.tsv", function(error, countyData) {
+ 			data = countyData;
+	 		quantByIds = [];
+			for (var i = 0; i < indObjects.length; i++) quantByIds.push([]);
+	
+			countyData.forEach(function(d) {			
+				for (var i = 0; i < indObjects.length; i++) {
+					quantByIds[i][d.id] = isNumFun(indObjects[i].dataType) ? parseFloat(d[indObjects[i].dataset+' - '+indObjects[i].name]) : d[indObjects[i].dataset+' - '+indObjects[i].name];
+				}
+	
+				idByName[d.geography] = d.id;
+				countyObjectById[d.id] = d;
+			});
+			
+			execUpdate();
+ 		});
+ 	} else {
+		//This is where GET requests are issued to the server for JSON with fips, county name/state, plus indicator properties
+		// first configure query string
+	 	var query_str = 'db_set=';
+	  	var indicatorList = {}; // object of indicator values indexed by dataset name
+	  	for (var i = 0; i < indObjects.length; i++) {
+		  	var crossObject = crosswalk[indObjects[i].dataset+' - '+indObjects[i].name];
+	
+	  		if (!indicatorList.hasOwnProperty(crossObject.db_dataset)) {
+	  			indicatorList[crossObject.db_dataset] = [];
+	  		}
+	  		indicatorList[crossObject.db_dataset].push(crossObject.db_indicator);	  		
+	  	}
+	  	for (var ind in indicatorList) query_str += ind + ',';
+	  	query_str = query_str.substr(0, query_str.length - 1); // strip out last comma
+	  	query_str += '&db_ind=';
+	  	for (var ind in indicatorList) {
+	  		for (var j = 0; j < indicatorList[ind].length; j++) query_str += indicatorList[ind][j] + ',';
+	  	}
+	  	query_str = query_str.substr(0, query_str.length - 1); // strip out last comma
+
+	  	d3.xhr('http://nacocic.naco.org/ciccfm/indicators.cfm?'+ query_str, function(error, request){
+	    	// restructure response object to object indexed by fips
+	    	var responseObj = jQuery.parseJSON(request.responseText);
+	    	console.log(responseObj);
+	    	data = {};
+	    	for (var i = 0; i < responseObj.DATA.FIPS.length; i++) {
+	    		var fips = responseObj.DATA.FIPS[i];
+	    		if (!data.hasOwnProperty(fips)) data[fips] = {};
+	    		for (var j = 1; j < responseObj.COLUMNS.length; j++) {
+	    			var property = responseObj.COLUMNS[j];
+	    			if (!data[fips].hasOwnProperty(property)) data[fips][property] = responseObj.DATA[property][i];
+	    		}
+	    	}
+	    	console.log(data);
+	
+	
+			quantByIds = [];
+			for (var i = 0; i < indObjects.length; i++) quantByIds.push([]);
+			
+			for (var ind in data) {		
+				for (var i = 0; i < indObjects.length; i++) {
+					quantByIds[i][d.id] = isNumFun(indObjects[i].dataType) ? parseFloat(d[indObjects[i].dataset+' - '+indObjects[i].name]) : d[indObjects[i].dataset+' - '+indObjects[i].name];
+				}
+	
+				idByName[d.geography] = d.id;
+				countyObjectById[d.id] = d;
+			}
+						
+			execUpdate();	
+		});
+	}
 }
 
 function appendSecondInd(dataset, indicator) {
@@ -957,11 +1014,41 @@ d3.json("us.json", function(error, us) {
 	draw(topo, stateMesh); 
 });
 
-d3.json("data/CICstructure.json", function(error, CICStructure){
-	CICstructure = CICStructure;
+d3.json("us.json", function(error, us) {
+  	var counties = topojson.feature(us, us.objects.counties).features;
+  	var states = topojson.mesh(us, us.objects.states, function(a, b) { return a !== b; });
+	
+  	counties.forEach(function(d) { countyPathById[d.id] = d; });
 
-	setBehaviors();
-
-	// dataset to map first
-	update("Population Levels and Trends", "Population Level");	
+  	topo = counties;
+  	stateMesh = states;
+	  
+  	draw(topo, stateMesh); 
+	  
+  	// load cic structure
+  	d3.json("data/CICstructure.json", function(error, CICStructure){
+	    CICstructure = CICStructure;
+	    
+	    if (localVersion) {
+	    	setBehaviors();
+	    	
+	    	update('Population Levels and Trends', 'Population Level');	    	
+	    } else {  
+	    	// load crosswalk
+	    	d3.tsv('data/database_crosswalk.tsv', function(error, data_array) {
+		      	crosswalk = {};
+	      		for (var i = 0; i < data_array.length; i++) {
+			        if (data_array[i].indicator !== '') {
+	          			var di = data_array[i].dataset + ' - ' + data_array[i].indicator;
+	          			crosswalk[di] = data_array[i];
+	        		}
+	      		}
+	      		
+	      		setBehaviors();   
+	    
+	      		// fill in map colors for default indicator now that everything is loaded
+	      		update("Administration Expenditures", "Total"); 
+	    	});
+	    }
+  	});
 });
