@@ -189,15 +189,17 @@ table th{
 	padding-right: .5em;
 }
 
-#showOnMap {
-	position: absolute;
+#showOnMap, #print {
+	position: relative;
 	color: rgb(0, 64, 112);
 	font-size: .9em;
 	cursor: pointer;
 	padding-left: .5em;
+	display: inline;
 }
+#print { margin-left: 10px; }
 
-#close:hover, #close2:hover, #instructionText a:hover, #help:hover, #showOnMap:hover, .county_link:hover{
+#close:hover, #close2:hover, #instructionText a:hover, #help:hover, #showOnMap:hover, #print:hover, .county_link:hover{
 	text-decoration:underline;
 }
 .noty_text { margin: 25px; }

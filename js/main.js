@@ -167,6 +167,22 @@ function setBehaviors() {
   			});
   		}
 	});
+	d3.select('#print').on('click', function() {
+		var window_title = '';
+		if (selected !== null) {
+			window_title = countyObjectById[selected.id].geography.split(',')[0];
+			window_title += ' Information, NACo Research';
+		} else {
+			window_title = 'County Information, NACo Research'; 
+		}
+		var specWindow = window.open('', window_title, 'left=0,top=0,toolbar=0,scrollbars=0,status=0');
+		specWindow.document.write(document.getElementById('instructionText').innerHTML);
+		specWindow.document.write('<link rel="stylesheet" href="css/main.css">');
+		specWindow.document.close();
+		specWindow.focus();
+		specWindow.print();
+		specWindow.close();		
+	});
 
 	setDropdownBehavior();
 	setSearchBehavior();
