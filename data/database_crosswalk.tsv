@@ -181,12 +181,12 @@ Demographics	Demographics	Asian	Demographics	Population by Ethnicity	Asian Popul
 Demographics	Demographics	Native_Hawaiian_and_Other_Pacific_Islander	Demographics	Population by Ethnicity	Native Hawaiian and Other Pacific Islander Population	"Population estimate of people (not hispanic) identifying with origins in any of the original peoples of Hawaii, Guam, Samoa, or other Pacific Islands."
 Demographics	Demographics	Two_or_More_Races	Demographics	Population by Ethnicity	Two or More Races Population	Population estimate of people (not hispanic) identifying with two or more races
 Demographics	Demographics	Hispanic	Demographics	Population by Ethnicity	Hispanic or Latino Origin Population	"Population estimate of people identifying as a person of Cuban, Mexican, Puerto Rican, South or Central American, or other Spanish culture or origin regardless of race."
-Demographics	Demographics_Population_Levels_and_Trends	FIPS	Demographics	Population Levels and Trends		
-Demographics	Demographics_Population_Levels_and_Trends	Year	Demographics	Population Levels and Trends		
-Demographics	Demographics_Population_Levels_and_Trends	Population_Size	Demographics	Population Levels and Trends		
-Demographics	Demographics_Population_Levels_and_Trends	Census_Region	Demographics	Population Levels and Trends		
-Demographics	Demographics_Population_Levels_and_Trends	Population	Demographics	Population Levels and Trends	Population Level	"The calculated number of people living in an area as of a specified point in time, usually July 1st. The estimated population is calculated using a component of change model that incorporates information on natural increase (births, deaths) and net migration (net domestic migration, net international migration) that has occurred in an area since the latest decennial census."
-Demographics	Demographics_Population_Levels_and_Trends	Population_Growth_Rate	Demographics	Population Levels and Trends	Population Annual Growth Rate (from previous year)	"The difference between the population of an area at the beginning and end of a time period, expressed as a percentage of the beginning population."
+Demographics	Demographics	FIPS	Demographics	Population Levels and Trends		
+Demographics	Demographics	Year	Demographics	Population Levels and Trends		
+Demographics	Demographics	Population_Size	Demographics	Population Levels and Trends		
+Demographics	Demographics	Census_Region	Demographics	Population Levels and Trends		
+Demographics	Demographics	Population	Demographics	Population Levels and Trends	Population Level	"The calculated number of people living in an area as of a specified point in time, usually July 1st. The estimated population is calculated using a component of change model that incorporates information on natural increase (births, deaths) and net migration (net domestic migration, net international migration) that has occurred in an area since the latest decennial census."
+Demographics	Demographics	Population_Growth_Rate	Demographics	Population Levels and Trends	Population Annual Growth Rate (from previous year)	"The difference between the population of an area at the beginning and end of a time period, expressed as a percentage of the beginning population."
 Economy	Economy	KEYID	Economy			
 Economy	Economy	FIPS	Economy			
 Economy	Economy	DATA_YEAR	Economy			

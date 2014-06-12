@@ -74,7 +74,7 @@ var format_tt = {
 };
 format_tt['level_np'] = format['level'];
 
-var localVersion = true;
+var localVersion = false;
 
 var zoom = d3.behavior.zoom()
     .scaleExtent([1, 10])
@@ -463,7 +463,7 @@ function submitSearch() {
 					
 					var countyRow = rTable.append('tr');
 					var FIPS_cell = countyRow.append('td')
-						.text(countyObj.fips_num);
+						.text(countyObj.id);
 					var name_cell = countyRow.append('td')
 						.classed('county_link', true)
 						.text(nameArr[0]); 
@@ -622,7 +622,7 @@ function update(dataset, indicator) {
 	
 			countyData.forEach(function(d) {			
 				for (var i = 0; i < indObjects.length; i++) {
-					quantByIds[i][d.id] = isNumFun(indObjects[i].dataType) ? parseFloat(d[indObjects[i].dataset+' - '+indObjects[i].name]) : d[indObjects[i].dataset+' - '+indObjects[i].name];
+					quantByIds[i][d.id] = isNumFun(indObjects[i].dataType) ? parseFloat(d[indObjects[i].DI]) : d[indObjects[i].DI];
 				}
 	
 				idByName[d.geography] = d.id;
@@ -632,56 +632,80 @@ function update(dataset, indicator) {
 			execUpdate();
  		});
  	} else {
-		//This is where GET requests are issued to the server for JSON with fips, county name/state, plus indicator properties
-		// first configure query string
-	 	var query_str = 'db_set=';
 	  	var indicatorList = {}; // object of indicator values indexed by dataset name
 	  	for (var i = 0; i < indObjects.length; i++) {
 		  	var crossObject = crosswalk[indObjects[i].dataset+' - '+indObjects[i].name];
 	
 	  		if (!indicatorList.hasOwnProperty(crossObject.db_dataset)) {
-	  			indicatorList[crossObject.db_dataset] = [];
+	  			indicatorList[crossObject.db_dataset] = {year: indObjects[i].year, indicators: []};
 	  		}
-	  		indicatorList[crossObject.db_dataset].push(crossObject.db_indicator);	  		
+	  		indicatorList[crossObject.db_dataset].indicators.push(crossObject.db_indicator);	  		
 	  	}
-	  	for (var ind in indicatorList) query_str += ind + ',';
-	  	query_str = query_str.substr(0, query_str.length - 1); // strip out last comma
-	  	query_str += '&db_ind=';
-	  	for (var ind in indicatorList) {
-	  		for (var j = 0; j < indicatorList[ind].length; j++) query_str += indicatorList[ind][j] + ',';
-	  	}
-	  	query_str = query_str.substr(0, query_str.length - 1); // strip out last comma
 
-	  	d3.xhr('http://nacocic.naco.org/ciccfm/indicators.cfm?'+ query_str, function(error, request){
-	    	// restructure response object to object indexed by fips
-	    	var responseObj = jQuery.parseJSON(request.responseText);
-	    	console.log(responseObj);
-	    	data = {};
-	    	for (var i = 0; i < responseObj.DATA.FIPS.length; i++) {
-	    		var fips = responseObj.DATA.FIPS[i];
-	    		if (!data.hasOwnProperty(fips)) data[fips] = {};
-	    		for (var j = 1; j < responseObj.COLUMNS.length; j++) {
-	    			var property = responseObj.COLUMNS[j];
-	    			if (!data[fips].hasOwnProperty(property)) data[fips][property] = responseObj.DATA[property][i];
-	    		}
-	    	}
-	    	console.log(data);
-	
-	
-			quantByIds = [];
-			for (var i = 0; i < indObjects.length; i++) quantByIds.push([]);
-			
-			for (var ind in data) {		
-				for (var i = 0; i < indObjects.length; i++) {
-					quantByIds[i][d.id] = isNumFun(indObjects[i].dataType) ? parseFloat(d[indObjects[i].dataset+' - '+indObjects[i].name]) : d[indObjects[i].dataset+' - '+indObjects[i].name];
+		// configure query string for each dataset
+		var qsa = []; // array of query strings
+	  	for (var ind in indicatorList) {
+	  		var query_str = 'db_set=' + ind + '&db_year=' + indicatorList[ind].year + '&db_ind='; // append dataset name and year
+	  		for (var j = 0; j < indicatorList[ind].indicators.length; j++) {
+	  			query_str += indicatorList[ind].indicators[j]; // append each indicator
+	  			if (j != indicatorList[ind].indicators.length - 1) query_str += ',';
+	  		}
+	  		qsa.push({query_str: query_str, dataset_name: ind});
+	  	}
+
+		var gtgArray = []; // good to go for each database call
+		for (var i = 0; i < qsa.length; i++) gtgArray.push(false);
+		
+    	data = {};
+    	
+    	var getRequest = function(query_str, queryIndex, datasetName) {
+		  	d3.xhr('http://nacocic.naco.org/ciccfm/indicators.cfm?'+ query_str, function(error, request){
+		    	// restructure response object to object indexed by fips
+		    	var responseObj = jQuery.parseJSON(request.responseText);
+		    	
+		    	console.log(responseObj);
+		    	
+		    	for (var i = 0; i < responseObj.DATA.FIPS.length; i++) {
+		    		var fips = responseObj.DATA.FIPS[i];
+		    		if (!data.hasOwnProperty(fips)) data[fips] = {};
+		    		for (var j = 1; j < responseObj.COLUMNS.length; j++) {
+		    			var property = responseObj.COLUMNS[j]; // does not avoid duplicate property names
+		    			if (!data[fips].hasOwnProperty(property)) data[fips][property] = responseObj.DATA[property][i];
+		    		}
+		    		data[fips].id = fips;
+		    		data[fips].geography = data[fips].COUNTY_NAME + ', ' + data[fips].STATE;
+		    	}
+		    	
+		    	console.log(data);
+		
+		
+				quantByIds = [];
+				for (var i = 0; i < indObjects.length; i++) quantByIds.push([]);
+				
+				for (var fips in data) {
+					for (var i = 0; i < indObjects.length; i++) {
+						var value = data[fips][indObjects[i].db_indicator.toUpperCase()];
+						quantByIds[i][fips] = isNumFun(indObjects[i].dataType) ? parseFloat(value) : value;
+					}
+		
+					idByName[data[fips].geography] = fips;
+					countyObjectById[fips] = data[fips];
 				}
-	
-				idByName[d.geography] = d.id;
-				countyObjectById[d.id] = d;
-			}
-						
-			execUpdate();	
-		});
+				
+				// check if everything's good to go
+				gtgArray[queryIndex] = true;
+				var gtg = true;
+				for (var j = 0; j < gtgArray.length; j++) {
+					if (gtgArray[j] === false) {
+						gtg = false;
+						break;
+					}
+				}	
+				if (gtg === true) execUpdate();	
+			});
+		};
+		
+		for (var i = 0; i < qsa.length; i++) getRequest(qsa[i].query_str, i, qsa[i].dataset_name);
 	}
 }
 
@@ -717,30 +741,29 @@ function allData(dataset, indicator){
 //Alternative to this big lookup is to list a i,j,h "JSON address" in the HTML anchor properties.  Would still likely require some type of HTML or JSON lookup for companion indicators though
 function getData(dataset, indicator){
 	var selectedInd = {};
-	var Jcategory;
 	var structure = CICstructure.children;
 	for (var i = 0; i < structure.length; i++) {
 		for (var j = 0; j < structure[i].children.length; j++) {
 			if (structure[i].children[j].name === dataset) {
-				Jcategory = structure[i];
 				var Jdataset = structure[i].children[j];
-				selectedIndYear = d3.max(Jdataset.years);
-				//vintage = Jdataset.vintage;
-				sourceText = Jdataset.source;
-				companions = Jdataset.companions;
-				//dataNotes = Jdataset.notes;
+				
+				// dataset properties
+				selectedInd.dataset = Jdataset.name;
+				selectedInd.year = d3.max(Jdataset.years);
+				selectedInd.source = Jdataset.source;
+				selectedInd.companions = Jdataset.companions;
+				if (Jdataset.hasOwnProperty('vintage')) selectedInd.vintage = Jdataset.vintage;
+
 				for (var h = 0; h < Jdataset.children.length; h++) {
 					if (indicator === Jdataset.children[h].name) {
-						//primeInd is a JSON object from CIC-structure with the properties: name, units, dataType
-						selectedInd = Jdataset.children[h];
-						//append dataset properties to the selected indicator
-							selectedInd.year = selectedIndYear;
-							//selectedInd.vintage = vintage;
-							selectedInd.source = sourceText;
-							//selectedInd.notes = dataNotes;
-							selectedInd.dataset = Jdataset.name;
-							selectedInd.companions = companions;
-							
+						// indicator properties
+						for (var ind in Jdataset.children[h]) selectedInd[ind] = Jdataset.children[h][ind];
+						selectedInd.DI = selectedInd.dataset + ' - ' + selectedInd.name;
+						if (localVersion === false) {
+							for (var prop in crosswalk[selectedInd.DI]) {
+								selectedInd[prop] = crosswalk[selectedInd.DI][prop];
+							}
+						}
 						break;
 					}
 				}
