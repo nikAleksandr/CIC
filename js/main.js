@@ -8,6 +8,7 @@ function positionInstruction(){var instructionLeft = (windowWidth * .2) / 2; if(
 // default for noty alert system
 $.noty.defaults.layout = 'center';
 $.noty.defaults.killer = true;
+$.noty.defaults.timeout = 3000;
 $.noty.defaults.closeWith = ['click', 'button'];
 $.noty.defaults.template = '<div class="noty_message"><div class="noty_text"></div><div class="noty_close"></div></div>';
 
@@ -326,7 +327,7 @@ function setDropdownBehavior() {
 				$.SmartMenus.hideAll();
 				var indicatorName = d3.select(this).select('.indicator').attr('name');
 				if (currentDI === datasetName + ' - ' + indicatorName) {
-					noty({text: 'Already showing "' + indicatorName + '"!'});
+					noty({text: 'Already showing "' + indicatorName + '"'});
 				} else {
 					update(datasetName, indicatorName);			
 					d3.select('#primeIndText').html(this.innerHTML + '<span class="sub-arrow"></span>');
@@ -366,11 +367,13 @@ function setSearchBehavior() {
 		if (searchType !== this.name) {
 			$('#search_field').val('');
 			
-			if (this.name === 'state') searchField.classed('hidden', true);
-			else searchField.classed('hidden', false);
-	
-			if (this.name === 'city') stateDrop.classed('hidden', true);
-			else stateDrop.classed('hidden', false);
+			if (this.name === 'state') {
+				searchField.classed('hidden', true);
+				stateDrop.classed('hidden', false);
+			} else {
+				searchField.classed('hidden', false);
+				stateDrop.classed('hidden', true);
+			}
 		}	
 		searchType = this.name;
 		d3.select('#searchTypeText').html(toTitleCase(searchType) + ' Search' + '<span class="sub-arrow"></span>');
