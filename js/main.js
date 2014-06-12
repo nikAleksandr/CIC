@@ -305,6 +305,7 @@ function setDropdownBehavior() {
 
 		dataset.selectAll('li').on('click', function() {
 			if (!d3.select(this).classed('disabled')) {
+				$.SmartMenus.hideAll();
 				var indicatorName = d3.select(this).select('.indicator').attr('name');
 				if (currentDI === datasetName + ' - ' + indicatorName) {
 					noty({text: 'Already showing "' + indicatorName + '"!'});
@@ -312,8 +313,6 @@ function setDropdownBehavior() {
 					update(datasetName, indicatorName);			
 					d3.select('#primeIndText').html(this.innerHTML + '<span class="sub-arrow"></span>');
 				}
-			} else {
-				//d3.event.stopPropagation();
 			}
 		});
 	});
@@ -328,8 +327,6 @@ function setDropdownBehavior() {
 					appendSecondInd(datasetName, indicatorName);
 					d3.select('#secondIndText').html(this.innerHTML + '<span class="sub-arrow"></span>');
 				}
-			} else {
-				d3.event.stopPropagation();
 			}
 		});
 	});
