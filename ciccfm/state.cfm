@@ -10,7 +10,7 @@
 			
 		<CFQUERY NAME="getcounties" datasource="naco_cic">
 		SELECT FIPS,   County_Name, State, county_seat, Member_Status,  Org_Type,
-		Population_2010, Total_Square_Miles, founded,  board_size, Gov_Type
+		Population_2010, Population_2013, Total_Square_Miles, founded,  board_size, Gov_Type
 		FROM  County_Data  (NOLOCK)
 		WHERE State='#statecode#' and Org_Type in ('County', 'Independent City', 'County W/o Govt Structure', 'Geographical Census Area') 
 		ORDER BY Org_Type
@@ -27,9 +27,9 @@
 
 <CFIF org_type NEQ 'County'>
                
-                <TABLE WIDTH="95%" BORDER="1" cellspacing="0" cellpadding="0">
+                <TABLE WIDTH="100%" BORDER="1" cellspacing="0" cellpadding="0">
                 <TR><TD>#org_type#</TD>
-                <TD align="right">2010 Population</TD>
+                <TD align="right">2013 Population</TD>
                 <TD align="right">Square Miles</TD></TR>
                     <CFOUTPUT>
                     <TR>
@@ -40,14 +40,13 @@
                
  <CFELSE>
     			<TABLE class="table table-striped table-condensed">
-				<TR>
-                    <TH>
+				<TR valign="bottom">
+                    <TH align="left">
                     <CFIF #state# EQ 'LA'>Parish</CFIF>
                     <CFIF #state# EQ 'AK'>Borough</CFIF>
                     <CFIF #state# NEQ 'LA' AND #state# NEQ 'AK' >County</CFIF>
                     </TH>
-					<TH>NACo<BR>Member</TH>
-					<TH>2010<BR>Population</a></TH>
+					<TH>2013<BR>Population</a></TH>
 					<TH>Square<BR>Miles</TH> 
 					<TH>County Seat</TH>
 					<TH>Board<BR>Size</TH>
@@ -56,11 +55,9 @@
 		
 		     <CFOUTPUT>
 				<TR>
-				<TD><a id="#FIPS#" onclick="executeSearchMatch('#FIPS#')" >#County_Name#</a>
-				 <CFIF Gov_Type EQ  "Consolidated">*</CFIF>
+				<TD><a id="#FIPS#" onClick="executeSearchMatch('#FIPS#')" >#County_Name#</a><CFIF Gov_Type EQ  "Consolidated">*</CFIF>
                 </TD>
-				<TD ALIGN="CENTER"><CFIF Member_Status EQ  'Active'><IMG SRC="img/check2.gif"><CFELSE>&nbsp;</CFIF></TD>
-				<TD ALIGN="RIGHT"><CFIF Population_2010 GT 0>#NumberFormat(Population_2010)#<CFELSE><em>N/A</em></CFIF> </TD>
+				<TD ALIGN="RIGHT"><CFIF Population_2013 GT 0>#NumberFormat(Population_2013)#<CFELSE><em>N/A</em></CFIF> </TD>
 				<TD ALIGN="RIGHT"><CFIF Total_Square_Miles GT 0>#NumberFormat(Total_Square_Miles)#  <CFELSE><em>N/A</em></CFIF> </TD> 
 				<TD ALIGN="LEFT"> #county_seat#&nbsp;</TD> 
 				<TD align="right"> #board_size#&nbsp;</TD> 
