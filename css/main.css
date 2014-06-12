@@ -216,7 +216,7 @@ table th{
 	margin:0 3em;
 	padding: 0;
 	font-weight:300;
-	font-size:.8em;
+	font-size:1em;
 }
 #header h1{
 	font-family: 'Arvo', serif;
@@ -243,7 +243,7 @@ h1 small {
 	border-radius: 0;
 	margin-bottom: 10px;
 	color: #CCC;
-	font-size:.8em;
+	font-size:1em;
 	min-height:47px;
 	max-height:47px;
 }
@@ -283,7 +283,7 @@ h1 small {
 #moreDataButton{
 	font-size:1.2em;
 	color:#fff;
-	padding:12px 15px 5px 15px;
+	padding:10px 15px 7px 15px;
 }
 #moreDataImg{
 	height:30px;
@@ -346,7 +346,7 @@ h1 small {
   opacity: .5;
 }
 .county.active {
-	fill: #FFA601;
+	fill: rgb(255,0,0);
 }
 
 #state-borders {
@@ -462,6 +462,9 @@ div.tooltip {
 	border-color: rgba(136, 183, 213, 0);
 	border-top-color: #fff;
 	border-width: 15px;
+/*this sort-of works*/
+	/*transform: rotate(45deg); 
+	box-shadow: -1px -1px 10px -2px rgba(0,0,0,0.5);*/
 }
 
 #tipLocation {
