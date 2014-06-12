@@ -5,7 +5,7 @@
 			
            <CFQUERY NAME="getcountydata" DATASOURCE="naco_cic">
            SELECT  FIPS, LEFT(fips,2) as StateFIPS, county_name, state, Org_Type, Founded, Board_Size, Gov_type,
-           Population_2010, Member_Status, County_Seat, Total_Square_Miles, Population_1990, Population_1980, Population_2000, county_website
+           Population_2013, Member_Status, County_Seat, Total_Square_Miles, Population_1990, Population_1980, Population_2000, county_website
            FROM County_data
            WHERE FIPS=  '#URL.id#'
             </CFQUERY> 
@@ -85,7 +85,7 @@
 	        		<td>#NumberFormat(Population_1980, "999,999,999,999")#</td>
 	        		<td>#NumberFormat(Population_1990, "999,999,999,999")#</td>
 	        		<td>#NumberFormat(Population_2000, "999,999,999,999")#</td>
-	        		<td>#NumberFormat(Population_2010, "999,999,999,999")#</td>
+	        		<td>#NumberFormat(Population_2013, "999,999,999,999")#</td>
 	        	</tr>
 	        </table>
 		</div>
