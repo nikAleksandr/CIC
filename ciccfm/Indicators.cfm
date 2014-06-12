@@ -1,46 +1,45 @@
-<CFPARAM name="tablename1" default="">
-<CFPARAM name="tablename2" default="">
-
-<CFPARAM name="value1" default="">
-<CFPARAM name="field1" default="">
-
-<CFPARAM name="exportfield1" default="">
-<CFPARAM name="exportfield2" default="">
-<CFPARAM name="exportfield3" default="">
-
-<CFPARAM name="col1" default="">
+<cfsetting showdebugoutput="no">
+<cfheader name="Content-Type" value="application/json">
 
 
-<cfquery name="get_data" datasource="naco_cic">
-select *
- from #tablename1#
-where #field1# = '#value1#'
-order by fips
-</cfquery>
+<CFPARAM name="db_set" default="">
+<CFPARAM name="db_ind" default="">
+
+<!--- Just In case more than one dataset (table) is passed if more than 2 Abort --->
+<CFLOOP From="1" To = "#listLen(db_set)#" index="Counter">
+<CFSET db_table[counter] = #trim(ListGetAt(db_set, Counter))#>
+</CFLOOP> 
 
 
 
+<CFIF #listLen(db_set)# EQ 1 >
+		<cfquery name="get_data" datasource="naco_cic">
+        select COUNTY_FIPS.FIPS, COUNTY_FIPS.State, COUNTY_FIPS.County_Name, #db_ind# 
+        from COUNTY_FIPS
+        JOIN  #db_table[1]# on   #db_table[1]#.Fips = COUNTY_FIPS.Fips
+        </cfquery>
+</CFIF> 
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>CIC Public Data</title>
-</head>
+<CFIF #listLen(db_set)# EQ 2 >
+		<cfquery name="get_data" datasource="naco_cic">
+        select COUNTY_FIPS.FIPS, COUNTY_FIPS.State, COUNTY_FIPS.County_Name, #db_ind# 
+        from 
+        COUNTY_FIPS
+         JOIN  #db_table[1]# on  #db_table[1]#.Fips = COUNTY_FIPS.Fips
+         JOIN  #db_table[2]# on  #db_table[2]#.Fips = COUNTY_FIPS.Fips
+         </cfquery>
+</CFIF> 
 
-<body>
 
-<CFOUTPUT>
-<strong>Results For: #field1#  = #value1#</strong><P>
+<CFIF #listLen(db_set)# GT 2 >
+		<cfabort>
+</CFIF> 
 
-<strong>FIPS, State, County, #exportfield1#, #exportfield2#, #exportfield3#</strong><BR />
+
+
+
+<CFOUTPUT> 
+#SerializeJSON(get_data, true)#
 </CFOUTPUT>
 
-<CFOUTPUT query="get_data">
-#FIPS#, #State#, #County_Name#,  #evaluate(evaluate("exportfield1"))#, #evaluate(evaluate("exportfield2"))# , #evaluate(evaluate("exportfield3"))# <BR />
-</CFOUTPUT>
 
-
-
-</body>
-</html>
