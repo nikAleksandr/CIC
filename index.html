@@ -5475,13 +5475,13 @@
 	        </div>
 			
 			<div id="map">
-				<div id="iconsGroup">
-					<a onclick="helpText();" title="Help" href="#"><img class="my-icons" alt="Help" src="img/Help.svg"/></a>
-					<a onclick="zoomMap([0,0], 1);" title="Back to US Map" href="#"><img class="my-icons" alt="Back to US Map" src="img/Back_to_US.svg"/></a>
-					<a onclick="resetAll();" title="Reset Indicators" href="#"><img class="my-icons" alt="Reset Indicators" src="img/Reset_indicators.svg"/></a>
-					<a onclick="showHideRrssb();" title="Share this info" href="#"><img class="my-icons" alt="Share this info" src="img/Share.svg"/></a>
-					<a onclick="" title="Access more data" href="#"><img class="my-icons" alt="Access more data" src="img/More_interactives.svg"/></a>
-				</div>
+				<table id="iconsGroup"><tbody>
+					<tr><td><a onclick="helpText();" title="Help" href="#"><img class="my-icons" alt="Help" src="img/Help.svg"/></a></td><td class="extraInstructions"> - Help</td></tr>
+					<tr><td><a onclick="zoomMap([0,0], 1);" title="Back to US Map" href="#"><img class="my-icons" alt="Back to US Map" src="img/Back_to_US.svg"/></a></td><td class="extraInstructions"> - Back to US Map</td></tr>
+					<tr><td><a onclick="resetAll();" title="Reset Indicators" href="#"><img class="my-icons" alt="Reset Indicators" src="img/Reset_indicators.svg"/></a></td><td class="extraInstructions"> - Remove Second Indicator</td></tr>
+					<tr><td><a onclick="showHideRrssb();" title="Share this info" href="#"><img class="my-icons" alt="Share this info" src="img/Share.svg"/></a></td><td class="extraInstructions"> - Share this map!</td></tr>
+					<tr><td><a onclick="" title="Access more data" href="#"><img class="my-icons" alt="Access more data" src="img/More_interactives.svg"/></a></td><td class="extraInstructions"> - Access more data</td></tr>
+				</tbody></table>
 			</div>
 			<div id="zoomIcons">
 	        	<div id="zoomPlusIcon">+</div>

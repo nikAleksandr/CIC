@@ -364,15 +364,23 @@ h1 small {
  */
 #iconsGroup{
 	position:relative;
-	width:30px;
+	width:60px;
 	height:auto;
 	float:right;
-	display:inline-block;
+}
+.iconContainer{
+	display:block;
 }
 .my-icons{
 	width:30px;
 	height:30px;
 	margin: 15px;
+	float:left;
+}
+.extraInstructions{
+	font-size:.8em;
+	color:#bbb;
+	float:right;
 }
 #rrssbContainer{
 	position:absolute;
