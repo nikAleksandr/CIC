@@ -1029,7 +1029,7 @@
 		collapsibleHideFunction:function($ul, complete) { $ul.slideUp(200, complete); },	// custom function to use when hiding a collapsible sub menu
 							// (i.e. when mobile styles are used to make the sub menus collapsible)
 		showOnClick:		true,		// show the first-level sub menus onclick instead of onmouseover (matters only for mouse input)
-		hideOnClick:		true,		// hide the sub menus on click/tap anywhere on the page
+		hideOnClick:		false,		// hide the sub menus on click/tap anywhere on the page
 		keepInViewport:		true,		// reposition the sub menus if needed to make sure they always appear inside the viewport
 		keepHighlighted:	true,		// keep all ancestor items of the current sub menu highlighted (adds the 'highlighted' class to the A's)
 		markCurrentItem:	false,		// automatically add the 'current' class to the A element of the item linking to the current URL
