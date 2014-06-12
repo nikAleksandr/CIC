@@ -233,7 +233,7 @@ h1 small {
 }
 
 #nacoLogo {
-	width:154px;
+	width:180px;
 	margin: 2.2em 2.2em 0 0;
 	float:right;
 }
@@ -397,9 +397,11 @@ h1 small {
  * Legend CSS
  * 
  */
-
+#legend-container{
+	margin-top:1em;
+}
 #legendNoData {
-	margin-top:30px;
+	margin-top:4em;
 	display: inline-block;
 	font-size: 0.8em;
 	text-align:right;
@@ -670,8 +672,11 @@ div.tooltip {
 	#nacoLogo {
 		display: none;
 	}
+	.extraInstructions{
+		display:none;
+	}
 }
-@media (max-width: 800px){
+@media (max-width: 915px){
 	#moreDataText {
 		display:none;
 	}
