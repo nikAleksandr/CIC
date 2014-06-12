@@ -202,7 +202,10 @@ table th{
 #close:hover, #close2:hover, #instructionText a:hover, #help:hover, #showOnMap:hover, #print:hover, .county_link:hover{
 	text-decoration:underline;
 }
-.noty_text { margin: 25px; }
+.noty_text { 
+	margin: 25px;
+	font-size: 1.1em;
+}
 
 #header {
 	position: relative;
