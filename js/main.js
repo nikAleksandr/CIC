@@ -898,6 +898,7 @@ function zoomMap(t, s, smooth) {
 function setZoomIcons() {
 	var coords = map.getBoundingClientRect();
 	d3.select('#zoomIcons').style({'left': (coords.left + 30) + 'px', 'top': headHeight + 15 + 'px'});
+	d3.select("#iconsGroup").style({'left': (coords.right - 20) + 'px', 'top': headHeight + 15 + 'px'});
 	
 	d3.select('#zoomPlusIcon').on('click', function() {
 		// zoom in

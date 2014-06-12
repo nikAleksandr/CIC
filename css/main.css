@@ -363,24 +363,26 @@ h1 small {
  * 
  */
 #iconsGroup{
-	position:relative;
-	width:60px;
+	position:absolute;
+	width:100px;
 	height:auto;
-	float:right;
+	white-space:nowrap;
 }
 .iconContainer{
 	display:block;
+	vertical-align:middle;
 }
 .my-icons{
 	width:30px;
 	height:30px;
 	margin: 15px;
-	float:left;
 }
 .extraInstructions{
 	font-size:.8em;
 	color:#bbb;
-	float:right;
+	vertical-align:middle;
+	text-overflow: nowrap;
+	text-align:left;
 }
 #rrssbContainer{
 	position:absolute;
