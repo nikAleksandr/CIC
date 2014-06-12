@@ -380,10 +380,9 @@ function setSearchBehavior() {
 	d3.select('#stateDrop').selectAll('a').on('click', function() {
 		if (searchState !== this.name) {
 			searchState = this.name;		
-			d3.select('#stateDropText').html(searchState  + '<span class="sub-arrow"></span>');
-			
-			//if (searchType === 'state' && searchState !== 'State') submitSearch();
-		} 
+			d3.select('#stateDropText').html(searchState  + '<span class="sub-arrow"></span>');			
+		}
+		if (searchType === 'state' && searchState !== 'State') submitSearch();	
 	});
 }
 
