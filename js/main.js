@@ -104,8 +104,7 @@ var CICstructure,
 	searchType = 'county',
 	searchState = 'State';
 		
-var range, // output of data (only numbers; i.e. for categorical: 0, 1, 2)
-	corrDomain = [], // only used for categorical data; a crosswalk for the range between text and numbers
+var corrDomain = [], // only used for categorical data; a crosswalk for the range between text and numbers
 	quantByIds = [], s_quantByIds = [], indObjects = {}, s_indObjects = {},
 	idByName = {},
 	countyObjectById = {},
