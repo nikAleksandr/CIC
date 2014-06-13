@@ -223,9 +223,7 @@ function draw(topo, stateMesh) {
 				doubleClicked(d, i);
 			}
 		}
-	});
-	
-	fillMapColors();
+	});	
 }
 //Functions for Icons
 function helpText(){
@@ -532,7 +530,7 @@ function executeSearchMatch(FIPS) {
 		});
 	} else {
 		tooltip.classed('hidden', true);
-		noty({text: 'No information availble for this county'});
+		//noty({text: 'No information availble for this county'});
 	}    
 };
 
@@ -576,8 +574,11 @@ function update(dataset, indicator) {
 		if (isNumeric) {
 			var domain = [];
 			for (var ind in quantById) {				
-				if (indObjects[0].category === 'Federal Funding' && parseFloat(quantById[ind]) === 0) quantById[ind] = '.'; // for federal funding, we do not want "zero" to be considered during the quantile categorization
-				domain[ind] = quantById[ind];	
+				if (currentDataType === 'level' && parseFloat(quantById[ind]) === 0) {
+					//quantById[ind] = '.'; // for level datatypes, we do not want "zero" to be considered during the quantile categorization
+				} else {
+					domain[ind] = quantById[ind];
+				}
 			}
 		} else {
 			if (currentDataType === 'binary') {
@@ -805,6 +806,7 @@ function fillMapColors() {
 	selected = null;
 	frmrActive = null;
 	g.selectAll(".counties .county").transition().duration(750).style("fill", function(d) {
+		
 		if (isNumFun(currentDataType)) {
 			return isNaN(quantByIds[0][d.id]) ? na_color : color(quantByIds[0][d.id]);
 		} else {
@@ -813,7 +815,7 @@ function fillMapColors() {
 			} else {
 				return isNaN(corrDomain[d.id]) ? na_color : range[corrDomain[d.id]];
 			}
-		}
+		}		
 	});
 }
 
@@ -1066,18 +1068,6 @@ function throttle() {
 }
 
 setup(width,height);
-
-d3.json("us.json", function(error, us) {
-	var counties = topojson.feature(us, us.objects.counties).features;
-	var states = topojson.mesh(us, us.objects.states, function(a, b) { return a !== b; });
-
-	counties.forEach(function(d) { countyPathById[d.id] = d; });
-
-	topo = counties;
-	stateMesh = states;
-  
-	draw(topo, stateMesh); 
-});
 
 d3.json("us.json", function(error, us) {
   	var counties = topojson.feature(us, us.objects.counties).features;
