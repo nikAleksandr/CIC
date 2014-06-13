@@ -118,7 +118,7 @@ var na_color = 'rgb(204,204,204)', // color for counties with no data
 	range = [],
 	percent_colors = ['rgb(522,204,102)', 'rgb(255,153,51)', 'rgb(49,130,189)', 'rgb(7,81,156)', 'rgb(28,53,99)'],
 	categorical_colors = ['rgb(522,204,102)', 'rgb(255,153,51)', 'rgb(49,130,189)', 'rgb(7,81,156)', 'rgb(28,53,99)'],
-	level_colors = ['rgb(522,204,102)', 'rgb(255,153,51)', 'rgb(49,130,189)', 'rgb(7,81,156)', 'rgb(28,53,99)'];
+	level_colors = ['rgb(255,204,102)', 'rgb(255,153,51)', 'rgb(49,130,189)', 'rgb(7,81,156)', 'rgb(28,53,99)'];
 	//percent_colors = ['rgb(189, 215, 231)','rgb(107, 174, 214)','rgb(49, 130, 189)','rgb(7, 81, 156)','rgb(28, 53, 99)']
 	//categorical_colors = ['rgb(253,156,2)', 'rgb(0,153,209)', 'rgb(70,200,245)', 'rgb(254,207,47)', 'rgb(102,204,204)', 'rgb(69,178,157)']
 	//level_colors = ['rgb(189, 215, 231)','rgb(107, 174, 214)','rgb(49, 130, 189)','rgb(7, 81, 156)','rgb(28, 53, 99)'];
@@ -609,7 +609,7 @@ function update(dataset, indicator) {
 				// max is 5 categories
 				range = [];
 				var availColors = categorical_colors;
-				if (numCorrVals === 2) range = ['rgb(255,204,102)', 'rgb(0,153,204)'];
+				if (numCorrVals === 2) range = ['rgb(255,153,51)', 'rgb(28,53,99)'];
 				else {
 					for (var i = 0; i < numCorrVals; i++) range.push(availColors[i]);
 				}				
@@ -856,12 +856,14 @@ function populateTooltip(d) {
 	var none_avail = true;
 	
 	var writeIndicators = function(obj, quant, secondary) {
+		var unit = '';
 		var isCurrency = obj.hasOwnProperty('unit') ? (obj.unit.indexOf("dollar") != -1) : false; // determine if indicator values are currency by checking units
 		var value = format_tt[obj.dataType](quant[d.id], isCurrency);
 		if (value === '$NaN' || value === 'NaN' || value === 'NaN%') {
 			value = 'Not Available';
 		} else {
 			none_avail = false;
+			if(!isCurrency && obj.hasOwnProperty('unit')){ unit = obj.unit;}
 		}
 
 		if (obj.name.indexOf('(') != -1) {
@@ -871,7 +873,7 @@ function populateTooltip(d) {
 		}
 		
 		row.append('td').attr('class', 'dataName').classed('leftborder', secondary).text(obj.year + ' ' + name + ':');
-		row.append('td').attr('class', 'dataNum').text(value);
+		row.append('td').attr('class', 'dataNum').text(value + " " + unit);
 		
 	};
 	
@@ -1044,7 +1046,7 @@ function setZoomIcons() {
 
 
 var throttleTimer;
-d3.select(document.body).on('keyup',function(){if(d3.event.ctrlKey&&d3.event.shiftKey&&d3.event.keyCode===76){var i=currentDI.lastIndexOf(' - ');update(currentDI.substring(0,i),currentDI.substring(i+3,currentDI.length));level_colors=['rgb(189,215,231)','rgb(107,174,214)','rgb(49,130,189)','rgb(7,81,156)','rgb(28,53,99)'];}});
+d3.select(document.body).on('keyup',function(){if(d3.event.ctrlKey&&d3.event.shiftKey&&d3.event.keyCode===76){level_colors=['rgb(189,215,231)','rgb(107,174,214)','rgb(49,130,189)','rgb(7,81,156)','rgb(28,53,99)']; var i=currentDI.lastIndexOf(' - ');update(currentDI.substring(0,i),currentDI.substring(i+3,currentDI.length));}});
 function throttle() {
   window.clearTimeout(throttleTimer);
     throttleTimer = window.setTimeout(function() {
