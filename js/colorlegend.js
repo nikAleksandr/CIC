@@ -133,7 +133,7 @@ var colorlegend = function (target, scale, type, options) {
       	.style('display', function (d, i) { if (i >= colors.length) return 'none'; });
 
     // additional text on top of color boxes, displaying "top 20%", "bottom 20%", etc.
-    if (isNumeric) {
+    if (isNumeric && dataType !== 'level') {
 	    legendBoxes.append('text')
 	    	.attr('class', 'colorlegend-boxlabels')
 	    	.attr('x', function (d, i) {
