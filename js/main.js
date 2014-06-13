@@ -580,14 +580,9 @@ function update(dataset, indicator) {
 		// define domain
 		if (isNumeric) {
 			var domain = [];
-			for (var ind in quantById) {
-				if (currentDataType === 'level') {
-					// for levels, we do not want "zero" to be considered during the quantile categorization
-					if (parseFloat(quantById[ind]) === 0) domain[ind] = ".";
-					else domain[ind] = quantById[ind];
-				} else {
-					domain[ind] = quantById[ind];	
-				}
+			for (var ind in quantById) {				
+				if (indObjects[0].category === 'Federal Funding' && parseFloat(quantById[ind]) === 0) quantById[ind] = '.'; // for federal funding, we do not want "zero" to be considered during the quantile categorization
+				domain[ind] = quantById[ind];	
 			}
 		} else {
 			// translating string values to numeric values
@@ -768,12 +763,13 @@ function allData(dataset, indicator){
 function getData(dataset, indicator){
 	var selectedInd = {};
 	var structure = CICstructure.children;
-	for (var i = 0; i < structure.length; i++) {
+	for (var i = 0; i < structure.length; i++) {				
 		for (var j = 0; j < structure[i].children.length; j++) {
 			if (structure[i].children[j].name === dataset) {
 				var Jdataset = structure[i].children[j];
 				
 				// dataset properties
+				selectedInd.category = structure[i].name;
 				selectedInd.dataset = Jdataset.name;
 				selectedInd.year = d3.max(Jdataset.years);
 				selectedInd.source = Jdataset.source;
@@ -784,8 +780,8 @@ function getData(dataset, indicator){
 					if (indicator === Jdataset.children[h].name) {
 						// indicator properties
 						for (var ind in Jdataset.children[h]) {
-							if (ind === 'dataType' && Jdataset.children[h][ind] === 'binary') Jdataset.children[h][ind] = 'categorical';
-							selectedInd[ind] = Jdataset.children[h][ind];
+							if (ind === 'dataType' && Jdataset.children[h][ind] === 'binary') selectedInd[ind] = 'categorical'; // convert binary to categorical
+							else selectedInd[ind] = Jdataset.children[h][ind];
 						}
 						selectedInd.DI = selectedInd.dataset + ' - ' + selectedInd.name;
 						if (localVersion === false) {
