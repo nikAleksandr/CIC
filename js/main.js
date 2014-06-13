@@ -132,6 +132,7 @@ function setup(width, height) {
     	.attr("height", height)
     	.attr("id", "#mapSvg")
     	.append("g")
+    	.attr("id", "mapG")
     	.attr("transform", "translate(" + width / 2 + "," + height / 2 + ")")
     	.call(zoom);
 	
@@ -1064,7 +1065,51 @@ function setZoomIcons() {
 
 
 var throttleTimer;
+//Easter-Eggs, and other back-end functions
 d3.select(document.body).on('keyup',function(){if(d3.event.ctrlKey&&d3.event.shiftKey&&d3.event.keyCode===76){level_colors=['rgb(189,215,231)','rgb(107,174,214)','rgb(49,130,189)','rgb(7,81,156)','rgb(28,53,99)'];var i=currentDI.lastIndexOf(' - ');update(currentDI.substring(0,i),currentDI.substring(i+3,currentDI.length));}});
+function exportSVG(){
+	var mapImg = document.getElementById('mapG');
+	console.log(mapImg);
+	saveSvgAsPng(mapImg, 'export.png', 1);
+	
+	/*var svgheader = '<?xml version="1.0" encoding="utf-8"?><!-- Generator: Adobe Illustrator 16.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  --><!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"><svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" height="555" width="1110" viewBox="0 0 512 512" enable-background="new 0 0 512 512" xml:space="preserve"><g transform="translate(555,277.5)"><defs><style type="text/css"><![CDATA[path{stroke: #fff;stroke-width:.2px;}#state-borders{fill:none;stroke:#fff;stroke-linecap:round;stroke-linejoin:round;stroke-width:1.5px;}]]></style></defs>';
+	var svgContent = $(".counties");
+	var fullSVG = svgheader + svgContent + "</g></svg>";
+	
+	svgImage(fullSVG);
+	
+	function svgImage(xml){
+		var image = new Image();
+		image.src = 'data:image/svg+xml;base64,' + window.btoa(unescape(encodeURIComponent(xml)));
+		
+		image.onload = function(){
+			var canvas = document.createElement('canvas');
+			canvas.width = image.width;
+			canvas.height = image.height;
+			var context = canvas.getContext('2d');
+			context.drawImage(image, 0, 0);
+			
+			var a = document.createElement('a');
+				a.href= canvas.toDataURL('image/png');
+				a.download = 'export.png';
+				a.target = '_blank';
+				a.innerHTML = "click here to download this svg";
+			console.log(a);
+			d3.select('#underMap').append(a);
+			a.click();
+		};
+	}
+	*/
+/*	var a = document.createElement('a');
+		a.href= 'data:attachment/svg,' + encodeURIComponent(fullSVG);
+		a.download = 'export.svg';
+		a.target = '_blank';
+		a.innerHTML = "click here to download this svg";
+	console.log(a);
+	d3.select('#underMap').append(a);
+*/	
+}
+
 function throttle() {
   window.clearTimeout(throttleTimer);
     throttleTimer = window.setTimeout(function() {
