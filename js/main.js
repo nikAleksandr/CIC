@@ -874,6 +874,7 @@ function populateTooltip(d) {
 		} else {
 			none_avail = false;
 			if (type !== 'currency' && obj.hasOwnProperty('unit')) unit = obj.unit;
+			if (parseFloat(value) === 1 && unit.charAt(unit.length - 1) === 's') unit = unit.substr(0, unit.length - 1);
 		}
 
 		if (obj.name.indexOf('(') != -1) {
