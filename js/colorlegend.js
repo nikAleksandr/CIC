@@ -28,7 +28,7 @@ var colorlegend = function (target, scale, type, options) {
     	, fill = opts.fill || false // fill the element (boolean)
     	, linearBoxes = opts.linearBoxes || 9 // number of boxes for linear scales (int)
     	, isNumeric = (dataType === 'level' || dataType === 'level_np' || dataType === 'percent')
-    	, isCurrency = opts.isCurrency || false
+    	, unitType = opts.unitType || false
     	, htmlElement = document.getElementById(target.substring(0, 1) === '#' ? target.substring(1, target.length) : target) // target container element - strip the prefix #
     	, w = htmlElement.offsetWidth // width of container element
     	, h = htmlElement.offsetHeight // height of container element
@@ -168,7 +168,7 @@ var colorlegend = function (target, scale, type, options) {
       	.text(function (d, i) {
 	        // show label for all ordinal values
     	    if (type === 'ordinal') return dataValues[i];
-    	    else return format[dataType](dataValues[i], isCurrency); // format is defined based on dataType
+    	    else return format[dataType](dataValues[i], unitType); // format is defined based on dataType
       	});
       	  
   	// show a title in center of legend (bottom)

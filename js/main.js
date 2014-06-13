@@ -18,23 +18,24 @@ var format = {
 	"percent": d3.format('.1%'),
 	"binary": function (num) { return num; },
 	"categorical": function (num) { return num; },
-	"level": function (num, curr) {
-		var isCurrency = curr || false;
+	"level": function (num, type) {
     	if (num >= 1000000000) {
     		var formatted = String((num/1000000000).toFixed(1)) + "bil";
-    		return isCurrency ? '$' + formatted : formatted;
+    		return (type === 'currency') ? '$' + formatted : formatted;
     	} else if (num >= 1000000) {
     		var formatted = String((num/1000000).toFixed(1)) + "mil";
-    		return isCurrency ? '$' + formatted : formatted;
+    		return (type === 'currency') ? '$' + formatted : formatted;
     	} else if (num >= 10000) {
     		var formatted = String((num/1000).toFixed(1)) + "k";
-    		return isCurrency ? '$' + formatted : formatted;
+    		return (type === 'currency') ? '$' + formatted : formatted;
     	} else if (num >= 100) {
-    		return isCurrency ? d3.format('$,.0f')(num) : d3.format(',.0f')(num);
+    		return (type === 'currency') ? d3.format('$,.0f')(num) : d3.format(',.0f')(num);
     	} else if (num == 0) {
-    		return isCurrency ? '$0' : 0;
+    		return (type === 'currency') ? '$0' : 0;
     	} else {
-    		return isCurrency ? d3.format('$.1f')(num) : d3.format('.1f')(num);
+    		if (type === 'currency') return d3.format('$.1f')(num);
+    		else if (type === 'persons') return d3.format('0f')(num);
+    		else return d3.format('.1f')(num);
     	}
     }
 };
@@ -824,7 +825,11 @@ function createLegend(keyArray) {
 	d3.select("#legendTitle").remove();
 
 	var primeIndObj = indObjects[0];
-	var isCurrency = (primeIndObj.hasOwnProperty('unit')) ? (primeIndObj.unit.indexOf("dollar") != -1) : false; // determine if indicator values are currency by checking units
+	var type = '';
+	if (primeIndObj.hasOwnProperty('unit')) {
+		if (primeIndObj.unit.indexOf("dollar") != -1) type = 'currency';
+		else if (primeIndObj.unit.indexOf('person') != -1 || primeIndObj.unit.indexOf('people') != -1 || primeIndObj.unit.indexOf('employee') != -1) type = 'persons';	
+	}
 	var legendTitle = primeIndObj.year + " " + primeIndObj.name;
 	//if (primeIndObj.dataType !== 'binary' && primeIndObj.dataType !== 'categorical') legendTitle += " in " + primeIndObj.unit; 
 
@@ -834,7 +839,7 @@ function createLegend(keyArray) {
 			boxHeight : 18,
 			boxWidth : 58,
 			dataType : primeIndObj.dataType,
-			isCurrency : isCurrency,
+			unitType : type,
 			formatFnArr: format
 		};
 		if (keyArray) options.keyArray = keyArray;
