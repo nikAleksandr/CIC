@@ -196,35 +196,52 @@ function draw(topo, stateMesh) {
 	g.append("path").datum(stateMesh)
 		.attr("id", "state-borders")
 		.attr("d", path);
-		
+
+
+	// for click and double-click events; for touch devices, use click and double-tap 
 	var mdownTime = -1;
 	var clickCount = 0;
-	  
 	county.on('mousedown', function(d, i) {
 		mdownTime = $.now();
 	});
-	county.on('click', function(d, i) {
-		if ($.now() - mdownTime < 300) {
-			d3.event.stopPropagation();
-			var mouse = d3.mouse(svg.node()).map(function(d) { return parseInt(d); });
-			var event = d3.event;
-		
-			clickCount++;
-			if (clickCount === 1) {
-				singleClickTimer = setTimeout(function() {
+	if ($('html').hasClass('no-touch')) {  
+		county.on('click', function(d, i) {
+			if ($.now() - mdownTime < 300) {
+				d3.event.stopPropagation();
+				var event = d3.event;
+			
+				clickCount++;
+				if (clickCount === 1) {
+					singleClickTimer = setTimeout(function() {
+						clickCount = 0;
+						highlight(d);
+						$('#instructions').hide();
+						if (d3.select('.active').empty() !== true) executeSearchMatch(event.target.id);
+					}, 300);
+				} else if (clickCount === 2) {
+					clearTimeout(singleClickTimer);
 					clickCount = 0;
 					highlight(d);
-					$('#instructions').hide();
-					if (d3.select('.active').empty() !== true) executeSearchMatch(event.target.id);
-				}, 300);
-			} else if (clickCount === 2) {
-				clearTimeout(singleClickTimer);
-				clickCount = 0;
-				highlight(d);
-				doubleClicked(d, i);
+					doubleClicked(d.id);
+				}
 			}
-		}
-	});	
+		});
+	} else {
+		county.on('click', function(d, i) {
+			if ($.now() - mdownTime < 300) {
+				d3.event.stopPropagation();
+			
+				highlight(d);
+				$('#instructions').hide();
+				if (d3.select('.active').empty() !== true) executeSearchMatch(d3.event.target.id);
+			}
+		});
+		
+		$('.county').addSwipeEvents().bind('doubletap', function(event, touch) {
+			event.stopPropagation();
+			doubleClicked(event.target.id);
+		});
+	}
 }
 //Functions for Icons
 function helpText(){
@@ -931,10 +948,10 @@ function positionTooltip(county) {
 }
 
 
-function doubleClicked(d) {
+function doubleClicked(fips) {
 	tooltip.classed("hidden", true);
 	
-	var countyID = d.id.toString();
+	var countyID = fips.toString();
 	if (countyID.length == 4) countyID = "0" + countyID;
 	displayResults('county.cfm?id=' + countyID);
 }
@@ -985,16 +1002,17 @@ function highlight(d) {
 }
 
 function redraw() {
-  tooltip.classed("hidden", true);
+	tooltip.classed("hidden", true);
   
-  windowWidth = $(window).width();
-  width = document.getElementById('container').offsetWidth-90;
-  height = width / 2;
-  headHeight = $('#header').height();
-  d3.select('svg').remove();
-  setup(width,height);
-  draw(topo, stateMesh);
-  moveLegend();
+	windowWidth = $(window).width();
+	width = document.getElementById('container').offsetWidth-90;
+	height = width / 2;
+	headHeight = $('#header').height();
+	d3.select('svg').remove();
+	setup(width,height);
+	draw(topo, stateMesh);
+	moveLegend();
+	fillMapColors();
 }
 
 function moveStart() {}
