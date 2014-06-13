@@ -75,7 +75,7 @@ var format_tt = {
 };
 format_tt['level_np'] = format['level'];
 
-var localVersion = false;
+var localVersion = true;
 
 var zoom = d3.behavior.zoom()
     .scaleExtent([1, 10])
