@@ -106,8 +106,8 @@ var corrDomain = [], // only used for categorical data; a crosswalk for the rang
 	countyObjectById = {},
 	countyPathById = {};
 
-var na_color = 'rgb(204,204,204)', // color for counties with no data
-	range = [],
+var range = [],
+	na_color = 'rgb(204,204,204)', // color for counties with no data
 	percent_colors = ['rgb(522,204,102)', 'rgb(255,153,51)', 'rgb(49,130,189)', 'rgb(7,81,156)', 'rgb(28,53,99)'],
 	binary_colors = ['rgb(28,53,99)', 'rgb(255,153,51)'],
 	categorical_colors = ['rgb(522,204,102)', 'rgb(255,153,51)', 'rgb(49,130,189)', 'rgb(7,81,156)', 'rgb(28,53,99)'],
@@ -531,6 +531,7 @@ function executeSearchMatch(FIPS) {
 		});
 	} else {
 		tooltip.classed('hidden', true);
+		noty({text: 'No information availble for this county'});
 	}    
 };
 
@@ -863,7 +864,7 @@ function populateTooltip(d) {
 		var unit = '';
 		var isCurrency = obj.hasOwnProperty('unit') ? (obj.unit.indexOf("dollar") != -1) : false; // determine if indicator values are currency by checking units
 		var value = format_tt[obj.dataType](quant[d.id], isCurrency);
-		if (value === '$NaN' || value === 'NaN' || value === 'NaN%') {
+		if (value === '$NaN' || value === 'NaN' || value === 'NaN%' || value === '.') {
 			value = 'Not Available';
 		} else {
 			none_avail = false;
@@ -1050,7 +1051,7 @@ function setZoomIcons() {
 
 
 var throttleTimer;
-d3.select(document.body).on('keyup',function(){if(d3.event.ctrlKey&&d3.event.shiftKey&&d3.event.keyCode===76){level_colors=['rgb(189,215,231)','rgb(107,174,214)','rgb(49,130,189)','rgb(7,81,156)','rgb(28,53,99)']; var i=currentDI.lastIndexOf(' - ');update(currentDI.substring(0,i),currentDI.substring(i+3,currentDI.length));}});
+d3.select(document.body).on('keyup',function(){if(d3.event.ctrlKey&&d3.event.shiftKey&&d3.event.keyCode===76){level_colors=['rgb(189,215,231)','rgb(107,174,214)','rgb(49,130,189)','rgb(7,81,156)','rgb(28,53,99)'];var i=currentDI.lastIndexOf(' - ');update(currentDI.substring(0,i),currentDI.substring(i+3,currentDI.length));}});
 function throttle() {
   window.clearTimeout(throttleTimer);
     throttleTimer = window.setTimeout(function() {
