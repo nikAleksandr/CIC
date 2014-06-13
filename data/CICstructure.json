@@ -1099,7 +1099,7 @@
         		"children": [
         			{"name": "Total Jail Population", "dataType": "level", "definition": "Total inmate population incarcerated or all persons in community-based programs run by jails (e.g., electronic monitoring, house arrest, community service, day reporting, and work programs)."},
         			{"name": "Jail Capacity", "dataType": "level", "definition": "Maximum number of beds or inmates allocated to all jail facilities in the county"},
-        			{"name": "Held for US Marshal's Service", "dataType": "level", "definition": "Number of inmates in the county held in county jail for the US Marshal's Service"},
+        			{"name": "Held for US Marshals Service", "dataType": "level", "definition": "Number of inmates in the county held in county jail for the US Marshal's Service"},
         			{"name": "Held for Federal Bureau of Prisons", "dataType": "level", "definition": "Number of inmates in the county held in county jail for the Federal Bureau of Prisons"},
         			{"name": "Held for Immigration & Customs", "dataType": "level", "definition": "Number of inmates in the county held in county jail for the Immigration and Customs"},
         			{"name": "Held for Bureau of Indian Affairs", "dataType": "level", "definition": "Number of inmates in the county held in county jail for the Bureau of Indian Affairs"},
