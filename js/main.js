@@ -708,7 +708,18 @@ function update(dataset, indicator) {
     	var getRequest = function(query_str, queryIndex, datasetName) {
 		  	d3.xhr('http://nacocic.naco.org/ciccfm/indicators.cfm?'+ query_str, function(error, request){
 		    	// restructure response object to object indexed by fips
-		    	var responseObj = jQuery.parseJSON(request.responseText);
+		    	try {
+		    		var responseObj = jQuery.parseJSON(request.responseText);
+		    		console.log(responseObj);
+		    	}
+		    	catch(error) {
+		    		noty({text: 'Error retreiving information from database.'});
+		    	}
+		    	if (responseObj.ROWCOUNT === 0) {
+		    		noty({text: 'Database error: ROWCOUNT = 0'});
+		    		return;
+		    	}
+		    	
 		    	
 		    	for (var i = 0; i < responseObj.DATA.FIPS.length; i++) {
 		    		var fips = responseObj.DATA.FIPS[i];
