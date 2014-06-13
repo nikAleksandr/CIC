@@ -403,6 +403,11 @@ function submitSearch() {
 		}
 							
 	} else if (searchType === 'county') {
+		if (search_str === '') {
+			noty({text: 'Enter a county name to search.'});
+			return;
+		}
+		
 		// strip out state if there is one
 		var countyName = search_str, stateName = '';
 		if (search_str.indexOf(',') !== -1) {
@@ -412,23 +417,27 @@ function submitSearch() {
 		}
 		
 		// trim out the fat; takes out anything in geoDesc
-		var geoDesc = ['county', 'city', 'borough', 'parish'];
-		for (var i = 0; i < geoDesc.length; i++) {
-			if (countyName.indexOf(geoDesc[i]) !== -1) {
-				countyName.replace(geoDesc[i], '');
+		var fats = ['county', 'city', 'borough', 'parish'];
+		for (var i = 0; i < fats.length; i++) {
+			if (countyName.indexOf(fats[i]) !== -1) {
+				countyName.replace(fats[i], '');
 				countyName.trim();
 			}
 		}
 			
 		// check for entire phrase matches; only works if state was provided
+		var geoDesc = [' County', ' City', ' Borough', ' Parish'];
 		if (stateName !== '') {
 			for (var j = 0; j < geoDesc.length; j++) {
-				var search_comb = toTitleCase(countyName + ' ' + geoDesc[j]) + ', ' + stateName;
+				var search_comb = toTitleCase(countyName) + geoDesc[j] + ', ' + stateName;
 				if (idByName[search_comb]) {
 					executeSearchMatch(parseInt(idByName[search_comb]));
 					return;
 				}
 			}
+			
+			// special case
+			if (countyName.toLowerCase() === 'washington' && stateName === 'DC') { executeSearchMatch(11001); return; }
 		}
 		
 		// check for partial word matches
