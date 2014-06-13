@@ -352,6 +352,7 @@ h1 small {
 }
 .county.active {
 	fill: rgb(255,0,0);
+	/*fill: rgb(253,156,2);*/
 }
 
 #state-borders {

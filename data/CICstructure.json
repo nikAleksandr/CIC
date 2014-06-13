@@ -1082,13 +1082,13 @@
         		"years": [2008, 2009, 2010, 2011, 2012],
         		"companions": [["Jails - Supervised Population", "Total Jail Population"], ["Jails - Supervised Population", "Confined Persons"], ["Jails - Supervised Population", "Nonconfined Persons"], ["Jails - Supervised Population", "Average Daily Population"]],
         		"children": [
-        			{"name": "Total Jail Population", "dataType": "level", "definition": "Total inmate population incarcerated or all persons in community-based programs run by jails in the county (e.g., electronic monitoring, house arrest, community service, day reporting, and work programs)."},
-        			{"name": "Jail Capacity", "dataType": "level", "definition": "Maximum number of beds or inmates allocated to all jail facilities in the county"},
+        			{"name": "Total Jail Population", "unit": "persons", "dataType": "level", "definition": "Total inmate population incarcerated or all persons in community-based programs run by jails in the county (e.g., electronic monitoring, house arrest, community service, day reporting, and work programs)."},
+        			{"name": "Jail Capacity", "unit": "persons", "dataType": "level", "definition": "Maximum number of beds or inmates allocated to all jail facilities in the county"},
         			{"name": "Confined Persons", "dataType": "level", "definition": "Total number of persons housed in jail or persons in community-based programs in the county (e.g. work release, day release, drug/alcohol treatment) who return to jail at night."},
         			{"name": "Nonconfined Persons", "dataType": "level", "definition": "All persons in community-based programs run by jails in the county (e.g., electronic monitoring, house arrest, community service, day reporting, and work programs) but are not housed in the jail."},
-        			{"name": "Non US Citizens", "dataType": "level", "definition": "Number of inmates in all jails in the county who are not citizens of the United States."},
-        			{"name": "Weekenders", "dataType": "level", "definition": "Number of inmates in the county in programs that allow offenders to serve their sentences of confinement only on weekends."},
-        			{"name": "Average Daily Population", "dataType": "level", "definition": "Average daily jail population in the county."}
+        			{"name": "Non US Citizens", "unit": "persons", "dataType": "level", "definition": "Number of inmates in all jails in the county who are not citizens of the United States."},
+        			{"name": "Weekenders", "unit": "persons", "dataType": "level", "definition": "Number of inmates in the county in programs that allow offenders to serve their sentences of confinement only on weekends."},
+        			{"name": "Average Daily Population", "unit": "persons", "dataType": "level", "definition": "Average daily jail population in the county."}
         		]
         	},
         	{
@@ -1097,17 +1097,17 @@
 	       		"years": [2008, 2009, 2010, 2011, 2012],
         		"companions": [["Jails - Supervised Population by Agency", "Total Jail Population"], ["Jails - Supervised Population by Agency", "Held for Own State"], ["Jails - Supervised Population by Agency", "Held for Local Jurisdiction in State"], ["Jails - Supervised Population by Agency", "Held for Federal Bureau of Prisons"]],
         		"children": [
-        			{"name": "Total Jail Population", "dataType": "level", "definition": "Total inmate population incarcerated or all persons in community-based programs run by jails (e.g., electronic monitoring, house arrest, community service, day reporting, and work programs)."},
-        			{"name": "Jail Capacity", "dataType": "level", "definition": "Maximum number of beds or inmates allocated to all jail facilities in the county"},
-        			{"name": "Held for US Marshals Service", "dataType": "level", "definition": "Number of inmates in the county held in county jail for the US Marshal's Service"},
-        			{"name": "Held for Federal Bureau of Prisons", "dataType": "level", "definition": "Number of inmates in the county held in county jail for the Federal Bureau of Prisons"},
-        			{"name": "Held for Immigration & Customs", "dataType": "level", "definition": "Number of inmates in the county held in county jail for the Immigration and Customs"},
-        			{"name": "Held for Bureau of Indian Affairs", "dataType": "level", "definition": "Number of inmates in the county held in county jail for the Bureau of Indian Affairs"},
-        			{"name": "Held for Other Federal Authorities", "dataType": "level", "definition": "Number of inmates in the county held in county jail for other federal authorities"},
-        			{"name": "Held for Own State", "dataType": "level", "definition": "Number of inmates in the county held in county jail for the state in which the county is located"},
-        			{"name": "Held for Other State", "dataType": "level", "definition": "Number of inmates in the county held in county jail for another state"},
-        			{"name": "Held for Local Jurisdiction in State", "dataType": "level", "definition": "Number of inmates in the county held in county jail for another local jurisdiction within the state in which the county is located"},
-        			{"name": "Held for Local Jurisdiction outside the State", "dataType": "level", "definition": "Number of inmates in the county held in county jail for another local jurisdiction outside of the state"}
+        			{"name": "Total Jail Population", "unit": "persons", "dataType": "level", "definition": "Total inmate population incarcerated or all persons in community-based programs run by jails (e.g., electronic monitoring, house arrest, community service, day reporting, and work programs)."},
+        			{"name": "Jail Capacity", "unit": "persons", "dataType": "level", "definition": "Maximum number of beds or inmates allocated to all jail facilities in the county"},
+        			{"name": "Held for US Marshals Service", "unit": "persons", "dataType": "level", "definition": "Number of inmates in the county held in county jail for the US Marshal's Service"},
+        			{"name": "Held for Federal Bureau of Prisons", "unit": "persons", "dataType": "level", "definition": "Number of inmates in the county held in county jail for the Federal Bureau of Prisons"},
+        			{"name": "Held for Immigration & Customs", "unit": "persons", "dataType": "level", "definition": "Number of inmates in the county held in county jail for the Immigration and Customs"},
+        			{"name": "Held for Bureau of Indian Affairs", "unit": "persons", "dataType": "level", "definition": "Number of inmates in the county held in county jail for the Bureau of Indian Affairs"},
+        			{"name": "Held for Other Federal Authorities", "unit": "persons", "dataType": "level", "definition": "Number of inmates in the county held in county jail for other federal authorities"},
+        			{"name": "Held for Own State", "unit": "persons", "dataType": "level", "definition": "Number of inmates in the county held in county jail for the state in which the county is located"},
+        			{"name": "Held for Other State", "unit": "persons", "dataType": "level", "definition": "Number of inmates in the county held in county jail for another state"},
+        			{"name": "Held for Local Jurisdiction in State", "unit": "persons", "dataType": "level", "definition": "Number of inmates in the county held in county jail for another local jurisdiction within the state in which the county is located"},
+        			{"name": "Held for Local Jurisdiction outside the State", "unit": "persons", "dataType": "level", "definition": "Number of inmates in the county held in county jail for another local jurisdiction outside of the state"}
         		]
         	},
         	{
@@ -1116,21 +1116,21 @@
        			"years": [2008, 2009, 2010, 2011, 2012],
         		"companions": [["Jails - Inmate Demographics", "Total Jail Population"], ["Jails - Inmate Demographics", "Total Juveniles"], ["Jails - Inmate Demographics", "Total Unconvicted"], ["Jails - Inmate Demographics", "White"]],
         		"children": [
-        			{"name": "Total Jail Population", "dataType": "level", "definition": "Total inmate population incarcerated or all persons in community-based programs run by jails (e.g., electronic monitoring, house arrest, community service, day reporting, and work programs)."},
-        			{"name": "Adult Males", "dataType": "level", "definition": "Total confined jail population in the county over (and including) the age of 18 years"},
-        			{"name": "Adult Females", "dataType": "level", "definition": "Total confined jail population in the county over (and including) the age of 18 years"},
-        			{"name": "Total Juveniles", "dataType": "level", "definition": "Total confined jail population in the county under the age of 18 years"},
-        			{"name": "Total Convicted", "dataType": "level", "definition": "Total number of confined convicted inmates including probation and parole violators with no new sentence."},
-        			{"name": "Total Unconvicted", "dataType": "level", "definition": "Total number of confined inmates who had not been convicted or were awaiting trial."},
-        			{"name": "White", "dataType": "level", "definition": "Total number of confined persons who are white, not of Hispanic orgin."},
-        			{"name": "Black or African American", "dataType": "level", "definition": "Total number of confined persons who are Black or African American, not of Hispanic origin."},
-        			{"name": "Hispanic or Latino", "dataType": "level", "definition": "Total number of confined persons who are Hispanic or Latino."},
-        			{"name": "Asian", "dataType": "level", "definition": "Total number of confined persons who are Asian, not of Hispanic origin."},
-        			{"name": "American Indian or Alaskan Native", "dataType": "level", "definition": "Total number of confined persons who are American Indian or an Alaskan Native, not of Hispanic origin."},
-        			{"name": "Native Hawaiian or Other Pacific Islander", "dataType": "level", "definition": "Total number of confined persons who are Native Hawaiian or other Pacific Island, not of Hispanic Origin."},
-        			{"name": "Two or More Races", "dataType": "level", "definition": "Total number of confined inmates of two or more races, not of Hispanic origin."},
-        			{"name": "Other Inmate Races", "dataType": "level", "definition": "Total number of confined inmates of other races."},
-        			{"name": "Race Not Known", "dataType": "level", "definition": "Total number of confined inmates of unknown race."}
+        			{"name": "Total Jail Population", "unit": "persons", "dataType": "level", "definition": "Total inmate population incarcerated or all persons in community-based programs run by jails (e.g., electronic monitoring, house arrest, community service, day reporting, and work programs)."},
+        			{"name": "Adult Males", "unit": "persons", "dataType": "level", "definition": "Total confined jail population in the county over (and including) the age of 18 years"},
+        			{"name": "Adult Females", "unit": "persons", "dataType": "level", "definition": "Total confined jail population in the county over (and including) the age of 18 years"},
+        			{"name": "Total Juveniles", "unit": "persons", "dataType": "level", "definition": "Total confined jail population in the county under the age of 18 years"},
+        			{"name": "Total Convicted", "unit": "persons", "dataType": "level", "definition": "Total number of confined convicted inmates including probation and parole violators with no new sentence."},
+        			{"name": "Total Unconvicted", "unit": "persons", "dataType": "level", "definition": "Total number of confined inmates who had not been convicted or were awaiting trial."},
+        			{"name": "White", "unit": "persons", "dataType": "level", "definition": "Total number of confined persons who are white, not of Hispanic orgin."},
+        			{"name": "Black or African American", "unit": "persons", "dataType": "level", "definition": "Total number of confined persons who are Black or African American, not of Hispanic origin."},
+        			{"name": "Hispanic or Latino", "unit": "persons", "dataType": "level", "definition": "Total number of confined persons who are Hispanic or Latino."},
+        			{"name": "Asian", "unit": "persons", "dataType": "level", "definition": "Total number of confined persons who are Asian, not of Hispanic origin."},
+        			{"name": "American Indian or Alaskan Native", "unit": "persons", "dataType": "level", "definition": "Total number of confined persons who are American Indian or an Alaskan Native, not of Hispanic origin."},
+        			{"name": "Native Hawaiian or Other Pacific Islander", "unit": "persons", "dataType": "level", "definition": "Total number of confined persons who are Native Hawaiian or other Pacific Island, not of Hispanic Origin."},
+        			{"name": "Two or More Races", "unit": "persons", "dataType": "level", "definition": "Total number of confined inmates of two or more races, not of Hispanic origin."},
+        			{"name": "Other Inmate Races", "unit": "persons", "dataType": "level", "definition": "Total number of confined inmates of other races."},
+        			{"name": "Race Not Known", "unit": "persons", "dataType": "level", "definition": "Total number of confined inmates of unknown race."}
         		]
         	},
         	{
@@ -1139,18 +1139,18 @@
       	 		"years": [2008, 2009, 2010, 2011, 2012],
         		"companions": [["Jails - Community Supervision", "Total Jail Population"], ["Jails - Community Supervision", "Alcohol/Drug Treatment Programs"], ["Jails - Community Supervision", "Electronic Monitoring Program"], ["Jails - Community Supervision", "Community Service"]],
         		"children" : [
-        			{"name": "Total Jail Population", "dataType": "level", "definition": "Total inmate population incarcerated or all persons in community-based programs run by jails (e.g., electronic monitoring, house arrest, community service, day reporting, and work programs)."},
-        			{"name": "Jail Capacity", "dataType": "level", "definition": "Maximum number of beds or inmates allocated to all jail facilities in the county"},
-        			{"name": "Confined Persons", "dataType": "level", "definition": "Total number of persons housed in jail or persons in community-based programs in the county (e.g. work release, day release, drug/alcohol treatment) who return to jail at night."},
-        			{"name": "Nonconfined Persons", "dataType": "level", "definition": "All persons in community-based programs run by jails in the county (e.g., electronic monitoring, house arrest, community service, day reporting, and work programs) but are not housed in the jail."},
-        			{"name": "Electronic Monitoring Program", "dataType": "level", "definition": "Total number of nonconfined persons under jail supervision through electronic monitoring."},
-        			{"name": "Home Detention", "dataType": "level", "definition": "Total number of nonconfined persons under jail supervision through home detention without electronic monitoring."},
-        			{"name": "Community Service", "dataType": "level", "definition": "Total number of nonconfined persons under jail supervision through community service."},
-        			{"name": "Day Reporting", "dataType": "level", "definition": "Total number of nonconfined persons under jail supervision through day reporting."},
-        			{"name": "Other Pretrial Supervision", "dataType": "level", "definition": "Total number of nonconfined persons under jail supervision through other pretrial supervision."},
-        			{"name": "Other Alternative Work Programs", "dataType": "level", "definition": "Total number of nonconfined persons under jail supervision through other alternative work programs excluding those who return to jail at night."},
-        			{"name": "Alcohol/Drug Treatment Programs", "dataType": "level", "definition": "Total number of nonconfined persons under jail supervision through participation in alcohol/drug treatment program."},
-        			{"name": "Other Nonconfined Programs", "dataType": "level", "definition": "Total number of nonconfined persons under jail supervision through other programs outside of jail."}
+        			{"name": "Total Jail Population", "unit": "persons", "dataType": "level", "definition": "Total inmate population incarcerated or all persons in community-based programs run by jails (e.g., electronic monitoring, house arrest, community service, day reporting, and work programs)."},
+        			{"name": "Jail Capacity", "unit": "persons", "dataType": "level", "definition": "Maximum number of beds or inmates allocated to all jail facilities in the county"},
+        			{"name": "Confined Persons", "unit": "persons", "dataType": "level", "definition": "Total number of persons housed in jail or persons in community-based programs in the county (e.g. work release, day release, drug/alcohol treatment) who return to jail at night."},
+        			{"name": "Nonconfined Persons", "unit": "persons", "dataType": "level", "definition": "All persons in community-based programs run by jails in the county (e.g., electronic monitoring, house arrest, community service, day reporting, and work programs) but are not housed in the jail."},
+        			{"name": "Electronic Monitoring Program", "unit": "persons", "dataType": "level", "definition": "Total number of nonconfined persons under jail supervision through electronic monitoring."},
+        			{"name": "Home Detention", "unit": "persons", "dataType": "level", "definition": "Total number of nonconfined persons under jail supervision through home detention without electronic monitoring."},
+        			{"name": "Community Service", "unit": "persons", "dataType": "level", "definition": "Total number of nonconfined persons under jail supervision through community service."},
+        			{"name": "Day Reporting", "unit": "persons", "dataType": "level", "definition": "Total number of nonconfined persons under jail supervision through day reporting."},
+        			{"name": "Other Pretrial Supervision", "unit": "persons", "dataType": "level", "definition": "Total number of nonconfined persons under jail supervision through other pretrial supervision."},
+        			{"name": "Other Alternative Work Programs", "unit": "persons", "dataType": "level", "definition": "Total number of nonconfined persons under jail supervision through other alternative work programs excluding those who return to jail at night."},
+        			{"name": "Alcohol/Drug Treatment Programs", "unit": "persons", "dataType": "level", "definition": "Total number of nonconfined persons under jail supervision through participation in alcohol/drug treatment program."},
+        			{"name": "Other Nonconfined Programs", "unit": "persons", "dataType": "level", "definition": "Total number of nonconfined persons under jail supervision through other programs outside of jail."}
         		]
         	},
         	{
