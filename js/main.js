@@ -45,23 +45,24 @@ var format_tt = {
 	"percent": d3.format('.1%'),
 	"binary": function (num) { return num; },
 	"categorical": function (num) { return num; },
-	"level": function (num, curr) {
-		var isCurrency = curr || false;
+	"level": function (num, type) {
     	if (num >= 1000000000) {
     		var formatted = String((num/1000000000).toFixed(1)) + " Bil";
-    		return isCurrency ? '$' + formatted : formatted;
+    		return (type === 'currency') ? '$' + formatted : formatted;
     	} else if (num >= 1000000) {
     		var formatted = String((num/1000000).toFixed(1)) + " Mil";
-    		return isCurrency ? '$' + formatted : formatted;
+    		return (type === 'currency') ? '$' + formatted : formatted;
     	} else if (num >= 10000) {
     		var formatted = String((num/1000).toFixed(1)) + "k";
-    		return isCurrency ? '$' + formatted : formatted;
+    		return (type === 'currency') ? '$' + formatted : formatted;
     	} else if (num >= 100) {
-    		return isCurrency ? d3.format('$,.0f')(num) : d3.format(',.0f')(num);
+    		return (type === 'currency') ? d3.format('$,.0f')(num) : d3.format(',.0f')(num);
     	} else if (num == 0) {
-    		return isCurrency ? '$0' : 0;
+    		return (type === 'currency') ? '$0' : 0;
     	} else {
-    		return isCurrency ? d3.format('$.1f')(num) : d3.format('.1f')(num);
+    		if (type === 'currency') return d3.format('$.1f')(num);
+    		else if (type === 'persons') return d3.format('0f')(num);
+    		else return d3.format('.1f')(num);
     	}
     }
 };
@@ -862,13 +863,17 @@ function populateTooltip(d) {
 	
 	var writeIndicators = function(obj, quant, secondary) {
 		var unit = '';
-		var isCurrency = obj.hasOwnProperty('unit') ? (obj.unit.indexOf("dollar") != -1) : false; // determine if indicator values are currency by checking units
-		var value = format_tt[obj.dataType](quant[d.id], isCurrency);
+		var type = '';
+		if (obj.hasOwnProperty('unit')) {
+			if (obj.unit.indexOf("dollar") != -1) type = 'currency';
+			else if (obj.unit.indexOf('person') != -1 || obj.unit.indexOf('people') != -1 || obj.unit.indexOf('employee') != -1) type = 'persons';	
+		}
+		var value = format_tt[obj.dataType](quant[d.id], type);
 		if (value === '$NaN' || value === 'NaN' || value === 'NaN%' || value === '.') {
 			value = 'Not Available';
 		} else {
 			none_avail = false;
-			if(!isCurrency && obj.hasOwnProperty('unit')){ unit = obj.unit;}
+			if (type !== 'currency' && obj.hasOwnProperty('unit')) unit = obj.unit;
 		}
 
 		if (obj.name.indexOf('(') != -1) {
