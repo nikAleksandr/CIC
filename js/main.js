@@ -117,7 +117,6 @@ var corrDomain = [], // only used for categorical data; a crosswalk for the rang
 var na_color = 'rgb(204,204,204)', // color for counties with no data
 	range = [],
 	percent_colors = ['rgb(522,204,102)', 'rgb(255,153,51)', 'rgb(49,130,189)', 'rgb(7,81,156)', 'rgb(28,53,99)'],
-	binary_colors = ['rgb(0,153,204)', 'rgb(255,204,102)'],
 	categorical_colors = ['rgb(522,204,102)', 'rgb(255,153,51)', 'rgb(49,130,189)', 'rgb(7,81,156)', 'rgb(28,53,99)'],
 	level_colors = ['rgb(522,204,102)', 'rgb(255,153,51)', 'rgb(49,130,189)', 'rgb(7,81,156)', 'rgb(28,53,99)'];
 	//percent_colors = ['rgb(189, 215, 231)','rgb(107, 174, 214)','rgb(49, 130, 189)','rgb(7, 81, 156)','rgb(28, 53, 99)']
@@ -403,6 +402,11 @@ function submitSearch() {
 		}
 							
 	} else if (searchType === 'county') {
+		if (search_str === '') {
+			noty({text: 'Enter a county name to search.'});
+			return;
+		}
+		
 		// strip out state if there is one
 		var countyName = search_str, stateName = '';
 		if (search_str.indexOf(',') !== -1) {
@@ -412,23 +416,27 @@ function submitSearch() {
 		}
 		
 		// trim out the fat; takes out anything in geoDesc
-		var geoDesc = ['county', 'city', 'borough', 'parish'];
-		for (var i = 0; i < geoDesc.length; i++) {
-			if (countyName.indexOf(geoDesc[i]) !== -1) {
-				countyName.replace(geoDesc[i], '');
+		var fats = ['county', 'city', 'borough', 'parish'];
+		for (var i = 0; i < fats.length; i++) {
+			if (countyName.indexOf(fats[i]) !== -1) {
+				countyName.replace(fats[i], '');
 				countyName.trim();
 			}
 		}
 			
 		// check for entire phrase matches; only works if state was provided
+		var geoDesc = [' County', ' City', ' Borough', ' Parish'];
 		if (stateName !== '') {
 			for (var j = 0; j < geoDesc.length; j++) {
-				var search_comb = toTitleCase(countyName + ' ' + geoDesc[j]) + ', ' + stateName;
+				var search_comb = toTitleCase(countyName) + geoDesc[j] + ', ' + stateName;
 				if (idByName[search_comb]) {
 					executeSearchMatch(parseInt(idByName[search_comb]));
 					return;
 				}
 			}
+			
+			// special case
+			if (countyName.toLowerCase() === 'washington' && stateName === 'DC') { executeSearchMatch(11001); return; }
 		}
 		
 		// check for partial word matches
@@ -466,7 +474,9 @@ function submitSearch() {
 						
 			// display all matches if more than one match
 			$('#instructionText').empty();
-				d3.select('#instructionText').append('p').text('Your search returned ' + pMatchArray.length + ' results');
+				d3.select('#instructionText').append('p')
+					.style('text-align', 'center')
+					.text('Your search returned ' + pMatchArray.length + ' results');
 				
 			var rTable = d3.select('#instructionText').append('div').attr('id', 'multiCountyResult').attr('class', 'container-fluid').append('table')
 				.attr('class', 'table table-striped table-condensed table-hover').append('tbody');
@@ -583,11 +593,13 @@ function update(dataset, indicator) {
 			// translating string values to numeric values
 			var numCorrVals = 0, vals = {}, corrVal = 0;
 			for (var ind in quantById) {
-				if (!vals.hasOwnProperty(quantById[ind])) {
-					vals[quantById[ind]] = corrVal;
-					corrVal++;
+				if (quantById[ind] !== '.' && quantById[ind] !== '') {
+					if (!vals.hasOwnProperty(quantById[ind])) {
+						vals[quantById[ind]] = corrVal;
+						corrVal++;
+					}
+					corrDomain[ind] = vals[quantById[ind]];
 				}
-				corrDomain[ind] = vals[quantById[ind]];
 			}
 			for (var ind in vals) numCorrVals++;
 		}
@@ -597,14 +609,15 @@ function update(dataset, indicator) {
 			case "percent":
 				range = percent_colors;
 				break;
-			case "binary":
-				range = binary_colors;
-				break;
 			case "categorical":
+			case "binary":
 				// max is 5 categories
 				range = [];
 				var availColors = categorical_colors;
-				for (var i = 0; i < numCorrVals; i++) range.push(availColors[i]);				
+				if (numCorrVals === 2) range = ['rgb(255,204,102)', 'rgb(0,153,204)'];
+				else {
+					for (var i = 0; i < numCorrVals; i++) range.push(availColors[i]);
+				}				
 				break;
 			default:
 				range = level_colors;
@@ -770,7 +783,10 @@ function getData(dataset, indicator){
 				for (var h = 0; h < Jdataset.children.length; h++) {
 					if (indicator === Jdataset.children[h].name) {
 						// indicator properties
-						for (var ind in Jdataset.children[h]) selectedInd[ind] = Jdataset.children[h][ind];
+						for (var ind in Jdataset.children[h]) {
+							if (ind === 'dataType' && Jdataset.children[h][ind] === 'binary') Jdataset.children[h][ind] = 'categorical';
+							selectedInd[ind] = Jdataset.children[h][ind];
+						}
 						selectedInd.DI = selectedInd.dataset + ' - ' + selectedInd.name;
 						if (localVersion === false) {
 							for (var prop in crosswalk[selectedInd.DI]) {
