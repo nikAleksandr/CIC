@@ -4,6 +4,7 @@ d3.select(window).on("resize", throttle);
 function toTitleCase(str){ return str.replace(/\w\S*/g, function(txt){return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();}); }
 function isNumFun(data_type) { return (data_type === 'level' || data_type === 'level_np' || data_type === 'percent'); }
 function positionInstruction(){var instructionLeft = (windowWidth * .2) / 2; if(windowWidth > 1125){instructionLeft = (windowWidth - 900)/2;}; d3.select('#instructions').style("left", instructionLeft + "px");}
+var stateNameList = ['AK', 'AL', 'AR', 'AZ', 'CA', 'CO', 'CT', 'DC', 'DE', 'FL', 'GA', 'HI', 'IA', 'ID', 'IL', 'IN', 'KS', 'KY', 'LA', 'MA', 'MD', 'ME', 'MI', 'MN', 'MO', 'MS', 'MT', 'NC', 'ND', 'NE', 'NH', 'NJ', 'NM', 'NV', 'NY', 'OH', 'OK', 'OR', 'PA', 'RI', 'SC', 'SD', 'TN', 'TX', 'UT', 'VA', 'VT', 'WA', 'WI', 'WV', 'WY'];
 
 // default for noty alert system
 $.noty.defaults.layout = 'center';
@@ -402,86 +403,104 @@ function submitSearch() {
 		}
 							
 	} else if (searchType === 'county') {
-		// trim out the fat
-		var search_arr = search_str.split(" ");
-		var geoDesc = ["County", "County,", "City", "City,", "city", "city,", "Borough", "Borough,", "Parish", "Parish,"];
-		var countyName = "";
-		var descBin = false;
-		for (var i = 0; i < search_arr.length; i++) {
-			var a = search_arr[i].toUpperCase();
+		// strip out state if there is one
+		var countyName = search_str, stateName = '';
+		if (search_str.indexOf(',') !== -1) {
+			var csArray = search_str.split(',');
+			stateName = csArray[1].trim().toUpperCase();
+			countyName = csArray[0].trim();
+		}
+		
+		// trim out the fat; takes out anything in geoDesc
+		var geoDesc = ['county', 'city', 'borough', 'parish'];
+		for (var i = 0; i < geoDesc.length; i++) {
+			if (countyName.indexOf(geoDesc[i]) !== -1) {
+				countyName.replace(geoDesc[i], '');
+				countyName.trim();
+			}
+		}
+			
+		// check for entire phrase matches; only works if state was provided
+		if (stateName !== '') {
 			for (var j = 0; j < geoDesc.length; j++) {
-				if (a == geoDesc[j].toUpperCase()) {
-					descBin = true;
-					break;
+				var search_comb = toTitleCase(countyName + ' ' + geoDesc[j]) + ', ' + stateName;
+				if (idByName[search_comb]) {
+					executeSearchMatch(parseInt(idByName[search_comb]));
+					return;
 				}
 			}
-			if (!descBin) countyName = countyName.concat(a, " ");
 		}
-		countyName = countyName.replace(",", "");
-	
-		// check for entire phrase matches
-		var search_comb = "", full_match = false;
-		for (var j = 0; j < geoDesc.length; j++) {
-			search_comb = toTitleCase(countyName) + geoDesc[j] + " " + searchState;
-			if (idByName[search_comb]) {
-				full_match = true;
-				foundId = parseInt(idByName[search_comb]);
-				executeSearchMatch(foundId);
-				break;
-			}
-		}
-
-		if (full_match === false) {
-			// check for partial word matches
-			var pMatchArray = [];
-			for (var ind in idByName) {
-				var db_array = ind.split(', ');
-				if (db_array[1] === searchState || searchState === 'State') {
-					if (db_array[0].toLowerCase().indexOf(countyName.toLowerCase().trim()) != -1) {
-						pMatchArray.push(parseInt(idByName[ind]));
+		
+		// check for partial word matches
+		var pMatchArray = [];
+		for (var ind in idByName) {
+			var cs_array = ind.split(', ');
+			if (stateName === cs_array[1] || stateName === '') {
+				if (cs_array[0].toLowerCase().indexOf(countyName.toLowerCase()) != -1) {
+					var pObj = {fips: parseInt(idByName[ind]), cs_array: cs_array};
+					
+					// check if exact match for county name (e.g. arlington -> arlington vs. darlington)
+					for (var j = 0; j < geoDesc.length; j++) {
+						pObj.fullCountyMatch = (toTitleCase(countyName + ' ' + geoDesc[j]) === cs_array[0]);
+						if (pObj.fullCountyMatch === true) break;
 					}
+					
+					pMatchArray.push(pObj);
 				}
-			}				
-
-			if (pMatchArray.length > 1) {
-				// display all matches if more than one match
-				$('#instructionText').empty();
-					d3.select('#instructionText').append('p').text('Your search returned ' + pMatchArray.length + ' results');
-					
-				var rTable = d3.select('#instructionText').append('div').attr('id', 'multiCountyResult').attr('class', 'container-fluid').append('table')
-					.attr('class', 'table table-striped table-condensed table-hover').append('tbody');
-				var rTitleRow = rTable.append('tr');
-				var rTitleFIPS = rTitleRow.append('th').text('FIPS');
-				var rTitleCounty = rTitleRow.append('th').text('County Name');
-				var rTitleState = rTitleRow.append('th').text('State');
-					
-				for (var i = 0; i < pMatchArray.length; i++) {
-					var countyObj = countyObjectById[pMatchArray[i]];
-					var nameArr = countyObj.geography. split(', ');
-					
-					var countyRow = rTable.append('tr');
-					var FIPS_cell = countyRow.append('td')
-						.text(countyObj.id);
-					var name_cell = countyRow.append('td')
-						.classed('county_link', true)
-						.text(nameArr[0]); 
-					var state_cell = countyRow.append('td')
-						.text(nameArr[1]);
-	
-					(function(cell, fips) {
-						cell.on('click', function() { executeSearchMatch(fips); });
-					})(name_cell, pMatchArray[i]);
-				}
-				
-				$('#showOnMap').hide();
-				$('#instructions').show();
-							
-			} else if (pMatchArray.length == 1) {
-				executeSearchMatch(pMatchArray[0]); // if only one match, display county
-			} else {
-				noty({text: 'Your search did not match any counties.'});
-				document.getElementById('search_form').reset();	
 			}
+		}				
+
+		if (pMatchArray.length > 1) {
+			// if one exact match, match that
+			var numExactCountyMatch = 0, cMatchFIPS = -1;
+			for (var i = 0; i < pMatchArray.length; i++) {
+				if (pMatchArray[i].fullCountyMatch) {
+					numExactCountyMatch++;
+					cMatchFIPS = pMatchArray[i].fips;
+				}
+			}
+			if (numExactCountyMatch === 1) {
+				executeSearchMatch(cMatchFIPS);
+				return;
+			}
+						
+			// display all matches if more than one match
+			$('#instructionText').empty();
+				d3.select('#instructionText').append('p').text('Your search returned ' + pMatchArray.length + ' results');
+				
+			var rTable = d3.select('#instructionText').append('div').attr('id', 'multiCountyResult').attr('class', 'container-fluid').append('table')
+				.attr('class', 'table table-striped table-condensed table-hover').append('tbody');
+			var rTitleRow = rTable.append('tr');
+			var rTitleFIPS = rTitleRow.append('th').text('FIPS');
+			var rTitleCounty = rTitleRow.append('th').text('County Name');
+			var rTitleState = rTitleRow.append('th').text('State');
+				
+			for (var i = 0; i < pMatchArray.length; i++) {
+				var countyObj = countyObjectById[pMatchArray[i].fips];
+				var nameArr = countyObj.geography. split(', ');
+				
+				var countyRow = rTable.append('tr');
+				var FIPS_cell = countyRow.append('td')
+					.text(countyObj.id);
+				var name_cell = countyRow.append('td')
+					.classed('county_link', true)
+					.text(nameArr[0]); 
+				var state_cell = countyRow.append('td')
+					.text(nameArr[1]);
+
+				(function(cell, fips) {
+					cell.on('click', function() { executeSearchMatch(fips); });
+				})(name_cell, pMatchArray[i].fips);
+			}
+			
+			$('#showOnMap').hide();
+			$('#instructions').show();
+						
+		} else if (pMatchArray.length == 1) {
+			executeSearchMatch(pMatchArray[0].fips); // if only one match, display county
+		} else {
+			noty({text: 'Your search did not match any counties.'});
+			document.getElementById('search_form').reset();	
 		}
 		
 	} else if (searchType === 'city') {
@@ -630,7 +649,8 @@ function update(dataset, indicator) {
 			execUpdate();
  		});
  	} else {
-	  	var indicatorList = {}; // object of indicator values indexed by dataset name
+ 		// need to sort by indicator because we want to send one query per dataset needed
+	  	var indicatorList = {}; // object of indicator values and latest year values indexed by dataset name
 	  	for (var i = 0; i < indObjects.length; i++) {
 		  	var crossObject = crosswalk[indObjects[i].dataset+' - '+indObjects[i].name];
 	
@@ -651,7 +671,7 @@ function update(dataset, indicator) {
 	  		qsa.push({query_str: query_str, dataset_name: ind});
 	  	}
 
-		var gtgArray = []; // good to go for each database call
+		var gtgArray = []; // indicates whether we have received back each query request
 		for (var i = 0; i < qsa.length; i++) gtgArray.push(false);
 		
     	data = {};
@@ -661,21 +681,16 @@ function update(dataset, indicator) {
 		    	// restructure response object to object indexed by fips
 		    	var responseObj = jQuery.parseJSON(request.responseText);
 		    	
-		    	console.log(responseObj);
-		    	
 		    	for (var i = 0; i < responseObj.DATA.FIPS.length; i++) {
 		    		var fips = responseObj.DATA.FIPS[i];
 		    		if (!data.hasOwnProperty(fips)) data[fips] = {};
 		    		for (var j = 1; j < responseObj.COLUMNS.length; j++) {
-		    			var property = responseObj.COLUMNS[j]; // does not avoid duplicate property names
+		    			var property = responseObj.COLUMNS[j]; // does not avoid duplicate property names; might need to change later by renaming property "database - indicator" if an indicator
 		    			if (!data[fips].hasOwnProperty(property)) data[fips][property] = responseObj.DATA[property][i];
 		    		}
 		    		data[fips].id = fips;
 		    		data[fips].geography = data[fips].COUNTY_NAME + ', ' + data[fips].STATE;
 		    	}
-		    	
-		    	console.log(data);
-		
 		
 				quantByIds = [];
 				for (var i = 0; i < indObjects.length; i++) quantByIds.push([]);
