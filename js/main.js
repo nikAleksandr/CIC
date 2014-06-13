@@ -867,7 +867,7 @@ function populateTooltip(d) {
 			value = 'Not Available';
 		} else {
 			none_avail = false;
-			if(!isCurrency){ unit = obj.unit;}
+			if(!isCurrency && obj.hasOwnProperty('unit')){ unit = obj.unit;}
 		}
 
 		if (obj.name.indexOf('(') != -1) {
