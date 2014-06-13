@@ -844,12 +844,14 @@ function populateTooltip(d) {
 	var none_avail = true;
 	
 	var writeIndicators = function(obj, quant, secondary) {
+		var unit = '';
 		var isCurrency = obj.hasOwnProperty('unit') ? (obj.unit.indexOf("dollar") != -1) : false; // determine if indicator values are currency by checking units
 		var value = format_tt[obj.dataType](quant[d.id], isCurrency);
 		if (value === '$NaN' || value === 'NaN' || value === 'NaN%') {
 			value = 'Not Available';
 		} else {
 			none_avail = false;
+			if(!isCurrency){ unit = obj.unit;}
 		}
 
 		if (obj.name.indexOf('(') != -1) {
@@ -859,7 +861,7 @@ function populateTooltip(d) {
 		}
 		
 		row.append('td').attr('class', 'dataName').classed('leftborder', secondary).text(obj.year + ' ' + name + ':');
-		row.append('td').attr('class', 'dataNum').text(value);
+		row.append('td').attr('class', 'dataNum').text(value + " " + unit);
 		
 	};
 	
