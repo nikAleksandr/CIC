@@ -110,6 +110,12 @@ var colorlegend = function (target, scale, type, options) {
 			}
 		}
 	}
+	
+	// for binary, show yes first and no second
+	if (dataType === 'binary') {
+		colors.reverse();
+		dataValues.reverse();
+	}
     
   	var legendBoxes = legend.selectAll('g.legend')
     	.data(dataValues)

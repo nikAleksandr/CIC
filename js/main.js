@@ -16,11 +16,7 @@ $.noty.defaults.template = '<div class="noty_message"><div class="noty_text"></d
 // general formatting by data type
 var format = {
 	"percent": d3.format('.1%'),
-	"binary": function (num) {
-		if (num === 1) return "Yes";
-		else if (num === 0) return "No";
-		else return "N/A";
-	},
+	"binary": function (num) { return num; },
 	"categorical": function (num) { return num; },
 	"level": function (num, curr) {
 		var isCurrency = curr || false;
@@ -47,11 +43,7 @@ format['level_np'] = format['level'];
 // formatting for the tooltip
 var format_tt = {
 	"percent": d3.format('.1%'),
-	"binary": function (num) {
-		if (num === 1) return "Yes";
-		else if (num === 0) return "No";
-		else return "N/A";
-	},
+	"binary": function (num) { return num; },
 	"categorical": function (num) { return num; },
 	"level": function (num, curr) {
 		var isCurrency = curr || false;
@@ -117,6 +109,7 @@ var corrDomain = [], // only used for categorical data; a crosswalk for the rang
 var na_color = 'rgb(204,204,204)', // color for counties with no data
 	range = [],
 	percent_colors = ['rgb(522,204,102)', 'rgb(255,153,51)', 'rgb(49,130,189)', 'rgb(7,81,156)', 'rgb(28,53,99)'],
+	binary_colors = ['rgb(28,53,99)', 'rgb(255,153,51)'],
 	categorical_colors = ['rgb(522,204,102)', 'rgb(255,153,51)', 'rgb(49,130,189)', 'rgb(7,81,156)', 'rgb(28,53,99)'],
 	level_colors = ['rgb(255,204,102)', 'rgb(255,153,51)', 'rgb(49,130,189)', 'rgb(7,81,156)', 'rgb(28,53,99)'];
 	//percent_colors = ['rgb(189, 215, 231)','rgb(107, 174, 214)','rgb(49, 130, 189)','rgb(7, 81, 156)','rgb(28, 53, 99)']
@@ -580,28 +573,31 @@ function update(dataset, indicator) {
 		// define domain
 		if (isNumeric) {
 			var domain = [];
-			for (var ind in quantById) {
-				if (currentDataType === 'level') {
-					// for levels, we do not want "zero" to be considered during the quantile categorization
-					if (parseFloat(quantById[ind]) === 0) domain[ind] = ".";
-					else domain[ind] = quantById[ind];
-				} else {
-					domain[ind] = quantById[ind];	
-				}
+			for (var ind in quantById) {				
+				if (indObjects[0].category === 'Federal Funding' && parseFloat(quantById[ind]) === 0) quantById[ind] = '.'; // for federal funding, we do not want "zero" to be considered during the quantile categorization
+				domain[ind] = quantById[ind];	
 			}
 		} else {
-			// translating string values to numeric values
-			var numCorrVals = 0, vals = {}, corrVal = 0;
-			for (var ind in quantById) {
-				if (quantById[ind] !== '.' && quantById[ind] !== '') {
-					if (!vals.hasOwnProperty(quantById[ind])) {
-						vals[quantById[ind]] = corrVal;
-						corrVal++;
-					}
-					corrDomain[ind] = vals[quantById[ind]];
+			if (currentDataType === 'binary') {
+				for (var ind in quantById) {
+					if (quantById[ind] === 'Yes') corrDomain[ind] = 1;
+					else if (quantById[ind] === 'No') corrDomain[ind] = 0;
 				}
+				var vals = {'Yes': 1, 'No': 0};
+			} else {
+				// translating string values to numeric values
+				var numCorrVals = 0, vals = {}, corrVal = 0;
+				for (var ind in quantById) {
+					if (quantById[ind] !== '.' && quantById[ind] !== '') {
+						if (!vals.hasOwnProperty(quantById[ind])) {
+							vals[quantById[ind]] = corrVal;
+							corrVal++;
+						}
+						corrDomain[ind] = vals[quantById[ind]];
+					}
+				}
+				for (var ind in vals) numCorrVals++;
 			}
-			for (var ind in vals) numCorrVals++;
 		}
 
 		// define range i.e. color output
@@ -609,15 +605,14 @@ function update(dataset, indicator) {
 			case "percent":
 				range = percent_colors;
 				break;
-			case "categorical":
 			case "binary":
+				range = binary_colors;
+				break;
+			case "categorical":
 				// max is 5 categories
 				range = [];
 				var availColors = categorical_colors;
-				if (numCorrVals === 2) range = ['rgb(255,153,51)', 'rgb(28,53,99)'];
-				else {
-					for (var i = 0; i < numCorrVals; i++) range.push(availColors[i]);
-				}				
+				for (var i = 0; i < numCorrVals; i++) range.push(availColors[i]);
 				break;
 			default:
 				range = level_colors;
@@ -768,12 +763,13 @@ function allData(dataset, indicator){
 function getData(dataset, indicator){
 	var selectedInd = {};
 	var structure = CICstructure.children;
-	for (var i = 0; i < structure.length; i++) {
+	for (var i = 0; i < structure.length; i++) {				
 		for (var j = 0; j < structure[i].children.length; j++) {
 			if (structure[i].children[j].name === dataset) {
 				var Jdataset = structure[i].children[j];
 				
 				// dataset properties
+				selectedInd.category = structure[i].name;
 				selectedInd.dataset = Jdataset.name;
 				selectedInd.year = d3.max(Jdataset.years);
 				selectedInd.source = Jdataset.source;
@@ -784,7 +780,7 @@ function getData(dataset, indicator){
 					if (indicator === Jdataset.children[h].name) {
 						// indicator properties
 						for (var ind in Jdataset.children[h]) {
-							if (ind === 'dataType' && Jdataset.children[h][ind] === 'binary') Jdataset.children[h][ind] = 'categorical';
+							//if (ind === 'dataType' && Jdataset.children[h][ind] === 'binary') Jdataset.children[h][ind] = 'categorical'; // convert binary to categorical
 							selectedInd[ind] = Jdataset.children[h][ind];
 						}
 						selectedInd.DI = selectedInd.dataset + ' - ' + selectedInd.name;
@@ -810,7 +806,11 @@ function fillMapColors() {
 		if (isNumFun(currentDataType)) {
 			return isNaN(quantByIds[0][d.id]) ? na_color : color(quantByIds[0][d.id]);
 		} else {
-			return isNaN(corrDomain[d.id]) ? na_color : range[corrDomain[d.id]];
+			if (currentDataType === 'binary') {
+				return (corrDomain.hasOwnProperty(d.id)) ? range[corrDomain[d.id]] : na_color;	
+			} else {
+				return isNaN(corrDomain[d.id]) ? na_color : range[corrDomain[d.id]];
+			}
 		}
 	});
 }
