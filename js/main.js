@@ -466,7 +466,9 @@ function submitSearch() {
 						
 			// display all matches if more than one match
 			$('#instructionText').empty();
-				d3.select('#instructionText').append('p').text('Your search returned ' + pMatchArray.length + ' results');
+				d3.select('#instructionText').append('p')
+					.style('text-align', 'center')
+					.text('Your search returned ' + pMatchArray.length + ' results');
 				
 			var rTable = d3.select('#instructionText').append('div').attr('id', 'multiCountyResult').attr('class', 'container-fluid').append('table')
 				.attr('class', 'table table-striped table-condensed table-hover').append('tbody');
