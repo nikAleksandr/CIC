@@ -1032,6 +1032,7 @@ function redraw() {
 	width = document.getElementById('container').offsetWidth-90;
 	height = width / 2;
 	headHeight = $('#header').height();
+	d3.select('#cc').style('top', headHeight + 'px');
 	d3.select('svg').remove();
 	setup(width,height);
 	draw(topo, stateMesh);
@@ -1081,8 +1082,8 @@ function zoomMap(t, s, smooth) {
 
 function setZoomIcons() {
 	var coords = map.getBoundingClientRect();
-	d3.select('#zoomIcons').style({'left': (coords.left + 30) + 'px', 'top': headHeight + 15 + 'px'});
-	d3.select("#iconsGroup").style({'left': (coords.right - 20) + 'px', 'top': headHeight + 15 + 'px'});
+	d3.select('#zoomIcons').style({left: '30px', top: '15px'});
+	d3.select("#iconsGroup").style({right: '20px', top: '15px'});
 	
 	d3.select('#zoomPlusIcon').on('click', function() {
 		// zoom in
