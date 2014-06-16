@@ -81,7 +81,8 @@ var width = document.getElementById('container').offsetWidth-90,
 	height = width / 2,
 	windowWidth = $(window).width(),
 	windowHeight = $(window).height(),
-	headHeight = $('#header').height();
+	headHeight = $('#header').height(),
+	containerOffset = $('#container').offset();
 
 var projection = d3.geo.albersUsa()
     .scale(width)
@@ -953,10 +954,11 @@ function positionTooltip(county) {
 		tooltip.classed('hidden', false);
 		var ttWidth = $('#tt').width(); // tooltip width and height
 		var ttHeight = $('#tt').height();
+		var cc = document.getElementById('cc');
 		
-		var countyCoord = county.getBoundingClientRect();
-		var left = countyCoord.left + countyCoord.width - ttWidth + document.body.scrollLeft;
-		var top = countyCoord.top - ttHeight + document.body.scrollTop - 10;
+		var countyCoord = county.getBoundingClientRect(); // county position relative to document.body
+		var left = countyCoord.left + countyCoord.width - ttWidth - containerOffset.left + cc.scrollLeft; // left relative to map
+		var top = countyCoord.top - ttHeight - containerOffset.top + cc.scrollTop - 10; // top relative to map
 		
 		// checks if tooltip goes past window and adjust if it does
 		var dx = windowWidth - (left + ttWidth); // amount to tweak
@@ -1082,8 +1084,8 @@ function zoomMap(t, s, smooth) {
 
 function setZoomIcons() {
 	var coords = map.getBoundingClientRect();
-	d3.select('#zoomIcons').style({left: '30px', top: '15px'});
-	d3.select("#iconsGroup").style({right: '20px', top: '15px'});
+	d3.select('#zoomIcons').style({left: '65px', top: '25px'});
+	d3.select("#iconsGroup").style({right: '-60px', top: '15px'});
 	
 	d3.select('#zoomPlusIcon').on('click', function() {
 		// zoom in
