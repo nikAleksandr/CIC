@@ -731,7 +731,7 @@
        		"source": "U.S. Department of Housing and Urban Development",
      		"companions": [["American Dream Downpayment Initiative (ADDI)", "ADDI Amount"], ["American Dream Downpayment Initiative (ADDI)", "ADDI Annual Growth Rate (from previous year)"], ["Housing & Urban Development Grants", "Total HUD Amount"], ["Housing & Urban Development Grants", "HUD Annual Growth Rate (from previous year)"]],
       		"children": [
-      			{"name": "ADDI Amount", "unit": "thousands of dollars", "dataType": "level", "definition": "Funding received for the American Dream Downpayment Initiative program"},
+      			{"name": "ADDI Amount", "unit": "dollars", "dataType": "level", "definition": "Funding received for the American Dream Downpayment Initiative program"},
       			{"name": "ADDI Annual Growth Rate (from previous year)", "dataType": "percent", "definition": "Percent change in funding for the American Dream Downpayment Initiative program from the previous year"}
       		]
       	},
@@ -741,7 +741,7 @@
       		"source": "U.S. Department of Housing and Urban Development",
       		"companions": [["Community Development Block Grants (CDBG)", "CDBG Amount"], ["Community Development Block Grants (CDBG)", "CDBG Annual Growth Rate (from previous year)"], ["Housing & Urban Development Grants", "Total HUD Amount"], ["Housing & Urban Development Grants", "HUD Annual Growth Rate (from previous year)"]],
           	"children": [
-      			{"name": "CDBG Amount", "unit": "thousands of dollars", "dataType": "level", "definition": "Funding received for the Community Development Block Grants program"},
+      			{"name": "CDBG Amount", "unit": "dollars", "dataType": "level", "definition": "Funding received for the Community Development Block Grants program"},
       			{"name": "CDBG Annual Growth Rate (from previous year)", "dataType": "percent", "definition": "Percent change in funding for the Community Development Block Grants program from the previous year"}
       		]
       	},
@@ -751,7 +751,7 @@
       		"source": "U.S. Department of Housing and Urban Development",
       		"companions": [["Emergency Shelter Grants (ESG)", "ESG Amount"], ["Emergency Shelter Grants (ESG)", "ESG Annual Growth Rate (from previous year)"], ["Housing & Urban Development Grants", "Total HUD Amount"], ["Housing & Urban Development Grants", "HUD Annual Growth Rate (from previous year)"]],
           	"children": [
-      			{"name": "ESG Amount", "unit": "thousands of dollars", "dataType": "level", "definition": "Funding received for the Emergency Shelter Grants program"},
+      			{"name": "ESG Amount", "unit": "dollars", "dataType": "level", "definition": "Funding received for the Emergency Shelter Grants program"},
       			{"name": "ESG Annual Growth Rate (from previous year)", "dataType": "percent", "definition": "Percent change in funding for the Emergency Shelter Grants program from the previous year"}
       		]
       	},
@@ -761,7 +761,7 @@
       		"source": "U.S. Department of Housing and Urban Development",
       		"companions": [["HOME Investment Partnership Program", "HOME Amount"], ["HOME Investment Partnership Program", "HOME Annual Growth Rate (from previous year)"], ["Housing & Urban Development Grants", "Total HUD Amount"], ["Housing & Urban Development Grants", "HUD Annual Growth Rate (from previous year)"]],
           	"children": [
-      			{"name": "HOME Amount", "unit": "thousands of dollars", "dataType": "level", "definition": "Funding received for the HOME Investment Partnership Program"},
+      			{"name": "HOME Amount", "unit": "dollars", "dataType": "level", "definition": "Funding received for the HOME Investment Partnership Program"},
       			{"name": "HOME Annual Growth Rate (from previous year)", "dataType": "percent", "definition": "Percent change in funding for the HOME Investment Partnership Program program from the previous year"}
       		]
       	},
@@ -771,7 +771,7 @@
       		"source": "U.S. Department of Housing and Urban Development",
       		"companions": [["Housing & Urban Development Grants", "Total HUD Amount"], ["Housing & Urban Development Grants", "HUD Annual Growth Rate (from previous year)"], ["Community Development Block Grants (CDBG)", "CDBG Amount"], ["HOME Investment Partnership Program", "HOME Amount"]],
           	"children": [
-      			{"name": "Total HUD Amount", "unit": "thousands of dollars", "dataType": "level", "definition": "Funding received for the Housing & Urban Development Grants program"},
+      			{"name": "Total HUD Amount", "unit": "dollars", "dataType": "level", "definition": "Funding received for the Housing & Urban Development Grants program"},
       			{"name": "HUD Annual Growth Rate (from previous year)", "dataType": "percent", "definition": "Percent change in funding for the Housing & Urban Development Grants program from the previous year"}
      		]
       	},
@@ -781,7 +781,7 @@
       		"source": "U.S. Department of Housing and Urban Development",
       		"companions": [["Housing Opportunities for Persons with AIDS (HOPWA)", "HOPWA Amount"], ["Housing Opportunities for Persons with AIDS (HOPWA)", "HOPWA Annual Growth Rate (from previous year)"], ["Housing & Urban Development Grants", "Total HUD Amount"], ["Housing & Urban Development Grants", "HUD Annual Growth Rate (from previous year)"]],
           	"children": [
-      			{"name": "HOPWA Amount", "unit": "thousands of dollars", "dataType": "level", "definition": "Funding received for the Housing Opportunities for Persons with AIDS program"},
+      			{"name": "HOPWA Amount", "unit": "dollars", "dataType": "level", "definition": "Funding received for the Housing Opportunities for Persons with AIDS program"},
       			{"name": "HOPWA Annual Growth Rate (from previous year)", "dataType": "percent", "definition": "Percent change in funding for the Housing Opportunities for Persons with AIDS program from the previous year"}
       		]
       	},
@@ -805,7 +805,7 @@
       		"source": "U.S. Department of Agriculture",
       		"companions": [["Secure Rural Schools (SRS)", "SRS Amount"], ["USDA Rural Development", "USDA Total Amount"], ["Payment in Lieu of Taxes (PILT)", "PILT Amount"], ["Housing & Urban Development Grants", "Total HUD Amount"]],
       		"children": [
-      			{"name": "SRS Amount", "unit": "thousands of dollars", "dataType": "level", "definition": "Funding received for the Secure Rural Schools program"}
+      			{"name": "SRS Amount", "unit": "dollars", "dataType": "level", "definition": "Funding received for the Secure Rural Schools program"}
      		]      		
       	},
       	{
@@ -814,7 +814,7 @@
       		"source": "U.S. Department of Justice - Bureau of Justice Assistance",
       		"companions": [["State Criminal Alien Assistance Program (SCAAP)", "SCAAP Amount"], ["State Criminal Alien Assistance Program (SCAAP)", "SCAAP Annual Growth Rate (from previous year)"]],
       		"children": [
-      			{"name": "SCAAP Amount", "unit": "thousands of dollars", "dataType": "level", "definition": "Funding received for the State Criminal Alien Assistance Program"},
+      			{"name": "SCAAP Amount", "unit": "dollars", "dataType": "level", "definition": "Funding received for the State Criminal Alien Assistance Program"},
       			{"name": "SCAAP Annual Growth Rate (from previous year)", "dataType": "percent", "definition": "Percent change in funding for the State Criminal Alien Assistance program from the previous year"}
       		]
       	},
@@ -824,11 +824,11 @@
       		"source": "U.S. Department of Agriculture - Rural Development",
       		"companions": [["USDA Rural Development", "USDA Total Amount"], ["USDA Rural Development", "USDA Total Annual Growth Rate (from previous year)"], ["USDA Rural Development", "USDA Grant Amount"], ["USDA Rural Development", "USDA Loan Amount"]],
       		"children": [
-      			{"name": "USDA Total Amount", "unit": "thousands of dollars", "dataType": "level", "definition": "Funding received for the USDA Rural Development program"},
+      			{"name": "USDA Total Amount", "unit": "dollars", "dataType": "level", "definition": "Funding received for the USDA Rural Development program"},
       			{"name": "USDA Total Annual Growth Rate (from previous year)", "dataType": "percent", "definition": "Percent change in funding for the USDA Rural Development program from the previous year"},
-      			{"name": "USDA Grant Amount", "unit": "thousands of dollars", "dataType": "level", "definition": "Grants received for the USDA Rural Development program"},
+      			{"name": "USDA Grant Amount", "unit": "dollars", "dataType": "level", "definition": "Grants received for the USDA Rural Development program"},
       			{"name": "USDA Grant Annual Growth Rate (from previous year)", "dataType": "percent", "definition": "Percent change in grants received for the USDA Rural Development program from the previous year"},
-      			{"name": "USDA Loan Amount", "unit": "thousands of dollars", "dataType": "level", "definition": "Loans received for the USDA Rural Development program"},
+      			{"name": "USDA Loan Amount", "unit": "dollars", "dataType": "level", "definition": "Loans received for the USDA Rural Development program"},
       			{"name": "USDA Loan Annual Growth Rate (from previous year)", "dataType": "percent", "definition": "Percent change in loans received for the USDA Rural Development program from the previous year"}
       		]
       	}

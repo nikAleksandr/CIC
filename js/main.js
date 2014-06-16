@@ -681,6 +681,7 @@ function update(dataset, indicator) {
 			countyData.forEach(function(d) {			
 				for (var i = 0; i < indObjects.length; i++) {
 					quantByIds[i][d.id] = isNumFun(indObjects[i].dataType) ? parseFloat(d[indObjects[i].DI]) : d[indObjects[i].DI];
+					if (indObjects[i].hasOwnProperty('unit') && indObjects[0].unit.indexOf('thousand') !== -1) quantByIds[i][d.id] *= 1000;
 				}
 	
 				idByName[d.geography] = d.id;
