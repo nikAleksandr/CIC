@@ -364,6 +364,8 @@ h1 small {
   fill: none;
   stroke-width: .2px;
   stroke: rgb(255,255,255);
+  stroke-linejoin: round;
+  stroke-linecap: round;
 }
 .county:hover{
   stroke: rgb(255,166,1);
