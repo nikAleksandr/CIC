@@ -207,6 +207,12 @@ table th{
 	font-size: 1.1em;
 }
 
+html, body { height: 100%; }
+body {
+  position: relative;
+  overflow: hidden;
+}
+
 #header {
 	position: relative;
 	z-index: 10;
@@ -215,6 +221,20 @@ table th{
 	margin-bottom: -1em;
 	box-shadow: 0em 1em .7em 0em rgba(0, 0, 0, 0.2);
 	text-align: left;
+}
+
+#cc {
+	position: absolute;
+	top: 174px;
+	bottom: 0px;
+	width: 100%;
+	text-align: center;
+	overflow-y: auto;
+}
+
+#container {
+  position: relative;
+  height: 100%;
 }
 
 #header p {
