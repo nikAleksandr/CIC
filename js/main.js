@@ -3,7 +3,7 @@ d3.select(window).on("resize", throttle);
 
 function toTitleCase(str){ return str.replace(/\w\S*/g, function(txt){return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();}); }
 function isNumFun(data_type) { return (data_type === 'level' || data_type === 'level_np' || data_type === 'percent'); }
-function positionInstruction(){var instructionLeft = (windowWidth * .2) / 2; if(windowWidth > 1125){instructionLeft = (windowWidth - 900)/2;}; d3.select('#instructions').style("left", instructionLeft + "px");}
+function positionInstruction(){var instructionLeft = (windowWidth * .2) / 2; if(windowWidth > 1125){instructionLeft = (windowWidth - 900)/2;}; d3.select('#instructions').style("left", instructionLeft - containerOffset.left + "px");}
 var stateNameList = ['AK', 'AL', 'AR', 'AZ', 'CA', 'CO', 'CT', 'DC', 'DE', 'FL', 'GA', 'HI', 'IA', 'ID', 'IL', 'IN', 'KS', 'KY', 'LA', 'MA', 'MD', 'ME', 'MI', 'MN', 'MO', 'MS', 'MT', 'NC', 'ND', 'NE', 'NH', 'NJ', 'NM', 'NV', 'NY', 'OH', 'OK', 'OR', 'PA', 'RI', 'SC', 'SD', 'TN', 'TX', 'UT', 'VA', 'VT', 'WA', 'WI', 'WV', 'WY'];
 
 // default for noty alert system
@@ -81,7 +81,8 @@ var width = document.getElementById('container').offsetWidth-90,
 	height = width / 2,
 	windowWidth = $(window).width(),
 	windowHeight = $(window).height(),
-	headHeight = $('#header').height();
+	headHeight = $('#header').height(),
+	containerOffset = $('#container').offset();
 
 var projection = d3.geo.albersUsa()
     .scale(width)
@@ -953,10 +954,11 @@ function positionTooltip(county) {
 		tooltip.classed('hidden', false);
 		var ttWidth = $('#tt').width(); // tooltip width and height
 		var ttHeight = $('#tt').height();
+		var cc = document.getElementById('cc');
 		
-		var countyCoord = county.getBoundingClientRect();
-		var left = countyCoord.left + countyCoord.width - ttWidth + document.body.scrollLeft;
-		var top = countyCoord.top - ttHeight + document.body.scrollTop - 10;
+		var countyCoord = county.getBoundingClientRect(); // county position relative to document.body
+		var left = countyCoord.left + countyCoord.width - ttWidth - containerOffset.left + cc.scrollLeft; // left relative to map
+		var top = countyCoord.top - ttHeight - containerOffset.top + cc.scrollTop - 10; // top relative to map
 		
 		// checks if tooltip goes past window and adjust if it does
 		var dx = windowWidth - (left + ttWidth); // amount to tweak
@@ -1032,8 +1034,10 @@ function redraw() {
 	width = document.getElementById('container').offsetWidth-90;
 	height = width / 2;
 	headHeight = $('#header').height();
+	containerOffset = $('#container').offset();
 	d3.select('#cc').style('top', headHeight + 'px');
 	d3.select('svg').remove();
+	
 	setup(width,height);
 	draw(topo, stateMesh);
 	moveLegend();
@@ -1082,8 +1086,8 @@ function zoomMap(t, s, smooth) {
 
 function setZoomIcons() {
 	var coords = map.getBoundingClientRect();
-	d3.select('#zoomIcons').style({left: '30px', top: '15px'});
-	d3.select("#iconsGroup").style({right: '20px', top: '15px'});
+	d3.select('#zoomIcons').style({left: '65px', top: '25px'});
+	d3.select("#iconsGroup").style({right: '-60px', top: '15px'});
 	
 	d3.select('#zoomPlusIcon').on('click', function() {
 		// zoom in
