@@ -205,6 +205,20 @@ function draw(topo, stateMesh) {
 	county.on('mousedown', function(d, i) {
 		mdownTime = $.now();
 	});
+
+	var inTransition = false;
+	var clicked = function(d, event) {
+		highlight(d);
+		$('#instructions').hide();
+		if (d3.select('.active').empty() !== true) {
+			inTransition = true;
+			var transition = executeSearchMatch(event.target.id);
+			if (transition === false) inTransition = false;
+			else transition.each('end.bool', function() { inTransition = false; });
+		}		
+	};
+	
+	
 	if ($('html').hasClass('no-touch')) {  
 		county.on('click', function(d, i) {
 			if ($.now() - mdownTime < 300) {
@@ -215,9 +229,7 @@ function draw(topo, stateMesh) {
 				if (clickCount === 1) {
 					singleClickTimer = setTimeout(function() {
 						clickCount = 0;
-						highlight(d);
-						$('#instructions').hide();
-						if (d3.select('.active').empty() !== true) executeSearchMatch(event.target.id);
+						if (!inTransition) clicked(d, event);
 					}, 300);
 				} else if (clickCount === 2) {
 					clearTimeout(singleClickTimer);
@@ -231,10 +243,7 @@ function draw(topo, stateMesh) {
 		county.on('click', function(d, i) {
 			if ($.now() - mdownTime < 300) {
 				d3.event.stopPropagation();
-			
-				highlight(d);
-				$('#instructions').hide();
-				if (d3.select('.active').empty() !== true) executeSearchMatch(d3.event.target.id);
+				if (!inTransition) clicked(d, d3.event);
 			}
 		});
 		
@@ -537,7 +546,6 @@ function submitSearch() {
 function executeSearchMatch(FIPS) {
 	$('#instructions').hide();
 	$('#search_field').val('');
-	//$('#stateDropLi').val('State'); // doesnt work right now
 	
 	var county = countyObjectById[parseInt(FIPS)];
     if (county) {
@@ -547,9 +555,11 @@ function executeSearchMatch(FIPS) {
 		zoomTransition.each('end', function() { 
 			positionTooltip($('.active')[0]); 
 		});
+		return zoomTransition;
 	} else {
 		tooltip.classed('hidden', true);
 		//noty({text: 'No information availble for this county'});
+		return false;
 	}    
 };
 
@@ -939,24 +949,26 @@ function populateTooltip(d) {
 }
 
 function positionTooltip(county) {
-	tooltip.classed('hidden', false);
-	var ttWidth = $('#tt').width(); // tooltip width and height
-	var ttHeight = $('#tt').height();
-	
-	var countyCoord = county.getBoundingClientRect();
-	var left = countyCoord.left + countyCoord.width - ttWidth + document.body.scrollLeft;
-	var top = countyCoord.top - ttHeight + document.body.scrollTop - 10;
-	
-	// checks if tooltip goes past window and adjust if it does
-	var dx = windowWidth - (left + ttWidth); // amount to tweak
-	var dy = windowHeight - (top + ttHeight);
-			
-	if (dx < 0) left += dx;
-	if (dy < 0) top += dy;
-	
-	tooltip.transition()
-	  	.style("left", (left) + "px")
-	  	.style("top", (top) + "px");
+	if (county) {
+		tooltip.classed('hidden', false);
+		var ttWidth = $('#tt').width(); // tooltip width and height
+		var ttHeight = $('#tt').height();
+		
+		var countyCoord = county.getBoundingClientRect();
+		var left = countyCoord.left + countyCoord.width - ttWidth + document.body.scrollLeft;
+		var top = countyCoord.top - ttHeight + document.body.scrollTop - 10;
+		
+		// checks if tooltip goes past window and adjust if it does
+		var dx = windowWidth - (left + ttWidth); // amount to tweak
+		var dy = windowHeight - (top + ttHeight);
+				
+		if (dx < 0) left += dx;
+		if (dy < 0) top += dy;
+		
+		tooltip.transition()
+		  	.style("left", (left) + "px")
+		  	.style("top", (top) + "px");
+	}
 }
 
 
