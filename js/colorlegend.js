@@ -33,7 +33,7 @@ var colorlegend = function (target, scale, type, options) {
     	, w = htmlElement.offsetWidth // width of container element
     	, h = htmlElement.offsetHeight // height of container element
     	, colors = []
-    	, padding = [0, 4, 10, (w-350)/2] // top, right, bottom, left
+    	, padding = [0, 4, 10, 0] // top, right, bottom, left
     	, boxSpacing = type === 'ordinal' ? 3 : 0 // spacing between boxes
     	, titlePadding = title ? 22 : 0
     	, boxLabelHeight = 10
@@ -80,16 +80,20 @@ var colorlegend = function (target, scale, type, options) {
   	}
   
   	// set up the legend graphics context
-  	var legend = d3.select(target)
+  	var svg = d3.select(target)
 	    .append('svg')
       		.attr('width', w)
-      		.attr('height', h)
-    	.append('g')
+      		.attr('height', h);
+    var legend = svg.append('g')
       		.attr('class', 'colorlegend')
-      		.attr('transform', 'translate(' + padding[3] + ',' + padding[0] + ')')
       		.style('font-size', '.76em')
       		.style('fill', '#666');
- 
+ 	
+ 	legend.reposition = function() {
+ 		svg.attr('width', htmlElement.offsetWidth).attr('height', htmlElement.offsetHeight);
+ 		legend.attr('transform', 'translate(' + (padding[3] + htmlElement.offsetWidth/2 - boxWidth*colors.length/2) + ',' + padding[0] + ')');
+ 	};
+ 	legend.reposition();
   
   	// set up data values to be used for text in legend
   	// if numeric, assume domain is sorted small to large
@@ -126,7 +130,7 @@ var colorlegend = function (target, scale, type, options) {
       	.attr('width', boxWidth)
       	.attr('height', boxHeight)
       	.attr('x', function (d, i) {
-	      	return i * (boxWidth + boxSpacing) + boxWidth / 2;
+	      	return i * (boxWidth + boxSpacing);
       	})
       	.attr('y', boxLabelHeight)
       	.style('fill', function (d, i) { return colors[i]; })
@@ -137,7 +141,7 @@ var colorlegend = function (target, scale, type, options) {
 	    legendBoxes.append('text')
 	    	.attr('class', 'colorlegend-boxlabels')
 	    	.attr('x', function (d, i) {
-	    		return i * (boxWidth + boxSpacing) + boxWidth;
+	    		return i * (boxWidth + boxSpacing) + boxWidth/2;
 	    	})
 	    	.attr('y', boxLabelHeight + 13)
 	    	.style('text-anchor', 'middle')
@@ -157,7 +161,7 @@ var colorlegend = function (target, scale, type, options) {
     	.attr('class', 'colorlegend-labels')
       	.attr('dy', '.71em')
       	.attr('x', function (d, i) {
-	        var leftAlignX = i * (boxWidth + boxSpacing) + (type !== 'ordinal' ? (boxWidth / 2) : 0);
+	        var leftAlignX = i * (boxWidth + boxSpacing);
     	    return isNumeric ? leftAlignX : (leftAlignX + boxWidth / 2);
       	})
       	.attr('y', boxLabelHeight + boxHeight + 4)
@@ -175,7 +179,7 @@ var colorlegend = function (target, scale, type, options) {
   	if (title) {
 	    legend.append('text')
         	.attr('class', 'colorlegend-title')
-        	.attr('x', (colors.length * (boxWidth / 2) + boxWidth / 2))
+        	.attr('x', (colors.length * (boxWidth / 2)))
         	.attr('y', boxLabelHeight + boxHeight + titlePadding)
         	.attr('dy', '.71em')
         	.style('text-anchor', 'middle')
@@ -183,5 +187,5 @@ var colorlegend = function (target, scale, type, options) {
         	.text(title);
   	}
     
-  	return this;
+  	return legend;
 };

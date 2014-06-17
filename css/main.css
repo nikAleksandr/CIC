@@ -290,21 +290,15 @@ h1 small {
 
 #searchContainer{
 	font-size: .8em;
-	padding-right: 2.5em;
-	background-color:rgb(0, 173, 220);
+	padding-right: 0px;
 }
-#searchContainer li:not(#moreData){
-	background-color:#fff;
-	margin-bottom:-8px;
-	padding-bottom:8px;
-}
-#searchBox{
-	margin-top:-4px;
-}
+#searchTypeLi { margin-top: 2px; }
+
 #map {
 	/*position: relative;*/
 	z-index:-10;
 }
+#moreData { background-color:rgb(0, 173, 220); }
 #moreDataButton{
 	font-size:1.2em;
 	color:#fff;
@@ -314,6 +308,7 @@ h1 small {
 	height:30px;
 	width:30px;
 	margin-left:5px;
+	margin-right: 2em;
 }
 #moreDataButton:hover{
 	color:rgb(255,204,102);
