@@ -3,7 +3,7 @@ d3.select(window).on("resize", throttle);
 
 function toTitleCase(str){ return str.replace(/\w\S*/g, function(txt){return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();}); }
 function isNumFun(data_type) { return (data_type === 'level' || data_type === 'level_np' || data_type === 'percent'); }
-function positionInstruction(){var instructionLeft = (windowWidth * .2) / 2; if(windowWidth > 1125){instructionLeft = (windowWidth - 900)/2;}; d3.select('#instructions').style("left", instructionLeft + "px");}
+function positionInstruction(){var instructionLeft = (windowWidth * .2) / 2; if(windowWidth > 1125){instructionLeft = (windowWidth - 900)/2;}; d3.select('#instructions').style("left", instructionLeft - containerOffset.left + "px");}
 var stateNameList = ['AK', 'AL', 'AR', 'AZ', 'CA', 'CO', 'CT', 'DC', 'DE', 'FL', 'GA', 'HI', 'IA', 'ID', 'IL', 'IN', 'KS', 'KY', 'LA', 'MA', 'MD', 'ME', 'MI', 'MN', 'MO', 'MS', 'MT', 'NC', 'ND', 'NE', 'NH', 'NJ', 'NM', 'NV', 'NY', 'OH', 'OK', 'OR', 'PA', 'RI', 'SC', 'SD', 'TN', 'TX', 'UT', 'VA', 'VT', 'WA', 'WI', 'WV', 'WY'];
 
 // default for noty alert system
@@ -73,15 +73,13 @@ var localVersion = true;
 
 var zoom = d3.behavior.zoom()
     .scaleExtent([1, 10])
-    .on("zoomstart", moveStart)
-    .on("zoom", move)
-    .on("zoomend", moveEnd);
+    .on("zoom", move);
 
 var width = document.getElementById('container').offsetWidth-90,
 	height = width / 2,
 	windowWidth = $(window).width(),
 	windowHeight = $(window).height(),
-	headHeight = $('#header').height();
+	containerOffset = $('#container').offset(); // position of container relative to document.body
 
 var projection = d3.geo.albersUsa()
     .scale(width)
@@ -94,7 +92,7 @@ var tipContainer = d3.select('#tipContainer');
 
 var CICstructure,
 	data, // all county data
-	legend,
+	legend, // the color legend
 	selected, // county path that has been selected
 	currentDataType = '', // current datatype showing
 	currentDI = '', // current dataset/indicator showing
@@ -103,12 +101,13 @@ var CICstructure,
 	searchState = 'State';
 		
 var corrDomain = [], // only used for categorical data; a crosswalk for the range between text and numbers
-	quantByIds = [], s_quantByIds = [], indObjects = {}, s_indObjects = {},
-	idByName = {},
-	countyObjectById = {},
-	countyPathById = {};
+	quantByIds = [], s_quantByIds = [], // for primary and secondary indicators, array of 2-4 objects (primary and companions) with data values indexed by FIPS 
+	indObjects = [], s_indObjects = [], // for primary and secondary indicators, array of 2-4 objects (primary and companions) with indicator properties (category, dataset, definition, year, etc.)
+	idByName = {}, // object of FIPS values indexed by "County, State"
+	countyObjectById = {}, // object of data values and name indexed by FIPS
+	countyPathById = {}; // svg of county on the map indexed by FIPS
 
-var range = [],
+var range = [], // array of colors used for coloring the map
 	na_color = 'rgb(204,204,204)', // color for counties with no data
 	percent_colors = ['rgb(522,204,102)', 'rgb(255,153,51)', 'rgb(49,130,189)', 'rgb(7,81,156)', 'rgb(28,53,99)'],
 	binary_colors = ['rgb(28,53,99)', 'rgb(255,153,51)'],
@@ -122,9 +121,7 @@ var	color = d3.scale.quantile(); // quantile scale
 var frmrS, frmrT; // keep track of current translate and scale values
 
 function setup(width, height) {
-	projection = d3.geo.albersUsa()
-    .translate([0, 0])
-    .scale(width *1.0);
+	projection = d3.geo.albersUsa().translate([0, 0]).scale(width * 1.0);
     
 	path = d3.geo.path().projection(projection);
 	svg = d3.select("#map").insert("svg", "div")
@@ -201,7 +198,6 @@ function draw(topo, stateMesh) {
 
 	// for click and double-click events; for touch devices, use click and double-tap 
 	var mdownTime = -1;
-	var clickCount = 0;
 	county.on('mousedown', function(d, i) {
 		mdownTime = $.now();
 	});
@@ -219,21 +215,25 @@ function draw(topo, stateMesh) {
 	};
 	
 	
-	if ($('html').hasClass('no-touch')) {  
+	if ($('html').hasClass('no-touch')) {
+		county.each(function(d, i) {
+			d.clickCount = 0;
+		});
+				
 		county.on('click', function(d, i) {
 			if ($.now() - mdownTime < 300) {
 				d3.event.stopPropagation();
 				var event = d3.event;
 			
-				clickCount++;
-				if (clickCount === 1) {
+				d.clickCount++;
+				if (d.clickCount === 1) {
 					singleClickTimer = setTimeout(function() {
-						clickCount = 0;
+						d.clickCount = 0;
 						if (!inTransition) clicked(d, event);
 					}, 300);
-				} else if (clickCount === 2) {
+				} else if (d.clickCount === 2) {
 					clearTimeout(singleClickTimer);
-					clickCount = 0;
+					d.clickCount = 0;
 					highlight(d);
 					doubleClicked(d.id);
 				}
@@ -270,21 +270,21 @@ function resetAll() {
 	d3.select('#secondIndText').html('Secondary Indicator' + '<span class="sub-arrow"></span>');
 }
 
-var rrssbHidden=true;
-function showHideRrssb(){
+var rrssbHidden = true;
+function showHideRrssb() {
 	var rrssbContainer = d3.select('#rrssbContainer');
 	var placement = (windowWidth - width)/2;
-	if(rrssbHidden){
+	if (rrssbHidden) {
 		d3.select('.rrssb-buttons').style('display', 'block');
-		rrssbContainer.transition().duration(500).style('right', placement + "px");
+		rrssbContainer.transition().duration(500).style('right', "50px");
 		rrssbHidden = false;
+	} else {
+		var moveTransition = rrssbContainer.transition().duration(500).style('right', '-200px');
+		moveTransition.each('end', function() {
+			d3.select('.rrssb-buttons').style('display', 'none');
+		});
+		rrssbHidden = true;
 	}
-	else{
-		rrssbContainer.transition().duration(500).style('right', '-200px');
-		d3.select('.rrssb-buttons').style('display', 'none');
-		rrssbHidden=true;
-	}
-	
 }
 var moreDataContent = '<div id="moreDataContent" class="container-fluid"><div class="row"><div class="col-md-5"><h3><a href="#">Full Interactive Map</a></h3><a href="#"><img src="img/CICFullThumb.png"/></a></div><div class="col-md-7"><p>Access more datasets and indicators for display on the interactive map.<br/><br/>Login free to COIN <a href="#">here</a> to access</p></div></div><div class="row"><div class="col-md-5"><h3><a href="#">CIC Extraction Tool</a></h3><a href="#"><img src="img/CICExtractionThumb.png"/></a></div><div class="col-md-7"><p>Full access to all 18 categories, 66 datasets, and 889 indicators.<br/><br/>Customizable data downloads available <a href="#">here</a></p></div></div></div>';
 var moreDataHidden = true;
@@ -507,7 +507,7 @@ function submitSearch() {
 				
 			for (var i = 0; i < pMatchArray.length; i++) {
 				var countyObj = countyObjectById[pMatchArray[i].fips];
-				var nameArr = countyObj.geography. split(', ');
+				var nameArr = countyObj.geography.split(', ');
 				
 				var countyRow = rTable.append('tr');
 				var FIPS_cell = countyRow.append('td')
@@ -655,15 +655,17 @@ function update(dataset, indicator) {
 		else color.domain(corrDomain).range(range);
 
 		fillMapColors(); // fill in map colors
-		isNumeric ? createLegend() : createLegend(vals); // create the legend; note: vals is a correspondence array linking strings with numbers for categorical dataTypes
+		legend = isNumeric ? createLegend() : createLegend(vals); // create the legend; note: vals is a correspondence array linking strings with numbers for categorical dataTypes
 		
 		// list source
-		d3.select("#additionalInfo").selectAll("p").remove();
-		var sourceContainer = d3.select('#additionalInfo').append('p').attr("id", "sourceText")
+		d3.select("#sourceContainer").selectAll("p").remove();
+		d3.select('#sourceContainer').append('p').attr("id", "sourceText")
 			.html('<i>Source</i>: ' + indObjects[0].source + ', ' + indObjects[0].year);
 		
 		// list definitions
-		var defContainer = d3.select("#additionalInfo").append("p").attr("id", "definitionsText");
+		d3.select("#definitionsContainer").selectAll("p").remove();
+		var defContainer = d3.select("#definitionsContainer").append("p").attr("id", "definitionsText");
+		defContainer.append('div').html('<i>Definitions</i>:');
 		for (var i = 0; i < indObjects.length; i++) {
 			defContainer.append('div')
 				.html('<b>' + indObjects[i].name + '</b>: ' + indObjects[i].definition);
@@ -680,6 +682,7 @@ function update(dataset, indicator) {
 			countyData.forEach(function(d) {			
 				for (var i = 0; i < indObjects.length; i++) {
 					quantByIds[i][d.id] = isNumFun(indObjects[i].dataType) ? parseFloat(d[indObjects[i].DI]) : d[indObjects[i].DI];
+					if (indObjects[i].hasOwnProperty('unit') && indObjects[0].unit.indexOf('thousand') !== -1) quantByIds[i][d.id] *= 1000;
 				}
 	
 				idByName[d.geography] = d.id;
@@ -884,16 +887,10 @@ function createLegend(keyArray) {
 		if (keyArray) options.keyArray = keyArray;
 		
 		d3.select(".legend").append("div").attr("id", "legendTitle").text(legendTitle);
-		legend = colorlegend("#quantileLegend", color, "quantile", options);
-	}
+		return colorlegend("#quantileLegend", color, "quantile", options);
+	} else return false;
 }
-function moveLegend(){
-	var parentWidth = $('#quantileLegend').width();
-		if(parentWidth<350){
-			parentWidth=350;
-		}
-	d3.select('.colorlegend').attr('transform', 'translate(' + (parentWidth-350)/2 + ',' + 0 + ')');
-}
+
 function populateTooltip(d) {
 	$('#tipContainer').empty();
     tipContainer.append('div')
@@ -908,8 +905,7 @@ function populateTooltip(d) {
 	var none_avail = true;
 	
 	var writeIndicators = function(obj, quant, secondary) {
-		var unit = '';
-		var type = '';
+		var unit = '', type = '';
 		if (obj.hasOwnProperty('unit')) {
 			if (obj.unit.indexOf("dollar") != -1) type = 'currency';
 			else if (obj.unit.indexOf('person') != -1 || obj.unit.indexOf('people') != -1 || obj.unit.indexOf('employee') != -1) type = 'persons';	
@@ -920,18 +916,13 @@ function populateTooltip(d) {
 		} else {
 			none_avail = false;
 			if (type !== 'currency' && obj.hasOwnProperty('unit')) unit = obj.unit;
-			if (parseFloat(value) === 1 && unit.charAt(unit.length - 1) === 's') unit = unit.substr(0, unit.length - 1);
+			if (parseFloat(value) === 1 && unit.charAt(unit.length - 1) === 's') unit = unit.substr(0, unit.length - 1); // "1 employee"
 		}
-
-		if (obj.name.indexOf('(') != -1) {
-			var name = obj.name.substring(0, obj.name.indexOf('('));
-		} else {
-			var name = obj.name;
-		}
+		
+		var name = (obj.name.indexOf('(') != -1) ? obj.name.substring(0, obj.name.indexOf('(')) : obj.name; // cut off before parenthesis if there is one
 		
 		row.append('td').attr('class', 'dataName').classed('leftborder', secondary).text(obj.year + ' ' + name + ':');
-		row.append('td').attr('class', 'dataNum').text(value + " " + unit);
-		
+		row.append('td').attr('class', 'dataNum').text(value + " " + unit);		
 	};
 	
 	for (var i = 0; i < indObjects.length; i++) {
@@ -953,10 +944,11 @@ function positionTooltip(county) {
 		tooltip.classed('hidden', false);
 		var ttWidth = $('#tt').width(); // tooltip width and height
 		var ttHeight = $('#tt').height();
+		var cc = document.getElementById('cc');
 		
-		var countyCoord = county.getBoundingClientRect();
-		var left = countyCoord.left + countyCoord.width - ttWidth + document.body.scrollLeft;
-		var top = countyCoord.top - ttHeight + document.body.scrollTop - 10;
+		var countyCoord = county.getBoundingClientRect(); // county position relative to document.body
+		var left = countyCoord.left + countyCoord.width - ttWidth - containerOffset.left + cc.scrollLeft; // left relative to map
+		var top = countyCoord.top - ttHeight - containerOffset.top + cc.scrollTop - 10; // top relative to map
 		
 		// checks if tooltip goes past window and adjust if it does
 		var dx = windowWidth - (left + ttWidth); // amount to tweak
@@ -1031,16 +1023,16 @@ function redraw() {
 	windowWidth = $(window).width();
 	width = document.getElementById('container').offsetWidth-90;
 	height = width / 2;
-	headHeight = $('#header').height();
-	d3.select('#cc').style('top', headHeight + 'px');
+	containerOffset = $('#container').offset();
+	d3.select('#cc').style('top', containerOffset.top + 'px');
 	d3.select('svg').remove();
+	
 	setup(width,height);
 	draw(topo, stateMesh);
-	moveLegend();
+	if (typeof legend !== 'undefined' && legend !== false) legend.reposition();
 	fillMapColors();
 }
 
-function moveStart() {}
 function move() {	
   	tooltip.classed("hidden", true); // hides on zoom or pan	
 	
@@ -1061,9 +1053,6 @@ function move() {
   	var zoomSmoothly = !(s === frmrS); // dont do smoothly if panning
 	zoomMap(t, s, zoomSmoothly);
 }
-function moveEnd() {
-	//if (d3.select('.active').empty() !== true) positionTooltip(document.getElementsByClassName('active')[0]);
-}
 
 function zoomMap(t, s, smooth) {
 	if (typeof smooth === 'undefined') var smooth = true;
@@ -1082,8 +1071,8 @@ function zoomMap(t, s, smooth) {
 
 function setZoomIcons() {
 	var coords = map.getBoundingClientRect();
-	d3.select('#zoomIcons').style({left: '30px', top: '15px'});
-	d3.select("#iconsGroup").style({right: '20px', top: '15px'});
+	d3.select('#zoomIcons').style({left: '65px', top: '25px'});
+	d3.select("#iconsGroup").style({right: '-60px', top: '15px'});
 	
 	d3.select('#zoomPlusIcon').on('click', function() {
 		// zoom in
@@ -1154,9 +1143,7 @@ function exportSVG(){
 
 function throttle() {
   window.clearTimeout(throttleTimer);
-    throttleTimer = window.setTimeout(function() {
-      redraw();
-    }, 200);
+    throttleTimer = window.setTimeout(redraw, 200);
 }
 
 setup(width,height);
@@ -1177,12 +1164,12 @@ d3.json("us.json", function(error, us) {
 	    CICstructure = CICStructure;
 	    
 	    if (localVersion) {
-	    	setBehaviors();
-	    	
-	    	update('Population Levels and Trends', 'Population Level');	    	
+	    	setBehaviors();	    	
+	    	update('Population Levels and Trends', 'Population Level'); // fill in map colors for default indicator now that everything is loaded 	
 	    } else {  
 	    	// load crosswalk
 	    	d3.tsv('data/database_crosswalk.tsv', function(error, data_array) {
+	    		// set up crosswalk object; indexed by front-end "Dataset - Indicator" field names, filled with database names
 		      	crosswalk = {};
 	      		for (var i = 0; i < data_array.length; i++) {
 			        if (data_array[i].indicator !== '') {
@@ -1191,10 +1178,8 @@ d3.json("us.json", function(error, us) {
 	        		}
 	      		}
 	      		
-	      		setBehaviors();   
-	    
-	      		// fill in map colors for default indicator now that everything is loaded
-	      		update("Administration Expenditures", "Total"); 
+	      		setBehaviors();
+	      		update("Administration Expenditures", "Total"); // fill in map colors for default indicator now that everything is loaded
 	    	});
 	    }
   	});
