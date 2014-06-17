@@ -198,7 +198,6 @@ function draw(topo, stateMesh) {
 
 	// for click and double-click events; for touch devices, use click and double-tap 
 	var mdownTime = -1;
-	var clickCount = 0;
 	county.on('mousedown', function(d, i) {
 		mdownTime = $.now();
 	});
@@ -216,21 +215,25 @@ function draw(topo, stateMesh) {
 	};
 	
 	
-	if ($('html').hasClass('no-touch')) {  
+	if ($('html').hasClass('no-touch')) {
+		county.each(function(d, i) {
+			d.clickCount = 0;
+		});
+				
 		county.on('click', function(d, i) {
 			if ($.now() - mdownTime < 300) {
 				d3.event.stopPropagation();
 				var event = d3.event;
 			
-				clickCount++;
-				if (clickCount === 1) {
+				d.clickCount++;
+				if (d.clickCount === 1) {
 					singleClickTimer = setTimeout(function() {
-						clickCount = 0;
+						d.clickCount = 0;
 						if (!inTransition) clicked(d, event);
 					}, 300);
-				} else if (clickCount === 2) {
+				} else if (d.clickCount === 2) {
 					clearTimeout(singleClickTimer);
-					clickCount = 0;
+					d.clickCount = 0;
 					highlight(d);
 					doubleClicked(d.id);
 				}
@@ -655,12 +658,14 @@ function update(dataset, indicator) {
 		isNumeric ? createLegend() : createLegend(vals); // create the legend; note: vals is a correspondence array linking strings with numbers for categorical dataTypes
 		
 		// list source
-		d3.select("#additionalInfo").selectAll("p").remove();
-		var sourceContainer = d3.select('#additionalInfo').append('p').attr("id", "sourceText")
+		d3.select("#sourceContainer").selectAll("p").remove();
+		d3.select('#sourceContainer').append('p').attr("id", "sourceText")
 			.html('<i>Source</i>: ' + indObjects[0].source + ', ' + indObjects[0].year);
 		
 		// list definitions
-		var defContainer = d3.select("#additionalInfo").append("p").attr("id", "definitionsText");
+		d3.select("#definitionsContainer").selectAll("p").remove();
+		var defContainer = d3.select("#definitionsContainer").append("p").attr("id", "definitionsText");
+		defContainer.append('div').html('<i>Definitions</i>:');
 		for (var i = 0; i < indObjects.length; i++) {
 			defContainer.append('div')
 				.html('<b>' + indObjects[i].name + '</b>: ' + indObjects[i].definition);
