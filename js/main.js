@@ -92,7 +92,7 @@ var tipContainer = d3.select('#tipContainer');
 
 var CICstructure,
 	data, // all county data
-	legend,
+	legend, // the color legend
 	selected, // county path that has been selected
 	currentDataType = '', // current datatype showing
 	currentDI = '', // current dataset/indicator showing
@@ -655,7 +655,7 @@ function update(dataset, indicator) {
 		else color.domain(corrDomain).range(range);
 
 		fillMapColors(); // fill in map colors
-		isNumeric ? createLegend() : createLegend(vals); // create the legend; note: vals is a correspondence array linking strings with numbers for categorical dataTypes
+		legend = isNumeric ? createLegend() : createLegend(vals); // create the legend; note: vals is a correspondence array linking strings with numbers for categorical dataTypes
 		
 		// list source
 		d3.select("#sourceContainer").selectAll("p").remove();
@@ -887,16 +887,10 @@ function createLegend(keyArray) {
 		if (keyArray) options.keyArray = keyArray;
 		
 		d3.select(".legend").append("div").attr("id", "legendTitle").text(legendTitle);
-		legend = colorlegend("#quantileLegend", color, "quantile", options);
-	}
+		return colorlegend("#quantileLegend", color, "quantile", options);
+	} else return false;
 }
-function moveLegend(){
-	var parentWidth = $('#quantileLegend').width();
-		if(parentWidth<350){
-			parentWidth=350;
-		}
-	d3.select('.colorlegend').attr('transform', 'translate(' + (parentWidth-350)/2 + ',' + 0 + ')');
-}
+
 function populateTooltip(d) {
 	$('#tipContainer').empty();
     tipContainer.append('div')
@@ -1035,7 +1029,7 @@ function redraw() {
 	
 	setup(width,height);
 	draw(topo, stateMesh);
-	moveLegend();
+	if (typeof legend !== 'undefined' && legend !== false) legend.reposition();
 	fillMapColors();
 }
 
