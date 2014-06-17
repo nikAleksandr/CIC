@@ -347,12 +347,13 @@ h1 small {
 	line-height:1em;
 }
 
-#additionalInfo, #notes {
+#sourceContainer, #definitionsContainer, #notesContainer {
 	text-align: left;
 	font-size: .85em;
+	margin-top: 5px;
 }
-#additionalInfo { margin-top: 10px; }
-#notes{ padding-bottom: 30px;}
+#sourceContainer { margin-top: 20px; }
+#notesContainer { padding-bottom: 30px; }
 /*
  * Map and SVG CSS
  */
