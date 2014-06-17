@@ -270,21 +270,21 @@ function resetAll() {
 	d3.select('#secondIndText').html('Secondary Indicator' + '<span class="sub-arrow"></span>');
 }
 
-var rrssbHidden=true;
-function showHideRrssb(){
+var rrssbHidden = true;
+function showHideRrssb() {
 	var rrssbContainer = d3.select('#rrssbContainer');
 	var placement = (windowWidth - width)/2;
-	if(rrssbHidden){
+	if (rrssbHidden) {
 		d3.select('.rrssb-buttons').style('display', 'block');
-		rrssbContainer.transition().duration(500).style('right', placement + "px");
+		rrssbContainer.transition().duration(500).style('right', "50px");
 		rrssbHidden = false;
+	} else {
+		var moveTransition = rrssbContainer.transition().duration(500).style('right', '-200px');
+		moveTransition.each('end', function() {
+			d3.select('.rrssb-buttons').style('display', 'none');
+		});
+		rrssbHidden = true;
 	}
-	else{
-		rrssbContainer.transition().duration(500).style('right', '-200px');
-		d3.select('.rrssb-buttons').style('display', 'none');
-		rrssbHidden=true;
-	}
-	
 }
 var moreDataContent = '<div id="moreDataContent" class="container-fluid"><div class="row"><div class="col-md-5"><h3><a href="#">Full Interactive Map</a></h3><a href="#"><img src="img/CICFullThumb.png"/></a></div><div class="col-md-7"><p>Access more datasets and indicators for display on the interactive map.<br/><br/>Login free to COIN <a href="#">here</a> to access</p></div></div><div class="row"><div class="col-md-5"><h3><a href="#">CIC Extraction Tool</a></h3><a href="#"><img src="img/CICExtractionThumb.png"/></a></div><div class="col-md-7"><p>Full access to all 18 categories, 66 datasets, and 889 indicators.<br/><br/>Customizable data downloads available <a href="#">here</a></p></div></div></div>';
 var moreDataHidden = true;
