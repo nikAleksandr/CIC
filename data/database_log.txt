@@ -33,3 +33,240 @@ DATASETS THAT COULD HAVE SHARES INDICATORS ADDED:
 	- Airports
 	- Nursing Homes
 	- Hospitals
+
+
+
+DATABASE MISCONNECTIONS (6.17.2014):
+zero data: County Profile - Year Founded main.js:1197
+zero data: County Profile - Board Size main.js:1197
+zero data: Government Structure - Size of Board main.js:1197
+zero data: County Profile - County Seat main.js:1197
+zero data: Government Structure - Elected Executive main.js:1197
+zero data: Government Structure - County Administrator main.js:1197
+zero data: Government Structure - Total Elected Officials main.js:1197
+zero data: Government Structure - Number of Other Elected Officials main.js:1197
+zero data: Land & Water Area - Total Square Miles main.js:1197
+zero data: Land & Water Area - Total Land Square Miles main.js:1197
+zero data: Land & Water Area - Total Water Square Miles main.js:1197
+zero data: Land & Water Area - Coastal Status main.js:1197
+zero data: Land & Water Area - Body of Water main.js:1197
+zero data: County Profile - County Square Mileage main.js:1197
+zero data: County Profile - Census Region main.js:1197
+zero data: County Profile - State Capitol main.js:1197
+zero data: County Profile - CBSA Code main.js:1197
+zero data: Metro-Micro Areas (MSA) - CBSA Code main.js:1197
+zero data: County Profile - CBSA Title main.js:1197
+zero data: Metro-Micro Areas (MSA) - CBSA Title main.js:1197
+zero data: Metro-Micro Areas (MSA) - Level of CBSA main.js:1197
+zero data: Metro-Micro Areas (MSA) - CSA Code main.js:1197
+zero data: Metro-Micro Areas (MSA) - CSA Title main.js:1197
+zero data: Metro-Micro Areas (MSA) - County Status main.js:1197
+no response: Annual Financial Report - Expenses - Total Expenditures main.js:1201
+no response: Annual Financial Report - Expenses - General Government main.js:1201
+no response: Annual Financial Report - Expenses - Public Works, Buildings & Transportation main.js:1201
+no response: Annual Financial Report - Expenses - Public Safety & Court Related main.js:1201
+no response: Annual Financial Report - Expenses - Health & Human Services main.js:1201
+no response: Annual Financial Report - Expenses - Education, Culture & Recreation main.js:1201
+no response: Annual Financial Report - Expenses - Intergovernmental main.js:1201
+no response: Annual Financial Report - Expenses - Environmental Protection/Natural Resources main.js:1201
+no response: Annual Financial Report - Expenses - Community & Economic Development main.js:1201
+no response: Annual Financial Report - Expenses - Total Debt main.js:1201
+no response: Annual Financial Report - Expenses - Capital Projects main.js:1201
+no response: Annual Financial Report - Expenses - Other main.js:1201
+no response: Annual Financial Report - Revenue - Total Revenue main.js:1201
+no response: Annual Financial Report - Revenue - Total Taxes main.js:1201
+no response: Annual Financial Report - Revenue - Licenses and Permits main.js:1201
+no response: Annual Financial Report - Revenue - Fines, Fees & Forfeits main.js:1201
+no response: Annual Financial Report - Revenue - Intergovernmental main.js:1201
+no response: Annual Financial Report - Revenue - Use of Money & Property main.js:1201
+no response: Annual Financial Report - Revenue - Investment Earnings main.js:1201
+no response: Annual Financial Report - Revenue - Charges for Services main.js:1201
+no response: Annual Financial Report - Revenue - Other main.js:1201
+no response: Financial Expenditures - Total main.js:1201
+no response: Financial Expenditures - Total Financial main.js:1201
+no response: Financial Expenditures - Insurance Trust - Employee Retirement main.js:1201
+no response: Financial Expenditures - Insurance Trust - Unemployment main.js:1201
+no response: Financial Expenditures - Interest on General Debt main.js:1201
+no response: Intergovernmental Revenue - Total main.js:1201
+no response: Intergovernmental Revenue - Total Intergovernmental main.js:1201
+no response: Intergovernmental Revenue - From Federal Government main.js:1201
+no response: Intergovernmental Revenue - From Local Government main.js:1201
+no response: Intergovernmental Revenue - From State Government main.js:1201
+no response: Other Expenditures - Total main.js:1201
+no response: Other Expenditures - Total Other main.js:1201
+no response: Other Expenditures - Misc. Commercial Activities main.js:1201
+no response: Other Expenditures - Other & Unallocable main.js:1201
+no response: Other Expenditures - General Public Buildings main.js:1201
+no response: Tax Revenue - Total main.js:1201
+no response: Tax Revenue - Total Taxes main.js:1201
+no response: Tax Revenue - Income Taxes main.js:1201
+no response: Tax Revenue - License Taxes main.js:1201
+no response: Tax Revenue - Other Taxes main.js:1201
+no response: Tax Revenue - Property Taxes main.js:1201
+no response: Tax Revenue - Sales & Gross Receipts Taxes main.js:1201
+no response: Population by Age/Gender - Total Population Level main.js:1201
+no response: Population by Age/Gender - Male Population main.js:1201
+no response: Population by Age/Gender - Percent Male main.js:1201
+no response: Population by Age/Gender - Female Population main.js:1201
+no response: Population by Age/Gender - Percent Female main.js:1201
+no response: Population by Age/Gender - Under 5 years old Population main.js:1201
+no response: Population by Age/Gender - Percent Under 5 years old main.js:1201
+no response: Population by Age/Gender - 25-64 years old Population main.js:1201
+no response: Population by Age/Gender - Percent 25-64 years old main.js:1201
+no response: Population by Age/Gender - 65 years and older Population main.js:1201
+no response: Population by Age/Gender - Percent 65 years and older main.js:1201
+no response: Population Change Components - Population Level main.js:1201
+no response: Population Change Components - Change in Population (from previous year) main.js:1201
+no response: Population Change Components - Births main.js:1201
+no response: Population Change Components - Deaths main.js:1201
+no response: Population Change Components - Natural Population Increase main.js:1201
+no response: Population Change Components - International Migration main.js:1201
+no response: Population Change Components - Domestic Migration main.js:1201
+no response: Population Change Components - Net Migration main.js:1201
+no response: Population Change Components - Birth Rate main.js:1201
+no response: Population Change Components - Death Rate main.js:1201
+no response: Population Change Components - Natural Population Increase Rate main.js:1201
+no response: Population Change Components - International Migration Rate main.js:1201
+no response: Population Change Components - Domestic Migration Rate main.js:1201
+no response: Population Change Components - Net Migration Rate main.js:1201
+no response: Population Density - Population Level main.js:1201
+no response: Population Density - Population Density main.js:1201
+no response: Population Density - Population Density Growth Rate (from previous year) main.js:1201
+no response: Population Density - Total Land Area main.js:1201
+no response: Population Density - Total Federal Land Area main.js:1201
+no response: Population Density - Inhabitable Land Area main.js:1201
+no response: Population by Ethnicity - Total Population main.js:1201
+no response: Population by Ethnicity - White Population main.js:1201
+no response: Population by Ethnicity - Black or African American Population main.js:1201
+no response: Population by Ethnicity - American Indian and Alaskan Native Population main.js:1201
+no response: Population by Ethnicity - Asian Population main.js:1201
+no response: Population by Ethnicity - Native Hawaiian and Other Pacific Islander Population main.js:1201
+no response: Population by Ethnicity - Two or More Races Population main.js:1201
+no response: Population by Ethnicity - Hispanic or Latino Origin Population main.js:1201
+no response: Population Levels and Trends - Population Level main.js:1201
+no response: Population Levels and Trends - Population Annual Growth Rate (from previous year) main.js:1201
+no response: Colleges & Universities - Number of Institutions main.js:1201
+no response: Colleges & Universities - Number of Public Institutions main.js:1201
+no response: Colleges & Universities - Number of less than 4 year Institutions main.js:1201
+no response: Colleges & Universities - Number of 4 year or Higher Institutions main.js:1201
+no response: Colleges & Universities - Total Enrollment main.js:1201
+no response: Colleges & Universities - Male Enrollment main.js:1201
+no response: Colleges & Universities - Female Enrollment main.js:1201
+no response: Colleges & Universities - Average In-State Tuition main.js:1201
+no response: Colleges & Universities - Average Out-of-State Tuition main.js:1201
+no response: Education Employment - Total main.js:1201
+no response: Education Employment - Total Education main.js:1201
+no response: Education Employment - Elementary & Secondary Education main.js:1201
+no response: Education Employment - Higher Education main.js:1201
+no response: Education Expenditures - Total main.js:1201
+no response: Education Expenditures - Total Education main.js:1201
+no response: Education Expenditures - Elementary & Secondary Education main.js:1201
+no response: Education Expenditures - Higher Education main.js:1201
+no response: Education Expenditures - Current Operations main.js:1201
+no response: Education Expenditures - Construction main.js:1201
+no response: Education Expenditures - Other Capital Outlay main.js:1201
+no response: Education Expenditures - Intergovernmental to State main.js:1201
+no response: Education Expenditures - Intergovernmental to Local main.js:1201
+no response: Housing Units - Population main.js:1201
+no response: Housing & Community Development Employment - Total main.js:1201
+no response: Housing Units - Number of Housing Units main.js:1201
+no response: Housing Units - Average Household Size main.js:1201
+no response: Housing Units - Owner-Occupied Housing Units main.js:1201
+no response: Housing Units - Percent of Owner-Occupied Housing Units main.js:1201
+no response: Housing Units - Renter-Occupied Housing Units main.js:1201
+no response: Housing Units - Occupied Housing Units main.js:1201
+no response: Housing Units - Percent of Renter-Occupied Housing Units main.js:1201
+no response: Housing & Community Development Employment - Housing & Community Development main.js:1201
+no response: Housing & Community Development Expenditures - Total main.js:1201
+no response: Housing & Community Development Expenditures - Total Housing & Community Development main.js:1201
+no response: Housing & Community Development Expenditures - Current Operations main.js:1201
+no response: Housing & Community Development Expenditures - Construction main.js:1201
+no response: Housing & Community Development Expenditures - Other Capital Outlay main.js:1201
+no response: Housing & Community Development Expenditures - Intergovernmental to State main.js:1201
+no response: Housing & Community Development Expenditures - Intergovernmental to Local main.js:1201
+no response: Justice & Public Safety Employment - Total main.js:1201
+no response: Justice & Public Safety Employment - Total Justice & Public Safety main.js:1201
+no response: Justice & Public Safety Employment - Correction main.js:1201
+no response: Justice & Public Safety Employment - Judicial & Legal Services main.js:1201
+no response: Justice & Public Safety Employment - Police Protection main.js:1201
+no response: Justice & Public Safety Employment - Fire Protection main.js:1201
+no response: Justice & Public Safety Expenditures - Total main.js:1201
+no response: Justice & Public Safety Expenditures - Total Justice & Public Safety main.js:1201
+no response: Justice & Public Safety Expenditures - Correction main.js:1201
+no response: Justice & Public Safety Expenditures - Judicial & Legal Services main.js:1201
+no response: Justice & Public Safety Expenditures - Police Protection main.js:1201
+no response: Justice & Public Safety Expenditures - Fire Protection main.js:1201
+no response: Justice & Public Safety Expenditures - Protective Inspection main.js:1201
+no response: Justice & Public Safety Expenditures - Current Operations main.js:1201
+no response: Justice & Public Safety Expenditures - Construction main.js:1201
+no response: Justice & Public Safety Expenditures - Other Capital Outlay main.js:1201
+no response: Justice & Public Safety Expenditures - Intergovernmental to State main.js:1201
+no response: Justice & Public Safety Expenditures - Intergovernmental to Local main.js:1201
+no response: Jails - Inmate Demographics - Total Jail Population main.js:1201
+no response: Jails - Inmate Demographics - Adult Males main.js:1201
+no response: Jails - Inmate Demographics - Adult Females main.js:1201
+no response: Jails - Inmate Demographics - Total Juveniles main.js:1201
+no response: Jails - Inmate Demographics - Total Convicted main.js:1201
+no response: Jails - Inmate Demographics - Total Unconvicted main.js:1201
+no response: Jails - Inmate Demographics - White main.js:1201
+no response: Jails - Inmate Demographics - Black or African American main.js:1201
+no response: Jails - Inmate Demographics - Hispanic or Latino main.js:1201
+no response: Jails - Inmate Demographics - American Indian or Alaskan Native main.js:1201
+no response: Jails - Inmate Demographics - Asian main.js:1201
+no response: Jails - Inmate Demographics - Native Hawaiian or Other Pacific Islander main.js:1201
+no response: Jails - Inmate Demographics - Two or More Races main.js:1201
+no response: Jails - Inmate Demographics - Other Inmate Races main.js:1201
+no response: Jails - Inmate Demographics - Race Not Known main.js:1201
+no response: Jails - Community Supervision - Total Jail Population main.js:1201
+no response: Jails - Community Supervision - Jail Capacity main.js:1201
+no response: Jails - Community Supervision - Confined Persons main.js:1201
+no response: Jails - Community Supervision - Nonconfined Persons main.js:1201
+no response: Jails - Community Supervision - Electronic Monitoring Program main.js:1201
+no response: Jails - Community Supervision - Home Detention main.js:1201
+no response: Jails - Community Supervision - Community Service main.js:1201
+no response: Jails - Community Supervision - Day Reporting main.js:1201
+no response: Jails - Community Supervision - Other Pretrial Supervision main.js:1201
+no response: Jails - Community Supervision - Other Alternative Work Programs main.js:1201
+no response: Jails - Community Supervision - Alcohol/Drug Treatment Programs main.js:1201
+no response: Jails - Community Supervision - Other Nonconfined Programs main.js:1201
+no response: Jails - Supervised Population - Total Jail Population main.js:1201
+no response: Jails - Supervised Population - Jail Capacity main.js:1201
+no response: Jails - Supervised Population - Confined Persons main.js:1201
+no response: Jails - Supervised Population - Nonconfined Persons main.js:1201
+no response: Jails - Supervised Population - Non US Citizens main.js:1201
+no response: Jails - Supervised Population - Weekenders main.js:1201
+no response: Jails - Supervised Population - Average Daily Population main.js:1201
+no response: Jails - Supervised Population by Agency - Total Jail Population main.js:1201
+no response: Jails - Supervised Population by Agency - Jail Capacity main.js:1201
+no response: Jails - Supervised Population by Agency - Held for Other Federal Authorities main.js:1201
+no response: Jails - Supervised Population by Agency - Held for US Marshal's Service main.js:1201
+no response: Jails - Supervised Population by Agency - Held for Immigration & Customs main.js:1201
+no response: Jails - Supervised Population by Agency - Held for Bureau of Indian Affairs main.js:1201
+no response: Jails - Supervised Population by Agency - Held for Federal Bureau of Prisons main.js:1201
+no response: Jails - Supervised Population by Agency - Held for Own State main.js:1201
+no response: Jails - Supervised Population by Agency - Held for Other State main.js:1201
+no response: Jails - Supervised Population by Agency - Held for Local Jurisdiction in State main.js:1201
+no response: Jails - Supervised Population by Agency - Held for Local Jurisdiction outside the State main.js:1201
+no response: Public Safety Structure - Elected Sheriff main.js:1201
+no response: Public Safety Structure - County Funded Sheriff Department main.js:1201
+no response: Public Safety Structure - County Operated Sheriff Department main.js:1201
+no response: Public Safety Structure - Elected Police Chief main.js:1201
+no response: Public Safety Structure - County Funded Police Department main.js:1201
+no response: Public Safety Structure - County Operated Police Department main.js:1201
+no response: Public Safety Structure - County Funded Jails main.js:1201
+no response: Public Safety Structure - County Operated Jails main.js:1201
+no response: Public Safety Structure - County Funded Courts - Salaries main.js:1201
+no response: Public Safety Structure - County Funded Courts - Building/Real Property main.js:1201
+no response: Public Safety Structure - County Funded Courts - General Operating Expenses main.js:1201
+no response: Public Safety Structure - County Operated Courts main.js:1201
+no response: Public Safety Structure - Elected Judges main.js:1201
+no response: Public Safety Structure - Elected Clerks of Court main.js:1201
+no response: Public Safety Structure - Elected District Attorney main.js:1201
+no response: Road Ownership - Town or Township Highway Agency Road Miles main.js:1201
+no response: Road Ownership - City or Municipal Highway Agency Road Miles main.js:1201
+no response: Road Ownership - Federal Agency Road Miles main.js:1201
+no response: Road Ownership - Other State Agency Road Miles main.js:1201
+no response: Road Ownership - Other Local Agency Road Miles main.js:1201
+no response: Road Ownership - Share Federal Agency main.js:1201
+no response: Road Ownership - Share Other State Agencies main.js:1201
+no response: Road Ownership - Share Other Local Agencies 

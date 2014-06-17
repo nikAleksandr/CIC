@@ -692,7 +692,7 @@ function update(dataset, indicator) {
 			execUpdate();
  		});
  	} else {
- 		// need to sort by indicator because we want to send one query per dataset needed
+ 		// need to sort by dataset because we want to send one query per dataset needed
 	  	var indicatorList = {}; // object of indicator values and latest year values indexed by dataset name
 	  	for (var i = 0; i < indObjects.length; i++) {
 		  	var crossObject = crosswalk[indObjects[i].dataset+' - '+indObjects[i].name];
@@ -1024,7 +1024,7 @@ function redraw() {
 	width = document.getElementById('container').offsetWidth-90;
 	height = width / 2;
 	containerOffset = $('#container').offset();
-	d3.select('#cc').style('top', containerOffset.top + 'px');
+	d3.select('#cc').style('top', containerOffset.top + document.getElementById('cc').scrollTop + 'px');
 	d3.select('svg').remove();
 	
 	setup(width,height);
@@ -1186,6 +1186,32 @@ d3.json("us.json", function(error, us) {
 	      		
 	      		setBehaviors();
 	      		update("Administration Expenditures", "Total"); // fill in map colors for default indicator now that everything is loaded
+
+
+				// used to test database responses for every indicator; use lightly
+				/*var dt = 100; // time between each query call
+				var time = 0;
+				for (var ind in crosswalk) {
+					(function(ind, time){
+						var query_str = 'db_set=' + crosswalk[ind].db_dataset + '&db_ind=' + crosswalk[ind].db_indicator;
+						setTimeout(function() {
+						  	d3.xhr('http://nacocic.naco.org/ciccfm/indicators.cfm?'+ query_str, function(error, request){
+						    	// restructure response object to object indexed by fips
+						    	try {
+						    		var responseObj = jQuery.parseJSON(request.responseText);
+							    	if (responseObj.ROWCOUNT === 0) {
+							    		console.log('zero data: ' + ind);
+							    	}
+						    	}
+						    	catch(error) {
+						    		console.log('no response: ' + ind);
+						    	}
+							});
+						}, time);
+					})(ind, time);
+					time += dt;
+				}*/
+
 	    	});
 	    }
   	});
