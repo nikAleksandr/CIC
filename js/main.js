@@ -1070,10 +1070,16 @@ function zoomMap(t, s, smooth) {
 }
 
 function setZoomIcons() {
-	var coords = map.getBoundingClientRect();
+	var coords = map.offsetWidth;
+	console.log(coords);
 	d3.select('#zoomIcons').style({left: '65px', top: '25px'});
-	d3.select("#iconsGroup").style({right: '-60px', top: '15px'});
-	
+	d3.select("#iconsGroup").style({left: coords + 'px', top: '15px'});
+		if((windowWidth - coords)/2 < 150){
+			d3.selectAll('.extraInstructions').style('display', 'none');
+		}
+		else{
+			d3.selectAll('.extraInstructions').style('display', 'table-cell');
+		}
 	d3.select('#zoomPlusIcon').on('click', function() {
 		// zoom in
 		var s = (frmrS > 9) ? 10 : frmrS + 1;

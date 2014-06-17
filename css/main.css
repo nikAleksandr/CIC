@@ -297,6 +297,7 @@ h1 small {
 #map {
 	/*position: relative;*/
 	z-index:-10;
+	float:left;
 }
 #moreData { background-color:rgb(0, 173, 220); }
 #moreDataButton{
