@@ -735,7 +735,7 @@ function update(dataset, indicator) {
 		    	
 		    	
 		    	for (var i = 0; i < responseObj.DATA.FIPS.length; i++) {
-		    		var fips = responseObj.DATA.FIPS[i];
+		    		var fips = parseInt(responseObj.DATA.FIPS[i]);
 		    		if (!data.hasOwnProperty(fips)) data[fips] = {};
 		    		for (var j = 1; j < responseObj.COLUMNS.length; j++) {
 		    			var property = responseObj.COLUMNS[j]; // does not avoid duplicate property names; might need to change later by renaming property "database - indicator" if an indicator
@@ -1170,15 +1170,16 @@ d3.json("us.json", function(error, us) {
 						    	try {
 						    		var responseObj = jQuery.parseJSON(request.responseText);
 							    	if (responseObj.ROWCOUNT === 0) {
-							    		console.log('zero data: ' + ind);
+							    		console.log('zero data: ' + crosswalk[ind].db_dataset + ', ' + crosswalk[ind].db_indicator);
 							    	}
 						    	}
 						    	catch(error) {
-						    		console.log('no response: ' + ind);
+						    		console.log('no response: ' + crosswalk[ind].db_dataset + ', ' + crosswalk[ind].db_indicator);
 						    	}
 							});
 						}, time);
 					})(ind, time);
+										
 					time += dt;
 				}*/
 
