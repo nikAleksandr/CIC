@@ -199,7 +199,7 @@ table th{
 }
 #print { margin-left: 10px; }
 
-#close:hover, #close2:hover, #instructionText a:hover, #help:hover, #showOnMap:hover, #print:hover, .county_link:hover{
+#close:hover, #close2:hover, #instructionText a:hover, #help:hover, #showOnMap:hover, #print:hover, .county_link:hover, .extraInstructions:hover{
 	text-decoration:underline;
 }
 .noty_text { 
@@ -230,7 +230,7 @@ body {
 	width: 100%;
 	text-align: center;
 	overflow-y: auto;
-	padding-top:50px;
+	padding-top: 15px;
 }
 
 #container {
@@ -409,6 +409,7 @@ h1 small {
 	vertical-align:middle;
 	text-overflow: nowrap;
 	text-align:left;
+	cursor: pointer;
 }
 #rrssbContainer{
 	position:absolute;
@@ -542,6 +543,10 @@ div.tooltip {
 #resetSecondInd {
 	 text-align: center;
 	 cursor: pointer;
+}
+.badge {
+	margin-left: 5px;
+	font-weight: 500;
 }
 
 /*
