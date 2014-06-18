@@ -230,6 +230,7 @@ body {
 	width: 100%;
 	text-align: center;
 	overflow-y: auto;
+	padding-top:50px;
 }
 
 #container {
