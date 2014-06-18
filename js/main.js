@@ -1106,15 +1106,6 @@ function exportSVG(){
 	d3.selectAll('path').attr({'stroke': '#fff', 'stroke-width': '.2px'});
 	d3.select('#state-borders').attr({'fill': 'none', 'stroke': '#fff', 'stroke-linecap': 'round', 'stroke-linejoin': 'round', 'stroke-width': '1.5px'});
 	svgenie.save('mapSvg', {name: 'test.png'});
-
-/*	var a = document.createElement('a');
-		a.href= 'data:attachment/svg,' + encodeURIComponent(fullSVG);
-		a.download = 'export.svg';
-		a.target = '_blank';
-		a.innerHTML = "click here to download this svg";
-	console.log(a);
-	d3.select('#underMap').append(a);
-*/	
 }
 
 function throttle() {
