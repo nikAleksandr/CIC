@@ -1103,6 +1103,8 @@ var throttleTimer;
 //Easter-Eggs, and other back-end functions
 d3.select(document.body).on('keyup',function(){if(d3.event.ctrlKey&&d3.event.shiftKey&&d3.event.keyCode===76){level_colors=['rgb(189,215,231)','rgb(107,174,214)','rgb(49,130,189)','rgb(7,81,156)','rgb(28,53,99)'];var i=currentDI.lastIndexOf(' - ');update(currentDI.substring(0,i),currentDI.substring(i+3,currentDI.length));}});
 function exportSVG(){
+	d3.selectAll('path').attr({'stroke': '#fff', 'stroke-width': '.2px'});
+	d3.select('#state-borders').attr({'fill': 'none', 'stroke': '#fff', 'stroke-linecap': 'round', 'stroke-linejoin': 'round', 'stroke-width': '1.5px'});
 	svgenie.save('mapSvg', {name: 'test.png'});
 
 /*	var a = document.createElement('a');
