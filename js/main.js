@@ -252,22 +252,24 @@ function draw(topo, stateMesh) {
 		});
 	}
 }
+
+function emptyInstructionText() {
+	$('#instructionText .temp').remove();
+	$('#instructionText .iText').hide();
+}
+
 //Functions for Icons
-function helpText(){
-	$('#instructionText').empty();
-	
-	d3.select('#instructionText').html('<p><b>Instructions</b></p><br><p>&bull; Pick a statistic by clicking on &quot;Primary Indicator&quot; on the top left of the screen and choosing an indicator.<br>&bull; Click on a county on the map to show the statistics for that county.<br>&bull; Or search for a county with the search bar on the top right of the screen.</p><br><p>To show additional statistics, click on &quot;Secondary Indicator&quot; on the top left of the screen and choose another indicator.</p><br><p><img src="img/Back_to_US.svg"></img> - Click this to fully zoom out and see the entire map</p><p><img src="img/Reset_indicators.svg"></img> - Click this to no longer see the secondary indicator</p><p><img src="img/Share.svg"></img> - Click this to share on social media</p><p><img src="img/More_interactives.svg"></img> - Click this to access more data through COIN</p>');
-	
-	$('#instructions').show();
+function showHelpText(){
+	emptyInstructionText();
+	$('#helpText').show();	
 	$('#showOnMap').hide();
+	$('#instructions').show();
 }
 function addToMailingList() {
-	$('#instructionText').empty();
-	
-	d3.select('#instructionText').html('<div style="text-align:center;"><p style="font-size:1.5em;">Keep Me Updated!</p><p>Submit your email to the mailing list and receive updates when new features have been added.</p><br><br><form><input type="email" style="width:250px;"></input><input type="submit" style="margin-left:10px;"></input></form></div>');
-	$('#instructions').show();
+	emptyInstructionText();
+	$('#mailingText').show();	
 	$('#showOnMap').hide();
-	
+	$('#instructions').show();
 }
 function resetAll() {
 	currentSecondDI = '';
@@ -276,42 +278,28 @@ function resetAll() {
 	}
 	d3.select('#secondIndText').html('Secondary Indicator' + '<span class="sub-arrow"></span>');
 }
-
-var rrssbHidden = true;
 function showHideRrssb() {
-	var rrssbContainer = d3.select('#rrssbContainer');
-	var placement = (windowWidth - width)/2;
-	if (rrssbHidden) {
-		d3.select('.rrssb-buttons').style('display', 'block');
-		rrssbContainer.transition().duration(500).style('right', "50px");
-		rrssbHidden = false;
-	} else {
-		var moveTransition = rrssbContainer.transition().duration(500).style('right', '-200px');
+	if ($('.rrssb-buttons').is(':visible')) {
+		var moveTransition = d3.select('#rrssbContainer').transition().duration(500).style('right', '-200px');
 		moveTransition.each('end', function() {
-			d3.select('.rrssb-buttons').style('display', 'none');
-		});
-		rrssbHidden = true;
+			$('.rrssb-buttons').hide();
+		});		
+	} else {
+		$('.rrssb-buttons').show();
+		d3.select('#rrssbContainer').transition().duration(500).style('right', '50px');
 	}
 }
-var moreDataContent = '<div id="moreDataContent" class="container-fluid"><div class="row"><div class="col-md-5"><h3><a href="#">Full Interactive Map</a></h3><a href="#"><img src="img/CICFullThumb.png"/></a></div><div class="col-md-7"><p>Access more datasets and indicators for display on the interactive map.<br/><br/>Login free to COIN <a href="#">here</a> to access</p></div></div><div class="row"><div class="col-md-5"><h3><a href="#">CIC Extraction Tool</a></h3><a href="#"><img src="img/CICExtractionThumb.png"/></a></div><div class="col-md-7"><p>Full access to all 18 categories, 66 datasets, and 889 indicators.<br/><br/>Customizable data downloads available <a href="#">here</a></p></div></div></div>';
-var moreDataHidden = true;
 function moreDataShow(){
-	if(moreDataHidden){
-		$('#instructionText').empty();
-	
-		d3.select('#instructionText').html(moreDataContent);
-		
+	if ($('#mdText').is(':visible')) {
+		//$('#instructions').hide();
+	} else {
+		emptyInstructionText();
+		$('#mdText').show();
+		$('#showOnMap').hide();		
 		$('#instructions').show();
-		$('#showOnMap').hide();
-		moreDataHidden = false;
 	}
-	else{
-		$('#instructions').hide();
-		moreDataHidden = true;
-	}
-	
 }
-//End icon functions
+
 function setDropdownBehavior() {		
 	// don't delete: this script is ONLY used to create html to COPY over to index.html
 	/*$('#primeIndLi').empty();
@@ -390,7 +378,7 @@ function setSearchBehavior() {
 	d3.select('#search_submit').on('click', submitSearch);
 	
 	// set search type buttons to toggle
-	//$('#' + searchType).button('toggle');
+	$('#' + searchType).button('toggle');
 	$('.btn').on('click', function() {
 		$('#' + searchType).button('toggle');
 		searchType = $(this).attr('id');
@@ -502,12 +490,13 @@ function submitSearch() {
 			}
 						
 			// display all matches if more than one match
-			$('#instructionText').empty();
-				d3.select('#instructionText').append('p')
-					.style('text-align', 'center')
-					.text('Your search returned ' + pMatchArray.length + ' results');
+			emptyInstructionText();
+			var searchResults = d3.select('#instructionText').append('div').attr('class', 'temp');
+			searchResults.append('p')
+				.style('text-align', 'center')
+				.text('Your search returned ' + pMatchArray.length + ' results');
 				
-			var rTable = d3.select('#instructionText').append('div').attr('id', 'multiCountyResult').attr('class', 'container-fluid').append('table')
+			var rTable = searchResults.append('div').attr('id', 'multiCountyResult').attr('class', 'container-fluid').append('table')
 				.attr('class', 'table table-striped table-condensed table-hover').append('tbody');
 			var rTitleRow = rTable.append('tr');
 			var rTitleFIPS = rTitleRow.append('th').text('FIPS');
@@ -691,7 +680,7 @@ function update(dataset, indicator) {
 			countyData.forEach(function(d) {			
 				for (var i = 0; i < indObjects.length; i++) {
 					quantByIds[i][d.id] = isNumFun(indObjects[i].dataType) ? parseFloat(d[indObjects[i].DI]) : d[indObjects[i].DI];
-					if (indObjects[i].hasOwnProperty('unit') && indObjects[0].unit.indexOf('thousand') !== -1) quantByIds[i][d.id] *= 1000;
+					if (indObjects[i].hasOwnProperty('unit') && indObjects[i].unit.indexOf('thousand') !== -1) quantByIds[i][d.id] *= 1000;
 				}
 	
 				idByName[d.geography] = d.id;
@@ -762,6 +751,7 @@ function update(dataset, indicator) {
 					for (var i = 0; i < indObjects.length; i++) {
 						var value = data[fips][indObjects[i].db_indicator.toUpperCase()];
 						quantByIds[i][fips] = isNumFun(indObjects[i].dataType) ? parseFloat(value) : value;
+						if (indObjects[i].hasOwnProperty('unit') && indObjects[i].unit.indexOf('thousand') !== -1) quantByIds[i][fips] *= 1000;
 					}
 		
 					idByName[data[fips].geography] = fips;
@@ -1081,13 +1071,10 @@ function zoomMap(t, s, smooth) {
 function setZoomIcons() {
 	var coords = map.offsetWidth;
 	d3.select('#zoomIcons').style({left: '65px', top: '25px'});
-	d3.select("#iconsGroup").style({left: coords + 'px', top: '15px'});
-		if((windowWidth - coords)/2 < 150){
-			d3.selectAll('.extraInstructions').style('display', 'none');
-		}
-		else{
-			d3.selectAll('.extraInstructions').style('display', 'table-cell');
-		}
+	d3.select("#iconsGroup").style({left: (coords + 20) + 'px', top: '15px'});
+	d3.select('.extraInstructions').style('display', function() {
+		return ((windowWidth - coords) / 2 < 150) ? 'none' : 'table-cell';
+	});
 	d3.select('#zoomPlusIcon').on('click', function() {
 		// zoom in
 		var s = (frmrS > 9) ? 10 : frmrS + 1;
@@ -1164,7 +1151,7 @@ d3.json("us.json", function(error, us) {
 	        		}
 	      		}
 	      		
-	      		update("Administration Expenditures", "Total"); // fill in map colors for default indicator now that everything is loaded
+	      		update("Administration Expenditures", "Total Expenditures"); // fill in map colors for default indicator now that everything is loaded
 
 				// used to test database responses for every indicator; use lightly
 				/*var dt = 100; // time between each query call
