@@ -680,7 +680,7 @@ function update(dataset, indicator) {
 			countyData.forEach(function(d) {			
 				for (var i = 0; i < indObjects.length; i++) {
 					quantByIds[i][d.id] = isNumFun(indObjects[i].dataType) ? parseFloat(d[indObjects[i].DI]) : d[indObjects[i].DI];
-					if (indObjects[i].hasOwnProperty('unit') && indObjects[0].unit.indexOf('thousand') !== -1) quantByIds[i][d.id] *= 1000;
+					if (indObjects[i].hasOwnProperty('unit') && indObjects[i].unit.indexOf('thousand') !== -1) quantByIds[i][d.id] *= 1000;
 				}
 	
 				idByName[d.geography] = d.id;
@@ -751,6 +751,7 @@ function update(dataset, indicator) {
 					for (var i = 0; i < indObjects.length; i++) {
 						var value = data[fips][indObjects[i].db_indicator.toUpperCase()];
 						quantByIds[i][fips] = isNumFun(indObjects[i].dataType) ? parseFloat(value) : value;
+						if (indObjects[i].hasOwnProperty('unit') && indObjects[i].unit.indexOf('thousand') !== -1) quantByIds[i][fips] *= 1000;
 					}
 		
 					idByName[data[fips].geography] = fips;
@@ -1070,13 +1071,10 @@ function zoomMap(t, s, smooth) {
 function setZoomIcons() {
 	var coords = map.offsetWidth;
 	d3.select('#zoomIcons').style({left: '65px', top: '25px'});
-	d3.select("#iconsGroup").style({left: coords + 'px', top: '15px'});
-		if((windowWidth - coords)/2 < 150){
-			d3.selectAll('.extraInstructions').style('display', 'none');
-		}
-		else{
-			d3.selectAll('.extraInstructions').style('display', 'table-cell');
-		}
+	d3.select("#iconsGroup").style({left: (coords + 20) + 'px', top: '15px'});
+	d3.select('.extraInstructions').style('display', function() {
+		return ((windowWidth - coords) / 2 < 150) ? 'none' : 'table-cell';
+	});
 	d3.select('#zoomPlusIcon').on('click', function() {
 		// zoom in
 		var s = (frmrS > 9) ? 10 : frmrS + 1;
@@ -1153,7 +1151,7 @@ d3.json("us.json", function(error, us) {
 	        		}
 	      		}
 	      		
-	      		update("Administration Expenditures", "Total"); // fill in map colors for default indicator now that everything is loaded
+	      		update("Administration Expenditures", "Total Expenditures"); // fill in map colors for default indicator now that everything is loaded
 
 				// used to test database responses for every indicator; use lightly
 				/*var dt = 100; // time between each query call
