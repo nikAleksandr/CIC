@@ -299,6 +299,16 @@ function moreDataShow(){
 		$('#instructions').show();
 	}
 }
+function incrementPage(dx) {
+	var currPageNum = parseInt($('#instructionPagination .active').attr('name'));
+	if (currPageNum === 1 && parseInt(dx) === -1) goToPage(1);
+	else if (currPageNum === 3 && parseInt(dx) === 1) goToPage(3);
+	else goToPage(currPageNum + parseInt(dx));
+}
+function goToPage(pageNum) {
+	$('#instructionPagination .active').removeClass('active');
+	$('#instructionPagination li[name='+pageNum+']').addClass('active');
+}
 
 function setDropdownBehavior() {		
 	// don't delete: this script is ONLY used to create html to COPY over to index.html
@@ -378,7 +388,6 @@ function setSearchBehavior() {
 	d3.select('#search_submit').on('click', submitSearch);
 	
 	// set search type buttons to toggle
-	$('#' + searchType).button('toggle');
 	$('.btn').on('click', function() {
 		$('#' + searchType).button('toggle');
 		searchType = $(this).attr('id');
