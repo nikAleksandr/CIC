@@ -293,7 +293,15 @@ h1 small {
 	font-size: .8em;
 	padding-right: 0px;
 }
-#searchTypeLi { margin-top: 2px; }
+#searchTypeLi { margin-top: 6px; }
+#stateDropLi {
+	margin-top: 2px;
+	margin-left: 10px;
+}
+#search_submit {
+	position: relative;
+	top: 2px;
+}
 
 #map {
 	/*position: relative;*/
@@ -534,10 +542,10 @@ div.tooltip {
 #primeIndLi{
 	margin-left:.7em;
 }
-#primeIndLi a, #secondIndLi a:not(#resetSecondInd), #searchTypeText, #stateDropText {
+#primeIndLi a, #secondIndLi a:not(#resetSecondInd), #stateDropText {
 	cursor: default; 
 }
-#searchTypeDrop a, #stateDrop a {
+#stateDrop a {
 	cursor: pointer;
 }
 #resetSecondInd {

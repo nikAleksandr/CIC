@@ -97,7 +97,7 @@ var CICstructure,
 	currentDataType = '', // current datatype showing
 	currentDI = '', // current dataset/indicator showing
 	currentSecondDI = '', // current secondary dataset/indicator showing; empty string if not showing
-	searchType = 'county',
+	searchType = 'countySearch',
 	searchState = 'State';
 		
 var corrDomain = [], // only used for categorical data; a crosswalk for the range between text and numbers
@@ -373,35 +373,37 @@ function setDropdownBehavior() {
 }
 
 function setSearchBehavior() {
-	// both of these are redundant and causing search to fire multiple times
-	//d3.select('#search_form').on('submit', submitSearch);	
-	//var searchField = d3.select('#search_field').on('keyup', function() { if (d3.event.keyCode === 13) submitSearch(); });
 	var searchField = d3.select('#search_field');
 	var stateDrop = d3.select('#stateDropLi');
 	
+	// both of these are redundant and causing search to fire multiple times
+	//d3.select('#search_form').on('submit', submitSearch);	
+	//var searchField = d3.select('#search_field').on('keyup', function() { if (d3.event.keyCode === 13) submitSearch(); });
 	d3.select('#search_submit').on('click', submitSearch);
+	
+	// set search type buttons to toggle
+	$('#' + searchType).button('toggle');
+	$('.btn').on('click', function() {
+		$('#' + searchType).button('toggle');
+		searchType = $(this).attr('id');
+		$(this).button('toggle');
 		
-	d3.select('#searchTypeDrop').selectAll('a').on('click', function() {
-		if (searchType !== this.name) {
-			$('#search_field').val('');
-			
-			if (this.name === 'state') {
-				searchField.classed('hidden', true);
-				stateDrop.classed('hidden', false);
-			} else {
-				searchField.classed('hidden', false);
-				stateDrop.classed('hidden', true);
-			}
-		}	
-		searchType = this.name;
-		d3.select('#searchTypeText').html(toTitleCase(searchType) + ' Search' + '<span class="sub-arrow"></span>');
+		if (searchType === 'stateSearch') {
+			stateDrop.classed('hidden', false);
+			searchField.classed('hidden', true);
+		} else {
+			stateDrop.classed('hidden', true);
+			searchField.classed('hidden', false);
+			searchField.attr('placeholder', $(this).attr('name'));
+		}
 	});
+
 	d3.select('#stateDrop').selectAll('a').on('click', function() {
 		if (searchState !== this.name) {
 			searchState = this.name;		
 			d3.select('#stateDropText').html(searchState  + '<span class="sub-arrow"></span>');			
 		}
-		if (searchType === 'state' && searchState !== 'State') submitSearch();	
+		if (searchType === 'stateSearch' && searchState !== 'State') submitSearch();	
 	});
 }
 
@@ -411,7 +413,7 @@ function submitSearch() {
 	var search_str = d3.select('#search_field').property('value');
 	var results_container = d3.select('#container');
 
-	if (searchType === 'state') {
+	if (searchType === 'stateSearch') {
 		// only state; return results of all counties within state
 		if (searchState === 'MA' || searchState === 'RI' || searchState === 'CT') {
 			noty({text: 'No county data available for this state.'});
@@ -420,7 +422,7 @@ function submitSearch() {
 			displayResults(state_search_str);
 		}
 							
-	} else if (searchType === 'county') {
+	} else if (searchType === 'countySearch') {
 		if (search_str === '') {
 			noty({text: 'Enter a county name to search.'});
 			return;
@@ -532,7 +534,7 @@ function submitSearch() {
 			document.getElementById('search_form').reset();	
 		}
 		
-	} else if (searchType === 'city') {
+	} else if (searchType === 'citySearch') {
 		// city search: use city-county lookup
 		var search_str_array = search_str.toLowerCase().split('city');
 		var city_search_str = 'city_res.cfm?city=';
@@ -1123,6 +1125,7 @@ function throttle() {
 }
 
 setup(width,height);
+setBehaviors();
 
 d3.json("us.json", function(error, us) {
   	var counties = topojson.feature(us, us.objects.counties).features;
@@ -1140,7 +1143,6 @@ d3.json("us.json", function(error, us) {
 	    CICstructure = CICStructure;
 	    
 	    if (localVersion) {
-	    	setBehaviors();	    	
 	    	update('Population Levels and Trends', 'Population Level'); // fill in map colors for default indicator now that everything is loaded 	
 	    } else {  
 	    	// load crosswalk
@@ -1154,9 +1156,7 @@ d3.json("us.json", function(error, us) {
 	        		}
 	      		}
 	      		
-	      		setBehaviors();
 	      		update("Administration Expenditures", "Total"); // fill in map colors for default indicator now that everything is loaded
-
 
 				// used to test database responses for every indicator; use lightly
 				/*var dt = 100; // time between each query call
