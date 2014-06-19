@@ -311,37 +311,6 @@ function goToPage(pageNum) {
 }
 
 function setDropdownBehavior() {		
-	// don't delete: this script is ONLY used to create html to COPY over to index.html
-	/*$('#primeIndLi').empty();
-	var primeList = d3.select('#primeIndLi');
-	primeList.append('a')
-		.attr('id', 'primeIndText')
-		.text('Primary Indicator');
-	var mainDrop = primeList.append('ul').attr('id', 'primeInd').attr('class', 'dropdown-menu');
-	
-	for (var i = 0; i < CICstructure.children.length; i++) {
-		var category = CICstructure.children[i];
-		var catLi = mainDrop.append('li').attr('class', 'category').attr('title', category.name);
-		catLi.append('a').text(category.name);
-		var catDrop = catLi.append('ul').attr('class', 'dropdown-menu');
-		
-		for (var j = 0; j < category.children.length; j++) {
-			var dataset = category.children[j];
-			var dsLi = catDrop.append('li').attr('class', 'dataset').attr('title', dataset.name);
-			dsLi.append('a').text(dataset.name);
-			var dsDrop = dsLi.append('ul').attr('class', 'dropdown-menu');
-			
-			for (var k = 0; k < dataset.children.length; k++) {
-				var indicator = dataset.children[k];
-				var indLi = dsDrop.append('li').append('a')
-					.attr('class', 'indicator')
-					.attr('title', indicator.name)
-					.attr('href', '#')
-					.text(indicator.name);
-			}
-		}
-	}*/
-	
 	d3.select('#primeInd').selectAll('.dataset').each(function() {
 		var dataset = d3.select(this);		
 		var datasetName = dataset.attr('name');
@@ -1131,6 +1100,13 @@ function throttle() {
 setup(width,height);
 setBehaviors();
 
+// for testing
+/*$.getScript('js/test/util.js', function(){
+	//countIndicators();
+	//areAllIndicatorsInDatabase();
+	//testDatabaseResponses(); // will only work if on nacocic.naco.org and localVersion disabled (note: 700+ requests being sent! will take more than a minute!)
+});*/
+
 d3.json("us.json", function(error, us) {
   	var counties = topojson.feature(us, us.objects.counties).features;
   	var states = topojson.mesh(us, us.objects.states, function(a, b) { return a !== b; });
@@ -1145,7 +1121,7 @@ d3.json("us.json", function(error, us) {
   	// load cic structure
   	d3.json("data/CICstructure.json", function(error, CICStructure){
 	    CICstructure = CICStructure;
-	    
+
 	    if (localVersion) {
 	    	update('Population Levels and Trends', 'Population Level'); // fill in map colors for default indicator now that everything is loaded 	
 	    } else {  
@@ -1161,32 +1137,6 @@ d3.json("us.json", function(error, us) {
 	      		}
 	      		
 	      		update("Administration Expenditures", "Total Expenditures"); // fill in map colors for default indicator now that everything is loaded
-
-				// used to test database responses for every indicator; use lightly
-				/*var dt = 100; // time between each query call
-				var time = 0;
-				for (var ind in crosswalk) {
-					(function(ind, time){
-						var query_str = 'db_set=' + crosswalk[ind].db_dataset + '&db_ind=' + crosswalk[ind].db_indicator;
-						setTimeout(function() {
-						  	d3.xhr('http://nacocic.naco.org/ciccfm/indicators.cfm?'+ query_str, function(error, request){
-						    	// restructure response object to object indexed by fips
-						    	try {
-						    		var responseObj = jQuery.parseJSON(request.responseText);
-							    	if (responseObj.ROWCOUNT === 0) {
-							    		console.log('zero data: ' + crosswalk[ind].db_dataset + ', ' + crosswalk[ind].db_indicator);
-							    	}
-						    	}
-						    	catch(error) {
-						    		console.log('no response: ' + crosswalk[ind].db_dataset + ', ' + crosswalk[ind].db_indicator);
-						    	}
-							});
-						}, time);
-					})(ind, time);
-										
-					time += dt;
-				}*/
-
 	    	});
 	    }
   	});
