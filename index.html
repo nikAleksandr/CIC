@@ -5390,12 +5390,11 @@
 				    <!--right nav-->
 					<ul class="nav navbar-nav navbar-right" id="searchContainer">
 						<li id="searchTypeLi">
-							<a id="searchTypeText">County Search</a>
-							<ul id="searchTypeDrop" class="dropdown-menu">
-								<li><a name="county" href="#">County Search</a></li>
-								<li><a name="city" href="#">City Search</a></li>
-								<li><a name="state" href="#">State Search</a></li>
-							</ul>
+							<div class="btn-group" id="searchTypes">
+								<button type="button" class="btn btn-default" name="city name" id="citySearch">City Search</button>
+								<button type="button" class="btn btn-default" name="county name" id="countySearch">County Search</button>
+								<button type="button" class="btn btn-default" id="stateSearch">State Search</button>
+							</div>
 						</li>
 						<li id="stateDropLi" class="hidden">
 							<a id="stateDropText">State</a>
@@ -5453,6 +5452,7 @@
 								<li><a name="WV">WV</a></li>
 								<li><a name="WY">WY</a></li>
 							</ul>
+						</li>
 						<li id="searchBox"><a>
 							<form id="search_form">
 								<input type="search" id="search_field" placeholder="county name">
