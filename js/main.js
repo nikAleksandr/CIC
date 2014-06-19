@@ -151,7 +151,7 @@ function setBehaviors() {
 	d3.select('#close').on('click', function() { $('#instructions').hide(); });
 	d3.select('#showOnMap').on('click', function() {
   		$('#instructions').hide();
-  		if (d3.select('.active').empty() !== true) {
+  		if (d3.select('.county.active').empty() !== true) {
   			var active_county = document.getElementsByClassName('active')[0];
   			var zoomTransition = zoomTo(active_county.id);
   			populateTooltip(active_county);
@@ -205,7 +205,7 @@ function draw(topo, stateMesh) {
 	var clicked = function(d, event) {
 		highlight(d);
 		$('#instructions').hide();
-		if (d3.select('.active').empty() !== true) {
+		if (d3.select('.county.active').empty() !== true) {
 			inTransition = true;
 			var transition = executeSearchMatch(event.target.id);
 			if (transition === false) inTransition = false;
@@ -271,7 +271,7 @@ function addToMailingList() {
 }
 function resetAll() {
 	currentSecondDI = '';
-	if (d3.select('.active').empty() !== true) {
+	if (d3.select('.county.active').empty() !== true) {
 		populateTooltip(selected);
 	}
 	d3.select('#secondIndText').html('Secondary Indicator' + '<span class="sub-arrow"></span>');
@@ -390,7 +390,7 @@ function setSearchBehavior() {
 	d3.select('#search_submit').on('click', submitSearch);
 	
 	// set search type buttons to toggle
-	$('#' + searchType).button('toggle');
+	//$('#' + searchType).button('toggle');
 	$('.btn').on('click', function() {
 		$('#' + searchType).button('toggle');
 		searchType = $(this).attr('id');
@@ -562,7 +562,7 @@ function executeSearchMatch(FIPS) {
 		var zoomTransition = zoomTo(FIPS);
 	    populateTooltip(county);
 		zoomTransition.each('end', function() { 
-			positionTooltip($('.active')[0]); 
+			positionTooltip($('.county.active')[0]); 
 		});
 		return zoomTransition;
 	} else {
@@ -599,6 +599,7 @@ function displayResults(url) {
 function update(dataset, indicator) {
 	currentDI = dataset + ' - ' + indicator; 
 	tooltip.classed("hidden", true);
+	$('#cc').scrollTop(0);
 	
 	indObjects = allData(dataset, indicator); // pull data from JSON
 	currentDataType = indObjects[0].dataType;
@@ -799,7 +800,7 @@ function appendSecondInd(dataset, indicator) {
 			}
 		});
 				
-		if (d3.select('.active').empty() !== true) populateTooltip(selected);
+		if (d3.select('.county.active').empty() !== true) populateTooltip(selected);
 	});
 }
 
@@ -1019,7 +1020,7 @@ function highlight(d) {
       .classed("active", selected && function(d) { return d === selected; });
 	
 	if (frmrActive) frmrActive.style("fill", frmrFill);	
-	frmrActive = d3.select(".active");
+	frmrActive = d3.select(".county.active");
 	if (frmrActive.empty() !== true) {
 		frmrFill = frmrActive.style("fill");
 		frmrActive.style("fill", null);
