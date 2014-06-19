@@ -5473,12 +5473,56 @@
 	        	<div id="showOnMap">show on map</div>
 	        	<div id="print">print</div>
 	        	<div id="close">Close</div>
-	        	<div id="instructionText"></div>
+	        	<div id="instructionText">
+					<div class="iText" id="helpText">
+						<p><b>Instructions</b></p><br>
+						<p>
+							&bull; Pick a statistic by clicking on &quot;Primary Indicator&quot; on the top left of the screen and choosing an indicator.<br>
+							&bull; Click on a county on the map to show the statistics for that county.<br>
+							&bull; Or search for a county with the search bar on the top right of the screen.
+						</p><br>
+						<p>To show additional statistics, click on &quot;Secondary Indicator&quot; on the top left of the screen and choose another indicator.</p><br>
+						<p><img src="img/Back_to_US.svg"> - Click this to fully zoom out and see the entire map</p>
+						<p><img src="img/Reset_indicators.svg"> - Click this to no longer see the secondary indicator</p>
+						<p><img src="img/Share.svg"> - Click this to share on social media</p>
+						<p><img src="img/More_interactives.svg">- Click this to access more data through COIN</p>
+	        		</div>
+	        		<div class="iText" id="mailingText" style="text-align:center;">
+        				<p style="font-size:1.5em;">Keep Me Updated!</p>
+        				<p>Submit your email to the mailing list and receive updates when new features have been added.</p><br><br>
+        				<form>
+        					<input type="email" style="width:250px;">
+        					<input type="submit" style="margin-left:10px;">
+        				</form>
+	        		</div>
+	        		<div class="iText" id="mdText">
+						<div id="moreDataContent">
+							<div class="row">
+								<div class="col-md-5">
+									<h3><a href="#">Full Interactive Map</a></h3>
+									<a href="#"><img src="img/CICFullThumb.png"/></a>
+								</div>
+								<div class="col-md-7">
+									<p>Access more datasets and indicators for display on the interactive map.<br/><br/>Login free to COIN <a href="#">here</a> to access</p>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-5">
+									<h3><a href="#">CIC Extraction Tool</a></h3>
+									<a href="#"><img src="img/CICExtractionThumb.png"/></a>
+								</div>
+								<div class="col-md-7">
+									<p>Full access to all 18 categories, 66 datasets, and 889 indicators.<br/><br/>Customizable data downloads available <a href="#">here</a></p>
+								</div>
+							</div>
+						</div>	        			
+	        		</div>
+	        	</div>
 	        </div>
 			
 			<div id="map">
 				<table id="iconsGroup"><tbody>
-					<tr><td><a onclick="helpText();" title="Help" href="#"><img class="my-icons" alt="Help" src="img/Help.svg"/></a></td><td class="extraInstructions" onclick="helpText();"> - Help</td></tr>
+					<tr><td><a onclick="showHelpText();" title="Help" href="#"><img class="my-icons" alt="Help" src="img/Help.svg"/></a></td><td class="extraInstructions" onclick="showHelpText();"> - Help</td></tr>
 					<tr><td><a onclick="zoomMap([0,0], 1);" title="Back to US Map" href="#"><img class="my-icons" alt="Back to US Map" src="img/Back_to_US.svg"/></a></td><td class="extraInstructions" onclick="zoomMap([0,0], 1);"> - Back to US Map</td></tr>
 					<tr><td><a onclick="resetAll();" title="Reset Indicators" href="#"><img class="my-icons" alt="Reset Indicators" src="img/Reset_indicators.svg"/></a></td><td class="extraInstructions" onclick="resetAll();"> - Remove Second Indicator</td></tr>
 					<tr><td><a onclick="showHideRrssb();" title="Share this info" href="#"><img class="my-icons" alt="Share this info" src="img/Share.svg"/></a></td><td class="extraInstructions" onclick="showHideRrssb();"> - Share this map!</td></tr>
