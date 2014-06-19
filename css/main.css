@@ -173,6 +173,13 @@ table th{
 	cursor: pointer;
 }
 
+#instructionPagination {
+	text-align: right;
+	position: absolute;
+	bottom: 0px;
+	right: 20px;
+}
+
 #fullDefsButton{
 	color:rgb(0,64,112);
 	font-size: 1em;
