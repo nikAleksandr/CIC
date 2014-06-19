@@ -261,6 +261,14 @@ function helpText(){
 	$('#instructions').show();
 	$('#showOnMap').hide();
 }
+function addToMailingList() {
+	$('#instructionText').empty();
+	
+	d3.select('#instructionText').html('<div style="text-align:center;"><p style="font-size:1.5em;">Keep Me Updated!</p><p>Submit your email to the mailing list and receive updates when new features have been added.</p><br><br><form><input type="email" style="width:250px;"></input><input type="submit" style="margin-left:10px;"></input></form></div>');
+	$('#instructions').show();
+	$('#showOnMap').hide();
+	
+}
 function resetAll() {
 	currentSecondDI = '';
 	if (d3.select('.active').empty() !== true) {
