@@ -152,7 +152,7 @@ function setBehaviors() {
 	d3.select('#showOnMap').on('click', function() {
   		$('#instructions').hide();
   		if (d3.select('.county.active').empty() !== true) {
-  			var active_county = document.getElementsByClassName('active')[0];
+  			var active_county = document.getElementsByClassName('county active')[0];
   			var zoomTransition = zoomTo(active_county.id);
   			populateTooltip(active_county);
   			zoomTransition.each('end', function() {
@@ -571,7 +571,6 @@ function executeSearchMatch(FIPS) {
 		return false;
 	}    
 };
-
 
 function displayResults(url) {
 	$('#instructionText').empty();
