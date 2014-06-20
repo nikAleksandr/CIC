@@ -173,6 +173,13 @@ table th{
 	cursor: pointer;
 }
 
+#instructionPagination {
+	text-align: right;
+	position: absolute;
+	bottom: 0px;
+	right: 20px;
+}
+
 #fullDefsButton{
 	color:rgb(0,64,112);
 	font-size: 1em;
@@ -199,7 +206,7 @@ table th{
 }
 #print { margin-left: 10px; }
 
-#close:hover, #close2:hover, #instructionText a:hover, #help:hover, #showOnMap:hover, #print:hover, .county_link:hover{
+#close:hover, #close2:hover, #instructionText a:hover, #help:hover, #showOnMap:hover, #print:hover, .county_link:hover, .extraInstructions:hover{
 	text-decoration:underline;
 }
 .noty_text { 
@@ -230,7 +237,7 @@ body {
 	width: 100%;
 	text-align: center;
 	overflow-y: auto;
-	padding-top:50px;
+	padding-top: 15px;
 }
 
 #container {
@@ -293,7 +300,15 @@ h1 small {
 	font-size: .8em;
 	padding-right: 0px;
 }
-#searchTypeLi { margin-top: 2px; }
+#searchTypeLi { margin-top: 6px; }
+#stateDropLi {
+	margin-top: 2px;
+	margin-left: 10px;
+}
+#search_submit {
+	position: relative;
+	top: 2px;
+}
 
 #map {
 	/*position: relative;*/
@@ -393,7 +408,6 @@ h1 small {
 #iconsGroup{
 	position:absolute;
 	width:100px;
-	height:auto;
 	white-space:nowrap;
 }
 .iconContainer{
@@ -411,6 +425,7 @@ h1 small {
 	vertical-align:middle;
 	text-overflow: nowrap;
 	text-align:left;
+	cursor: pointer;
 }
 #rrssbContainer{
 	position:absolute;
@@ -535,15 +550,19 @@ div.tooltip {
 #primeIndLi{
 	margin-left:.7em;
 }
-#primeIndLi a, #secondIndLi a:not(#resetSecondInd), #searchTypeText, #stateDropText {
+#primeIndLi a, #secondIndLi a:not(#resetSecondInd), #stateDropText {
 	cursor: default; 
 }
-#searchTypeDrop a, #stateDrop a {
+#stateDrop a {
 	cursor: pointer;
 }
 #resetSecondInd {
 	 text-align: center;
 	 cursor: pointer;
+}
+.badge {
+	margin-left: 5px;
+	font-weight: 500;
 }
 
 /*
