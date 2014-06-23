@@ -322,7 +322,7 @@ function setDropdownBehavior() {
 			noty({text: 'Already showing "' + indicator + '"'});
 		} else {
 			update(dataset, indicator);
-			d3.select('#primeIndText').html(html + '<span class="sub-arrow"></span>');
+			//d3.select('#primeIndText').html(html + '<span class="sub-arrow"></span>');
 		}
 	};
 			
@@ -352,7 +352,7 @@ function setDropdownBehavior() {
 			noty({text: 'Already showing "' + indicator + '" as a secondary indicator'});
 		} else {
 			appendSecondInd(dataset, indicator);
-			d3.select('#secondIndText').html(html + '<span class="sub-arrow"></span>');
+			//d3.select('#secondIndText').html(html + '<span class="sub-arrow"></span>');
 		}
 	};
 
@@ -917,7 +917,7 @@ function populateTooltip(d) {
 	var tipInfo = tipContainer.append('div').attr('id', 'tipInfo');	
 	var tipTable = tipInfo.append('table')
 		.attr('class', 'table')
-		.style('margin-bottom', '5px'); // bootstrap defaults margin-bottom at 20px
+		.style({'margin-bottom': '5px', 'margin-top': '0px'}); // bootstrap defaults margin-bottom at 20px
 	var none_avail = true;
 	
 	var writeIndicators = function(obj, quant, secondary) {
@@ -936,16 +936,53 @@ function populateTooltip(d) {
 			if (parseFloat(value) === 1 && unit.charAt(unit.length - 1) === 's') unit = unit.substr(0, unit.length - 1); // "1 employee"
 		}
 		
+		console.log(obj);
 		var name = (obj.name.indexOf('(') != -1) ? obj.name.substring(0, obj.name.indexOf('(')) : obj.name; // cut off before parenthesis if there is one
 		
 		row.append('td').attr('class', 'dataName').classed('leftborder', secondary).text(obj.year + ' ' + name + ':');
 		row.append('td').attr('class', 'dataNum').text(value + " " + unit);		
 	};
 	
+	var sameDataset = '';
+	var sameDatasetCount = 1;
+	for (var i = 0; i< indObjects.length; i++){
+		if(i==0){
+			sameDataset = indObjects[i].dataset;
+		}
+		else{
+			if(indObjects[i].dataset === sameDataset){
+				sameDatasetCount++;
+			}
+		}	
+	}
+	var s_sameDataset = '';
+	var s_sameDatasetCount = 1;
+	if(currentSecondDI!== ''){
+		for (var i = 0; i< s_indObjects.length; i++){
+			if(i==0){
+				s_sameDataset = s_indObjects[i].dataset;
+			}
+			else{
+				if(s_indObjects[i].dataset === s_sameDataset){
+					s_sameDatasetCount++;
+				}
+			}	
+		}
+	}
+	console.log(s_sameDatasetCount);
 	for (var i = 0; i < indObjects.length; i++) {
+		//if all the indicators are from the same dataset, add a dataset title to the tooltip
+		if(i==0 /*&& sameDatasetCount==4 || i==0 && s_sameDatasetCount==4*/){
+			var row = tipTable.append('tr')
+				.attr('class', 'tipKey');
+			
+			row.append('td').attr({'class': 'datasetName', 'colspan': '2'}).text(function(){if(sameDatasetCount==4){return indObjects[i].dataset;}else{return indObjects[i].category;}});
+			if(currentSecondDI!== ''){row.append('td').attr({'class': 'datasetName', 'colspan': '2'}).text(function(){if(s_sameDatasetCount==4){return s_indObjects[i].dataset;}else{return indObjects[i].category;}});}
+		}
+		
 		var row = tipTable.append('tr')
 			.attr('class', 'tipKey');
-			
+	
 		writeIndicators(indObjects[i], quantByIds[i], false);
 		if (currentSecondDI !== '' && i < s_indObjects.length) writeIndicators(s_indObjects[i], s_quantByIds[i], true);
 	}
