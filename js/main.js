@@ -325,7 +325,7 @@ function setDropdownBehavior() {
 					update(datasetName, indicatorName);			
 					d3.select('#primeIndText').html(this.innerHTML + '<span class="sub-arrow"></span>');
 				}
-			}
+			} else d3.event.stopPropagation();
 		});
 	});
 	
@@ -339,7 +339,7 @@ function setDropdownBehavior() {
 					appendSecondInd(datasetName, indicatorName);
 					d3.select('#secondIndText').html(this.innerHTML + '<span class="sub-arrow"></span>');
 				}
-			}
+			} else d3.event.stopPropagation();
 		});
 	});
 			
@@ -700,10 +700,10 @@ function update(dataset, indicator) {
 		    	// restructure response object to object indexed by fips
 		    	try {
 		    		var responseObj = jQuery.parseJSON(request.responseText);
-		    		console.log(responseObj);
 		    	}
 		    	catch(error) {
 		    		noty({text: 'Error retreiving information from database.'});
+		    		return;
 		    	}
 		    	if (responseObj.ROWCOUNT === 0) {
 		    		noty({text: 'Database error: ROWCOUNT = 0'});
@@ -841,7 +841,6 @@ function fillMapColors() {
 
 function createLegend(keyArray) {
 	d3.selectAll(".legend svg").remove();
-	d3.select("#legendTitle").remove();
 
 	var primeIndObj = indObjects[0];
 	var type = '';
@@ -849,8 +848,6 @@ function createLegend(keyArray) {
 		if (primeIndObj.unit.indexOf("dollar") != -1) type = 'currency';
 		else if (primeIndObj.unit.indexOf('person') != -1 || primeIndObj.unit.indexOf('people') != -1 || primeIndObj.unit.indexOf('employee') != -1) type = 'persons';	
 	}
-	var legendTitle = primeIndObj.year + " " + primeIndObj.name;
-	//if (primeIndObj.dataType !== 'binary' && primeIndObj.dataType !== 'categorical') legendTitle += " in " + primeIndObj.unit; 
 
 	if (primeIndObj.dataType !== 'none') {
 		var options = {
@@ -863,7 +860,8 @@ function createLegend(keyArray) {
 		};
 		if (keyArray) options.keyArray = keyArray;
 		
-		d3.select(".legend").append("div").attr("id", "legendTitle").text(legendTitle);
+		d3.select('#legendTitle').text(primeIndObj.year + ' ' + primeIndObj.dataset);
+		d3.select('#legendSubtitle').text(primeIndObj.name);
 		return colorlegend("#quantileLegend", color, "quantile", options);
 	} else return false;
 }
@@ -1050,7 +1048,7 @@ function setZoomIcons() {
 	var coords = map.offsetWidth;
 	d3.select('#zoomIcons').style({left: '65px', top: '25px'});
 	d3.select("#iconsGroup").style({left: (coords + 20) + 'px', top: '15px'});
-	d3.select('.extraInstructions').style('display', function() {
+	d3.selectAll('.extraInstructions').style('display', function() {
 		return ((windowWidth - coords) / 2 < 150) ? 'none' : 'table-cell';
 	});
 	d3.select('#zoomPlusIcon').on('click', function() {
@@ -1084,7 +1082,7 @@ function exportSVG(){
 //bind crtl + shit + L to change colors to blues
 d3.select(document.body).on('keyup',function(){if(d3.event.ctrlKey&&d3.event.shiftKey&&d3.event.keyCode===76){level_colors=['rgb(189,215,231)','rgb(107,174,214)','rgb(49,130,189)','rgb(7,81,156)','rgb(28,53,99)'];var i=currentDI.lastIndexOf(' - ');update(currentDI.substring(0,i),currentDI.substring(i+3,currentDI.length));}});
 //bind ctrl + shift + e to exportSVG() function
-d3.select(document.body).on('keyup', function(){if d3.event.ctrlKey&&d3.event.shiftKey&&d3.event.keyCode===69){exportSVG();};
+d3.select(document.body).on('keyup', function(){if(d3.event.ctrlKey&&d3.event.shiftKey&&d3.event.keyCode===69)exportSVG();});
 //
 //End Easter Eggs and Backend Section
 //
