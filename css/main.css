@@ -288,7 +288,9 @@ h1 small {
 .dropdown-menu {
 	text-align: left;
 }
-
+#search_field{
+	width:100px;
+}
 #searchContainer{
 	font-size: .8em;
 	padding-right: 0px;
@@ -312,7 +314,7 @@ h1 small {
 #moreDataButton{
 	font-size:1.2em;
 	color:#fff;
-	padding:10px 15px 7px 15px;
+	padding:10px 30px 7px 15px;
 }
 #moreDataImg{
 	height:30px;
