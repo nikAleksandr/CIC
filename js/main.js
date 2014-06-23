@@ -19,7 +19,8 @@ var format = {
 	"binary": function (num) { return num; },
 	"categorical": function (num) { return num; },
 	"level": function (num, type) {
-    	if (num >= 1000000000) {
+		if (type === 'year') return num;
+    	else if (num >= 1000000000) {
     		var formatted = String((num/1000000000).toFixed(1)) + "bil";
     		return (type === 'currency') ? '$' + formatted : formatted;
     	} else if (num >= 1000000) {
@@ -47,7 +48,8 @@ var format_tt = {
 	"binary": function (num) { return num; },
 	"categorical": function (num) { return num; },
 	"level": function (num, type) {
-    	if (num >= 1000000000) {
+		if (type === 'year') return num;
+    	else if (num >= 1000000000) {
     		var formatted = String((num/1000000000).toFixed(1)) + " Bil";
     		return (type === 'currency') ? '$' + formatted : formatted;
     	} else if (num >= 1000000) {
@@ -565,7 +567,7 @@ function displayResults(url) {
 function update(dataset, indicator) {
 	currentDI = dataset + ' - ' + indicator; 
 	tooltip.classed("hidden", true);
-	$('#cc').scrollTop(0);
+	$(document.body).scrollTop(0);
 	
 	indObjects = allData(dataset, indicator); // pull data from JSON
 	currentDataType = indObjects[0].dataType;
@@ -596,7 +598,11 @@ function update(dataset, indicator) {
 				// translating string values to numeric values
 				var numCorrVals = 0, vals = {}, corrVal = 0;
 				for (var ind in quantById) {
-					if (quantById[ind] !== '.' && quantById[ind] !== '') {
+					// case by case substitutions
+					if (quantById[ind] === '0') quantById[ind] = 'None';
+					
+					// create corresponding value array (e.g. {"Gulf of Mexico": 0, "Pacific Ocean": 1})
+					if (quantById[ind] !== '.' && quantById[ind] !== '' && quantById[ind] !== null) {
 						if (!vals.hasOwnProperty(quantById[ind])) {
 							vals[quantById[ind]] = corrVal;
 							corrVal++;
@@ -618,9 +624,12 @@ function update(dataset, indicator) {
 				break;
 			case "categorical":
 				// max is 5 categories
-				range = [];
-				var availColors = categorical_colors;
-				for (var i = 0; i < numCorrVals; i++) range.push(availColors[i]);
+				if (numCorrVals === 2) range = binary_colors;
+				else {
+					range = [];
+					var availColors = categorical_colors;
+					for (var i = 0; i < numCorrVals; i++) range.push(availColors[i]);
+				}
 				break;
 			default:
 				range = level_colors;
@@ -846,7 +855,8 @@ function createLegend(keyArray) {
 	var type = '';
 	if (primeIndObj.hasOwnProperty('unit')) {
 		if (primeIndObj.unit.indexOf("dollar") != -1) type = 'currency';
-		else if (primeIndObj.unit.indexOf('person') != -1 || primeIndObj.unit.indexOf('people') != -1 || primeIndObj.unit.indexOf('employee') != -1) type = 'persons';	
+		else if (primeIndObj.unit.indexOf('person') != -1 || primeIndObj.unit.indexOf('people') != -1 || primeIndObj.unit.indexOf('employee') != -1) type = 'persons';
+		else if (primeIndObj.unit.indexOf('year') != -1) type = 'year';
 	}
 
 	if (primeIndObj.dataType !== 'none') {
@@ -883,7 +893,8 @@ function populateTooltip(d) {
 		var unit = '', type = '';
 		if (obj.hasOwnProperty('unit')) {
 			if (obj.unit.indexOf("dollar") != -1) type = 'currency';
-			else if (obj.unit.indexOf('person') != -1 || obj.unit.indexOf('people') != -1 || obj.unit.indexOf('employee') != -1) type = 'persons';	
+			else if (obj.unit.indexOf('person') != -1 || obj.unit.indexOf('people') != -1 || obj.unit.indexOf('employee') != -1) type = 'persons';
+			else if (obj.unit.indexOf('year') != -1) type = 'year';
 		}
 		var value = format_tt[obj.dataType](quant[d.id], type);
 		if (value === '$NaN' || value === 'NaN' || value === 'NaN%' || value === '.') {
@@ -916,21 +927,29 @@ function populateTooltip(d) {
 
 function positionTooltip(county) {
 	if (county) {
+		$('.arrow_box').css('right', '0px');
 		tooltip.classed('hidden', false);
 		var ttWidth = $('#tt').width(); // tooltip width and height
 		var ttHeight = $('#tt').height();
-		var cc = document.getElementById('cc');
 		
 		var countyCoord = county.getBoundingClientRect(); // county position relative to document.body
-		var left = countyCoord.left + countyCoord.width - ttWidth - containerOffset.left + cc.scrollLeft; // left relative to map
-		var top = countyCoord.top - ttHeight - containerOffset.top + cc.scrollTop - 10; // top relative to map
+		var left = countyCoord.left + countyCoord.width - ttWidth - containerOffset.left + document.body.scrollLeft + 20; // left relative to map
+		var top = countyCoord.top - ttHeight - containerOffset.top + document.body.scrollTop - 10; // top relative to map
 		
 		// checks if tooltip goes past window and adjust if it does
 		var dx = windowWidth - (left + ttWidth); // amount to tweak
 		var dy = windowHeight - (top + ttHeight);
-				
-		if (dx < 0) left += dx;
-		if (dy < 0) top += dy;
+
+		if (left < 0) {
+			$('.arrow_box').css('right', -left+'px');
+			left = 0;
+		} else if (dx < 0) {
+			$('.arrow_box').css('right', (dx < -20) ? '-20px' : dx+'px');
+			left += dx;
+		}
+		
+		if (top < 0) top = 0;
+		else if (dy < 0) top += dy;
 		
 		tooltip.transition()
 		  	.style("left", (left) + "px")
@@ -999,7 +1018,6 @@ function redraw() {
 	width = document.getElementById('container').offsetWidth-90;
 	height = width / 2;
 	containerOffset = $('#container').offset();
-	d3.select('#cc').style('top', containerOffset.top + document.getElementById('cc').scrollTop + 'px');
 	d3.select('svg').remove();
 	
 	setup(width,height);
@@ -1026,7 +1044,7 @@ function move() {
   	//0 from 1 (0)
 	
   	var zoomSmoothly = !(s === frmrS); // dont do smoothly if panning
-	zoomMap(t, s, zoomSmoothly);
+	zoomMap(t, s, zoomSmoothly);	
 }
 
 function zoomMap(t, s, smooth) {
@@ -1046,8 +1064,7 @@ function zoomMap(t, s, smooth) {
 
 function setZoomIcons() {
 	var coords = map.offsetWidth;
-	d3.select('#zoomIcons').style({left: '65px', top: '25px'});
-	d3.select("#iconsGroup").style({left: (coords + 20) + 'px', top: '15px'});
+	d3.select("#iconsGroup").style('left', (coords + 20) + 'px');
 	d3.selectAll('.extraInstructions').style('display', function() {
 		return ((windowWidth - coords) / 2 < 150) ? 'none' : 'table-cell';
 	});
@@ -1071,8 +1088,6 @@ function setZoomIcons() {
 	});
 }
 
-
-var throttleTimer;
 //Easter-Eggs, and other back-end functions
 function exportSVG(){
 	d3.selectAll('path').attr({'stroke': '#fff', 'stroke-width': '.2px'});
@@ -1086,6 +1101,8 @@ d3.select(document.body).on('keyup', function(){if(d3.event.ctrlKey&&d3.event.sh
 //
 //End Easter Eggs and Backend Section
 //
+
+var throttleTimer;
 function throttle() {
   window.clearTimeout(throttleTimer);
     throttleTimer = window.setTimeout(redraw, 200);
