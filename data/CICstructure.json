@@ -839,15 +839,15 @@
 			     "name": "County Profile",
 		   		 "source": "U.S. Census Bureau, NACo Research",
 				 "years": [2013],
-				 "companions": [["County Profile", "Census Region"], ["County Profile", "Year Founded"], ["County Profile", "County Square Mileage"], ["County Profile", "Fiscal Year End Date"]],
+				 "companions": [["County Profile", "Census Region"], ["County Profile", "Year Founded"], ["County Profile", "County Square Mileage"], ["County Profile", "Board Size"]],
       			 "children": [
 					{"name": "Census Region", "dataType": "categorical", "definition": "Groupings of states and the District of Columbia that subdivide the United States for the presentation of census data. There are four census regions - Northeast, Midwest, South and West."},
 					{"name": "County Seat", "dataType": "none", "definition": "Administrative center for the county.  Most counties have only one county seat. However, some counties in Alabama, Arkansas, Iowa, Kentucky, Massachusetts, Mississippi, Missouri, New Hampshire, New York, North Carolina, and Vermont have two or more county seats, usually located on opposite sides of the county."},
-					{"name": "Year Founded", "dataType": "level_np", "definition": "Year the county was recognized by the state"},
-					{"name": "Year Consolidated", "dataType": "level_np", "definition": "Year a city and a county that have been merged into one unified jurisdiction. A consolidated government has the powers and responibilities of both types of entities."},
+					{"name": "Year Founded", "unit": "year", "dataType": "level_np", "definition": "Year the county was recognized by the state"},
+					{"name": "Year Consolidated", "unit": "year", "dataType": "level_np", "definition": "Year a city and a county that have been merged into one unified jurisdiction. A consolidated government has the powers and responibilities of both types of entities."},
 					{"name": "Board Size", "dataType": "level", "definition": "Nubmer of representatives elected to the county board"},
 					{"name": "County Square Mileage", "dataType": "level", "definition": "Total land square miles within the county's geographical boundaries"},
-					{"name": "Fiscal Year End Date", "dataType": "categorical", "definition": "The date of the end of the fiscal year for each county"},
+					{"name": "Fiscal Year End Date", "unit": "year", "dataType": "categorical", "definition": "The date of the end of the fiscal year for each county"},
 					{"name": "State Capitol", "dataType": "none", "definition": "The city within the county where the state capital is located.  This field is left blank for counties that do not include the state capital."},
 		   			{"name": "CBSA Title", "dataType": "none", "definition": "The title of the Core Based Statistical Area the county is located in."},
 		   			{"name": "CBSA Code", "dataType": "none", "definition": "The Core Based Statistical Area code for the county. A 5 digit numeric code that is assigned alphabetically based on title and is unique within the nation."}
@@ -862,7 +862,7 @@
 			   		{"name": "Total Square Miles", "dataType": "level", "definition": "Total square miles within the county's geographical boundaries"},
 			   		{"name": "Total Land Square Miles", "dataType": "level", "definition": "Total land square miles within the county's geographical boundaries"},
 			   		{"name": "Total Water Square Miles", "dataType": "level", "definition": "Total square miles within the county's geographical boundaries made up of waterways."},
-			   		{"name": "Coastal Status", "dataType": "binary", "definition": "Indicates whether a county is considered coastal. A county is considered coastal if it meets one of the following two criteria: 1) least 15 percent of its total land area is located within the nation's coastal watershed or 2) a portion of the entire county accounts for at least 15 percent of a coastal cataloging unit (an individual drainage basin)."},
+			   		{"name": "Coastal Status", "dataType": "categorical", "definition": "Indicates whether a county is considered coastal. A county is considered coastal if it meets one of the following two criteria: 1) least 15 percent of its total land area is located within the nation's coastal watershed or 2) a portion of the entire county accounts for at least 15 percent of a coastal cataloging unit (an individual drainage basin)."},
 			   		{"name": "Body of Water", "dataType": "categorical", "definition": "The body of water in the county into which tributaries feed (e.g. a river leads into the Atlantic Ocean so the Atlantic Ocean is listed)"}
 			   	]
 		   },
