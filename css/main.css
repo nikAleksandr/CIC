@@ -306,7 +306,6 @@ h1 small {
 }
 
 #map {
-	/*position: relative;*/
 	z-index:-10;
 	float:left;
 }
@@ -425,7 +424,7 @@ h1 small {
 #rrssbContainer{
 	position:absolute;
 	right: -200px;
-	top:51%;
+	top:30%;
 	width:200px;
 }
 /*
