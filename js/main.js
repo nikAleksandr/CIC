@@ -889,7 +889,6 @@ function createLegend(keyArray) {
 
 	if (primeIndObj.dataType !== 'none') {
 		var options = {
-			//title : "legend",
 			boxHeight : 18,
 			boxWidth : 58,
 			dataType : primeIndObj.dataType,
@@ -955,7 +954,6 @@ function populateTooltip(d) {
 
 function positionTooltip(county) {
 	if (county) {
-		$('.arrow_box').css('right', '0px');
 		tooltip.classed('hidden', false);
 		var ttWidth = $('#tt').width(); // tooltip width and height
 		var ttHeight = $('#tt').height();
@@ -969,11 +967,13 @@ function positionTooltip(county) {
 		var dy = windowHeight - (top + ttHeight);
 
 		if (left < 0) {
-			$('.arrow_box').css('right', -left+'px');
+			d3.select('.arrow_box').transition().style('right', -left+'px');
 			left = 0;
 		} else if (dx < 0) {
-			$('.arrow_box').css('right', (dx < -20) ? '-20px' : dx+'px');
+			d3.select('.arrow_box').transition().style('right', (dx < -20) ? '-20px' : dx+'px');
 			left += dx;
+		} else {
+			d3.select('.arrow_box').transition().style('right', '0px');			
 		}
 		
 		if (top < 0) top = 0;
@@ -1046,10 +1046,11 @@ function redraw() {
 	width = document.getElementById('container').offsetWidth-90;
 	height = width / 2;
 	containerOffset = $('#container').offset();
-	d3.select('svg').remove();
 	
+	d3.select('svg').remove();
 	setup(width,height);
 	draw(topo, stateMesh);
+	
 	if (typeof legend !== 'undefined' && legend !== false) legend.reposition();
 	fillMapColors();
 }

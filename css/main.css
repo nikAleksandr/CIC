@@ -728,7 +728,7 @@ div.tooltip {
 		display:none;
 	}
 }
-@media (max-width: 915px){
+@media (max-width: 1010px){
 	#moreDataText {
 		display:none;
 	}
