@@ -230,7 +230,7 @@ body { position: relative; }
 #cc {
 	width: 100%;
 	text-align: center;
-	padding-top: 15px;
+	padding-top: 7px;
 }
 
 #container {
@@ -720,19 +720,13 @@ div.tooltip {
    Modify as content requires.
    ========================================================================== */
 
-@media (max-width: 1000px){
-	#nacoLogo {
-		display: none;
-	}
-	.extraInstructions{
-		display:none;
-	}
-}
 @media (max-width: 1010px){
-	#moreDataText {
-		display:none;
-	}
+	#nacoLogo { display: none; }
+	.extraInstructions { display: none; }
+	#moreDataText { display: none; }
+	#moreDataButton { padding: 10px 5px 7px 15px; }
 }
+
 @media (min-width: 640px) {
     /* Style adjustments for viewports that meet the condition */
 	.navbar-brand {

@@ -141,6 +141,13 @@ function setup(width, height) {
     frmrT = [0, 0];	
 	zoom.scale(frmrS);
 	zoom.translate(frmrT);
+
+	if (windowWidth <= 768) {
+		$('#secondIndLi').hide();
+		resetAll();
+	} else {
+		$('#secondIndLi').show();
+	}
 	
 	setZoomIcons();	
 	positionInstruction();
@@ -738,11 +745,9 @@ function update(dataset, indicator) {
 		    	}
 		    	catch(error) {
 		    		noty({text: 'Error retreiving information from database.'});
-		    		return;
 		    	}
 		    	if (responseObj.ROWCOUNT === 0) {
 		    		noty({text: 'Database error: ROWCOUNT = 0'});
-		    		return;
 		    	}
 		    	
 		    	
@@ -1046,7 +1051,7 @@ function redraw() {
 	width = document.getElementById('container').offsetWidth-90;
 	height = width / 2;
 	containerOffset = $('#container').offset();
-	
+		
 	d3.select('svg').remove();
 	setup(width,height);
 	draw(topo, stateMesh);
