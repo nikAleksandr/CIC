@@ -312,41 +312,67 @@ function goToPage(pageNum) {
 	$('#instructionPagination li[name='+pageNum+']').addClass('active');
 }
 
-function setDropdownBehavior() {		
+function setDropdownBehavior() {
+	var pickedIndicator = function(dataset, indicator, html) {
+		$.SmartMenus.hideAll();
+		if (currentDI === dataset + ' - ' + indicator) {
+			noty({text: 'Already showing "' + indicator + '"'});
+		} else {
+			update(dataset, indicator);
+			d3.select('#primeIndText').html(html + '<span class="sub-arrow"></span>');
+		}
+	};
+			
 	d3.select('#primeInd').selectAll('.dataset').each(function() {
 		var dataset = d3.select(this);		
 		var datasetName = dataset.attr('name');
+		
+		// when clicking on dataset, update to first companion
+		dataset.selectAll('a:not(.indicator)').on('click', function() {
+			var primeDI = getData(datasetName).companions[0];
+			var indHtml = dataset.select('.indicator[name="' + primeDI[1] + '"]').html();
+			pickedIndicator(primeDI[0], primeDI[1], indHtml);
+		});
 
 		dataset.selectAll('li').on('click', function() {
 			if (!d3.select(this).classed('disabled')) {
-				$.SmartMenus.hideAll();
 				var indicatorName = d3.select(this).select('.indicator').attr('name');
-				if (currentDI === datasetName + ' - ' + indicatorName) {
-					noty({text: 'Already showing "' + indicatorName + '"'});
-				} else {
-					update(datasetName, indicatorName);			
-					d3.select('#primeIndText').html(this.innerHTML + '<span class="sub-arrow"></span>');
-				}
+				pickedIndicator(datasetName, indicatorName, this.innerHTML);
+			} else d3.event.stopPropagation();
+		});
+	});
+
+	
+	var pickedSecondaryIndicator = function(dataset, indicator, html) {
+		$.SmartMenus.hideAll();
+		if (currentSecondDI === dataset + ' - ' + indicator) {
+			noty({text: 'Already showing "' + indicator + '" as a secondary indicator'});
+		} else {
+			appendSecondInd(dataset, indicator);
+			d3.select('#secondIndText').html(html + '<span class="sub-arrow"></span>');
+		}
+	};
+
+	d3.select('#secondInd').selectAll('.dataset').each(function() {
+		var dataset = d3.select(this);		
+		var datasetName = dataset.attr('name');
+
+		dataset.selectAll('a:not(.indicator)').on('click', function() {
+			var secDI = getData(datasetName).companions[0];
+			var indHtml = dataset.select('.indicator[name="' + secDI[1] + '"]').html();
+			pickedSecondaryIndicator(secDI[0], secDI[1], indHtml);
+		});
+
+		dataset.selectAll('li').on('click', function() {
+			if (!d3.select(this).classed('disabled')) {
+				var indicatorName = d3.select(this).select('.indicator').attr('name');
+				pickedSecondaryIndicator(datasetName, indicatorName, this.innerHTML);
 			} else d3.event.stopPropagation();
 		});
 	});
 	
-	d3.select('#secondInd').selectAll('.dataset').each(function() {
-		var dataset = d3.select(this);
-		var datasetName = dataset.attr('name');
-		dataset.selectAll('li').on('click', function() {
-			if (!d3.select(this).classed('disabled')) {
-				var indicatorName = d3.select(this).select('.indicator').attr('name');
-				if (currentSecondDI !== datasetName + ' - ' + indicatorName) {
-					appendSecondInd(datasetName, indicatorName);
-					d3.select('#secondIndText').html(this.innerHTML + '<span class="sub-arrow"></span>');
-				}
-			} else d3.event.stopPropagation();
-		});
-	});
-			
-	//d3.selectAll('.indicator').style('cursor', 'pointer'); // uncomment if you want disabled to cursor: pointer
-	d3.selectAll('.dataset').selectAll('li:not(.disabled)').selectAll('.indicator').style('cursor', 'pointer');
+	d3.selectAll('.dataset a').style('cursor', 'pointer');
+	d3.selectAll('.dataset').selectAll('li .disabled').selectAll('.indicator').style('cursor', 'default');
 }
 
 function setSearchBehavior() {
@@ -807,21 +833,23 @@ function getData(dataset, indicator){
 				selectedInd.source = Jdataset.source;
 				selectedInd.companions = Jdataset.companions;
 				if (Jdataset.hasOwnProperty('vintage')) selectedInd.vintage = Jdataset.vintage;
-
-				for (var h = 0; h < Jdataset.children.length; h++) {
-					if (indicator === Jdataset.children[h].name) {
-						// indicator properties
-						for (var ind in Jdataset.children[h]) {
-							//if (ind === 'dataType' && Jdataset.children[h][ind] === 'binary') Jdataset.children[h][ind] = 'categorical'; // convert binary to categorical
-							selectedInd[ind] = Jdataset.children[h][ind];
-						}
-						selectedInd.DI = selectedInd.dataset + ' - ' + selectedInd.name;
-						if (localVersion === false) {
-							for (var prop in crosswalk[selectedInd.DI]) {
-								selectedInd[prop] = crosswalk[selectedInd.DI][prop];
+				
+				if (typeof indicator !== 'undefined') {
+					for (var h = 0; h < Jdataset.children.length; h++) {
+						if (indicator === Jdataset.children[h].name) {
+							// indicator properties
+							for (var ind in Jdataset.children[h]) {
+								//if (ind === 'dataType' && Jdataset.children[h][ind] === 'binary') Jdataset.children[h][ind] = 'categorical'; // convert binary to categorical
+								selectedInd[ind] = Jdataset.children[h][ind];
 							}
+							selectedInd.DI = selectedInd.dataset + ' - ' + selectedInd.name;
+							if (localVersion === false) {
+								for (var prop in crosswalk[selectedInd.DI]) {
+									selectedInd[prop] = crosswalk[selectedInd.DI][prop];
+								}
+							}
+							break;
 						}
-						break;
 					}
 				}
 				break;
@@ -1109,7 +1137,6 @@ function throttle() {
 }
 
 setup(width,height);
-setBehaviors();
 
 // for testing
 /*$.getScript('js/test/util.js', function(){
@@ -1132,6 +1159,7 @@ d3.json("us.json", function(error, us) {
   	// load cic structure
   	d3.json("data/CICstructure.json", function(error, CICStructure){
 	    CICstructure = CICStructure;
+		setBehaviors();
 
 	    if (localVersion) {
 	    	update('Population Levels and Trends', 'Population Level'); // fill in map colors for default indicator now that everything is loaded 	
