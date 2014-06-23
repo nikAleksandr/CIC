@@ -565,7 +565,7 @@ function displayResults(url) {
 function update(dataset, indicator) {
 	currentDI = dataset + ' - ' + indicator; 
 	tooltip.classed("hidden", true);
-	$('#cc').scrollTop(0);
+	$(document.body).scrollTop(0);
 	
 	indObjects = allData(dataset, indicator); // pull data from JSON
 	currentDataType = indObjects[0].dataType;
@@ -916,21 +916,29 @@ function populateTooltip(d) {
 
 function positionTooltip(county) {
 	if (county) {
+		$('.arrow_box').css('right', '0px');
 		tooltip.classed('hidden', false);
 		var ttWidth = $('#tt').width(); // tooltip width and height
 		var ttHeight = $('#tt').height();
-		var cc = document.getElementById('cc');
 		
 		var countyCoord = county.getBoundingClientRect(); // county position relative to document.body
-		var left = countyCoord.left + countyCoord.width - ttWidth - containerOffset.left + cc.scrollLeft; // left relative to map
-		var top = countyCoord.top - ttHeight - containerOffset.top + cc.scrollTop - 10; // top relative to map
+		var left = countyCoord.left + countyCoord.width - ttWidth - containerOffset.left + document.body.scrollLeft + 20; // left relative to map
+		var top = countyCoord.top - ttHeight - containerOffset.top + document.body.scrollTop - 10; // top relative to map
 		
 		// checks if tooltip goes past window and adjust if it does
 		var dx = windowWidth - (left + ttWidth); // amount to tweak
 		var dy = windowHeight - (top + ttHeight);
-				
-		if (dx < 0) left += dx;
-		if (dy < 0) top += dy;
+
+		if (left < 0) {
+			$('.arrow_box').css('right', -left+'px');
+			left = 0;
+		} else if (dx < 0) {
+			$('.arrow_box').css('right', (dx < -20) ? '-20px' : dx+'px');
+			left += dx;
+		}
+		
+		if (top < 0) top = 0;
+		else if (dy < 0) top += dy;
 		
 		tooltip.transition()
 		  	.style("left", (left) + "px")
@@ -999,7 +1007,6 @@ function redraw() {
 	width = document.getElementById('container').offsetWidth-90;
 	height = width / 2;
 	containerOffset = $('#container').offset();
-	d3.select('#cc').style('top', containerOffset.top + document.getElementById('cc').scrollTop + 'px');
 	d3.select('svg').remove();
 	
 	setup(width,height);
