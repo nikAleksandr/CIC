@@ -328,8 +328,8 @@ h1 small {
 }
 #zoomIcons {
   position: absolute;
-  left: 20px;
-  top: 180px;
+  left: 65px;
+  top: 25px;
   width: 30px;
   background-color: white;
   opacity: 0.9;
@@ -404,6 +404,7 @@ h1 small {
 	position:absolute;
 	width:100px;
 	white-space:nowrap;
+	top: 15px;
 }
 .iconContainer{
 	display:block;
@@ -467,6 +468,13 @@ h1 small {
 #legendSubtitle {
 	font-weight: 400;
 	font-size: 0.8em;
+}
+
+.rotate {
+	-webkit-transform: rotate(45deg);
+	-moz-transform: rotate(45deg);
+	-ms-transform: rotate(45deg);
+	-o-transform: rotate(45deg);
 }
 
 /*

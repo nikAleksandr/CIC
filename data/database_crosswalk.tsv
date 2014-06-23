@@ -31,6 +31,7 @@ COUNTY_DATA	Population_2010	Geography
 COUNTY_DATA	Population_Size	Geography			
 COUNTY_DATA	County_Seat	Geography	County Profile	County Seat	"Administrative center for the county.  Most counties have only one county seat. However, some counties in Alabama, Arkansas, Iowa, Kentucky, Massachusetts, Mississippi, Missouri, New Hampshire, New York, North Carolina, and Vermont have two or more county seats, usually located on opposite sides of the county."
 COUNTY_DATA	Founded	Geography	County Profile	Year Founded	Year the county was recognized by the state
+COUNTY_DATA	Year_Consolidated	Geography	County Profile	Year Consolidated	
 COUNTY_DATA	Board_Size	Geography	County Profile	Board Size	Nubmer of representatives elected to the county board
 COUNTY_DATA	Board_Size	Geography	Government Structure	Size of Board	The size of the elected governing body of the county (number of board members).
 COUNTY_DATA	Gov_Type				

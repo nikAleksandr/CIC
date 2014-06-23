@@ -19,7 +19,8 @@ var format = {
 	"binary": function (num) { return num; },
 	"categorical": function (num) { return num; },
 	"level": function (num, type) {
-    	if (num >= 1000000000) {
+		if (type === 'year') return num;
+    	else if (num >= 1000000000) {
     		var formatted = String((num/1000000000).toFixed(1)) + "bil";
     		return (type === 'currency') ? '$' + formatted : formatted;
     	} else if (num >= 1000000) {
@@ -47,7 +48,8 @@ var format_tt = {
 	"binary": function (num) { return num; },
 	"categorical": function (num) { return num; },
 	"level": function (num, type) {
-    	if (num >= 1000000000) {
+		if (type === 'year') return num;
+    	else if (num >= 1000000000) {
     		var formatted = String((num/1000000000).toFixed(1)) + " Bil";
     		return (type === 'currency') ? '$' + formatted : formatted;
     	} else if (num >= 1000000) {
@@ -596,7 +598,11 @@ function update(dataset, indicator) {
 				// translating string values to numeric values
 				var numCorrVals = 0, vals = {}, corrVal = 0;
 				for (var ind in quantById) {
-					if (quantById[ind] !== '.' && quantById[ind] !== '') {
+					// case by case substitutions
+					if (quantById[ind] === '0') quantById[ind] = 'None';
+					
+					// create corresponding value array (e.g. {"Gulf of Mexico": 0, "Pacific Ocean": 1})
+					if (quantById[ind] !== '.' && quantById[ind] !== '' && quantById[ind] !== null) {
 						if (!vals.hasOwnProperty(quantById[ind])) {
 							vals[quantById[ind]] = corrVal;
 							corrVal++;
@@ -618,9 +624,12 @@ function update(dataset, indicator) {
 				break;
 			case "categorical":
 				// max is 5 categories
-				range = [];
-				var availColors = categorical_colors;
-				for (var i = 0; i < numCorrVals; i++) range.push(availColors[i]);
+				if (numCorrVals === 2) range = binary_colors;
+				else {
+					range = [];
+					var availColors = categorical_colors;
+					for (var i = 0; i < numCorrVals; i++) range.push(availColors[i]);
+				}
 				break;
 			default:
 				range = level_colors;
@@ -846,7 +855,8 @@ function createLegend(keyArray) {
 	var type = '';
 	if (primeIndObj.hasOwnProperty('unit')) {
 		if (primeIndObj.unit.indexOf("dollar") != -1) type = 'currency';
-		else if (primeIndObj.unit.indexOf('person') != -1 || primeIndObj.unit.indexOf('people') != -1 || primeIndObj.unit.indexOf('employee') != -1) type = 'persons';	
+		else if (primeIndObj.unit.indexOf('person') != -1 || primeIndObj.unit.indexOf('people') != -1 || primeIndObj.unit.indexOf('employee') != -1) type = 'persons';
+		else if (primeIndObj.unit.indexOf('year') != -1) type = 'year';
 	}
 
 	if (primeIndObj.dataType !== 'none') {
@@ -883,7 +893,8 @@ function populateTooltip(d) {
 		var unit = '', type = '';
 		if (obj.hasOwnProperty('unit')) {
 			if (obj.unit.indexOf("dollar") != -1) type = 'currency';
-			else if (obj.unit.indexOf('person') != -1 || obj.unit.indexOf('people') != -1 || obj.unit.indexOf('employee') != -1) type = 'persons';	
+			else if (obj.unit.indexOf('person') != -1 || obj.unit.indexOf('people') != -1 || obj.unit.indexOf('employee') != -1) type = 'persons';
+			else if (obj.unit.indexOf('year') != -1) type = 'year';
 		}
 		var value = format_tt[obj.dataType](quant[d.id], type);
 		if (value === '$NaN' || value === 'NaN' || value === 'NaN%' || value === '.') {
@@ -1033,7 +1044,7 @@ function move() {
   	//0 from 1 (0)
 	
   	var zoomSmoothly = !(s === frmrS); // dont do smoothly if panning
-	zoomMap(t, s, zoomSmoothly);
+	zoomMap(t, s, zoomSmoothly);	
 }
 
 function zoomMap(t, s, smooth) {
@@ -1053,8 +1064,7 @@ function zoomMap(t, s, smooth) {
 
 function setZoomIcons() {
 	var coords = map.offsetWidth;
-	d3.select('#zoomIcons').style({left: '65px', top: '25px'});
-	d3.select("#iconsGroup").style({left: (coords + 20) + 'px', top: '15px'});
+	d3.select("#iconsGroup").style('left', (coords + 20) + 'px');
 	d3.selectAll('.extraInstructions').style('display', function() {
 		return ((windowWidth - coords) / 2 < 150) ? 'none' : 'table-cell';
 	});
@@ -1078,8 +1088,6 @@ function setZoomIcons() {
 	});
 }
 
-
-var throttleTimer;
 //Easter-Eggs, and other back-end functions
 function exportSVG(){
 	d3.selectAll('path').attr({'stroke': '#fff', 'stroke-width': '.2px'});
@@ -1093,6 +1101,8 @@ d3.select(document.body).on('keyup', function(){if(d3.event.ctrlKey&&d3.event.sh
 //
 //End Easter Eggs and Backend Section
 //
+
+var throttleTimer;
 function throttle() {
   window.clearTimeout(throttleTimer);
     throttleTimer = window.setTimeout(redraw, 200);
