@@ -215,10 +215,7 @@ table th{
 }
 
 html, body { height: 100%; }
-body {
-  position: relative;
-  overflow: hidden;
-}
+body { position: relative; }
 
 #header {
 	position: relative;
@@ -231,18 +228,14 @@ body {
 }
 
 #cc {
-	position: absolute;
-	top: 174px;
-	bottom: 0px;
 	width: 100%;
 	text-align: center;
-	overflow-y: auto;
 	padding-top: 15px;
 }
 
 #container {
-  position: relative;
-  height: 100%;
+	position: relative;
+	height: 100%;
 }
 
 #header p {
@@ -464,10 +457,14 @@ h1 small {
   text-align: center;
 }
 
+#legendTitleContainer { text-align: center; }
 #legendTitle {
-	text-align: center;
 	font-weight:400;
-	font-size: 1.1em;
+	font-size: 1em;
+}
+#legendSubtitle {
+	font-weight: 400;
+	font-size: 0.8em;
 }
 
 /*
