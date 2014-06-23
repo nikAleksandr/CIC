@@ -326,7 +326,7 @@ function setDropdownBehavior() {
 			noty({text: 'Already showing "' + indicator + '"'});
 		} else {
 			update(dataset, indicator);
-			d3.select('#primeIndText').html(html + '<span class="sub-arrow"></span>');
+			//d3.select('#primeIndText').html(html + '<span class="sub-arrow"></span>');
 		}
 	};
 			
