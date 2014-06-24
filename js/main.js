@@ -937,7 +937,7 @@ function populateTooltip(d) {
 		.style({'margin-bottom': '5px', 'margin-top': '0px'}); // bootstrap defaults margin-bottom at 20px
 	var none_avail = true;
 	
-	var writeIndicators = function(obj, quant, secondary) {
+	var writeIndicators = function(row, obj, quant, secondary) {
 		var unit = '', type = '';
 		if (obj.hasOwnProperty('unit')) {
 			if (obj.unit.indexOf("dollar") != -1) type = 'currency';
@@ -945,62 +945,54 @@ function populateTooltip(d) {
 			else if (obj.unit.indexOf('year') != -1) type = 'year';
 		}
 		var value = format_tt[obj.dataType](quant[d.id], type);
-		if (value === '$NaN' || value === 'NaN' || value === 'NaN%' || value === '.') {
+		if (value === '$NaN' || value === 'NaN' || value === 'NaN%' || value === '.' || (isNumFun(obj.dataType) && isNaN(value)) ) {
 			value = 'Not Available';
 		} else {
 			none_avail = false;
-			if (type !== 'currency' && obj.hasOwnProperty('unit')) unit = obj.unit;
-			if (parseFloat(value) === 1 && unit.charAt(unit.length - 1) === 's') unit = unit.substr(0, unit.length - 1); // "1 employee"
+			if (type !== 'currency' && type !== 'year' && obj.hasOwnProperty('unit')) {
+				unit = obj.unit;
+				if (parseFloat(value) === 1 && unit.charAt(unit.length - 1) === 's') unit = unit.substr(0, unit.length - 1); // "1 employee"
+			}
 		}
 		
-		console.log(obj);
 		var name = (obj.name.indexOf('(') != -1) ? obj.name.substring(0, obj.name.indexOf('(')) : obj.name; // cut off before parenthesis if there is one
+		if (type !== 'year') name = obj.year + ' ' + name;
 		
-		row.append('td').attr('class', 'dataName').classed('leftborder', secondary).text(obj.year + ' ' + name + ':');
+		row.append('td').attr('class', 'dataName').classed('leftborder', secondary).text(name + ':');
 		row.append('td').attr('class', 'dataNum').text(value + " " + unit);		
 	};
 	
-	var sameDataset = '';
-	var sameDatasetCount = 1;
-	for (var i = 0; i< indObjects.length; i++){
-		if(i==0){
-			sameDataset = indObjects[i].dataset;
-		}
-		else{
-			if(indObjects[i].dataset === sameDataset){
-				sameDatasetCount++;
-			}
-		}	
-	}
-	var s_sameDataset = '';
-	var s_sameDatasetCount = 1;
-	if(currentSecondDI!== ''){
-		for (var i = 0; i< s_indObjects.length; i++){
-			if(i==0){
-				s_sameDataset = s_indObjects[i].dataset;
-			}
-			else{
-				if(s_indObjects[i].dataset === s_sameDataset){
-					s_sameDatasetCount++;
-				}
-			}	
+	var sameDataset = true, s_sameDataset = true;
+	for (var i = 1; i < indObjects.length; i++){
+		if (indObjects[i].dataset === indObjects[0].dataset) {
+			sameDataset = false;
+			break;
 		}
 	}
-	console.log(s_sameDatasetCount);
+	if (currentSecondDI!== '') {
+		for (var i = 1; i < s_indObjects.length; i++) {
+			if (s_indObjects[i].dataset === s_indObjects[0].dataset) {
+				s_sameDataset = false;
+				break;
+			}
+		}
+	}
 	for (var i = 0; i < indObjects.length; i++) {
-		//if all the indicators are from the same dataset, add a dataset title to the tooltip
-		if(i==0 /*&& sameDatasetCount==4 || i==0 && s_sameDatasetCount==4*/){
-			var row = tipTable.append('tr')
-				.attr('class', 'tipKey');
-			
-			row.append('td').attr({'class': 'datasetName', 'colspan': '2'}).text(function(){if(sameDatasetCount==4){return indObjects[i].dataset;}else{return indObjects[i].category;}});
-			if(currentSecondDI!== ''){row.append('td').attr({'class': 'datasetName', 'colspan': '2'}).text(function(){if(s_sameDatasetCount==4){return s_indObjects[i].dataset;}else{return indObjects[i].category;}});}
+		// if all the indicators are from the same dataset, add a dataset title to the tooltip
+		if (i == 0) {
+			var row = tipTable.append('tr').attr('class', 'tipKey');			
+			row.append('td').attr({'class': 'datasetName', 'colspan': '2'}).text(function() {
+				return (sameDataset) ? indObjects[i].dataset : indObjects[i].category;
+			});
+			if (currentSecondDI !== '') {
+				row.append('td').attr({'class': 'datasetName', 'colspan': '2'}).text(function() {
+					return (s_sameDataset) ? s_indObjects[i].dataset : s_indObjects[i].category;
+				});
+			}
 		}
 		
-		var row = tipTable.append('tr')
-			.attr('class', 'tipKey');
-	
-		writeIndicators(indObjects[i], quantByIds[i], false);
+		var row = tipTable.append('tr').attr('class', 'tipKey');	
+		writeIndicators(row, indObjects[i], quantByIds[i], false);
 		if (currentSecondDI !== '' && i < s_indObjects.length) writeIndicators(s_indObjects[i], s_quantByIds[i], true);
 	}
 
