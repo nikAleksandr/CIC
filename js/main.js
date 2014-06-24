@@ -860,7 +860,7 @@ function getData(dataset, indicator){
 							selectedInd.DI = selectedInd.dataset + ' - ' + selectedInd.name;
 							if (localVersion === false) {
 								for (var prop in crosswalk[selectedInd.DI]) {
-									selectedInd[prop] = crosswalk[selectedInd.DI][prop];
+									if (!selectedInd.hasOwnProperty(prop)) selectedInd[prop] = crosswalk[selectedInd.DI][prop];
 								}
 							}
 							break;
@@ -1229,7 +1229,7 @@ d3.json("us.json", function(error, us) {
 	        		}
 	      		}
 	      		
-	      		update("Administration Expenditures", "Total Expenditures"); // fill in map colors for default indicator now that everything is loaded
+	      		update("Administration Expenditures", "Total County"); // fill in map colors for default indicator now that everything is loaded
 	    	});
 	    }
 	    
