@@ -270,7 +270,6 @@ function showHelpText(){
 	emptyInstructionText();
 	$('#instructionPagination').show();
 	var activePage = $('#instructionPagination .active').attr('name');
-	console.log(activePage);
 	$('#helpText'+activePage).show();
 
 	$('#instructions').show();
@@ -588,7 +587,7 @@ function executeSearchMatch(FIPS) {
 };
 
 function displayResults(url) {
-	$('#instructionText').empty();
+	emptyInstructionText();
 	
 	d3.xhr('http://nacocic.naco.org/ciccfm/'+ url, function(error, request){
 		if (!error) {
@@ -596,7 +595,7 @@ function displayResults(url) {
 			//console.log(response);
 			
 			var frame = d3.select("#instructionText").append('div')
-				.attr('class', 'container-fluid')
+				.attr('class', 'container-fluid temp')
 				.attr('id', 'resultsContainer');
 				
 				frame.html(response);
@@ -945,7 +944,7 @@ function populateTooltip(d) {
 			else if (obj.unit.indexOf('year') != -1) type = 'year';
 		}
 		var value = format_tt[obj.dataType](quant[d.id], type);
-		if (value === '$NaN' || value === 'NaN' || value === 'NaN%' || value === '.' || (isNumFun(obj.dataType) && isNaN(value)) ) {
+		if (value === '$NaN' || value === 'NaN' || value === 'NaN%' || value === '.' || (isNumFun(obj.dataType) && isNaN(quant[d.id])) ) {
 			value = 'Not Available';
 		} else {
 			none_avail = false;
