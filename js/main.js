@@ -3,7 +3,7 @@ d3.select(window).on("resize", throttle);
 
 function toTitleCase(str){ return str.replace(/\w\S*/g, function(txt){return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();}); }
 function isNumFun(data_type) { return (data_type === 'level' || data_type === 'level_np' || data_type === 'percent'); }
-function positionInstruction(){var instructionLeft = (windowWidth * .2) / 2; if(windowWidth > 1125){instructionLeft = (windowWidth - 900)/2;}; d3.select('#instructions').style("left", instructionLeft - containerOffset.left + "px");}
+function positionInstruction(){var instructionLeft = (windowWidth * .2) / 2; if(windowWidth > 1125){instructionLeft = (windowWidth - 900)/2;}; d3.select('#instructions').style({"left": instructionLeft - containerOffset.left + "px", "height": height + "px"});}
 var stateNameList = ['AK', 'AL', 'AR', 'AZ', 'CA', 'CO', 'CT', 'DC', 'DE', 'FL', 'GA', 'HI', 'IA', 'ID', 'IL', 'IN', 'KS', 'KY', 'LA', 'MA', 'MD', 'ME', 'MI', 'MN', 'MO', 'MS', 'MT', 'NC', 'ND', 'NE', 'NH', 'NJ', 'NM', 'NV', 'NY', 'OH', 'OK', 'OR', 'PA', 'RI', 'SC', 'SD', 'TN', 'TX', 'UT', 'VA', 'VT', 'WA', 'WI', 'WV', 'WY'];
 
 // default for noty alert system
@@ -288,6 +288,10 @@ function resetAll() {
 	d3.select('#secondIndText').html('Secondary Indicator' + '<span class="sub-arrow"></span>');
 }
 function showHideRrssb() {
+	var twitterContentIntro = "http://twitter.com/home?status=See%20";
+	var twitterContentEnd = "%20data%20for%20your%20county%20by%20@NACoTweets%20%23NACoCIC%20www.naco.org%2FCIC";
+	var i=currentDI.lastIndexOf(' - ');
+	var twitterContentDataset = encodeURIComponent(currentDI.substring(0,i));
 	if ($('.rrssb-buttons').is(':visible')) {
 		var moveTransition = d3.select('#rrssbContainer').transition().duration(500).style('right', '-200px');
 		moveTransition.each('end', function() {
@@ -295,6 +299,8 @@ function showHideRrssb() {
 		});		
 	} else {
 		$('.rrssb-buttons').show();
+		d3.select('#twitterContent').attr(twitterContentIntro + twitterContentDataset + twitterContentEnd);
+		console.log(twitterContentIntro + twitterContentDataset + twitterContentEnd);
 		d3.select('#rrssbContainer').transition().duration(500).style('right', '50px');
 	}
 }
