@@ -769,8 +769,8 @@
       		"source": "U.S. Department of Housing and Urban Development",
       		"companions": [["Housing & Urban Development Grants", "Total HUD Amount"], ["Housing & Urban Development Grants", "HUD Annual Growth Rate (from previous year)"], ["Community Development Block Grants (CDBG)", "CDBG Amount"], ["HOME Investment Partnership Program", "HOME Amount"]],
           	"children": [
-      			{"name": "Total HUD Amount", "unit": "dollars", "dataType": "level", "definition": "Funding received for the Housing & Urban Development Grants program"},
-      			{"name": "HUD Annual Growth Rate (from previous year)", "dataType": "percent", "definition": "Percent change in funding for the Housing & Urban Development Grants program from the previous year"}
+      			{"name": "Total HUD Amount", "unit": "dollars", "dataType": "level", "definition": "Funding received for the Housing & Urban Development Grants program. Includes funding from the Community Development Block Grants (CDBG), HOME Investment Partnerships Program (HOME), Housing Opportunities for Persons with AIDS (HOPWA), Emergency Shelter Grants (ESG) and the American Dream Downpayment Initiative (ADDI)."},
+      			{"name": "HUD Annual Growth Rate (from previous year)", "dataType": "percent", "definition": "Percent change in funding for the Housing & Urban Development Grants program from the previous year. Includes funding from the Community Development Block Grants (CDBG), HOME Investment Partnerships Program (HOME), Housing Opportunities for Persons with AIDS (HOPWA), Emergency Shelter Grants (ESG) and the American Dream Downpayment Initiative (ADDI)."}
      		]
       	},
       	{

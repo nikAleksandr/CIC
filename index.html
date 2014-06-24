@@ -1498,7 +1498,7 @@
 												</li>
 											</ul>
 										</li>
-										<li class="dataset" name="Metro-Micro Areas (MSA)">
+										<li class="dataset disabled" name="Metro-Micro Areas (MSA)">
 											<a>Metro-Micro Areas (MSA)</a>
 											<ul class="dropdown-menu">
 												<li class="disabled">
@@ -4163,7 +4163,7 @@
 												</li>
 											</ul>
 										</li>
-										<li class="dataset" name="Metro-Micro Areas (MSA)">
+										<li class="dataset disabled" name="Metro-Micro Areas (MSA)">
 											<a>Metro-Micro Areas (MSA)</a>
 											<ul class="dropdown-menu">
 												<li class="disabled">
@@ -5489,27 +5489,6 @@
 	        	<div id="print">print</div>
 	        	<div id="close">Close</div>
 	        	<div id="instructionText">
-					<div class="iText" id="helpText">
-						<p><b>Instructions</b></p><br>
-						<p>
-							&bull; Pick a statistic by clicking on &quot;Primary Indicator&quot; on the top left of the screen and choosing an indicator.<br>
-							&bull; Click on a county on the map to show the statistics for that county.<br>
-							&bull; Or search for a county with the search bar on the top right of the screen.
-						</p><br>
-						<p>To show additional statistics, click on &quot;Secondary Indicator&quot; on the top left of the screen and choose another indicator.</p><br>
-						<p><img src="img/Back_to_US.svg"> - Click this to fully zoom out and see the entire map</p>
-						<p><img src="img/Reset_indicators.svg"> - Click this to no longer see the secondary indicator</p>
-						<p><img src="img/Share.svg"> - Click this to share on social media</p>
-						<p><img src="img/More_interactives.svg">- Click this to access more data through COIN</p>
-	        		</div>
-	        		<div class="iText" id="mailingText" style="text-align:center;">
-        				<p style="font-size:1.5em;">Keep Me Updated!</p>
-        				<p>Submit your email to the mailing list and receive updates when new features have been added.</p><br><br>
-        				<form>
-        					<input type="email" style="width:250px;">
-        					<input type="submit" style="margin-left:10px;">
-        				</form>
-	        		</div>
 	        		<div class="iText" id="mdText">
 						<div id="moreDataContent">
 							<div class="row">
@@ -5532,16 +5511,76 @@
 							</div>
 						</div>	        			
 	        		</div>
+	        		<div class="iText" id="mailingText" style="text-align:center;">
+        				<p style="font-size:1.5em;">Keep Me Updated!</p>
+        				<p>Submit your email to the mailing list and receive updates when new features have been added.</p><br><br>
+        				<form>
+        					<input type="email" style="width:250px;">
+        					<input type="submit" style="margin-left:10px;">
+        				</form>
+	        		</div>
+	        		<div class="iText helpText" id="helpText1">
+						<div class="helpTitle"><h3>Help</h3></div>
+						<div class="helpContainer">
+							<p>
+								<div class="helpLinkContainer">&bull; <span class="helpLink" onclick="goToPage(4);">View a new indicator on the map</span></div>
+								<div class="helpLinkContainer">&bull; <span class="helpLink" onclick="goToPage(2);">See detailed information on an indicator</span></div>
+								<div class="helpLinkContainer">&bull; <span class="helpLink" onclick="goToPage(3);">Find a county</span></div>
+								<div class="helpLinkContainer">&bull; <span class="helpLink" onclick="goToPage(3);">Find a county by a city name</span></div>
+								<div class="helpLinkContainer">&bull; <span class="helpLink" onclick="goToPage(3);">Find a county by a state name</span></div>
+								<div class="helpLinkContainer">&bull; <span class="helpLink" onclick="goToPage(3);">Find a county seat</span></div>
+								<div class="helpLinkContainer">&bull; <span class="helpLink" onclick="goToPage(2);">Compare two indicators</span></div>
+							</p>
+						</div>
+	        		</div>
+					<div class="iText helpText" id="helpText2">
+						<div class="helpTitle"><h3>Instructions</h3></div>
+						<div class="helpContainer">
+							<p>
+								&bull; Pick a statistic by clicking on &quot;Primary Indicator&quot; on the top left of the screen and choosing an indicator.<br>
+								&bull; Click on a county on the map to show the statistics for that county.<br>
+								&bull; Or search for a county with the search bar on the top right of the screen.
+							</p><br>
+							<p>To show additional statistics, click on &quot;Secondary Indicator&quot; on the top left of the screen and choose another indicator.</p><br>
+							<p><img src="img/Back_to_US.svg"> - Click this to fully zoom out and see the entire map</p>
+							<p><img src="img/Reset_indicators.svg"> - Click this to no longer see the secondary indicator</p>
+							<p><img src="img/Share.svg"> - Click this to share on social media</p>
+							<p><img src="img/More_interactives.svg">- Click this to access more data through COIN</p>
+						</div>
+	        		</div>
+					<div class="iText helpText" id="helpText3">
+						<div class="helpTitle"><h3>Finding A County</h3></div>
+						<div class="helpContainer">
+							<p>There are multiple ways to find a county.</p>
+							<p>
+								&bull; Click on "County Search" and search for any county.
+								&bull; Click on "City Search", type in the name of a city, and all counties located within that city will appear in the search results.<br>
+								&bull; Click on "State Search", pick a state from the dropdown, and all counties located in the state will appear in the search results.
+							</p>
+						</div>
+	        		</div>
+					<div class="iText helpText" id="helpText4">
+						<div class="helpTitle"><h3>Using the Map</h3></div>
+						<div class="helpContainer">
+							<p>
+								&bull; Scroll up to zoom in.<br>
+								&bull; Scroll down to zoom out.<br>
+								&bull; Click the "Back to US Map" button to zoom out.
+								&bull; Click on a county on the map to show statistics.<br>
+							</p>
+						</div>
+	        		</div>
 	        	</div>
-				<!-- <div id="instructionPagination">
+				<div id="instructionPagination">
 					<ul class="pagination">
 						<li><a href='#' onclick="incrementPage(-1);">&laquo;</a></li>
-						<li class="active" name="1"><a href='#' onclick="goToPage(1);">1</a></li>
-						<li name="2"><a href='#' onclick="goToPage(2);">2</a></li>
-						<li name="3"><a href='#' onclick="goToPage(3);">3</a></li>
+						<li class="active" name="1"><a onclick="goToPage(1);">1</a></li>
+						<li name="2"><a onclick="goToPage(2);">2</a></li>
+						<li name="3"><a onclick="goToPage(3);">3</a></li>
+						<li name="4"><a onclick="goToPage(4);">4</a></li>
 						<li><a href='#' onclick="incrementPage(1);">&raquo;</a></li>
 					</ul>
-				</div> -->
+				</div>
 	        </div>
 			
 			<div id="map">
