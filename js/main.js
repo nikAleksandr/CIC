@@ -830,9 +830,11 @@ function allData(dataset, indicator){
 	var firstObj = getData(dataset, indicator);
 	var objArray = [firstObj];
 	for (var i = 0; i < firstObj.companions.length; i++) {
-		var obj = getData(firstObj.companions[i][0], firstObj.companions[i][1]);
-		if (obj.name !== firstObj.name && objArray.length < firstObj.companions.length) objArray.push(obj);	
-
+		if (objArray.length < firstObj.companions.length) {
+			var obj = getData(firstObj.companions[i][0], firstObj.companions[i][1]);
+			var isDisabled = $('.dataset[name="'+obj.dataset+'"] .indicator[name="'+obj.name+'"]').parent().hasClass('disabled'); // checks if companion is disabled or not
+			if (obj.name !== firstObj.name && !isDisabled) objArray.push(obj);			
+		}
 	}	
 	return objArray;
 }
