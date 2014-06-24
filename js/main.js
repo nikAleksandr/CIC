@@ -83,11 +83,7 @@ var width = document.getElementById('container').offsetWidth-90,
 	windowHeight = $(window).height(),
 	containerOffset = $('#container').offset(); // position of container relative to document.body
 
-var projection = d3.geo.albersUsa()
-    .scale(width)
-    .translate([width / 2, height / 2]);
-
-var topo,stateMesh,projection,path,svg,g;
+var topo,stateMesh,path,svg,g;
 
 var tooltip = d3.select('#tt');
 var tipContainer = d3.select('#tipContainer');
@@ -123,7 +119,7 @@ var	color = d3.scale.quantile(); // quantile scale
 var frmrS, frmrT; // keep track of current translate and scale values
 
 function setup(width, height) {
-	projection = d3.geo.albersUsa().translate([0, 0]).scale(width * 1.0);
+	var projection = d3.geo.albersUsa().translate([0, 0]).scale(width * 1.0);
     
 	path = d3.geo.path().projection(projection);
 	svg = d3.select("#map").insert("svg", "div")
@@ -807,7 +803,10 @@ function appendSecondInd(dataset, indicator) {
 			}
 		});
 				
-		if (d3.select('.county.active').empty() !== true) populateTooltip(selected);
+		if (d3.select('.county.active').empty() !== true) {
+			populateTooltip(selected);
+			positionTooltip(d3.select('.county.active')[0][0]);
+		}
 	});
 }
 
@@ -1003,19 +1002,20 @@ function positionTooltip(county) {
 		var countyCoord = county.getBoundingClientRect(); // county position relative to document.body
 		var left = countyCoord.left + countyCoord.width - ttWidth - containerOffset.left + document.body.scrollLeft + 20; // left relative to map
 		var top = countyCoord.top - ttHeight - containerOffset.top + document.body.scrollTop - 10; // top relative to map
+		var arrow_left = -20 + countyCoord.width/2;
 		
 		// checks if tooltip goes past window and adjust if it does
 		var dx = windowWidth - (left + ttWidth); // amount to tweak
 		var dy = windowHeight - (top + ttHeight);
 
 		if (left < 0) {
-			d3.select('.arrow_box').transition().style('right', -left+'px');
+			d3.select('.arrow_box').transition().style('right', arrow_left-left+'px');
 			left = 0;
 		} else if (dx < 0) {
-			d3.select('.arrow_box').transition().style('right', (dx < -20) ? '-20px' : dx+'px');
+			d3.select('.arrow_box').transition().style('right', (dx < -20) ? arrow_left-20+'px' : arrow_left+dx+'px');
 			left += dx;
 		} else {
-			d3.select('.arrow_box').transition().style('right', '0px');			
+			d3.select('.arrow_box').transition().style('right', arrow_left + 'px');
 		}
 		
 		if (top < 0) top = 0;
