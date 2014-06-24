@@ -169,9 +169,9 @@ var colorlegend = function (target, scale, type, options) {
 	        return type === 'ordinal' ? 'start' : 'middle';
       	})
       	.style('pointer-events', 'none')
-      	/*.classed('rotate', function() {
+      	.classed('rotate', function() {
       		return (dataType === 'categorical');
-      	})*/
+      	})
       	.text(function (d, i) {
 	        // show label for all ordinal values
     	    if (type === 'ordinal') return dataValues[i];
