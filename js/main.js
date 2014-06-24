@@ -180,7 +180,7 @@ function setBehaviors() {
 		specWindow.document.close();
 		specWindow.focus();
 		specWindow.print();
-		specWindow.close();		
+		specWindow.close(); // doesn't reach this point if print dialog is closed
 	});
 
 	setDropdownBehavior();
