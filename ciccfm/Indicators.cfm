@@ -12,7 +12,7 @@
 </CFLOOP> 
 
 
-<CFIF db_year eq "">
+<CFIF db_year eq ""  >
 <CFSET db_year = 2010>
 </CFIF>
 
@@ -20,7 +20,8 @@
 		<cfquery name="get_data" datasource="naco_cic">
         select COUNTY_FIPS.FIPS, COUNTY_FIPS.State, COUNTY_FIPS.County_Name, #db_ind# 
         from COUNTY_FIPS
-        JOIN  #db_table[1]# on  #db_table[1]#.Fips = COUNTY_FIPS.Fips  and DATA_YEAR = #db_year#
+        JOIN  #db_table[1]# on  #db_table[1]#.Fips = COUNTY_FIPS.Fips
+         <CFIF #db_table[1]# NEQ 'County_DATA'>  WHERE   DATA_YEAR = #db_year#</CFIF>
         </cfquery>
 </CFIF> 
 
@@ -29,10 +30,9 @@
         select COUNTY_FIPS.FIPS, COUNTY_FIPS.State, COUNTY_FIPS.County_Name, #db_ind# 
         from 
         COUNTY_FIPS
-         JOIN  #db_table[1]# on  #db_table[1]#.Fips = COUNTY_FIPS.Fips and #db_table[1]#.DATA_YEAR = #db_year#
-         JOIN  #db_table[2]# on  #db_table[2]#.Fips = COUNTY_FIPS.Fips and #db_table[2]#.DATA_YEAR = #db_year#
-         
-         </cfquery>
+        JOIN  #db_table[1]# on  #db_table[1]#.Fips = COUNTY_FIPS.Fips <CFIF  #db_table[1]# NEQ 'County_DATA'> and #db_table[1]#.DATA_YEAR = #db_year#</CFIF>
+        JOIN  #db_table[2]# on  #db_table[2]#.Fips = COUNTY_FIPS.Fips  <CFIF  #db_table[2]# NEQ 'County_DATA'> and #db_table[2]#.DATA_YEAR = #db_year#</CFIF> 
+        </cfquery>
 </CFIF> 
 
 <CFIF #listLen(db_set)# GT 2 >

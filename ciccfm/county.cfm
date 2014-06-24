@@ -5,7 +5,7 @@
 			
            <CFQUERY NAME="getcountydata" DATASOURCE="naco_cic">
            SELECT  FIPS, LEFT(fips,2) as StateFIPS, county_name, state, Org_Type, Founded, Board_Size, Gov_type,
-           Population_2013, Member_Status, County_Seat, Total_Square_Miles, Population_1990, Population_1980, Population_2000, county_website
+           Population_2013, Member_Status, County_Seat, Total_Square_Miles, Population_1990, Population_1980, Population_2000, Population_2010, county_website
            FROM County_data
            WHERE FIPS=  '#URL.id#'
             </CFQUERY> 
@@ -31,11 +31,12 @@
             </CFQUERY> 
             
   
-<CFSET PersonsPerSqMile =    #getcountydata.Population_2010# /   #getcountydata.Total_Square_Miles#>    
+<CFSET PersonsPerSqMile =    #getcountydata.Population_2013# /   #getcountydata.Total_Square_Miles#>    
             
 			
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
+
 
 <div id="responseContent" class="container-fluid">
 <CFOUTPUT query="getcountydata">
@@ -65,7 +66,8 @@
         	<tr><td align="right">County Seat:&nbsp; </td><td>#County_Seat#</td></tr>
         	<tr><td align="right">Year Organized:&nbsp;</td><td>#Founded#</td></tr>
         	<tr><td align="right">Square Miles:&nbsp;</td><td>#Total_Square_Miles#</td></tr>
-        	<tr><td align="right">Persons/Square Mile:&nbsp;</td><td>#NumberFormat(PersonsPerSqMile, "999,999,999.99")# </td></tr>
+        	<tr><TD align="right">2013 Population:&nbsp;</TD><TD>#NumberFormat(Population_2013, "999,999,999,999")#</TD></tr>
+            <tr><td align="right">Persons/Square Mile:&nbsp;</td><td>#NumberFormat(PersonsPerSqMile, "999,999,999.99")#</td></tr>
         	<tr><td align="right">Size of Board:&nbsp;</td><td>#Board_Size#</td></tr>
         </table>
     </div>
@@ -79,12 +81,14 @@
 	        		<th>1990</th>
 	        		<th>2000</th>
 	        		<th>2010</th>
+                    <th>2013</th>
 	        	</tr>
                 
 	        	<tr>
 	        		<td>#NumberFormat(Population_1980, "999,999,999,999")#</td>
 	        		<td>#NumberFormat(Population_1990, "999,999,999,999")#</td>
 	        		<td>#NumberFormat(Population_2000, "999,999,999,999")#</td>
+                    <td>#NumberFormat(Population_2010, "999,999,999,999")#</td>
 	        		<td>#NumberFormat(Population_2013, "999,999,999,999")#</td>
 	        	</tr>
 	        </table>
@@ -127,7 +131,7 @@
 </div>			
 			
 
-</div>
+</div> 
 
 
 </html>

@@ -34,7 +34,7 @@
                     <CFOUTPUT>
                     <TR>
                     <TD>#County_Name#</TD>
-                    <TD align="right">#NumberFormat(Population_2010)#</TD><TD align="right">#NumberFormat(Square_Miles)#</TD></TR>
+                    <TD align="right">#NumberFormat(Population_2013)#</TD><TD align="right">#NumberFormat(Square_Miles)#</TD></TR>
                     </CFOUTPUT>
                 </TABLE>
                
@@ -57,7 +57,7 @@
 				<TR>
 				<TD><a id="#FIPS#" onClick="executeSearchMatch('#FIPS#')" >#County_Name#</a><CFIF Gov_Type EQ  "Consolidated">*</CFIF>
                 </TD>
-				<TD ALIGN="RIGHT"><CFIF Population_2013 GT 0>#NumberFormat(Population_2013)#<CFELSE><em>N/A</em></CFIF> </TD>
+				<TD ALIGN="RIGHT"><CFIF Population_2013 GT 0>#NumberFormat(Population_2013)#  <CFELSE><em>N/A</em></CFIF> </TD>
 				<TD ALIGN="RIGHT"><CFIF Total_Square_Miles GT 0>#NumberFormat(Total_Square_Miles)#  <CFELSE><em>N/A</em></CFIF> </TD> 
 				<TD ALIGN="LEFT"> #county_seat#&nbsp;</TD> 
 				<TD align="right"> #board_size#&nbsp;</TD> 

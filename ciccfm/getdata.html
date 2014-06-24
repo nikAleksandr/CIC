@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/json2/20110223/json2.js"></script>
+</head>
+<body>
+
+<div id="main"></div>
+
+<script>
+  // Read the json data
+  $.ajax({
+       url: "http://nacocic.naco.org/ciccfm/indicators.cfm?db_set=county_data,administration&db_ind=founded,admin_empl_financial,founded,Admin_Empl_Total_Admin",
+       dataType: "json",
+       success: function(data) {
+         // Convert the object to a string to display it
+        sData = JSON.stringify(data);
+        $('#main').html('THIS IS THE DATA FROM INDICATORS.CFM:<br />' + sData);
+       }
+  });
+</script>
+</body>
+</html>
+
+
+
