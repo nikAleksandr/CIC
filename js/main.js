@@ -180,7 +180,7 @@ function setBehaviors() {
 		specWindow.document.close();
 		specWindow.focus();
 		specWindow.print();
-		specWindow.close();		
+		specWindow.close(); // bug: doesn't reach this point if print dialog is closed
 	});
 
 	setDropdownBehavior();
@@ -270,7 +270,6 @@ function showHelpText(){
 	emptyInstructionText();
 	$('#instructionPagination').show();
 	var activePage = $('#instructionPagination .active').attr('name');
-	console.log(activePage);
 	$('#helpText'+activePage).show();
 
 	$('#instructions').show();
@@ -327,13 +326,21 @@ function goToPage(pageNum) {
 	$('#helpText'+pageNum).show();
 }
 
+function disableIndicators(type, name, indicator) {
+	// type is either "category" or "dataset" (e.g. disableIndicators('category', 'Administration') or disableIndicators('dataset', 'County Profile') or disableIndicators('indicator', 'County Profile', 'Census Region'))
+	if (type === 'category') {
+		$('.category[name="'+name+'"]').addClass('disabled')
+			.find('.dataset').addClass('disabled')
+			.find('.indicator').parent().addClass('disabled');
+	} else if (type === 'dataset') {
+		$('.dataset[name="'+name+'"]').addClass('disabled')
+			.find('.indicator').parent().addClass('disabled');
+	} else if (type === 'indicator') {
+		$('.dataset[name="'+name+'"] .indicator[name="'+indicator+'"]').parent().addClass('disabled');
+	}
+}
+
 function setDropdownBehavior() {
-	// disable hovering over dataset
-	/*$('.dataset, .category').hover(function() {
-		if ($(this).hasClass('disabled')) event.stopPropagation();
-	});*/
-	
-	
 	var pickedIndicator = function(dataset, indicator, html) {
 		$.SmartMenus.hideAll();
 		if (currentDI === dataset + ' - ' + indicator) {
@@ -359,7 +366,11 @@ function setDropdownBehavior() {
 			if (!d3.select(this).classed('disabled')) {
 				var indicatorName = d3.select(this).select('.indicator').attr('name');
 				pickedIndicator(datasetName, indicatorName, this.innerHTML);
-			} else d3.event.stopPropagation();
+			} else {
+				d3.event.stopPropagation();
+				$.SmartMenus.hideAll();
+				moreDataShow();
+			}
 		});
 	});
 
@@ -388,11 +399,16 @@ function setDropdownBehavior() {
 			if (!d3.select(this).classed('disabled')) {
 				var indicatorName = d3.select(this).select('.indicator').attr('name');
 				pickedSecondaryIndicator(datasetName, indicatorName, this.innerHTML);
-			} else d3.event.stopPropagation();
+			} else {
+				d3.event.stopPropagation();
+				$.SmartMenus.hideAll();
+				moreDataShow();
+			}
 		});
 	});
 	
 	d3.selectAll('.dataset a').style('cursor', 'pointer');
+	d3.selectAll('.dataset.disabled a:first-child').style('cursor', 'default');
 	d3.selectAll('.dataset').selectAll('li .disabled').selectAll('.indicator').style('cursor', 'default');
 }
 
@@ -588,7 +604,7 @@ function executeSearchMatch(FIPS) {
 };
 
 function displayResults(url) {
-	$('#instructionText').empty();
+	emptyInstructionText();
 	
 	d3.xhr('http://nacocic.naco.org/ciccfm/'+ url, function(error, request){
 		if (!error) {
@@ -596,7 +612,7 @@ function displayResults(url) {
 			//console.log(response);
 			
 			var frame = d3.select("#instructionText").append('div')
-				.attr('class', 'container-fluid')
+				.attr('class', 'container-fluid temp')
 				.attr('id', 'resultsContainer');
 				
 				frame.html(response);
@@ -831,9 +847,11 @@ function allData(dataset, indicator){
 	var firstObj = getData(dataset, indicator);
 	var objArray = [firstObj];
 	for (var i = 0; i < firstObj.companions.length; i++) {
-		var obj = getData(firstObj.companions[i][0], firstObj.companions[i][1]);
-		if (obj.name !== firstObj.name && objArray.length < firstObj.companions.length) objArray.push(obj);	
-
+		if (objArray.length < firstObj.companions.length) {
+			var obj = getData(firstObj.companions[i][0], firstObj.companions[i][1]);
+			var isDisabled = $('.dataset[name="'+obj.dataset+'"] .indicator[name="'+obj.name+'"]').parent().hasClass('disabled'); // checks if companion is disabled or not
+			if (obj.name !== firstObj.name && !isDisabled) objArray.push(obj);			
+		}
 	}	
 	return objArray;
 }
@@ -937,7 +955,7 @@ function populateTooltip(d) {
 		.style({'margin-bottom': '5px', 'margin-top': '0px'}); // bootstrap defaults margin-bottom at 20px
 	var none_avail = true;
 	
-	var writeIndicators = function(obj, quant, secondary) {
+	var writeIndicators = function(row, obj, quant, secondary) {
 		var unit = '', type = '';
 		if (obj.hasOwnProperty('unit')) {
 			if (obj.unit.indexOf("dollar") != -1) type = 'currency';
@@ -945,62 +963,54 @@ function populateTooltip(d) {
 			else if (obj.unit.indexOf('year') != -1) type = 'year';
 		}
 		var value = format_tt[obj.dataType](quant[d.id], type);
-		if (value === '$NaN' || value === 'NaN' || value === 'NaN%' || value === '.') {
+		if (value === '$NaN' || value === 'NaN' || value === 'NaN%' || value === '.' || (isNumFun(obj.dataType) && isNaN(quant[d.id])) ) {
 			value = 'Not Available';
 		} else {
 			none_avail = false;
-			if (type !== 'currency' && obj.hasOwnProperty('unit')) unit = obj.unit;
-			if (parseFloat(value) === 1 && unit.charAt(unit.length - 1) === 's') unit = unit.substr(0, unit.length - 1); // "1 employee"
+			if (type !== 'currency' && type !== 'year' && obj.hasOwnProperty('unit')) {
+				unit = obj.unit;
+				if (parseFloat(value) === 1 && unit.charAt(unit.length - 1) === 's') unit = unit.substr(0, unit.length - 1); // "1 employee"
+			}
 		}
 		
-		console.log(obj);
 		var name = (obj.name.indexOf('(') != -1) ? obj.name.substring(0, obj.name.indexOf('(')) : obj.name; // cut off before parenthesis if there is one
+		if (type !== 'year') name = obj.year + ' ' + name;
 		
-		row.append('td').attr('class', 'dataName').classed('leftborder', secondary).text(obj.year + ' ' + name + ':');
+		row.append('td').attr('class', 'dataName').classed('leftborder', secondary).text(name + ':');
 		row.append('td').attr('class', 'dataNum').text(value + " " + unit);		
 	};
 	
-	var sameDataset = '';
-	var sameDatasetCount = 1;
-	for (var i = 0; i< indObjects.length; i++){
-		if(i==0){
-			sameDataset = indObjects[i].dataset;
-		}
-		else{
-			if(indObjects[i].dataset === sameDataset){
-				sameDatasetCount++;
-			}
-		}	
-	}
-	var s_sameDataset = '';
-	var s_sameDatasetCount = 1;
-	if(currentSecondDI!== ''){
-		for (var i = 0; i< s_indObjects.length; i++){
-			if(i==0){
-				s_sameDataset = s_indObjects[i].dataset;
-			}
-			else{
-				if(s_indObjects[i].dataset === s_sameDataset){
-					s_sameDatasetCount++;
-				}
-			}	
+	var sameDataset = true, s_sameDataset = true;
+	for (var i = 1; i < indObjects.length; i++){
+		if (indObjects[i].dataset === indObjects[0].dataset) {
+			sameDataset = false;
+			break;
 		}
 	}
-	console.log(s_sameDatasetCount);
+	if (currentSecondDI!== '') {
+		for (var i = 1; i < s_indObjects.length; i++) {
+			if (s_indObjects[i].dataset === s_indObjects[0].dataset) {
+				s_sameDataset = false;
+				break;
+			}
+		}
+	}
 	for (var i = 0; i < indObjects.length; i++) {
-		//if all the indicators are from the same dataset, add a dataset title to the tooltip
-		if(i==0 /*&& sameDatasetCount==4 || i==0 && s_sameDatasetCount==4*/){
-			var row = tipTable.append('tr')
-				.attr('class', 'tipKey');
-			
-			row.append('td').attr({'class': 'datasetName', 'colspan': '2'}).text(function(){if(sameDatasetCount==4){return indObjects[i].dataset;}else{return indObjects[i].category;}});
-			if(currentSecondDI!== ''){row.append('td').attr({'class': 'datasetName', 'colspan': '2'}).text(function(){if(s_sameDatasetCount==4){return s_indObjects[i].dataset;}else{return indObjects[i].category;}});}
+		// if all the indicators are from the same dataset, add a dataset title to the tooltip
+		if (i == 0) {
+			var row = tipTable.append('tr').attr('class', 'tipKey');			
+			row.append('td').attr({'class': 'datasetName', 'colspan': '2'}).text(function() {
+				return (sameDataset) ? indObjects[i].dataset : indObjects[i].category;
+			});
+			if (currentSecondDI !== '') {
+				row.append('td').attr({'class': 'datasetName', 'colspan': '2'}).text(function() {
+					return (s_sameDataset) ? s_indObjects[i].dataset : s_indObjects[i].category;
+				});
+			}
 		}
 		
-		var row = tipTable.append('tr')
-			.attr('class', 'tipKey');
-	
-		writeIndicators(indObjects[i], quantByIds[i], false);
+		var row = tipTable.append('tr').attr('class', 'tipKey');	
+		writeIndicators(row, indObjects[i], quantByIds[i], false);
 		if (currentSecondDI !== '' && i < s_indObjects.length) writeIndicators(s_indObjects[i], s_quantByIds[i], true);
 	}
 
@@ -1197,6 +1207,11 @@ function throttle() {
 }
 
 setup(width,height);
+disableIndicators('dataset', 'Metro-Micro Areas (MSA)');
+disableIndicators('indicator', 'County Profile', 'Fiscal Year End Date');
+disableIndicators('indicator', 'County Profile', 'State Capitol');
+disableIndicators('indicator', 'County Profile', 'CBSA name');
+disableIndicators('indicator', 'County Profile', 'CBSA Code');
 
 // for testing
 /*$.getScript('js/test/util.js', function(){
