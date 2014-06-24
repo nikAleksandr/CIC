@@ -180,7 +180,7 @@ function setBehaviors() {
 		specWindow.document.close();
 		specWindow.focus();
 		specWindow.print();
-		specWindow.close(); // doesn't reach this point if print dialog is closed
+		specWindow.close(); // bug: doesn't reach this point if print dialog is closed
 	});
 
 	setDropdownBehavior();
@@ -326,13 +326,21 @@ function goToPage(pageNum) {
 	$('#helpText'+pageNum).show();
 }
 
+function disableIndicators(type, name, indicator) {
+	// type is either "category" or "dataset" (e.g. disableIndicators('category', 'Administration') or disableIndicators('dataset', 'County Profile') or disableIndicators('indicator', 'County Profile', 'Census Region'))
+	if (type === 'category') {
+		$('.category[name="'+name+'"]').addClass('disabled')
+			.find('.dataset').addClass('disabled')
+			.find('.indicator').parent().addClass('disabled');
+	} else if (type === 'dataset') {
+		$('.dataset[name="'+name+'"]').addClass('disabled')
+			.find('.indicator').parent().addClass('disabled');
+	} else if (type === 'indicator') {
+		$('.dataset[name="'+name+'"] .indicator[name="'+indicator+'"]').parent().addClass('disabled');
+	}
+}
+
 function setDropdownBehavior() {
-	// disable hovering over dataset
-	/*$('.dataset, .category').hover(function() {
-		if ($(this).hasClass('disabled')) event.stopPropagation();
-	});*/
-	
-	
 	var pickedIndicator = function(dataset, indicator, html) {
 		$.SmartMenus.hideAll();
 		if (currentDI === dataset + ' - ' + indicator) {
@@ -358,7 +366,11 @@ function setDropdownBehavior() {
 			if (!d3.select(this).classed('disabled')) {
 				var indicatorName = d3.select(this).select('.indicator').attr('name');
 				pickedIndicator(datasetName, indicatorName, this.innerHTML);
-			} else d3.event.stopPropagation();
+			} else {
+				d3.event.stopPropagation();
+				$.SmartMenus.hideAll();
+				moreDataShow();
+			}
 		});
 	});
 
@@ -387,11 +399,16 @@ function setDropdownBehavior() {
 			if (!d3.select(this).classed('disabled')) {
 				var indicatorName = d3.select(this).select('.indicator').attr('name');
 				pickedSecondaryIndicator(datasetName, indicatorName, this.innerHTML);
-			} else d3.event.stopPropagation();
+			} else {
+				d3.event.stopPropagation();
+				$.SmartMenus.hideAll();
+				moreDataShow();
+			}
 		});
 	});
 	
 	d3.selectAll('.dataset a').style('cursor', 'pointer');
+	d3.selectAll('.dataset.disabled a:first-child').style('cursor', 'default');
 	d3.selectAll('.dataset').selectAll('li .disabled').selectAll('.indicator').style('cursor', 'default');
 }
 
@@ -1190,6 +1207,11 @@ function throttle() {
 }
 
 setup(width,height);
+disableIndicators('dataset', 'Metro-Micro Areas (MSA)');
+disableIndicators('indicator', 'County Profile', 'Fiscal Year End Date');
+disableIndicators('indicator', 'County Profile', 'State Capitol');
+disableIndicators('indicator', 'County Profile', 'CBSA name');
+disableIndicators('indicator', 'County Profile', 'CBSA Code');
 
 // for testing
 /*$.getScript('js/test/util.js', function(){
