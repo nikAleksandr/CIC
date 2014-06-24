@@ -261,19 +261,23 @@ function draw(topo, stateMesh) {
 function emptyInstructionText() {
 	$('#instructionText .temp').remove();
 	$('#instructionText .iText').hide();
+	$('#instructionPagination').hide();
+	$('#showOnMap').hide();
 }
 
 //Functions for Icons
 function showHelpText(){
 	emptyInstructionText();
-	$('#helpText').show();	
-	$('#showOnMap').hide();
+	$('#instructionPagination').show();
+	var activePage = $('#instructionPagination .active').attr('name');
+	console.log(activePage);
+	$('#helpText'+activePage).show();
+
 	$('#instructions').show();
 }
 function addToMailingList() {
 	emptyInstructionText();
 	$('#mailingText').show();	
-	$('#showOnMap').hide();
 	$('#instructions').show();
 }
 function resetAll() {
@@ -300,22 +304,30 @@ function moreDataShow(){
 	} else {
 		emptyInstructionText();
 		$('#mdText').show();
-		$('#showOnMap').hide();		
 		$('#instructions').show();
 	}
 }
 function incrementPage(dx) {
 	var currPageNum = parseInt($('#instructionPagination .active').attr('name'));
 	if (currPageNum === 1 && parseInt(dx) === -1) goToPage(1);
-	else if (currPageNum === 3 && parseInt(dx) === 1) goToPage(3);
+	else if (currPageNum === 4 && parseInt(dx) === 1) goToPage(4);
 	else goToPage(currPageNum + parseInt(dx));
 }
 function goToPage(pageNum) {
 	$('#instructionPagination .active').removeClass('active');
 	$('#instructionPagination li[name='+pageNum+']').addClass('active');
+	
+	$('.helpText').hide();
+	$('#helpText'+pageNum).show();
 }
 
 function setDropdownBehavior() {
+	// disable hovering over dataset
+	/*$('.dataset, .category').hover(function() {
+		if ($(this).hasClass('disabled')) event.stopPropagation();
+	});*/
+	
+	
 	var pickedIndicator = function(dataset, indicator, html) {
 		$.SmartMenus.hideAll();
 		if (currentDI === dataset + ' - ' + indicator) {
@@ -530,7 +542,6 @@ function submitSearch() {
 				})(name_cell, pMatchArray[i].fips);
 			}
 			
-			$('#showOnMap').hide();
 			$('#instructions').show();
 						
 		} else if (pMatchArray.length == 1) {
@@ -1220,6 +1231,22 @@ d3.json("us.json", function(error, us) {
 	      		
 	      		update("Administration Expenditures", "Total Expenditures"); // fill in map colors for default indicator now that everything is loaded
 	    	});
+	    }
+	    
+	    // check url for showHelp query string
+	    var match,
+	    	urlParams = {}, 
+	    	pl = /\+/g, 
+	    	search = /([^&=]+)=?([^&]*)/g, 
+	    	decode = function(s) { return decodeURIComponent(s.replace(pl, ' ')); },
+	    	query = window.location.search.substring(1);
+	    while (match = search.exec(query)) urlParams[decode(match[1])] = decode(match[2]);
+	    if (urlParams.hasOwnProperty('showhelp')) {
+	    	var idSelec = '#helpText' + urlParams.showhelp;
+	    	if ($(idSelec).length !== 0) {
+				goToPage(urlParams.showhelp);
+		    	$('#instructions').show();
+	    	}	    	
 	    }
   	});
 });

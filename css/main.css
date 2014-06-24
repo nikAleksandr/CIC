@@ -131,7 +131,7 @@ table th{
 	text-align: left;
 	width: 80%;
 	max-width: 900px;
-	height: 70%;
+	height: 50%;
 	position: absolute;
 	top: 5%;
 	z-index: 100;
@@ -179,6 +179,11 @@ table th{
 	bottom: 0px;
 	right: 20px;
 }
+#instructionPagination a, .helpLink { cursor: pointer; }
+.helpTitle { padding: 0px 0px 0px 10px; }
+.helpContainer { padding: 5px 0px 0px 25px; }
+.helpLinkContainer { padding-bottom: 5px; }
+.iText { display: none; }
 
 #fullDefsButton{
 	color:rgb(0,64,112);
@@ -206,7 +211,7 @@ table th{
 }
 #print { margin-left: 10px; }
 
-#close:hover, #close2:hover, #instructionText a:hover, #help:hover, #showOnMap:hover, #print:hover, .county_link:hover, .extraInstructions:hover{
+#close:hover, #close2:hover, #instructionText a:hover, #help:hover, #showOnMap:hover, #print:hover, .county_link:hover, .extraInstructions:hover, .helpLink{
 	text-decoration:underline;
 }
 .noty_text { 
