@@ -288,6 +288,10 @@ function resetAll() {
 	d3.select('#secondIndText').html('Secondary Indicator' + '<span class="sub-arrow"></span>');
 }
 function showHideRrssb() {
+	var twitterContentIntro = "http://twitter.com/home?status=See%20";
+	var twitterContentEnd = "%20data%20for%20your%20county%20by%20@NACoTweets%20%23NACoCIC%20www.naco.org%2FCIC";
+	var i=currentDI.lastIndexOf(' - ');
+	var twitterContentDataset = encodeURIComponent(currentDI.substring(0,i));
 	if ($('.rrssb-buttons').is(':visible')) {
 		var moveTransition = d3.select('#rrssbContainer').transition().duration(500).style('right', '-200px');
 		moveTransition.each('end', function() {
@@ -295,6 +299,8 @@ function showHideRrssb() {
 		});		
 	} else {
 		$('.rrssb-buttons').show();
+		d3.select('#twitterContent').attr(twitterContentIntro + twitterContentDataset + twitterContentEnd);
+		console.log(twitterContentIntro + twitterContentDataset + twitterContentEnd);
 		d3.select('#rrssbContainer').transition().duration(500).style('right', '50px');
 	}
 }
