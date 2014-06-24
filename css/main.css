@@ -156,7 +156,7 @@ table th{
 #instructionText, #fullDefsText{
 	display: inline-block;
 	position: absolute;
-	top: 50px;
+	top: 30px;
 	bottom: 0px;
 	left: 0px;
 	right: 0px;
@@ -166,7 +166,7 @@ table th{
 	font-size: 1em;
 	padding: 20px;
 }
-
+.helpList { padding-bottom: 5px; }
 #instructionText a, #fullDefsText a, .county_link{
 	color:rgb(0,64,112);
 	cursor: pointer;
