@@ -379,13 +379,15 @@ h1 small {
   stroke-linecap: round;
 }
 .county:hover{
-  stroke: rgb(255,166,1);
+  /*stroke: rgb(255,166,1);*/
+ stroke: black;
   stroke-width: .7px;
   opacity: .5;
 }
 .county.active {
 	fill: rgb(0, 173, 220);
-	stroke:rgb(255,166,1);
+	/*stroke:rgb(255,166,1);*/
+	stroke: black;
 	stroke-width: .7px;
 	/*fill: rgb(253,156,2);*/
 }

@@ -975,7 +975,7 @@ function populateTooltip(d) {
 			none_avail = false;
 			if (type !== 'currency' && type !== 'year' && obj.hasOwnProperty('unit')) {
 				unit = obj.unit;
-				if (parseFloat(value) === 1 && unit.charAt(unit.length - 1) === 's') unit = unit.substr(0, unit.length - 1); // "1 employee"
+				if (parseFloat(value.replace(/[^\d\.\-]/g, '')) === 1 && unit.charAt(unit.length - 1) === 's') unit = unit.substr(0, unit.length - 1); // "1 employee"
 			}
 		}
 		
