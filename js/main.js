@@ -20,16 +20,16 @@ var format = {
 	"categorical": function (num) { return num; },
 	"level": function (num, type) {
 		if (type === 'year') return num;
-    	else if (num >= 1000000000) {
+    	else if (Math.abs(num) >= 1000000000) {
     		var formatted = String((num/1000000000).toFixed(1)) + "bil";
     		return (type === 'currency') ? '$' + formatted : formatted;
-    	} else if (num >= 1000000) {
+    	} else if (Math.abs(num) >= 1000000) {
     		var formatted = String((num/1000000).toFixed(1)) + "mil";
     		return (type === 'currency') ? '$' + formatted : formatted;
-    	} else if (num >= 10000) {
+    	} else if (Math.abs(num) >= 10000) {
     		var formatted = String((num/1000).toFixed(1)) + "k";
     		return (type === 'currency') ? '$' + formatted : formatted;
-    	} else if (num >= 100) {
+    	} else if (Math.abs(num) >= 100) {
     		return (type === 'currency') ? d3.format('$,.0f')(num) : d3.format(',.0f')(num);
     	} else if (num == 0) {
     		return (type === 'currency') ? '$0' : 0;
@@ -50,16 +50,16 @@ var format_tt = {
 	"categorical": function (num) { return num; },
 	"level": function (num, type) {
 		if (type === 'year') return num;
-    	else if (num >= 1000000000) {
+    	else if (Math.abs(num) >= 1000000000) {
     		var formatted = String((num/1000000000).toFixed(1)) + " Bil";
     		return (type === 'currency') ? '$' + formatted : formatted;
-    	} else if (num >= 1000000) {
+    	} else if (Math.abs(num) >= 1000000) {
     		var formatted = String((num/1000000).toFixed(1)) + " Mil";
     		return (type === 'currency') ? '$' + formatted : formatted;
-    	} else if (num >= 10000) {
+    	} else if (Math.abs(num) >= 10000) {
     		var formatted = String((num/1000).toFixed(1)) + "k";
     		return (type === 'currency') ? '$' + formatted : formatted;
-    	} else if (num >= 100) {
+    	} else if (Math.abs(num) >= 100) {
     		return (type === 'currency') ? d3.format('$,.0f')(num) : d3.format(',.0f')(num);
     	} else if (num == 0) {
     		return (type === 'currency') ? '$0' : 0;
@@ -857,7 +857,7 @@ function allData(dataset, indicator){
 		if (objArray.length < firstObj.companions.length) {
 			var obj = getData(firstObj.companions[i][0], firstObj.companions[i][1]);
 			var isDisabled = $('.dataset[name="'+obj.dataset+'"] .indicator[name="'+obj.name+'"]').parent().hasClass('disabled'); // checks if companion is disabled or not
-			if (obj.name !== firstObj.name && !isDisabled) objArray.push(obj);			
+			if (obj.name !== firstObj.name && obj.dataType !== 'none' && !isDisabled) objArray.push(obj);			
 		}
 	}	
 	return objArray;
@@ -1218,6 +1218,7 @@ function throttle() {
 
 setup(width,height);
 disableIndicators('dataset', 'Metro-Micro Areas (MSA)');
+disableIndicators('indicator', 'County Profile', 'County Seat');
 disableIndicators('indicator', 'County Profile', 'Fiscal Year End Date');
 disableIndicators('indicator', 'County Profile', 'State Capitol');
 disableIndicators('indicator', 'County Profile', 'CBSA Title');
