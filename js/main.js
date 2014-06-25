@@ -944,7 +944,9 @@ function createLegend(keyArray) {
 		if (keyArray) options.keyArray = keyArray;
 
 		var subtitle = primeIndObj.name;
-		if (primeIndObj.unit === 'square miles' || primeIndObj.unit === 'per 1,000 population') subtitle += ' (' + primeIndObj.unit + ')'; 		
+		if (primeIndObj.hasOwnProperty('unit') && (primeIndObj.unit.indexOf('square mile') !== -1 || primeIndObj.unit === 'per 1,000 population')) {
+			subtitle += ' (' + primeIndObj.unit + ')';
+		} 		
 		d3.select('#legendTitle').text(primeIndObj.year + ' ' + primeIndObj.dataset);
 		d3.select('#legendSubtitle').text(subtitle);
 
