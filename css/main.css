@@ -208,7 +208,7 @@ table th{
 	padding-left: .5em;
 	display: inline;
 }
-#print { margin-left: 10px; }
+#print { margin-left: 10px; display: none; }
 
 #close:hover, #close2:hover, #instructionText a:hover, #help:hover, #showOnMap:hover, #print:hover, .county_link:hover, .extraInstructions:hover, .helpLink{
 	text-decoration:underline;
