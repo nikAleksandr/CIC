@@ -652,9 +652,10 @@ function update(dataset, indicator) {
 		// define domain
 		if (isNumeric) {
 			var domain = [];
-			for (var ind in quantById) {				
+			for (var ind in quantById) {	
+				// for level datatypes, we do not want "zero" to be considered during the quantile categorization			
 				if (currentDataType === 'level' && parseFloat(quantById[ind]) === 0) {
-					//quantById[ind] = '.'; // for level datatypes, we do not want "zero" to be considered during the quantile categorization
+					//quantById[ind] = '.'; 
 				} else {
 					domain[ind] = quantById[ind];
 				}
@@ -925,14 +926,14 @@ function createLegend(keyArray) {
 	d3.selectAll(".legend svg").remove();
 
 	var primeIndObj = indObjects[0];
-	var type = '';
-	if (primeIndObj.hasOwnProperty('unit')) {
-		if (primeIndObj.unit.indexOf("dollar") != -1) type = 'currency';
-		else if (primeIndObj.unit.indexOf('person') != -1 || primeIndObj.unit.indexOf('people') != -1 || primeIndObj.unit.indexOf('employee') != -1) type = 'persons';
-		else if (primeIndObj.unit.indexOf('year') != -1) type = 'year';
-	}
+	if (primeIndObj.dataType !== 'none') {	
+		var type = '';
+		if (primeIndObj.hasOwnProperty('unit')) {
+			if (primeIndObj.unit.indexOf("dollar") != -1) type = 'currency';
+			else if (primeIndObj.unit.indexOf('person') != -1 || primeIndObj.unit.indexOf('people') != -1 || primeIndObj.unit.indexOf('employee') != -1) type = 'persons';
+			else if (primeIndObj.unit.indexOf('year') != -1) type = 'year';
+		}
 
-	if (primeIndObj.dataType !== 'none') {
 		var options = {
 			boxHeight : 18,
 			boxWidth : 58,
@@ -941,9 +942,12 @@ function createLegend(keyArray) {
 			formatFnArr: format
 		};
 		if (keyArray) options.keyArray = keyArray;
-		
+
+		var subtitle = primeIndObj.name;
+		if (primeIndObj.unit === 'square miles' || primeIndObj.unit === 'per 1,000 population') subtitle += ' (' + primeIndObj.unit + ')'; 		
 		d3.select('#legendTitle').text(primeIndObj.year + ' ' + primeIndObj.dataset);
-		d3.select('#legendSubtitle').text(primeIndObj.name);
+		d3.select('#legendSubtitle').text(subtitle);
+
 		return colorlegend("#quantileLegend", color, "quantile", options);
 	} else return false;
 }
@@ -1216,8 +1220,10 @@ setup(width,height);
 disableIndicators('dataset', 'Metro-Micro Areas (MSA)');
 disableIndicators('indicator', 'County Profile', 'Fiscal Year End Date');
 disableIndicators('indicator', 'County Profile', 'State Capitol');
-disableIndicators('indicator', 'County Profile', 'CBSA name');
+disableIndicators('indicator', 'County Profile', 'CBSA Title');
 disableIndicators('indicator', 'County Profile', 'CBSA Code');
+disableIndicators('indicator', 'USDA Rural Development', 'USDA Grant Annual Growth Rate (from previous year)');
+disableIndicators('indicator', 'USDA Rural Development', 'USDA Loan Annual Growth Rate (from previous year)');
 
 // for testing
 /*$.getScript('js/test/util.js', function(){
