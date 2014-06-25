@@ -35,8 +35,9 @@ var format = {
     		return (type === 'currency') ? '$0' : 0;
     	} else {
     		if (type === 'currency') return d3.format('$.1f')(num);
-    		else if (type === 'persons') return d3.format('0f')(num);
-    		else return d3.format('.1f')(num);
+    		/*else if (type === 'persons') return d3.format('0f')(num);
+    		else return d3.format('.1f')(num);*/
+    		else return d3.format('0f')(num);
     	}
     }
 };
@@ -64,8 +65,9 @@ var format_tt = {
     		return (type === 'currency') ? '$0' : 0;
     	} else {
     		if (type === 'currency') return d3.format('$.1f')(num);
-    		else if (type === 'persons') return d3.format('0f')(num);
-    		else return d3.format('.1f')(num);
+    		/*else if (type === 'persons') return d3.format('0f')(num);
+    		else return d3.format('.1f')(num);*/
+    		else return d3.format('0f')(num);
     	}
     }
 };
@@ -639,6 +641,14 @@ function update(dataset, indicator) {
 		var isNumeric = isNumFun(currentDataType);
 		var quantById = quantByIds[0];	
 
+		// modify values for binary
+		for (var i = 0; i < quantByIds.length; i++) {
+			for (var ind in quantByIds[i]) {
+				if (quantByIds[i][ind] === true) quantByIds[i][ind] = 'Yes';
+				else if (quantByIds[i][ind] === false) quantByIds[i][ind] = 'No';
+			}
+		}
+
 		// define domain
 		if (isNumeric) {
 			var domain = [];
@@ -729,7 +739,7 @@ function update(dataset, indicator) {
 			countyData.forEach(function(d) {			
 				for (var i = 0; i < indObjects.length; i++) {
 					quantByIds[i][d.id] = isNumFun(indObjects[i].dataType) ? parseFloat(d[indObjects[i].DI]) : d[indObjects[i].DI];
-					if (indObjects[i].hasOwnProperty('unit') && indObjects[i].unit.indexOf('thousand') !== -1) quantByIds[i][d.id] *= 1000;
+					if (indObjects[i].hasOwnProperty('unit') && indObjects[i].unit.indexOf('thousand') !== -1) quantByIds[i][d.id] *= 1000; // will remove this eventually
 				}
 	
 				idByName[d.geography] = d.id;
@@ -772,12 +782,8 @@ function update(dataset, indicator) {
 		    	try {
 		    		var responseObj = jQuery.parseJSON(request.responseText);
 		    	}
-		    	catch(error) {
-		    		noty({text: 'Error retreiving information from database.'});
-		    	}
-		    	if (responseObj.ROWCOUNT === 0) {
-		    		noty({text: 'Database error: ROWCOUNT = 0'});
-		    	}
+		    	catch(error) { noty({text: 'Error retreiving information from database.'}); }
+		    	if (responseObj.ROWCOUNT === 0) noty({text: 'Database error: ROWCOUNT = 0'});
 		    	
 		    	
 		    	for (var i = 0; i < responseObj.DATA.FIPS.length; i++) {
@@ -798,7 +804,7 @@ function update(dataset, indicator) {
 					for (var i = 0; i < indObjects.length; i++) {
 						var value = data[fips][indObjects[i].db_indicator.toUpperCase()];
 						quantByIds[i][fips] = isNumFun(indObjects[i].dataType) ? parseFloat(value) : value;
-						if (indObjects[i].hasOwnProperty('unit') && indObjects[i].unit.indexOf('thousand') !== -1) quantByIds[i][fips] *= 1000;
+						if (indObjects[i].hasOwnProperty('unit') && indObjects[i].unit.indexOf('thousand') !== -1) quantByIds[i][fips] *= 1000; // will remove this eventually
 					}
 		
 					idByName[data[fips].geography] = fips;
@@ -963,7 +969,7 @@ function populateTooltip(d) {
 			else if (obj.unit.indexOf('year') != -1) type = 'year';
 		}
 		var value = format_tt[obj.dataType](quant[d.id], type);
-		if (value === '$NaN' || value === 'NaN' || value === 'NaN%' || value === '.' || (isNumFun(obj.dataType) && isNaN(quant[d.id])) ) {
+		if (value === '$NaN' || value === 'NaN' || value === 'NaN%' || value === null || value === '.' || (isNumFun(obj.dataType) && isNaN(quant[d.id])) ) {
 			value = 'Not Available';
 		} else {
 			none_avail = false;
@@ -1217,6 +1223,8 @@ disableIndicators('indicator', 'County Profile', 'CBSA Code');
 /*$.getScript('js/test/util.js', function(){
 	//countIndicators();
 	//areAllIndicatorsInDatabase();
+	//areAllCompanionsValid();
+	//checkDropdownNames();
 	//testDatabaseResponses(); // will only work if on nacocic.naco.org and localVersion disabled (note: 700+ requests being sent! will take more than a minute!)
 });*/
 
