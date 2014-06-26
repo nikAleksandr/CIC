@@ -630,7 +630,7 @@ function displayResults(url) {
 
 function update(dataset, indicator) {
 	currentDI = dataset + ' - ' + indicator; 
-	tooltip.classed("hidden", true);
+	//tooltip.classed("hidden", true);
 	$(document.body).scrollTop(0);
 	
 	indObjects = allData(dataset, indicator); // pull data from JSON
@@ -714,6 +714,13 @@ function update(dataset, indicator) {
 
 		fillMapColors(); // fill in map colors
 		legend = isNumeric ? createLegend() : createLegend(vals); // create the legend; note: vals is a correspondence array linking strings with numbers for categorical dataTypes
+		
+		// if county is active, re-populate tooltip
+		if (d3.select('.county.active').empty() !== true) {
+			var active_county = d3.select('.county.active')[0][0];
+			populateTooltip(active_county);
+			positionTooltip(active_county);
+		}
 		
 		// list source
 		d3.select("#sourceContainer").selectAll("p").remove();
@@ -1023,7 +1030,7 @@ function populateTooltip(d) {
 		
 		var row = tipTable.append('tr').attr('class', 'tipKey');	
 		writeIndicators(row, indObjects[i], quantByIds[i], false);
-		if (currentSecondDI !== '' && i < s_indObjects.length) writeIndicators(s_indObjects[i], s_quantByIds[i], true);
+		if (currentSecondDI !== '' && i < s_indObjects.length) writeIndicators(row, s_indObjects[i], s_quantByIds[i], true);
 	}
 
 	/*if (none_avail) {
