@@ -637,8 +637,13 @@ function update(dataset, indicator) {
 	indObjects = allInfo(dataset, indicator);
 	currentDataType = indObjects[0].dataType;
 	
-	$(document.body).on('dataReceived', function(event, data) {
-		quantByIds = data;
+	$(document.body).on('dataReceived', function(event, qbis, data) {
+		quantByIds = qbis;
+		for (var fips in data) {
+			idByName[data[fips].geography] = fips;
+			countyObjectById[fips] = data[fips];
+		}
+
 		updateView();
 	});
 	
@@ -649,8 +654,8 @@ function appendSecondInd(dataset, indicator) {
 	currentSecondDI = dataset + ' - ' + indicator;
 	s_indObjects = allInfo(dataset, indicator);
 	
-	$(document.body).on('dataReceived', function(event, data) {
-		s_quantByIds = data;
+	$(document.body).on('dataReceived', function(event, qbis) {
+		s_quantByIds = qbis;
 		if (d3.select('.county.active').empty() !== true) {
 			populateTooltip(selected);
 			positionTooltip(d3.select('.county.active')[0][0]);
@@ -681,25 +686,29 @@ function getData() {
  		});
  	} else {
  		// need to sort by dataset because we want to send one query per dataset needed
-	  	var indicatorList = {}; // object of indicator values and latest year values indexed by dataset name
+	  	var indicatorList = {}; // list of indicators indexed by dataset then indexed by year
 	  	for (var i = 0; i < indObjects.length; i++) {
 		  	var crossObject = crosswalk[indObjects[i].dataset+' - '+indObjects[i].name];
+		  	var year = indObjects[i].year;
 	
-	  		if (!indicatorList.hasOwnProperty(crossObject.db_dataset)) {
-	  			indicatorList[crossObject.db_dataset] = {year: indObjects[i].year, indicators: []};
-	  		}
-	  		indicatorList[crossObject.db_dataset].indicators.push(crossObject.db_indicator);	  		
+	  		if (!indicatorList.hasOwnProperty(crossObject.db_dataset)) indicatorList[crossObject.db_dataset] = {};
+			var dataset_obj = indicatorList[crossObject.db_dataset];
+			if (!dataset_obj.hasOwnProperty(year)) dataset_obj[year] = [];
+			dataset_obj[year].push(crossObject.db_indicator);	  		
 	  	}
 
 		// configure query string for each dataset
 		var qsa = []; // array of query strings
-	  	for (var ind in indicatorList) {
-	  		var query_str = 'db_set=' + ind + '&db_year=' + indicatorList[ind].year + '&db_ind='; // append dataset name and year
-	  		for (var j = 0; j < indicatorList[ind].indicators.length; j++) {
-	  			query_str += indicatorList[ind].indicators[j]; // append each indicator
-	  			if (j != indicatorList[ind].indicators.length - 1) query_str += ',';
-	  		}
-	  		qsa.push({query_str: query_str, dataset_name: ind});
+	  	for (var ds_name in indicatorList) {
+	  		for (var year in indicatorList[ds_name]) {
+	  			var ind_list = indicatorList[ds_name][year];
+		  		var query_str = 'db_set=' + ds_name + '&db_year=' + year + '&db_ind='; // append dataset name and year		  		
+		  		for (var j = 0; j < ind_list.length; j++) {
+		  			query_str += ind_list[j]; // append each indicator
+		  			if (j != ind_list.length - 1) query_str += ',';
+		  		}
+		  		qsa.push(query_str);
+		  	}
 	  	}
 
 		var gtgArray = []; // indicates whether we have received back each query request
@@ -707,7 +716,7 @@ function getData() {
 		
     	var data = {};
     	
-    	var getRequest = function(query_str, queryIndex, datasetName) {
+    	var getRequest = function(query_str, queryIndex) {
 		  	d3.xhr('http://nacocic.naco.org/ciccfm/indicators.cfm?'+ query_str, function(error, request){
 		    	try {
 		    		var responseObj = jQuery.parseJSON(request.responseText);
@@ -715,16 +724,15 @@ function getData() {
 		    	catch(error) { noty({text: 'Error retreiving information from database.'}); }
 		    	if (responseObj.ROWCOUNT === 0) noty({text: 'Database error: ROWCOUNT = 0'});
 		    	
-		    	// restructure response object to object indexed by fips		    	
+		    	// restructure response object to object indexed by fips, and add it to "data"	
 		    	for (var i = 0; i < responseObj.DATA.FIPS.length; i++) {
 		    		var fips = parseInt(responseObj.DATA.FIPS[i]);
-		    		if (!data.hasOwnProperty(fips)) data[fips] = {};
+		    		if (!data.hasOwnProperty(fips)) data[fips] = {id: fips};
 		    		for (var j = 1; j < responseObj.COLUMNS.length; j++) {
-		    			var property = responseObj.COLUMNS[j]; // does not avoid duplicate property names; might need to change later by renaming property "database - indicator" if an indicator
+		    			var property = responseObj.COLUMNS[j]; // does not avoid duplicate property names (e.g. primary: "Total County", companion1: "Total County")
 		    			if (!data[fips].hasOwnProperty(property)) data[fips][property] = responseObj.DATA[property][i];
 		    		}
-		    		data[fips].id = fips;
-		    		data[fips].geography = data[fips].COUNTY_NAME + ', ' + data[fips].STATE;
+		    		if (!data[fips].hasOwnProperty('geography')) data[fips].geography = data[fips].COUNTY_NAME + ', ' + data[fips].STATE;
 		    	}
 					
 				// check if everything's good to go
@@ -737,6 +745,7 @@ function getData() {
 					}
 				}	
 				if (gtg === true) {
+					// write data to "quantById" format
 					var qbis = [];
 					for (var i = 0; i < indObjects.length; i++) qbis.push([]);				
 					for (var fips in data) {
@@ -750,12 +759,12 @@ function getData() {
 						countyObjectById[fips] = data[fips];
 					}
 
-					$(document.body).trigger('dataReceived', [qbis]);
+					$(document.body).trigger('dataReceived', [qbis, data]);
 				}
 			});
 		};
 		
-		for (var i = 0; i < qsa.length; i++) getRequest(qsa[i].query_str, i, qsa[i].dataset_name);
+		for (var i = 0; i < qsa.length; i++) getRequest(qsa[i], i);
 	}	
 }
 
@@ -1276,7 +1285,7 @@ d3.json("us.json", function(error, us) {
 	        		}
 	      		}
 	      		
-	      		update("Administration Expenditures", "Total County"); // fill in map colors for default indicator now that everything is loaded
+	      		update('Population Levels and Trends', 'Population Level'); // fill in map colors for default indicator now that everything is loaded
 	    	});
 	    }
 	    
