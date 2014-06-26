@@ -818,7 +818,7 @@
       	},
       	{
       		"name": "USDA Rural Development",
-      		"years": [2009, 2010, 2011, 2012, 2013, 2014],
+      		"years": [2009, 2010, 2011, 2012, 2013],
       		"source": "U.S. Department of Agriculture - Rural Development",
       		"companions": [["USDA Rural Development", "USDA Total Amount"], ["USDA Rural Development", "USDA Total Annual Growth Rate (from previous year)"], ["USDA Rural Development", "USDA Grant Amount"], ["USDA Rural Development", "USDA Loan Amount"]],
       		"children": [
