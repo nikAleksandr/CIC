@@ -637,6 +637,7 @@ function update(dataset, indicator) {
 	indObjects = allInfo(dataset, indicator);
 	currentDataType = indObjects[0].dataType;
 	
+	$(document.body).off('dataReceived'); // shady, should only be setting event observe once, instead of re-defining it every time
 	$(document.body).on('dataReceived', function(event, qbis, data) {
 		quantByIds = qbis;
 		for (var fips in data) {
@@ -654,6 +655,7 @@ function appendSecondInd(dataset, indicator) {
 	currentSecondDI = dataset + ' - ' + indicator;
 	s_indObjects = allInfo(dataset, indicator);
 	
+	$(document.body).off('dataReceived'); // shady, should only be setting event observe once, instead of re-defining it every time
 	$(document.body).on('dataReceived', function(event, qbis) {
 		s_quantByIds = qbis;
 		if (d3.select('.county.active').empty() !== true) {
@@ -710,12 +712,7 @@ function getData() {
 		  		qsa.push(query_str);
 		  	}
 	  	}
-
-		var gtgArray = []; // indicates whether we have received back each query request
-		for (var i = 0; i < qsa.length; i++) gtgArray.push(false);
-		
-    	var data = {};
-    	
+		    	
     	var getRequest = function(query_str, queryIndex) {
 		  	d3.xhr('http://nacocic.naco.org/ciccfm/indicators.cfm?'+ query_str, function(error, request){
 		    	try {
@@ -734,35 +731,37 @@ function getData() {
 		    		}
 		    		if (!data[fips].hasOwnProperty('geography')) data[fips].geography = data[fips].COUNTY_NAME + ', ' + data[fips].STATE;
 		    	}
-					
-				// check if everything's good to go
-				gtgArray[queryIndex] = true;
-				var gtg = true;
-				for (var j = 0; j < gtgArray.length; j++) {
-					if (gtgArray[j] === false) {
-						gtg = false;
-						break;
-					}
-				}	
-				if (gtg === true) {
-					// write data to "quantById" format
-					var qbis = [];
-					for (var i = 0; i < indObjects.length; i++) qbis.push([]);				
-					for (var fips in data) {
-						for (var i = 0; i < indObjects.length; i++) {
-							var value = data[fips][indObjects[i].db_indicator.toUpperCase()];
-							qbis[i][fips] = isNumFun(indObjects[i].dataType) ? parseFloat(value) : value;
-							if (indObjects[i].hasOwnProperty('unit') && indObjects[i].unit.indexOf('thousand') !== -1) qbis[i][fips] *= 1000; // will remove this eventually
-						}
-			
-						idByName[data[fips].geography] = fips;
-						countyObjectById[fips] = data[fips];
-					}
 
-					$(document.body).trigger('dataReceived', [qbis, data]);
-				}
+		    	$(document.body).trigger('requestReceived');		    	
 			});
 		};
+		
+    	var data = {};
+		var requestsReceived = 0;
+		$(document.body).off('requestReceived'); // shady, should only be setting event observe once, instead of re-defining it every time
+		$(document.body).on('requestReceived', function() {
+			requestsReceived++;
+			
+			// all requests have been received; send back event trigger after formatting
+			if (requestsReceived == qsa.length) {
+				
+				// write data to "quantById" format
+				var qbis = [];
+				for (var i = 0; i < indObjects.length; i++) qbis.push([]);				
+				for (var fips in data) {
+					for (var i = 0; i < indObjects.length; i++) {
+						var value = data[fips][indObjects[i].db_indicator.toUpperCase()];
+						qbis[i][fips] = isNumFun(indObjects[i].dataType) ? parseFloat(value) : value;
+						if (indObjects[i].hasOwnProperty('unit') && indObjects[i].unit.indexOf('thousand') !== -1) qbis[i][fips] *= 1000; // will remove this eventually
+					}
+		
+					idByName[data[fips].geography] = fips;
+					countyObjectById[fips] = data[fips];
+				}
+
+				$(document.body).trigger('dataReceived', [qbis, data]);
+			}
+		});
 		
 		for (var i = 0; i < qsa.length; i++) getRequest(qsa[i], i);
 	}	
@@ -786,12 +785,13 @@ function updateView() {
 		for (var ind in quantById) {	
 			// for level datatypes, we do not want "zero" to be considered during the quantile categorization			
 			if (currentDataType === 'level' && parseFloat(quantById[ind]) === 0) {
-				//quantById[ind] = '.'; 
+				//quantById[ind] = '.'; // treat 0's as null
 			} else {
 				domain[ind] = quantById[ind];
 			}
 		}
 	} else {
+		corrDomain = [];
 		if (currentDataType === 'binary') {
 			for (var ind in quantById) {
 				if (quantById[ind] === 'Yes') corrDomain[ind] = 1;
