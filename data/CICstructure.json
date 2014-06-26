@@ -558,12 +558,12 @@
         	{
         		"name": "Population Density",
         		"source": "U.S. Census Bureau - Population Estimates Program (PEP)",
-        		"years": [2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013],
+        		"years": [2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013],
         		"companions": [["Population Levels and Trends", "Population Level"], ["Population Levels and Trends", "Population Annual Growth Rate (from previous year)"], ["Population Density", "Population Density"], ["Population by Age/Gender", "Percent 65 years and older"]],
           		"vintage": 2013,
         		"children": [
         			{"name": "Population Level", "dataType": "level", "definition": "The calculated number of people living in an area as of a specified point in time, usually July 1st. The estimated population is calculated using a component of change model that incorporates information on natural increase (births, deaths) and net migration (net domestic migration, net international migration) that has occurred in an area since the latest decennial census."},
-        			{"name": "Population Density", "dataType": "level", "definition": "Number of people per square mile according to the population estimates from the Census Bureau."},
+        			{"name": "Population Density", "unit": "persons per square mile", "dataType": "level", "definition": "Number of people per square mile according to the population estimates from the Census Bureau."},
         			{"name": "Population Density Growth Rate (from previous year)", "dataType": "percent", "definition": "The difference between the population density of an area at the beginning and end of a time period, expressed as a percentage of the beginning population density."},
         			{"name": "Total Land Area", "dataType": "level", "definition": "Total land area of the county in square miles."},
         			{"name": "Total Federal Land Area", "dataType": "level", "definition": "Total number of square miles of PILT land within the county, in square miles."},
@@ -818,7 +818,7 @@
       	},
       	{
       		"name": "USDA Rural Development",
-      		"years": [2009, 2010, 2011, 2012, 2013, 2014],
+      		"years": [2009, 2010, 2011, 2012, 2013],
       		"source": "U.S. Department of Agriculture - Rural Development",
       		"companions": [["USDA Rural Development", "USDA Total Amount"], ["USDA Rural Development", "USDA Total Annual Growth Rate (from previous year)"], ["USDA Rural Development", "USDA Grant Amount"], ["USDA Rural Development", "USDA Loan Amount"]],
       		"children": [

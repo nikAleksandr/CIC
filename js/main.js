@@ -359,7 +359,7 @@ function setDropdownBehavior() {
 		
 		// when clicking on dataset, update to first companion
 		dataset.selectAll('a:not(.indicator)').on('click', function() {
-			var primeDI = getData(datasetName).companions[0];
+			var primeDI = getInfo(datasetName).companions[0];
 			var indHtml = dataset.select('.indicator[name="' + primeDI[1] + '"]').html();
 			pickedIndicator(primeDI[0], primeDI[1], indHtml);
 		});
@@ -392,7 +392,7 @@ function setDropdownBehavior() {
 		var datasetName = dataset.attr('name');
 
 		dataset.selectAll('a:not(.indicator)').on('click', function() {
-			var secDI = getData(datasetName).companions[0];
+			var secDI = getInfo(datasetName).companions[0];
 			var indHtml = dataset.select('.indicator[name="' + secDI[1] + '"]').html();
 			pickedSecondaryIndicator(secDI[0], secDI[1], indHtml);
 		});
@@ -630,188 +630,111 @@ function displayResults(url) {
 
 function update(dataset, indicator) {
 	currentDI = dataset + ' - ' + indicator; 
-	tooltip.classed("hidden", true);
+	//tooltip.classed("hidden", true);
 	$(document.body).scrollTop(0);
 	
-	indObjects = allData(dataset, indicator); // pull data from JSON
+	// update global variables
+	indObjects = allInfo(dataset, indicator);
 	currentDataType = indObjects[0].dataType;
-
-
-	var execUpdate = function() {
-		var isNumeric = isNumFun(currentDataType);
-		var quantById = quantByIds[0];	
-
-		// modify values for binary
-		for (var i = 0; i < quantByIds.length; i++) {
-			for (var ind in quantByIds[i]) {
-				if (quantByIds[i][ind] === true) quantByIds[i][ind] = 'Yes';
-				else if (quantByIds[i][ind] === false) quantByIds[i][ind] = 'No';
-			}
+	
+	$(document.body).on('dataReceived', function(event, qbis, data) {
+		quantByIds = qbis;
+		for (var fips in data) {
+			idByName[data[fips].geography] = fips;
+			countyObjectById[fips] = data[fips];
 		}
 
-		// define domain
-		if (isNumeric) {
-			var domain = [];
-			for (var ind in quantById) {	
-				// for level datatypes, we do not want "zero" to be considered during the quantile categorization			
-				if (currentDataType === 'level' && parseFloat(quantById[ind]) === 0) {
-					//quantById[ind] = '.'; 
-				} else {
-					domain[ind] = quantById[ind];
-				}
-			}
-		} else {
-			if (currentDataType === 'binary') {
-				for (var ind in quantById) {
-					if (quantById[ind] === 'Yes') corrDomain[ind] = 1;
-					else if (quantById[ind] === 'No') corrDomain[ind] = 0;
-				}
-				var vals = {'Yes': 1, 'No': 0};
-			} else {
-				// translating string values to numeric values
-				var numCorrVals = 0, vals = {}, corrVal = 0;
-				for (var ind in quantById) {
-					// case by case substitutions
-					if (quantById[ind] === '0') quantById[ind] = 'None';
-					
-					// create corresponding value array (e.g. {"Gulf of Mexico": 0, "Pacific Ocean": 1})
-					if (quantById[ind] !== '.' && quantById[ind] !== '' && quantById[ind] !== null) {
-						if (!vals.hasOwnProperty(quantById[ind])) {
-							vals[quantById[ind]] = corrVal;
-							corrVal++;
-						}
-						corrDomain[ind] = vals[quantById[ind]];
-					}
-				}
-				for (var ind in vals) numCorrVals++;
-			}
+		updateView();
+	});
+	
+	getData(); // when data is received, it will fire an event on document.body
+}
+
+function appendSecondInd(dataset, indicator) {
+	currentSecondDI = dataset + ' - ' + indicator;
+	s_indObjects = allInfo(dataset, indicator);
+	
+	$(document.body).on('dataReceived', function(event, qbis) {
+		s_quantByIds = qbis;
+		if (d3.select('.county.active').empty() !== true) {
+			populateTooltip(selected);
+			positionTooltip(d3.select('.county.active')[0][0]);
 		}
+	});
+	
+	getData();
+}
 
-		// define range i.e. color output
-		switch(currentDataType) {
-			case "percent":
-				range = percent_colors;
-				break;
-			case "binary":
-				range = binary_colors;
-				break;
-			case "categorical":
-				// max is 5 categories
-				if (numCorrVals === 2) range = binary_colors;
-				else {
-					range = [];
-					var availColors = categorical_colors;
-					for (var i = 0; i < numCorrVals; i++) range.push(availColors[i]);
-				}
-				break;
-			default:
-				range = level_colors;
-		}
-
-		// set domain and range
-		if (isNumeric) color.domain(domain).range(range);
-		else color.domain(corrDomain).range(range);
-
-		fillMapColors(); // fill in map colors
-		legend = isNumeric ? createLegend() : createLegend(vals); // create the legend; note: vals is a correspondence array linking strings with numbers for categorical dataTypes
-		
-		// list source
-		d3.select("#sourceContainer").selectAll("p").remove();
-		d3.select('#sourceContainer').append('p').attr("id", "sourceText")
-			.html('<i>Source</i>: ' + indObjects[0].source + ', ' + indObjects[0].year);
-		
-		// list definitions
-		d3.select("#definitionsContainer").selectAll("p").remove();
-		var defContainer = d3.select("#definitionsContainer").append("p").attr("id", "definitionsText");
-		defContainer.append('div').html('<i>Definitions</i>:');
-		for (var i = 0; i < indObjects.length; i++) {
-			defContainer.append('div')
-				.html('<b>' + indObjects[i].name + '</b>: ' + indObjects[i].definition);
-		}		
-	};
- 	
+function getData() {
  	// grab data and set up quantByIds and other objects
  	if (localVersion) {
  		d3.tsv("data/CData.tsv", function(error, countyData) {
- 			data = countyData;
-	 		quantByIds = [];
-			for (var i = 0; i < indObjects.length; i++) quantByIds.push([]);
+	 		var qbis = [];
+			for (var i = 0; i < indObjects.length; i++) qbis.push([]);
 	
 			countyData.forEach(function(d) {			
 				for (var i = 0; i < indObjects.length; i++) {
-					quantByIds[i][d.id] = isNumFun(indObjects[i].dataType) ? parseFloat(d[indObjects[i].DI]) : d[indObjects[i].DI];
-					if (indObjects[i].hasOwnProperty('unit') && indObjects[i].unit.indexOf('thousand') !== -1) quantByIds[i][d.id] *= 1000; // will remove this eventually
+					qbis[i][d.id] = isNumFun(indObjects[i].dataType) ? parseFloat(d[indObjects[i].DI]) : d[indObjects[i].DI];
+					if (indObjects[i].hasOwnProperty('unit') && indObjects[i].unit.indexOf('thousand') !== -1) qbis[i][d.id] *= 1000; // will remove this eventually
 				}
 	
 				idByName[d.geography] = d.id;
 				countyObjectById[d.id] = d;
 			});
 			
-			execUpdate();
+			$(document.body).trigger('dataReceived', [qbis]);
  		});
  	} else {
  		// need to sort by dataset because we want to send one query per dataset needed
-	  	var indicatorList = {}; // object of indicator values and latest year values indexed by dataset name
+	  	var indicatorList = {}; // list of indicators indexed by dataset then indexed by year
 	  	for (var i = 0; i < indObjects.length; i++) {
 		  	var crossObject = crosswalk[indObjects[i].dataset+' - '+indObjects[i].name];
+		  	var year = indObjects[i].year;
 	
-	  		if (!indicatorList.hasOwnProperty(crossObject.db_dataset)) {
-	  			indicatorList[crossObject.db_dataset] = {year: indObjects[i].year, indicators: []};
-	  		}
-	  		indicatorList[crossObject.db_dataset].indicators.push(crossObject.db_indicator);	  		
+	  		if (!indicatorList.hasOwnProperty(crossObject.db_dataset)) indicatorList[crossObject.db_dataset] = {};
+			var dataset_obj = indicatorList[crossObject.db_dataset];
+			if (!dataset_obj.hasOwnProperty(year)) dataset_obj[year] = [];
+			dataset_obj[year].push(crossObject.db_indicator);	  		
 	  	}
 
 		// configure query string for each dataset
 		var qsa = []; // array of query strings
-	  	for (var ind in indicatorList) {
-	  		var query_str = 'db_set=' + ind + '&db_year=' + indicatorList[ind].year + '&db_ind='; // append dataset name and year
-	  		for (var j = 0; j < indicatorList[ind].indicators.length; j++) {
-	  			query_str += indicatorList[ind].indicators[j]; // append each indicator
-	  			if (j != indicatorList[ind].indicators.length - 1) query_str += ',';
-	  		}
-	  		qsa.push({query_str: query_str, dataset_name: ind});
+	  	for (var ds_name in indicatorList) {
+	  		for (var year in indicatorList[ds_name]) {
+	  			var ind_list = indicatorList[ds_name][year];
+		  		var query_str = 'db_set=' + ds_name + '&db_year=' + year + '&db_ind='; // append dataset name and year		  		
+		  		for (var j = 0; j < ind_list.length; j++) {
+		  			query_str += ind_list[j]; // append each indicator
+		  			if (j != ind_list.length - 1) query_str += ',';
+		  		}
+		  		qsa.push(query_str);
+		  	}
 	  	}
 
 		var gtgArray = []; // indicates whether we have received back each query request
 		for (var i = 0; i < qsa.length; i++) gtgArray.push(false);
 		
-    	data = {};
+    	var data = {};
     	
-    	var getRequest = function(query_str, queryIndex, datasetName) {
+    	var getRequest = function(query_str, queryIndex) {
 		  	d3.xhr('http://nacocic.naco.org/ciccfm/indicators.cfm?'+ query_str, function(error, request){
-		    	// restructure response object to object indexed by fips
 		    	try {
 		    		var responseObj = jQuery.parseJSON(request.responseText);
 		    	}
 		    	catch(error) { noty({text: 'Error retreiving information from database.'}); }
 		    	if (responseObj.ROWCOUNT === 0) noty({text: 'Database error: ROWCOUNT = 0'});
 		    	
-		    	
+		    	// restructure response object to object indexed by fips, and add it to "data"	
 		    	for (var i = 0; i < responseObj.DATA.FIPS.length; i++) {
 		    		var fips = parseInt(responseObj.DATA.FIPS[i]);
-		    		if (!data.hasOwnProperty(fips)) data[fips] = {};
+		    		if (!data.hasOwnProperty(fips)) data[fips] = {id: fips};
 		    		for (var j = 1; j < responseObj.COLUMNS.length; j++) {
-		    			var property = responseObj.COLUMNS[j]; // does not avoid duplicate property names; might need to change later by renaming property "database - indicator" if an indicator
+		    			var property = responseObj.COLUMNS[j]; // does not avoid duplicate property names (e.g. primary: "Total County", companion1: "Total County")
 		    			if (!data[fips].hasOwnProperty(property)) data[fips][property] = responseObj.DATA[property][i];
 		    		}
-		    		data[fips].id = fips;
-		    		data[fips].geography = data[fips].COUNTY_NAME + ', ' + data[fips].STATE;
+		    		if (!data[fips].hasOwnProperty('geography')) data[fips].geography = data[fips].COUNTY_NAME + ', ' + data[fips].STATE;
 		    	}
-		
-				quantByIds = [];
-				for (var i = 0; i < indObjects.length; i++) quantByIds.push([]);
-				
-				for (var fips in data) {
-					for (var i = 0; i < indObjects.length; i++) {
-						var value = data[fips][indObjects[i].db_indicator.toUpperCase()];
-						quantByIds[i][fips] = isNumFun(indObjects[i].dataType) ? parseFloat(value) : value;
-						if (indObjects[i].hasOwnProperty('unit') && indObjects[i].unit.indexOf('thousand') !== -1) quantByIds[i][fips] *= 1000; // will remove this eventually
-					}
-		
-					idByName[data[fips].geography] = fips;
-					countyObjectById[fips] = data[fips];
-				}
-				
+					
 				// check if everything's good to go
 				gtgArray[queryIndex] = true;
 				var gtg = true;
@@ -821,41 +744,136 @@ function update(dataset, indicator) {
 						break;
 					}
 				}	
-				if (gtg === true) execUpdate();	
+				if (gtg === true) {
+					// write data to "quantById" format
+					var qbis = [];
+					for (var i = 0; i < indObjects.length; i++) qbis.push([]);				
+					for (var fips in data) {
+						for (var i = 0; i < indObjects.length; i++) {
+							var value = data[fips][indObjects[i].db_indicator.toUpperCase()];
+							qbis[i][fips] = isNumFun(indObjects[i].dataType) ? parseFloat(value) : value;
+							if (indObjects[i].hasOwnProperty('unit') && indObjects[i].unit.indexOf('thousand') !== -1) qbis[i][fips] *= 1000; // will remove this eventually
+						}
+			
+						idByName[data[fips].geography] = fips;
+						countyObjectById[fips] = data[fips];
+					}
+
+					$(document.body).trigger('dataReceived', [qbis, data]);
+				}
 			});
 		};
 		
-		for (var i = 0; i < qsa.length; i++) getRequest(qsa[i].query_str, i, qsa[i].dataset_name);
-	}
+		for (var i = 0; i < qsa.length; i++) getRequest(qsa[i], i);
+	}	
 }
 
-function appendSecondInd(dataset, indicator) {
-	currentSecondDI = dataset + ' - ' + indicator;
-	s_indObjects = allData(dataset, indicator);
-	
-	d3.tsv("data/CData.tsv", function(error, countyData) {
-		s_quantByIds = [];
-		for (var i = 0; i < s_indObjects.length; i++) s_quantByIds.push([]);
-		
-		countyData.forEach(function(d) {
-			for (var i = 0; i < s_indObjects.length; i++) {
-				s_quantByIds[i][d.id] = isNumFun(s_indObjects[i].dataType) ? parseFloat(d[s_quantByIds[i].dataset+' - '+s_quantByIds[i].name]) : d[s_quantByIds[i].dataset+' - '+s_quantByIds[i].name];
-			}
-		});
-				
-		if (d3.select('.county.active').empty() !== true) {
-			populateTooltip(selected);
-			positionTooltip(d3.select('.county.active')[0][0]);
+function updateView() {
+	var isNumeric = isNumFun(currentDataType);
+	var quantById = quantByIds[0];	
+
+	// modify values for binary
+	for (var i = 0; i < quantByIds.length; i++) {
+		for (var ind in quantByIds[i]) {
+			if (quantByIds[i][ind] === true) quantByIds[i][ind] = 'Yes';
+			else if (quantByIds[i][ind] === false) quantByIds[i][ind] = 'No';
 		}
-	});
+	}
+
+	// define domain
+	if (isNumeric) {
+		var domain = [];
+		for (var ind in quantById) {	
+			// for level datatypes, we do not want "zero" to be considered during the quantile categorization			
+			if (currentDataType === 'level' && parseFloat(quantById[ind]) === 0) {
+				//quantById[ind] = '.'; 
+			} else {
+				domain[ind] = quantById[ind];
+			}
+		}
+	} else {
+		if (currentDataType === 'binary') {
+			for (var ind in quantById) {
+				if (quantById[ind] === 'Yes') corrDomain[ind] = 1;
+				else if (quantById[ind] === 'No') corrDomain[ind] = 0;
+			}
+			var vals = {'Yes': 1, 'No': 0};
+		} else {
+			// translating string values to numeric values
+			var numCorrVals = 0, vals = {}, corrVal = 0;
+			for (var ind in quantById) {
+				// case by case substitutions
+				if (quantById[ind] === '0') quantById[ind] = 'None';
+				
+				// create corresponding value array (e.g. {"Gulf of Mexico": 0, "Pacific Ocean": 1})
+				if (quantById[ind] !== '.' && quantById[ind] !== '' && quantById[ind] !== null) {
+					if (!vals.hasOwnProperty(quantById[ind])) {
+						vals[quantById[ind]] = corrVal;
+						corrVal++;
+					}
+					corrDomain[ind] = vals[quantById[ind]];
+				}
+			}
+			for (var ind in vals) numCorrVals++;
+		}
+	}
+
+	// define range i.e. color output
+	switch(currentDataType) {
+		case "percent":
+			range = percent_colors;
+			break;
+		case "binary":
+			range = binary_colors;
+			break;
+		case "categorical":
+			// max is 5 categories
+			if (numCorrVals === 2) range = binary_colors;
+			else {
+				range = [];
+				var availColors = categorical_colors;
+				for (var i = 0; i < numCorrVals; i++) range.push(availColors[i]);
+			}
+			break;
+		default:
+			range = level_colors;
+	}
+
+	// set domain and range
+	if (isNumeric) color.domain(domain).range(range);
+	else color.domain(corrDomain).range(range);
+
+	fillMapColors(); // fill in map colors
+	legend = isNumeric ? createLegend() : createLegend(vals); // create the legend; note: vals is a correspondence array linking strings with numbers for categorical dataTypes
+	
+	// if county is active, re-populate tooltip
+	if (d3.select('.county.active').empty() !== true) {
+		var active_county = d3.select('.county.active')[0][0];
+		populateTooltip(active_county);
+		positionTooltip(active_county);
+	}
+	
+	// list source
+	d3.select("#sourceContainer").selectAll("p").remove();
+	d3.select('#sourceContainer').append('p').attr("id", "sourceText")
+		.html('<i>Source</i>: ' + indObjects[0].source + ', ' + indObjects[0].year);
+	
+	// list definitions
+	d3.select("#definitionsContainer").selectAll("p").remove();
+	var defContainer = d3.select("#definitionsContainer").append("p").attr("id", "definitionsText");
+	defContainer.append('div').html('<i>Definitions</i>:');
+	for (var i = 0; i < indObjects.length; i++) {
+		defContainer.append('div')
+			.html('<b>' + indObjects[i].name + '</b>: ' + indObjects[i].definition);
+	}		
 }
 
-function allData(dataset, indicator){
-	var firstObj = getData(dataset, indicator);
+function allInfo(dataset, indicator){
+	var firstObj = getInfo(dataset, indicator);
 	var objArray = [firstObj];
 	for (var i = 0; i < firstObj.companions.length; i++) {
 		if (objArray.length < firstObj.companions.length) {
-			var obj = getData(firstObj.companions[i][0], firstObj.companions[i][1]);
+			var obj = getInfo(firstObj.companions[i][0], firstObj.companions[i][1]);
 			var isDisabled = $('.dataset[name="'+obj.dataset+'"] .indicator[name="'+obj.name+'"]').parent().hasClass('disabled'); // checks if companion is disabled or not
 			if (obj.name !== firstObj.name && obj.dataType !== 'none' && !isDisabled) objArray.push(obj);			
 		}
@@ -864,7 +882,7 @@ function allData(dataset, indicator){
 }
 
 //Alternative to this big lookup is to list a i,j,h "JSON address" in the HTML anchor properties.  Would still likely require some type of HTML or JSON lookup for companion indicators though
-function getData(dataset, indicator){
+function getInfo(dataset, indicator){
 	var selectedInd = {};
 	var structure = CICstructure.children;
 	for (var i = 0; i < structure.length; i++) {				
@@ -944,7 +962,9 @@ function createLegend(keyArray) {
 		if (keyArray) options.keyArray = keyArray;
 
 		var subtitle = primeIndObj.name;
-		if (primeIndObj.unit === 'square miles' || primeIndObj.unit === 'per 1,000 population') subtitle += ' (' + primeIndObj.unit + ')'; 		
+		if (primeIndObj.hasOwnProperty('unit') && (primeIndObj.unit.indexOf('square mile') !== -1 || primeIndObj.unit === 'per 1,000 population')) {
+			subtitle += ' (' + primeIndObj.unit + ')';
+		} 		
 		d3.select('#legendTitle').text(primeIndObj.year + ' ' + primeIndObj.dataset);
 		d3.select('#legendSubtitle').text(subtitle);
 
@@ -1021,7 +1041,7 @@ function populateTooltip(d) {
 		
 		var row = tipTable.append('tr').attr('class', 'tipKey');	
 		writeIndicators(row, indObjects[i], quantByIds[i], false);
-		if (currentSecondDI !== '' && i < s_indObjects.length) writeIndicators(s_indObjects[i], s_quantByIds[i], true);
+		if (currentSecondDI !== '' && i < s_indObjects.length) writeIndicators(row, s_indObjects[i], s_quantByIds[i], true);
 	}
 
 	/*if (none_avail) {
@@ -1265,7 +1285,7 @@ d3.json("us.json", function(error, us) {
 	        		}
 	      		}
 	      		
-	      		update("Administration Expenditures", "Total County"); // fill in map colors for default indicator now that everything is loaded
+	      		update('Population Levels and Trends', 'Population Level'); // fill in map colors for default indicator now that everything is loaded
 	    	});
 	    }
 	    
