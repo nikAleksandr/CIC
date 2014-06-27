@@ -771,11 +771,17 @@ function updateView() {
 	var isNumeric = isNumFun(currentDataType);
 	var quantById = quantByIds[0];	
 
-	// modify values for binary
+	// MANUAL DATA MODIFICATIONS
 	for (var i = 0; i < quantByIds.length; i++) {
 		for (var ind in quantByIds[i]) {
-			if (quantByIds[i][ind] === true) quantByIds[i][ind] = 'Yes';
-			else if (quantByIds[i][ind] === false) quantByIds[i][ind] = 'No';
+			if (indObjects[i].dataType === 'binary') {
+				// modify binary values
+				if (quantByIds[i][ind] === true) quantByIds[i][ind] = 'Yes';
+				else if (quantByIds[i][ind] === false) quantByIds[i][ind] = 'No';
+			} else if (indObjects[i].dataType === 'level') {
+				// if there's data for it, change null to 0 (prob should change in database, but this is easier for now)
+				if (isNaN(quantByIds[i][ind])) quantByIds[i][ind] = 0;
+			}
 		}
 	}
 
