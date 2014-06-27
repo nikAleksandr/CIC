@@ -852,8 +852,8 @@ function updateView() {
 	fillMapColors(); // fill in map colors
 	legend = isNumeric ? createLegend() : createLegend(vals); // create the legend; note: vals is a correspondence array linking strings with numbers for categorical dataTypes
 	
-	// if county is active, re-populate tooltip
-	if (d3.select('.county.active').empty() !== true) {
+	// if county is active and tooltip is showing, re-populate tooltip
+	if (d3.select('.county.active').empty() !== true && $('#tt').hasClass('hidden') === false) {
 		var active_county = d3.select('.county.active')[0][0];
 		populateTooltip(active_county);
 		positionTooltip(active_county);

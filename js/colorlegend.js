@@ -137,7 +137,7 @@ var colorlegend = function (target, scale, type, options) {
       	.style('display', function (d, i) { if (i >= colors.length) return 'none'; });
 
     // additional text on top of color boxes, displaying "top 20%", "bottom 20%", etc.
-    if (isNumeric) {
+    if (isNumeric && dataType !== 'level') {
 	    legendBoxes.append('text')
 	    	.attr('class', 'colorlegend-boxlabels')
 	    	.attr('x', function (d, i) {
@@ -169,9 +169,9 @@ var colorlegend = function (target, scale, type, options) {
 	        return type === 'ordinal' ? 'start' : 'middle';
       	})
       	.style('pointer-events', 'none')
-      	.classed('rotate', function() {
+      	/*.classed('rotate', function() {
       		return (dataType === 'categorical');
-      	})
+      	})*/
       	.text(function (d, i) {
 	        // show label for all ordinal values
     	    if (type === 'ordinal') return dataValues[i];
