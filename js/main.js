@@ -345,12 +345,20 @@ function disableIndicators(type, name, indicator) {
 function setDropdownBehavior() {
 	var pickedIndicator = function(dataset, indicator, html) {
 		$.SmartMenus.hideAll();
-		if (currentDI === dataset + ' - ' + indicator) {
-			noty({text: 'Already showing "' + indicator + '"'});
-		} else {
+		
+		// **temp redirect for issue where 3069 is not being filled in completely **delete this when fixed!!**
+		if (indicator === 'Total County') {
+			hacked_dataset = dataset;
+			dataset = 'Administration Expenditures';
+		}
+		
+		
+		//if (currentDI === dataset + ' - ' + indicator) {
+		//	noty({text: 'Already showing "' + indicator + '"'});
+		//} else {
 			update(dataset, indicator);
 			//d3.select('#primeIndText').html(html + '<span class="sub-arrow"></span>');
-		}
+		//}
 	};
 			
 	d3.select('#primeInd').selectAll('.dataset').each(function() {
@@ -973,6 +981,11 @@ function createLegend(keyArray) {
 		} 		
 		d3.select('#legendTitle').text(primeIndObj.year + ' ' + primeIndObj.dataset);
 		d3.select('#legendSubtitle').text(subtitle);
+		
+		
+		// **temp hack for issue where 3069 is not being filled in completely **delete this when fixed!!**
+		if (primeIndObj.name === 'Total County') d3.select('#legendTitle').text(primeIndObj.year + ' ' + hacked_dataset);
+
 
 		return colorlegend("#quantileLegend", color, "quantile", options);
 	} else return false;
