@@ -115,10 +115,10 @@ var colorlegend = function (target, scale, type, options) {
 		}
 	}
 	
-	// for binary, show yes first and no second
+	// for binary, show yes first and no second; override
 	if (dataType === 'binary') {
-		colors.reverse();
-		dataValues.reverse();
+		colors = [binary_colors[1], binary_colors[0]];
+		dataValues = ['Yes', 'No'];
 	}
     
   	var legendBoxes = legend.selectAll('g.legend')
