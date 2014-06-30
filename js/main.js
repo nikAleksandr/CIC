@@ -1068,7 +1068,7 @@ function populateTooltip(d) {
 			else if (obj.unit.indexOf('year') != -1) type = 'year';
 		}
 		
-		if (obj.hasOwnProperty(format_type)) var value = format_tt[obj.format_type](quant[d.id], type);
+		if (obj.hasOwnProperty('format_type')) var value = format_tt[obj.format_type](quant[d.id], type);
 		else var value = format_tt[obj.dataType](quant[d.id], type);
 		
 		if (value === '$NaN' || value === 'NaN' || value === 'NaN%' || value === null || value === '.' || (isNumFun(obj.dataType) && isNaN(quant[d.id])) ) {
