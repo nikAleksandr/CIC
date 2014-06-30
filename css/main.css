@@ -208,7 +208,7 @@ table th{
 	padding-left: .5em;
 	display: inline;
 }
-#print { margin-left: 10px; display: none; }
+#print { margin-left: 10px; }
 
 #close:hover, #close2:hover, #instructionText a:hover, #help:hover, #showOnMap:hover, #print:hover, .county_link:hover, .extraInstructions:hover, .helpLink{
 	text-decoration:underline;
@@ -765,6 +765,19 @@ div.tooltip {
    ========================================================================== */
 
 @media print {
+
+	h4 { text-align: center; }
+	table {
+		box-sizing: border-box;
+		-moz-box-sizing: border-box;
+		-webkit-box-sizing: border-box;
+	}
+	#countyResponse-populations, #countyResponse-quickLinks { display: none; }
+	#countyResponse-* {
+		text-align: left;
+	}
+	
+	
     * {
         background: transparent !important;
         color: #000 !important; /* Black prints faster: h5bp.com/s */

@@ -39,6 +39,10 @@ var format = {
     		else return d3.format('.1f')(num);*/
     		else return d3.format('0f')(num);
     	}
+    },
+    "dec2": function(num, type) {
+    	if (num === 0) return 0;
+    	else return d3.format('.2f')(num);
     }
 };
 format['level_np'] = format['level'];
@@ -69,6 +73,10 @@ var format_tt = {
     		else return d3.format('.1f')(num);*/
     		else return d3.format('0f')(num);
     	}
+    },
+    "dec2": function(num, type) {
+    	if (num == 0) return 0;
+    	else return d3.format('.2f')(num);
     }
 };
 format_tt['level_np'] = format['level'];
@@ -177,7 +185,7 @@ function setBehaviors() {
 		}
 		var specWindow = window.open('', window_title, 'left=0,top=0,toolbar=0,scrollbars=0,status=0');
 		specWindow.document.write(document.getElementById('instructionText').innerHTML);
-		specWindow.document.write('<link rel="stylesheet" href="css/main.css">');
+		specWindow.document.write('<link rel="stylesheet" media="print" href="css/main.css">');
 		specWindow.document.close();
 		specWindow.focus();
 		specWindow.print();
@@ -1020,6 +1028,8 @@ function createLegend(thresholdBool, keyArray, dataVals) {
 		};
 		if (keyArray) options.keyArray = keyArray;
 		if (dataVals) options.small_large = dataVals;
+		if (primeIndObj.name === 'Body of Water') options.boxWidth = 68;
+		if (primeIndObj.hasOwnProperty('format_type')) options.format_type = primeIndObj.format_type;
 
 		var subtitle = primeIndObj.name;
 		if (primeIndObj.hasOwnProperty('unit') && (primeIndObj.unit.indexOf('square mile') !== -1 || primeIndObj.unit === 'per 1,000 population')) {
@@ -1057,7 +1067,10 @@ function populateTooltip(d) {
 			else if (obj.unit.indexOf('person') != -1 || obj.unit.indexOf('people') != -1 || obj.unit.indexOf('employee') != -1) type = 'persons';
 			else if (obj.unit.indexOf('year') != -1) type = 'year';
 		}
-		var value = format_tt[obj.dataType](quant[d.id], type);
+		
+		if (obj.hasOwnProperty(format_type)) var value = format_tt[obj.format_type](quant[d.id], type);
+		else var value = format_tt[obj.dataType](quant[d.id], type);
+		
 		if (value === '$NaN' || value === 'NaN' || value === 'NaN%' || value === null || value === '.' || (isNumFun(obj.dataType) && isNaN(quant[d.id])) ) {
 			value = 'Not Available';
 		} else {
