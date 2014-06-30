@@ -97,7 +97,7 @@
 	        <h4>Quick Links</h4>
 	        <ul>
 	        	<li><A HREF="http://quickfacts.census.gov/qfd/states/#StateFIPS#/#fips#.html" target="_blank" title="U.S. Census Bureau: State and County QuickFacts">Census Quick Facts</A></li>
-	        	<li><A HREF="http://www.fedstats.gov/qf/states/#StateFIPS#/#fips#.html" title="Fedstats provides access to the full range of official statistical information produced by the Federal Government">Fed Stats</A></li>
+	        	<li><A HREF="http://www.fedstats.gov/qf/states/#StateFIPS#/#fips#.html" target="_blank" title="Fedstats provides access to the full range of official statistical information produced by the Federal Government">Fed Stats</A></li>
 	        	<li><A HREF="http://maps.google.com/maps?q=#county_Name#,#State#" target="_blank" title="View Google Map of County">Google Map View</A></li>
 	        </ul>
 	    </div>
