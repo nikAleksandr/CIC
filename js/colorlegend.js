@@ -41,6 +41,7 @@ var colorlegend = function (target, scale, type, options) {
     	, range = scale.range()
     	, thresholdBool = opts.threshold
     	, small_large = opts.small_large || false
+    	, format_type = opts.format_type || false
     	, format = opts.formatFnArr;
     
 	// check for valid input - 'quantize' not included
@@ -182,7 +183,10 @@ var colorlegend = function (target, scale, type, options) {
       	.text(function (d, i) {
 	        // show label for all ordinal values
     	    if (type === 'ordinal') return dataValues[i];
-    	    else return format[dataType](dataValues[i], unitType); // format is defined based on dataType
+    	    else {
+    	    	if (format_type === false) return format[dataType](dataValues[i], unitType); // format is defined based on dataType
+    	    	else return format[format_type](dataValues[i], unitType);
+    	    }
       	});
       	  
   	// show a title in center of legend (bottom)
