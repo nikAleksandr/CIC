@@ -54,9 +54,73 @@ function areAllIndicatorsInDatabase() {
 			}
 			if (missing_di.length === 0) console.log('All Indicators Are Connected To Database :)');
 			else {
-				console.log('Nope :(')
+				console.log('Nope :(');
 				for (var i = 0; i < missing_di.length; i++) console.log(missing_di[i]);
 			}
+		});
+	});	
+}
+
+function checkDropdownNames() {
+  	d3.json("data/CICstructure.json", function(error, CICStructure){
+  		var di_list = [];
+		for (var i = 0; i < CICStructure.children.length; i++) {
+			var category = CICStructure.children[i];
+			for (var j = 0; j < category.children.length; j++) {
+				var dataset = category.children[j];
+				for (var k = 0; k < dataset.children.length; k++) {
+					var indicator = dataset.children[k];
+					di_list.push(dataset.name + ' - ' + indicator.name);
+				}
+			}
+		}
+		
+		var all_good = true;
+		$('.indicator').each(function() {
+			var indicator = $(this).attr('name');
+			var dataset = $(this).closest('.dataset').attr('name');
+			for (var i = 0; i < di_list.length; i++) {
+				var were_good = false;
+				if (di_list[i] === dataset + ' - ' + indicator) {
+					were_good = true;
+					break;
+				}
+			}
+			if (were_good === false) {
+				all_good = false;
+				console.log('No match for ' + dataset + ', ' + indicator);
+			}
+		});
+		if (all_good) console.log('Everything matches! =D');
+	});
+}
+
+function areAllCompanionsValid() {
+  	d3.json("data/CICstructure.json", function(error, CICStructure){
+    	d3.tsv('data/database_crosswalk.tsv', function(error, data_array) {
+	      	var crosswalk = {};
+      		for (var i = 0; i < data_array.length; i++) {
+		        if (data_array[i].indicator !== '') {
+          			var di = data_array[i].dataset + ' - ' + data_array[i].indicator;
+          			crosswalk[di] = data_array[i];
+        		}
+      		}
+
+			var good_to_go = true;
+			for (var i = 0; i < CICStructure.children.length; i++) {
+				var category = CICStructure.children[i];
+				for (var j = 0; j < category.children.length; j++) {
+					var dataset = category.children[j];
+					for (var k = 0; k < dataset.companions.length; k++) {
+						var di = dataset.companions[k][0] + ' - ' + dataset.companions[k][1];
+						if (!crosswalk.hasOwnProperty(di)) {
+							good_to_go = false;
+							console.log('No match for companion ' + k + ' of: ' + dataset.name);
+						}
+					}
+				}
+			}
+			if (good_to_go) console.log('All companions are in database ^_^');
 		});
 	});	
 }
@@ -101,6 +165,38 @@ function testDatabaseResponses() {
 
     	});
   	});
+}
+
+function addToCrosswalk() {
+ 	d3.json("data/CICstructure.json", function(error, CICStructure){
+    	d3.tsv('data/database_crosswalk.tsv', function(error, data_array) {
+      		var di_list = [];
+			for (var i = 0; i < CICStructure.children.length; i++) {
+				var category = CICStructure.children[i];
+				for (var j = 0; j < category.children.length; j++) {
+					var dataset = category.children[j];
+					for (var k = 0; k < dataset.children.length; k++) {
+						var indicator = dataset.children[k];
+						var unit = (indicator.hasOwnProperty('unit')) ? indicator.unit : '';
+						di_list.push({di: dataset.name + ' - ' + indicator.name, unit: unit});
+					}
+				}
+			}
+ 
+     		for (var i = 0; i < data_array.length; i++) {
+    			var cdi = data_array[i].dataset + ' - ' + data_array[i].indicator;
+    			for (var j = 0; j < di_list.length; j++) {
+    				if (cdi === di_list[j].di) {
+    					data_array[i].multiplier = (di_list[j].unit.indexOf('thousand') != -1) ? 1000 : 1;
+    					break;
+    				}
+    			}
+ 	  		}
+ 	  		
+ 	  		var new_tsv = d3.tsv.format(data_array);
+ 	  		console.log(new_tsv);
+    	});
+	});	
 }
 
 function createDropdownStructure() {

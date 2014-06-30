@@ -115,10 +115,10 @@ var colorlegend = function (target, scale, type, options) {
 		}
 	}
 	
-	// for binary, show yes first and no second
+	// for binary, show yes first and no second; override
 	if (dataType === 'binary') {
-		colors.reverse();
-		dataValues.reverse();
+		colors = [binary_colors[1], binary_colors[0]];
+		dataValues = ['Yes', 'No'];
 	}
     
   	var legendBoxes = legend.selectAll('g.legend')
@@ -137,7 +137,7 @@ var colorlegend = function (target, scale, type, options) {
       	.style('display', function (d, i) { if (i >= colors.length) return 'none'; });
 
     // additional text on top of color boxes, displaying "top 20%", "bottom 20%", etc.
-    if (isNumeric && dataType !== 'level') {
+    if (isNumeric) {
 	    legendBoxes.append('text')
 	    	.attr('class', 'colorlegend-boxlabels')
 	    	.attr('x', function (d, i) {

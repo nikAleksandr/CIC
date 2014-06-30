@@ -208,7 +208,7 @@ table th{
 	padding-left: .5em;
 	display: inline;
 }
-#print { margin-left: 10px; }
+#print { margin-left: 10px; display: none; }
 
 #close:hover, #close2:hover, #instructionText a:hover, #help:hover, #showOnMap:hover, #print:hover, .county_link:hover, .extraInstructions:hover, .helpLink{
 	text-decoration:underline;
@@ -379,13 +379,16 @@ h1 small {
   stroke-linecap: round;
 }
 .county:hover{
-  stroke: rgb(255,166,1);
+  /*stroke: rgb(255,166,1);*/
+ stroke: black;
   stroke-width: .7px;
   opacity: .5;
 }
 .county.active {
-	fill: rgb(0, 173, 220);
-	stroke:rgb(255,166,1);
+	/*fill: rgb(0, 173, 220); */
+	/*stroke:rgb(255,166,1);*/
+	fill: rgb(212,112,106);
+	stroke: black;
 	stroke-width: .7px;
 	/*fill: rgb(253,156,2);*/
 }
@@ -420,7 +423,7 @@ h1 small {
 }
 .extraInstructions{
 	font-size:.8em;
-	color:#bbb;
+	color:#555;
 	vertical-align:middle;
 	text-overflow: nowrap;
 	text-align:left;
