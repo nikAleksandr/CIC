@@ -117,7 +117,6 @@ var range = [], // array of colors used for coloring the map
 	//categorical_colors = ['rgb(253,156,2)', 'rgb(0,153,209)', 'rgb(70,200,245)', 'rgb(254,207,47)', 'rgb(102,204,204)', 'rgb(69,178,157)']
 	//level_colors = ['rgb(189, 215, 231)','rgb(107, 174, 214)','rgb(49, 130, 189)','rgb(7, 81, 156)','rgb(28, 53, 99)'];
 
-var	color = d3.scale.quantile(); // quantile scale
 var frmrS, frmrT; // keep track of current translate and scale values
 
 function setup(width, height) {
@@ -854,11 +853,56 @@ function updateView() {
 	}
 
 	// set domain and range
+	color = d3.scale.quantile();
 	if (isNumeric) color.domain(domain).range(range);
 	else color.domain(corrDomain).range(range);
+	
+	// check if a value spans more than one quantile; if so, switch to threshold
+	var switchToThreshold = false, small = -1, large = 0;
+	if (isNumeric) {
+		var quantiles = color.quantiles(), d = color.domain();
+		if (quantiles[0] === 0) switchToThreshold = true;
+		else {
+			for (var i = 0; i < quantiles.length - 1; i++) {
+				if (quantiles[i] === quantiles[i+1]) {
+					switchToThreshold = true;
+					break;
+				}
+			}
+			if (quantiles[quantiles.length - 1] === d[d.length - 1]) switchToThreshold = true;
+		}
+		
+		if (switchToThreshold === true) {
+			color = d3.scale.threshold(); // quantize scale, threshold based
+			
+			// sort domain in ascending order (must be numbers)
+			var new_domain = [];
+			for (var i = 0; i < domain.length; i++) {
+				if (!isNaN(domain[i])) new_domain.push(domain[i]);
+			}
+			new_domain.sort(function(a, b) { return (a - b); });
+			large = new_domain[new_domain.length - 1];
+			small = (currentDataType === 'level') ? 0 : new_domain[0]; 
+	
+			if (large <= 5) domain = [1, 2, 3, 4];
+			else {
+				// construct domain; temporarily assume linear thresholds
+				domain = [];
+				for (var i = 1; i < 5; i++) domain.push(small + (i * (large - small) / 5));
+			}
+			color.domain(domain).range(range);			
+		}
+	}
+	
 
 	fillMapColors(); // fill in map colors
-	legend = isNumeric ? createLegend() : createLegend(vals); // create the legend; note: vals is a correspondence array linking strings with numbers for categorical dataTypes
+	
+	// create the legend
+	if (isNumeric) {
+		legend = createLegend(switchToThreshold, null, [small, large]); // note: small and large are included for "threshold" types to place in legend
+	} else {
+		legend = createLegend(switchToThreshold, vals); // note: vals is a correspondence array linking strings with numbers for categorical dataTypes
+	}
 	
 	// if county is active and tooltip is showing, re-populate tooltip
 	if (d3.select('.county.active').empty() !== true && $('#tt').hasClass('hidden') === false) {
@@ -954,7 +998,7 @@ function fillMapColors() {
 	});
 }
 
-function createLegend(keyArray) {
+function createLegend(thresholdBool, keyArray, dataVals) {
 	d3.selectAll(".legend svg").remove();
 
 	var primeIndObj = indObjects[0];
@@ -971,9 +1015,11 @@ function createLegend(keyArray) {
 			boxWidth : 58,
 			dataType : primeIndObj.dataType,
 			unitType : type,
+			threshold: thresholdBool,
 			formatFnArr: format
 		};
 		if (keyArray) options.keyArray = keyArray;
+		if (dataVals) options.small_large = dataVals;
 
 		var subtitle = primeIndObj.name;
 		if (primeIndObj.hasOwnProperty('unit') && (primeIndObj.unit.indexOf('square mile') !== -1 || primeIndObj.unit === 'per 1,000 population')) {

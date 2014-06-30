@@ -39,10 +39,10 @@ var colorlegend = function (target, scale, type, options) {
     	, boxLabelHeight = 10
     	, domain = scale.domain()
     	, range = scale.range()
-    	, quantiles = scale.quantiles()
+    	, thresholdBool = opts.threshold
+    	, small_large = opts.small_large || false
     	, format = opts.formatFnArr;
     
-
 	// check for valid input - 'quantize' not included
   	for (var i = 0; i < scaleTypes.length; i++) {
    		if (scaleTypes[i] === type) {
@@ -99,10 +99,17 @@ var colorlegend = function (target, scale, type, options) {
   	// if numeric, assume domain is sorted small to large
   	var dataValues = [];
 	if (isNumeric) { 
-		// for level (not level_np): min is set as 0
-		(dataType === 'level') ? dataValues.push(0) : dataValues.push(domain[0]);
-		for (var i = 0; i < quantiles.length; i++) dataValues.push(quantiles[i]);
-		dataValues.push(domain[domain.length - 1]);
+		if (thresholdBool) {
+			(dataType === 'level') ? dataValues.push(0) : small_large[0];
+			for (var i = 0; i < domain.length; i++) dataValues.push(domain[i]);
+			(small_large[1] <= domain[domain.length-1]) ? dataValues.push(domain[domain.length-1] + 1) : dataValues.push(small_large[1]);
+		} else {
+			// for level (not level_np): min is set as 0
+			var quantiles = scale.quantiles();
+			(dataType === 'level') ? dataValues.push(0) : dataValues.push(domain[0]);
+			for (var i = 0; i < quantiles.length; i++) dataValues.push(quantiles[i]);
+			dataValues.push(domain[domain.length - 1]);
+		}
  	} else {
  		// if categorical or binary, find and store all unique data values
 		for (var j = 0; j < colors.length; j++) {
