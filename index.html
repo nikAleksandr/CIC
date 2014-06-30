@@ -5523,32 +5523,46 @@
 						<div class="helpTitle"><h3>Help</h3></div>
 						<div class="helpContainer">
 							<p>
-								<div class="helpLinkContainer">&bull; <span class="helpLink" onclick="goToPage(4);">View a new indicator on the map</span></div>
+								<div class="helpLinkContainer">&bull; <span class="helpLink" onclick="goToPage(2);">View a new indicator on the map</span></div>
 								<div class="helpLinkContainer">&bull; <span class="helpLink" onclick="goToPage(2);">See detailed information on an indicator</span></div>
-								<div class="helpLinkContainer">&bull; <span class="helpLink" onclick="goToPage(3);">Find a county</span></div>
-								<div class="helpLinkContainer">&bull; <span class="helpLink" onclick="goToPage(3);">Find a county by a city name</span></div>
-								<div class="helpLinkContainer">&bull; <span class="helpLink" onclick="goToPage(3);">Find a county by a state name</span></div>
-								<div class="helpLinkContainer">&bull; <span class="helpLink" onclick="goToPage(3);">Find a county seat</span></div>
-								<div class="helpLinkContainer">&bull; <span class="helpLink" onclick="goToPage(2);">Compare two indicators</span></div>
+								<div class="helpLinkContainer">&bull; <span class="helpLink" onclick="goToPage(4);">Find a county</span></div>
+								<div class="helpLinkContainer">&bull; <span class="helpLink" onclick="goToPage(4);">Find a county by a city name</span></div>
+								<div class="helpLinkContainer">&bull; <span class="helpLink" onclick="goToPage(4);">Find a county by a state name</span></div>
+								<div class="helpLinkContainer">&bull; <span class="helpLink" onclick="goToPage(4);">Find a county seat</span></div>
+								<div class="helpLinkContainer">&bull; <span class="helpLink" onclick="goToPage(3);">Compare two indicators</span></div>
 							</p>
 						</div>
 	        		</div>
 					<div class="iText helpText" id="helpText2">
-						<div class="helpTitle"><h3>Instructions</h3></div>
+						<div class="helpTitle"><h3>Getting Started</h3></div>
 						<div class="helpContainer">
 							<p>
+								<div class="helpList">&bull; The map always displays the latest year of data in the CIC database for the &quot;Primary Indicator&quot;.</div>
+								<br/>
 								<div class="helpList">&bull; Pick a statistic by clicking on &quot;Primary Indicator&quot; on the top left of the screen and choosing an indicator.</div>
-								<div class="helpList">&bull; Click on a county on the map to show the statistics for that county.</div>
+								<div class="helpList">&bull; Click on a county on the map to show detailed statistics for that county.</div>
 								<div class="helpList">&bull; Or search for a county with the search bar on the top right of the screen.</div>
-							</p><br>
-							<p>To show additional statistics, click on &quot;Secondary Indicator&quot; on the top left of the screen and choose another indicator.</p><br>
-							<p><img src="img/Back_to_US.svg"> - Click this to fully zoom out and see the entire map</p>
-							<p><img src="img/Reset_indicators.svg"> - Click this to no longer see the secondary indicator</p>
-							<p><img src="img/Share.svg"> - Click this to share on social media</p>
-							<p><img src="img/Mail.svg">- Click this to access more data through COIN</p>
+							</p>
+							<br/>
+							<div>Click on <div id="moreDataButton2" onclick="moreDataShow();" style="width:190px;"><span id="moreDataText">ACCESS MORE DATA</span><img id="moreDataImg2" src="img/more_data.svg"/></div> to access more data or to sign up to download data through the CIC extraction tool (Coming September, 2014)</div>
+							<br/>
+							<div><img src="img/Mail.svg"> - Sign up for CIC DATA UPDATES to be the first to know the latest information about counties</div>
+							<br/>
+							<div><img src="img/Share.svg"> - Share the CIC on social media</div>
+							<br/><br/><br/>
 						</div>
 	        		</div>
-					<div class="iText helpText" id="helpText3">
+	        		<div class="iText helpText" id="helpText3">
+	        			<div class="helpTitle">Comparing Two Indicators</div>
+	        			<div class="helpContainer">
+	        				<p>To show additional statistics, click on &quot;Secondary Indicator&quot; on the top left of the screen and choose another indicator.</p>
+	        				<br>
+	        				<p>Clicking on a county will now compare statistics for both selected indicators</p>
+	        				<br/>
+	        				<p><img src="img/Reset_indicators.svg"> - Click this to no longer see the secondary indicator</p>
+	        			</div>
+	        		</div>
+					<div class="iText helpText" id="helpText4">
 						<div class="helpTitle"><h3>Finding A County</h3></div>
 						<div class="helpContainer">
 							<p>There are multiple ways to find a county.</p>
@@ -5556,17 +5570,20 @@
 								<div class="helpList">&bull; Click on "County Search" and search for any county.</div>
 								<div class="helpList">&bull; Click on "City Search", type in the name of a city, and all counties located within that city will appear in the search results.</div>
 								<div class="helpList">&bull; Click on "State Search", pick a state from the dropdown, and all counties located in the state will appear in the search results.</div>
+								<div class="helpList">&bull; Double-click on any county to view basic information about it, including it's county seat.</div>
 							</p>
 						</div>
 	        		</div>
-					<div class="iText helpText" id="helpText4">
+					<div class="iText helpText" id="helpText5">
 						<div class="helpTitle"><h3>Using the Map</h3></div>
 						<div class="helpContainer">
 							<p>
+								<div class="helpList">&bull; Pick a new statistic by clicking on &quot;Primary Indicator&quot; on the top left of the screen and choosing an indicator.</div>
+								<div class="helpList">&bull; Click on a county on the map to show statistics.</div>
+								<br/>
 								<div class="helpList">&bull; Scroll up when hovering over the map to ZOOM IN.</div>
 								<div class="helpList">&bull; Scroll down when hovering over the map to ZOOM OUT.</div>
-								<div class="helpList">&bull; Click the "Back to US Map" button on the right hand side of your screen to zoom out all the way.</div>
-								<div class="helpList">&bull; Click on a county on the map to show statistics.</div>
+								<p>&bull; Click <img src="img/Back_to_US.svg"> to fully zoom out and see the entire map</p>
 							</p>
 						</div>
 	        		</div>
@@ -5578,6 +5595,7 @@
 						<li name="2"><a onclick="goToPage(2);">2</a></li>
 						<li name="3"><a onclick="goToPage(3);">3</a></li>
 						<li name="4"><a onclick="goToPage(4);">4</a></li>
+						<li name="5"><a onclick="goToPage(5);">5</a></li>
 						<li><a href='#' onclick="incrementPage(1);">&raquo;</a></li>
 					</ul>
 				</div>

@@ -317,7 +317,7 @@ function moreDataShow(){
 function incrementPage(dx) {
 	var currPageNum = parseInt($('#instructionPagination .active').attr('name'));
 	if (currPageNum === 1 && parseInt(dx) === -1) goToPage(1);
-	else if (currPageNum === 4 && parseInt(dx) === 1) goToPage(4);
+	else if (currPageNum === 5 && parseInt(dx) === 1) goToPage(5);
 	else goToPage(currPageNum + parseInt(dx));
 }
 function goToPage(pageNum) {
