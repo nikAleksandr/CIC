@@ -774,7 +774,7 @@ div.tooltip {
 	}
 	#countyResponse-populations, #countyResponse-quickLinks { display: none; }
 	#countyResponse-* {
-		text-align: left;
+		text-align: center;
 	}
 	
 	
