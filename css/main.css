@@ -773,7 +773,7 @@ div.tooltip {
 		-webkit-box-sizing: border-box;
 	}
 	#countyResponse-populations, #countyResponse-quickLinks { display: none; }
-	#countyResponse-* {
+	#countyResponse-countyDetails {
 		text-align: center;
 	}
 	

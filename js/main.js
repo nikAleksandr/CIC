@@ -194,6 +194,7 @@ function setBehaviors() {
 
 	setDropdownBehavior();
 	setSearchBehavior();
+	setIconBehavior();
 }	
 
 function draw(topo, stateMesh) {
@@ -275,42 +276,60 @@ function emptyInstructionText() {
 }
 
 //Functions for Icons
-function showHelpText(){
-	emptyInstructionText();
-	$('#instructionPagination').show();
-	var activePage = $('#instructionPagination .active').attr('name');
-	$('#helpText'+activePage).show();
-
-	$('#instructions').show();
-}
-function addToMailingList() {
-	emptyInstructionText();
-	$('#mailingText').show();	
-	$('#instructions').show();
-}
-function resetAll() {
-	currentSecondDI = '';
-	if (d3.select('.county.active').empty() !== true) {
-		populateTooltip(selected);
-	}
-	d3.select('#secondIndText').html('Secondary Indicator' + '<span class="sub-arrow"></span>');
-}
-function showHideRrssb() {
-	var twitterContentIntro = "http://twitter.com/home?status=See%20";
-	var twitterContentEnd = "%20data%20for%20your%20county%20by%20@NACoTweets%20%23NACoCIC%20www.naco.org%2FCIC";
-	var i=currentDI.indexOf(' - ');
-	var twitterContentDataset = encodeURIComponent(currentDI.substring(0,i));
-	if ($('.rrssb-buttons').is(':visible')) {
-		var moveTransition = d3.select('#rrssbContainer').transition().duration(500).style('right', '-200px');
-		moveTransition.each('end', function() {
-			$('.rrssb-buttons').hide();
-		});		
-	} else {
-		$('.rrssb-buttons').show();
-		d3.select('#twitterContent').attr('href', twitterContentIntro + twitterContentDataset + twitterContentEnd);
-		console.log(twitterContentIntro + twitterContentDataset + twitterContentEnd);
-		d3.select('#rrssbContainer').transition().duration(500).style('right', '50px');
-	}
+function setIconBehavior() {
+	$('#showHelpIcon, #showHelpIconText').on('click', function(e) {
+		e.stopPropagation();
+		emptyInstructionText();
+		$('#instructionPagination').show();
+		var activePage = $('#instructionPagination .active').attr('name');
+		$('#helpText'+activePage).show();
+	
+		$('#instructions').show();
+	});
+	
+	$('#backToMapIcon, #backToMapIconText').on('click', function(e) {
+		e.stopPropagation();
+		$('#instructions').hide();
+		tooltip.classed('hidden', true);
+		zoomMap([0,0], 1);
+	});
+	
+	$('#resetAllIcon, #resetAllIconText, #resetSecondInd').on('click', function(e) {
+		e.stopPropagation();
+		currentSecondDI = '';
+		if (d3.select('.county.active').empty() !== true) {
+			populateTooltip(selected);
+			positionTooltip(d3.select('.county.active')[0][0]);
+		}
+		d3.select('#secondIndText').html('Secondary Indicator' + '<span class="sub-arrow"></span>');		
+	});
+	
+	$('#showHideRrssbIcon, #showHideRrssbIconText').on('click', function(e) {
+		e.stopPropagation();
+		var twitterContentIntro = "http://twitter.com/home?status=See%20";
+		var twitterContentEnd = "%20data%20for%20your%20county%20by%20@NACoTweets%20%23NACoCIC%20www.naco.org%2FCIC";
+		var i=currentDI.indexOf(' - ');
+		var twitterContentDataset = encodeURIComponent(currentDI.substring(0,i));
+		if ($('.rrssb-buttons').is(':visible')) {
+			var moveTransition = d3.select('#rrssbContainer').transition().duration(500).style('right', '-200px');
+			moveTransition.each('end', function() {
+				$('.rrssb-buttons').hide();
+			});		
+		} else {
+			$('.rrssb-buttons').show();
+			d3.select('#twitterContent').attr('href', twitterContentIntro + twitterContentDataset + twitterContentEnd);
+			//console.log(twitterContentIntro + twitterContentDataset + twitterContentEnd);
+			d3.select('#rrssbContainer').transition().duration(500).style('right', '50px');
+		}		
+	});
+	
+	$('#addToMailingListIcon, #addToMailingListIconText').on('click', function(e) {
+		e.stopPropagation();
+		emptyInstructionText();
+		$('#mailingText').show();	
+		$('#instructions').show();
+		
+	});
 }
 function moreDataShow(){
 	if ($('#mdText').is(':visible')) {
@@ -663,7 +682,7 @@ function update(dataset, indicator) {
 		updateView();
 	});
 	
-	getData(); // when data is received, it will fire an event on document.body
+	getData(indObjects); // when data is received, it will fire an event on document.body
 }
 
 function appendSecondInd(dataset, indicator) {
@@ -679,20 +698,20 @@ function appendSecondInd(dataset, indicator) {
 		}
 	});
 	
-	getData();
+	getData(s_indObjects);
 }
 
-function getData() {
+function getData(indObjs) {
  	// grab data and set up quantByIds and other objects
  	if (localVersion) {
  		d3.tsv("data/CData.tsv", function(error, countyData) {
 	 		var qbis = [];
-			for (var i = 0; i < indObjects.length; i++) qbis.push([]);
+			for (var i = 0; i < indObjs.length; i++) qbis.push([]);
 	
 			countyData.forEach(function(d) {			
-				for (var i = 0; i < indObjects.length; i++) {
-					qbis[i][d.id] = isNumFun(indObjects[i].dataType) ? parseFloat(d[indObjects[i].DI]) : d[indObjects[i].DI];
-					if (indObjects[i].hasOwnProperty('unit') && indObjects[i].unit.indexOf('thousand') !== -1) qbis[i][d.id] *= 1000; // will remove this eventually
+				for (var i = 0; i < indObjs.length; i++) {
+					qbis[i][d.id] = isNumFun(indObjs[i].dataType) ? parseFloat(d[indObjs[i].DI]) : d[indObjs[i].DI];
+					if (indObjs[i].hasOwnProperty('unit') && indObjs[i].unit.indexOf('thousand') !== -1) qbis[i][d.id] *= 1000; // will remove this eventually
 				}
 	
 				idByName[d.geography] = d.id;
@@ -704,9 +723,9 @@ function getData() {
  	} else {
  		// need to sort by dataset because we want to send one query per dataset needed
 	  	var indicatorList = {}; // list of indicators indexed by dataset then indexed by year
-	  	for (var i = 0; i < indObjects.length; i++) {
-		  	var crossObject = crosswalk[indObjects[i].dataset+' - '+indObjects[i].name];
-		  	var year = indObjects[i].year;
+	  	for (var i = 0; i < indObjs.length; i++) {
+		  	var crossObject = crosswalk[indObjs[i].dataset+' - '+indObjs[i].name];
+		  	var year = indObjs[i].year;
 	
 	  		if (!indicatorList.hasOwnProperty(crossObject.db_dataset)) indicatorList[crossObject.db_dataset] = {};
 			var dataset_obj = indicatorList[crossObject.db_dataset];
@@ -762,12 +781,12 @@ function getData() {
 				
 				// write data to "quantById" format
 				var qbis = [];
-				for (var i = 0; i < indObjects.length; i++) qbis.push([]);				
+				for (var i = 0; i < indObjs.length; i++) qbis.push([]);				
 				for (var fips in data) {
-					for (var i = 0; i < indObjects.length; i++) {
-						var value = data[fips][indObjects[i].db_indicator.toUpperCase()];
-						qbis[i][fips] = isNumFun(indObjects[i].dataType) ? parseFloat(value) : value;
-						if (indObjects[i].hasOwnProperty('unit') && indObjects[i].unit.indexOf('thousand') !== -1) qbis[i][fips] *= 1000; // will remove this eventually
+					for (var i = 0; i < indObjs.length; i++) {
+						var value = data[fips][indObjs[i].db_indicator.toUpperCase()];
+						qbis[i][fips] = isNumFun(indObjs[i].dataType) ? parseFloat(value) : value;
+						if (indObjs[i].hasOwnProperty('unit') && indObjs[i].unit.indexOf('thousand') !== -1) qbis[i][fips] *= 1000; // will remove this eventually
 					}
 		
 					idByName[data[fips].geography] = fips;
