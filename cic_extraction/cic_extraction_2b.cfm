@@ -33,29 +33,42 @@ PLEASE GO BACK AND LIMIT YOUR SELECTION TO JUST 1 OR 2 Primary Categories.
 	    <CFSET tablename2 = #get_sub_category.table_name#>
 
         
-        <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-        <html xmlns="http://www.w3.org/1999/xhtml">
-        
-        <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-        <link rel="stylesheet" href="../../css/main.css">
-        <title>CIC</title>
-        </head>
-         <body>
-        <div id="header">
-			<div>
-			<h1>NACo County Intelligence Connection 2.0</h1>
-			</div>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+<title>CIC Extraction Tool</title>
+
+<link rel="stylesheet" href="../css/normalize.css">
+<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+<link href='http://fonts.googleapis.com/css?family=Roboto+Condensed:300,400' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Arvo' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="../css/main.css">
+
+</head>
+ <body>
+<div id="extraction-header">
+	<div class="row" >
+		<div class="col-md-10">
+			<h1>NACo CIC Exraction Tool</h1>
+			
+			<H3><em>Choose up to TEN indicators</em></H3>
+		</div>
+		<div class="col-md-2">
+			<img id="nacoLogo" alt="National Association of Counties Logo" src="../img/NACoLogo_NoTagBLACK_tm.png" />
+		</div>
+	</div>
 </div>
-<HR />
         
         <!-- start of second tab -->
         
        <CFOUTPUT><H2>#Category_List2# Indicators</H2></CFOUTPUT> 
         
 
-         <form  action="cic_extraction_3.cfm" method="post">
-            <select id="sublist" name="SubCategory_List2" size="15" multiple="multiple">
+         <form class="extraction-form" action="cic_extraction_3.cfm" method="post">
+            <select class="form-control extraction-multiple" id="sublist" name="SubCategory_List2" size="15" multiple>
               <CFOUTPUT query="get_sub_category">
               <option value="#Data_field#" >#sub_type# - #Sub_Cat#  <em>#units#</em> &nbsp; </option>
               </CFOUTPUT>
@@ -65,13 +78,11 @@ PLEASE GO BACK AND LIMIT YOUR SELECTION TO JUST 1 OR 2 Primary Categories.
             <input type="hidden" name="SubCategory_List1" value="#SubCategory_List1#" />
             <input type="hidden" name="tablename2" value="#tablename2#" />
             </CFOUTPUT>
-            <input type="submit"  value="Next...">
+            
+        
+        	<p>Hold the <em>Ctrl</em> key and click to select multiple indicators. <input class="btn btn-info" type="submit"  value="Next..."></p>
         </form> 
-        
-         <p>Select  the Indicators for <CFOUTPUT><strong>#Category_List2#</strong></CFOUTPUT></p>
-        Hold <em>ctrl</em> key and click, to select multiple indicators.
-        
-        </body>
-        </html>
+</body>
+</html>
 
 

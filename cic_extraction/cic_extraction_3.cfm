@@ -23,29 +23,35 @@ where countrycode = 'USA'
 
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
- <link rel="stylesheet" href="../../css/main.css">
-<title>CIC</title>
+<title>CIC Extraction Tool</title>
+
+<link rel="stylesheet" href="../css/normalize.css">
+<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+<link href='http://fonts.googleapis.com/css?family=Roboto+Condensed:300,400' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Arvo' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="../css/main.css">
+
 </head>
  <body>
-        <div id="header">
-			<div>
-			<h1>NACo County Intelligence Connection 2.0</h1>
-			</div>
+    <div id="extraction-header">
+	<div class="row" >
+		<div class="col-md-10">
+			<h1>NACo CIC Extraction Tool</h1>
+			
+			<H3><em>Select a specific State, or select "All States"</em></H3>
+		</div>
+		<div class="col-md-2">
+			<img id="nacoLogo" alt="National Association of Counties Logo" src="../img/NACoLogo_NoTagBLACK_tm.png" />
+		</div>
+	</div>
 </div>
-<HR />
-
-
-
 
 <!-- start of third tab -->
-<em><font size="4">Select Specific States or "All States":</font></em></p>
 
-
-
-<form action="cic_extraction_5.cfm" method="post">
+<form class="extraction-form" action="cic_extraction_5.cfm" method="post">
 <!-- skip county selection for now -->
 
-    <select id="statelist" name="States_List" size="10" multiple="multiple">
+    <select class="form-control extraction-multiple" id="statelist" name="States_List" size="10" multiple="multiple">
       <option value="ALL">All States</option>
       <CFOUTPUT query="get_states">
       <option value="'#StateCode#'">#StateName#</option>
@@ -60,7 +66,7 @@ where countrycode = 'USA'
     
     </CFOUTPUT> 
 
-<input type="submit" value="Next" />
+<p>Hold the <i>Ctrl</i> key and select multiple states if desired. <input class="btn btn-info" type="submit" value="Next" /></p>
 
 </form>
 
