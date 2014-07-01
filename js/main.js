@@ -43,7 +43,8 @@ var format = {
     "dec2": function(num, type) {
     	if (num === 0) return 0;
     	else return d3.format('.2f')(num);
-    }
+    },
+    'none': function(num) { return num; }
 };
 format['level_np'] = format['level'];
 
@@ -77,7 +78,8 @@ var format_tt = {
     "dec2": function(num, type) {
     	if (num == 0) return 0;
     	else return d3.format('.2f')(num);
-    }
+    },
+    'none': function(num) { return num; }
 };
 format_tt['level_np'] = format['level'];
 
@@ -120,7 +122,8 @@ var range = [], // array of colors used for coloring the map
 	percent_colors = ['rgb(522,204,102)', 'rgb(255,153,51)', 'rgb(49,130,189)', 'rgb(7,81,156)', 'rgb(28,53,99)'],
 	binary_colors = ['rgb(28,53,99)', 'rgb(255,153,51)'],
 	categorical_colors = ['rgb(522,204,102)', 'rgb(255,153,51)', 'rgb(49,130,189)', 'rgb(7,81,156)', 'rgb(28,53,99)'],
-	level_colors = ['rgb(255,204,102)', 'rgb(255,153,51)', 'rgb(49,130,189)', 'rgb(7,81,156)', 'rgb(28,53,99)'];
+	level_colors = ['rgb(255,204,102)', 'rgb(255,153,51)', 'rgb(49,130,189)', 'rgb(7,81,156)', 'rgb(28,53,99)'],
+	neighbor_colors = d3.scale.category10();
 	//percent_colors = ['rgb(189, 215, 231)','rgb(107, 174, 214)','rgb(49, 130, 189)','rgb(7, 81, 156)','rgb(28, 53, 99)']
 	//categorical_colors = ['rgb(253,156,2)', 'rgb(0,153,209)', 'rgb(70,200,245)', 'rgb(254,207,47)', 'rgb(102,204,204)', 'rgb(69,178,157)']
 	//level_colors = ['rgb(189, 215, 231)','rgb(107, 174, 214)','rgb(49, 130, 189)','rgb(7, 81, 156)','rgb(28, 53, 99)'];
@@ -809,7 +812,7 @@ function updateView() {
 	var isNumeric = isNumFun(currentDataType);
 	var quantById = quantByIds[0];	
 
-	// MANUAL DATA MODIFICATIONS
+	// MANUAL DATA MODIFICATIONS; better to change database values when there's time
 	for (var i = 0; i < quantByIds.length; i++) {
 		for (var ind in quantByIds[i]) {
 			if (indObjects[i].dataType === 'binary') {
@@ -819,6 +822,9 @@ function updateView() {
 			} else if (indObjects[i].dataType === 'level') {
 				// if there's data for it, change null to 0 (prob should change in database, but this is easier for now)
 				if (isNaN(quantByIds[i][ind])) quantByIds[i][ind] = 0;
+			} else if (indObjects[i].name === 'Level of CBSA') {
+				if (quantByIds[i][ind] === 1) quantByIds[i][ind] = 'Metropolitan';
+				else if (quantByIds[i][ind] === 2) quantByIds[i][ind] = 'Micropolitan';
 			}
 		}
 	}
@@ -834,32 +840,31 @@ function updateView() {
 				domain[ind] = quantById[ind];
 			}
 		}
-	} else {
+	} else if (currentDataType === 'binary') {
 		corrDomain = [];
-		if (currentDataType === 'binary') {
-			for (var ind in quantById) {
-				if (quantById[ind] === 'Yes') corrDomain[ind] = 1;
-				else if (quantById[ind] === 'No') corrDomain[ind] = 0;
-			}
-			var vals = {'Yes': 1, 'No': 0};
-		} else {
-			// translating string values to numeric values
-			var numCorrVals = 0, vals = {}, corrVal = 0;
-			for (var ind in quantById) {
-				// case by case substitutions
-				if (quantById[ind] === '0') quantById[ind] = 'None';
-				
-				// create corresponding value array (e.g. {"Gulf of Mexico": 0, "Pacific Ocean": 1})
-				if (quantById[ind] !== '.' && quantById[ind] !== '' && quantById[ind] !== null) {
-					if (!vals.hasOwnProperty(quantById[ind])) {
-						vals[quantById[ind]] = corrVal;
-						corrVal++;
-					}
-					corrDomain[ind] = vals[quantById[ind]];
-				}
-			}
-			for (var ind in vals) numCorrVals++;
+		for (var ind in quantById) {
+			if (quantById[ind] === 'Yes') corrDomain[ind] = 1;
+			else if (quantById[ind] === 'No') corrDomain[ind] = 0;
 		}
+		var vals = {'Yes': 1, 'No': 0};
+	} else if (currentDataType === 'categorical') {
+		corrDomain = [];
+		// translating string values to numeric values
+		var numCorrVals = 0, vals = {}, corrVal = 0;
+		for (var ind in quantById) {
+			// case by case substitutions
+			if (quantById[ind] === '0') quantById[ind] = 'None';
+			
+			// create corresponding value array (e.g. {"Gulf of Mexico": 0, "Pacific Ocean": 1})
+			if (quantById[ind] !== '.' && quantById[ind] !== '' && quantById[ind] !== null) {
+				if (!vals.hasOwnProperty(quantById[ind])) {
+					vals[quantById[ind]] = corrVal;
+					corrVal++;
+				}
+				corrDomain[ind] = vals[quantById[ind]];
+			}
+		}
+		for (var ind in vals) numCorrVals++;
 	}
 
 	// define range i.e. color output
@@ -884,9 +889,11 @@ function updateView() {
 	}
 
 	// set domain and range
-	color = d3.scale.quantile();
-	if (isNumeric) color.domain(domain).range(range);
-	else color.domain(corrDomain).range(range);
+	if (currentDataType !== 'none') {
+		color = d3.scale.quantile();
+		if (isNumeric) color.domain(domain).range(range);
+		else color.domain(corrDomain).range(range);
+	}
 	
 	// check if a value spans more than one quantile; if so, switch to threshold
 	var switchToThreshold = false, small = -1, large = 0;
@@ -929,10 +936,16 @@ function updateView() {
 	fillMapColors(); // fill in map colors
 	
 	// create the legend
-	if (isNumeric) {
-		legend = createLegend(switchToThreshold, null, [small, large]); // note: small and large are included for "threshold" types to place in legend
+	if (currentDataType === 'none') {
+		changeLegendTitle();
+		$('#quantileLegend').css('visibility', 'hidden');
 	} else {
-		legend = createLegend(switchToThreshold, vals); // note: vals is a correspondence array linking strings with numbers for categorical dataTypes
+		$('#quantileLegend').css('visibility', 'visible');
+		if (isNumeric) {
+			legend = createLegend(switchToThreshold, null, [small, large]); // note: small and large are included for "threshold" types to place in legend
+		} else {
+			legend = createLegend(switchToThreshold, vals); // note: vals is a correspondence array linking strings with numbers for categorical dataTypes
+		}
 	}
 	
 	// if county is active and tooltip is showing, re-populate tooltip
@@ -1013,19 +1026,25 @@ function getInfo(dataset, indicator){
 }
 
 function fillMapColors() {
-	selected = null;
-	frmrActive = null;
-	g.selectAll(".counties .county").transition().duration(750).style("fill", function(d) {
-		
+	selected = null, frmrActive = null;
+	colorKeyArray = {};
+	g.selectAll(".counties .county").transition().duration(750).style("fill", function(d, i) {		
 		if (isNumFun(currentDataType)) {
 			return isNaN(quantByIds[0][d.id]) ? na_color : color(quantByIds[0][d.id]);
+		} else if (currentDataType === 'binary') {
+			return (corrDomain.hasOwnProperty(d.id)) ? range[corrDomain[d.id]] : na_color;	
+		} else if (currentDataType === 'categorical') {
+			return isNaN(corrDomain[d.id]) ? na_color : range[corrDomain[d.id]];
 		} else {
-			if (currentDataType === 'binary') {
-				return (corrDomain.hasOwnProperty(d.id)) ? range[corrDomain[d.id]] : na_color;	
+			var val = quantByIds[0][d.id];
+			if (!colorKeyArray.hasOwnProperty(val)) {
+				d.color = d3.max(neighbors[i], function(n) { return topo[n].color; }) + 1 | 0;
+				colorKeyArray[val] = d.color;
 			} else {
-				return isNaN(corrDomain[d.id]) ? na_color : range[corrDomain[d.id]];
+				d.color = colorKeyArray[val];
 			}
-		}		
+			return (val === null) ? na_color : neighbor_colors(d.color);
+		}	
 	});
 }
 
@@ -1054,20 +1073,22 @@ function createLegend(thresholdBool, keyArray, dataVals) {
 		if (primeIndObj.name === 'Body of Water') options.boxWidth = 68;
 		if (primeIndObj.hasOwnProperty('format_type')) options.format_type = primeIndObj.format_type;
 
-		var subtitle = primeIndObj.name;
-		if (primeIndObj.hasOwnProperty('unit') && (primeIndObj.unit.indexOf('square mile') !== -1 || primeIndObj.unit === 'per 1,000 population')) {
-			subtitle += ' (' + primeIndObj.unit + ')';
-		} 		
-		d3.select('#legendTitle').text(primeIndObj.year + ' ' + primeIndObj.dataset);
-		d3.select('#legendSubtitle').text(subtitle);
-		
-		
-		// **temp hack for issue where 3069 is not being filled in completely **delete this when fixed!!**
-		if (primeIndObj.name === 'Total County') d3.select('#legendTitle').text(primeIndObj.year + ' ' + hacked_dataset);
-
-
+		changeLegendTitle();
 		return colorlegend("#quantileLegend", color, "quantile", options);
 	} else return false;
+}
+function changeLegendTitle() {
+	var primeIndObj = indObjects[0];
+	var subtitle = primeIndObj.name;
+	if (primeIndObj.hasOwnProperty('unit') && (primeIndObj.unit.indexOf('square mile') !== -1 || primeIndObj.unit === 'per 1,000 population')) {
+		subtitle += ' (' + primeIndObj.unit + ')';
+	} 		
+	d3.select('#legendTitle').text(primeIndObj.year + ' ' + primeIndObj.dataset);
+	d3.select('#legendSubtitle').text(subtitle);
+	
+	
+	// **temp hack for issue where 3069 is not being filled in completely **delete this when fixed!!**
+	if (primeIndObj.name === 'Total County') d3.select('#legendTitle').text(primeIndObj.year + ' ' + hacked_dataset);
 }
 
 function populateTooltip(d) {
@@ -1343,12 +1364,12 @@ function throttle() {
 }
 
 setup(width,height);
-disableIndicators('dataset', 'Metro-Micro Areas (MSA)');
-disableIndicators('indicator', 'County Profile', 'County Seat');
+//disableIndicators('dataset', 'Metro-Micro Areas (MSA)');
+//disableIndicators('indicator', 'County Profile', 'County Seat');
 disableIndicators('indicator', 'County Profile', 'Fiscal Year End Date');
 disableIndicators('indicator', 'County Profile', 'State Capitol');
-disableIndicators('indicator', 'County Profile', 'CBSA Title');
-disableIndicators('indicator', 'County Profile', 'CBSA Code');
+//disableIndicators('indicator', 'County Profile', 'CBSA Title');
+//disableIndicators('indicator', 'County Profile', 'CBSA Code');
 disableIndicators('indicator', 'USDA Rural Development', 'USDA Grant Annual Growth Rate (from previous year)');
 disableIndicators('indicator', 'USDA Rural Development', 'USDA Loan Annual Growth Rate (from previous year)');
 
@@ -1368,6 +1389,7 @@ d3.json("us.json", function(error, us) {
   	counties.forEach(function(d) { countyPathById[d.id] = d; });
 
   	topo = counties;
+  	neighbors = topojson.neighbors(us.objects.counties.geometries);
   	stateMesh = states;
 	  
   	draw(topo, stateMesh); 
