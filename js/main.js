@@ -1158,22 +1158,26 @@ function positionTooltip(county) {
 		var ttHeight = $('#tt').height();
 		
 		var countyCoord = county.getBoundingClientRect(); // county position relative to document.body
-		var left = countyCoord.left + countyCoord.width - ttWidth - containerOffset.left + document.body.scrollLeft + 20; // left relative to map
 		var top = countyCoord.top - ttHeight - containerOffset.top + document.body.scrollTop - 10; // top relative to map
-		var arrow_left = -20 + countyCoord.width/2;
+		
+		if (currentSecondDI === '') {
+			var left = countyCoord.left + countyCoord.width - ttWidth - containerOffset.left + document.body.scrollLeft + 20; // left relative to map
+			var arrow_left = -20 + countyCoord.width/2;
+		} else {
+			var left = countyCoord.left + countyCoord.width/2 - ttWidth/2 - containerOffset.left + document.body.scrollLeft + 5;
+			var arrow_left = -35 + ttWidth/2;
+		}
 		
 		// checks if tooltip goes past window and adjust if it does
 		var dx = windowWidth - (left + ttWidth); // amount to tweak
 		var dy = windowHeight - (top + ttHeight);
 
 		if (left < 0) {
-			d3.select('.arrow_box').transition().style('right', arrow_left-left+'px');
+			arrow_left -= left;
 			left = 0;
 		} else if (dx < 0) {
-			d3.select('.arrow_box').transition().style('right', (dx < -20) ? arrow_left-20+'px' : arrow_left+dx+'px');
+			arrow_left += (dx < -20) ? -20 : dx;
 			left += dx;
-		} else {
-			d3.select('.arrow_box').transition().style('right', arrow_left + 'px');
 		}
 		
 		if (top < 0) top = 0;
@@ -1182,6 +1186,7 @@ function positionTooltip(county) {
 		tooltip.transition()
 		  	.style("left", (left) + "px")
 		  	.style("top", (top) + "px");
+		d3.select('.arrow_box').transition().style('right', arrow_left + 'px');
 	}
 }
 
