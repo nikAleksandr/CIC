@@ -681,6 +681,7 @@ function update(dataset, indicator) {
 	$(document.body).off('dataReceived'); // shady, should only be setting event observe once, instead of re-defining it every time
 	$(document.body).on('dataReceived', function(event, qbis, data) {
 		quantByIds = qbis;
+		quantByIds = manipulateData(quantByIds, indObjects);
 		for (var fips in data) {
 			idByName[data[fips].geography] = fips;
 			countyObjectById[fips] = data[fips];
@@ -699,6 +700,7 @@ function appendSecondInd(dataset, indicator) {
 	$(document.body).off('dataReceived'); // shady, should only be setting event observe once, instead of re-defining it every time
 	$(document.body).on('dataReceived', function(event, qbis) {
 		s_quantByIds = qbis;
+		s_quantByIds = manipulateData(s_quantByIds, s_indObjects);
 		if (d3.select('.county.active').empty() !== true) {
 			populateTooltip(selected);
 			positionTooltip(d3.select('.county.active')[0][0]);
@@ -811,23 +813,6 @@ function getData(indObjs) {
 function updateView() {
 	var isNumeric = isNumFun(currentDataType);
 	var quantById = quantByIds[0];	
-
-	// MANUAL DATA MODIFICATIONS; better to change database values when there's time
-	for (var i = 0; i < quantByIds.length; i++) {
-		for (var ind in quantByIds[i]) {
-			if (indObjects[i].dataType === 'binary') {
-				// modify binary values
-				if (quantByIds[i][ind] === true) quantByIds[i][ind] = 'Yes';
-				else if (quantByIds[i][ind] === false) quantByIds[i][ind] = 'No';
-			} else if (indObjects[i].dataType === 'level') {
-				// if there's data for it, change null to 0 (prob should change in database, but this is easier for now)
-				if (isNaN(quantByIds[i][ind])) quantByIds[i][ind] = 0;
-			} else if (indObjects[i].name === 'Level of CBSA') {
-				if (quantByIds[i][ind] === 1) quantByIds[i][ind] = 'Metropolitan';
-				else if (quantByIds[i][ind] === 2) quantByIds[i][ind] = 'Micropolitan';
-			}
-		}
-	}
 
 	// define domain
 	if (isNumeric) {
@@ -968,6 +953,28 @@ function updateView() {
 		defContainer.append('div')
 			.html('<b>' + indObjects[i].name + '</b>: ' + indObjects[i].definition);
 	}		
+}
+
+function manipulateData(qbis, indObjs) {
+	// MANUAL DATA MODIFICATIONS; better to change database values when there's time
+	for (var i = 0; i < qbis.length; i++) {
+		for (var ind in qbis[i]) {
+			if (indObjs[i].dataType === 'binary') {
+				// modify binary values
+				if (quantByIds[i][ind] === true) quantByIds[i][ind] = 'Yes';
+				else if (quantByIds[i][ind] === false) quantByIds[i][ind] = 'No';
+			} else if (indObjs[i].dataType === 'level') {
+				// if there's data for it, change null to 0 (prob should change in database, but this is easier for now)
+				if (isNaN(quantByIds[i][ind])) quantByIds[i][ind] = 0;
+			} else if (indObjs[i].name === 'Level of CBSA') {
+				if (quantByIds[i][ind] === 1) quantByIds[i][ind] = 'Metropolitan';
+				else if (quantByIds[i][ind] === 2) quantByIds[i][ind] = 'Micropolitan';
+			} else if (indObjs[i].name === 'CSA Code') {
+				if (quantByIds[i][ind] === 0) quantByIds[i][ind] = null;
+			}
+		}
+	}
+	return qbis;
 }
 
 function allInfo(dataset, indicator){
