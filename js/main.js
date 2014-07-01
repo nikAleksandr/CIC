@@ -652,7 +652,10 @@ function displayResults(url) {
 	d3.xhr('http://nacocic.naco.org/ciccfm/'+ url, function(error, request){
 		if (!error) {
 			var response = request.responseText;
-			//console.log(response);
+			if (response.indexOf('An error occurred') !== -1) {
+				noty({text: 'Information for this county is not currently available.'});
+				return;
+			}
 			
 			var frame = d3.select("#instructionText").append('div')
 				.attr('class', 'container-fluid temp')
