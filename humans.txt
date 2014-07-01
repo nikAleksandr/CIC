@@ -23,4 +23,4 @@
 # TECHNOLOGY COLOPHON
 
     HTML5, CSS3, ColdFusion
-    Normalize.css, D3, jQuery, Modernizr, Bootstrap, SmartMenus, ColorLegend.js
+    Normalize.css, D3, jQuery, Modernizr, Bootstrap, SmartMenus, ColorLegend.js, Rediculously Responsive Social Sharing Buttons, SVGenie

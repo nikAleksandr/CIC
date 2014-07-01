@@ -1228,13 +1228,6 @@ function move() {
 
   t[0] = Math.min(width / 2 * (s - 1), Math.max(width / 2 * (1 - s), t[0]));
   t[1] = Math.min(height / 2 * (s - 1), Math.max(height / 2 * (1 - s), t[1]));
-  //original function: t[1] = Math.min(height / 2 * (s - 1) + h * s, Math.max(height / 2 * (1 - s) - h * s, t[1]));
-  //maximum translate value is 1944 (maine) from scale = 10 (t-value of 1902)
-  	//1190 from 6 (1145)
-  	//743 from 3.7 (626)
-  	//343 from 2.2 (339)
-  	//167 from 1.3 (132)
-  	//0 from 1 (0)
 	
   	var zoomSmoothly = !(s === frmrS); // dont do smoothly if panning
 	zoomMap(t, s, zoomSmoothly);	
@@ -1312,13 +1305,15 @@ disableIndicators('indicator', 'USDA Rural Development', 'USDA Grant Annual Grow
 disableIndicators('indicator', 'USDA Rural Development', 'USDA Loan Annual Growth Rate (from previous year)');
 
 // for testing
-/*$.getScript('js/test/util.js', function(){
+/*
+$.getScript('js/test/util.js', function(){
 	//countIndicators();
 	//areAllIndicatorsInDatabase();
 	//areAllCompanionsValid();
 	//checkDropdownNames();
 	//testDatabaseResponses(); // will only work if on nacocic.naco.org and localVersion disabled (note: 700+ requests being sent! will take more than a minute!)
-});*/
+});
+*/
 
 d3.json("us.json", function(error, us) {
   	var counties = topojson.feature(us, us.objects.counties).features;
