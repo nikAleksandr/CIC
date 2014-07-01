@@ -39,6 +39,10 @@ var format = {
     		else return d3.format('.1f')(num);*/
     		else return d3.format('0f')(num);
     	}
+    },
+    "dec2": function(num, type) {
+    	if (num === 0) return 0;
+    	else return d3.format('.2f')(num);
     }
 };
 format['level_np'] = format['level'];
@@ -69,6 +73,10 @@ var format_tt = {
     		else return d3.format('.1f')(num);*/
     		else return d3.format('0f')(num);
     	}
+    },
+    "dec2": function(num, type) {
+    	if (num == 0) return 0;
+    	else return d3.format('.2f')(num);
     }
 };
 format_tt['level_np'] = format['level'];
@@ -177,7 +185,7 @@ function setBehaviors() {
 		}
 		var specWindow = window.open('', window_title, 'left=0,top=0,toolbar=0,scrollbars=0,status=0');
 		specWindow.document.write(document.getElementById('instructionText').innerHTML);
-		specWindow.document.write('<link rel="stylesheet" href="css/main.css">');
+		specWindow.document.write('<link rel="stylesheet" media="print" href="css/main.css">');
 		specWindow.document.close();
 		specWindow.focus();
 		specWindow.print();
@@ -186,6 +194,7 @@ function setBehaviors() {
 
 	setDropdownBehavior();
 	setSearchBehavior();
+	setIconBehavior();
 }	
 
 function draw(topo, stateMesh) {
@@ -264,45 +273,66 @@ function emptyInstructionText() {
 	$('#instructionText .iText').hide();
 	$('#instructionPagination').hide();
 	$('#showOnMap').hide();
+	$('#print').hide();
 }
 
 //Functions for Icons
-function showHelpText(){
-	emptyInstructionText();
-	$('#instructionPagination').show();
-	var activePage = $('#instructionPagination .active').attr('name');
-	$('#helpText'+activePage).show();
-
-	$('#instructions').show();
-}
-function addToMailingList() {
-	emptyInstructionText();
-	$('#mailingText').show();	
-	$('#instructions').show();
-}
-function resetAll() {
-	currentSecondDI = '';
-	if (d3.select('.county.active').empty() !== true) {
-		populateTooltip(selected);
-	}
-	d3.select('#secondIndText').html('Secondary Indicator' + '<span class="sub-arrow"></span>');
-}
-function showHideRrssb() {
-	var twitterContentIntro = "http://twitter.com/home?status=See%20";
-	var twitterContentEnd = "%20data%20for%20your%20county%20by%20@NACoTweets%20%23NACoCIC%20www.naco.org%2FCIC";
-	var i=currentDI.indexOf(' - ');
-	var twitterContentDataset = encodeURIComponent(currentDI.substring(0,i));
-	if ($('.rrssb-buttons').is(':visible')) {
-		var moveTransition = d3.select('#rrssbContainer').transition().duration(500).style('right', '-200px');
-		moveTransition.each('end', function() {
-			$('.rrssb-buttons').hide();
-		});		
-	} else {
-		$('.rrssb-buttons').show();
-		d3.select('#twitterContent').attr('href', twitterContentIntro + twitterContentDataset + twitterContentEnd);
-		console.log(twitterContentIntro + twitterContentDataset + twitterContentEnd);
-		d3.select('#rrssbContainer').transition().duration(500).style('right', '50px');
-	}
+function setIconBehavior() {
+	$('#showHelpIcon, #showHelpIconText').on('click', function(e) {
+		e.stopPropagation();
+		emptyInstructionText();
+		$('#instructionPagination').show();
+		var activePage = $('#instructionPagination .active').attr('name');
+		$('#helpText'+activePage).show();
+	
+		$('#instructions').show();
+	});
+	
+	$('#backToMapIcon, #backToMapIconText').on('click', function(e) {
+		e.stopPropagation();
+		$('#instructions').hide();
+		tooltip.classed('hidden', true);
+		zoomMap([0,0], 1);
+	});
+	
+	$('#resetAllIcon, #resetAllIconText, #resetSecondInd').on('click', function(e) {
+		e.stopPropagation();
+		if (currentSecondDI !== '') {
+			currentSecondDI = '';
+			if (d3.select('.county.active').empty() !== true) {
+				populateTooltip(selected);
+				positionTooltip(d3.select('.county.active')[0][0]);
+			}
+			//d3.select('#secondIndText').html('Secondary Indicator' + '<span class="sub-arrow"></span>');
+		}		
+	});
+	
+	$('#showHideRrssbIcon, #showHideRrssbIconText').on('click', function(e) {
+		e.stopPropagation();
+		var twitterContentIntro = "http://twitter.com/home?status=See%20";
+		var twitterContentEnd = "%20data%20for%20your%20county%20by%20@NACoTweets%20%23NACoCIC%20www.naco.org%2FCIC";
+		var i=currentDI.indexOf(' - ');
+		var twitterContentDataset = encodeURIComponent(currentDI.substring(0,i));
+		if ($('.rrssb-buttons').is(':visible')) {
+			var moveTransition = d3.select('#rrssbContainer').transition().duration(500).style('right', '-200px');
+			moveTransition.each('end', function() {
+				$('.rrssb-buttons').hide();
+			});		
+		} else {
+			$('.rrssb-buttons').show();
+			d3.select('#twitterContent').attr('href', twitterContentIntro + twitterContentDataset + twitterContentEnd);
+			//console.log(twitterContentIntro + twitterContentDataset + twitterContentEnd);
+			d3.select('#rrssbContainer').transition().duration(500).style('right', '80px');
+		}		
+	});
+	
+	$('#addToMailingListIcon, #addToMailingListIconText').on('click', function(e) {
+		e.stopPropagation();
+		emptyInstructionText();
+		$('#mailingText').show();	
+		$('#instructions').show();
+		
+	});
 }
 function moreDataShow(){
 	if ($('#mdText').is(':visible')) {
@@ -614,6 +644,7 @@ function executeSearchMatch(FIPS) {
 
 function displayResults(url) {
 	emptyInstructionText();
+	$('#print').show();
 	
 	d3.xhr('http://nacocic.naco.org/ciccfm/'+ url, function(error, request){
 		if (!error) {
@@ -655,7 +686,7 @@ function update(dataset, indicator) {
 		updateView();
 	});
 	
-	getData(); // when data is received, it will fire an event on document.body
+	getData(indObjects); // when data is received, it will fire an event on document.body
 }
 
 function appendSecondInd(dataset, indicator) {
@@ -671,20 +702,20 @@ function appendSecondInd(dataset, indicator) {
 		}
 	});
 	
-	getData();
+	getData(s_indObjects);
 }
 
-function getData() {
+function getData(indObjs) {
  	// grab data and set up quantByIds and other objects
  	if (localVersion) {
  		d3.tsv("data/CData.tsv", function(error, countyData) {
 	 		var qbis = [];
-			for (var i = 0; i < indObjects.length; i++) qbis.push([]);
+			for (var i = 0; i < indObjs.length; i++) qbis.push([]);
 	
 			countyData.forEach(function(d) {			
-				for (var i = 0; i < indObjects.length; i++) {
-					qbis[i][d.id] = isNumFun(indObjects[i].dataType) ? parseFloat(d[indObjects[i].DI]) : d[indObjects[i].DI];
-					if (indObjects[i].hasOwnProperty('unit') && indObjects[i].unit.indexOf('thousand') !== -1) qbis[i][d.id] *= 1000; // will remove this eventually
+				for (var i = 0; i < indObjs.length; i++) {
+					qbis[i][d.id] = isNumFun(indObjs[i].dataType) ? parseFloat(d[indObjs[i].DI]) : d[indObjs[i].DI];
+					if (indObjs[i].hasOwnProperty('unit') && indObjs[i].unit.indexOf('thousand') !== -1) qbis[i][d.id] *= 1000; // will remove this eventually
 				}
 	
 				idByName[d.geography] = d.id;
@@ -696,9 +727,9 @@ function getData() {
  	} else {
  		// need to sort by dataset because we want to send one query per dataset needed
 	  	var indicatorList = {}; // list of indicators indexed by dataset then indexed by year
-	  	for (var i = 0; i < indObjects.length; i++) {
-		  	var crossObject = crosswalk[indObjects[i].dataset+' - '+indObjects[i].name];
-		  	var year = indObjects[i].year;
+	  	for (var i = 0; i < indObjs.length; i++) {
+		  	var crossObject = crosswalk[indObjs[i].dataset+' - '+indObjs[i].name];
+		  	var year = indObjs[i].year;
 	
 	  		if (!indicatorList.hasOwnProperty(crossObject.db_dataset)) indicatorList[crossObject.db_dataset] = {};
 			var dataset_obj = indicatorList[crossObject.db_dataset];
@@ -754,12 +785,12 @@ function getData() {
 				
 				// write data to "quantById" format
 				var qbis = [];
-				for (var i = 0; i < indObjects.length; i++) qbis.push([]);				
+				for (var i = 0; i < indObjs.length; i++) qbis.push([]);				
 				for (var fips in data) {
-					for (var i = 0; i < indObjects.length; i++) {
-						var value = data[fips][indObjects[i].db_indicator.toUpperCase()];
-						qbis[i][fips] = isNumFun(indObjects[i].dataType) ? parseFloat(value) : value;
-						if (indObjects[i].hasOwnProperty('unit') && indObjects[i].unit.indexOf('thousand') !== -1) qbis[i][fips] *= 1000; // will remove this eventually
+					for (var i = 0; i < indObjs.length; i++) {
+						var value = data[fips][indObjs[i].db_indicator.toUpperCase()];
+						qbis[i][fips] = isNumFun(indObjs[i].dataType) ? parseFloat(value) : value;
+						if (indObjs[i].hasOwnProperty('unit') && indObjs[i].unit.indexOf('thousand') !== -1) qbis[i][fips] *= 1000; // will remove this eventually
 					}
 		
 					idByName[data[fips].geography] = fips;
@@ -1020,6 +1051,8 @@ function createLegend(thresholdBool, keyArray, dataVals) {
 		};
 		if (keyArray) options.keyArray = keyArray;
 		if (dataVals) options.small_large = dataVals;
+		if (primeIndObj.name === 'Body of Water') options.boxWidth = 68;
+		if (primeIndObj.hasOwnProperty('format_type')) options.format_type = primeIndObj.format_type;
 
 		var subtitle = primeIndObj.name;
 		if (primeIndObj.hasOwnProperty('unit') && (primeIndObj.unit.indexOf('square mile') !== -1 || primeIndObj.unit === 'per 1,000 population')) {
@@ -1057,7 +1090,10 @@ function populateTooltip(d) {
 			else if (obj.unit.indexOf('person') != -1 || obj.unit.indexOf('people') != -1 || obj.unit.indexOf('employee') != -1) type = 'persons';
 			else if (obj.unit.indexOf('year') != -1) type = 'year';
 		}
-		var value = format_tt[obj.dataType](quant[d.id], type);
+		
+		if (obj.hasOwnProperty('format_type')) var value = format_tt[obj.format_type](quant[d.id], type);
+		else var value = format_tt[obj.dataType](quant[d.id], type);
+		
 		if (value === '$NaN' || value === 'NaN' || value === 'NaN%' || value === null || value === '.' || (isNumFun(obj.dataType) && isNaN(quant[d.id])) ) {
 			value = 'Not Available';
 		} else {
@@ -1122,22 +1158,26 @@ function positionTooltip(county) {
 		var ttHeight = $('#tt').height();
 		
 		var countyCoord = county.getBoundingClientRect(); // county position relative to document.body
-		var left = countyCoord.left + countyCoord.width - ttWidth - containerOffset.left + document.body.scrollLeft + 20; // left relative to map
 		var top = countyCoord.top - ttHeight - containerOffset.top + document.body.scrollTop - 10; // top relative to map
-		var arrow_left = -20 + countyCoord.width/2;
+		
+		if (currentSecondDI === '') {
+			var left = countyCoord.left + countyCoord.width - ttWidth - containerOffset.left + document.body.scrollLeft + 20; // left relative to map
+			var arrow_left = -20 + countyCoord.width/2;
+		} else {
+			var left = countyCoord.left + countyCoord.width/2 - ttWidth/2 - containerOffset.left + document.body.scrollLeft + 5;
+			var arrow_left = -35 + ttWidth/2;
+		}
 		
 		// checks if tooltip goes past window and adjust if it does
 		var dx = windowWidth - (left + ttWidth); // amount to tweak
 		var dy = windowHeight - (top + ttHeight);
 
 		if (left < 0) {
-			d3.select('.arrow_box').transition().style('right', arrow_left-left+'px');
+			arrow_left -= left;
 			left = 0;
 		} else if (dx < 0) {
-			d3.select('.arrow_box').transition().style('right', (dx < -20) ? arrow_left-20+'px' : arrow_left+dx+'px');
+			arrow_left += (dx < -20) ? -20 : dx;
 			left += dx;
-		} else {
-			d3.select('.arrow_box').transition().style('right', arrow_left + 'px');
 		}
 		
 		if (top < 0) top = 0;
@@ -1146,6 +1186,7 @@ function positionTooltip(county) {
 		tooltip.transition()
 		  	.style("left", (left) + "px")
 		  	.style("top", (top) + "px");
+		d3.select('.arrow_box').transition().style('right', arrow_left + 'px');
 	}
 }
 
