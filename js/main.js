@@ -273,6 +273,7 @@ function emptyInstructionText() {
 	$('#instructionText .iText').hide();
 	$('#instructionPagination').hide();
 	$('#showOnMap').hide();
+	$('#print').hide();
 }
 
 //Functions for Icons
@@ -296,12 +297,14 @@ function setIconBehavior() {
 	
 	$('#resetAllIcon, #resetAllIconText, #resetSecondInd').on('click', function(e) {
 		e.stopPropagation();
-		currentSecondDI = '';
-		if (d3.select('.county.active').empty() !== true) {
-			populateTooltip(selected);
-			positionTooltip(d3.select('.county.active')[0][0]);
-		}
-		d3.select('#secondIndText').html('Secondary Indicator' + '<span class="sub-arrow"></span>');		
+		if (currentSecondDI !== '') {
+			currentSecondDI = '';
+			if (d3.select('.county.active').empty() !== true) {
+				populateTooltip(selected);
+				positionTooltip(d3.select('.county.active')[0][0]);
+			}
+			//d3.select('#secondIndText').html('Secondary Indicator' + '<span class="sub-arrow"></span>');
+		}		
 	});
 	
 	$('#showHideRrssbIcon, #showHideRrssbIconText').on('click', function(e) {
@@ -641,6 +644,7 @@ function executeSearchMatch(FIPS) {
 
 function displayResults(url) {
 	emptyInstructionText();
+	$('#print').show();
 	
 	d3.xhr('http://nacocic.naco.org/ciccfm/'+ url, function(error, request){
 		if (!error) {
