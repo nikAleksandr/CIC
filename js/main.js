@@ -322,7 +322,7 @@ function setIconBehavior() {
 			$('.rrssb-buttons').show();
 			d3.select('#twitterContent').attr('href', twitterContentIntro + twitterContentDataset + twitterContentEnd);
 			//console.log(twitterContentIntro + twitterContentDataset + twitterContentEnd);
-			d3.select('#rrssbContainer').transition().duration(500).style('right', '50px');
+			d3.select('#rrssbContainer').transition().duration(500).style('right', '80px');
 		}		
 	});
 	

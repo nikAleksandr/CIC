@@ -442,6 +442,7 @@ h1 small {
 	right: -200px;
 	top:30%;
 	width:200px;
+	z-index: 6;
 }
 /*
  * 
