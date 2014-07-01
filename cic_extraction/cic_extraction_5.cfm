@@ -7,7 +7,7 @@
 <!--- WHAT YEARS TO SHOW? --->
 <cfquery datasource="naco_cic" name="get_years">
 select * from CATEGORIES_YEARS
-where cat_name_fk = '#tablename1#'
+where CAT_TABLE_NAME = '#tablename1#'
 order by cat_year DESC
 </cfquery>
 
@@ -17,17 +17,29 @@ order by cat_year DESC
 
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
- <link rel="stylesheet" href="../../css/main.css">
-<title>CIC</title>
+
+<title>CIC Extraction Tool</title>
+
+<link rel="stylesheet" href="../css/normalize.css">
+<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+<link href='http://fonts.googleapis.com/css?family=Roboto+Condensed:300,400' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Arvo' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="../css/main.css">
+
 </head>
  <body>
-        <div id="header">
-			<div>
-			<h1>NACo County Intelligence Connection 2.0</h1>
-			</div>
+<div id="extraction-header">
+	<div class="row" >
+		<div class="col-md-10">
+			<h1>NACo CIC Extraction Tool</h1>
+			
+			<H3><em>Select a year</em></H3>
+		</div>
+		<div class="col-md-2">
+			<img id="nacoLogo" alt="National Association of Counties Logo" src="../img/NACoLogo_NoTagBLACK_tm.png" />
+		</div>
+	</div>
 </div>
-<HR />
-
 
 <!-- start of tab5 -->
 
@@ -40,19 +52,15 @@ Sub2: #SubCategory_List2#<BR>
 States: #States_List#<BR>
 </CFOUTPUT> --->
 
-
-<p><em><font size="4">Select a Year:</font></em></p>
-
-
-<FORM action="cic_extraction_6.cfm">
+<FORM class="extraction-form" action="cic_extraction_6.cfm">
 <CFIF #get_years.recordcount# GT 0>
-<select id="yearlist" name="Year_List" size="10" >
+<select class="form-control extraction-multiple" id="yearlist" name="Year_List" size="10" multiple>
 	<CFOUTPUT query="get_years"> 
          <option value ="#CAT_YEAR#"> &nbsp; #CAT_YEAR#  &nbsp; </option>
     </CFOUTPUT>   
 </select>
 <CFELSE>
-<strong>Only one year of data availble for this selection!  </strong>
+<p>Only one year of data availble for this selection.</p>
 </CFIF>
 
 
@@ -64,11 +72,12 @@ States: #States_List#<BR>
 <input type="hidden" name="SubCategory_List2" value="#SubCategory_List2#" />
 
 </CFOUTPUT>
-<input type="submit" value="Next - Get Results!" />
+
+<p>Hold the <i>Ctrl</i> key and click to select multiple years if desired. <input class="btn btn-info" type="submit" value="Next - Get Results!" /></p>
 
 </FORM>
-<P>
-<em>Data may not be available for all years.</em>
+<i>Data may not be available for all years. </i>
+
 
 </body>
 </html>

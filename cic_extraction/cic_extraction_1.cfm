@@ -3,28 +3,33 @@
 
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<link rel="stylesheet" href="../../css/main.css">
-<title>CIC</title>
+
+<title>CIC Extraction Tool</title>
+
+<link rel="stylesheet" href="../css/normalize.css">
+<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+<link href='http://fonts.googleapis.com/css?family=Roboto+Condensed:300,400' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Arvo' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="../css/main.css">
+
 </head>
 <body>
-<div id="header">
-			<div>
-			<h1>NACo County Intelligence Connection 2.0</h1>
-			</div>
+<div id="extraction-header">
+	<div class="row" >
+		<div class="col-md-10">
+			<h1>NACo CIC Extraction Tool</h1>
+			
+			<H3><em>Choose One or Two Categories</em></H3>
+		</div>
+		<div class="col-md-2">
+			<img id="nacoLogo" alt="National Association of Counties Logo" src="../img/NACoLogo_NoTagBLACK_tm.png" />
+		</div>
+	</div>
 </div>
-<HR />
 
+<form class="extraction-form" action="cic_extraction_2.cfm" method="post">
 
-
-<p><H3><em>Choose One or Two Categories</em></H3></p>
-
-
-<P>
-
-
-<form  action="cic_extraction_2.cfm" method="post">
-
-    <select id="catlist" name="Category_List" multiple="multiple" size="17"  >
+    <select id="catlist" name="Category_List" multiple class="form-control extraction-multiple" size="17"  >
           <option value="Administration">Administration</option>
           <option value="County_Employment">County Employment</option>
           <option value="County_Finance">County Finance</option>
@@ -43,16 +48,11 @@
           <option value="Utility">Utility</option>
           <option value="W_S_SW">Water, Sewage & Solid Waste</option>
     </select> 
-    
-     
-  
-    
-    
+<p>Hold the <i>Ctrl</i> key and click a second category if desired. <input class="btn btn-info" type="submit"  value="Next..."></p>
 
-<input type="submit"  value="Next...">
 </form>
-<P>
- Hold <em>Ctrl</em> Key and click a second category if desired.
+
+
 
 </body>
 </html>

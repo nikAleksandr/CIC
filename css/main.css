@@ -658,6 +658,40 @@ div.tooltip {
 	text-align:left;
 	margin-right:1em;
 }
+/*
+ * Extraction tool styling
+ */
+input[name="Logout"], input[value="Next..."]{
+	float:right;
+	margin-right:2em;
+	z-index:100;
+}
+
+#extraction-header {
+	position: relative;
+	z-index: 10;
+	width: 100%;
+	height: auto;
+	padding-bottom:2em;
+	padding-left:2em;
+	margin-bottom: 2em;
+	margin-top:2em;
+	box-shadow: 0em 1em .7em 0em rgba(0, 0, 0, 0.2);
+	text-align: left;
+}
+#extraction-header h1{
+	font-family: 'Arvo', serif;
+}
+.extraction-multiple{
+	margin:20px;
+}
+.extraction-form, .extraction-table{
+	max-width:500px;
+	margin: 0 auto;
+}
+.extraction-table td{
+	word-wrap:break-word;
+}
  
 /* ==========================================================================
    Helper classes
