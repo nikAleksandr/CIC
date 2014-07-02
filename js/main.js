@@ -40,6 +40,10 @@ var format = {
     		else return d3.format('0f')(num);
     	}
     },
+    "dec1": function(num, type) {
+    	if (num === 0) return 0;
+    	else return d3.format('1f')(num);
+    },
     "dec2": function(num, type) {
     	if (num === 0) return 0;
     	else return d3.format('.2f')(num);
@@ -74,6 +78,10 @@ var format_tt = {
     		else return d3.format('.1f')(num);*/
     		else return d3.format('0f')(num);
     	}
+    },
+    "dec1": function(num, type) {
+    	if (num === 0) return 0;
+    	else return d3.format('1f')(num);
     },
     "dec2": function(num, type) {
     	if (num == 0) return 0;
@@ -910,7 +918,7 @@ function updateView() {
 			large = new_domain[new_domain.length - 1];
 			small = (currentDataType === 'level') ? 0 : new_domain[0]; 
 	
-			if (large <= 5) domain = [1, 2, 3, 4];
+			if (currentDataType !== 'percent' && large <= 5) domain = [1, 2, 3, 4];
 			else {
 				// construct domain; temporarily assume linear thresholds
 				domain = [];

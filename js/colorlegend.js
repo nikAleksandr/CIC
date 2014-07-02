@@ -101,7 +101,7 @@ var colorlegend = function (target, scale, type, options) {
   	var dataValues = [];
 	if (isNumeric) { 
 		if (thresholdBool) {
-			(dataType === 'level') ? dataValues.push(0) : small_large[0];
+			(dataType === 'level') ? dataValues.push(0) : dataValues.push(small_large[0]);
 			for (var i = 0; i < domain.length; i++) dataValues.push(domain[i]);
 			(small_large[1] <= domain[domain.length-1]) ? dataValues.push(domain[domain.length-1] + 1) : dataValues.push(small_large[1]);
 		} else {
