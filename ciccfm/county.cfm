@@ -65,7 +65,7 @@
         	<tr><td align="right">Website:&nbsp;</td><td><A HREF="#County_Website#" target="_blank">#County_Website#</A></td></tr>
         	<tr><td align="right">County Seat:&nbsp; </td><td>#County_Seat#</td></tr>
         	<tr><td align="right">Year Organized:&nbsp;</td><td>#Founded#</td></tr>
-        	<tr><td align="right">Square Miles:&nbsp;</td><td>#Total_Square_Miles#</td></tr>
+        	<tr><td align="right">Land Square Miles:&nbsp;</td><td>#Total_Square_Miles#</td></tr>
         	<tr><TD align="right">2013 Population:&nbsp;</TD><TD>#NumberFormat(Population_2013, "999,999,999,999")#</TD></tr>
             <tr><td align="right">Persons/Square Mile:&nbsp;</td><td>#NumberFormat(PersonsPerSqMile, "999,999,999.99")#</td></tr>
         	<tr><td align="right">Size of Board:&nbsp;</td><td>#Board_Size#</td></tr>
@@ -97,7 +97,7 @@
 	        <h4>Quick Links</h4>
 	        <ul>
 	        	<li><A HREF="http://quickfacts.census.gov/qfd/states/#StateFIPS#/#fips#.html" target="_blank" title="U.S. Census Bureau: State and County QuickFacts">Census Quick Facts</A></li>
-	        	<li><A HREF="http://www.fedstats.gov/qf/states/#StateFIPS#/#fips#.html" title="Fedstats provides access to the full range of official statistical information produced by the Federal Government">Fed Stats</A></li>
+	        	<li><A HREF="http://www.fedstats.gov/qf/states/#StateFIPS#/#fips#.html" target="_blank" title="Fedstats provides access to the full range of official statistical information produced by the Federal Government">Fed Stats</A></li>
 	        	<li><A HREF="http://maps.google.com/maps?q=#county_Name#,#State#" target="_blank" title="View Google Map of County">Google Map View</A></li>
 	        </ul>
 	    </div>
