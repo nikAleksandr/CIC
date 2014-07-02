@@ -800,18 +800,16 @@ input[name="Logout"], input[value="Next..."]{
    ========================================================================== */
 
 @media print {
-
+	.hidden-print, .hidden-print *{
+		display: none !important;
+	}
+	
 	h4 { text-align: center; }
 	table {
 		box-sizing: border-box;
 		-moz-box-sizing: border-box;
 		-webkit-box-sizing: border-box;
 	}
-	#countyResponse-populations, #countyResponse-quickLinks { display: none; }
-	#countyResponse-countyDetails {
-		text-align: center;
-	}
-	
 	
     * {
         background: transparent !important;
@@ -851,7 +849,11 @@ input[name="Logout"], input[value="Next..."]{
     thead {
         display: table-header-group; /* h5bp.com/t */
     }
-
+    
+	table, td, td{
+		border: 1px solid black;
+	}
+	
     tr,
     img {
         page-break-inside: avoid;
