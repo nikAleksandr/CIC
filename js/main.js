@@ -203,6 +203,7 @@ function setBehaviors() {
 		specWindow.close(); // bug: doesn't reach this point if print dialog is closed
 	});
 
+	setDisabled();
 	setDropdownBehavior();
 	setSearchBehavior();
 	setIconBehavior();
@@ -369,7 +370,7 @@ function goToPage(pageNum) {
 }
 
 function disableIndicators(type, name, indicator) {
-	// type is either "category" or "dataset" (e.g. disableIndicators('category', 'Administration') or disableIndicators('dataset', 'County Profile') or disableIndicators('indicator', 'County Profile', 'Census Region'))
+	// type is either category, dataset, or indicator (e.g. disableIndicators('category', 'Administration') or disableIndicators('dataset', 'County Profile') or disableIndicators('indicator', 'County Profile', 'Census Region'))
 	if (type === 'category') {
 		$('.category[name="'+name+'"]').addClass('disabled')
 			.find('.dataset').addClass('disabled')
@@ -380,6 +381,12 @@ function disableIndicators(type, name, indicator) {
 	} else if (type === 'indicator') {
 		$('.dataset[name="'+name+'"] .indicator[name="'+indicator+'"]').parent().addClass('disabled');
 	}
+}
+function setDisabled() {
+	// extends disabled to children
+	$('.dataset.disabled').find('.indicator').parent().addClass('disabled');
+	$('.category.disabled').find('.dataset').addClass('disabled');
+	$('.category.disabled').find('.indicator').parent().addClass('disabled');
 }
 
 function setDropdownBehavior() {
