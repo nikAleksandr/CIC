@@ -25,6 +25,7 @@
 			<img id="nacoLogo" alt="National Association of Counties Logo" src="../img/NACoLogo_NoTagBLACK_tm.png" />
 		</div>
 	</div>
+	<a href="http://cic.naco.org">Return to Interactive Map</a>
 </div>
 
 <form class="extraction-form" action="cic_extraction_2.cfm" method="post">

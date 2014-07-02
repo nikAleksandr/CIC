@@ -23,6 +23,7 @@
 			<img id="nacoLogo" alt="National Association of Counties Logo" src="../img/NACoLogo_NoTagBLACK_tm.png" />
 		</div>
 	</div>
+	<a href="http://cic.naco.org">Return to Interactive Map</a>
 </div>
 
 <div class="container" style="background-color:#FFFFFF;margin:0 auto;">
