@@ -1408,7 +1408,7 @@
         			{"name": "County Land Square Miles", "dataType": "level", "definition": "Total land area within the county’s geographical boundaries."},
         			{"name": "Total Road Miles per Square Mile", "dataType": "level", "definition": "Total public road miles per square mile of county land area."},
         			{"name": "Total County Road Miles per Square Mile", "dataType": "level", "definition": "Total public road miles under the control of the county plus city or municipality for consolidated governments per square mile of the county land area."},
-        			{"name": "Unknown Road Miles", "dataType": "level", "definition": "Public road miles under the control of any other agency."},
+        			{"name": "Unknown Road Miles", "dataType": "level", "format_type": "dec1", "definition": "Public road miles under the control of any other agency."},
         			{"name": "Share State Highway Agency", "dataType": "percent", "definition": "Percentage public road miles that are under the control of a state highway agency out of all public roads."},
         			{"name": "Share County Highway Agency", "dataType": "percent", "definition": "Percentage public road miles under the control of the county plus city or municipality for consolidated governments out of all public roads."},
         			{"name": "Share Other State Agencies", "dataType": "percent", "definition": "Percentage public road miles under the control of another state agency out of all public roads."},
