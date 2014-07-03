@@ -5,6 +5,7 @@ function toTitleCase(str){ return str.replace(/\w\S*/g, function(txt){return txt
 function isNumFun(data_type) { return (data_type === 'level' || data_type === 'level_np' || data_type === 'percent'); }
 function positionInstruction(){var instructionLeft = (windowWidth * .2) / 2; if(windowWidth > 1125){instructionLeft = (windowWidth - 900)/2;}; d3.select('#instructions').style({"left": instructionLeft - containerOffset.left + "px", "height": height + "px"});}
 var stateNameList = ['AK', 'AL', 'AR', 'AZ', 'CA', 'CO', 'CT', 'DC', 'DE', 'FL', 'GA', 'HI', 'IA', 'ID', 'IL', 'IN', 'KS', 'KY', 'LA', 'MA', 'MD', 'ME', 'MI', 'MN', 'MO', 'MS', 'MT', 'NC', 'ND', 'NE', 'NH', 'NJ', 'NM', 'NV', 'NY', 'OH', 'OK', 'OR', 'PA', 'RI', 'SC', 'SD', 'TN', 'TX', 'UT', 'VA', 'VT', 'WA', 'WI', 'WV', 'WY'];
+var exceptionCounties = {9001: true, 9003: true, 9005: true, 9007: true, 9009: true, 9011: true, 9013: true, 9015: true, 44001: true, 44003: true, 44005: true, 44007: true, 44009: true, 25003: true, 25009: true, 25011: true, 25013: true, 25015: true, 25017: true, 25027: true};
 
 // default for noty alert system
 $.noty.defaults.layout = 'center';
@@ -299,8 +300,11 @@ function setIconBehavior() {
 		e.stopPropagation();
 		emptyInstructionText();
 		$('#instructionPagination').show();
-		var activePage = $('#instructionPagination .active').attr('name');
-		$('#helpText'+activePage).show();
+		//var activePage = $('#instructionPagination .active').attr('name');
+		//$('#helpText'+activePage).show();
+		$('#instructionPagination .active').removeClass('active');
+		$('#instructionPagination li[name=1]').addClass('active');	
+		$('#helpText1').show();
 	
 		$('#instructions').show();
 	});
@@ -736,7 +740,7 @@ function appendSecondInd(dataset, indicator) {
 function getData(indObjs) {
  	// grab data and set up quantByIds and other objects
  	if (localVersion) {
- 		d3.tsv("data/CData.tsv", function(error, countyData) {
+ 		d3.tsv("/CIC/data/CData.tsv", function(error, countyData) {
 	 		var qbis = [];
 			for (var i = 0; i < indObjs.length; i++) qbis.push([]);
 	
@@ -853,7 +857,7 @@ function updateView() {
 		for (var ind in quantById) {
 			if (quantById[ind] === 'Yes') corrDomain[ind] = 1;
 			else if (quantById[ind] === 'No') corrDomain[ind] = 0;
-			else corrDomain[ind] = quantById[ind];
+			else if (quantById[ind] === 0 || quantById[ind] === 1) corrDomain[ind] = quantById[ind];
 		}
 		var vals = {'Yes': 1, 'No': 0};
 	} else if (currentDataType === 'categorical') {
@@ -989,7 +993,7 @@ function manipulateData(qbis, indObjs) {
 				else if (quantByIds[i][ind] === false) quantByIds[i][ind] = 'No';
 			} else if (indObjs[i].dataType === 'level') {
 				// if there's data for it, change null to 0 (prob should change in database, but this is easier for now)
-				if (isNaN(quantByIds[i][ind])) quantByIds[i][ind] = 0;
+				if (isNaN(quantByIds[i][ind]) && !exceptionCounties.hasOwnProperty(parseInt(ind))) quantByIds[i][ind] = 0;
 			} else if (indObjs[i].name === 'Level of CBSA') {
 				if (quantByIds[i][ind] === 1) quantByIds[i][ind] = 'Metropolitan';
 				else if (quantByIds[i][ind] === 2) quantByIds[i][ind] = 'Micropolitan';
@@ -1068,13 +1072,16 @@ function fillMapColors() {
 			return isNaN(corrDomain[d.id]) ? na_color : range[corrDomain[d.id]];
 		} else {
 			var val = quantByIds[0][d.id];
-			if (!colorKeyArray.hasOwnProperty(val)) {
-				d.color = d3.max(neighbors[i], function(n) { return topo[n].color; }) + 1 | 0;
-				colorKeyArray[val] = d.color;
-			} else {
-				d.color = colorKeyArray[val];
+			if (typeof val === 'undefined' || val === null || val === 0) return na_color;
+			else {	
+				if (!colorKeyArray.hasOwnProperty(val)) {
+					d.color = d3.max(neighbors[i], function(n) { return topo[n].color; }) + 1 | 0;
+					colorKeyArray[val] = d.color;
+				} else {
+					d.color = colorKeyArray[val];
+				}
+				return neighbor_colors(d.color);	
 			}
-			return (val === null) ? na_color : neighbor_colors(d.color);
 		}	
 	});
 }
@@ -1390,7 +1397,7 @@ function throttle() {
 setup(width,height);
 
 disableIndicators('indicator', 'County Profile', 'Fiscal Year End Date');
-disableIndicators('indicator', 'County Profile', 'State Capitol');
+//disableIndicators('indicator', 'County Profile', 'State Capitol');
 disableIndicators('indicator', 'USDA Rural Development', 'USDA Grant Annual Growth Rate (from previous year)');
 disableIndicators('indicator', 'USDA Rural Development', 'USDA Loan Annual Growth Rate (from previous year)');
 
@@ -1405,7 +1412,7 @@ $.getScript('js/test/util.js', function(){
 });
 */
 
-d3.json("us.json", function(error, us) {
+d3.json("/CIC/us.json", function(error, us) {
   	var counties = topojson.feature(us, us.objects.counties).features;
   	var states = topojson.mesh(us, us.objects.states, function(a, b) { return a !== b; });
 	
@@ -1418,7 +1425,7 @@ d3.json("us.json", function(error, us) {
   	draw(topo, stateMesh); 
 	  
   	// load cic structure
-  	d3.json("data/CICstructure.json", function(error, CICStructure){
+  	d3.json("/CIC/data/CICstructure.json", function(error, CICStructure){
 	    CICstructure = CICStructure;
 		setBehaviors();
 
@@ -1426,7 +1433,7 @@ d3.json("us.json", function(error, us) {
 	    	update('Population Levels and Trends', 'Population Level'); // fill in map colors for default indicator now that everything is loaded 	
 	    } else {  
 	    	// load crosswalk
-	    	d3.tsv('data/database_crosswalk.tsv', function(error, data_array) {
+	    	d3.tsv('/CIC/data/database_crosswalk.tsv', function(error, data_array) {
 	    		// set up crosswalk object; indexed by front-end "Dataset - Indicator" field names, filled with database names
 		      	crosswalk = {};
 	      		for (var i = 0; i < data_array.length; i++) {
