@@ -736,7 +736,7 @@ function appendSecondInd(dataset, indicator) {
 function getData(indObjs) {
  	// grab data and set up quantByIds and other objects
  	if (localVersion) {
- 		d3.tsv("data/CData.tsv", function(error, countyData) {
+ 		d3.tsv("/CIC/data/CData.tsv", function(error, countyData) {
 	 		var qbis = [];
 			for (var i = 0; i < indObjs.length; i++) qbis.push([]);
 	
@@ -853,7 +853,7 @@ function updateView() {
 		for (var ind in quantById) {
 			if (quantById[ind] === 'Yes') corrDomain[ind] = 1;
 			else if (quantById[ind] === 'No') corrDomain[ind] = 0;
-			else corrDomain[ind] = quantById[ind];
+			else if (quantById[ind] === 0 || quantById[ind] === 1) corrDomain[ind] = quantById[ind];
 		}
 		var vals = {'Yes': 1, 'No': 0};
 	} else if (currentDataType === 'categorical') {
@@ -1068,13 +1068,16 @@ function fillMapColors() {
 			return isNaN(corrDomain[d.id]) ? na_color : range[corrDomain[d.id]];
 		} else {
 			var val = quantByIds[0][d.id];
-			if (!colorKeyArray.hasOwnProperty(val)) {
-				d.color = d3.max(neighbors[i], function(n) { return topo[n].color; }) + 1 | 0;
-				colorKeyArray[val] = d.color;
-			} else {
-				d.color = colorKeyArray[val];
+			if (typeof val === 'undefined' || val === null || val === 0) return na_color;
+			else {	
+				if (!colorKeyArray.hasOwnProperty(val)) {
+					d.color = d3.max(neighbors[i], function(n) { return topo[n].color; }) + 1 | 0;
+					colorKeyArray[val] = d.color;
+				} else {
+					d.color = colorKeyArray[val];
+				}
+				return neighbor_colors(d.color);	
 			}
-			return (val === null) ? na_color : neighbor_colors(d.color);
 		}	
 	});
 }
@@ -1390,7 +1393,7 @@ function throttle() {
 setup(width,height);
 
 disableIndicators('indicator', 'County Profile', 'Fiscal Year End Date');
-disableIndicators('indicator', 'County Profile', 'State Capitol');
+//disableIndicators('indicator', 'County Profile', 'State Capitol');
 disableIndicators('indicator', 'USDA Rural Development', 'USDA Grant Annual Growth Rate (from previous year)');
 disableIndicators('indicator', 'USDA Rural Development', 'USDA Loan Annual Growth Rate (from previous year)');
 
@@ -1405,7 +1408,7 @@ $.getScript('js/test/util.js', function(){
 });
 */
 
-d3.json("us.json", function(error, us) {
+d3.json("/CIC/us.json", function(error, us) {
   	var counties = topojson.feature(us, us.objects.counties).features;
   	var states = topojson.mesh(us, us.objects.states, function(a, b) { return a !== b; });
 	
@@ -1418,7 +1421,7 @@ d3.json("us.json", function(error, us) {
   	draw(topo, stateMesh); 
 	  
   	// load cic structure
-  	d3.json("data/CICstructure.json", function(error, CICStructure){
+  	d3.json("/CIC/data/CICstructure.json", function(error, CICStructure){
 	    CICstructure = CICStructure;
 		setBehaviors();
 
@@ -1426,7 +1429,7 @@ d3.json("us.json", function(error, us) {
 	    	update('Population Levels and Trends', 'Population Level'); // fill in map colors for default indicator now that everything is loaded 	
 	    } else {  
 	    	// load crosswalk
-	    	d3.tsv('data/database_crosswalk.tsv', function(error, data_array) {
+	    	d3.tsv('/CIC/data/database_crosswalk.tsv', function(error, data_array) {
 	    		// set up crosswalk object; indexed by front-end "Dataset - Indicator" field names, filled with database names
 		      	crosswalk = {};
 	      		for (var i = 0; i < data_array.length; i++) {
