@@ -731,7 +731,7 @@ function appendSecondInd(dataset, indicator) {
 function getData(indObjs) {
  	// grab data and set up quantByIds and other objects
  	if (localVersion) {
- 		d3.tsv("data/CData.tsv", function(error, countyData) {
+ 		d3.tsv("/CIC/data/CData.tsv", function(error, countyData) {
 	 		var qbis = [];
 			for (var i = 0; i < indObjs.length; i++) qbis.push([]);
 	
@@ -1400,7 +1400,7 @@ $.getScript('js/test/util.js', function(){
 });
 */
 
-d3.json("us.json", function(error, us) {
+d3.json("/CIC/us.json", function(error, us) {
   	var counties = topojson.feature(us, us.objects.counties).features;
   	var states = topojson.mesh(us, us.objects.states, function(a, b) { return a !== b; });
 	
@@ -1413,7 +1413,7 @@ d3.json("us.json", function(error, us) {
   	draw(topo, stateMesh); 
 	  
   	// load cic structure
-  	d3.json("data/CICstructure.json", function(error, CICStructure){
+  	d3.json("/CIC/data/CICstructure.json", function(error, CICStructure){
 	    CICstructure = CICStructure;
 		setBehaviors();
 
