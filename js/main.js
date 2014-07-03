@@ -1455,11 +1455,18 @@ d3.json("/CIC/us.json", function(error, us) {
 	    	decode = function(s) { return decodeURIComponent(s.replace(pl, ' ')); },
 	    	query = window.location.search.substring(1);
 	    while (match = search.exec(query)) urlParams[decode(match[1])] = decode(match[2]);
-	    if (urlParams.hasOwnProperty('showhelp')) {
+	    if (urlParams.hasOwnProperty('noaccess') && urlParams.noaccess === '1') {
+	    	emptyInstructionText();
+			var noaccess_box = d3.select('#instructionText').append('div').attr('class', 'temp');
+			noaccess_box.append('p')
+				.style('text-align', 'center')
+				.html('<br><br><br><br>Denied COIN Access. Please check credentials and try logging in again.');
+			$('#instructions').show();
+	    } else if (urlParams.hasOwnProperty('showhelp')) {
 	    	var idSelec = '#helpText' + urlParams.showhelp;
 	    	if ($(idSelec).length !== 0) {
 				goToPage(urlParams.showhelp);
-		    	$('#instructions').show();
+				$('#instructions').show();
 	    	}	    	
 	    }
   	});

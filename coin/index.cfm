@@ -4,7 +4,7 @@ You are good to go...
 </CFOUTPUT>
 <CFELSE>
 <CFOUTPUT>
-SORRY YOU ARE NOT ALLOWED HERE - You will be redirected to some other location<CFLOCATION url="../accessdenied.html">
+SORRY YOU ARE NOT ALLOWED HERE - You will be redirected to some other location<CFLOCATION url="../index.html?noaccess=1">
 </CFOUTPUT>
 </CFIF>
 
