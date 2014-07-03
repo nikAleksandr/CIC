@@ -5,6 +5,7 @@ function toTitleCase(str){ return str.replace(/\w\S*/g, function(txt){return txt
 function isNumFun(data_type) { return (data_type === 'level' || data_type === 'level_np' || data_type === 'percent'); }
 function positionInstruction(){var instructionLeft = (windowWidth * .2) / 2; if(windowWidth > 1125){instructionLeft = (windowWidth - 900)/2;}; d3.select('#instructions').style({"left": instructionLeft - containerOffset.left + "px", "height": height + "px"});}
 var stateNameList = ['AK', 'AL', 'AR', 'AZ', 'CA', 'CO', 'CT', 'DC', 'DE', 'FL', 'GA', 'HI', 'IA', 'ID', 'IL', 'IN', 'KS', 'KY', 'LA', 'MA', 'MD', 'ME', 'MI', 'MN', 'MO', 'MS', 'MT', 'NC', 'ND', 'NE', 'NH', 'NJ', 'NM', 'NV', 'NY', 'OH', 'OK', 'OR', 'PA', 'RI', 'SC', 'SD', 'TN', 'TX', 'UT', 'VA', 'VT', 'WA', 'WI', 'WV', 'WY'];
+var exceptionCounties = {9001: true, 9003: true, 9005: true, 9007: true, 9009: true, 9011: true, 9013: true, 9015: true, 44001: true, 44003: true, 44005: true, 44007: true, 44009: true, 25003: true, 25009: true, 25011: true, 25013: true, 25015: true, 25017: true, 25027: true};
 
 // default for noty alert system
 $.noty.defaults.layout = 'center';
@@ -299,8 +300,11 @@ function setIconBehavior() {
 		e.stopPropagation();
 		emptyInstructionText();
 		$('#instructionPagination').show();
-		var activePage = $('#instructionPagination .active').attr('name');
-		$('#helpText'+activePage).show();
+		//var activePage = $('#instructionPagination .active').attr('name');
+		//$('#helpText'+activePage).show();
+		$('#instructionPagination .active').removeClass('active');
+		$('#instructionPagination li[name=1]').addClass('active');	
+		$('#helpText1').show();
 	
 		$('#instructions').show();
 	});
@@ -989,7 +993,7 @@ function manipulateData(qbis, indObjs) {
 				else if (quantByIds[i][ind] === false) quantByIds[i][ind] = 'No';
 			} else if (indObjs[i].dataType === 'level') {
 				// if there's data for it, change null to 0 (prob should change in database, but this is easier for now)
-				if (isNaN(quantByIds[i][ind])) quantByIds[i][ind] = 0;
+				if (isNaN(quantByIds[i][ind]) && !exceptionCounties.hasOwnProperty(parseInt(ind))) quantByIds[i][ind] = 0;
 			} else if (indObjs[i].name === 'Level of CBSA') {
 				if (quantByIds[i][ind] === 1) quantByIds[i][ind] = 'Metropolitan';
 				else if (quantByIds[i][ind] === 2) quantByIds[i][ind] = 'Micropolitan';
