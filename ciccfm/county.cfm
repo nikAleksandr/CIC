@@ -74,7 +74,7 @@
     
     <div class="col-md-6">
         <div id="countyResponse-populations">
-        	<h4>County Populations</h4>
+        	<h4>County Population</h4>
 	        <table class="table table-condensed table-striped">
 	        	<tr>
 	        		<th>1980</th>
@@ -93,7 +93,7 @@
 	        	</tr>
 	        </table>
 		</div>
-		<div id="countyResponse-quickLinks">
+		<div id="countyResponse-quickLinks" class="hidden-print">
 	        <h4>Quick Links</h4>
 	        <ul>
 	        	<li><A HREF="http://quickfacts.census.gov/qfd/states/#StateFIPS#/#fips#.html" target="_blank" title="U.S. Census Bureau: State and County QuickFacts">Census Quick Facts</A></li>

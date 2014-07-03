@@ -23,9 +23,11 @@
 			<img id="nacoLogo" alt="National Association of Counties Logo" src="../img/NACoLogo_NoTagBLACK_tm.png" />
 		</div>
 	</div>
+	<a href="http://cic.naco.org">Return to Interactive Map</a>
 </div>
 
 <div class="container" style="background-color:#FFFFFF;margin:0 auto;">
+    <p>Coming in September!  This tool is not yet available, but please check back shortly.  If you have any questions, please don't hesitate to <a href="mailto:research@naco.org">contact us</a>.</p>
     <p>Please Log In</p>
     
     <cfoutput> 
