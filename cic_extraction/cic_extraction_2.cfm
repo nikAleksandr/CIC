@@ -3,7 +3,6 @@
 <cfparam name="Category_List1" default="">
 <cfparam name="Category_List2" default="">
 
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -35,7 +34,8 @@
 
 <!--- Abort if no selection --->
 <CFIF #Category_List# EQ "">
-<strong>You didn't make a selection.  Please <a href="cic_extraction_1.cfm">return to the previous page</a> and make a selection.</strong><CFABORT>
+<strong>You didn't make a selection.  Please <a href="cic_extraction_1.cfm">return to the previous page</a> and make a selection.</strong>
+<CFABORT>
 </CFIF>
 
 <!--- Abort if more than two selectios --->
@@ -53,7 +53,7 @@
 
         <cfquery datasource="naco_cic" name="get_sub_category">
         select * from crosswalk
-        where cat_name = '#Category_List1#' and sub_cat is not null
+        where cat_ID_FK = '#Category_List1#' and sub_cat is not null
         order by sub_type
         </cfquery>
  
@@ -63,7 +63,7 @@
        
 
 <CFOUTPUT>
-<H2>#Category_List1# Indicators</H2> <!---<CFIF #ListLen(Category_List)# EQ 2> and #Category_List2#</CFIF> --->
+<H2>#get_sub_category.cat_name# Indicators</H2>
 </CFOUTPUT>
 </H2>
        
@@ -92,6 +92,7 @@
         <CFOUTPUT>
         <input type="hidden" name="Category_List" value="#Category_List#" />
         <input type="hidden" name="tablename1" value="#tablename1#" />
+        
         </CFOUTPUT>
  </CFIF>       
         <p>Hold <em>ctrl</em> key and click, to select multiple indicators. <input class="btn btn-info" type="submit"  value="Next..."></p>

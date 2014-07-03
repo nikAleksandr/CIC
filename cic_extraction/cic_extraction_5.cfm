@@ -4,12 +4,19 @@
 <CFPARAM name="SubCategory_List2" default="">
 <CFPARAM name="States_List" default="">
 
+<!---No states selected default to all--->
+<CFIF #States_List# EQ "">
+<CFSET States_List = "ALL">
+</CFIF>
+
+
 <!--- WHAT YEARS TO SHOW? --->
 <cfquery datasource="naco_cic" name="get_years">
 select * from CATEGORIES_YEARS
 where CAT_TABLE_NAME = '#tablename1#'
 order by cat_year DESC
 </cfquery>
+
 
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">

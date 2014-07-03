@@ -1,3 +1,13 @@
+<CFIF #CGI.REMOTE_ADDR# EQ "199.10.10.78" OR #CGI.REMOTE_ADDR# EQ "4.34.167.180">
+<CFOUTPUT>
+You are good to go...
+</CFOUTPUT>
+<CFELSE>
+<CFOUTPUT>
+SORRY YOU ARE NOT ALLOWED HERE - You will be redirected to some other location<CFLOCATION url="../accessdenied.html">
+</CFOUTPUT>
+</CFIF>
+
 <!DOCTYPE html>
 <html class="no-js" itemscope itemtype="http://schema.org/Product">
     <head>
@@ -24,16 +34,16 @@
 		<meta itemprop="description" content="Explore your county through over 500 indicators and nearly 70 datasets.">
 		<meta itemprop="image" content="http://cic.naco.org/CICFullThumb.png">
 		
-        <link rel="stylesheet" href="css/normalize.css">
-		<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" media="all">
+        <link rel="stylesheet" href="../css/normalize.css">
+		<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
 		<link href='http://fonts.googleapis.com/css?family=Roboto+Condensed:300,400' rel='stylesheet' type='text/css'>
 		<link href='http://fonts.googleapis.com/css?family=Arvo' rel='stylesheet' type='text/css'>
-        <link rel="stylesheet" href="css/main.css" media="all">
+        <link rel="stylesheet" href="../css/main.css">
         <!-- SmartMenus jQuery Bootstrap Addon CSS -->
-		<link href="css/jquery.smartmenus.bootstrap.css" rel="stylesheet">
+		<link href="../css/jquery.smartmenus.bootstrap.css" rel="stylesheet">
 		<!--Rediculously Responsive Social Sharing Buttons-->
-        <link rel="stylesheet" href="css/rrssb.css" />
-        <script src="js/vendor/modernizr-2.7.1.min.js"></script>
+        <link rel="stylesheet" href="../css/rrssb.css" />
+        <script src="../js/vendor/modernizr-2.7.1.min.js"></script>
         <script src="http://d3js.org/d3.v3.min.js"></script>
 		<script src="http://d3js.org/topojson.v1.min.js"></script>
     </head>
@@ -48,7 +58,7 @@
   				</p>
 			</div>
 			<div class="col-md-2">
-				<img id="nacoLogo" alt="National Association of Counties Logo" src="img/NACoLogo_NoTagBLACK_tm.png" />
+				<img id="nacoLogo" alt="National Association of Counties Logo" src="../img/NACoLogo_NoTagBLACK_tm.png" />
 			</div>
 			</div>
 				
@@ -71,7 +81,7 @@
 						<li id="primeIndLi">
 							<a id="primeIndText">Primary Indicator</a>
 							<ul id="primeInd" class="dropdown-menu">
-								<li class="category disabled" name="Administration">
+								<li class="category" name="Administration">
 									<a>Administration</a>
 									<ul class="dropdown-menu">
 										<li class="dataset" name="Administration Expenditures">
@@ -160,7 +170,7 @@
 										</li>
 									</ul>
 								</li>
-								<li class="category disabled" name="County Employment">
+								<li class="category" name="County Employment">
 									<a>County Employment</a>
 									<ul class="dropdown-menu">
 										<li class="dataset" name="Administration Employment">
@@ -355,7 +365,7 @@
 										</li>
 									</ul>
 								</li>
-								<li class="category disabled" name="County Finance">
+								<li class="category" name="County Finance">
 									<a>County Finance</a>
 									<ul class="dropdown-menu">
 										<li class="dataset" name="Administration Revenue">
@@ -1030,6 +1040,7 @@
 												</li>
 											</ul>
 										</li>
+
 										<li class="dataset" name="Population by Age/Gender">
 											<a>Population by Age/Gender</a>
 											<ul class="dropdown-menu">
@@ -1105,7 +1116,7 @@
 										</li>
 									</ul>
 								</li>
-								<li class="category disabled" name="Economy">
+								<li class="category" name="Economy">
 									<a>Economy</a>
 									<ul class="dropdown-menu">
 										<li class="dataset" name="Household Income">
@@ -1177,7 +1188,7 @@
 										</li>
 									</ul>
 								</li>
-								<li class="category disabled" name="Education">
+								<li class="category" name="Education">
 									<a>Education</a>
 									<ul class="dropdown-menu">
 										<li class="dataset" name="Education Employment">
@@ -1198,6 +1209,7 @@
 											</ul>
 										</li>
 										<li class="dataset" name="Education Expenditures">
+
 											<a>Education Expenditures</a>
 											<ul class="dropdown-menu">
 												<li>
@@ -1434,7 +1446,7 @@
 										</li>
 									</ul>
 								</li>
-								<li class="category disabled" name="Geography">
+								<li class="category" name="Geography">
 									<a>Geography</a>
 									<ul class="dropdown-menu">
 										<li class="dataset" name="County Profile">
@@ -1517,7 +1529,7 @@
 										</li>
 									</ul>
 								</li>
-								<li class="category disabled" name="Health &amp; Hospitals">
+								<li class="category" name="Health &amp; Hospitals">
 									<a>Health &amp; Hospitals</a>
 									<ul class="dropdown-menu">
 										<li class="dataset" name="Health &amp; Hospitals Employment">
@@ -1739,7 +1751,7 @@
 										</li>
 									</ul>
 								</li>
-								<li class="category disabled" name="Housing &amp; Community Development">
+								<li class="category" name="Housing &amp; Community Development">
 									<a>Housing &amp; Community Development</a>
 									<ul class="dropdown-menu">
 										<li class="dataset" name="Housing &amp; Community Development Employment">
@@ -1810,7 +1822,7 @@
 										</li>
 									</ul>
 								</li>
-								<li class="category disabled" title="Justice & Public Safety">
+								<li class="category" title="Justice & Public Safety">
 									<a>Justice &amp; Public Safety</a>
 									<ul class="dropdown-menu">
 										<li class="dataset" name="Justice & Public Safety Employment">
@@ -2084,7 +2096,7 @@
 										</li>
 									</ul>
 								</li>
-								<li class="category disabled" name="Public Amenities">
+								<li class="category" name="Public Amenities">
 									<a>Public Amenities</a>
 									<ul class="dropdown-menu">
 										<li class="dataset" name="Public Amenity Employment">
@@ -2204,6 +2216,7 @@
 												</li>
 												<li>
 													<a class="indicator" name="Library Collections - Number of Electronic Books" href="#">Library Collections - Number of Electronic Books</a>
+
 												</li>
 												<li>
 													<a class="indicator" name="Library Collections - Number of Audio Materials" href="#">Library Collections - Number of Audio Materials</a>
@@ -2236,7 +2249,7 @@
 										</li>
 									</ul>
 								</li>
-								<li class="category disabled" name="Public Welfare">
+								<li class="category" name="Public Welfare">
 									<a>Public Welfare</a>
 									<ul class="dropdown-menu">
 										<li class="dataset" name="Public Welfare Employment">
@@ -2290,7 +2303,7 @@
 										</li>
 									</ul>
 								</li>
-								<li class="category disabled" name="Transportation">
+								<li class="category" name="Transportation">
 									<a>Transportation</a>
 									<ul class="dropdown-menu">
 										<li class="dataset" name="Transportation Employment">
@@ -2580,7 +2593,7 @@
 										</li>
 									</ul>
 								</li>
-								<li class="category disabled" name="Utility">
+								<li class="category" name="Utility">
 									<a>Utility</a>
 									<ul class="dropdown-menu">
 										<li class="dataset" name="Utility Employment">
@@ -2660,7 +2673,7 @@
 										</li>
 									</ul>
 								</li>
-								<li class="category disabled" name="Water, Sewerage &amp; Solid Waste Management">
+								<li class="category" name="Water, Sewerage &amp; Solid Waste Management">
 									<a>Water, Sewerage &amp; Solid Waste Management</a>
 									<ul class="dropdown-menu">
 										<li class="dataset" name="Water, Sewerage &amp; Solid Waste Employment">
@@ -2730,7 +2743,7 @@
 						<li id="secondIndLi">
 							<a id="secondIndText">Secondary Indicator</a>
 							<ul id="secondInd" class="dropdown-menu">
-								<li class="category disabled" name="Administration">
+								<li class="category" name="Administration">
 									<a>Administration</a>
 									<ul class="dropdown-menu">
 										<li class="dataset" name="Administration Expenditures">
@@ -2819,7 +2832,7 @@
 										</li>
 									</ul>
 								</li>
-								<li class="category disabled" name="County Employment">
+								<li class="category" name="County Employment">
 									<a>County Employment</a>
 									<ul class="dropdown-menu">
 										<li class="dataset" name="Administration Employment">
@@ -3014,7 +3027,7 @@
 										</li>
 									</ul>
 								</li>
-								<li class="category disabled" name="County Finance">
+								<li class="category" name="County Finance">
 									<a>County Finance</a>
 									<ul class="dropdown-menu">
 										<li class="dataset" name="Administration Revenue">
@@ -3764,7 +3777,7 @@
 										</li>
 									</ul>
 								</li>
-								<li class="category disabled" name="Economy">
+								<li class="category" name="Economy">
 									<a>Economy</a>
 									<ul class="dropdown-menu">
 										<li class="dataset" name="Household Income">
@@ -3836,7 +3849,7 @@
 										</li>
 									</ul>
 								</li>
-								<li class="category disabled" name="Education">
+								<li class="category" name="Education">
 									<a>Education</a>
 									<ul class="dropdown-menu">
 										<li class="dataset" name="Education Employment">
@@ -4093,7 +4106,7 @@
 										</li>
 									</ul>
 								</li>
-								<li class="category disabled" name="Geography">
+								<li class="category" name="Geography">
 									<a>Geography</a>
 									<ul class="dropdown-menu">
 										<li class="dataset" name="County Profile">
@@ -4176,7 +4189,7 @@
 										</li>
 									</ul>
 								</li>
-								<li class="category disabled" name="Health &amp; Hospitals">
+								<li class="category" name="Health &amp; Hospitals">
 									<a>Health &amp; Hospitals</a>
 									<ul class="dropdown-menu">
 										<li class="dataset" name="Health &amp; Hospitals Employment">
@@ -4398,7 +4411,7 @@
 										</li>
 									</ul>
 								</li>
-								<li class="category disabled" name="Housing &amp; Community Development">
+								<li class="category" name="Housing &amp; Community Development">
 									<a>Housing &amp; Community Development</a>
 									<ul class="dropdown-menu">
 										<li class="dataset" name="Housing &amp; Community Development Employment">
@@ -4469,7 +4482,7 @@
 										</li>
 									</ul>
 								</li>
-								<li class="category disabled" title="Justice & Public Safety">
+								<li class="category" title="Justice & Public Safety">
 									<a>Justice &amp; Public Safety</a>
 									<ul class="dropdown-menu">
 										<li class="dataset" name="Justice & Public Safety Employment">
@@ -4743,7 +4756,7 @@
 										</li>
 									</ul>
 								</li>
-								<li class="category disabled" name="Public Amenities">
+								<li class="category" name="Public Amenities">
 									<a>Public Amenities</a>
 									<ul class="dropdown-menu">
 										<li class="dataset" name="Public Amenity Employment">
@@ -4895,7 +4908,7 @@
 										</li>
 									</ul>
 								</li>
-								<li class="category disabled" name="Public Welfare">
+								<li class="category" name="Public Welfare">
 									<a>Public Welfare</a>
 									<ul class="dropdown-menu">
 										<li class="dataset" name="Public Welfare Employment">
@@ -4949,7 +4962,7 @@
 										</li>
 									</ul>
 								</li>
-								<li class="category disabled" name="Transportation">
+								<li class="category" name="Transportation">
 									<a>Transportation</a>
 									<ul class="dropdown-menu">
 										<li class="dataset" name="Transportation Employment">
@@ -5223,6 +5236,7 @@
 												<li>
 													<a class="indicator" name="Share City or Municipal Highway Agency" href="#">Share City or Municipal Highway Agency</a>
 												</li>
+
 												<li>
 													<a class="indicator" name="Share Other Public Instrumentality" href="#">Share Other Public Instrumentality</a>
 												</li>
@@ -5239,7 +5253,7 @@
 										</li>
 									</ul>
 								</li>
-								<li class="category disabled" name="Utility">
+								<li class="category" name="Utility">
 									<a>Utility</a>
 									<ul class="dropdown-menu">
 										<li class="dataset" name="Utility Employment">
@@ -5319,7 +5333,7 @@
 										</li>
 									</ul>
 								</li>
-								<li class="category disabled" name="Water, Sewerage &amp; Solid Waste Management">
+								<li class="category" name="Water, Sewerage &amp; Solid Waste Management">
 									<a>Water, Sewerage &amp; Solid Waste Management</a>
 									<ul class="dropdown-menu">
 										<li class="dataset" name="Water, Sewerage &amp; Solid Waste Employment">
@@ -5459,11 +5473,11 @@
 						<li id="searchBox"><a>
 							<form id="search_form">
 								<input type="search" id="search_field" placeholder="county name">
-								<input type="image" src="img/active-search.svg" width="18px" height="18px" id="search_submit" value="Search">
+								<input type="image" src="../img/active-search.svg" width="18px" height="18px" id="search_submit" value="Search">
 							</form>
 						</a></li>
 						<li id="moreData">
-							<a id="moreDataButton" onclick="moreDataShow();" href="#"><span id="moreDataText">ACCESS MORE DATA</span><img id="moreDataImg" src="img/more_data.svg"/></a>
+							<a id="moreDataButton" onClick="moreDataShow();" href="#"><span id="moreDataText">ACCESS MORE DATA</span><img id="moreDataImg" src="../img/more_data.svg"/></a>
 						</li>
 					</ul>
 				  </div><!--/.nav-collapse -->
@@ -5481,20 +5495,20 @@
 						<div id="moreDataContent">
 							<div class="row">
 								<div class="col-md-5">
-									<h3><a href="http://countyinnovation.us">Full Interactive Map</a></h3>
-									<a href="http://countyinnovation.us"><img src="img/CICFullThumb.png"/></a>
+									<h3><a href="#">Full Interactive Map</a></h3>
+									<a href="#"><img src="../img/CICFullThumb.png"/></a>
 								</div>
 								<div class="col-md-7">
-									<p>Access all 18 categories, 66 datasets, and over 500 indicators for display on the interactive map.<br/><br/>Login free to COIN <a href="http://countyinnovation.us">here</a> to access</p>
+									<p>Access more datasets and indicators for display on the interactive map.<br/><br/>Login free to COIN <a href="#">here</a> to access</p>
 								</div>
 							</div>
 							<div class="row">
 								<div class="col-md-5">
-									<h3><a href="http://cic.naco.org/cic_extraction/cic_extraction_1.cfm">CIC Extraction Tool</a></h3>
-									<a href="http://cic.naco.org/cic_extraction/cic_extraction_1.cfm"><img src="img/CICExtractionThumb.png"/></a>
+									<h3><a href="#">CIC Extraction Tool</a></h3>
+									<a href="#"><img src="../img/CICExtractionThumb.png"/></a>
 								</div>
 								<div class="col-md-7">
-									<p>Full access to all the most recent data and additional historical data for all 18 categories, 66 datasets, and over 500 indicators.<br/><br/>Customizable data downloads available <a href="http://cic.naco.org/cic_extraction/cic_extraction_1.cfm">here</a></p>
+									<p>Full access to all 18 categories, 66 datasets, and 889 indicators.<br/><br/>Customizable data downloads available <a href="#">here</a></p>
 								</div>
 							</div>
 						</div>	        			
@@ -5502,44 +5516,22 @@
 	        		<div class="iText" id="mailingText" style="text-align:center;">
         				<p style="font-size:1.5em;">Keep Me Updated!</p>
         				<p>Submit your email to the mailing list and receive updates when new features have been added.</p><br><br>
-        				<script type="text/javascript">var submitted=false;</script>
-        				<iframe name="hidden_iframe" id="hidden_iframe" style="display:none;" onload="if(submitted){thankYou();}"></iframe>
-        				<form action="https://docs.google.com/forms/d/1m3fF7twvVyIj42GuDNqtTKnfZwXrtOZ1p1Z7jQoJa70/formResponse" method="POST" id="ss-form" target="hidden_iframe" onsubmit="submitted=true;">
-        					<ol role="list" class="ss-question-list" style="padding-left: 0">
-							<div class="ss-form-question errorbox-good" role="listitem">
-							<div dir="ltr" class="ss-item ss-item-required ss-text"><div class="ss-form-entry">
-							<label class="ss-q-item-label" for="entry_1891399482"><div class="ss-q-title">Email
-							<label for="itemView.getDomIdToLabel()" aria-label="(Required field)"></label>
-							<span class="ss-required-asterisk">*</span></div>
-							<div class="ss-q-help ss-secondary-text" dir="ltr"></div></label>
-							<input type="email" name="entry.1891399482" value="" class="ss-q-short" id="entry_1891399482" dir="auto" aria-label="Email  Must be a valid email address" aria-required="true" required="" title="Must be a valid email address">
-							<button class="btn btn-default" type="submit" name="submit" value="Submit" id="ss-submit">Submit</button>
-							</div></div></div>
-							<input type="hidden" name="draftResponse" value="[,,&quot;8946414525009973512&quot;]
-							">
-							<input type="hidden" name="pageHistory" value="0">
-							
-							
-							<input type="hidden" name="fbzx" value="8946414525009973512">
-							
-							</ol>
-						</form>
-	        		</div>
-	        		<div class="iText" id="thankYouText" style="text-align:center;">
-	        			<p style="font-size:1.5em;">Thank you!  Now you will be the first to know about the latest county data.</p>
-	        			<p>Don't forget to <a href="#" id="showHideRrssbLink">share the CIC</a> with others!</p>
+        				<form>
+        					<input type="email" style="width:250px;">
+        					<input type="submit" style="margin-left:10px;">
+        				</form>
 	        		</div>
 	        		<div class="iText helpText" id="helpText1">
 						<div class="helpTitle"><h3>Help</h3></div>
 						<div class="helpContainer">
 							<p>
-								<div class="helpLinkContainer">&bull; <span class="helpLink" onclick="goToPage(2);">View a new indicator on the map</span></div>
-								<div class="helpLinkContainer">&bull; <span class="helpLink" onclick="goToPage(2);">See detailed information on an indicator</span></div>
-								<div class="helpLinkContainer">&bull; <span class="helpLink" onclick="goToPage(4);">Find a county</span></div>
-								<div class="helpLinkContainer">&bull; <span class="helpLink" onclick="goToPage(4);">Find a county by a city name</span></div>
-								<div class="helpLinkContainer">&bull; <span class="helpLink" onclick="goToPage(4);">Find a county by a state name</span></div>
-								<div class="helpLinkContainer">&bull; <span class="helpLink" onclick="goToPage(6);">Find a county seat or an elected official</span></div>
-								<div class="helpLinkContainer">&bull; <span class="helpLink" onclick="goToPage(3);">Compare two indicators</span></div>
+								<div class="helpLinkContainer">&bull; <span class="helpLink" onClick="goToPage(2);">View a new indicator on the map</span></div>
+								<div class="helpLinkContainer">&bull; <span class="helpLink" onClick="goToPage(2);">See detailed information on an indicator</span></div>
+								<div class="helpLinkContainer">&bull; <span class="helpLink" onClick="goToPage(4);">Find a county</span></div>
+								<div class="helpLinkContainer">&bull; <span class="helpLink" onClick="goToPage(4);">Find a county by a city name</span></div>
+								<div class="helpLinkContainer">&bull; <span class="helpLink" onClick="goToPage(4);">Find a county by a state name</span></div>
+								<div class="helpLinkContainer">&bull; <span class="helpLink" onClick="goToPage(4);">Find a county seat</span></div>
+								<div class="helpLinkContainer">&bull; <span class="helpLink" onClick="goToPage(3);">Compare two indicators</span></div>
 							</p>
 						</div>
 	        		</div>
@@ -5554,11 +5546,11 @@
 								<div class="helpList">&bull; Or search for a county with the search bar on the top right of the screen.</div>
 							</p>
 							<br/>
-							<div>Click on <div id="moreDataButton2" onclick="moreDataShow();" style="width:190px;"><span id="moreDataText">ACCESS MORE DATA</span><img id="moreDataImg2" src="img/more_data.svg"/></div> to access more data or to sign up to download data through the CIC extraction tool (Coming September, 2014)</div>
+							<div>Click on <div id="moreDataButton2" onClick="moreDataShow();" style="width:190px;"><span id="moreDataText">ACCESS MORE DATA</span><img id="moreDataImg2" src="../img/more_data.svg"/></div> to access more data or to sign up to download data through the CIC extraction tool (Coming September, 2014)</div>
 							<br/>
-							<div><img src="img/Mail.svg"> - Sign up for CIC DATA UPDATES to be the first to know the latest information about counties</div>
+							<div><img src="../img/Mail.svg"> - Sign up for CIC DATA UPDATES to be the first to know the latest information about counties</div>
 							<br/>
-							<div><img src="img/Share.svg"> - Share the CIC on social media</div>
+							<div><img src="../img/Share.svg"> - Share the CIC on social media</div>
 							<br/><br/><br/>
 						</div>
 	        		</div>
@@ -5569,7 +5561,7 @@
 	        				<br>
 	        				<p>Clicking on a county will now compare statistics for both selected indicators</p>
 	        				<br/>
-	        				<p><img src="img/Reset_indicators.svg"> - Click this to no longer see the secondary indicator</p>
+	        				<p><img src="../img/Reset_indicators.svg"> - Click this to no longer see the secondary indicator</p>
 	        			</div>
 	        		</div>
 					<div class="iText helpText" id="helpText4">
@@ -5593,44 +5585,31 @@
 								<br/>
 								<div class="helpList">&bull; Scroll up when hovering over the map to ZOOM IN.</div>
 								<div class="helpList">&bull; Scroll down when hovering over the map to ZOOM OUT.</div>
-								<p>&bull; Click <img src="img/Back_to_US.svg"> to fully zoom out and see the entire map</p>
-							</p>
-						</div>
-	        		</div>
-	        		<div class="iText helpText" id="helpText6">
-						<div class="helpTitle"><h3>County Seats and Elected Executives</h3></div>
-						<div class="helpContainer">
-							<p class="helpList">Double-click on any county to view basic information about it, including it's county seat and a list of elected officials.</p>
-							<p class="helpList">You can also find out whether a county has an Elected Executive or County Administrator by selecting from the "Primary Indicator"</p>
-							<p>
-								<div class="helpList">&bull; Hover over the "County Structure" category</div>
-								<div class="helpList">&bull; Hover over the "Government Structure" dataset</div>
-								<div class="helpList">&bull; Select "Elected Executive" or "County Administrator" to see which counties have that position</div>
+								<p>&bull; Click <img src="../img/Back_to_US.svg"> to fully zoom out and see the entire map</p>
 							</p>
 						</div>
 	        		</div>
 	        	</div>
 				<div id="instructionPagination">
 					<ul class="pagination">
-						<li><a href='#' onclick="incrementPage(-1);">&laquo;</a></li>
-						<li class="active" name="1"><a onclick="goToPage(1);">1</a></li>
-						<li name="2"><a onclick="goToPage(2);">2</a></li>
-						<li name="3"><a onclick="goToPage(3);">3</a></li>
-						<li name="4"><a onclick="goToPage(4);">4</a></li>
-						<li name="5"><a onclick="goToPage(5);">5</a></li>
-						<li name="6"><a onclick="goToPage(6);">6</a></li>
-						<li><a href='#' onclick="incrementPage(1);">&raquo;</a></li>
+						<li><a href='#' onClick="incrementPage(-1);">&laquo;</a></li>
+						<li class="active" name="1"><a onClick="goToPage(1);">1</a></li>
+						<li name="2"><a onClick="goToPage(2);">2</a></li>
+						<li name="3"><a onClick="goToPage(3);">3</a></li>
+						<li name="4"><a onClick="goToPage(4);">4</a></li>
+						<li name="5"><a onClick="goToPage(5);">5</a></li>
+						<li><a href='#' onClick="incrementPage(1);">&raquo;</a></li>
 					</ul>
 				</div>
 	        </div>
 			
 			<div id="map">
 				<table id="iconsGroup"><tbody>
-					<tr><td><a id="showHelpIcon" title="Help" href="#"><img class="my-icons" alt="Help" src="img/Help.svg"/></a></td><td id="showHelpIconText" class="extraInstructions"> - Help</td></tr>
-					<tr><td><a id="backToMapIcon" title="Back to US Map" href="#"><img class="my-icons" alt="Back to US Map" src="img/Back_to_US.svg"/></a></td><td id="backToMapIconText" class="extraInstructions"> - Back to US Map</td></tr>
-					<tr><td><a id="resetAllIcon" title="Reset Indicators" href="#"><img class="my-icons" alt="Reset Indicators" src="img/Reset_indicators.svg"/></a></td><td id="resetAllIconText" class="extraInstructions"> - Remove Second Indicator</td></tr>
-					<tr><td><a id="showHideRrssbIcon" title="Share this info" href="#"><img class="my-icons" alt="Share this info" src="img/Share.svg"/></a></td><td id="showHideRrssbIconText" class="extraInstructions"> - Share this map!</td></tr>
-					<tr><td><a id="addToMailingListIcon" title="Add Me To Mailing List" href="#"><img class="my-icons" alt="Add Me To Mailing List" src="img/Mail.svg"/></a></td><td id="addToMailingListIconText" class="extraInstructions"> - Add to Mailing List</td></tr>
+					<tr><td><a id="showHelpIcon" title="Help" href="#"><img class="my-icons" alt="Help" src="../img/Help.svg"/></a></td><td id="showHelpIconText" class="extraInstructions"> - Help</td></tr>
+					<tr><td><a id="backToMapIcon" title="Back to US Map" href="#"><img class="my-icons" alt="Back to US Map" src="../img/Back_to_US.svg"/></a></td><td id="backToMapIconText" class="extraInstructions"> - Back to US Map</td></tr>
+					<tr><td><a id="resetAllIcon" title="Reset Indicators" href="#"><img class="my-icons" alt="Reset Indicators" src="../img/Reset_indicators.svg"/></a></td><td id="resetAllIconText" class="extraInstructions"> - Remove Second Indicator</td></tr>
+					<tr><td><a id="showHideRrssbIcon" title="Share this info" href="#"><img class="my-icons" alt="Share this info" src="../img/Share.svg"/></a></td><td id="showHideRrssbIconText" class="extraInstructions"> - Share this map!</td></tr>
+					<tr><td><a id="addToMailingListIcon" title="Add Me To Mailing List" href="#"><img class="my-icons" alt="Add Me To Mailing List" src="../img/Mail.svg"/></a></td><td id="addToMailingListIconText" class="extraInstructions"> - Add to Mailing List</td></tr>
 				</tbody></table>
 			</div>
 			<div id="zoomIcons">
@@ -5756,22 +5735,22 @@
 			<!-- Buttons end here -->
 	    </div>
 	    </div>
-	    <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.10.2.min.js"><\/script>')</script>
+	    <script>window.jQuery || document.write('<script src="../js/vendor/jquery-1.10.2.min.js"><\/script>')</script>
         <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
         <!-- SmartMenus jQuery plugin -->
-		<script src="js/jquery.smartmenus.js" type="text/javascript"></script>
+		<script src="../js/jquery.smartmenus.js" type="text/javascript"></script>
 		<!-- SmartMenus jQuery Bootstrap Addon -->
-		<script type="text/javascript" src="js/jquery.smartmenus.bootstrap.min.js"></script>
+		<script type="text/javascript" src="../js/jquery.smartmenus.bootstrap.min.js"></script>
 		<!--RRSSB js -->
-        <script src="js/rrssb.min.js"></script>
-		<script src="js/vendor/jquery.noty.packaged.min.js"></script>
-		<script src="js/vendor/jquery.doubletap.js"></script>
-		<script src="js/svgenie/rgbcolor.js"></script>
-		<script src="js/svgenie/canvg.js"></script>
-		<script src="js/svgenie/svgenie.js"></script>
-        <script src="js/plugins.js"></script>
-        <script src="js/colorlegend.js"></script>
-        <script src="js/main.js"></script>
+        <script src="../js/rrssb.min.js"></script>
+		<script src="../js/vendor/jquery.noty.packaged.min.js"></script>
+		<script src="../js/vendor/jquery.doubletap.js"></script>
+		<script src="../js/svgenie/rgbcolor.js"></script>
+		<script src="../js/svgenie/canvg.js"></script>
+		<script src="../js/svgenie/svgenie.js"></script>
+        <script src="../js/plugins.js"></script>
+        <script src="../js/colorlegend.js"></script>
+        <script src="../js/main.js"></script>
         <!-- Google Analytics: -->
         <script>
 		  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){

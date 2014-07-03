@@ -4,9 +4,12 @@
 <CFPARAM name="tablename2" default="">
 <CFPARAM name="SubCategory_List2" default="">
 
+<CFPARAM name="Category_List" default="">
 
 <CFIF tablename2 NEQ "" and  #SubCategory_List2# EQ "" >
-<strong>GO BACK, YOU DID NOT SELECT ANY SUB-CATEGORIES!</strong>
+<CFOUTPUT>
+<strong>You didn't make select any indicators.  Please <a href="cic_extraction_2.cfm?Category_List=#Category_List#">return to the previous page</a> and make a selection.</strong>
+</CFOUTPUT>
 <CFABORT>
 </CFIF>
 

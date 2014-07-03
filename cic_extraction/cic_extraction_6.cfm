@@ -16,17 +16,29 @@
 
 
 
-<!--- CRERATE ARRAY OF FIELD NAMES --->
+<!--- CRERATE ARRAY OF ALL FIELD NAMES --->
 <CFLOOP From="1" To = "#listLen(BigList)#" index="Counter">
 <CFSET exportfield[counter] = #trim(ListGetAt(BigList, Counter))#>
 </CFLOOP>
 
 
 
+<!--- CREATE ARRAY OF TABLE1 FIELD NAMES --->
+<CFLOOP From="1" To = "#listLen(SubCategory_List1)#" index="Counter">
+<CFSET table1_fields[counter] = #trim(ListGetAt(SubCategory_List1, Counter))#>
+</CFLOOP>
+
+<!--- CREATE ARRAY OF TABLE2 FIELD NAMES --->
+<CFIF listLen(#SubCategory_List2#) GT 0>
+        <CFLOOP From="1" To = "#listLen(SubCategory_List2)#" index="Counter">
+        <CFSET table2_fields[counter] = #trim(ListGetAt(SubCategory_List2, Counter))#>
+        </CFLOOP>
+</CFIF>
+
+
+
 
 <!--- QUERY DATA ONE OR TWO CATEGORIES --->
-
-
 
 
 <CFIF  #tablename1# EQ "COUNTY_DATA"  AND #tablename2#  EQ "">
@@ -57,8 +69,6 @@
     </cfquery>
 </CFIF>
 
-
-
 <CFIF #tablename1# NEQ "COUNTY_DATA" AND #tablename2# NEQ "" AND #tablename2# NEQ "COUNTY_DATA">
     <cfquery name="get_data" datasource="naco_cic">
       select * 
@@ -82,8 +92,31 @@
     </cfquery>
 </CFIF>
 
+<!-- SELECT USER FRIENDLY CATEGORY AND INDICATOR NAMES -->
+
+<cfquery name="get_uf1" datasource="naco_cic" >
+select * from crosswalk
+where Table_Name = '#tablename1#'  and data_field = '#table1_fields[1]#'
+<CFLOOP From="1" To = "#listLen(SubCategory_List1)#" index="Counter">
+or data_field = '#table1_fields[counter]#'
+</CFLOOP>
+order by cat_name
+</cfquery>
 
 
+<CFIF  #tablename2# NEQ "">
+<cfquery name="get_uf2" datasource="naco_cic" >
+select * from crosswalk
+where Table_Name = '#tablename2#' and data_field = '#table2_fields[1]#'
+<CFLOOP From="1" To = "#listLen(SubCategory_List2)#" index="Counter">
+or data_field = '#table2_fields[counter]#'
+</CFLOOP>
+order by cat_name
+</cfquery>
+
+
+
+</CFIF>
 
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -120,29 +153,15 @@
 <CFIF  #get_data.recordCount# EQ 0>
 Your selection did not result in any data. Please try again.
 <P>
-<A HREF="cic_extraction_1.cfm">Start a new selection</A>
+<A HREF="cic_extraction_1.cfm">Start a New Selection</A>
 <CFELSE> 
 
             
+          
             
-           
-            <CFOUTPUT>
             
-            <strong>#get_data.recordCount#</strong> total records selected based on the following selections:
-<table style="white-space:normal;" class="table extraction-table"></tbody>
-            <tr><td>Category:</td><td>#tablename1#</td></tr>
-            <tr><td>Indicators:</td><td>#SubCategory_List1#</td></tr>
-            <CFIF #tablename2# NEQ "">
-            	<tr><td>Category2:</td><td>#tablename2#</td></tr>
-            	<tr><td>Indicators:</td><td>#SubCategory_List2#</td></tr>
-            </CFIF>
-            <tr><td>States:</td><td>#States_List#</td></tr>
-            <tr><td>Years:</td><td>#Year_List#</td></tr>
-            </CFOUTPUT>
-</tbody></table>           
             <P>
             <A HREF="cic_extraction_1.cfm">Start a New Selection</A>
-            <HR />
             <P>
             Expoort the data to an Excel File<P>
 
@@ -159,6 +178,44 @@ Your selection did not result in any data. Please try again.
 </FORM> 
 
 </CFIF>
+
+<HR />
+
+		   <CFOUTPUT>
+             <strong>#get_data.recordCount#</strong> records selected based on the following selections:
+             <BR />
+             States: #States_List#<BR />
+             Years: <CFIF #Year_List# EQ ""> <em>no years selected</em><CFELSE>#Year_List#</CFIF>
+			</CFOUTPUT>
+			
+
+
+           <table style="white-space:normal;" class="table extraction-table">
+            <CFOUTPUT query="get_uf1" group="Cat_Name" >
+            <TR><TD colspan="2"><strong>#Cat_Name#</strong></TD></TR>
+					<CFOUTPUT>
+                    <TR valign="top"><TD width="30%"> &nbsp; #Sub_Cat#</TD><TD width="70%"><font size="-1">#definition#</font></TD></TR>
+                    </CFOUTPUT>
+            </CFOUTPUT>
+            </table>
+            
+            
+            
+               <table style="white-space:normal;" class="table extraction-table">
+            <CFOUTPUT query="get_uf2" group="Cat_Name" >
+            <TR><TD colspan="2"><strong>#Cat_Name#</strong></TD></TR>
+					<CFOUTPUT>
+                    <TR valign="top"><TD width="30%"> &nbsp; #Sub_Cat#</TD><TD width="70%"><font size="-1">#definition#</font></TD></TR>
+                    </CFOUTPUT>
+            </CFOUTPUT>
+            </table>
+            
+            
+   <P>         
+            
+            
+			  
+
 
 </body>
 </html>
