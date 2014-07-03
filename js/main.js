@@ -1063,13 +1063,16 @@ function fillMapColors() {
 			return isNaN(corrDomain[d.id]) ? na_color : range[corrDomain[d.id]];
 		} else {
 			var val = quantByIds[0][d.id];
-			if (!colorKeyArray.hasOwnProperty(val)) {
-				d.color = d3.max(neighbors[i], function(n) { return topo[n].color; }) + 1 | 0;
-				colorKeyArray[val] = d.color;
-			} else {
-				d.color = colorKeyArray[val];
+			if (typeof val === 'undefined' || val === null || val === 0) return na_color;
+			else {	
+				if (!colorKeyArray.hasOwnProperty(val)) {
+					d.color = d3.max(neighbors[i], function(n) { return topo[n].color; }) + 1 | 0;
+					colorKeyArray[val] = d.color;
+				} else {
+					d.color = colorKeyArray[val];
+				}
+				return neighbor_colors(d.color);	
 			}
-			return (val === null || val === 0) ? na_color : neighbor_colors(d.color);
 		}	
 	});
 }
@@ -1385,7 +1388,7 @@ function throttle() {
 setup(width,height);
 
 disableIndicators('indicator', 'County Profile', 'Fiscal Year End Date');
-disableIndicators('indicator', 'County Profile', 'State Capitol');
+//disableIndicators('indicator', 'County Profile', 'State Capitol');
 disableIndicators('indicator', 'USDA Rural Development', 'USDA Grant Annual Growth Rate (from previous year)');
 disableIndicators('indicator', 'USDA Rural Development', 'USDA Loan Annual Growth Rate (from previous year)');
 
