@@ -7,30 +7,33 @@
 
 
 
-
 <CFOUTPUT>
 <CFIF #ListLen(Category_List)# GT 2>
 AT THIST TIME, PLEASE LIMIT YOUR SELECTION OF CATEGORIES to 1 or 2. <P>
 PLEASE GO BACK AND LIMIT YOUR SELECTION TO JUST 1 OR 2 Primary Categories.
 <CFABORT>
 </CFIF>
+
 <CFSET Category_List1=#trim(listGetAt(Category_List,1))#>
 <CFIF #ListLen(Category_List)# EQ 2><CFSET Category_List2=#trim(listGetAt(Category_List,2))#></CFIF>
+
 </CFOUTPUT>
 
 
 <CFIF #SubCategory_List1# EQ "">
-<strong>GO BACK, YOU DID NOT SELECT ANY INDICATORS for <CFOUTPUT>#Category_List1#</CFOUTPUT> !</strong>
+<CFOUTPUT>
+<strong>You didn't make select any indicators.  Please <a href="cic_extraction_2.cfm?Category_List=#Category_List#">return to the previous page</a> and make a selection.</strong>
+</CFOUTPUT>
 <CFABORT>
 </CFIF>
 
         <cfquery datasource="naco_cic" name="get_sub_category">
-        select * from categories
-        where cat_name = '#Category_List2#' and sub_cat is not null
+        select * from  crosswalk
+        where cat_ID_FK = '#Category_List2#' and sub_cat is not null
         order by sub_type
         </cfquery>
 
-	    <CFSET tablename2 = #get_sub_category.table_name#>
+	    <CFSET tablename2 = #get_sub_category.table_name#>   
 
         
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -62,11 +65,8 @@ PLEASE GO BACK AND LIMIT YOUR SELECTION TO JUST 1 OR 2 Primary Categories.
 	</div>
 </div>
         
-        <!-- start of second tab -->
-        
-       <CFOUTPUT><H2>#Category_List2# Indicators</H2></CFOUTPUT> 
-        
-
+ 
+      <CFOUTPUT><H2>#get_sub_category.cat_name# Indicators</H2></CFOUTPUT> 
          <form class="extraction-form" action="cic_extraction_3.cfm" method="post">
             <select class="form-control extraction-multiple" id="sublist" name="SubCategory_List2" size="15" multiple>
               <CFOUTPUT query="get_sub_category">
@@ -77,11 +77,15 @@ PLEASE GO BACK AND LIMIT YOUR SELECTION TO JUST 1 OR 2 Primary Categories.
             <input type="hidden" name="tablename1" value="#tablename1#" />
             <input type="hidden" name="SubCategory_List1" value="#SubCategory_List1#" />
             <input type="hidden" name="tablename2" value="#tablename2#" />
-            </CFOUTPUT>
+            <input type="hidden" name="Category_List" value="#Category_List#" />
             
-        
-        	<p>Hold the <em>Ctrl</em> key and click to select multiple indicators. <input class="btn btn-info" type="submit"  value="Next..."></p>
+            </CFOUTPUT>
+                    <p>Hold the <em>Ctrl</em> key and click to select multiple indicators. 
+                    <input class="btn btn-info" type="submit"  value="Next..."></p> 
+
         </form> 
+        
+        
 </body>
 </html>
 

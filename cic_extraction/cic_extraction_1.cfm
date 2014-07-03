@@ -29,30 +29,32 @@
 </div>
 
 <form class="extraction-form" action="cic_extraction_2.cfm" method="post">
-
     <select id="catlist" name="Category_List" multiple class="form-control extraction-multiple" size="17"  >
-          <option value="Administration">Administration</option>
-          <option value="County_Employment">County Employment</option>
-          <option value="County_Finance">County Finance</option>
-          <option value="County_Structure">County Structure</option>
-          <option value="Demographics">Demographics</option>
-          <option value="Economy">Economy</option>
-          <option value="Education">Education</option>
-          <option value="Federal_Funding">Federal Funding</option>
-          <option value="Geography">Geography</option>
-          <option value="Health_Hospitals">Health & Hospitals</option>
-          <option value="Housing_Community_Development">Housing & Community Development</option>
-          <option value="Justice_Public_Safety">Justice & Public Safety</option>
-          <option value="Public_Amenity">Public Amenity</option>
-          <option value="Public_Welfare">Public Welfare</option>
-          <option value="Transportation">Transportation</option>
-          <option value="Utility">Utility</option>
-          <option value="W_S_SW">Water, Sewage & Solid Waste</option>
+          <option value="ADMIN">Administration</option>
+          <option value="EMPLO">County Employment</option>
+          <option value="FINAN">County Finance</option>
+          <option value="STRUC">County Structure</option>
+          <option value="DEMO">Demographics</option>
+          <option value="ECON">Economy</option>
+          <option value="EDUC">Education</option>
+          <option value="FUND">Federal Funding</option>
+          <option value="GEO">Geography</option>
+          <option value="HEALT">Health & Hospitals</option>
+          <option value="HOUS">Housing & Community Development</option>
+          <option value="JUST">Justice & Public Safety</option>
+          <option value="AMEN">Public Amenity</option>
+          <option value="WELF">Public Welfare</option>
+          <option value="TRANS">Transportation</option>
+          <option value="UTIL">Utility</option>
+          <option value="WSSW">Water, Sewage & Solid Waste</option>
     </select> 
 <p>Hold the <i>Ctrl</i> key and click a second category if desired. <input class="btn btn-info" type="submit"  value="Next..."></p>
 
 </form>
 
+
+
+	
 
 
 </body>
