@@ -1069,7 +1069,7 @@ function fillMapColors() {
 			} else {
 				d.color = colorKeyArray[val];
 			}
-			return (val === null) ? na_color : neighbor_colors(d.color);
+			return (val === null || val === 0) ? na_color : neighbor_colors(d.color);
 		}	
 	});
 }
@@ -1421,7 +1421,7 @@ d3.json("/CIC/us.json", function(error, us) {
 	    	update('Population Levels and Trends', 'Population Level'); // fill in map colors for default indicator now that everything is loaded 	
 	    } else {  
 	    	// load crosswalk
-	    	d3.tsv('data/database_crosswalk.tsv', function(error, data_array) {
+	    	d3.tsv('/CIC/data/database_crosswalk.tsv', function(error, data_array) {
 	    		// set up crosswalk object; indexed by front-end "Dataset - Indicator" field names, filled with database names
 		      	crosswalk = {};
 	      		for (var i = 0; i < data_array.length; i++) {
