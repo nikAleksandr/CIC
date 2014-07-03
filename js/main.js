@@ -203,6 +203,7 @@ function setBehaviors() {
 		specWindow.close(); // bug: doesn't reach this point if print dialog is closed
 	});
 
+	setDisabled();
 	setDropdownBehavior();
 	setSearchBehavior();
 	setIconBehavior();
@@ -369,7 +370,7 @@ function goToPage(pageNum) {
 }
 
 function disableIndicators(type, name, indicator) {
-	// type is either "category" or "dataset" (e.g. disableIndicators('category', 'Administration') or disableIndicators('dataset', 'County Profile') or disableIndicators('indicator', 'County Profile', 'Census Region'))
+	// type is either category, dataset, or indicator (e.g. disableIndicators('category', 'Administration') or disableIndicators('dataset', 'County Profile') or disableIndicators('indicator', 'County Profile', 'Census Region'))
 	if (type === 'category') {
 		$('.category[name="'+name+'"]').addClass('disabled')
 			.find('.dataset').addClass('disabled')
@@ -380,6 +381,12 @@ function disableIndicators(type, name, indicator) {
 	} else if (type === 'indicator') {
 		$('.dataset[name="'+name+'"] .indicator[name="'+indicator+'"]').parent().addClass('disabled');
 	}
+}
+function setDisabled() {
+	// extends disabled to children
+	$('.dataset.disabled').find('.indicator').parent().addClass('disabled');
+	$('.category.disabled').find('.dataset').addClass('disabled');
+	$('.category.disabled').find('.indicator').parent().addClass('disabled');
 }
 
 function setDropdownBehavior() {
@@ -655,7 +662,7 @@ function executeSearchMatch(FIPS) {
 
 function displayResults(url) {
 	emptyInstructionText();
-	$('#print').show();
+	$('#print').css('display', 'inline');
 	
 	d3.xhr('http://nacocic.naco.org/ciccfm/'+ url, function(error, request){
 		if (!error) {
@@ -995,7 +1002,7 @@ function allInfo(dataset, indicator){
 		if (objArray.length < firstObj.companions.length) {
 			var obj = getInfo(firstObj.companions[i][0], firstObj.companions[i][1]);
 			var isDisabled = $('.dataset[name="'+obj.dataset+'"] .indicator[name="'+obj.name+'"]').parent().hasClass('disabled'); // checks if companion is disabled or not
-			if (obj.name !== firstObj.name && obj.dataType !== 'none' && !isDisabled) objArray.push(obj);			
+			if (obj.name !== firstObj.name && !isDisabled) objArray.push(obj);			
 		}
 	}	
 	return objArray;
@@ -1375,12 +1382,9 @@ function throttle() {
 }
 
 setup(width,height);
-//disableIndicators('dataset', 'Metro-Micro Areas (MSA)');
-//disableIndicators('indicator', 'County Profile', 'County Seat');
+
 disableIndicators('indicator', 'County Profile', 'Fiscal Year End Date');
 disableIndicators('indicator', 'County Profile', 'State Capitol');
-//disableIndicators('indicator', 'County Profile', 'CBSA Title');
-//disableIndicators('indicator', 'County Profile', 'CBSA Code');
 disableIndicators('indicator', 'USDA Rural Development', 'USDA Grant Annual Growth Rate (from previous year)');
 disableIndicators('indicator', 'USDA Rural Development', 'USDA Loan Annual Growth Rate (from previous year)');
 
