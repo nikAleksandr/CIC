@@ -287,7 +287,12 @@ function emptyInstructionText() {
 	$('#showOnMap').hide();
 	$('#print').hide();
 }
-
+//form submit thank you
+function thankYou(){
+	emptyInstructionText();
+	$('#thankYouText').show();
+	$('#instructions').show();
+}
 //Functions for Icons
 function setIconBehavior() {
 	$('#showHelpIcon, #showHelpIconText').on('click', function(e) {
@@ -319,7 +324,7 @@ function setIconBehavior() {
 		}		
 	});
 	
-	$('#showHideRrssbIcon, #showHideRrssbIconText').on('click', function(e) {
+	$('#showHideRrssbIcon, #showHideRrssbIconText, #showHideRrssbLink').on('click', function(e) {
 		e.stopPropagation();
 		var twitterContentIntro = "http://twitter.com/home?status=See%20";
 		var twitterContentEnd = "%20data%20for%20your%20county%20by%20@NACoTweets%20%23NACoCIC%20www.naco.org%2FCIC";

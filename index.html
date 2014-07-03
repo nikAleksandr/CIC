@@ -5502,10 +5502,39 @@
 	        		<div class="iText" id="mailingText" style="text-align:center;">
         				<p style="font-size:1.5em;">Keep Me Updated!</p>
         				<p>Submit your email to the mailing list and receive updates when new features have been added.</p><br><br>
-        				<form>
-        					<input type="email" style="width:250px;">
+        				<script type="text/javascript">var submitted=false;</script>
+        				<iframe name="hidden_iframe" id="hidden_iframe" style="display:none;" onload="if(submitted){thankYou();}"></iframe>
+        				<form action="https://docs.google.com/forms/d/1m3fF7twvVyIj42GuDNqtTKnfZwXrtOZ1p1Z7jQoJa70/formResponse" method="POST" id="ss-form" target="hidden_iframe" onsubmit="submitted=true;">
+        					<ol role="list" class="ss-question-list" style="padding-left: 0">
+							<div class="ss-form-question errorbox-good" role="listitem">
+							<div dir="ltr" class="ss-item ss-item-required ss-text"><div class="ss-form-entry">
+							<label class="ss-q-item-label" for="entry_1891399482"><div class="ss-q-title">Email
+							<label for="itemView.getDomIdToLabel()" aria-label="(Required field)"></label>
+							<span class="ss-required-asterisk">*</span></div>
+							<div class="ss-q-help ss-secondary-text" dir="ltr"></div></label>
+							<input type="email" name="entry.1891399482" value="" class="ss-q-short" id="entry_1891399482" dir="auto" aria-label="Email  Must be a valid email address" aria-required="true" required="" title="Must be a valid email address">
+							
+							</div></div></div>
+							<input type="hidden" name="draftResponse" value="[,,&quot;8946414525009973512&quot;]
+							">
+							<input type="hidden" name="pageHistory" value="0">
+							
+							
+							<input type="hidden" name="fbzx" value="8946414525009973512">
+							
+							<div class="ss-item ss-navigate"><table id="navigation-table"><tbody><tr><td class="ss-form-entry goog-inline-block" id="navigation-buttons" dir="ltr">
+							<input type="submit" name="submit" value="Submit" id="ss-submit">
+							<div class="ss-password-warning ss-secondary-text">Never submit passwords through Google Forms.</div></td>
+							</tr></tbody></table></div></ol>
+						</form>
+        				<!--<form>
+        					<input class="form-control" type="email" style="width:250px;">
         					<input type="submit" style="margin-left:10px;">
-        				</form>
+        				</form>-->
+	        		</div>
+	        		<div class="iText" id="thankYouText" style="text-align:center;">
+	        			<p style="font-size:1.5em;">Thank you!  Now you will be the first to know about the latest county data.</p>
+	        			<p>Don't forget to <a href="#" id="showHideRrssbLink">share the CIC</a> with others!</p>
 	        		</div>
 	        		<div class="iText helpText" id="helpText1">
 						<div class="helpTitle"><h3>Help</h3></div>
