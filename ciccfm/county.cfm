@@ -93,7 +93,7 @@
 	        	</tr>
 	        </table>
 		</div>
-		<div id="countyResponse-quickLinks" class="hidden-print">
+		<div id="countyResponse-quickLinks hidden-print">
 	        <h4>Quick Links</h4>
 	        <ul>
 	        	<li><A HREF="http://quickfacts.census.gov/qfd/states/#StateFIPS#/#fips#.html" target="_blank" title="U.S. Census Bureau: State and County QuickFacts">Census Quick Facts</A></li>
