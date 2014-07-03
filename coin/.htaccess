@@ -1,3 +1,0 @@
-RewriteEngine on
-RewriteCond %{HTTP_REFERER}!(.*)uscounties.org(.*)
-RewriteRule ^(.*)$ - [F]
