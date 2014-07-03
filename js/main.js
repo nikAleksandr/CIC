@@ -300,8 +300,11 @@ function setIconBehavior() {
 		e.stopPropagation();
 		emptyInstructionText();
 		$('#instructionPagination').show();
-		var activePage = $('#instructionPagination .active').attr('name');
-		$('#helpText'+activePage).show();
+		//var activePage = $('#instructionPagination .active').attr('name');
+		//$('#helpText'+activePage).show();
+		$('#instructionPagination .active').removeClass('active');
+		$('#instructionPagination li[name=1]').addClass('active');	
+		$('#helpText1').show();
 	
 		$('#instructions').show();
 	});
