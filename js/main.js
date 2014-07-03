@@ -848,7 +848,7 @@ function updateView() {
 		for (var ind in quantById) {
 			if (quantById[ind] === 'Yes') corrDomain[ind] = 1;
 			else if (quantById[ind] === 'No') corrDomain[ind] = 0;
-			else corrDomain[ind] = quantById[ind];
+			else if (quantById[ind] === 0 || quantById[ind] === 1) corrDomain[ind] = quantById[ind];
 		}
 		var vals = {'Yes': 1, 'No': 0};
 	} else if (currentDataType === 'categorical') {
