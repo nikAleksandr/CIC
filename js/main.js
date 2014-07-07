@@ -149,7 +149,8 @@ function setup(width, height) {
     	.attr("id", "mapSvg")
     	.append("g")
     		.attr("transform", "translate(" + width / 2 + "," + height / 2 + ")")
-    		.call(zoom);
+    		.call(zoom)
+    		.on("dblclick.zoom", null);
 	
 	g = svg.append("g").attr("class", "counties");
 	
@@ -1253,6 +1254,7 @@ function positionTooltip(county) {
 function doubleClicked(fips) {
 	tooltip.classed("hidden", true);
 	
+	zoomTo(parseInt(fips));
 	var countyID = fips.toString();
 	if (countyID.length == 4) countyID = "0" + countyID;
 	displayResults('county.cfm?id=' + countyID);
