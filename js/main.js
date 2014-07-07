@@ -1423,8 +1423,6 @@ setup(width,height);
 
 disableIndicators('indicator', 'County Profile', 'Fiscal Year End Date');
 //disableIndicators('indicator', 'County Profile', 'State Capitol');
-disableIndicators('indicator', 'USDA Rural Development', 'USDA Grant Annual Growth Rate (from previous year)');
-disableIndicators('indicator', 'USDA Rural Development', 'USDA Loan Annual Growth Rate (from previous year)');
 
 // for testing
 /*
