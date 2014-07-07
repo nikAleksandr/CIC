@@ -1191,14 +1191,14 @@ function populateTooltip(d) {
 	
 	var sameDataset = true, s_sameDataset = true;
 	for (var i = 1; i < indObjects.length; i++){
-		if (indObjects[i].dataset === indObjects[0].dataset) {
+		if (indObjects[i].dataset !== indObjects[0].dataset) {
 			sameDataset = false;
 			break;
 		}
 	}
 	if (currentSecondDI!== '') {
 		for (var i = 1; i < s_indObjects.length; i++) {
-			if (s_indObjects[i].dataset === s_indObjects[0].dataset) {
+			if (s_indObjects[i].dataset !== s_indObjects[0].dataset) {
 				s_sameDataset = false;
 				break;
 			}
