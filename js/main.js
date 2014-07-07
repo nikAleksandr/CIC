@@ -132,6 +132,7 @@ var corrDomain = [], // only used for categorical data; a crosswalk for the rang
 
 var range = [], // array of colors used for coloring the map
 	na_color = 'rgb(204,204,204)', // color for counties with no data
+	highlight_color = 'rgb(212,112,106)', // highlight color for counties
 	percent_colors = ['rgb(522,204,102)', 'rgb(255,153,51)', 'rgb(49,130,189)', 'rgb(7,81,156)', 'rgb(28,53,99)'],
 	binary_colors = ['rgb(28,53,99)', 'rgb(255,153,51)'],
 	categorical_colors = ['rgb(522,204,102)', 'rgb(255,153,51)', 'rgb(49,130,189)', 'rgb(7,81,156)', 'rgb(28,53,99)'],
@@ -1068,7 +1069,7 @@ function getInfo(dataset, indicator){
 function fillMapColors() {
 	selected = null, frmrActive = null;
 	colorKeyArray = {};
-	g.selectAll(".counties .county").transition().duration(750).style("fill", function(d, i) {		
+	g.selectAll(".counties .county").transition().duration(750).style("fill", function(d, i) {
 		if (isNumFun(currentDataType)) {
 			return isNaN(quantByIds[0][d.id]) ? na_color : color(quantByIds[0][d.id]);
 		} else if (currentDataType === 'binary') {
@@ -1087,8 +1088,11 @@ function fillMapColors() {
 				}
 				return neighbor_colors(d.color);	
 			}
-		}	
+		}
 	});
+	
+	// set highlight color after timeout...not a good way to do it but don't want to observe 3069 transitions a la transition.each('end', func)
+	//setTimeout(function() { if ($('.county.active').length > 0) highlight($('.county.active')[0]); }, 1000);
 }
 
 function createLegend(thresholdBool, keyArray, dataVals) {
