@@ -1221,14 +1221,17 @@ function positionTooltip(county) {
 		var ttWidth = $('#tt').width(); // tooltip width and height
 		var ttHeight = $('#tt').height();
 		
+		var scroll_top = (document.documentElement && document.documentElement.scrollTop) || document.body.scrollTop;
+		var scroll_left = (document.documentElement && document.documentElement.scrollLeft) || document.body.scrollLeft;
+
 		var countyCoord = county.getBoundingClientRect(); // county position relative to document.body
-		var top = countyCoord.top - ttHeight - containerOffset.top + document.body.scrollTop - 10; // top relative to map
+		var top = countyCoord.top - ttHeight - containerOffset.top + scroll_top - 10; // top relative to map
 		
 		if (currentSecondDI === '') {
-			var left = countyCoord.left + countyCoord.width - ttWidth - containerOffset.left + document.body.scrollLeft + 20; // left relative to map
+			var left = countyCoord.left + countyCoord.width - ttWidth - containerOffset.left + scroll_left + 20; // left relative to map
 			var arrow_left = -20 + countyCoord.width/2;
 		} else {
-			var left = countyCoord.left + countyCoord.width/2 - ttWidth/2 - containerOffset.left + document.body.scrollLeft + 5;
+			var left = countyCoord.left + countyCoord.width/2 - ttWidth/2 - containerOffset.left + scroll_left + 5;
 			var arrow_left = -35 + ttWidth/2;
 		}
 		
