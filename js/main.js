@@ -416,7 +416,7 @@ function setDropdownBehavior() {
 		$.SmartMenus.hideAll();
 		
 		// **temp redirect for issue where 3069 is not being filled in completely **delete this when fixed!!**
-		if (indicator === 'Total County') {
+		if (dataset.indexOf('Expenditures') !== -1 && indicator === 'Total County') {
 			hacked_dataset = dataset;
 			dataset = 'Administration Expenditures';
 		}
