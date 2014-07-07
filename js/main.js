@@ -167,12 +167,12 @@ function setup(width, height) {
 
 	if (windowWidth <= 768) {
 		$('#secondIndLi').hide();
-		resetAll();
+		resetSecondInd();
 	} else {
 		$('#secondIndLi').show();
 	}
 	
-	setZoomIcons();	
+	positionZoomIcons();	
 	positionInstruction();
 }
 
@@ -214,6 +214,7 @@ function setBehaviors() {
 	setDropdownBehavior();
 	setSearchBehavior();
 	setIconBehavior();
+	setZoomIconBehavior();
 }	
 
 function draw(topo, stateMesh) {
@@ -325,14 +326,7 @@ function setIconBehavior() {
 	
 	$('#resetAllIcon, #resetAllIconText, #resetSecondInd').on('click', function(e) {
 		e.stopPropagation();
-		if (currentSecondDI !== '') {
-			currentSecondDI = '';
-			if (d3.select('.county.active').empty() !== true) {
-				populateTooltip(selected);
-				positionTooltip(d3.select('.county.active')[0][0]);
-			}
-			//d3.select('#secondIndText').html('Secondary Indicator' + '<span class="sub-arrow"></span>');
-		}		
+		resetSecondInd();
 	});
 	
 	$('#showHideRrssbIcon, #showHideRrssbIconText, #showHideRrssbLink').on('click', function(e) {
@@ -361,6 +355,16 @@ function setIconBehavior() {
 		$('#instructions').show();
 		
 	});
+}
+function resetSecondInd() {
+	if (currentSecondDI !== '') {
+		currentSecondDI = '';
+		if (d3.select('.county.active').empty() !== true) {
+			populateTooltip(selected);
+			positionTooltip(d3.select('.county.active')[0][0]);
+		}
+		//d3.select('#secondIndText').html('Secondary Indicator' + '<span class="sub-arrow"></span>');
+	}
 }
 function moreDataShow(){
 	if ($('#mdText').is(':visible')) {
@@ -1363,12 +1367,14 @@ function zoomMap(t, s, smooth) {
 	}	
 }
 
-function setZoomIcons() {
+function positionZoomIcons() {
 	var coords = map.offsetWidth;
 	d3.select("#iconsGroup").style('left', (coords + 20) + 'px');
 	d3.selectAll('.extraInstructions').style('display', function() {
 		return ((windowWidth - coords) / 2 < 150) ? 'none' : 'table-cell';
-	});
+	});	
+}
+function setZoomIconBehavior() {
 	d3.select('#zoomPlusIcon').on('click', function() {
 		// zoom in
 		var s = (frmrS > 9) ? 10 : frmrS + 1;
