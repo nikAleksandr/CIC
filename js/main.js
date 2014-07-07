@@ -416,7 +416,7 @@ function setDropdownBehavior() {
 		$.SmartMenus.hideAll();
 		
 		// **temp redirect for issue where 3069 is not being filled in completely **delete this when fixed!!**
-		if (indicator === 'Total County') {
+		if (dataset.indexOf('Expenditures') !== -1 && indicator === 'Total County') {
 			hacked_dataset = dataset;
 			dataset = 'Administration Expenditures';
 		}
@@ -1007,6 +1007,7 @@ function manipulateData(qbis, indObjs) {
 				// modify binary values
 				if (quantByIds[i][ind] === true) quantByIds[i][ind] = 'Yes';
 				else if (quantByIds[i][ind] === false) quantByIds[i][ind] = 'No';
+				else if (quantByIds[i][ind] === 2) quantByIds[i][ind] = 'Yes';
 			} else if (indObjs[i].dataType === 'level') {
 				// if there's data for it, change null to 0 (prob should change in database, but this is easier for now)
 				if (isNaN(quantByIds[i][ind]) && !exceptionCounties.hasOwnProperty(parseInt(ind))) quantByIds[i][ind] = 0;
@@ -1146,7 +1147,7 @@ function changeLegendTitle() {
 	
 	
 	// **temp hack for issue where 3069 is not being filled in completely **delete this when fixed!!**
-	if (primeIndObj.name === 'Total County') d3.select('#legendTitle').text(primeIndObj.year + ' ' + hacked_dataset);
+	if (primeIndObj.dataset.indexOf('Expenditures') !== -1 && primeIndObj.name === 'Total County') d3.select('#legendTitle').text(primeIndObj.year + ' ' + hacked_dataset);
 }
 
 function populateTooltip(d) {
