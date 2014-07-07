@@ -39,19 +39,19 @@
                 </TABLE>
                
  <CFELSE>
-    			<TABLE class="table table-striped table-condensed">
-				<TR valign="bottom">
-                    <TH align="left">
+    	<TABLE class="table table-striped table-condensed">
+			<TR valign="bottom">
+                <TH align="left">
                     <CFIF #state# EQ 'LA'>Parish</CFIF>
                     <CFIF #state# EQ 'AK'>Borough</CFIF>
                     <CFIF #state# NEQ 'LA' AND #state# NEQ 'AK' >County</CFIF>
-                    </TH>
-					<TH>2013<BR>Population</a></TH>
-					<TH>Square<BR>Miles</TH> 
-					<TH>County Seat</TH>
-					<TH>Board<BR>Size</TH>
-					<TH>Founded</TH>
-					</TR>
+                </TH>
+				<TH>2013<BR>Population</a></TH>
+				<TH>Square<BR>Miles</TH> 
+				<TH>County Seat</TH>
+				<TH>Board<BR>Size</TH>
+				<TH>Founded</TH>
+			</TR>
 		
 		     <CFOUTPUT>
 				<TR>
@@ -63,8 +63,11 @@
 				<TD align="right"> #board_size#&nbsp;</TD> 
 				<TD ALIGN="CENTER">#founded#&nbsp;</TD>
 				</TR>
-		     </CFOUTPUT> 
-				</TABLE> 
+		     </CFOUTPUT>
+		     
+		</TABLE>
+		
+		<DIV>* consolidated city-county government</DIV> 
   
 </CFIF> 
 

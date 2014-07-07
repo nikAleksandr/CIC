@@ -5,7 +5,7 @@ function toTitleCase(str){ return str.replace(/\w\S*/g, function(txt){return txt
 function isNumFun(data_type) { return (data_type === 'level' || data_type === 'level_np' || data_type === 'percent'); }
 function positionInstruction(){var instructionLeft = (windowWidth * .2) / 2; if(windowWidth > 1125){instructionLeft = (windowWidth - 900)/2;}; d3.select('#instructions').style({"left": instructionLeft - containerOffset.left + "px", "height": height + "px"});}
 var stateNameList = ['AK', 'AL', 'AR', 'AZ', 'CA', 'CO', 'CT', 'DC', 'DE', 'FL', 'GA', 'HI', 'IA', 'ID', 'IL', 'IN', 'KS', 'KY', 'LA', 'MA', 'MD', 'ME', 'MI', 'MN', 'MO', 'MS', 'MT', 'NC', 'ND', 'NE', 'NH', 'NJ', 'NM', 'NV', 'NY', 'OH', 'OK', 'OR', 'PA', 'RI', 'SC', 'SD', 'TN', 'TX', 'UT', 'VA', 'VT', 'WA', 'WI', 'WV', 'WY'];
-var exceptionCounties = {9001: true, 9003: true, 9005: true, 9007: true, 9009: true, 9011: true, 9013: true, 9015: true, 44001: true, 44003: true, 44005: true, 44007: true, 44009: true, 25003: true, 25009: true, 25011: true, 25013: true, 25015: true, 25017: true, 25027: true};
+var exceptionCounties = {9001: true, 9003: true, 9005: true, 9007: true, 9009: true, 9011: true, 9013: true, 9015: true, 44001: true, 44003: true, 44005: true, 44007: true, 44009: true, 25003: true, 25009: true, 25011: true, 25013: true, 25015: true, 25017: true, 25027: true, 51510: true, 51520: true, 51530: true, 51540: true, 51550: true, 51570: true, 51580: true, 51590: true, 51595: true, 51600: true, 51610: true, 51620: true, 51630: true, 51640: true, 51650: true, 51660: true, 51670: true, 51678: true, 51680: true, 51683: true, 51685: true, 51690: true, 51700: true, 51710: true, 51720: true, 51730: true, 51735: true, 51740: true, 51750: true, 51760: true, 51770: true, 51775: true, 51790: true, 51800: true, 51810: true, 51820: true, 51830: true, 51840: true};
 
 // default for noty alert system
 $.noty.defaults.layout = 'center';
@@ -167,12 +167,12 @@ function setup(width, height) {
 
 	if (windowWidth <= 768) {
 		$('#secondIndLi').hide();
-		resetAll();
+		resetSecondInd();
 	} else {
 		$('#secondIndLi').show();
 	}
 	
-	setZoomIcons();	
+	positionZoomIcons();	
 	positionInstruction();
 }
 
@@ -214,6 +214,7 @@ function setBehaviors() {
 	setDropdownBehavior();
 	setSearchBehavior();
 	setIconBehavior();
+	setZoomIconBehavior();
 }	
 
 function draw(topo, stateMesh) {
@@ -249,6 +250,7 @@ function draw(topo, stateMesh) {
 	
 	
 	if ($('html').hasClass('no-touch')) {
+		// for non-touch screens
 		county.each(function(d, i) {
 			d.clickCount = 0;
 		});
@@ -273,6 +275,7 @@ function draw(topo, stateMesh) {
 			}
 		});
 	} else {
+		// for touch screens; use double-tap instead of double-click
 		county.on('click', function(d, i) {
 			if ($.now() - mdownTime < 300) {
 				d3.event.stopPropagation();
@@ -293,6 +296,7 @@ function emptyInstructionText() {
 	$('#instructionPagination').hide();
 	$('#showOnMap').hide();
 	$('#print').hide();
+	$('#instructionText').scrollTop(0);
 }
 //form submit thank you
 function thankYou(){
@@ -324,14 +328,7 @@ function setIconBehavior() {
 	
 	$('#resetAllIcon, #resetAllIconText, #resetSecondInd').on('click', function(e) {
 		e.stopPropagation();
-		if (currentSecondDI !== '') {
-			currentSecondDI = '';
-			if (d3.select('.county.active').empty() !== true) {
-				populateTooltip(selected);
-				positionTooltip(d3.select('.county.active')[0][0]);
-			}
-			//d3.select('#secondIndText').html('Secondary Indicator' + '<span class="sub-arrow"></span>');
-		}		
+		resetSecondInd();
 	});
 	
 	$('#showHideRrssbIcon, #showHideRrssbIconText, #showHideRrssbLink').on('click', function(e) {
@@ -360,6 +357,16 @@ function setIconBehavior() {
 		$('#instructions').show();
 		
 	});
+}
+function resetSecondInd() {
+	if (currentSecondDI !== '') {
+		currentSecondDI = '';
+		if (d3.select('.county.active').empty() !== true) {
+			populateTooltip(selected);
+			positionTooltip(d3.select('.county.active')[0][0]);
+		}
+		//d3.select('#secondIndText').html('Secondary Indicator' + '<span class="sub-arrow"></span>');
+	}
 }
 function moreDataShow(){
 	if ($('#mdText').is(':visible')) {
@@ -427,12 +434,14 @@ function setDropdownBehavior() {
 		var dataset = d3.select(this);		
 		var datasetName = dataset.attr('name');
 		
-		// when clicking on dataset, update to first companion
-		dataset.selectAll('a:not(.indicator)').on('click', function() {
-			var primeDI = getInfo(datasetName).companions[0];
-			var indHtml = dataset.select('.indicator[name="' + primeDI[1] + '"]').html();
-			pickedIndicator(primeDI[0], primeDI[1], indHtml);
-		});
+		// when clicking on dataset, update to first companion; but only for non-touch screens
+		if ($('html').hasClass('no-touch')) {
+			dataset.selectAll('a:not(.indicator)').on('click', function() {
+				var primeDI = getInfo(datasetName).companions[0];
+				var indHtml = dataset.select('.indicator[name="' + primeDI[1] + '"]').html();
+				pickedIndicator(primeDI[0], primeDI[1], indHtml);
+			});
+		}
 
 		dataset.selectAll('li').on('click', function() {
 			if (!d3.select(this).classed('disabled')) {
@@ -661,6 +670,7 @@ function executeSearchMatch(FIPS) {
 	
 	var county = countyObjectById[parseInt(FIPS)];
     if (county) {
+    	$.noty.closeAll();
 		highlight(county);
 		var zoomTransition = zoomTo(FIPS);
 	    populateTooltip(county);
@@ -670,7 +680,7 @@ function executeSearchMatch(FIPS) {
 		return zoomTransition;
 	} else {
 		tooltip.classed('hidden', true);
-		//noty({text: 'No information availble for this county'});
+		noty({text: 'Data not available for this county'});
 		return false;
 	}    
 };
@@ -1361,12 +1371,14 @@ function zoomMap(t, s, smooth) {
 	}	
 }
 
-function setZoomIcons() {
+function positionZoomIcons() {
 	var coords = map.offsetWidth;
 	d3.select("#iconsGroup").style('left', (coords + 20) + 'px');
 	d3.selectAll('.extraInstructions').style('display', function() {
 		return ((windowWidth - coords) / 2 < 150) ? 'none' : 'table-cell';
-	});
+	});	
+}
+function setZoomIconBehavior() {
 	d3.select('#zoomPlusIcon').on('click', function() {
 		// zoom in
 		var s = (frmrS > 9) ? 10 : frmrS + 1;
@@ -1411,8 +1423,6 @@ setup(width,height);
 
 disableIndicators('indicator', 'County Profile', 'Fiscal Year End Date');
 //disableIndicators('indicator', 'County Profile', 'State Capitol');
-disableIndicators('indicator', 'USDA Rural Development', 'USDA Grant Annual Growth Rate (from previous year)');
-disableIndicators('indicator', 'USDA Rural Development', 'USDA Loan Annual Growth Rate (from previous year)');
 
 // for testing
 /*
