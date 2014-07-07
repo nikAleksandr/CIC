@@ -250,6 +250,7 @@ function draw(topo, stateMesh) {
 	
 	
 	if ($('html').hasClass('no-touch')) {
+		// for non-touch screens
 		county.each(function(d, i) {
 			d.clickCount = 0;
 		});
@@ -274,6 +275,7 @@ function draw(topo, stateMesh) {
 			}
 		});
 	} else {
+		// for touch screens; use double-tap instead of double-click
 		county.on('click', function(d, i) {
 			if ($.now() - mdownTime < 300) {
 				d3.event.stopPropagation();
@@ -432,12 +434,14 @@ function setDropdownBehavior() {
 		var dataset = d3.select(this);		
 		var datasetName = dataset.attr('name');
 		
-		// when clicking on dataset, update to first companion
-		dataset.selectAll('a:not(.indicator)').on('click', function() {
-			var primeDI = getInfo(datasetName).companions[0];
-			var indHtml = dataset.select('.indicator[name="' + primeDI[1] + '"]').html();
-			pickedIndicator(primeDI[0], primeDI[1], indHtml);
-		});
+		// when clicking on dataset, update to first companion; but only for non-touch screens
+		if ($('html').hasClass('no-touch')) {
+			dataset.selectAll('a:not(.indicator)').on('click', function() {
+				var primeDI = getInfo(datasetName).companions[0];
+				var indHtml = dataset.select('.indicator[name="' + primeDI[1] + '"]').html();
+				pickedIndicator(primeDI[0], primeDI[1], indHtml);
+			});
+		}
 
 		dataset.selectAll('li').on('click', function() {
 			if (!d3.select(this).classed('disabled')) {
