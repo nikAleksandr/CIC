@@ -662,6 +662,7 @@ function executeSearchMatch(FIPS) {
 	
 	var county = countyObjectById[parseInt(FIPS)];
     if (county) {
+    	$.noty.closeAll();
 		highlight(county);
 		var zoomTransition = zoomTo(FIPS);
 	    populateTooltip(county);
@@ -671,7 +672,7 @@ function executeSearchMatch(FIPS) {
 		return zoomTransition;
 	} else {
 		tooltip.classed('hidden', true);
-		//noty({text: 'No information availble for this county'});
+		noty({text: 'Data not available for this county'});
 		return false;
 	}    
 };
