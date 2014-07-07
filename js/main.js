@@ -1007,6 +1007,7 @@ function manipulateData(qbis, indObjs) {
 				// modify binary values
 				if (quantByIds[i][ind] === true) quantByIds[i][ind] = 'Yes';
 				else if (quantByIds[i][ind] === false) quantByIds[i][ind] = 'No';
+				else if (quantByIds[i][ind] === 2) quantByIds[i][ind] = 'Yes';
 			} else if (indObjs[i].dataType === 'level') {
 				// if there's data for it, change null to 0 (prob should change in database, but this is easier for now)
 				if (isNaN(quantByIds[i][ind]) && !exceptionCounties.hasOwnProperty(parseInt(ind))) quantByIds[i][ind] = 0;
