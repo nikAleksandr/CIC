@@ -1146,7 +1146,7 @@ function changeLegendTitle() {
 	
 	
 	// **temp hack for issue where 3069 is not being filled in completely **delete this when fixed!!**
-	if (primeIndObj.name === 'Total County') d3.select('#legendTitle').text(primeIndObj.year + ' ' + hacked_dataset);
+	if (primeIndObj.dataset.indexOf('Expenditures') !== -1 && primeIndObj.name === 'Total County') d3.select('#legendTitle').text(primeIndObj.year + ' ' + hacked_dataset);
 }
 
 function populateTooltip(d) {
