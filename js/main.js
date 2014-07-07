@@ -42,11 +42,13 @@ var format = {
     	}
     },
     "dec1": function(num, type) {
-    	if (num === 0) return 0;
-    	else return d3.format('1f')(num);
+    	if (num >= 1000) return d3.format(',.0f')(num);
+    	else if (num === 0) return 0;
+    	else return d3.format('.1f')(num);
     },
     "dec2": function(num, type) {
-    	if (num === 0) return 0;
+    	if (num >= 1000) return d3.format(',.0f')(num);
+    	else if (num === 0) return 0;
     	else return d3.format('.2f')(num);
     },
     'none': function(num) { return num; }
@@ -81,11 +83,13 @@ var format_tt = {
     	}
     },
     "dec1": function(num, type) {
-    	if (num === 0) return 0;
-    	else return d3.format('1f')(num);
+    	if (num >= 1000) return d3.format(',.0f')(num);
+    	else if (num === 0) return 0;
+    	else return d3.format('.1f')(num);
     },
     "dec2": function(num, type) {
-    	if (num == 0) return 0;
+    	if (num >= 1000) return d3.format(',.0f')(num);
+    	else if (num === 0) return 0;
     	else return d3.format('.2f')(num);
     },
     'none': function(num) { return num; }
