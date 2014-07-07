@@ -420,6 +420,7 @@ h1 small {
 	white-space:nowrap;
 	top: 15px;
 }
+#iconsGroup a { cursor: pointer }
 .iconContainer{
 	display:block;
 	vertical-align:middle;
