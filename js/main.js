@@ -5,7 +5,7 @@ function toTitleCase(str){ return str.replace(/\w\S*/g, function(txt){return txt
 function isNumFun(data_type) { return (data_type === 'level' || data_type === 'level_np' || data_type === 'percent'); }
 function positionInstruction(){var instructionLeft = (windowWidth * .2) / 2; if(windowWidth > 1125){instructionLeft = (windowWidth - 900)/2;}; d3.select('#instructions').style({"left": instructionLeft - containerOffset.left + "px", "height": height + "px"});}
 var stateNameList = ['AK', 'AL', 'AR', 'AZ', 'CA', 'CO', 'CT', 'DC', 'DE', 'FL', 'GA', 'HI', 'IA', 'ID', 'IL', 'IN', 'KS', 'KY', 'LA', 'MA', 'MD', 'ME', 'MI', 'MN', 'MO', 'MS', 'MT', 'NC', 'ND', 'NE', 'NH', 'NJ', 'NM', 'NV', 'NY', 'OH', 'OK', 'OR', 'PA', 'RI', 'SC', 'SD', 'TN', 'TX', 'UT', 'VA', 'VT', 'WA', 'WI', 'WV', 'WY'];
-var exceptionCounties = {9001: true, 9003: true, 9005: true, 9007: true, 9009: true, 9011: true, 9013: true, 9015: true, 44001: true, 44003: true, 44005: true, 44007: true, 44009: true, 25003: true, 25009: true, 25011: true, 25013: true, 25015: true, 25017: true, 25027: true};
+var exceptionCounties = {9001: true, 9003: true, 9005: true, 9007: true, 9009: true, 9011: true, 9013: true, 9015: true, 44001: true, 44003: true, 44005: true, 44007: true, 44009: true, 25003: true, 25009: true, 25011: true, 25013: true, 25015: true, 25017: true, 25027: true, 51510: true, 51520: true, 51530: true, 51540: true, 51550: true, 51570: true, 51580: true, 51590: true, 51595: true, 51600: true, 51610: true, 51620: true, 51630: true, 51640: true, 51650: true, 51660: true, 51670: true, 51678: true, 51680: true, 51683: true, 51685: true, 51690: true, 51700: true, 51710: true, 51720: true, 51730: true, 51735: true, 51740: true, 51750: true, 51760: true, 51770: true, 51775: true, 51790: true, 51800: true, 51810: true, 51820: true, 51830: true, 51840: true};
 
 // default for noty alert system
 $.noty.defaults.layout = 'center';
@@ -293,6 +293,7 @@ function emptyInstructionText() {
 	$('#instructionPagination').hide();
 	$('#showOnMap').hide();
 	$('#print').hide();
+	$('#instructionText').scrollTop(0);
 }
 //form submit thank you
 function thankYou(){
