@@ -563,7 +563,7 @@
           		"vintage": 2013,
         		"children": [
         			{"name": "Population Level", "dataType": "level", "definition": "The calculated number of people living in an area as of a specified point in time, usually July 1st. The estimated population is calculated using a component of change model that incorporates information on natural increase (births, deaths) and net migration (net domestic migration, net international migration) that has occurred in an area since the latest decennial census."},
-        			{"name": "Population Density", "unit": "persons per square mile", "dataType": "level", "definition": "Number of people per square mile according to the population estimates from the Census Bureau."},
+        			{"name": "Population Density", "unit": "persons per square mile", "format_type": "dec1", "dataType": "level", "definition": "Number of people per square mile according to the population estimates from the Census Bureau."},
         			{"name": "Population Density Growth Rate (from previous year)", "dataType": "percent", "definition": "The difference between the population density of an area at the beginning and end of a time period, expressed as a percentage of the beginning population density."},
         			{"name": "Total Land Area", "dataType": "level", "definition": "Total land area of the county in square miles."}
         		]

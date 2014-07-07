@@ -42,11 +42,13 @@ var format = {
     	}
     },
     "dec1": function(num, type) {
-    	if (num === 0) return 0;
-    	else return d3.format('1f')(num);
+    	if (num >= 1000) return d3.format(',.0f')(num);
+    	else if (num === 0) return 0;
+    	else return d3.format('.1f')(num);
     },
     "dec2": function(num, type) {
-    	if (num === 0) return 0;
+    	if (num >= 1000) return d3.format(',.0f')(num);
+    	else if (num === 0) return 0;
     	else return d3.format('.2f')(num);
     },
     'none': function(num) { return num; }
@@ -81,11 +83,13 @@ var format_tt = {
     	}
     },
     "dec1": function(num, type) {
-    	if (num === 0) return 0;
-    	else return d3.format('1f')(num);
+    	if (num >= 1000) return d3.format(',.0f')(num);
+    	else if (num === 0) return 0;
+    	else return d3.format('.1f')(num);
     },
     "dec2": function(num, type) {
-    	if (num == 0) return 0;
+    	if (num >= 1000) return d3.format(',.0f')(num);
+    	else if (num === 0) return 0;
     	else return d3.format('.2f')(num);
     },
     'none': function(num) { return num; }
@@ -128,6 +132,7 @@ var corrDomain = [], // only used for categorical data; a crosswalk for the rang
 
 var range = [], // array of colors used for coloring the map
 	na_color = 'rgb(204,204,204)', // color for counties with no data
+	highlight_color = 'rgb(212,112,106)', // highlight color for counties
 	percent_colors = ['rgb(522,204,102)', 'rgb(255,153,51)', 'rgb(49,130,189)', 'rgb(7,81,156)', 'rgb(28,53,99)'],
 	binary_colors = ['rgb(28,53,99)', 'rgb(255,153,51)'],
 	categorical_colors = ['rgb(522,204,102)', 'rgb(255,153,51)', 'rgb(49,130,189)', 'rgb(7,81,156)', 'rgb(28,53,99)'],
@@ -149,7 +154,8 @@ function setup(width, height) {
     	.attr("id", "mapSvg")
     	.append("g")
     		.attr("transform", "translate(" + width / 2 + "," + height / 2 + ")")
-    		.call(zoom);
+    		.call(zoom)
+    		.on("dblclick.zoom", null);
 	
 	g = svg.append("g").attr("class", "counties");
 	
@@ -1063,7 +1069,7 @@ function getInfo(dataset, indicator){
 function fillMapColors() {
 	selected = null, frmrActive = null;
 	colorKeyArray = {};
-	g.selectAll(".counties .county").transition().duration(750).style("fill", function(d, i) {		
+	g.selectAll(".counties .county").transition().duration(750).style("fill", function(d, i) {
 		if (isNumFun(currentDataType)) {
 			return isNaN(quantByIds[0][d.id]) ? na_color : color(quantByIds[0][d.id]);
 		} else if (currentDataType === 'binary') {
@@ -1082,8 +1088,11 @@ function fillMapColors() {
 				}
 				return neighbor_colors(d.color);	
 			}
-		}	
+		}
 	});
+	
+	// set highlight color after timeout...not a good way to do it but don't want to observe 3069 transitions a la transition.each('end', func)
+	//setTimeout(function() { if ($('.county.active').length > 0) highlight($('.county.active')[0]); }, 1000);
 }
 
 function createLegend(thresholdBool, keyArray, dataVals) {
@@ -1216,14 +1225,17 @@ function positionTooltip(county) {
 		var ttWidth = $('#tt').width(); // tooltip width and height
 		var ttHeight = $('#tt').height();
 		
+		var scroll_top = (document.documentElement && document.documentElement.scrollTop) || document.body.scrollTop;
+		var scroll_left = (document.documentElement && document.documentElement.scrollLeft) || document.body.scrollLeft;
+
 		var countyCoord = county.getBoundingClientRect(); // county position relative to document.body
-		var top = countyCoord.top - ttHeight - containerOffset.top + document.body.scrollTop - 10; // top relative to map
+		var top = countyCoord.top - ttHeight - containerOffset.top + scroll_top - 10; // top relative to map
 		
 		if (currentSecondDI === '') {
-			var left = countyCoord.left + countyCoord.width - ttWidth - containerOffset.left + document.body.scrollLeft + 20; // left relative to map
+			var left = countyCoord.left + countyCoord.width - ttWidth - containerOffset.left + scroll_left + 20; // left relative to map
 			var arrow_left = -20 + countyCoord.width/2;
 		} else {
-			var left = countyCoord.left + countyCoord.width/2 - ttWidth/2 - containerOffset.left + document.body.scrollLeft + 5;
+			var left = countyCoord.left + countyCoord.width/2 - ttWidth/2 - containerOffset.left + scroll_left + 5;
 			var arrow_left = -35 + ttWidth/2;
 		}
 		
@@ -1253,6 +1265,7 @@ function positionTooltip(county) {
 function doubleClicked(fips) {
 	tooltip.classed("hidden", true);
 	
+	zoomTo(parseInt(fips));
 	var countyID = fips.toString();
 	if (countyID.length == 4) countyID = "0" + countyID;
 	displayResults('county.cfm?id=' + countyID);

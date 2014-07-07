@@ -223,7 +223,7 @@ body { position: relative; }
 
 #header {
 	position: relative;
-	z-index: 10;
+	z-index: 101;
 	width: 100%;
 	height: auto;
 	margin-bottom: -1em;
@@ -420,6 +420,7 @@ h1 small {
 	white-space:nowrap;
 	top: 15px;
 }
+#iconsGroup a { cursor: pointer }
 .iconContainer{
 	display:block;
 	vertical-align:middle;
