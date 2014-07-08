@@ -395,9 +395,8 @@ h1 small {
 }
 .county.active {
 	/*fill: rgb(0, 173, 220); */
-	/*stroke:rgb(255,166,1);*/
+	stroke:rgb(255,166,1);
 	fill: rgb(225,0,0);
-	stroke: black;
 	stroke-width: .7px;
 	/*fill: rgb(253,156,2);*/
 }
