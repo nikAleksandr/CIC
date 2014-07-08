@@ -285,6 +285,7 @@ function draw(topo, stateMesh) {
 		
 		$('.county').addSwipeEvents().bind('doubletap', function(event, touch) {
 			event.stopPropagation();
+			inTransition = false;
 			doubleClicked(event.target.id);
 		});
 	}
@@ -458,23 +459,25 @@ function setDropdownBehavior() {
 	
 	var pickedSecondaryIndicator = function(dataset, indicator, html) {
 		$.SmartMenus.hideAll();
-		if (currentSecondDI === dataset + ' - ' + indicator) {
-			noty({text: 'Already showing "' + indicator + '" as a secondary indicator'});
-		} else {
+		//if (currentSecondDI === dataset + ' - ' + indicator) {
+		//	noty({text: 'Already showing "' + indicator + '" as a secondary indicator'});
+		//} else {
 			appendSecondInd(dataset, indicator);
 			//d3.select('#secondIndText').html(html + '<span class="sub-arrow"></span>');
-		}
+		//}
 	};
 
 	d3.select('#secondInd').selectAll('.dataset').each(function() {
 		var dataset = d3.select(this);		
 		var datasetName = dataset.attr('name');
 
-		dataset.selectAll('a:not(.indicator)').on('click', function() {
-			var secDI = getInfo(datasetName).companions[0];
-			var indHtml = dataset.select('.indicator[name="' + secDI[1] + '"]').html();
-			pickedSecondaryIndicator(secDI[0], secDI[1], indHtml);
-		});
+		if ($('html').hasClass('no-touch')) {
+			dataset.selectAll('a:not(.indicator)').on('click', function() {
+				var secDI = getInfo(datasetName).companions[0];
+				var indHtml = dataset.select('.indicator[name="' + secDI[1] + '"]').html();
+				pickedSecondaryIndicator(secDI[0], secDI[1], indHtml);
+			});
+		}
 
 		dataset.selectAll('li').on('click', function() {
 			if (!d3.select(this).classed('disabled')) {
@@ -1425,6 +1428,7 @@ setup(width,height);
 
 disableIndicators('indicator', 'County Profile', 'Fiscal Year End Date');
 //disableIndicators('indicator', 'County Profile', 'State Capitol');
+disableIndicators('indicator', 'Land & Water Area', 'Coastal Status');
 
 // for testing
 /*
