@@ -1082,45 +1082,42 @@ function getInfo(dataset, indicator){
 }
 
 function fillMapColors() {
-	//selected = null, frmrActive = null;
-	
-	var getColor = function(id, color) {
-		if (selected && selected.id === id) {
-			frmrFill = color;
-			return highlight_color;
-		} else return color;		
+	var getColor = function(type, d) {
+		switch(type) {
+			case 'binary':
+				return (corrDomain.hasOwnProperty(d.id)) ? range[corrDomain[d.id]] : na_color;
+			case 'categorical':
+				return isNaN(corrDomain[d.id]) ? na_color : range[corrDomain[d.id]];
+			case 'level':
+			case 'level_np':
+			case 'percent':
+				return isNaN(quantByIds[0][d.id]) ? na_color : color(quantByIds[0][d.id]);
+			default:
+				// for datatype: "none"
+				var val = quantByIds[0][d.id];
+				if (typeof val === 'undefined' || val === null || val === 0) return na_color;
+				else {	
+					if (!colorKeyArray.hasOwnProperty(val)) {
+						d.color = d3.max(neighbors[i], function(n) { return topo[n].color; }) + 1 | 0;
+						colorKeyArray[val] = d.color;
+					} else {
+						d.color = colorKeyArray[val];
+					}
+					return neighbor_colors(d.color);	
+				}
+		}
 	};
 	
-	// purposefully redundant for speed
-	if (currentDataType === 'binary') {
-		g.selectAll('.counties .county').transition().duration(750).style('fill', function(d, i) {
-			return getColor(d.id, (corrDomain.hasOwnProperty(d.id)) ? range[corrDomain[d.id]] : na_color);
-		});
-	} else if (currentDataType === 'categorical') {
-		g.selectAll('.counties .county').transition().duration(750).style('fill', function(d, i) {
-			return getColor(d.id, isNaN(corrDomain[d.id]) ? na_color : range[corrDomain[d.id]]);
-		});		
-	} else if (isNumFun(currentDataType)) {
-		g.selectAll('.counties .county').transition().duration(750).style('fill', function(d, i) {
-			return getColor(d.id, isNaN(quantByIds[0][d.id]) ? na_color : color(quantByIds[0][d.id]));
-		});		
-	} else {
-		// for datatype: "none"
-		var colorKeyArray = {};
-		g.selectAll('.counties .county').transition().duration(750).style('fill', function(d, i) {
-			var val = quantByIds[0][d.id];
-			if (typeof val === 'undefined' || val === null || val === 0) return getColor(d.id, na_color);
-			else {	
-				if (!colorKeyArray.hasOwnProperty(val)) {
-					d.color = d3.max(neighbors[i], function(n) { return topo[n].color; }) + 1 | 0;
-					colorKeyArray[val] = d.color;
-				} else {
-					d.color = colorKeyArray[val];
-				}
-				return getColor(d.id, neighbor_colors(d.color));	
-			}
-		});		
-	}
+	var colorKeyArray = {}; // used for datatype: "none"
+	g.selectAll('.counties .county:not(.active)').transition().duration(750).style('fill', function(d, i) {
+		return getColor(currentDataType, d);
+	});
+	
+	// for selected county, keep highlighted color but still find map color and store it
+	g.selectAll('.counties .county.active').transition().duration(750).style('fill', function(d, i) {
+		frmrFill = getColor(currentDataType, d);
+		return highlight_color;
+	});
 }
 
 function createLegend(thresholdBool, keyArray, dataVals) {
