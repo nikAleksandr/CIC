@@ -1,10 +1,9 @@
-<CFIF #CGI.REMOTE_ADDR# EQ "199.10.10.78" OR #CGI.REMOTE_ADDR# EQ "4.34.167.180">
+<CFIF #CGI.REMOTE_ADDR# EQ "199.10.10.78" OR #CGI.REMOTE_ADDR# EQ "4.34.167.180" OR #CGI.REMOTE_ADDR# EQ "199.10.10.67">
 <CFOUTPUT>
-You are good to go...
 </CFOUTPUT>
 <CFELSE>
 <CFOUTPUT>
-SORRY YOU ARE NOT ALLOWED HERE - You will be redirected to some other location<CFLOCATION url="../index.html?noaccess=1">
+Please log in to COIN and try again. <CFLOCATION url="../index.html?noaccess=1">
 </CFOUTPUT>
 </CFIF>
 
@@ -35,16 +34,16 @@ SORRY YOU ARE NOT ALLOWED HERE - You will be redirected to some other location<C
 		<meta itemprop="description" content="Explore your county through over 500 indicators and nearly 70 datasets.">
 		<meta itemprop="image" content="http://cic.naco.org/CICFullThumb.png">
 		
-        <link rel="stylesheet" href="css/normalize.css">
+        <link rel="stylesheet" href="../css/normalize.css">
 		<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" media="all">
 		<link href='http://fonts.googleapis.com/css?family=Roboto+Condensed:300,400' rel='stylesheet' type='text/css'>
 		<link href='http://fonts.googleapis.com/css?family=Arvo' rel='stylesheet' type='text/css'>
-        <link rel="stylesheet" href="css/main.css" media="all">
+        <link rel="stylesheet" href="../css/main.css" media="all">
         <!-- SmartMenus jQuery Bootstrap Addon CSS -->
-		<link href="css/jquery.smartmenus.bootstrap.css" rel="stylesheet">
+		<link href="../css/jquery.smartmenus.bootstrap.css" rel="stylesheet">
 		<!--Rediculously Responsive Social Sharing Buttons-->
-        <link rel="stylesheet" href="css/rrssb.css" />
-        <script src="js/vendor/modernizr-2.7.1.min.js"></script>
+        <link rel="stylesheet" href="../css/rrssb.css" />
+        <script src="../js/vendor/modernizr-2.7.1.min.js"></script>
         <script src="http://d3js.org/d3.v3.min.js"></script>
 		<script src="http://d3js.org/topojson.v1.min.js"></script>
     </head>
@@ -59,7 +58,7 @@ SORRY YOU ARE NOT ALLOWED HERE - You will be redirected to some other location<C
   				</p>
 			</div>
 			<div class="col-md-2">
-				<img id="nacoLogo" alt="National Association of Counties Logo" src="img/NACoLogo_NoTagBLACK_tm.png" />
+				<img id="nacoLogo" alt="National Association of Counties Logo" src="../img/NACoLogo_NoTagBLACK_tm.png" />
 			</div>
 			</div>
 				
@@ -950,15 +949,15 @@ SORRY YOU ARE NOT ALLOWED HERE - You will be redirected to some other location<C
 												<li>
 													<a class="indicator" name="Size of Board" href="#">Size of Board</a>
 												</li>
-												<li>
+												<!--<li>
 													<a class="indicator" name="Elected Executive" href="#">Elected Executive</a>
-												</li>
+												</li>-->
 												<li>
 													<a class="indicator" name="Number of Other Elected Officials" href="#">Number of Other Elected Officials</a>
 												</li>
-												<li>
+												<!--<li>
 													<a class="indicator" name="County Administrator" href="#">County Administrator</a>
-												</li>
+												</li>-->
 											</ul>
 										</li>
 									</ul>
@@ -3603,15 +3602,15 @@ SORRY YOU ARE NOT ALLOWED HERE - You will be redirected to some other location<C
 												<li>
 													<a class="indicator" name="Size of Board" href="#">Size of Board</a>
 												</li>
-												<li>
+												<!--<li>
 													<a class="indicator" name="Elected Executive" href="#">Elected Executive</a>
-												</li>
+												</li>-->
 												<li>
 													<a class="indicator" name="Number of Other Elected Officials" href="#">Number of Other Elected Officials</a>
 												</li>
-												<li>
+												<!--<li>
 													<a class="indicator" name="County Administrator" href="#">County Administrator</a>
-												</li>
+												</li>-->
 											</ul>
 										</li>
 									</ul>
@@ -5458,11 +5457,11 @@ SORRY YOU ARE NOT ALLOWED HERE - You will be redirected to some other location<C
 						<li id="searchBox"><a>
 							<form id="search_form">
 								<input type="search" id="search_field" placeholder="county name">
-								<input type="image" src="img/active-search.svg" width="18px" height="18px" id="search_submit" value="Search">
+								<input type="image" src="../img/active-search.svg" width="18px" height="18px" id="search_submit" value="Search">
 							</form>
 						</a></li>
 						<li id="moreData">
-							<a id="moreDataButton" onclick="moreDataShow();" href="#"><span id="moreDataText">ACCESS MORE DATA</span><img id="moreDataImg" src="img/more_data.svg"/></a>
+							<a id="moreDataButton" onclick="moreDataShow();" href="#"><span id="moreDataText">ACCESS MORE DATA</span><img id="moreDataImg" src="../img/more_data.svg"/></a>
 						</li>
 					</ul>
 				  </div><!--/.nav-collapse -->
@@ -5481,7 +5480,7 @@ SORRY YOU ARE NOT ALLOWED HERE - You will be redirected to some other location<C
 							<div class="row">
 								<div class="col-md-5">
 									<h3><a href="http://www.countyinnovation.us/t/cic">Full Interactive Map</a></h3>
-									<a href="http://www.countyinnovation.us/t/cic"><img src="img/CICFullThumb.png"/></a>
+									<a href="http://www.countyinnovation.us/t/cic"><img src="../img/CICFullThumb.png"/></a>
 								</div>
 								<div class="col-md-7">
 									<p>Access all 18 categories, 66 datasets, and over 500 indicators for display on the interactive map.<br/><br/>Login free to COIN <a href="http://www.countyinnovation.us/t/cic">here</a> to access</p>
@@ -5490,7 +5489,7 @@ SORRY YOU ARE NOT ALLOWED HERE - You will be redirected to some other location<C
 							<div class="row">
 								<div class="col-md-5">
 									<h3><a href="http://cic.naco.org/cic_extraction/cic_extraction_1.cfm">CIC Extraction Tool</a></h3>
-									<a href="http://cic.naco.org/cic_extraction/cic_extraction_1.cfm"><img src="img/CICExtractionThumb.png"/></a>
+									<a href="http://cic.naco.org/cic_extraction/cic_extraction_1.cfm"><img src="../img/CICExtractionThumb.png"/></a>
 								</div>
 								<div class="col-md-7">
 									<p>Full access to all the most recent data and additional historical data for all 18 categories, 66 datasets, and over 500 indicators.<br/><br/>Customizable data downloads available <a href="http://cic.naco.org/cic_extraction/cic_extraction_1.cfm">here</a></p>
@@ -5553,11 +5552,11 @@ SORRY YOU ARE NOT ALLOWED HERE - You will be redirected to some other location<C
 								<div class="helpList">&bull; Or search for a county with the search bar on the top right of the screen.</div>
 							</p>
 							<br/>
-							<div>Click on <div id="moreDataButton2" onclick="moreDataShow();" style="width:190px;"><span id="moreDataText">ACCESS MORE DATA</span><img id="moreDataImg2" src="img/more_data.svg"/></div> to access more data or to sign up to download data through the CIC extraction tool (Coming September, 2014)</div>
+							<div>Click on <div id="moreDataButton2" onclick="moreDataShow();" style="width:190px;"><span id="moreDataText">ACCESS MORE DATA</span><img id="moreDataImg2" src="../img/more_data.svg"/></div> to access more data or to sign up to download data through the CIC extraction tool (Coming September, 2014)</div>
 							<br/>
-							<div><img src="img/Mail.svg"> - Sign up for CIC DATA UPDATES to be the first to know the latest information about counties</div>
+							<div><img src="../img/Mail.svg"> - Sign up for CIC DATA UPDATES to be the first to know the latest information about counties</div>
 							<br/>
-							<div><img src="img/Share.svg"> - Share the CIC on social media</div>
+							<div><img src="../img/Share.svg"> - Share the CIC on social media</div>
 							<br/><br/><br/>
 						</div>
 	        		</div>
@@ -5568,7 +5567,7 @@ SORRY YOU ARE NOT ALLOWED HERE - You will be redirected to some other location<C
 	        				<br>
 	        				<p>Clicking on a county will now compare statistics for both selected indicators</p>
 	        				<br/>
-	        				<p><img src="img/Reset_indicators.svg"> - Click this to no longer see the secondary indicator</p>
+	        				<p><img src="../img/Reset_indicators.svg"> - Click this to no longer see the secondary indicator</p>
 	        			</div>
 	        		</div>
 					<div class="iText helpText" id="helpText4">
@@ -5592,20 +5591,21 @@ SORRY YOU ARE NOT ALLOWED HERE - You will be redirected to some other location<C
 								<br/>
 								<div class="helpList">&bull; Scroll up when hovering over the map to ZOOM IN.</div>
 								<div class="helpList">&bull; Scroll down when hovering over the map to ZOOM OUT.</div>
-								<p>&bull; Click <img src="img/Back_to_US.svg"> to fully zoom out and see the entire map</p>
+								<p>&bull; Click <img src="../img/Back_to_US.svg"> to fully zoom out and see the entire map</p>
 							</p>
 						</div>
 	        		</div>
 	        		<div class="iText helpText" id="helpText6">
 						<div class="helpTitle"><h3>County Seats and Elected Executives</h3></div>
 						<div class="helpContainer">
-							<p class="helpList">Double-click on any county to view basic information about it, including its county seat and a list of elected officials.</p>
+							<p>Coming Soon!  We are in the process of collecting and cleaning this data for your use.</p>
+							<!--<p class="helpList">Double-click on any county to view basic information about it, including its county seat and a list of elected officials.</p>
 							<p class="helpList">You can also find out whether a county has an Elected Executive or County Administrator by selecting from the "Primary Indicator"</p>
 							<p>
 								<div class="helpList">&bull; Hover over the "County Structure" category</div>
 								<div class="helpList">&bull; Hover over the "Government Structure" dataset</div>
 								<div class="helpList">&bull; Select "Elected Executive" or "County Administrator" to see which counties have that position</div>
-							</p>
+							</p>-->
 						</div>
 	        		</div>
 	        	</div>
@@ -5625,11 +5625,11 @@ SORRY YOU ARE NOT ALLOWED HERE - You will be redirected to some other location<C
 			
 			<div id="map">
 				<table id="iconsGroup"><tbody>
-					<tr><td><a id="showHelpIcon" title="Help"><img class="my-icons" alt="Help" src="img/Help.svg"/></a></td><td id="showHelpIconText" class="extraInstructions"> - Help</td></tr>
-					<tr><td><a id="backToMapIcon" title="Back to US Map"><img class="my-icons" alt="Back to US Map" src="img/Back_to_US.svg"/></a></td><td id="backToMapIconText" class="extraInstructions"> - Back to US Map</td></tr>
-					<tr><td><a id="resetAllIcon" title="Reset Indicators"><img class="my-icons" alt="Reset Indicators" src="img/Reset_indicators.svg"/></a></td><td id="resetAllIconText" class="extraInstructions"> - Remove Second Indicator</td></tr>
-					<tr><td><a id="showHideRrssbIcon" title="Share this info"><img class="my-icons" alt="Share this info" src="img/Share.svg"/></a></td><td id="showHideRrssbIconText" class="extraInstructions"> - Share this map!</td></tr>
-					<tr><td><a id="addToMailingListIcon" title="Add Me To Mailing List"><img class="my-icons" alt="Add Me To Mailing List" src="img/Mail.svg"/></a></td><td id="addToMailingListIconText" class="extraInstructions"> - Add to Mailing List</td></tr>
+					<tr><td><a id="showHelpIcon" title="Help"><img class="my-icons" alt="Help" src="../img/Help.svg"/></a></td><td id="showHelpIconText" class="extraInstructions">Help</td></tr>
+					<tr><td><a id="backToMapIcon" title="Back to US Map"><img class="my-icons" alt="Back to US Map" src="../img/Back_to_US.svg"/></a></td><td id="backToMapIconText" class="extraInstructions">Back to US Map</td></tr>
+					<tr><td><a id="resetAllIcon" title="Reset Indicators"><img class="my-icons" alt="Reset Indicators" src="../img/Reset_indicators.svg"/></a></td><td id="resetAllIconText" class="extraInstructions">Remove Second Indicator</td></tr>
+					<tr><td><a id="showHideRrssbIcon" title="Share this info"><img class="my-icons" alt="Share this info" src="../img/Share.svg"/></a></td><td id="showHideRrssbIconText" class="extraInstructions">Share this map!</td></tr>
+					<tr><td><a id="addToMailingListIcon" title="Add Me To Mailing List"><img class="my-icons" alt="Add Me To Mailing List" src="../img/Mail.svg"/></a></td><td id="addToMailingListIconText" class="extraInstructions">Add to Mailing List</td></tr>
 				</tbody></table>
 			</div>
 			<div id="zoomIcons">
@@ -5755,22 +5755,22 @@ SORRY YOU ARE NOT ALLOWED HERE - You will be redirected to some other location<C
 			<!-- Buttons end here -->
 	    </div>
 	    </div>
-	    <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.10.2.min.js"><\/script>')</script>
+	    <script>window.jQuery || document.write('<script src="../js/vendor/jquery-1.10.2.min.js"><\/script>')</script>
         <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
         <!-- SmartMenus jQuery plugin -->
-		<script src="js/jquery.smartmenus.js" type="text/javascript"></script>
+		<script src="../js/jquery.smartmenus.js" type="text/javascript"></script>
 		<!-- SmartMenus jQuery Bootstrap Addon -->
-		<script type="text/javascript" src="js/jquery.smartmenus.bootstrap.min.js"></script>
+		<script type="text/javascript" src="../js/jquery.smartmenus.bootstrap.min.js"></script>
 		<!--RRSSB js -->
-        <script src="js/rrssb.min.js"></script>
-		<script src="js/vendor/jquery.noty.packaged.min.js"></script>
-		<script src="js/vendor/jquery.doubletap.js"></script>
-		<script src="js/svgenie/rgbcolor.js"></script>
-		<script src="js/svgenie/canvg.js"></script>
-		<script src="js/svgenie/svgenie.js"></script>
-        <script src="js/plugins.js"></script>
-        <script src="js/colorlegend.js"></script>
-        <script src="js/main.js"></script>
+        <script src="../js/rrssb.min.js"></script>
+		<script src="../js/vendor/jquery.noty.packaged.min.js"></script>
+		<script src="../js/vendor/jquery.doubletap.js"></script>
+		<script src="../js/svgenie/rgbcolor.js"></script>
+		<script src="../js/svgenie/canvg.js"></script>
+		<script src="../js/svgenie/svgenie.js"></script>
+        <script src="../js/plugins.js"></script>
+        <script src="../js/colorlegend.js"></script>
+        <script src="../js/main.js"></script>
         <!-- Google Analytics: -->
         <script>
 		  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
