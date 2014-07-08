@@ -1093,7 +1093,7 @@ function fillMapColors() {
 			case 'percent':
 				return isNaN(quantByIds[0][d.id]) ? na_color : color(quantByIds[0][d.id]);
 			default:
-				// for datatype: "none"
+				// for datatype: "none", colors it with category10 and neighbors with same value are same color
 				var val = quantByIds[0][d.id];
 				if (typeof val === 'undefined' || val === null || val === 0) return na_color;
 				else {	
