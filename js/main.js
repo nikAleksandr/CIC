@@ -1109,6 +1109,7 @@ function fillMapColors() {
 	};
 	
 	var colorKeyArray = {}; // used for datatype: "none"
+	
 	g.selectAll('.counties .county:not(.active)').transition().duration(750).style('fill', function(d, i) {
 		return getColor(currentDataType, d);
 	});
