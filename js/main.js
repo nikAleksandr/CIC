@@ -1293,8 +1293,7 @@ function zoomTo(fips) {
 	var transAdjust = 20; // adjust so county appears towards the bottom to provide room for tooltip
 	var area = path.area(countyPathById[fips]); // zoom based on area
 	// smallest counties (area=5) get more zoom; medium counties (area=100) get medium zoom; large counties (area=1000) get small zoom
-	if (area < 5) s = 8;
-	else if (area < 10) s = 7;
+	if (area < 10) s = 7;
 	else if (area < 50) s = 6;
 	else if (area < 200) s = 5.5;
 	else if (area < 400) s = 5;
