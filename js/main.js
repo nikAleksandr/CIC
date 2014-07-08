@@ -132,7 +132,7 @@ var corrDomain = [], // only used for categorical data; a crosswalk for the rang
 
 var range = [], // array of colors used for coloring the map
 	na_color = 'rgb(204,204,204)', // color for counties with no data
-	highlight_color = 'rgb(212,112,106)', // highlight color for counties
+	highlight_color = 'rgb(225,0,0)', // highlight color for counties
 	percent_colors = ['rgb(522,204,102)', 'rgb(255,153,51)', 'rgb(49,130,189)', 'rgb(7,81,156)', 'rgb(28,53,99)'],
 	binary_colors = ['rgb(28,53,99)', 'rgb(255,153,51)'],
 	categorical_colors = ['rgb(522,204,102)', 'rgb(255,153,51)', 'rgb(49,130,189)', 'rgb(7,81,156)', 'rgb(28,53,99)'],
@@ -671,11 +671,11 @@ function executeSearchMatch(FIPS) {
 	$('#instructions').hide();
 	$('#search_field').val('');
 	
-	var county = countyObjectById[parseInt(FIPS)];
+	var county = countyObjectById[+FIPS];
     if (county) {
     	$.noty.closeAll();
 		highlight(county);
-		var zoomTransition = zoomTo(FIPS);
+		var zoomTransition = zoomTo(+FIPS);
 	    populateTooltip(county);
 		zoomTransition.each('end', function() { 
 			positionTooltip($('.county.active')[0]); 
@@ -692,7 +692,7 @@ function displayResults(url) {
 	emptyInstructionText();
 	$('#print').css('display', 'inline');
 	
-	d3.xhr('http://nacocic.naco.org/ciccfm/'+ url, function(error, request){
+	d3.xhr('/ciccfm/'+ url, function(error, request){
 		if (!error) {
 			var response = request.responseText;
 			if (response.indexOf('An error occurred') !== -1) {
@@ -709,7 +709,7 @@ function displayResults(url) {
 			(url.indexOf('county') != -1) ? $('#showOnMap').show() : $('#showOnMap').hide();
 			$('#instructions').show();
 		} else {
-			console.log('Error retrieving data from : ' + 'http://nacocic.naco.org/ciccfm/' + url);
+			console.log('Error retrieving data from : ' + '/ciccfm/' + url);
 			console.log(error);
 		}
 	});
@@ -748,7 +748,7 @@ function appendSecondInd(dataset, indicator) {
 		s_quantByIds = qbis;
 		s_quantByIds = manipulateData(s_quantByIds, s_indObjects);
 		if (d3.select('.county.active').empty() !== true) {
-			populateTooltip(selected);
+			populateTooltip(d3.select('.county.active')[0][0]);
 			positionTooltip(d3.select('.county.active')[0][0]);
 		}
 	});
@@ -803,11 +803,11 @@ function getData(indObjs) {
 	  	}
 		    	
     	var getRequest = function(query_str, queryIndex) {
-		  	d3.xhr('http://nacocic.naco.org/ciccfm/indicators.cfm?'+ query_str, function(error, request){
+		  	d3.xhr('/ciccfm/indicators.cfm?'+ query_str, function(error, request){
 		    	try {
 		    		var responseObj = jQuery.parseJSON(request.responseText);
 		    	}
-		    	catch(error) { noty({text: 'Error retreiving information from database.'}); }
+		    	catch(error) { noty({text: 'Error retrieving information from database.'}); }
 		    	if (responseObj.ROWCOUNT === 0) noty({text: 'Database error: ROWCOUNT = 0'});
 		    	
 		    	// restructure response object to object indexed by fips, and add it to "data"	
@@ -1082,18 +1082,34 @@ function getInfo(dataset, indicator){
 }
 
 function fillMapColors() {
-	selected = null, frmrActive = null;
-	colorKeyArray = {};
-	g.selectAll(".counties .county").transition().duration(750).style("fill", function(d, i) {
-		if (isNumFun(currentDataType)) {
-			return isNaN(quantByIds[0][d.id]) ? na_color : color(quantByIds[0][d.id]);
-		} else if (currentDataType === 'binary') {
-			return (corrDomain.hasOwnProperty(d.id)) ? range[corrDomain[d.id]] : na_color;	
-		} else if (currentDataType === 'categorical') {
-			return isNaN(corrDomain[d.id]) ? na_color : range[corrDomain[d.id]];
-		} else {
+	//selected = null, frmrActive = null;
+	
+	var getColor = function(id, color) {
+		if (selected && selected.id === id) {
+			frmrFill = color;
+			return highlight_color;
+		} else return color;		
+	};
+	
+	// purposefully redundant for speed
+	if (currentDataType === 'binary') {
+		g.selectAll('.counties .county').transition().duration(750).style('fill', function(d, i) {
+			return getColor(d.id, (corrDomain.hasOwnProperty(d.id)) ? range[corrDomain[d.id]] : na_color);
+		});
+	} else if (currentDataType === 'categorical') {
+		g.selectAll('.counties .county').transition().duration(750).style('fill', function(d, i) {
+			return getColor(d.id, isNaN(corrDomain[d.id]) ? na_color : range[corrDomain[d.id]]);
+		});		
+	} else if (isNumFun(currentDataType)) {
+		g.selectAll('.counties .county').transition().duration(750).style('fill', function(d, i) {
+			return getColor(d.id, isNaN(quantByIds[0][d.id]) ? na_color : color(quantByIds[0][d.id]));
+		});		
+	} else {
+		// for datatype: "none"
+		var colorKeyArray = {};
+		g.selectAll('.counties .county').transition().duration(750).style('fill', function(d, i) {
 			var val = quantByIds[0][d.id];
-			if (typeof val === 'undefined' || val === null || val === 0) return na_color;
+			if (typeof val === 'undefined' || val === null || val === 0) return getColor(d.id, na_color);
 			else {	
 				if (!colorKeyArray.hasOwnProperty(val)) {
 					d.color = d3.max(neighbors[i], function(n) { return topo[n].color; }) + 1 | 0;
@@ -1101,13 +1117,10 @@ function fillMapColors() {
 				} else {
 					d.color = colorKeyArray[val];
 				}
-				return neighbor_colors(d.color);	
+				return getColor(d.id, neighbor_colors(d.color));	
 			}
-		}
-	});
-	
-	// set highlight color after timeout...not a good way to do it but don't want to observe 3069 transitions a la transition.each('end', func)
-	//setTimeout(function() { if ($('.county.active').length > 0) highlight($('.county.active')[0]); }, 1000);
+		});		
+	}
 }
 
 function createLegend(thresholdBool, keyArray, dataVals) {
