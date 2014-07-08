@@ -579,10 +579,10 @@ div.tooltip {
 #primeIndLi{
 	margin-left:.7em;
 }
-#primeIndLi a, #secondIndLi a:not(#resetSecondInd), #stateDropText {
+#primeInd a, #secondInd a:not(#resetSecondInd), #stateDropText {
 	cursor: default; 
 }
-#stateDrop a {
+#primeIndText, #secondIndText, #stateDropText, #stateDrop a {
 	cursor: pointer;
 }
 #resetSecondInd {
