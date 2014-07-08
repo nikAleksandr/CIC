@@ -18,7 +18,7 @@ Data is recieved in JSON format from an SQL server by running requests through a
 =========
 ##Additional Functionality
 
-- Ctrl + shift + L will force the map to adopt a more standard single-hue color scheme for continuous data as seen at [www.colorbrewer2.org](Color Brewer)
+- Ctrl + shift + L will force the map to adopt a more standard single-hue color scheme for continuous data as seen at [Color Brewer](www.colorbrewer2.org)
 
 ![Single-hue colors](/img/CICThumb_IPad_oldColors.png)
 
