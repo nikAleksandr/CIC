@@ -1014,6 +1014,7 @@ function manipulateData(qbis, indObjs) {
 			} else if (indObjs[i].dataType === 'level') {
 				// if there's data for it, change null to 0 (prob should change in database, but this is easier for now)
 				if (isNaN(quantByIds[i][ind]) && !exceptionCounties.hasOwnProperty(parseInt(ind))) quantByIds[i][ind] = 0;
+				//if(perCap){quantByIds[i][ind] = quantByIds[i][ind]/popByIds[i][ind];}
 			} else if (indObjs[i].name === 'Level of CBSA') {
 				if (quantByIds[i][ind] === 1) quantByIds[i][ind] = 'Metropolitan';
 				else if (quantByIds[i][ind] === 2) quantByIds[i][ind] = 'Micropolitan';
