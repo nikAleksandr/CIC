@@ -671,11 +671,11 @@ function executeSearchMatch(FIPS) {
 	$('#instructions').hide();
 	$('#search_field').val('');
 	
-	var county = countyObjectById[parseInt(FIPS)];
+	var county = countyObjectById[+FIPS];
     if (county) {
     	$.noty.closeAll();
 		highlight(county);
-		var zoomTransition = zoomTo(FIPS);
+		var zoomTransition = zoomTo(+FIPS);
 	    populateTooltip(county);
 		zoomTransition.each('end', function() { 
 			positionTooltip($('.county.active')[0]); 
