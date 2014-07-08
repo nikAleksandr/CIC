@@ -141,7 +141,7 @@ table th{
 	background-color: rgba(255, 255, 255, .95);
 	background-image: none;
 	background-size: auto auto;
-	padding: 1% 2% 2% 2%;
+	padding: 1% 0% 2% 0%;
 	overflow: auto;
 }
 
@@ -165,7 +165,6 @@ table th{
 	padding-bottom: 20px;
 	text-align: left;
 	font-size: 1em;
-	padding: 20px;
 }
 .helpList { padding-bottom: 5px; }
 #instructionText a, #fullDefsText a, .county_link{
@@ -596,21 +595,49 @@ div.tooltip {
 /*
  * Styling for ALL CFM Responses
  */
+#resultsContainer{
+	padding:1em 0 1em 0;
+}
 #responseContent #multiCountyResult{
 	padding-bottom: 3em;
 	/*
 	 * Need to figure out how to scroll within response content, but leave "show on map" and "close" at the top
 	 */
 }
-#responseContent h4{
-	color:#000;
-	font-family: 'Arvo', serif;
-	text-align:center;
-}
 
+#responseContent h4{
+	color:rgb(255,152,51);
+	font-weight:bold;
+}
+.countyResponse-svg{
+	margin:5px;
+}
 /* 
  * County Response, all classes begin with countyResponse-<class>
  */
+#countyResponse-title{
+	font-family: 'Arvo', serif;
+	padding-left:2em;
+}
+#countyResponse-title, #countyResponse-quickLinks{
+	background-color:rgb(255,153,51);
+	color:#fff;
+}
+#countyResponse-basicInfoRow{
+	border-bottom-color: rgb(255,153,51);
+	border-bottom-style: solid;
+	border-bottom-width: 2px;
+}
+#countyResponse-quickLinks{
+	margin-bottom:0;
+	height:117px;
+}
+#countyResponse-quickLinks h4{
+	color:#fff;
+}
+#countyResponse-quickLinks a{
+	color:#fff;
+}
 #countyResponse-memberRow #countyResponse-nacoMember{
 	height: 1.4em;
 	margin-top:-1em;
@@ -628,7 +655,7 @@ div.tooltip {
 }
 #countyResponse-quickLinks ul{
 	text-align:left;
-	padding-left:30%;
+	padding-left:2.5em;
 	list-style:none;
 }
 #countyResponse-electedOfficials table, #multiCountyResult table, #cityResponse table{

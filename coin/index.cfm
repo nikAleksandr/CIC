@@ -5471,9 +5471,9 @@ Please log in to COIN and try again. <CFLOCATION url="../index.html?noaccess=1">
     		<div class="container" id="container">
 	        
 	        <div id="instructions">
-	        	<div id="showOnMap">show on map</div>
-	        	<div id="print">print</div>
-	        	<div id="close">close</div>
+	        	<div id="showOnMap"><img src="../img/showOnMap.svg"/>show on map</div>
+	        	<div id="print"><img src="../img/print.svg"/>print</div>
+	        	<div id="close">close<img src="../img/close.svg"/></div>
 	        	<div id="instructionText">
 	        		<div class="iText" id="mdText">
 						<div id="moreDataContent">
