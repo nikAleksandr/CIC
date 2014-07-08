@@ -143,6 +143,7 @@ var range = [], // array of colors used for coloring the map
 	//level_colors = ['rgb(189, 215, 231)','rgb(107, 174, 214)','rgb(49, 130, 189)','rgb(7, 81, 156)','rgb(28, 53, 99)'];
 
 var frmrS, frmrT; // keep track of current translate and scale values
+var inTransition = false; // boolean to show whether in the middle of zooming in to county
 
 function setup(width, height) {
 	var projection = d3.geo.albersUsa().translate([0, 0]).scale(width * 1.0);
@@ -236,7 +237,6 @@ function draw(topo, stateMesh) {
 		mdownTime = $.now();
 	});
 
-	var inTransition = false;
 	var clicked = function(d, event) {
 		highlight(d);
 		$('#instructions').hide();
@@ -1347,6 +1347,7 @@ function redraw() {
 }
 
 function move() {	
+	inTransition = false;
   	tooltip.classed("hidden", true); // hides on zoom or pan	
 	
   var t = d3.event.translate;
