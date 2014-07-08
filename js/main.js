@@ -1426,9 +1426,8 @@ function throttle() {
 
 setup(width,height);
 
-disableIndicators('indicator', 'County Profile', 'Fiscal Year End Date');
-//disableIndicators('indicator', 'County Profile', 'State Capitol');
-disableIndicators('indicator', 'Land & Water Area', 'Coastal Status');
+//disableIndicators('indicator', 'County Profile', 'Fiscal Year End Date');
+//disableIndicators('indicator', 'Land & Water Area', 'Coastal Status');
 
 // for testing
 /*

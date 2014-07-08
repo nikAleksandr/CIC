@@ -35,16 +35,16 @@ SORRY YOU ARE NOT ALLOWED HERE - You will be redirected to some other location<C
 		<meta itemprop="description" content="Explore your county through over 500 indicators and nearly 70 datasets.">
 		<meta itemprop="image" content="http://cic.naco.org/CICFullThumb.png">
 		
-        <link rel="stylesheet" href="../css/normalize.css">
-		<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/normalize.css">
+		<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" media="all">
 		<link href='http://fonts.googleapis.com/css?family=Roboto+Condensed:300,400' rel='stylesheet' type='text/css'>
 		<link href='http://fonts.googleapis.com/css?family=Arvo' rel='stylesheet' type='text/css'>
-        <link rel="stylesheet" href="../css/main.css">
+        <link rel="stylesheet" href="css/main.css" media="all">
         <!-- SmartMenus jQuery Bootstrap Addon CSS -->
-		<link href="../css/jquery.smartmenus.bootstrap.css" rel="stylesheet">
+		<link href="css/jquery.smartmenus.bootstrap.css" rel="stylesheet">
 		<!--Rediculously Responsive Social Sharing Buttons-->
-        <link rel="stylesheet" href="../css/rrssb.css" />
-        <script src="../js/vendor/modernizr-2.7.1.min.js"></script>
+        <link rel="stylesheet" href="css/rrssb.css" />
+        <script src="js/vendor/modernizr-2.7.1.min.js"></script>
         <script src="http://d3js.org/d3.v3.min.js"></script>
 		<script src="http://d3js.org/topojson.v1.min.js"></script>
     </head>
@@ -59,7 +59,7 @@ SORRY YOU ARE NOT ALLOWED HERE - You will be redirected to some other location<C
   				</p>
 			</div>
 			<div class="col-md-2">
-				<img id="nacoLogo" alt="National Association of Counties Logo" src="../img/NACoLogo_NoTagBLACK_tm.png" />
+				<img id="nacoLogo" alt="National Association of Counties Logo" src="img/NACoLogo_NoTagBLACK_tm.png" />
 			</div>
 			</div>
 				
@@ -127,7 +127,7 @@ SORRY YOU ARE NOT ALLOWED HERE - You will be redirected to some other location<C
 											<a>Administration Employment</a>
 											<ul class="dropdown-menu">
 												<li>
-													<a class="indicator" name="Total Employment" href="#">Total Employment</a>
+													<a class="indicator" name="Total County" href="#">Total County</a>
 												</li>
 												<li>
 													<a class="indicator" name="Total Administration" href="#">Total Administration</a>
@@ -147,7 +147,7 @@ SORRY YOU ARE NOT ALLOWED HERE - You will be redirected to some other location<C
 											<a>Administration Revenue</a>
 											<ul class="dropdown-menu">
 												<li>
-													<a class="indicator" name="Total Revenue" href="#">Total Revenue</a>
+													<a class="indicator" name="Total County" href="#">Total County</a>
 												</li>
 												<li>
 													<a class="indicator" name="Total Administration" href="#">Total Administration</a>
@@ -178,7 +178,7 @@ SORRY YOU ARE NOT ALLOWED HERE - You will be redirected to some other location<C
 											<a>Administration Employment</a>
 											<ul class="dropdown-menu">
 												<li>
-													<a class="indicator" name="Total Employment" href="#">Total Employment</a>
+													<a class="indicator" name="Total County" href="#">Total County</a>
 												</li>
 												<li>
 													<a class="indicator" name="Total Administration" href="#">Total Administration</a>
@@ -198,7 +198,7 @@ SORRY YOU ARE NOT ALLOWED HERE - You will be redirected to some other location<C
 											<a>Public Amenity Employment</a>
 											<ul class="dropdown-menu">
 												<li>
-													<a class="indicator" name="Total Employment" href="#">Total Employment</a>
+													<a class="indicator" name="Total County" href="#">Total County</a>
 												</li>
 												<li>
 													<a class="indicator" name="Total Public Amenity" href="#">Total Public Amenity</a>
@@ -218,7 +218,7 @@ SORRY YOU ARE NOT ALLOWED HERE - You will be redirected to some other location<C
 											<a>Education Employment</a>
 											<ul class="dropdown-menu">
 												<li>
-													<a class="indicator" name="Total Employment" href="#">Total Employment</a>
+													<a class="indicator" name="Total County" href="#">Total County</a>
 												</li>
 												<li>
 													<a class="indicator" name="Total Education" href="#">Total Education</a>
@@ -235,7 +235,7 @@ SORRY YOU ARE NOT ALLOWED HERE - You will be redirected to some other location<C
 											<a>Housing &amp; Community Development Employment</a>
 											<ul class="dropdown-menu">
 												<li>
-													<a class="indicator" name="Total Employment" href="#">Total Employment</a>
+													<a class="indicator" name="Total County" href="#">Total County</a>
 												</li>
 												<li>
 													<a class="indicator" name="Housing &amp; Community Development" href="#">Housing &amp; Community Development</a>
@@ -246,7 +246,7 @@ SORRY YOU ARE NOT ALLOWED HERE - You will be redirected to some other location<C
 											<a>Health &amp; Hospitals Employment</a>
 											<ul class="dropdown-menu">
 												<li>
-													<a class="indicator" name="Total Employment" href="#">Total Employment</a>
+													<a class="indicator" name="Total County" href="#">Total County</a>
 												</li>
 												<li>
 													<a class="indicator" name="Total Health &amp; Hospitals" href="#">Total Health &amp; Hospitals</a>
@@ -263,7 +263,7 @@ SORRY YOU ARE NOT ALLOWED HERE - You will be redirected to some other location<C
 											<a>Justice &amp; Public Safety Employment</a>
 											<ul class="dropdown-menu">
 												<li>
-													<a class="indicator" name="Total Employment" href="#">Total Employment</a>
+													<a class="indicator" name="Total County" href="#">Total County</a>
 												</li>
 												<li>
 													<a class="indicator" name="Total Justice &amp; Public Safety" href="#">Total Justice &amp; Public Safety</a>
@@ -286,7 +286,7 @@ SORRY YOU ARE NOT ALLOWED HERE - You will be redirected to some other location<C
 											<a>Public Welfare Employment</a>
 											<ul class="dropdown-menu">
 												<li>
-													<a class="indicator" name="Total Employment" href="#">Total Employment</a>
+													<a class="indicator" name="Total County" href="#">Total County</a>
 												</li>
 												<li>
 													<a class="indicator" name="Public Welfare" href="#">Public Welfare</a>
@@ -297,7 +297,7 @@ SORRY YOU ARE NOT ALLOWED HERE - You will be redirected to some other location<C
 											<a>Transportation Employment</a>
 											<ul class="dropdown-menu">
 												<li>
-													<a class="indicator" name="Total Employment" href="#">Total Employment</a>
+													<a class="indicator" name="Total County" href="#">Total County</a>
 												</li>
 												<li>
 													<a class="indicator" name="Total Transportation" href="#">Total Transportation</a>
@@ -320,7 +320,7 @@ SORRY YOU ARE NOT ALLOWED HERE - You will be redirected to some other location<C
 											<a>Utility Employment</a>
 											<ul class="dropdown-menu">
 												<li>
-													<a class="indicator" name="Total Employment" href="#">Total Employment</a>
+													<a class="indicator" name="Total County" href="#">Total County</a>
 												</li>
 												<li>
 													<a class="indicator" name="Total Utility" href="#">Total Utility</a>
@@ -337,7 +337,7 @@ SORRY YOU ARE NOT ALLOWED HERE - You will be redirected to some other location<C
 											<a>Water, Sewerage &amp; Solid Waste Employment</a>
 											<ul class="dropdown-menu">
 												<li>
-													<a class="indicator" name="Total Employment" href="#">Total Employment</a>
+													<a class="indicator" name="Total County" href="#">Total County</a>
 												</li>
 												<li>
 													<a class="indicator" name="Total Water, Sewerage &amp; Solid Waste" href="#">Total Water, Sewerage &amp; Solid Waste</a>
@@ -357,7 +357,7 @@ SORRY YOU ARE NOT ALLOWED HERE - You will be redirected to some other location<C
 											<a>Other Employment</a>
 											<ul class="dropdown-menu">
 												<li>
-													<a class="indicator" name="Total Employment" href="#">Total Employment</a>
+													<a class="indicator" name="Total County" href="#">Total County</a>
 												</li>
 												<li>
 													<a class="indicator" name="Other &amp; Unallocable" href="#">Other &amp; Unallocable</a>
@@ -373,7 +373,7 @@ SORRY YOU ARE NOT ALLOWED HERE - You will be redirected to some other location<C
 											<a>Administration Revenue</a>
 											<ul class="dropdown-menu">
 												<li>
-													<a class="indicator" name="Total Revenue" href="#">Total Revenue</a>
+													<a class="indicator" name="Total County" href="#">Total County</a>
 												</li>
 												<li>
 													<a class="indicator" name="Total Administration" href="#">Total Administration</a>
@@ -399,7 +399,7 @@ SORRY YOU ARE NOT ALLOWED HERE - You will be redirected to some other location<C
 											<a>Intergovernmental Revenue</a>
 											<ul class="dropdown-menu">
 												<li>
-													<a class="indicator" name="Total Revenue" href="#">Total Revenue</a>
+													<a class="indicator" name="Total County" href="#">Total County</a>
 												</li>
 												<li>
 													<a class="indicator" name="Total Intergovernmental" href="#">Total Intergovernmental</a>
@@ -419,7 +419,7 @@ SORRY YOU ARE NOT ALLOWED HERE - You will be redirected to some other location<C
 											<a>Tax Revenue</a>
 											<ul class="dropdown-menu">
 												<li>
-													<a class="indicator" name="Total Revenue" href="#">Total Revenue</a>
+													<a class="indicator" name="Total County" href="#">Total County</a>
 												</li>
 												<li>
 													<a class="indicator" name="Total Taxes" href="#">Total Taxes</a>
@@ -445,7 +445,7 @@ SORRY YOU ARE NOT ALLOWED HERE - You will be redirected to some other location<C
 											<a>Utility Revenue</a>
 											<ul class="dropdown-menu">
 												<li>
-													<a class="indicator" name="Total Revenue" href="#">Total Revenue</a>
+													<a class="indicator" name="Total County" href="#">Total County</a>
 												</li>
 												<li>
 													<a class="indicator" name="Total Utility" href="#">Total Utility</a>
@@ -867,7 +867,7 @@ SORRY YOU ARE NOT ALLOWED HERE - You will be redirected to some other location<C
 											<a>Annual Financial Report - Revenue</a>
 											<ul class="dropdown-menu">
 												<li>
-													<a class="indicator" name="Total Revenue" href="#">Total Revenue</a>
+													<a class="indicator" name="Total County" href="#">Total County</a>
 												</li>
 												<li>
 													<a class="indicator" name="Total Taxes" href="#">Total Taxes</a>
@@ -1041,7 +1041,6 @@ SORRY YOU ARE NOT ALLOWED HERE - You will be redirected to some other location<C
 												</li>
 											</ul>
 										</li>
-
 										<li class="dataset" name="Population by Age/Gender">
 											<a>Population by Age/Gender</a>
 											<ul class="dropdown-menu">
@@ -1196,7 +1195,7 @@ SORRY YOU ARE NOT ALLOWED HERE - You will be redirected to some other location<C
 											<a>Education Employment</a>
 											<ul class="dropdown-menu">
 												<li>
-													<a class="indicator" name="Total Employment" href="#">Total Employment</a>
+													<a class="indicator" name="Total County" href="#">Total County</a>
 												</li>
 												<li>
 													<a class="indicator" name="Total Education" href="#">Total Education</a>
@@ -1210,7 +1209,6 @@ SORRY YOU ARE NOT ALLOWED HERE - You will be redirected to some other location<C
 											</ul>
 										</li>
 										<li class="dataset" name="Education Expenditures">
-
 											<a>Education Expenditures</a>
 											<ul class="dropdown-menu">
 												<li>
@@ -1435,13 +1433,7 @@ SORRY YOU ARE NOT ALLOWED HERE - You will be redirected to some other location<C
 													<a class="indicator" name="USDA Grant Amount" href="#">USDA Grant Amount</a>
 												</li>
 												<li>
-													<a class="indicator" name="USDA Grant Annual Growth Rate (from previous year)" href="#">USDA Grant Annual Growth Rate</a>
-												</li>
-												<li>
 													<a class="indicator" name="USDA Loan Amount" href="#">USDA Loan Amount</a>
-												</li>
-												<li>
-													<a class="indicator" name="USDA Loan Annual Growth Rate (from previous year)" href="#">USDA Loan Annual Growth Rate</a>
 												</li>
 											</ul>
 										</li>
@@ -1471,9 +1463,9 @@ SORRY YOU ARE NOT ALLOWED HERE - You will be redirected to some other location<C
 												<li>
 													<a class="indicator" name="County Square Mileage" href="#">County Square Mileage</a>
 												</li>
-												<li>
+												<!-- <li>
 													<a class="indicator" name="Fiscal Year End Date" href="#">Fiscal Year End Date</a>
-												</li>
+												</li> -->
 												<li>
 													<a class="indicator" name="State Capitol" href="#">State Capitol</a>
 												</li>
@@ -1497,9 +1489,9 @@ SORRY YOU ARE NOT ALLOWED HERE - You will be redirected to some other location<C
 												<li>
 													<a class="indicator" name="Total Water Square Miles" href="#">Total Water Square Miles</a>
 												</li>
-												<li>
+												<!-- <li>
 													<a class="indicator" name="Coastal Status" href="#">Coastal Status</a>
-												</li>
+												</li> -->
 												<li>
 													<a class="indicator" name="Body of Water" href="#">Body of Water</a>
 												</li>
@@ -1537,7 +1529,7 @@ SORRY YOU ARE NOT ALLOWED HERE - You will be redirected to some other location<C
 											<a>Health &amp; Hospitals Employment</a>
 											<ul class="dropdown-menu">
 												<li>
-													<a class="indicator" name="Total Employment" href="#">Total Employment</a>
+													<a class="indicator" name="Total County" href="#">Total County</a>
 												</li>
 												<li>
 													<a class="indicator" name="Total Health &amp; Hospitals" href="#">Total Health &amp; Hospitals</a>
@@ -1759,7 +1751,7 @@ SORRY YOU ARE NOT ALLOWED HERE - You will be redirected to some other location<C
 											<a>Housing &amp; Community Development Employment</a>
 											<ul class="dropdown-menu">
 												<li>
-													<a class="indicator" name="Total Employment" href="#">Total Employment</a>
+													<a class="indicator" name="Total County" href="#">Total County</a>
 												</li>
 												<li>
 													<a class="indicator" name="Housing &amp; Community Development" href="#">Housing &amp; Community Development</a>
@@ -1830,7 +1822,7 @@ SORRY YOU ARE NOT ALLOWED HERE - You will be redirected to some other location<C
 											<a>Justice &amp; Public Safety Employment</a>
 											<ul class="dropdown-menu">
 												<li>
-													<a class="indicator" name="Total Employment" href="#">Total Employment</a>
+													<a class="indicator" name="Total County" href="#">Total County</a>
 												</li>
 												<li>
 													<a class="indicator" name="Total Justice & Public Safety" href="#">Total Justice &amp; Public Safety</a>
@@ -2104,7 +2096,7 @@ SORRY YOU ARE NOT ALLOWED HERE - You will be redirected to some other location<C
 											<a>Public Amenity Employment</a>
 											<ul class="dropdown-menu">
 												<li>
-													<a class="indicator" name="Total Employment" href="#">Total Employment</a>
+													<a class="indicator" name="Total County" href="#">Total County</a>
 												</li>
 												<li>
 													<a class="indicator" name="Total Public Amenity" href="#">Total Public Amenity</a>
@@ -2217,7 +2209,6 @@ SORRY YOU ARE NOT ALLOWED HERE - You will be redirected to some other location<C
 												</li>
 												<li>
 													<a class="indicator" name="Library Collections - Number of Electronic Books" href="#">Library Collections - Number of Electronic Books</a>
-
 												</li>
 												<li>
 													<a class="indicator" name="Library Collections - Number of Audio Materials" href="#">Library Collections - Number of Audio Materials</a>
@@ -2257,7 +2248,7 @@ SORRY YOU ARE NOT ALLOWED HERE - You will be redirected to some other location<C
 											<a>Public Welfare Employment</a>
 											<ul class="dropdown-menu">
 												<li>
-													<a class="indicator" name="Total Employment" href="#">Total Employment</a>
+													<a class="indicator" name="Total County" href="#">Total County</a>
 												</li>
 												<li>
 													<a class="indicator" name="Public Welfare" href="#">Public Welfare</a>
@@ -2311,7 +2302,7 @@ SORRY YOU ARE NOT ALLOWED HERE - You will be redirected to some other location<C
 											<a>Transportation Employment</a>
 											<ul class="dropdown-menu">
 												<li>
-													<a class="indicator" name="Total Employment" href="#">Total Employment</a>
+													<a class="indicator" name="Total County" href="#">Total County</a>
 												</li>
 												<li>
 													<a class="indicator" name="Total Transportation" href="#">Total Transportation</a>
@@ -2601,7 +2592,7 @@ SORRY YOU ARE NOT ALLOWED HERE - You will be redirected to some other location<C
 											<a>Utility Employment</a>
 											<ul class="dropdown-menu">
 												<li>
-													<a class="indicator" name="Total Employment" href="#">Total Employment</a>
+													<a class="indicator" name="Total County" href="#">Total County</a>
 												</li>
 												<li>
 													<a class="indicator" name="Total Utility" href="#">Total Utility</a>
@@ -2618,7 +2609,7 @@ SORRY YOU ARE NOT ALLOWED HERE - You will be redirected to some other location<C
 											<a>Utility Revenue</a>
 											<ul class="dropdown-menu">
 												<li>
-													<a class="indicator" name="Total Revenue" href="#">Total Revenue</a>
+													<a class="indicator" name="Total County" href="#">Total County</a>
 												</li>
 												<li>
 													<a class="indicator" name="Total Utility" href="#">Total Utility</a>
@@ -2681,7 +2672,7 @@ SORRY YOU ARE NOT ALLOWED HERE - You will be redirected to some other location<C
 											<a>Water, Sewerage &amp; Solid Waste Employment</a>
 											<ul class="dropdown-menu">
 												<li>
-													<a class="indicator" name="Total Employment" href="#">Total Employment</a>
+													<a class="indicator" name="Total County" href="#">Total County</a>
 												</li>
 												<li>
 													<a class="indicator" name="Total Water, Sewerage &amp; Solid Waste" href="#">Total Water, Sewerage &amp; Solid Waste</a>
@@ -2789,7 +2780,7 @@ SORRY YOU ARE NOT ALLOWED HERE - You will be redirected to some other location<C
 											<a>Administration Employment</a>
 											<ul class="dropdown-menu">
 												<li>
-													<a class="indicator" name="Total Employment" href="#">Total Employment</a>
+													<a class="indicator" name="Total County" href="#">Total County</a>
 												</li>
 												<li>
 													<a class="indicator" name="Total Administration" href="#">Total Administration</a>
@@ -2809,7 +2800,7 @@ SORRY YOU ARE NOT ALLOWED HERE - You will be redirected to some other location<C
 											<a>Administration Revenue</a>
 											<ul class="dropdown-menu">
 												<li>
-													<a class="indicator" name="Total Revenue" href="#">Total Revenue</a>
+													<a class="indicator" name="Total County" href="#">Total County</a>
 												</li>
 												<li>
 													<a class="indicator" name="Total Administration" href="#">Total Administration</a>
@@ -2840,7 +2831,7 @@ SORRY YOU ARE NOT ALLOWED HERE - You will be redirected to some other location<C
 											<a>Administration Employment</a>
 											<ul class="dropdown-menu">
 												<li>
-													<a class="indicator" name="Total Employment" href="#">Total Employment</a>
+													<a class="indicator" name="Total County" href="#">Total County</a>
 												</li>
 												<li>
 													<a class="indicator" name="Total Administration" href="#">Total Administration</a>
@@ -2860,7 +2851,7 @@ SORRY YOU ARE NOT ALLOWED HERE - You will be redirected to some other location<C
 											<a>Public Amenity Employment</a>
 											<ul class="dropdown-menu">
 												<li>
-													<a class="indicator" name="Total Employment" href="#">Total Employment</a>
+													<a class="indicator" name="Total County" href="#">Total County</a>
 												</li>
 												<li>
 													<a class="indicator" name="Total Public Amenity" href="#">Total Public Amenity</a>
@@ -2880,7 +2871,7 @@ SORRY YOU ARE NOT ALLOWED HERE - You will be redirected to some other location<C
 											<a>Education Employment</a>
 											<ul class="dropdown-menu">
 												<li>
-													<a class="indicator" name="Total Employment" href="#">Total Employment</a>
+													<a class="indicator" name="Total County" href="#">Total County</a>
 												</li>
 												<li>
 													<a class="indicator" name="Total Education" href="#">Total Education</a>
@@ -2897,7 +2888,7 @@ SORRY YOU ARE NOT ALLOWED HERE - You will be redirected to some other location<C
 											<a>Housing &amp; Community Development Employment</a>
 											<ul class="dropdown-menu">
 												<li>
-													<a class="indicator" name="Total Employment" href="#">Total Employment</a>
+													<a class="indicator" name="Total County" href="#">Total County</a>
 												</li>
 												<li>
 													<a class="indicator" name="Housing &amp; Community Development" href="#">Housing &amp; Community Development</a>
@@ -2908,7 +2899,7 @@ SORRY YOU ARE NOT ALLOWED HERE - You will be redirected to some other location<C
 											<a>Health &amp; Hospitals Employment</a>
 											<ul class="dropdown-menu">
 												<li>
-													<a class="indicator" name="Total Employment" href="#">Total Employment</a>
+													<a class="indicator" name="Total County" href="#">Total County</a>
 												</li>
 												<li>
 													<a class="indicator" name="Total Health &amp; Hospitals" href="#">Total Health &amp; Hospitals</a>
@@ -2925,7 +2916,7 @@ SORRY YOU ARE NOT ALLOWED HERE - You will be redirected to some other location<C
 											<a>Justice &amp; Public Safety Employment</a>
 											<ul class="dropdown-menu">
 												<li>
-													<a class="indicator" name="Total Employment" href="#">Total Employment</a>
+													<a class="indicator" name="Total County" href="#">Total County</a>
 												</li>
 												<li>
 													<a class="indicator" name="Total Justice &amp; Public Safety" href="#">Total Justice &amp; Public Safety</a>
@@ -2948,7 +2939,7 @@ SORRY YOU ARE NOT ALLOWED HERE - You will be redirected to some other location<C
 											<a>Public Welfare Employment</a>
 											<ul class="dropdown-menu">
 												<li>
-													<a class="indicator" name="Total Employment" href="#">Total Employment</a>
+													<a class="indicator" name="Total County" href="#">Total County</a>
 												</li>
 												<li>
 													<a class="indicator" name="Public Welfare" href="#">Public Welfare</a>
@@ -2959,7 +2950,7 @@ SORRY YOU ARE NOT ALLOWED HERE - You will be redirected to some other location<C
 											<a>Transportation Employment</a>
 											<ul class="dropdown-menu">
 												<li>
-													<a class="indicator" name="Total Employment" href="#">Total Employment</a>
+													<a class="indicator" name="Total County" href="#">Total County</a>
 												</li>
 												<li>
 													<a class="indicator" name="Total Transportation" href="#">Total Transportation</a>
@@ -2982,7 +2973,7 @@ SORRY YOU ARE NOT ALLOWED HERE - You will be redirected to some other location<C
 											<a>Utility Employment</a>
 											<ul class="dropdown-menu">
 												<li>
-													<a class="indicator" name="Total Employment" href="#">Total Employment</a>
+													<a class="indicator" name="Total County" href="#">Total County</a>
 												</li>
 												<li>
 													<a class="indicator" name="Total Utility" href="#">Total Utility</a>
@@ -2999,7 +2990,7 @@ SORRY YOU ARE NOT ALLOWED HERE - You will be redirected to some other location<C
 											<a>Water, Sewerage &amp; Solid Waste Employment</a>
 											<ul class="dropdown-menu">
 												<li>
-													<a class="indicator" name="Total Employment" href="#">Total Employment</a>
+													<a class="indicator" name="Total County" href="#">Total County</a>
 												</li>
 												<li>
 													<a class="indicator" name="Total Water, Sewerage &amp; Solid Waste" href="#">Total Water, Sewerage &amp; Solid Waste</a>
@@ -3019,7 +3010,7 @@ SORRY YOU ARE NOT ALLOWED HERE - You will be redirected to some other location<C
 											<a>Other Employment</a>
 											<ul class="dropdown-menu">
 												<li>
-													<a class="indicator" name="Total Employment" href="#">Total Employment</a>
+													<a class="indicator" name="Total County" href="#">Total County</a>
 												</li>
 												<li>
 													<a class="indicator" name="Other &amp; Unallocable" href="#">Other &amp; Unallocable</a>
@@ -3035,7 +3026,7 @@ SORRY YOU ARE NOT ALLOWED HERE - You will be redirected to some other location<C
 											<a>Administration Revenue</a>
 											<ul class="dropdown-menu">
 												<li>
-													<a class="indicator" name="Total Revenue" href="#">Total Revenue</a>
+													<a class="indicator" name="Total County" href="#">Total County</a>
 												</li>
 												<li>
 													<a class="indicator" name="Total Administration" href="#">Total Administration</a>
@@ -3061,7 +3052,7 @@ SORRY YOU ARE NOT ALLOWED HERE - You will be redirected to some other location<C
 											<a>Intergovernmental Revenue</a>
 											<ul class="dropdown-menu">
 												<li>
-													<a class="indicator" name="Total Revenue" href="#">Total Revenue</a>
+													<a class="indicator" name="Total County" href="#">Total County</a>
 												</li>
 												<li>
 													<a class="indicator" name="Total Intergovernmental" href="#">Total Intergovernmental</a>
@@ -3081,7 +3072,7 @@ SORRY YOU ARE NOT ALLOWED HERE - You will be redirected to some other location<C
 											<a>Tax Revenue</a>
 											<ul class="dropdown-menu">
 												<li>
-													<a class="indicator" name="Total Revenue" href="#">Total Revenue</a>
+													<a class="indicator" name="Total County" href="#">Total County</a>
 												</li>
 												<li>
 													<a class="indicator" name="Total Taxes" href="#">Total Taxes</a>
@@ -3107,7 +3098,7 @@ SORRY YOU ARE NOT ALLOWED HERE - You will be redirected to some other location<C
 											<a>Utility Revenue</a>
 											<ul class="dropdown-menu">
 												<li>
-													<a class="indicator" name="Total Revenue" href="#">Total Revenue</a>
+													<a class="indicator" name="Total County" href="#">Total County</a>
 												</li>
 												<li>
 													<a class="indicator" name="Total Utility" href="#">Total Utility</a>
@@ -3529,7 +3520,7 @@ SORRY YOU ARE NOT ALLOWED HERE - You will be redirected to some other location<C
 											<a>Annual Financial Report - Revenue</a>
 											<ul class="dropdown-menu">
 												<li>
-													<a class="indicator" name="Total Revenue" href="#">Total Revenue</a>
+													<a class="indicator" name="Total County" href="#">Total County</a>
 												</li>
 												<li>
 													<a class="indicator" name="Total Taxes" href="#">Total Taxes</a>
@@ -3857,7 +3848,7 @@ SORRY YOU ARE NOT ALLOWED HERE - You will be redirected to some other location<C
 											<a>Education Employment</a>
 											<ul class="dropdown-menu">
 												<li>
-													<a class="indicator" name="Total Employment" href="#">Total Employment</a>
+													<a class="indicator" name="Total County" href="#">Total County</a>
 												</li>
 												<li>
 													<a class="indicator" name="Total Education" href="#">Total Education</a>
@@ -4095,13 +4086,7 @@ SORRY YOU ARE NOT ALLOWED HERE - You will be redirected to some other location<C
 													<a class="indicator" name="USDA Grant Amount" href="#">USDA Grant Amount</a>
 												</li>
 												<li>
-													<a class="indicator" name="USDA Grant Annual Growth Rate (from previous year)" href="#">USDA Grant Annual Growth Rate</a>
-												</li>
-												<li>
 													<a class="indicator" name="USDA Loan Amount" href="#">USDA Loan Amount</a>
-												</li>
-												<li>
-													<a class="indicator" name="USDA Loan Annual Growth Rate (from previous year)" href="#">USDA Loan Annual Growth Rate</a>
 												</li>
 											</ul>
 										</li>
@@ -4131,9 +4116,9 @@ SORRY YOU ARE NOT ALLOWED HERE - You will be redirected to some other location<C
 												<li>
 													<a class="indicator" name="County Square Mileage" href="#">County Square Mileage</a>
 												</li>
-												<li>
+												<!-- <li>
 													<a class="indicator" name="Fiscal Year End Date" href="#">Fiscal Year End Date</a>
-												</li>
+												</li> -->
 												<li>
 													<a class="indicator" name="State Capitol" href="#">State Capitol</a>
 												</li>
@@ -4157,9 +4142,9 @@ SORRY YOU ARE NOT ALLOWED HERE - You will be redirected to some other location<C
 												<li>
 													<a class="indicator" name="Total Water Square Miles" href="#">Total Water Square Miles</a>
 												</li>
-												<li>
+												<!-- <li>
 													<a class="indicator" name="Coastal Status" href="#">Coastal Status</a>
-												</li>
+												</li> -->
 												<li>
 													<a class="indicator" name="Body of Water" href="#">Body of Water</a>
 												</li>
@@ -4197,7 +4182,7 @@ SORRY YOU ARE NOT ALLOWED HERE - You will be redirected to some other location<C
 											<a>Health &amp; Hospitals Employment</a>
 											<ul class="dropdown-menu">
 												<li>
-													<a class="indicator" name="Total Employment" href="#">Total Employment</a>
+													<a class="indicator" name="Total County" href="#">Total County</a>
 												</li>
 												<li>
 													<a class="indicator" name="Total Health &amp; Hospitals" href="#">Total Health &amp; Hospitals</a>
@@ -4419,7 +4404,7 @@ SORRY YOU ARE NOT ALLOWED HERE - You will be redirected to some other location<C
 											<a>Housing &amp; Community Development Employment</a>
 											<ul class="dropdown-menu">
 												<li>
-													<a class="indicator" name="Total Employment" href="#">Total Employment</a>
+													<a class="indicator" name="Total County" href="#">Total County</a>
 												</li>
 												<li>
 													<a class="indicator" name="Housing &amp; Community Development" href="#">Housing &amp; Community Development</a>
@@ -4490,7 +4475,7 @@ SORRY YOU ARE NOT ALLOWED HERE - You will be redirected to some other location<C
 											<a>Justice &amp; Public Safety Employment</a>
 											<ul class="dropdown-menu">
 												<li>
-													<a class="indicator" name="Total Employment" href="#">Total Employment</a>
+													<a class="indicator" name="Total County" href="#">Total County</a>
 												</li>
 												<li>
 													<a class="indicator" name="Total Justice & Public Safety" href="#">Total Justice &amp; Public Safety</a>
@@ -4764,7 +4749,7 @@ SORRY YOU ARE NOT ALLOWED HERE - You will be redirected to some other location<C
 											<a>Public Amenity Employment</a>
 											<ul class="dropdown-menu">
 												<li>
-													<a class="indicator" name="Total Employment" href="#">Total Employment</a>
+													<a class="indicator" name="Total County" href="#">Total County</a>
 												</li>
 												<li>
 													<a class="indicator" name="Total Public Amenity" href="#">Total Public Amenity</a>
@@ -4916,7 +4901,7 @@ SORRY YOU ARE NOT ALLOWED HERE - You will be redirected to some other location<C
 											<a>Public Welfare Employment</a>
 											<ul class="dropdown-menu">
 												<li>
-													<a class="indicator" name="Total Employment" href="#">Total Employment</a>
+													<a class="indicator" name="Total County" href="#">Total County</a>
 												</li>
 												<li>
 													<a class="indicator" name="Public Welfare" href="#">Public Welfare</a>
@@ -4970,7 +4955,7 @@ SORRY YOU ARE NOT ALLOWED HERE - You will be redirected to some other location<C
 											<a>Transportation Employment</a>
 											<ul class="dropdown-menu">
 												<li>
-													<a class="indicator" name="Total Employment" href="#">Total Employment</a>
+													<a class="indicator" name="Total County" href="#">Total County</a>
 												</li>
 												<li>
 													<a class="indicator" name="Total Transportation" href="#">Total Transportation</a>
@@ -5237,7 +5222,6 @@ SORRY YOU ARE NOT ALLOWED HERE - You will be redirected to some other location<C
 												<li>
 													<a class="indicator" name="Share City or Municipal Highway Agency" href="#">Share City or Municipal Highway Agency</a>
 												</li>
-
 												<li>
 													<a class="indicator" name="Share Other Public Instrumentality" href="#">Share Other Public Instrumentality</a>
 												</li>
@@ -5261,7 +5245,7 @@ SORRY YOU ARE NOT ALLOWED HERE - You will be redirected to some other location<C
 											<a>Utility Employment</a>
 											<ul class="dropdown-menu">
 												<li>
-													<a class="indicator" name="Total Employment" href="#">Total Employment</a>
+													<a class="indicator" name="Total County" href="#">Total County</a>
 												</li>
 												<li>
 													<a class="indicator" name="Total Utility" href="#">Total Utility</a>
@@ -5278,7 +5262,7 @@ SORRY YOU ARE NOT ALLOWED HERE - You will be redirected to some other location<C
 											<a>Utility Revenue</a>
 											<ul class="dropdown-menu">
 												<li>
-													<a class="indicator" name="Total Revenue" href="#">Total Revenue</a>
+													<a class="indicator" name="Total County" href="#">Total County</a>
 												</li>
 												<li>
 													<a class="indicator" name="Total Utility" href="#">Total Utility</a>
@@ -5341,7 +5325,7 @@ SORRY YOU ARE NOT ALLOWED HERE - You will be redirected to some other location<C
 											<a>Water, Sewerage &amp; Solid Waste Employment</a>
 											<ul class="dropdown-menu">
 												<li>
-													<a class="indicator" name="Total Employment" href="#">Total Employment</a>
+													<a class="indicator" name="Total County" href="#">Total County</a>
 												</li>
 												<li>
 													<a class="indicator" name="Total Water, Sewerage &amp; Solid Waste" href="#">Total Water, Sewerage &amp; Solid Waste</a>
@@ -5474,11 +5458,11 @@ SORRY YOU ARE NOT ALLOWED HERE - You will be redirected to some other location<C
 						<li id="searchBox"><a>
 							<form id="search_form">
 								<input type="search" id="search_field" placeholder="county name">
-								<input type="image" src="../img/active-search.svg" width="18px" height="18px" id="search_submit" value="Search">
+								<input type="image" src="img/active-search.svg" width="18px" height="18px" id="search_submit" value="Search">
 							</form>
 						</a></li>
 						<li id="moreData">
-							<a id="moreDataButton" onClick="moreDataShow();" href="#"><span id="moreDataText">ACCESS MORE DATA</span><img id="moreDataImg" src="../img/more_data.svg"/></a>
+							<a id="moreDataButton" onclick="moreDataShow();" href="#"><span id="moreDataText">ACCESS MORE DATA</span><img id="moreDataImg" src="img/more_data.svg"/></a>
 						</li>
 					</ul>
 				  </div><!--/.nav-collapse -->
@@ -5496,20 +5480,20 @@ SORRY YOU ARE NOT ALLOWED HERE - You will be redirected to some other location<C
 						<div id="moreDataContent">
 							<div class="row">
 								<div class="col-md-5">
-									<h3><a href="#">Full Interactive Map</a></h3>
-									<a href="#"><img src="../img/CICFullThumb.png"/></a>
+									<h3><a href="http://www.countyinnovation.us/t/cic">Full Interactive Map</a></h3>
+									<a href="http://www.countyinnovation.us/t/cic"><img src="img/CICFullThumb.png"/></a>
 								</div>
 								<div class="col-md-7">
-									<p>Access more datasets and indicators for display on the interactive map.<br/><br/>Login free to COIN <a href="#">here</a> to access</p>
+									<p>Access all 18 categories, 66 datasets, and over 500 indicators for display on the interactive map.<br/><br/>Login free to COIN <a href="http://www.countyinnovation.us/t/cic">here</a> to access</p>
 								</div>
 							</div>
 							<div class="row">
 								<div class="col-md-5">
-									<h3><a href="#">CIC Extraction Tool</a></h3>
-									<a href="#"><img src="../img/CICExtractionThumb.png"/></a>
+									<h3><a href="http://cic.naco.org/cic_extraction/cic_extraction_1.cfm">CIC Extraction Tool</a></h3>
+									<a href="http://cic.naco.org/cic_extraction/cic_extraction_1.cfm"><img src="img/CICExtractionThumb.png"/></a>
 								</div>
 								<div class="col-md-7">
-									<p>Full access to all 18 categories, 66 datasets, and 889 indicators.<br/><br/>Customizable data downloads available <a href="#">here</a></p>
+									<p>Full access to all the most recent data and additional historical data for all 18 categories, 66 datasets, and over 500 indicators.<br/><br/>Customizable data downloads available <a href="http://cic.naco.org/cic_extraction/cic_extraction_1.cfm">here</a></p>
 								</div>
 							</div>
 						</div>	        			
@@ -5517,22 +5501,44 @@ SORRY YOU ARE NOT ALLOWED HERE - You will be redirected to some other location<C
 	        		<div class="iText" id="mailingText" style="text-align:center;">
         				<p style="font-size:1.5em;">Keep Me Updated!</p>
         				<p>Submit your email to the mailing list and receive updates when new features have been added.</p><br><br>
-        				<form>
-        					<input type="email" style="width:250px;">
-        					<input type="submit" style="margin-left:10px;">
-        				</form>
+        				<script type="text/javascript">var submitted=false;</script>
+        				<iframe name="hidden_iframe" id="hidden_iframe" style="display:none;" onload="if(submitted){thankYou();}"></iframe>
+        				<form action="https://docs.google.com/forms/d/1m3fF7twvVyIj42GuDNqtTKnfZwXrtOZ1p1Z7jQoJa70/formResponse" method="POST" id="ss-form" target="hidden_iframe" onsubmit="submitted=true;">
+        					<ol role="list" class="ss-question-list" style="padding-left: 0">
+							<div class="ss-form-question errorbox-good" role="listitem">
+							<div dir="ltr" class="ss-item ss-item-required ss-text"><div class="ss-form-entry">
+							<label class="ss-q-item-label" for="entry_1891399482"><div class="ss-q-title">Email
+							<label for="itemView.getDomIdToLabel()" aria-label="(Required field)"></label>
+							<span class="ss-required-asterisk">*</span></div>
+							<div class="ss-q-help ss-secondary-text" dir="ltr"></div></label>
+							<input type="email" name="entry.1891399482" value="" class="ss-q-short" id="entry_1891399482" dir="auto" aria-label="Email  Must be a valid email address" aria-required="true" required="" title="Must be a valid email address">
+							<button class="btn btn-default" type="submit" name="submit" value="Submit" id="ss-submit">Submit</button>
+							</div></div></div>
+							<input type="hidden" name="draftResponse" value="[,,&quot;8946414525009973512&quot;]
+							">
+							<input type="hidden" name="pageHistory" value="0">
+							
+							
+							<input type="hidden" name="fbzx" value="8946414525009973512">
+							
+							</ol>
+						</form>
+	        		</div>
+	        		<div class="iText" id="thankYouText" style="text-align:center;">
+	        			<p style="font-size:1.5em;">Thank you!  Now you will be the first to know about the latest county data.</p>
+	        			<p>Don't forget to <a href="#" id="showHideRrssbLink">share the CIC</a> with others!</p>
 	        		</div>
 	        		<div class="iText helpText" id="helpText1">
 						<div class="helpTitle"><h3>Help</h3></div>
 						<div class="helpContainer">
 							<p>
-								<div class="helpLinkContainer">&bull; <span class="helpLink" onClick="goToPage(2);">View a new indicator on the map</span></div>
-								<div class="helpLinkContainer">&bull; <span class="helpLink" onClick="goToPage(2);">See detailed information on an indicator</span></div>
-								<div class="helpLinkContainer">&bull; <span class="helpLink" onClick="goToPage(4);">Find a county</span></div>
-								<div class="helpLinkContainer">&bull; <span class="helpLink" onClick="goToPage(4);">Find a county by a city name</span></div>
-								<div class="helpLinkContainer">&bull; <span class="helpLink" onClick="goToPage(4);">Find a county by a state name</span></div>
-								<div class="helpLinkContainer">&bull; <span class="helpLink" onClick="goToPage(4);">Find a county seat</span></div>
-								<div class="helpLinkContainer">&bull; <span class="helpLink" onClick="goToPage(3);">Compare two indicators</span></div>
+								<div class="helpLinkContainer">&bull; <span class="helpLink" onclick="goToPage(2);">View a new indicator on the map</span></div>
+								<div class="helpLinkContainer">&bull; <span class="helpLink" onclick="goToPage(2);">See detailed information on an indicator</span></div>
+								<div class="helpLinkContainer">&bull; <span class="helpLink" onclick="goToPage(4);">Find a county</span></div>
+								<div class="helpLinkContainer">&bull; <span class="helpLink" onclick="goToPage(4);">Find a county by a city name</span></div>
+								<div class="helpLinkContainer">&bull; <span class="helpLink" onclick="goToPage(4);">Find a county by a state name</span></div>
+								<div class="helpLinkContainer">&bull; <span class="helpLink" onclick="goToPage(6);">Find a county seat or an elected official</span></div>
+								<div class="helpLinkContainer">&bull; <span class="helpLink" onclick="goToPage(3);">Compare two indicators</span></div>
 							</p>
 						</div>
 	        		</div>
@@ -5547,11 +5553,11 @@ SORRY YOU ARE NOT ALLOWED HERE - You will be redirected to some other location<C
 								<div class="helpList">&bull; Or search for a county with the search bar on the top right of the screen.</div>
 							</p>
 							<br/>
-							<div>Click on <div id="moreDataButton2" onClick="moreDataShow();" style="width:190px;"><span id="moreDataText">ACCESS MORE DATA</span><img id="moreDataImg2" src="../img/more_data.svg"/></div> to access more data or to sign up to download data through the CIC extraction tool (Coming September, 2014)</div>
+							<div>Click on <div id="moreDataButton2" onclick="moreDataShow();" style="width:190px;"><span id="moreDataText">ACCESS MORE DATA</span><img id="moreDataImg2" src="img/more_data.svg"/></div> to access more data or to sign up to download data through the CIC extraction tool (Coming September, 2014)</div>
 							<br/>
-							<div><img src="../img/Mail.svg"> - Sign up for CIC DATA UPDATES to be the first to know the latest information about counties</div>
+							<div><img src="img/Mail.svg"> - Sign up for CIC DATA UPDATES to be the first to know the latest information about counties</div>
 							<br/>
-							<div><img src="../img/Share.svg"> - Share the CIC on social media</div>
+							<div><img src="img/Share.svg"> - Share the CIC on social media</div>
 							<br/><br/><br/>
 						</div>
 	        		</div>
@@ -5562,7 +5568,7 @@ SORRY YOU ARE NOT ALLOWED HERE - You will be redirected to some other location<C
 	        				<br>
 	        				<p>Clicking on a county will now compare statistics for both selected indicators</p>
 	        				<br/>
-	        				<p><img src="../img/Reset_indicators.svg"> - Click this to no longer see the secondary indicator</p>
+	        				<p><img src="img/Reset_indicators.svg"> - Click this to no longer see the secondary indicator</p>
 	        			</div>
 	        		</div>
 					<div class="iText helpText" id="helpText4">
@@ -5573,7 +5579,7 @@ SORRY YOU ARE NOT ALLOWED HERE - You will be redirected to some other location<C
 								<div class="helpList">&bull; Click on "County Search" and search for any county.</div>
 								<div class="helpList">&bull; Click on "City Search", type in the name of a city, and all counties located within that city will appear in the search results.</div>
 								<div class="helpList">&bull; Click on "State Search", pick a state from the dropdown, and all counties located in the state will appear in the search results.</div>
-								<div class="helpList">&bull; Double-click on any county to view basic information about it, including it's county seat.</div>
+								<div class="helpList">&bull; Double-click on any county to view basic information about it, including its county seat.</div>
 							</p>
 						</div>
 	        		</div>
@@ -5586,31 +5592,44 @@ SORRY YOU ARE NOT ALLOWED HERE - You will be redirected to some other location<C
 								<br/>
 								<div class="helpList">&bull; Scroll up when hovering over the map to ZOOM IN.</div>
 								<div class="helpList">&bull; Scroll down when hovering over the map to ZOOM OUT.</div>
-								<p>&bull; Click <img src="../img/Back_to_US.svg"> to fully zoom out and see the entire map</p>
+								<p>&bull; Click <img src="img/Back_to_US.svg"> to fully zoom out and see the entire map</p>
+							</p>
+						</div>
+	        		</div>
+	        		<div class="iText helpText" id="helpText6">
+						<div class="helpTitle"><h3>County Seats and Elected Executives</h3></div>
+						<div class="helpContainer">
+							<p class="helpList">Double-click on any county to view basic information about it, including its county seat and a list of elected officials.</p>
+							<p class="helpList">You can also find out whether a county has an Elected Executive or County Administrator by selecting from the "Primary Indicator"</p>
+							<p>
+								<div class="helpList">&bull; Hover over the "County Structure" category</div>
+								<div class="helpList">&bull; Hover over the "Government Structure" dataset</div>
+								<div class="helpList">&bull; Select "Elected Executive" or "County Administrator" to see which counties have that position</div>
 							</p>
 						</div>
 	        		</div>
 	        	</div>
 				<div id="instructionPagination">
 					<ul class="pagination">
-						<li><a href='#' onClick="incrementPage(-1);">&laquo;</a></li>
-						<li class="active" name="1"><a onClick="goToPage(1);">1</a></li>
-						<li name="2"><a onClick="goToPage(2);">2</a></li>
-						<li name="3"><a onClick="goToPage(3);">3</a></li>
-						<li name="4"><a onClick="goToPage(4);">4</a></li>
-						<li name="5"><a onClick="goToPage(5);">5</a></li>
-						<li><a href='#' onClick="incrementPage(1);">&raquo;</a></li>
+						<li><a href='#' onclick="incrementPage(-1);">&laquo;</a></li>
+						<li class="active" name="1"><a onclick="goToPage(1);">1</a></li>
+						<li name="2"><a onclick="goToPage(2);">2</a></li>
+						<li name="3"><a onclick="goToPage(3);">3</a></li>
+						<li name="4"><a onclick="goToPage(4);">4</a></li>
+						<li name="5"><a onclick="goToPage(5);">5</a></li>
+						<li name="6"><a onclick="goToPage(6);">6</a></li>
+						<li><a href='#' onclick="incrementPage(1);">&raquo;</a></li>
 					</ul>
 				</div>
 	        </div>
 			
 			<div id="map">
 				<table id="iconsGroup"><tbody>
-					<tr><td><a id="showHelpIcon" title="Help" href="#"><img class="my-icons" alt="Help" src="../img/Help.svg"/></a></td><td id="showHelpIconText" class="extraInstructions"> - Help</td></tr>
-					<tr><td><a id="backToMapIcon" title="Back to US Map" href="#"><img class="my-icons" alt="Back to US Map" src="../img/Back_to_US.svg"/></a></td><td id="backToMapIconText" class="extraInstructions"> - Back to US Map</td></tr>
-					<tr><td><a id="resetAllIcon" title="Reset Indicators" href="#"><img class="my-icons" alt="Reset Indicators" src="../img/Reset_indicators.svg"/></a></td><td id="resetAllIconText" class="extraInstructions"> - Remove Second Indicator</td></tr>
-					<tr><td><a id="showHideRrssbIcon" title="Share this info" href="#"><img class="my-icons" alt="Share this info" src="../img/Share.svg"/></a></td><td id="showHideRrssbIconText" class="extraInstructions"> - Share this map!</td></tr>
-					<tr><td><a id="addToMailingListIcon" title="Add Me To Mailing List" href="#"><img class="my-icons" alt="Add Me To Mailing List" src="../img/Mail.svg"/></a></td><td id="addToMailingListIconText" class="extraInstructions"> - Add to Mailing List</td></tr>
+					<tr><td><a id="showHelpIcon" title="Help"><img class="my-icons" alt="Help" src="img/Help.svg"/></a></td><td id="showHelpIconText" class="extraInstructions"> - Help</td></tr>
+					<tr><td><a id="backToMapIcon" title="Back to US Map"><img class="my-icons" alt="Back to US Map" src="img/Back_to_US.svg"/></a></td><td id="backToMapIconText" class="extraInstructions"> - Back to US Map</td></tr>
+					<tr><td><a id="resetAllIcon" title="Reset Indicators"><img class="my-icons" alt="Reset Indicators" src="img/Reset_indicators.svg"/></a></td><td id="resetAllIconText" class="extraInstructions"> - Remove Second Indicator</td></tr>
+					<tr><td><a id="showHideRrssbIcon" title="Share this info"><img class="my-icons" alt="Share this info" src="img/Share.svg"/></a></td><td id="showHideRrssbIconText" class="extraInstructions"> - Share this map!</td></tr>
+					<tr><td><a id="addToMailingListIcon" title="Add Me To Mailing List"><img class="my-icons" alt="Add Me To Mailing List" src="img/Mail.svg"/></a></td><td id="addToMailingListIconText" class="extraInstructions"> - Add to Mailing List</td></tr>
 				</tbody></table>
 			</div>
 			<div id="zoomIcons">
@@ -5736,22 +5755,22 @@ SORRY YOU ARE NOT ALLOWED HERE - You will be redirected to some other location<C
 			<!-- Buttons end here -->
 	    </div>
 	    </div>
-	    <script>window.jQuery || document.write('<script src="../js/vendor/jquery-1.10.2.min.js"><\/script>')</script>
+	    <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.10.2.min.js"><\/script>')</script>
         <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
         <!-- SmartMenus jQuery plugin -->
-		<script src="../js/jquery.smartmenus.js" type="text/javascript"></script>
+		<script src="js/jquery.smartmenus.js" type="text/javascript"></script>
 		<!-- SmartMenus jQuery Bootstrap Addon -->
-		<script type="text/javascript" src="../js/jquery.smartmenus.bootstrap.min.js"></script>
+		<script type="text/javascript" src="js/jquery.smartmenus.bootstrap.min.js"></script>
 		<!--RRSSB js -->
-        <script src="../js/rrssb.min.js"></script>
-		<script src="../js/vendor/jquery.noty.packaged.min.js"></script>
-		<script src="../js/vendor/jquery.doubletap.js"></script>
-		<script src="../js/svgenie/rgbcolor.js"></script>
-		<script src="../js/svgenie/canvg.js"></script>
-		<script src="../js/svgenie/svgenie.js"></script>
-        <script src="../js/plugins.js"></script>
-        <script src="../js/colorlegend.js"></script>
-        <script src="../js/main.js"></script>
+        <script src="js/rrssb.min.js"></script>
+		<script src="js/vendor/jquery.noty.packaged.min.js"></script>
+		<script src="js/vendor/jquery.doubletap.js"></script>
+		<script src="js/svgenie/rgbcolor.js"></script>
+		<script src="js/svgenie/canvg.js"></script>
+		<script src="js/svgenie/svgenie.js"></script>
+        <script src="js/plugins.js"></script>
+        <script src="js/colorlegend.js"></script>
+        <script src="js/main.js"></script>
         <!-- Google Analytics: -->
         <script>
 		  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
