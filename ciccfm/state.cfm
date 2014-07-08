@@ -13,8 +13,11 @@
 		Population_2010, Population_2013, Total_Square_Miles, founded,  board_size, Gov_Type
 		FROM  County_Data  (NOLOCK)
 		WHERE State='#statecode#' and Org_Type in ('County', 'Independent City', 'County W/o Govt Structure', 'Geographical Census Area') 
-		ORDER BY Org_Type
+		ORDER BY Org_Type, fips
 		</CFQUERY> 
+        
+        
+       
      
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
@@ -22,25 +25,20 @@
 
 <div id="responseContent" class="container-fluid">
 
-<CFOUTPUT QUERY="getcounties" group="org_type">
+ <CFOUTPUT QUERY="getstate" >
 <h2 style="text-align:left; padding-bottom:10px;">#getstate.StateName#</h2>
+ </CFOUTPUT>
 
-<CFIF org_type NEQ 'County'>
-               
-                <TABLE WIDTH="100%" BORDER="1" cellspacing="0" cellpadding="0">
-                <TR><TD>#org_type#</TD>
-                <TD align="right">2013 Population</TD>
-                <TD align="right">Square Miles</TD></TR>
-                    <CFOUTPUT>
-                    <TR>
-                    <TD>#County_Name#</TD>
-                    <TD align="right">#NumberFormat(Population_2013)#</TD><TD align="right">#NumberFormat(Square_Miles)#</TD></TR>
-                    </CFOUTPUT>
-                </TABLE>
-               
- <CFELSE>
-    	<TABLE class="table table-striped table-condensed">
-			<TR valign="bottom">
+
+
+ 
+ <CFOUTPUT QUERY="getcounties" group="org_type">
+    	
+		
+        <CFIF org_type EQ 'County'>
+       
+        <TABLE class="table table-striped table-condensed">
+        <TR valign="bottom">
                 <TH align="left">
                     <CFIF #state# EQ 'LA'>Parish</CFIF>
                     <CFIF #state# EQ 'AK'>Borough</CFIF>
@@ -52,26 +50,43 @@
 				<TH>Board<BR>Size</TH>
 				<TH>Founded</TH>
 			</TR>
-		
-		     <CFOUTPUT>
-				<TR>
+            <CFOUTPUT>
+            <TR>
 				<TD><a id="#FIPS#" onClick="executeSearchMatch('#FIPS#')" >#County_Name#</a><CFIF Gov_Type EQ  "Consolidated">*</CFIF>
                 </TD>
-				<TD ALIGN="RIGHT"><CFIF Population_2013 GT 0>#NumberFormat(Population_2013)#  <CFELSE><em>N/A</em></CFIF> </TD>
-				<TD ALIGN="RIGHT"><CFIF Total_Square_Miles GT 0>#NumberFormat(Total_Square_Miles)#  <CFELSE><em>N/A</em></CFIF> </TD> 
-				<TD ALIGN="LEFT"> #county_seat#&nbsp;</TD> 
+				<TD ALIGN="RIGHT"><CFIF #Population_2013# GT 0>#NumberFormat(Population_2013)#  <CFELSE><em>N/A</em></CFIF> </TD>
+				<TD ALIGN="RIGHT"><CFIF #Total_Square_Miles# GT 0>#NumberFormat(Total_Square_Miles)#  <CFELSE><em>N/A</em></CFIF> </TD> 
+				<TD ALIGN="LEFT"> #county_seat#&nbsp; </TD> 
 				<TD align="right"> #board_size#&nbsp;</TD> 
 				<TD ALIGN="CENTER">#founded#&nbsp;</TD>
 				</TR>
-		     </CFOUTPUT>
-		     
-		</TABLE>
-		
-		<DIV>* consolidated city-county government</DIV> 
-  
-</CFIF> 
+            </CFOUTPUT>
+         </TABLE>
+       
+         <DIV><em>* consolidated city-county government</em></DIV> 
+       
+          <CFELSE>
+          
+          <P>
+				<TABLE class="table table-striped table-condensed">
+                <TR><Th>#org_type#</TH>
+                <TH align="right">2013 Population</TH>
+                <TH align="right">Square Miles</TH></TR>
+                    <CFOUTPUT>
+                    <TR>
+                    <TD>#County_Name#</TD>
+                    <TD align="right"><CFIF #Population_2013# GT 0>#NumberFormat(Population_2013)#</CFIF></TD>
+                    <TD align="right"><CFIF #Total_Square_Miles# GT 0>#NumberFormat(Total_Square_Miles)#</CFIF></TD></TR>
+                    </CFOUTPUT>
+                </TABLE>
+
+		</cfif>
+
 
 </CFOUTPUT> 
+
+
+
 
 </div>
 </html>
