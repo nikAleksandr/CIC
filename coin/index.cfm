@@ -1,4 +1,4 @@
-<CFIF #CGI.REMOTE_ADDR# EQ "199.10.10.78" OR #CGI.REMOTE_ADDR# EQ "4.34.167.180" OR #CGI.REMOTE_ADDR# EQ "199.10.10.67" OR #CGI.REMOTE_ADDR# EQ "199.10.10.72" OR #CGI.REMOTE_ADDR# EQ "199.10.10.66">
+<CFIF #CGI.REMOTE_ADDR# "64.34.167.180" OR #CGI.REMOTE_ADDR# EQ "199.10.10.78" OR #CGI.REMOTE_ADDR# EQ "4.34.167.180" OR #CGI.REMOTE_ADDR# EQ "199.10.10.67" OR #CGI.REMOTE_ADDR# EQ "199.10.10.72" OR #CGI.REMOTE_ADDR# EQ "199.10.10.66">
 <CFOUTPUT>
 </CFOUTPUT>
 <CFELSE>
@@ -5471,9 +5471,9 @@ Please log in to COIN and try again. <CFLOCATION url="../index.html?noaccess=1">
     		<div class="container" id="container">
 	        
 	        <div id="instructions">
-	        	<div id="showOnMap"><img src="../img/showOnMap.svg"/>show on map</div>
-	        	<div id="print"><img src="../img/print.svg"/>print</div>
-	        	<div id="close">close<img src="../img/close.svg"/></div>
+	        	<div id="showOnMap"><img class="svgCircle" src="img/showOnMap.svg"/>show on map</div>
+	        	<div id="print"><img class="svgCircle" src="img/print.svg"/>print</div>
+	        	<div id="close">close<img class="svgCircle" src="img/close.svg"/></div>
 	        	<div id="instructionText">
 	        		<div class="iText" id="mdText">
 						<div id="moreDataContent">
