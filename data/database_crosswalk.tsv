@@ -44,7 +44,7 @@ COUNTY_DATA	Administrator_title
 COUNTY_DATA	Region_Code				
 COUNTY_DATA	Division_Code				
 COUNTY_DATA	Total_Elected_Officials	County Structure	Government Structure	Total Elected Officials	"Total Number of Elected officials in a county government, including the board officials, elected executives, and any other elected officials."
-COUNTY_DATA	Total_Other_Elected	County Structure	Government Structure	Number of Other Elected Officials	"Other elected county officials, including Sheriffs, District Attorneys, Treasurers and others"
+COUNTY_DATA	Total_Other_Elected	County Structure	Government Structure	Number of Row Officers	"Other elected county officials, including Sheriffs, District Attorneys, Treasurers and others"
 COUNTY_DATA	Total_Square_Miles	Geography	Land & Water Area	Total Square Miles	Total square miles within the county's geographical boundaries
 COUNTY_DATA	Total_Land_Square_Miles	Geography	Land & Water Area	Total Land Square Miles	Total land square miles within the county's geographical boundaries
 COUNTY_DATA	Total_Water_Square_Miles	Geography	Land & Water Area	Total Water Square Miles	Total square miles within the county's geographical boundaries made up of waterways.

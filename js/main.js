@@ -36,18 +36,16 @@ var format = {
     		return (type === 'currency') ? '$0' : 0;
     	} else {
     		if (type === 'currency') return d3.format('$.1f')(num);
-    		/*else if (type === 'persons') return d3.format('0f')(num);
-    		else return d3.format('.1f')(num);*/
     		else return d3.format('0f')(num);
     	}
     },
     "dec1": function(num, type) {
-    	if (num >= 1000) return d3.format(',.0f')(num);
+    	if (Math.abs(num) >= 1000) return d3.format(',.0f')(num);
     	else if (num === 0) return 0;
     	else return d3.format('.1f')(num);
     },
     "dec2": function(num, type) {
-    	if (num >= 1000) return d3.format(',.0f')(num);
+    	if (Math.abs(num) >= 1000) return d3.format(',.0f')(num);
     	else if (num === 0) return 0;
     	else return d3.format('.2f')(num);
     },
@@ -56,45 +54,29 @@ var format = {
 format['level_np'] = format['level'];
 
 // formatting for the tooltip
-var format_tt = {
-	"percent": d3.format('.1%'),
-	"binary": function (num) { return num; },
-	"categorical": function (num) { return num; },
-	"level": function (num, type) {
-		if (type === 'year') return num;
-    	else if (Math.abs(num) >= 1000000000) {
-    		var formatted = String((num/1000000000).toFixed(1)) + " Bil";
-    		return (type === 'currency') ? '$' + formatted : formatted;
-    	} else if (Math.abs(num) >= 1000000) {
-    		var formatted = String((num/1000000).toFixed(1)) + " Mil";
-    		return (type === 'currency') ? '$' + formatted : formatted;
-    	} else if (Math.abs(num) >= 10000) {
-    		var formatted = String((num/1000).toFixed(1)) + "k";
-    		return (type === 'currency') ? '$' + formatted : formatted;
-    	} else if (Math.abs(num) >= 100) {
-    		return (type === 'currency') ? d3.format('$,.0f')(num) : d3.format(',.0f')(num);
-    	} else if (num == 0) {
-    		return (type === 'currency') ? '$0' : 0;
-    	} else {
-    		if (type === 'currency') return d3.format('$.1f')(num);
-    		/*else if (type === 'persons') return d3.format('0f')(num);
-    		else return d3.format('.1f')(num);*/
-    		else return d3.format('0f')(num);
-    	}
-    },
-    "dec1": function(num, type) {
-    	if (num >= 1000) return d3.format(',.0f')(num);
-    	else if (num === 0) return 0;
-    	else return d3.format('.1f')(num);
-    },
-    "dec2": function(num, type) {
-    	if (num >= 1000) return d3.format(',.0f')(num);
-    	else if (num === 0) return 0;
-    	else return d3.format('.2f')(num);
-    },
-    'none': function(num) { return num; }
+var format_tt = {};
+for (var ind in format) format_tt[ind] = format[ind];
+format_tt['level'] = function (num, type) {
+	if (type === 'year') return num;
+	else if (Math.abs(num) >= 1000000000) {
+		var formatted = String((num/1000000000).toFixed(1)) + " Bil";
+		return (type === 'currency') ? '$' + formatted : formatted;
+	} else if (Math.abs(num) >= 1000000) {
+		var formatted = String((num/1000000).toFixed(1)) + " Mil";
+		return (type === 'currency') ? '$' + formatted : formatted;
+	} else if (Math.abs(num) >= 10000) {
+		var formatted = String((num/1000).toFixed(1)) + "k";
+		return (type === 'currency') ? '$' + formatted : formatted;
+	} else if (Math.abs(num) >= 100) {
+		return (type === 'currency') ? d3.format('$,.0f')(num) : d3.format(',.0f')(num);
+	} else if (num == 0) {
+		return (type === 'currency') ? '$0' : 0;
+	} else {
+		if (type === 'currency') return d3.format('$.1f')(num);
+		else return d3.format('0f')(num);
+	}
 };
-format_tt['level_np'] = format['level'];
+format_tt['level_np'] = format_tt['level'];
 
 var localVersion = true;
 
@@ -736,6 +718,7 @@ function update(dataset, indicator) {
 		}
 
 		updateView();
+		updateDefinitions();
 		NProgress.done(true);
 	});
 	
@@ -743,17 +726,22 @@ function update(dataset, indicator) {
 }
 
 function appendSecondInd(dataset, indicator) {
+	NProgress.start();
 	currentSecondDI = dataset + ' - ' + indicator;
 	s_indObjects = allInfo(dataset, indicator);
 	
 	$(document.body).off('dataReceived'); // shady, should only be setting event observe once, instead of re-defining it every time
 	$(document.body).on('dataReceived', function(event, qbis) {
+		NProgress.set(0.8);
 		s_quantByIds = qbis;
 		s_quantByIds = manipulateData(s_quantByIds, s_indObjects);
 		if (d3.select('.county.active').empty() !== true) {
 			populateTooltip(d3.select('.county.active')[0][0]);
 			positionTooltip(d3.select('.county.active')[0][0]);
 		}
+		
+		updateDefinitions();
+		NProgress.done(true);
 	});
 	
 	getData(s_indObjects);
@@ -991,15 +979,6 @@ function updateView() {
 	d3.select("#sourceContainer").selectAll("p").remove();
 	d3.select('#sourceContainer').append('p').attr("id", "sourceText")
 		.html('<i>Source</i>: ' + indObjects[0].source + ', ' + indObjects[0].year);
-	
-	// list definitions
-	d3.select("#definitionsContainer").selectAll("p").remove();
-	var defContainer = d3.select("#definitionsContainer").append("p").attr("id", "definitionsText");
-	defContainer.append('div').html('<i>Definitions</i>:');
-	for (var i = 0; i < indObjects.length; i++) {
-		defContainer.append('div')
-			.html('<b>' + indObjects[i].name + '</b>: ' + indObjects[i].definition);
-	}		
 }
 
 function manipulateData(qbis, indObjs) {
@@ -1123,6 +1102,20 @@ function fillMapColors() {
 	});
 }
 
+function updateDefinitions() {
+	d3.select("#definitionsContainer").selectAll("p").remove();
+	var defContainer = d3.select("#definitionsContainer").append("p").attr("id", "definitionsText");
+	defContainer.append('div').html('<i>Definitions</i>:');
+	for (var i = 0; i < indObjects.length; i++) {
+		defContainer.append('div').html('<b>' + indObjects[i].name + '</b>: ' + indObjects[i].definition);
+	}
+	if (currentSecondDI !== '') {
+		for (var i = 0; i < s_indObjects.length; i++) {
+			defContainer.append('div').html('<b>' + s_indObjects[i].name + '</b>: ' + s_indObjects[i].definition);
+		}	 
+	}	
+}
+
 function createLegend(thresholdBool, keyArray, dataVals) {
 	d3.selectAll(".legend svg").remove();
 
@@ -1131,7 +1124,6 @@ function createLegend(thresholdBool, keyArray, dataVals) {
 		var type = '';
 		if (primeIndObj.hasOwnProperty('unit')) {
 			if (primeIndObj.unit.indexOf("dollar") != -1) type = 'currency';
-			else if (primeIndObj.unit.indexOf('person') != -1 || primeIndObj.unit.indexOf('people') != -1 || primeIndObj.unit.indexOf('employee') != -1) type = 'persons';
 			else if (primeIndObj.unit.indexOf('year') != -1) type = 'year';
 		}
 
@@ -1183,7 +1175,6 @@ function populateTooltip(d) {
 		var unit = '', type = '';
 		if (obj.hasOwnProperty('unit')) {
 			if (obj.unit.indexOf("dollar") != -1) type = 'currency';
-			else if (obj.unit.indexOf('person') != -1 || obj.unit.indexOf('people') != -1 || obj.unit.indexOf('employee') != -1) type = 'persons';
 			else if (obj.unit.indexOf('year') != -1) type = 'year';
 		}
 		
