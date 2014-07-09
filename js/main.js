@@ -35,7 +35,7 @@ var format = {
     	} else if (num == 0) {
     		return (type === 'currency') ? '$0' : 0;
     	} else {
-    		if (type === 'currency') return d3.format('$.1f')(num);
+    		if (type === 'currency') return d3.format('$0f')(num);
     		else return d3.format('0f')(num);
     	}
     },
@@ -72,7 +72,7 @@ format_tt['level'] = function (num, type) {
 	} else if (num == 0) {
 		return (type === 'currency') ? '$0' : 0;
 	} else {
-		if (type === 'currency') return d3.format('$.1f')(num);
+		if (type === 'currency') return d3.format('$0f')(num);
 		else return d3.format('0f')(num);
 	}
 };
