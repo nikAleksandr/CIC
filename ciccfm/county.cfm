@@ -61,8 +61,8 @@
     
     <div id="countyResponse-populations" class="col-md-9">
         <div >
-        	<h4>COUNTY POPULATION</h4>
-	        <table class="table table-condensed table-striped">
+        	<h4><img class="svgCircle" src="/img/population.svg"/>COUNTY POPULATION</h4>
+	        <table class="table">
 	        	<tr>
 	        		<th>1980</th>
 	        		<th>1990</th>
@@ -83,40 +83,40 @@
     </div> 
     <div id="countyResponse-quickLinks" class="col-md-3">
     	<div id="hidden-print">
-	        <h4><img class="countyResponse-svg" src="/img/quickLinks.svg"/>QUICK LINKS</h4>
+	        <h4 style="margin-bottom:8px;"><img class="svgCircle" src="/img/quickLinks.svg"/>QUICK LINKS</h4>
 	        <ul>
-	        	<li><A HREF="http://quickfacts.census.gov/qfd/states/#StateFIPS#/#fips#.html" target="_blank" title="U.S. Census Bureau: State and County QuickFacts">Census Quick Facts</A></li>
+	        	<li style="margin-bottom:8px;"><A HREF="http://quickfacts.census.gov/qfd/states/#StateFIPS#/#fips#.html" target="_blank" title="U.S. Census Bureau: State and County QuickFacts">Census Quick Facts</A></li>
 	        	<li><A HREF="http://maps.google.com/maps?q=#county_Name#,#State#" target="_blank" title="View Google Map of County">Google Map View</A></li>
 	        </ul>
 	    </div>
     </div> 
 </div>
 
-</CFOUTPUT>
 
-<CFIF getcountydata.Org_Type EQ "County" OR  getcountydata.Org_Type EQ "Independent City"> 
 <div id="countyResponse-electedOfficials" class="row">	
 	<div id="countyResponse-countyDetails" class="col-md-6">
-        <h4>COUNTY DETAILS</h4>
+        <h4><img class="svgCircle" src="/img/countyDetails.svg"/>COUNTY DETAILS</h4>
         <table class="table table-condensed" >
-        	<tr><td align="right">Website:&nbsp;</td><td><A HREF="#County_Website#" target="_blank">#County_Website#</A></td></tr>
-        	<tr><td align="right">County Seat:&nbsp; </td><td>#County_Seat#</td></tr>
-        	<tr><td align="right">Year Organized:&nbsp;</td><td>#Founded#</td></tr>
-        	<tr><td align="right">Total Square Miles:&nbsp;</td><td>#Total_Square_Miles#</td></tr>
-        	<tr><TD align="right">2013 Population:&nbsp;</TD><TD>#NumberFormat(Population_2013, "999,999,999,999")#</TD></tr>
-            <tr><td align="right">Persons/Square Mile:&nbsp;</td><td>#NumberFormat(PersonsPerSqMile, "999,999,999.99")#</td></tr>
-        	<tr><td align="right">Size of Board:&nbsp;</td><td>#Board_Size#</td></tr>
+        	<tr><th align="right">Website:&nbsp;</td><td><A HREF="#County_Website#" target="_blank">#County_Website#</A></td></tr>
+        	<tr><th align="right">County Seat:&nbsp; </td><td>#County_Seat#</td></tr>
+        	<tr><th align="right">Year Organized:&nbsp;</td><td>#Founded#</td></tr>
+        	<tr><th align="right">Total Square Miles:&nbsp;</td><td>#Total_Square_Miles#</td></tr>
+        	<tr><Th align="right">2013 Population:&nbsp;</TD><TD>#NumberFormat(Population_2013, "999,999,999,999")#</TD></tr>
+            <tr><th align="right">Persons/Square Mile:&nbsp;</td><td>#NumberFormat(PersonsPerSqMile, "999,999,999.99")#</td></tr>
+        	<tr><th align="right">Size of Board:&nbsp;</td><td>#Board_Size#</td></tr>
         </table>
     </div>
+</CFOUTPUT>
+<CFIF getcountydata.Org_Type EQ "County" OR  getcountydata.Org_Type EQ "Independent City">
     <div id="countyResponse-electedOfficials" class="col-md-6">
-		<h4>ELECTED OFFICIALS</strong></h4>
+		<h4><img class="svgCircle" src="/img/electedOfficials.svg"/>ELECTED OFFICIALS</strong></h4>
 		<Table class="table table-condensed table-striped">
 			<CFOUTPUT QUERY="getEXEC">
-			<TR><TD>#First_name# #Last_Name# #Suffix#</TD><TD>#title#</TD></TR>
+			<TR><Th>#First_name# #Last_Name# #Suffix#</TD><TD>#title#</TD></TR>
 			</CFOUTPUT>
 			<CFOUTPUT QUERY="getofficials">
 			<TR>
-			<TD style="width:50%; text-align:right;">#First_name# #Last_Name# #Suffix# &nbsp;  </TD>
+			<Th style="width:50%; text-align:right;">#First_name# #Last_Name# #Suffix# &nbsp;  </TD>
 			<CFIF cnty_dist GT 0 and fnctn_code EQ "103" >
 			<CFIF state EQ 'TX'><TD style="text-align:left;">#title#, Precinct #cnty_Dist#</TD><br>
 			<CFELSE><TD style="text-align:left;">#title#, District #cnty_Dist#</TD>

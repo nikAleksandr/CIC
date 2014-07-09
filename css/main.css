@@ -197,9 +197,11 @@ table th{
 	cursor: pointer;
 	text-align: right;
 	clear: right;
-	padding-right: .5em;
+	padding-right: 1em;
 }
-
+.svgCircle{
+	padding:0 .7em;
+}
 #showOnMap, #print {
 	position: relative;
 	color: rgb(0, 64, 112);
@@ -609,8 +611,18 @@ div.tooltip {
 	color:rgb(255,152,51);
 	font-weight:bold;
 }
-.countyResponse-svg{
-	margin:5px;
+#instructionText table td{
+	border-top:none;
+	font-size:.8em;
+	padding-top:4px;
+	padding-bottom:4px;
+}
+#instructionText th{
+	font-weight:bold;
+	border-top:none;
+	font-size:.8em;
+	padding-top:4px;
+	padding-bottom:4px;
 }
 /* 
  * County Response, all classes begin with countyResponse-<class>
@@ -650,20 +662,18 @@ div.tooltip {
 	text-align:left;
 }
 #countyResponse-populations table{
-	text-align:left;
-	font-size: .8em;
+	text-align:center;
+	margin:0 auto;
+	width: 80%;
 }
 #countyResponse-quickLinks ul{
 	text-align:left;
-	padding-left:2.5em;
+	padding-left:3em;
 	list-style:none;
 }
 #countyResponse-electedOfficials table, #multiCountyResult table, #cityResponse table{
 	width:auto;
 	margin: 0 auto;
-}
-#countyResponse-electedOfficials td{
-	padding: inherit 1em;
 }
 #multiCountyResult td{
 	padding-left:1em;
