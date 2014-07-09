@@ -200,7 +200,6 @@ table th{
 	padding-right: 1em;
 }
 .svgCircle{
-	padding: 0 .7em;
 	margin: 0 .7em;
 }
 
@@ -632,7 +631,10 @@ div.tooltip {
 #countyResponse-title, #stateResponse-title{
 	font-family: 'Arvo', serif;
 	padding-left:2em;
-	font-weight:bold;
+}
+#countyResponse-title h3, #stateResponse-title h3{
+	font-weight:700;
+	margin:15px 0 15px 0;
 }
 #countyResponse-title, #countyResponse-quickLinks, #stateResponse-title{
 	background-color:rgb(255,153,51);
