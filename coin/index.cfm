@@ -37,12 +37,13 @@ Please log in to COIN and try again. <CFLOCATION url="../index.html?noaccess=1">
         <link rel="stylesheet" href="../css/normalize.css">
 		<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" media="all">
 		<link href='http://fonts.googleapis.com/css?family=Roboto+Condensed:300,400' rel='stylesheet' type='text/css'>
-		<link href='http://fonts.googleapis.com/css?family=Arvo' rel='stylesheet' type='text/css'>
-        <link rel="stylesheet" href="../css/main.css" media="all">
+		<link href='http://fonts.googleapis.com/css?family=Arvo:400,700' rel='stylesheet' type='text/css'>
+		<link rel="stylesheet" href="../css/main.css" media="all">
         <!-- SmartMenus jQuery Bootstrap Addon CSS -->
 		<link href="../css/jquery.smartmenus.bootstrap.css" rel="stylesheet">
 		<!--Rediculously Responsive Social Sharing Buttons-->
         <link rel="stylesheet" href="../css/rrssb.css" />
+        <link rel='stylesheet' href='../css/nprogress.css' />
         <script src="../js/vendor/modernizr-2.7.1.min.js"></script>
         <script src="http://d3js.org/d3.v3.min.js"></script>
 		<script src="http://d3js.org/topojson.v1.min.js"></script>
@@ -5763,6 +5764,7 @@ Please log in to COIN and try again. <CFLOCATION url="../index.html?noaccess=1">
 		<script type="text/javascript" src="../js/jquery.smartmenus.bootstrap.min.js"></script>
 		<!--RRSSB js -->
         <script src="../js/rrssb.min.js"></script>
+        <script src="../js/vendor/nprogress.js"></script>
 		<script src="../js/vendor/jquery.noty.packaged.min.js"></script>
 		<script src="../js/vendor/jquery.doubletap.js"></script>
 		<script src="../js/svgenie/rgbcolor.js"></script>
