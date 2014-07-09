@@ -39,7 +39,7 @@ var colorlegend = function (target, scale, type, options) {
     	, boxLabelHeight = 10
     	, domain = scale.domain()
     	, range = scale.range()
-    	, thresholdBool = opts.threshold
+    	, measure_type = opts.measure_type
     	, small_large = opts.small_large || false
     	, format_type = opts.format_type || false
     	, format = opts.formatFnArr;
@@ -55,21 +55,8 @@ var colorlegend = function (target, scale, type, options) {
 
   	
   	// setup the colors to use
-  	if (type === 'quantile') {
-    	colors = range;
-  	}
-  	else if (type === 'ordinal') {
-    	for (var i = 0 ; i < domain.length ; i++) {
-      		colors[i] = range[i];
-    	}
-  	}
-  	else if (type === 'linear') {
-    	var min = domain[0];
-    	var max = domain[domain.length - 1];
-    	for (i = 0; i < linearBoxes ; i++) {
-      		colors[i] = scale(min + i * ((max - min) / linearBoxes));
-    	}
-  	}
+  	colors = range;
+  	if (measure_type === 'quartile') colors.unshift(level_colors[0]);
   
   	// check the width and height and adjust if necessary to fit in the element
   	// use the range if quantile
@@ -100,10 +87,16 @@ var colorlegend = function (target, scale, type, options) {
   	// if numeric, assume domain is sorted small to large
   	var dataValues = [];
 	if (isNumeric) { 
-		if (thresholdBool) {
+		if (measure_type === 'threshold') {
 			(dataType === 'level') ? dataValues.push(0) : dataValues.push(small_large[0]);
 			for (var i = 0; i < domain.length; i++) dataValues.push(domain[i]);
 			(small_large[1] <= domain[domain.length-1]) ? dataValues.push(domain[domain.length-1] + 1) : dataValues.push(small_large[1]);
+		} else if (measure_type === 'quartile') {
+			var quantiles = scale.quantiles();
+			dataValues.push(0);
+			dataValues.push(domain[0]);
+			for (var i = 0; i < quantiles.length; i++) dataValues.push(quantiles[i]);
+			dataValues.push(domain[domain.length - 1]);
 		} else {
 			// for level (not level_np): min is set as 0
 			var quantiles = scale.quantiles();
