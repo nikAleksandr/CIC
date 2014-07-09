@@ -716,6 +716,7 @@ function displayResults(url) {
 }
 
 function update(dataset, indicator) {
+	NProgress.start();
 	currentDI = dataset + ' - ' + indicator; 
 	//tooltip.classed("hidden", true);
 	$(document.body).scrollTop(0);
@@ -726,6 +727,7 @@ function update(dataset, indicator) {
 	
 	$(document.body).off('dataReceived'); // shady, should only be setting event observe once, instead of re-defining it every time
 	$(document.body).on('dataReceived', function(event, qbis, data) {
+		NProgress.set(0.5);
 		quantByIds = qbis;
 		quantByIds = manipulateData(quantByIds, indObjects);
 		for (var fips in data) {
@@ -734,6 +736,7 @@ function update(dataset, indicator) {
 		}
 
 		updateView();
+		NProgress.done(true);
 	});
 	
 	getData(indObjects); // when data is received, it will fire an event on document.body
