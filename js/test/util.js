@@ -134,14 +134,16 @@ function testDatabaseResponses() {
 		        if (data_array[i].indicator !== '') {
           			var di = data_array[i].dataset + ' - ' + data_array[i].indicator;
           			crosswalk[di] = data_array[i];
+		      		crosswalk[di].year = getInfo(data_array[i].dataset, data_array[i].indicator).year;
         		}
       		}
+      		
 
 			var dt = 100; // time between each query call
 			var time = 0;
 			for (var ind in crosswalk) {
 				(function(ind, time){
-					var query_str = 'db_set=' + crosswalk[ind].db_dataset + '&db_ind=' + crosswalk[ind].db_indicator;
+					var query_str = 'db_set=' + crosswalk[ind].db_dataset + '&db_year=' + crosswalk[ind].year + '&db_ind=' + crosswalk[ind].db_indicator;
 					setTimeout(function() {
 					  	d3.xhr('http://nacocic.naco.org/ciccfm/indicators.cfm?'+ query_str, function(error, request){
 					    	// restructure response object to object indexed by fips
@@ -149,13 +151,22 @@ function testDatabaseResponses() {
 					    		var responseObj = jQuery.parseJSON(request.responseText);
 						    	if (responseObj.ROWCOUNT === 0) {
 						    		console.log('zero data: ' + crosswalk[ind].db_dataset + ', ' + crosswalk[ind].db_indicator);
-						    	} else {
-						    		console.log('check! :)')
 						    	}
 					    	}
 					    	catch(error) {
 					    		console.log('no response: ' + crosswalk[ind].db_dataset + ', ' + crosswalk[ind].db_indicator);
 					    	}
+					    	
+					    	var data = responseObj.DATA[crosswalk[ind].db_indicator.toUpperCase()];
+					    	var all_null = true;
+					    	for (var i = 0; i < data.length; i++) {
+					    		if (typeof data[i] !== 'object' && typeof data[i] !== 'undefined') {
+					    			all_null = false;
+					    			break;
+					    		}
+					    	}
+					    	if (all_null) console.log('all null: ' + crosswalk[ind].db_dataset + ', ' + crosswalk[ind].db_indicator + ' (' + crosswalk[ind].year + ')');
+					    	else console.log('check! :)');
 						});
 					}, time);
 				})(ind, time);

@@ -200,8 +200,10 @@ table th{
 	padding-right: 1em;
 }
 .svgCircle{
-	padding:0 .7em;
+	padding: 0 .7em;
+	margin: 0 .7em;
 }
+
 #showOnMap, #print {
 	position: relative;
 	color: rgb(0, 64, 112);
