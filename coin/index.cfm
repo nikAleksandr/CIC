@@ -40,7 +40,7 @@ Please log in to COIN and try again. <CFLOCATION url="../index.html?noaccess=1">
 		<link href='http://fonts.googleapis.com/css?family=Arvo:400,700' rel='stylesheet' type='text/css'>
 		<link rel="stylesheet" href="../css/main.css" media="all">
         <!-- SmartMenus jQuery Bootstrap Addon CSS -->
-		<link href="../css/jquery.smartmenus.bootstrap.css" rel="stylesheet">
+		<link href="css/jquery.smartmenus.bootstrap.css" rel="stylesheet">
 		<!--Rediculously Responsive Social Sharing Buttons-->
         <link rel="stylesheet" href="../css/rrssb.css" />
         <link rel='stylesheet' href='../css/nprogress.css' />
@@ -54,7 +54,7 @@ Please log in to COIN and try again. <CFLOCATION url="../index.html?noaccess=1">
 			<div class="col-md-10">
 				<h1>NACo County Intelligence Connection 2.0</h1>
 				
-				<p>Select a <i>Primary Indicator</i> below and click on a county to view more detailed information.  
+				<p>Select a <i>Primary Indicator</i>&nbsp; below and click on a county to view more detailed information.  
 					<br/>Double-click on a county to view basic information about it.
   				</p>
 			</div>
@@ -82,7 +82,7 @@ Please log in to COIN and try again. <CFLOCATION url="../index.html?noaccess=1">
 						<li id="primeIndLi">
 							<a id="primeIndText">Primary Indicator</a>
 							<ul id="primeInd" class="dropdown-menu">
-								<li class="category" name="Administration">
+								<li class="category disabled" name="Administration">
 									<a>Administration</a>
 									<ul class="dropdown-menu">
 										<li class="dataset" name="Administration Expenditures">
@@ -100,12 +100,12 @@ Please log in to COIN and try again. <CFLOCATION url="../index.html?noaccess=1">
 												<li>
 													<a class="indicator" name="Other Governmental Administration" href="#">Other Governmental Administration</a>
 												</li>
-												<li>
+												<!-- <li>
 													<a class="indicator" name="Social Insurance Administration" href="#">Social Insurance Administration</a>
-												</li>
-												<li>
+												</li> -->
+												<!-- <li>
 													<a class="indicator" name="Liquor Stores" href="#">Liquor Stores</a>
-												</li>
+												</li> -->
 												<li>
 													<a class="indicator" name="Current Operations" href="#">Current Operations</a>
 												</li>
@@ -138,9 +138,9 @@ Please log in to COIN and try again. <CFLOCATION url="../index.html?noaccess=1">
 												<li>
 													<a class="indicator" name="Other Governmental Administration" href="#">Other Governmental Administration</a>
 												</li>
-												<li>
+												<!-- <li>
 													<a class="indicator" name="Social Insurance Administration" href="#">Social Insurance Administration</a>
-												</li>
+												</li> -->
 											</ul>
 										</li>
 										<li class="dataset" name="Administration Revenue">
@@ -158,20 +158,20 @@ Please log in to COIN and try again. <CFLOCATION url="../index.html?noaccess=1">
 												<li>
 													<a class="indicator" name="Misc. General Revenue" href="#">Misc. General Revenue</a>
 												</li>
-												<li>
+												<!-- <li>
 													<a class="indicator" name="Liquor Stores" href="#">Liquor Stores</a>
-												</li>
+												</li> -->
 												<li>
 													<a class="indicator" name="Public Employee Retirement Systems" href="#">Public Employee Retirement Systems</a>
 												</li>
-												<li>
+												<!-- <li>
 													<a class="indicator" name="Unemployment Compensation Systems" href="#">Unemployment Compensation Systems</a>
-												</li>
+												</li> -->
 											</ul>
 										</li>
 									</ul>
 								</li>
-								<li class="category" name="County Employment">
+								<li class="category disabled" name="County Employment">
 									<a>County Employment</a>
 									<ul class="dropdown-menu">
 										<li class="dataset" name="Administration Employment">
@@ -189,9 +189,9 @@ Please log in to COIN and try again. <CFLOCATION url="../index.html?noaccess=1">
 												<li>
 													<a class="indicator" name="Other Governmental Administration" href="#">Other Governmental Administration</a>
 												</li>
-												<li>
+												<!-- <li>
 													<a class="indicator" name="Social Insurance Administration" href="#">Social Insurance Administration</a>
-												</li>
+												</li> -->
 											</ul>
 										</li>
 										<li class="dataset" name="Public Amenity Employment">
@@ -369,7 +369,7 @@ Please log in to COIN and try again. <CFLOCATION url="../index.html?noaccess=1">
 								<li class="category" name="County Finance">
 									<a>County Finance</a>
 									<ul class="dropdown-menu">
-										<li class="dataset" name="Administration Revenue">
+										<li class="dataset disabled" name="Administration Revenue">
 											<a>Administration Revenue</a>
 											<ul class="dropdown-menu">
 												<li>
@@ -384,15 +384,15 @@ Please log in to COIN and try again. <CFLOCATION url="../index.html?noaccess=1">
 												<li>
 													<a class="indicator" name="Misc. General Revenue" href="#">Misc. General Revenue</a>
 												</li>
-												<li>
+												<!-- <li>
 													<a class="indicator" name="Liquor Stores" href="#">Liquor Stores</a>
-												</li>
+												</li> -->
 												<li>
 													<a class="indicator" name="Public Employee Retirement Systems" href="#">Public Employee Retirement Systems</a>
 												</li>
-												<li>
+												<!-- <li>
 													<a class="indicator" name="Unemployment Compensation Systems" href="#">Unemployment Compensation Systems</a>
-												</li>
+												</li> -->
 											</ul>
 										</li>
 										<li class="dataset" name="Intergovernmental Revenue">
@@ -415,7 +415,7 @@ Please log in to COIN and try again. <CFLOCATION url="../index.html?noaccess=1">
 												</li>
 											</ul>
 										</li>
-										<li class="dataset" name="Tax Revenue">
+										<li class="dataset disabled" name="Tax Revenue">
 											<a>Tax Revenue</a>
 											<ul class="dropdown-menu">
 												<li>
@@ -441,7 +441,7 @@ Please log in to COIN and try again. <CFLOCATION url="../index.html?noaccess=1">
 												</li>
 											</ul>
 										</li>
-										<li class="dataset" name="Utility Revenue">
+										<li class="dataset disabled" name="Utility Revenue">
 											<a>Utility Revenue</a>
 											<ul class="dropdown-menu">
 												<li>
@@ -464,7 +464,7 @@ Please log in to COIN and try again. <CFLOCATION url="../index.html?noaccess=1">
 												</li>
 											</ul>
 										</li>
-										<li class="dataset" name="Administration Expenditures">
+										<li class="dataset disabled" name="Administration Expenditures">
 											<a>Administration Expenditures</a>
 											<ul class="dropdown-menu">
 												<li>
@@ -479,12 +479,12 @@ Please log in to COIN and try again. <CFLOCATION url="../index.html?noaccess=1">
 												<li>
 													<a class="indicator" name="Other Governmental Administration" href="#">Other Governmental Administration</a>
 												</li>
-												<li>
+												<!-- <li>
 													<a class="indicator" name="Social Insurance Administration" href="#">Social Insurance Administration</a>
-												</li>
-												<li>
+												</li> -->
+												<!-- <li>
 													<a class="indicator" name="Liquor Stores" href="#">Liquor Stores</a>
-												</li>
+												</li> -->
 												<li>
 													<a class="indicator" name="Current Operations" href="#">Current Operations</a>
 												</li>
@@ -502,7 +502,7 @@ Please log in to COIN and try again. <CFLOCATION url="../index.html?noaccess=1">
 												</li>
 											</ul>
 										</li>
-										<li class="dataset" name="Public Amenity Expenditures">
+										<li class="dataset disabled" name="Public Amenity Expenditures">
 											<a>Public Amenity Expenditures</a>
 											<ul class="dropdown-menu">
 												<li>
@@ -537,7 +537,7 @@ Please log in to COIN and try again. <CFLOCATION url="../index.html?noaccess=1">
 												</li>
 											</ul>
 										</li>
-										<li class="dataset" name="Education Expenditures">
+										<li class="dataset disabled" name="Education Expenditures">
 											<a>Education Expenditures</a>
 											<ul class="dropdown-menu">
 												<li>
@@ -569,7 +569,7 @@ Please log in to COIN and try again. <CFLOCATION url="../index.html?noaccess=1">
 												</li>
 											</ul>
 										</li>
-										<li class="dataset" name="Housing &amp; Community Development Expenditures">
+										<li class="dataset disabled" name="Housing &amp; Community Development Expenditures">
 											<a>Housing &amp; Community Development Expenditures</a>
 											<ul class="dropdown-menu">
 												<li>
@@ -627,7 +627,7 @@ Please log in to COIN and try again. <CFLOCATION url="../index.html?noaccess=1">
 												</li>
 											</ul>
 										</li>
-										<li class="dataset" name="Financial Expenditures">
+										<li class="dataset disabled" name="Financial Expenditures">
 											<a>Financial Expenditures</a>
 											<ul class="dropdown-menu">
 												<li>
@@ -647,7 +647,7 @@ Please log in to COIN and try again. <CFLOCATION url="../index.html?noaccess=1">
 												</li>
 											</ul>
 										</li>
-										<li class="dataset" name="Justice &amp; Public Safety Expenditures">
+										<li class="dataset disabled" name="Justice &amp; Public Safety Expenditures">
 											<a>Justice &amp; Public Safety Expenditures</a>
 											<ul class="dropdown-menu">
 												<li>
@@ -688,7 +688,7 @@ Please log in to COIN and try again. <CFLOCATION url="../index.html?noaccess=1">
 												</li>
 											</ul>
 										</li>
-										<li class="dataset" name="Public Welfare Expenditures">
+										<li class="dataset disabled" name="Public Welfare Expenditures">
 											<a>Public Welfare Expenditures</a>
 											<ul class="dropdown-menu">
 												<li>
@@ -697,12 +697,12 @@ Please log in to COIN and try again. <CFLOCATION url="../index.html?noaccess=1">
 												<li>
 													<a class="indicator" name="Total Public Welfare" href="#">Total Public Welfare</a>
 												</li>
-												<li>
+												<!-- <li>
 													<a class="indicator" name="Cash Assistance" href="#">Cash Assistance</a>
 												</li>
 												<li>
 													<a class="indicator" name="Vendor Payments" href="#">Vendor Payments</a>
-												</li>
+												</li> -->
 												<li>
 													<a class="indicator" name="Other Public Welfare" href="#">Other Public Welfare</a>
 												</li>
@@ -726,7 +726,7 @@ Please log in to COIN and try again. <CFLOCATION url="../index.html?noaccess=1">
 												</li>
 											</ul>
 										</li>
-										<li class="dataset" name="Transportation Expenditures">
+										<li class="dataset disabled" name="Transportation Expenditures">
 											<a>Transportation Expenditures</a>
 											<ul class="dropdown-menu">
 												<li>
@@ -770,7 +770,7 @@ Please log in to COIN and try again. <CFLOCATION url="../index.html?noaccess=1">
 												</li>
 											</ul>
 										</li>
-										<li class="dataset" name="Utility Expenditures">
+										<li class="dataset disabled" name="Utility Expenditures">
 											<a>Utility Expenditures</a>
 											<ul class="dropdown-menu">
 												<li>
@@ -805,7 +805,7 @@ Please log in to COIN and try again. <CFLOCATION url="../index.html?noaccess=1">
 												</li>
 											</ul>
 										</li>
-										<li class="dataset" name="Water, Sewerage &amp; Solid Waste Expenditures">
+										<li class="dataset disabled" name="Water, Sewerage &amp; Solid Waste Expenditures">
 											<a>Water, Sewerage &amp; Solid Waste Expenditures</a>
 											<ul class="dropdown-menu">
 												<li>
@@ -843,7 +843,7 @@ Please log in to COIN and try again. <CFLOCATION url="../index.html?noaccess=1">
 												</li>
 											</ul>
 										</li>
-										<li class="dataset" name="Other Expenditures">
+										<li class="dataset disabled" name="Other Expenditures">
 											<a>Other Expenditures</a>
 											<ul class="dropdown-menu">
 												<li>
@@ -863,7 +863,7 @@ Please log in to COIN and try again. <CFLOCATION url="../index.html?noaccess=1">
 												</li>
 											</ul>
 										</li>
-										<li class="dataset" name="Annual Financial Report - Revenue">
+										<li class="dataset disabled" name="Annual Financial Report - Revenue">
 											<a>Annual Financial Report - Revenue</a>
 											<ul class="dropdown-menu">
 												<li>
@@ -895,7 +895,7 @@ Please log in to COIN and try again. <CFLOCATION url="../index.html?noaccess=1">
 												</li>
 											</ul>
 										</li>
-										<li class="dataset" name="Annual Financial Report - Expenses">
+										<li class="dataset disabled" name="Annual Financial Report - Expenses">
 											<a>Annual Financial Report - Expenses</a>
 											<ul class="dropdown-menu">
 												<li>
@@ -954,7 +954,7 @@ Please log in to COIN and try again. <CFLOCATION url="../index.html?noaccess=1">
 													<a class="indicator" name="Elected Executive" href="#">Elected Executive</a>
 												</li>-->
 												<li>
-													<a class="indicator" name="Number of Other Elected Officials" href="#">Number of Other Elected Officials</a>
+													<a class="indicator" name="Number of Row Officers" href="#">Number of Row Officers</a>
 												</li>
 												<!--<li>
 													<a class="indicator" name="County Administrator" href="#">County Administrator</a>
@@ -1088,9 +1088,9 @@ Please log in to COIN and try again. <CFLOCATION url="../index.html?noaccess=1">
 										<li class="dataset" name="Population by Ethnicity">
 											<a>Population by Ethnicity</a>
 											<ul class="dropdown-menu">
-												<li>
+												<!-- <li>
 													<a class="indicator" name="Total Population" href="#">Total Population</a>
-												</li>
+												</li> -->
 												<li>
 													<a class="indicator" name="White Population" href="#">White Population</a>
 												</li>
@@ -1116,7 +1116,7 @@ Please log in to COIN and try again. <CFLOCATION url="../index.html?noaccess=1">
 										</li>
 									</ul>
 								</li>
-								<li class="category" name="Economy">
+								<li class="category disabled" name="Economy">
 									<a>Economy</a>
 									<ul class="dropdown-menu">
 										<li class="dataset" name="Household Income">
@@ -1188,7 +1188,7 @@ Please log in to COIN and try again. <CFLOCATION url="../index.html?noaccess=1">
 										</li>
 									</ul>
 								</li>
-								<li class="category" name="Education">
+								<li class="category disabled" name="Education">
 									<a>Education</a>
 									<ul class="dropdown-menu">
 										<li class="dataset" name="Education Employment">
@@ -1312,7 +1312,7 @@ Please log in to COIN and try again. <CFLOCATION url="../index.html?noaccess=1">
 								<li class="category" name="Federal Funding">
 									<a>Federal Funding</a>
 									<ul class="dropdown-menu">
-										<li class="dataset" name="American Dream Downpayment Initiative (ADDI)">
+										<!-- <li class="dataset" name="American Dream Downpayment Initiative (ADDI)">
 											<a>American Dream Downpayment Initiative (ADDI)</a>
 											<ul class="dropdown-menu">
 												<li>
@@ -1322,7 +1322,7 @@ Please log in to COIN and try again. <CFLOCATION url="../index.html?noaccess=1">
 													<a class="indicator" name="ADDI Annual Growth Rate (from previous year)" href="#">ADDI Annual Growth Rate</a>
 												</li>
 											</ul>
-										</li>
+										</li> -->
 										<li class="dataset" name="Community Development Block Grants (CDBG)">
 											<a>Community Development Block Grants (CDBG)</a>
 											<ul class="dropdown-menu">
@@ -1390,9 +1390,9 @@ Please log in to COIN and try again. <CFLOCATION url="../index.html?noaccess=1">
 												<li>
 													<a class="indicator" name="Total Federal Land Area" href="#">Total Federal Land Area</a>
 												</li>
-												<li>
+												<!-- <li>
 													<a class="indicator" name="Total County Area" href="#">Total County Area</a>
-												</li>
+												</li> -->
 												<li>
 													<a class="indicator" name="Percent of Federal Land" href="#">Percent of Federal Land</a>
 												</li>
@@ -1439,7 +1439,7 @@ Please log in to COIN and try again. <CFLOCATION url="../index.html?noaccess=1">
 										</li>
 									</ul>
 								</li>
-								<li class="category" name="Geography">
+								<li class="category disabled" name="Geography">
 									<a>Geography</a>
 									<ul class="dropdown-menu">
 										<li class="dataset" name="County Profile">
@@ -1525,7 +1525,7 @@ Please log in to COIN and try again. <CFLOCATION url="../index.html?noaccess=1">
 								<li class="category" name="Health &amp; Hospitals">
 									<a>Health &amp; Hospitals</a>
 									<ul class="dropdown-menu">
-										<li class="dataset" name="Health &amp; Hospitals Employment">
+										<li class="dataset disabled" name="Health &amp; Hospitals Employment">
 											<a>Health &amp; Hospitals Employment</a>
 											<ul class="dropdown-menu">
 												<li>
@@ -1574,7 +1574,7 @@ Please log in to COIN and try again. <CFLOCATION url="../index.html?noaccess=1">
 												</li>
 											</ul>
 										</li>
-										<li class="dataset" name="Hospitals">
+										<li class="dataset disabled" name="Hospitals">
 											<a>Hospitals</a>
 											<ul class="dropdown-menu">
 												<li>
@@ -1627,7 +1627,7 @@ Please log in to COIN and try again. <CFLOCATION url="../index.html?noaccess=1">
 												</li>
 											</ul>
 										</li>
-										<li class="dataset" name="Nursing Homes">
+										<li class="dataset disabled" name="Nursing Homes">
 											<a>Nursing Homes</a>
 											<ul class="dropdown-menu">
 												<li>
@@ -1671,7 +1671,7 @@ Please log in to COIN and try again. <CFLOCATION url="../index.html?noaccess=1">
 												</li>
 											</ul>
 										</li>
-										<li class="dataset" name="Health Insurance">
+										<li class="dataset disabled" name="Health Insurance">
 											<a>Health Insurance</a>
 											<ul class="dropdown-menu">
 												<li>
@@ -1744,7 +1744,7 @@ Please log in to COIN and try again. <CFLOCATION url="../index.html?noaccess=1">
 										</li>
 									</ul>
 								</li>
-								<li class="category" name="Housing &amp; Community Development">
+								<li class="category disabled" name="Housing &amp; Community Development">
 									<a>Housing &amp; Community Development</a>
 									<ul class="dropdown-menu">
 										<li class="dataset" name="Housing &amp; Community Development Employment">
@@ -1815,7 +1815,7 @@ Please log in to COIN and try again. <CFLOCATION url="../index.html?noaccess=1">
 										</li>
 									</ul>
 								</li>
-								<li class="category" title="Justice & Public Safety">
+								<li class="category disabled" title="Justice & Public Safety">
 									<a>Justice &amp; Public Safety</a>
 									<ul class="dropdown-menu">
 										<li class="dataset" name="Justice & Public Safety Employment">
@@ -2089,7 +2089,7 @@ Please log in to COIN and try again. <CFLOCATION url="../index.html?noaccess=1">
 										</li>
 									</ul>
 								</li>
-								<li class="category" name="Public Amenities">
+								<li class="category disabled" name="Public Amenities">
 									<a>Public Amenities</a>
 									<ul class="dropdown-menu">
 										<li class="dataset" name="Public Amenity Employment">
@@ -2241,7 +2241,7 @@ Please log in to COIN and try again. <CFLOCATION url="../index.html?noaccess=1">
 										</li>
 									</ul>
 								</li>
-								<li class="category" name="Public Welfare">
+								<li class="category disabled" name="Public Welfare">
 									<a>Public Welfare</a>
 									<ul class="dropdown-menu">
 										<li class="dataset" name="Public Welfare Employment">
@@ -2264,12 +2264,12 @@ Please log in to COIN and try again. <CFLOCATION url="../index.html?noaccess=1">
 												<li>
 													<a class="indicator" name="Total Public Welfare" href="#">Total Public Welfare</a>
 												</li>
-												<li>
+												<!-- <li>
 													<a class="indicator" name="Cash Assistance" href="#">Cash Assistance</a>
 												</li>
 												<li>
 													<a class="indicator" name="Vendor Payments" href="#">Vendor Payments</a>
-												</li>
+												</li> -->
 												<li>
 													<a class="indicator" name="Other Public Welfare" href="#">Other Public Welfare</a>
 												</li>
@@ -2298,7 +2298,7 @@ Please log in to COIN and try again. <CFLOCATION url="../index.html?noaccess=1">
 								<li class="category" name="Transportation">
 									<a>Transportation</a>
 									<ul class="dropdown-menu">
-										<li class="dataset" name="Transportation Employment">
+										<li class="dataset disabled" name="Transportation Employment">
 											<a>Transportation Employment</a>
 											<ul class="dropdown-menu">
 												<li>
@@ -2321,7 +2321,7 @@ Please log in to COIN and try again. <CFLOCATION url="../index.html?noaccess=1">
 												</li>
 											</ul>
 										</li>
-										<li class="dataset" name="Transportation Expenditures">
+										<li class="dataset disabled" name="Transportation Expenditures">
 											<a>Transportation Expenditures</a>
 											<ul class="dropdown-menu">
 												<li>
@@ -2365,7 +2365,7 @@ Please log in to COIN and try again. <CFLOCATION url="../index.html?noaccess=1">
 												</li>
 											</ul>
 										</li>
-										<li class="dataset" name="Airports">
+										<li class="dataset disabled" name="Airports">
 											<a>Airports</a>
 											<ul class="dropdown-menu">
 												<li>
@@ -2403,9 +2403,9 @@ Please log in to COIN and try again. <CFLOCATION url="../index.html?noaccess=1">
 												<li>
 													<a class="indicator" name="All Bridges - State Owned" href="#">All Bridges - State Owned</a>
 												</li>
-												<li>
+												<!-- <li>
 													<a class="indicator" name="All Bridges - Local Owned" href="#">All Bridges - Local Owned</a>
-												</li>
+												</li> -->
 												<li>
 													<a class="indicator" name="Structurally Deficient Bridges - Total Bridges" href="#">Structurally Deficient Bridges - Total Bridges</a>
 												</li>
@@ -2424,9 +2424,9 @@ Please log in to COIN and try again. <CFLOCATION url="../index.html?noaccess=1">
 												<li>
 													<a class="indicator" name="Structurally Deficient Bridges - State Owned" href="#">Structurally Deficient Bridges - State Owned</a>
 												</li>
-												<li>
+												<!-- <li>
 													<a class="indicator" name="Structurally Deficient Bridges - Local Owned" href="#">Structurally Deficient Bridges - Local Owned</a>
-												</li>
+												</li> -->
 												<li>
 													<a class="indicator" name="Functionally Obsolete Bridges - Total Bridges" href="#">Functionally Obsolete Bridges - Total Bridges</a>
 												</li>
@@ -2445,12 +2445,12 @@ Please log in to COIN and try again. <CFLOCATION url="../index.html?noaccess=1">
 												<li>
 													<a class="indicator" name="Functionally Obsolete Bridges - State Owned" href="#">Functionally Obsolete Bridges - State Owned</a>
 												</li>
-												<li>
+												<!-- <li>
 													<a class="indicator" name="Functionally Obsolete Bridges - Local Owned" href="#">Functionally Obsolete Bridges - Local Owned</a>
-												</li>
+												</li> -->
 											</ul>
 										</li>
-										<li class="dataset" name="Road Classification">
+										<li class="dataset disabled" name="Road Classification">
 											<a>Road Classification</a>
 											<ul class="dropdown-menu">
 												<li>
@@ -2585,7 +2585,7 @@ Please log in to COIN and try again. <CFLOCATION url="../index.html?noaccess=1">
 										</li>
 									</ul>
 								</li>
-								<li class="category" name="Utility">
+								<li class="category disabled" name="Utility">
 									<a>Utility</a>
 									<ul class="dropdown-menu">
 										<li class="dataset" name="Utility Employment">
@@ -2665,7 +2665,7 @@ Please log in to COIN and try again. <CFLOCATION url="../index.html?noaccess=1">
 										</li>
 									</ul>
 								</li>
-								<li class="category" name="Water, Sewerage &amp; Solid Waste Management">
+								<li class="category disabled" name="Water, Sewerage &amp; Solid Waste Management">
 									<a>Water, Sewerage &amp; Solid Waste Management</a>
 									<ul class="dropdown-menu">
 										<li class="dataset" name="Water, Sewerage &amp; Solid Waste Employment">
@@ -2735,7 +2735,7 @@ Please log in to COIN and try again. <CFLOCATION url="../index.html?noaccess=1">
 						<li id="secondIndLi">
 							<a id="secondIndText">Secondary Indicator</a>
 							<ul id="secondInd" class="dropdown-menu">
-								<li class="category" name="Administration">
+								<li class="category disabled" name="Administration">
 									<a>Administration</a>
 									<ul class="dropdown-menu">
 										<li class="dataset" name="Administration Expenditures">
@@ -2753,12 +2753,12 @@ Please log in to COIN and try again. <CFLOCATION url="../index.html?noaccess=1">
 												<li>
 													<a class="indicator" name="Other Governmental Administration" href="#">Other Governmental Administration</a>
 												</li>
-												<li>
+												<!-- <li>
 													<a class="indicator" name="Social Insurance Administration" href="#">Social Insurance Administration</a>
-												</li>
-												<li>
+												</li> -->
+												<!-- <li>
 													<a class="indicator" name="Liquor Stores" href="#">Liquor Stores</a>
-												</li>
+												</li> -->
 												<li>
 													<a class="indicator" name="Current Operations" href="#">Current Operations</a>
 												</li>
@@ -2791,9 +2791,9 @@ Please log in to COIN and try again. <CFLOCATION url="../index.html?noaccess=1">
 												<li>
 													<a class="indicator" name="Other Governmental Administration" href="#">Other Governmental Administration</a>
 												</li>
-												<li>
+												<!-- <li>
 													<a class="indicator" name="Social Insurance Administration" href="#">Social Insurance Administration</a>
-												</li>
+												</li> -->
 											</ul>
 										</li>
 										<li class="dataset" name="Administration Revenue">
@@ -2811,20 +2811,20 @@ Please log in to COIN and try again. <CFLOCATION url="../index.html?noaccess=1">
 												<li>
 													<a class="indicator" name="Misc. General Revenue" href="#">Misc. General Revenue</a>
 												</li>
-												<li>
+												<!-- <li>
 													<a class="indicator" name="Liquor Stores" href="#">Liquor Stores</a>
-												</li>
+												</li> -->
 												<li>
 													<a class="indicator" name="Public Employee Retirement Systems" href="#">Public Employee Retirement Systems</a>
 												</li>
-												<li>
+												<!-- <li>
 													<a class="indicator" name="Unemployment Compensation Systems" href="#">Unemployment Compensation Systems</a>
-												</li>
+												</li> -->
 											</ul>
 										</li>
 									</ul>
 								</li>
-								<li class="category" name="County Employment">
+								<li class="category disabled" name="County Employment">
 									<a>County Employment</a>
 									<ul class="dropdown-menu">
 										<li class="dataset" name="Administration Employment">
@@ -2842,9 +2842,9 @@ Please log in to COIN and try again. <CFLOCATION url="../index.html?noaccess=1">
 												<li>
 													<a class="indicator" name="Other Governmental Administration" href="#">Other Governmental Administration</a>
 												</li>
-												<li>
+												<!-- <li>
 													<a class="indicator" name="Social Insurance Administration" href="#">Social Insurance Administration</a>
-												</li>
+												</li> -->
 											</ul>
 										</li>
 										<li class="dataset" name="Public Amenity Employment">
@@ -3022,7 +3022,7 @@ Please log in to COIN and try again. <CFLOCATION url="../index.html?noaccess=1">
 								<li class="category" name="County Finance">
 									<a>County Finance</a>
 									<ul class="dropdown-menu">
-										<li class="dataset" name="Administration Revenue">
+										<li class="dataset disabled" name="Administration Revenue">
 											<a>Administration Revenue</a>
 											<ul class="dropdown-menu">
 												<li>
@@ -3037,15 +3037,15 @@ Please log in to COIN and try again. <CFLOCATION url="../index.html?noaccess=1">
 												<li>
 													<a class="indicator" name="Misc. General Revenue" href="#">Misc. General Revenue</a>
 												</li>
-												<li>
+												<!-- <li>
 													<a class="indicator" name="Liquor Stores" href="#">Liquor Stores</a>
-												</li>
+												</li> -->
 												<li>
 													<a class="indicator" name="Public Employee Retirement Systems" href="#">Public Employee Retirement Systems</a>
 												</li>
-												<li>
+												<!-- <li>
 													<a class="indicator" name="Unemployment Compensation Systems" href="#">Unemployment Compensation Systems</a>
-												</li>
+												</li> -->
 											</ul>
 										</li>
 										<li class="dataset" name="Intergovernmental Revenue">
@@ -3068,7 +3068,7 @@ Please log in to COIN and try again. <CFLOCATION url="../index.html?noaccess=1">
 												</li>
 											</ul>
 										</li>
-										<li class="dataset" name="Tax Revenue">
+										<li class="dataset disabled" name="Tax Revenue">
 											<a>Tax Revenue</a>
 											<ul class="dropdown-menu">
 												<li>
@@ -3094,7 +3094,7 @@ Please log in to COIN and try again. <CFLOCATION url="../index.html?noaccess=1">
 												</li>
 											</ul>
 										</li>
-										<li class="dataset" name="Utility Revenue">
+										<li class="dataset disabled" name="Utility Revenue">
 											<a>Utility Revenue</a>
 											<ul class="dropdown-menu">
 												<li>
@@ -3117,7 +3117,7 @@ Please log in to COIN and try again. <CFLOCATION url="../index.html?noaccess=1">
 												</li>
 											</ul>
 										</li>
-										<li class="dataset" name="Administration Expenditures">
+										<li class="dataset disabled" name="Administration Expenditures">
 											<a>Administration Expenditures</a>
 											<ul class="dropdown-menu">
 												<li>
@@ -3132,12 +3132,12 @@ Please log in to COIN and try again. <CFLOCATION url="../index.html?noaccess=1">
 												<li>
 													<a class="indicator" name="Other Governmental Administration" href="#">Other Governmental Administration</a>
 												</li>
-												<li>
+												<!-- <li>
 													<a class="indicator" name="Social Insurance Administration" href="#">Social Insurance Administration</a>
-												</li>
-												<li>
+												</li> -->
+												<!-- <li>
 													<a class="indicator" name="Liquor Stores" href="#">Liquor Stores</a>
-												</li>
+												</li> -->
 												<li>
 													<a class="indicator" name="Current Operations" href="#">Current Operations</a>
 												</li>
@@ -3155,7 +3155,7 @@ Please log in to COIN and try again. <CFLOCATION url="../index.html?noaccess=1">
 												</li>
 											</ul>
 										</li>
-										<li class="dataset" name="Public Amenity Expenditures">
+										<li class="dataset disabled" name="Public Amenity Expenditures">
 											<a>Public Amenity Expenditures</a>
 											<ul class="dropdown-menu">
 												<li>
@@ -3190,7 +3190,7 @@ Please log in to COIN and try again. <CFLOCATION url="../index.html?noaccess=1">
 												</li>
 											</ul>
 										</li>
-										<li class="dataset" name="Education Expenditures">
+										<li class="dataset disabled" name="Education Expenditures">
 											<a>Education Expenditures</a>
 											<ul class="dropdown-menu">
 												<li>
@@ -3222,7 +3222,7 @@ Please log in to COIN and try again. <CFLOCATION url="../index.html?noaccess=1">
 												</li>
 											</ul>
 										</li>
-										<li class="dataset" name="Housing &amp; Community Development Expenditures">
+										<li class="dataset disabled" name="Housing &amp; Community Development Expenditures">
 											<a>Housing &amp; Community Development Expenditures</a>
 											<ul class="dropdown-menu">
 												<li>
@@ -3280,7 +3280,7 @@ Please log in to COIN and try again. <CFLOCATION url="../index.html?noaccess=1">
 												</li>
 											</ul>
 										</li>
-										<li class="dataset" name="Financial Expenditures">
+										<li class="dataset disabled" name="Financial Expenditures">
 											<a>Financial Expenditures</a>
 											<ul class="dropdown-menu">
 												<li>
@@ -3300,7 +3300,7 @@ Please log in to COIN and try again. <CFLOCATION url="../index.html?noaccess=1">
 												</li>
 											</ul>
 										</li>
-										<li class="dataset" name="Justice &amp; Public Safety Expenditures">
+										<li class="dataset disabled" name="Justice &amp; Public Safety Expenditures">
 											<a>Justice &amp; Public Safety Expenditures</a>
 											<ul class="dropdown-menu">
 												<li>
@@ -3341,7 +3341,7 @@ Please log in to COIN and try again. <CFLOCATION url="../index.html?noaccess=1">
 												</li>
 											</ul>
 										</li>
-										<li class="dataset" name="Public Welfare Expenditures">
+										<li class="dataset disabled" name="Public Welfare Expenditures">
 											<a>Public Welfare Expenditures</a>
 											<ul class="dropdown-menu">
 												<li>
@@ -3350,12 +3350,12 @@ Please log in to COIN and try again. <CFLOCATION url="../index.html?noaccess=1">
 												<li>
 													<a class="indicator" name="Total Public Welfare" href="#">Total Public Welfare</a>
 												</li>
-												<li>
+												<!-- <li>
 													<a class="indicator" name="Cash Assistance" href="#">Cash Assistance</a>
 												</li>
 												<li>
 													<a class="indicator" name="Vendor Payments" href="#">Vendor Payments</a>
-												</li>
+												</li> -->
 												<li>
 													<a class="indicator" name="Other Public Welfare" href="#">Other Public Welfare</a>
 												</li>
@@ -3379,7 +3379,7 @@ Please log in to COIN and try again. <CFLOCATION url="../index.html?noaccess=1">
 												</li>
 											</ul>
 										</li>
-										<li class="dataset" name="Transportation Expenditures">
+										<li class="dataset disabled" name="Transportation Expenditures">
 											<a>Transportation Expenditures</a>
 											<ul class="dropdown-menu">
 												<li>
@@ -3423,7 +3423,7 @@ Please log in to COIN and try again. <CFLOCATION url="../index.html?noaccess=1">
 												</li>
 											</ul>
 										</li>
-										<li class="dataset" name="Utility Expenditures">
+										<li class="dataset disabled" name="Utility Expenditures">
 											<a>Utility Expenditures</a>
 											<ul class="dropdown-menu">
 												<li>
@@ -3458,7 +3458,7 @@ Please log in to COIN and try again. <CFLOCATION url="../index.html?noaccess=1">
 												</li>
 											</ul>
 										</li>
-										<li class="dataset" name="Water, Sewerage &amp; Solid Waste Expenditures">
+										<li class="dataset disabled" name="Water, Sewerage &amp; Solid Waste Expenditures">
 											<a>Water, Sewerage &amp; Solid Waste Expenditures</a>
 											<ul class="dropdown-menu">
 												<li>
@@ -3496,7 +3496,7 @@ Please log in to COIN and try again. <CFLOCATION url="../index.html?noaccess=1">
 												</li>
 											</ul>
 										</li>
-										<li class="dataset" name="Other Expenditures">
+										<li class="dataset disabled" name="Other Expenditures">
 											<a>Other Expenditures</a>
 											<ul class="dropdown-menu">
 												<li>
@@ -3516,7 +3516,7 @@ Please log in to COIN and try again. <CFLOCATION url="../index.html?noaccess=1">
 												</li>
 											</ul>
 										</li>
-										<li class="dataset" name="Annual Financial Report - Revenue">
+										<li class="dataset disabled" name="Annual Financial Report - Revenue">
 											<a>Annual Financial Report - Revenue</a>
 											<ul class="dropdown-menu">
 												<li>
@@ -3548,7 +3548,7 @@ Please log in to COIN and try again. <CFLOCATION url="../index.html?noaccess=1">
 												</li>
 											</ul>
 										</li>
-										<li class="dataset" name="Annual Financial Report - Expenses">
+										<li class="dataset disabled" name="Annual Financial Report - Expenses">
 											<a>Annual Financial Report - Expenses</a>
 											<ul class="dropdown-menu">
 												<li>
@@ -3607,7 +3607,7 @@ Please log in to COIN and try again. <CFLOCATION url="../index.html?noaccess=1">
 													<a class="indicator" name="Elected Executive" href="#">Elected Executive</a>
 												</li>-->
 												<li>
-													<a class="indicator" name="Number of Other Elected Officials" href="#">Number of Other Elected Officials</a>
+													<a class="indicator" name="Number of Row Officers" href="#">Number of Row Officers</a>
 												</li>
 												<!--<li>
 													<a class="indicator" name="County Administrator" href="#">County Administrator</a>
@@ -3741,9 +3741,9 @@ Please log in to COIN and try again. <CFLOCATION url="../index.html?noaccess=1">
 										<li class="dataset" name="Population by Ethnicity">
 											<a>Population by Ethnicity</a>
 											<ul class="dropdown-menu">
-												<li>
+												<!-- <li>
 													<a class="indicator" name="Total Population" href="#">Total Population</a>
-												</li>
+												</li> -->
 												<li>
 													<a class="indicator" name="White Population" href="#">White Population</a>
 												</li>
@@ -3769,7 +3769,7 @@ Please log in to COIN and try again. <CFLOCATION url="../index.html?noaccess=1">
 										</li>
 									</ul>
 								</li>
-								<li class="category" name="Economy">
+								<li class="category disabled" name="Economy">
 									<a>Economy</a>
 									<ul class="dropdown-menu">
 										<li class="dataset" name="Household Income">
@@ -3841,7 +3841,7 @@ Please log in to COIN and try again. <CFLOCATION url="../index.html?noaccess=1">
 										</li>
 									</ul>
 								</li>
-								<li class="category" name="Education">
+								<li class="category disabled" name="Education">
 									<a>Education</a>
 									<ul class="dropdown-menu">
 										<li class="dataset" name="Education Employment">
@@ -3965,7 +3965,7 @@ Please log in to COIN and try again. <CFLOCATION url="../index.html?noaccess=1">
 								<li class="category" name="Federal Funding">
 									<a>Federal Funding</a>
 									<ul class="dropdown-menu">
-										<li class="dataset" name="American Dream Downpayment Initiative (ADDI)">
+										<!-- <li class="dataset" name="American Dream Downpayment Initiative (ADDI)">
 											<a>American Dream Downpayment Initiative (ADDI)</a>
 											<ul class="dropdown-menu">
 												<li>
@@ -3975,7 +3975,7 @@ Please log in to COIN and try again. <CFLOCATION url="../index.html?noaccess=1">
 													<a class="indicator" name="ADDI Annual Growth Rate (from previous year)" href="#">ADDI Annual Growth Rate</a>
 												</li>
 											</ul>
-										</li>
+										</li> -->
 										<li class="dataset" name="Community Development Block Grants (CDBG)">
 											<a>Community Development Block Grants (CDBG)</a>
 											<ul class="dropdown-menu">
@@ -4043,9 +4043,9 @@ Please log in to COIN and try again. <CFLOCATION url="../index.html?noaccess=1">
 												<li>
 													<a class="indicator" name="Total Federal Land Area" href="#">Total Federal Land Area</a>
 												</li>
-												<li>
+												<!-- <li>
 													<a class="indicator" name="Total County Area" href="#">Total County Area</a>
-												</li>
+												</li> -->
 												<li>
 													<a class="indicator" name="Percent of Federal Land" href="#">Percent of Federal Land</a>
 												</li>
@@ -4092,7 +4092,7 @@ Please log in to COIN and try again. <CFLOCATION url="../index.html?noaccess=1">
 										</li>
 									</ul>
 								</li>
-								<li class="category" name="Geography">
+								<li class="category disabled" name="Geography">
 									<a>Geography</a>
 									<ul class="dropdown-menu">
 										<li class="dataset" name="County Profile">
@@ -4178,7 +4178,7 @@ Please log in to COIN and try again. <CFLOCATION url="../index.html?noaccess=1">
 								<li class="category" name="Health &amp; Hospitals">
 									<a>Health &amp; Hospitals</a>
 									<ul class="dropdown-menu">
-										<li class="dataset" name="Health &amp; Hospitals Employment">
+										<li class="dataset disabled" name="Health &amp; Hospitals Employment">
 											<a>Health &amp; Hospitals Employment</a>
 											<ul class="dropdown-menu">
 												<li>
@@ -4227,7 +4227,7 @@ Please log in to COIN and try again. <CFLOCATION url="../index.html?noaccess=1">
 												</li>
 											</ul>
 										</li>
-										<li class="dataset" name="Hospitals">
+										<li class="dataset disabled" name="Hospitals">
 											<a>Hospitals</a>
 											<ul class="dropdown-menu">
 												<li>
@@ -4280,7 +4280,7 @@ Please log in to COIN and try again. <CFLOCATION url="../index.html?noaccess=1">
 												</li>
 											</ul>
 										</li>
-										<li class="dataset" name="Nursing Homes">
+										<li class="dataset disabled" name="Nursing Homes">
 											<a>Nursing Homes</a>
 											<ul class="dropdown-menu">
 												<li>
@@ -4324,7 +4324,7 @@ Please log in to COIN and try again. <CFLOCATION url="../index.html?noaccess=1">
 												</li>
 											</ul>
 										</li>
-										<li class="dataset" name="Health Insurance">
+										<li class="dataset disabled" name="Health Insurance">
 											<a>Health Insurance</a>
 											<ul class="dropdown-menu">
 												<li>
@@ -4397,7 +4397,7 @@ Please log in to COIN and try again. <CFLOCATION url="../index.html?noaccess=1">
 										</li>
 									</ul>
 								</li>
-								<li class="category" name="Housing &amp; Community Development">
+								<li class="category disabled" name="Housing &amp; Community Development">
 									<a>Housing &amp; Community Development</a>
 									<ul class="dropdown-menu">
 										<li class="dataset" name="Housing &amp; Community Development Employment">
@@ -4468,7 +4468,7 @@ Please log in to COIN and try again. <CFLOCATION url="../index.html?noaccess=1">
 										</li>
 									</ul>
 								</li>
-								<li class="category" title="Justice & Public Safety">
+								<li class="category disabled" title="Justice & Public Safety">
 									<a>Justice &amp; Public Safety</a>
 									<ul class="dropdown-menu">
 										<li class="dataset" name="Justice & Public Safety Employment">
@@ -4742,7 +4742,7 @@ Please log in to COIN and try again. <CFLOCATION url="../index.html?noaccess=1">
 										</li>
 									</ul>
 								</li>
-								<li class="category" name="Public Amenities">
+								<li class="category disabled" name="Public Amenities">
 									<a>Public Amenities</a>
 									<ul class="dropdown-menu">
 										<li class="dataset" name="Public Amenity Employment">
@@ -4894,7 +4894,7 @@ Please log in to COIN and try again. <CFLOCATION url="../index.html?noaccess=1">
 										</li>
 									</ul>
 								</li>
-								<li class="category" name="Public Welfare">
+								<li class="category disabled" name="Public Welfare">
 									<a>Public Welfare</a>
 									<ul class="dropdown-menu">
 										<li class="dataset" name="Public Welfare Employment">
@@ -4917,12 +4917,12 @@ Please log in to COIN and try again. <CFLOCATION url="../index.html?noaccess=1">
 												<li>
 													<a class="indicator" name="Total Public Welfare" href="#">Total Public Welfare</a>
 												</li>
-												<li>
+												<!-- <li>
 													<a class="indicator" name="Cash Assistance" href="#">Cash Assistance</a>
 												</li>
 												<li>
 													<a class="indicator" name="Vendor Payments" href="#">Vendor Payments</a>
-												</li>
+												</li> -->
 												<li>
 													<a class="indicator" name="Other Public Welfare" href="#">Other Public Welfare</a>
 												</li>
@@ -4951,7 +4951,7 @@ Please log in to COIN and try again. <CFLOCATION url="../index.html?noaccess=1">
 								<li class="category" name="Transportation">
 									<a>Transportation</a>
 									<ul class="dropdown-menu">
-										<li class="dataset" name="Transportation Employment">
+										<li class="dataset disabled" name="Transportation Employment">
 											<a>Transportation Employment</a>
 											<ul class="dropdown-menu">
 												<li>
@@ -4974,7 +4974,7 @@ Please log in to COIN and try again. <CFLOCATION url="../index.html?noaccess=1">
 												</li>
 											</ul>
 										</li>
-										<li class="dataset" name="Transportation Expenditures">
+										<li class="dataset disabled" name="Transportation Expenditures">
 											<a>Transportation Expenditures</a>
 											<ul class="dropdown-menu">
 												<li>
@@ -5018,7 +5018,7 @@ Please log in to COIN and try again. <CFLOCATION url="../index.html?noaccess=1">
 												</li>
 											</ul>
 										</li>
-										<li class="dataset" name="Airports">
+										<li class="dataset disabled" name="Airports">
 											<a>Airports</a>
 											<ul class="dropdown-menu">
 												<li>
@@ -5056,9 +5056,9 @@ Please log in to COIN and try again. <CFLOCATION url="../index.html?noaccess=1">
 												<li>
 													<a class="indicator" name="All Bridges - State Owned" href="#">All Bridges - State Owned</a>
 												</li>
-												<li>
+												<!-- <li>
 													<a class="indicator" name="All Bridges - Local Owned" href="#">All Bridges - Local Owned</a>
-												</li>
+												</li> -->
 												<li>
 													<a class="indicator" name="Structurally Deficient Bridges - Total Bridges" href="#">Structurally Deficient Bridges - Total Bridges</a>
 												</li>
@@ -5077,9 +5077,9 @@ Please log in to COIN and try again. <CFLOCATION url="../index.html?noaccess=1">
 												<li>
 													<a class="indicator" name="Structurally Deficient Bridges - State Owned" href="#">Structurally Deficient Bridges - State Owned</a>
 												</li>
-												<li>
+												<!-- <li>
 													<a class="indicator" name="Structurally Deficient Bridges - Local Owned" href="#">Structurally Deficient Bridges - Local Owned</a>
-												</li>
+												</li> -->
 												<li>
 													<a class="indicator" name="Functionally Obsolete Bridges - Total Bridges" href="#">Functionally Obsolete Bridges - Total Bridges</a>
 												</li>
@@ -5098,12 +5098,12 @@ Please log in to COIN and try again. <CFLOCATION url="../index.html?noaccess=1">
 												<li>
 													<a class="indicator" name="Functionally Obsolete Bridges - State Owned" href="#">Functionally Obsolete Bridges - State Owned</a>
 												</li>
-												<li>
+												<!-- <li>
 													<a class="indicator" name="Functionally Obsolete Bridges - Local Owned" href="#">Functionally Obsolete Bridges - Local Owned</a>
-												</li>
+												</li> -->
 											</ul>
 										</li>
-										<li class="dataset" name="Road Classification">
+										<li class="dataset disabled" name="Road Classification">
 											<a>Road Classification</a>
 											<ul class="dropdown-menu">
 												<li>
@@ -5238,7 +5238,7 @@ Please log in to COIN and try again. <CFLOCATION url="../index.html?noaccess=1">
 										</li>
 									</ul>
 								</li>
-								<li class="category" name="Utility">
+								<li class="category disabled" name="Utility">
 									<a>Utility</a>
 									<ul class="dropdown-menu">
 										<li class="dataset" name="Utility Employment">
@@ -5318,7 +5318,7 @@ Please log in to COIN and try again. <CFLOCATION url="../index.html?noaccess=1">
 										</li>
 									</ul>
 								</li>
-								<li class="category" name="Water, Sewerage &amp; Solid Waste Management">
+								<li class="category disabled" name="Water, Sewerage &amp; Solid Waste Management">
 									<a>Water, Sewerage &amp; Solid Waste Management</a>
 									<ul class="dropdown-menu">
 										<li class="dataset" name="Water, Sewerage &amp; Solid Waste Employment">
@@ -5472,9 +5472,9 @@ Please log in to COIN and try again. <CFLOCATION url="../index.html?noaccess=1">
     		<div class="container" id="container">
 	        
 	        <div id="instructions">
-	        	<div id="showOnMap"><img class="svgCircle" src="img/showOnMap.svg"/>show on map</div>
-	        	<div id="print"><img class="svgCircle" src="img/print.svg"/>print</div>
-	        	<div id="close">close<img class="svgCircle" src="img/close.svg"/></div>
+	        	<div id="showOnMap"><img class="svgCircle" src="../img/showOnMap.svg"/>show on map</div>
+	        	<div id="print"><img class="svgCircle" src="../img/print.svg"/>print</div>
+	        	<div id="close">close<img class="svgCircle" src="../img/close.svg"/></div>
 	        	<div id="instructionText">
 	        		<div class="iText" id="mdText">
 						<div id="moreDataContent">
