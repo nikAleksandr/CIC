@@ -854,14 +854,7 @@ function updateView() {
 	// define domain
 	if (isNumeric) {
 		var domain = [];
-		for (var ind in quantById) {	
-			// for level datatypes, we do not want "zero" to be considered during the quantile categorization			
-			if (currentDataType === 'level' && parseFloat(quantById[ind]) === 0) {
-				//quantById[ind] = '.'; // treat 0's as null
-			} else {
-				domain[ind] = quantById[ind];
-			}
-		}
+		for (var ind in quantById) domain[ind] = quantById[ind];
 	} else if (currentDataType === 'binary') {
 		corrDomain = [];
 		for (var ind in quantById) {
@@ -915,22 +908,40 @@ function updateView() {
 		else color.domain(corrDomain).range(range);
 	}
 	
+	// if 0 spans more than one quintile, then switch to quartiles
 	// check if a value spans more than one quantile; if so, switch to threshold
-	var switchToThreshold = false, small = -1, large = 0;
+	// threshold trumps quartile trumps quintile
+	measureType = 'quintile';
+	var small = -1, large = 0;
 	if (isNumeric) {
 		var quantiles = color.quantiles(), d = color.domain();
-		if (quantiles[0] === 0) switchToThreshold = true;
-		else {
-			for (var i = 0; i < quantiles.length - 1; i++) {
-				if (quantiles[i] === quantiles[i+1]) {
-					switchToThreshold = true;
-					break;
-				}
+		
+		// if more than one fifth of counties are zeros, switch to quartile
+		if (quantiles[0] === 0) {
+			measureType = 'quartile';
+			
+			// we do not want "zero" to be considered during the quartile categorization			
+			for (var ind in domain) {
+				if (+domain[ind] === 0) delete domain[ind];
 			}
-			if (quantiles[quantiles.length - 1] === d[d.length - 1]) switchToThreshold = true;
+
+			var range = [];
+			for (var i = 1; i < level_colors.length; i++) range.push(level_colors[i]);
+			color.domain(domain).range(range);
+			
+			quantiles = color.quantiles();
 		}
 		
-		if (switchToThreshold === true) {
+		// check if any quantile thresholds are the same value, if so switch to threshold 
+		for (var i = 0; i < quantiles.length - 1; i++) {
+			if (quantiles[i] === quantiles[i+1]) {
+				measureType = 'threshold';
+				break;
+			}
+		}
+		if (quantiles[quantiles.length - 1] === d[d.length - 1]) measureType = 'threshold';
+		
+		if (measureType === 'threshold') {
 			color = d3.scale.threshold(); // quantize scale, threshold based
 			
 			// sort domain in ascending order (must be numbers)
@@ -962,9 +973,9 @@ function updateView() {
 	} else {
 		$('#quantileLegend').css('visibility', 'visible');
 		if (isNumeric) {
-			legend = createLegend(switchToThreshold, null, [small, large]); // note: small and large are included for "threshold" types to place in legend
+			legend = createLegend(measureType, null, [small, large]); // note: small and large are included for "threshold" types to place in legend
 		} else {
-			legend = createLegend(switchToThreshold, vals); // note: vals is a correspondence array linking strings with numbers for categorical dataTypes
+			legend = createLegend(measureType, vals); // note: vals is a correspondence array linking strings with numbers for categorical dataTypes
 		}
 	}
 	
@@ -1072,7 +1083,11 @@ function fillMapColors() {
 			case 'level':
 			case 'level_np':
 			case 'percent':
-				return isNaN(quantByIds[0][d.id]) ? na_color : color(quantByIds[0][d.id]);
+				if (measureType === 'quartile' && +quantByIds[0][d.id] === 0) {
+					return level_colors[0];
+				} else {
+					return isNaN(quantByIds[0][d.id]) ? na_color : color(quantByIds[0][d.id]);
+				}
 			default:
 				// for datatype: "none", colors it with category10 and neighbors with same value are same color
 				var val = quantByIds[0][d.id];
@@ -1116,7 +1131,7 @@ function updateDefinitions() {
 	}	
 }
 
-function createLegend(thresholdBool, keyArray, dataVals) {
+function createLegend(measure_type, keyArray, dataVals) {
 	d3.selectAll(".legend svg").remove();
 
 	var primeIndObj = indObjects[0];
@@ -1132,7 +1147,7 @@ function createLegend(thresholdBool, keyArray, dataVals) {
 			boxWidth : 58,
 			dataType : primeIndObj.dataType,
 			unitType : type,
-			threshold: thresholdBool,
+			measure_type: measure_type,
 			formatFnArr: format
 		};
 		if (keyArray) options.keyArray = keyArray;
