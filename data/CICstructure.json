@@ -507,7 +507,7 @@
           "name": "Government Structure",
           "source": "NACo Research",
           "years": [2014],
-          "companions": [["Government Structure", "Total Elected Officials"], ["Government Structure", "Size of Board"], ["Government Structure", "Number of Other Elected Officials"]],
+          "companions": [["Government Structure", "Total Elected Officials"], ["Government Structure", "Size of Board"], ["Government Structure", "Number of Row Officers"]],
           "children": [
             {"name": "Total Elected Officials", "dataType": "level", "definition": "Total Number of Elected officials in a county government, including the board officials, elected executives, and any other elected officials."},
             {"name": "Size of Board", "dataType": "level", "definition": "The size of the elected governing body of the county (number of board members)."},
