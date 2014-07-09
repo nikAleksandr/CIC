@@ -629,11 +629,12 @@ div.tooltip {
 /* 
  * County Response, all classes begin with countyResponse-<class>
  */
-#countyResponse-title{
+#countyResponse-title, #stateResponse-title{
 	font-family: 'Arvo', serif;
 	padding-left:2em;
+	font-weight:bold;
 }
-#countyResponse-title, #countyResponse-quickLinks{
+#countyResponse-title, #countyResponse-quickLinks, #stateResponse-title{
 	background-color:rgb(255,153,51);
 	color:#fff;
 }
@@ -681,6 +682,16 @@ div.tooltip {
 	padding-left:1em;
 	padding-right:1em;
 } 
+#stateResponse-table{
+	margin:0 auto;
+	width:90%;
+}
+#stateResponse-table th{
+	color:rgb(255,153,51);
+	font-size:1em;
+	margin-right:5px;
+	text-align:right;
+}
 /*
  * Access more data content stylings
  */

@@ -26,7 +26,9 @@
 <div id="responseContent" class="container-fluid">
 
  <CFOUTPUT QUERY="getstate" >
-<h2 style="text-align:left; padding-bottom:10px;">#getstate.StateName#</h2>
+<div id="stateResponse-title" class="row">
+	<h3>#getstate.StateName#</h3>
+</div>
  </CFOUTPUT>
 
 
@@ -37,28 +39,28 @@
 		
         <CFIF org_type EQ 'County'>
        
-        <TABLE class="table table-striped table-condensed">
-        <TR valign="bottom">
-                <TH align="left">
-                    <CFIF #state# EQ 'LA'>Parish</CFIF>
-                    <CFIF #state# EQ 'AK'>Borough</CFIF>
-                    <CFIF #state# NEQ 'LA' AND #state# NEQ 'AK' >County</CFIF>
+        <TABLE id="stateResponse-table" class="table table-striped">
+        <TR style="padding:10px 0; border-bottom:2px solid rgb(255,153,51);">
+                <TH>
+                    <CFIF #state# EQ 'LA'>PARISH</CFIF>
+                    <CFIF #state# EQ 'AK'>BOROUGH</CFIF>
+                    <CFIF #state# NEQ 'LA' AND #state# NEQ 'AK' >COUNTY</CFIF>
                 </TH>
-				<TH>2013<BR>Population</a></TH>
-				<TH>Square<BR>Miles</TH> 
-				<TH>County Seat</TH>
-				<TH>Board<BR>Size</TH>
-				<TH>Founded</TH>
+				<TH>2013 POPULATION</TH>
+				<TH>SQUARE MILES</TH> 
+				<TH>COUNTY SEAT</TH>
+				<TH>BOARD SIZE</TH>
+				<TH>FOUNDED</TH>
 			</TR>
             <CFOUTPUT>
             <TR>
-				<TD><a id="#FIPS#" onClick="executeSearchMatch('#FIPS#')" >#County_Name#</a><CFIF Gov_Type EQ  "Consolidated">*</CFIF>
+				<TD align="right"><a style="font-weight:bold; color:black;" id="#FIPS#" onClick="executeSearchMatch('#FIPS#')" >#County_Name#</a><CFIF Gov_Type EQ  "Consolidated">*</CFIF>
                 </TD>
 				<TD ALIGN="RIGHT"><CFIF #Population_2013# GT 0>#NumberFormat(Population_2013)#  <CFELSE><em>N/A</em></CFIF> </TD>
 				<TD ALIGN="RIGHT"><CFIF #Total_Square_Miles# GT 0>#NumberFormat(Total_Square_Miles)#  <CFELSE><em>N/A</em></CFIF> </TD> 
-				<TD ALIGN="LEFT"> #county_seat#&nbsp; </TD> 
+				<TD ALIGN="right"> #county_seat#&nbsp; </TD> 
 				<TD align="right"> #board_size#&nbsp;</TD> 
-				<TD ALIGN="CENTER">#founded#&nbsp;</TD>
+				<TD ALIGN="right">#founded#&nbsp;</TD>
 				</TR>
             </CFOUTPUT>
          </TABLE>
