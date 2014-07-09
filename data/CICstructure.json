@@ -512,7 +512,7 @@
             {"name": "Total Elected Officials", "dataType": "level", "definition": "Total Number of Elected officials in a county government, including the board officials, elected executives, and any other elected officials."},
             {"name": "Size of Board", "dataType": "level", "definition": "The size of the elected governing body of the county (number of board members)."},
             {"name": "Elected Executive", "dataType": "binary", "definition": "Indicates if the county has an elected executive official."},
-            {"name": "Number of Other Elected Officials", "dataType": "level", "definition": "Other elected county officials, including Sheriffs, District Attorneys, Treasurers and others"},
+            {"name": "Number of Row Officers", "dataType": "level", "definition": "Other elected county officials, including Sheriffs, District Attorneys, Treasurers and others"},
             {"name": "County Administrator", "dataType": "binary", "definition": "Indicates if the county has an administrator, county manager, or similar position."}
           ]
         }
