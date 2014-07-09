@@ -165,7 +165,7 @@ function testDatabaseResponses() {
 					    			break;
 					    		}
 					    	}
-					    	if (all_null) console.log('all null: ' + crosswalk[ind].db_dataset + ', ' + crosswalk[ind].db_indicator);
+					    	if (all_null) console.log('all null: ' + crosswalk[ind].db_dataset + ', ' + crosswalk[ind].db_indicator + ' (' + crosswalk[ind].year + ')');
 					    	else console.log('check! :)');
 						});
 					}, time);

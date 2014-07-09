@@ -886,10 +886,7 @@ function updateView() {
 		corrDomain = [];
 		// translating string values to numeric values
 		var numCorrVals = 0, vals = {}, corrVal = 0;
-		for (var ind in quantById) {
-			// case by case substitutions
-			if (quantById[ind] === '0') quantById[ind] = 'None';
-			
+		for (var ind in quantById) {		
 			// create corresponding value array (e.g. {"Gulf of Mexico": 0, "Pacific Ocean": 1})
 			if (quantById[ind] !== '.' && quantById[ind] !== '' && quantById[ind] !== null) {
 				if (!vals.hasOwnProperty(quantById[ind])) {
@@ -1014,7 +1011,9 @@ function manipulateData(qbis, indObjs) {
 				if (quantByIds[i][ind] === true) quantByIds[i][ind] = 'Yes';
 				else if (quantByIds[i][ind] === false) quantByIds[i][ind] = 'No';
 				else if (quantByIds[i][ind] === 2) quantByIds[i][ind] = 'Yes';
-			} else if (indObjs[i].dataType === 'level') {
+			} else if (indObjs[i].dataType === 'categorical') {
+				if (quantByIds[i][ind] === '0') quantByIds[i][ind] = 'None';
+			} else if (indObjs[i].dataType === 'level' && indObjs[i].category === 'Federal Funding') {
 				// if there's data for it, change null to 0 (prob should change in database, but this is easier for now)
 				if (isNaN(quantByIds[i][ind]) && !exceptionCounties.hasOwnProperty(parseInt(ind))) quantByIds[i][ind] = 0;
 				//if(perCap){quantByIds[i][ind] = quantByIds[i][ind]/popByIds[i][ind];}
