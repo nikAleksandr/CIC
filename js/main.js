@@ -914,20 +914,21 @@ function updateView() {
 	measureType = 'quintile';
 	var small = -1, large = 0;
 	if (isNumeric) {
-		var quantiles = color.quantiles(), d = color.domain();
+		var quantiles = color.quantiles();
 		
 		// if more than one fifth of counties are zeros, switch to quartile
 		if (quantiles[0] === 0) {
 			measureType = 'quartile';
 			
-			// we do not want "zero" to be considered during the quartile categorization			
+			// we do not want "zero" to be considered during the quartile categorization
+			var q_domain = [];			
 			for (var ind in domain) {
-				if (+domain[ind] === 0) delete domain[ind];
+				if (+domain[ind] !== 0) q_domain[ind] = domain[ind];
 			}
 
-			var range = [];
-			for (var i = 1; i < level_colors.length; i++) range.push(level_colors[i]);
-			color.domain(domain).range(range);
+			var q_range = [];
+			for (var i = 1; i < level_colors.length; i++) q_range.push(level_colors[i]);
+			color.domain(q_domain).range(q_range);
 			
 			quantiles = color.quantiles();
 		}
@@ -939,6 +940,7 @@ function updateView() {
 				break;
 			}
 		}
+		var d = color.domain();
 		if (quantiles[quantiles.length - 1] === d[d.length - 1]) measureType = 'threshold';
 		
 		if (measureType === 'threshold') {
@@ -960,6 +962,9 @@ function updateView() {
 				for (var i = 1; i < 5; i++) domain.push(small + (i * (large - small) / 5));
 			}
 			color.domain(domain).range(range);			
+		} else if (measureType === 'quartile') {
+			domain = q_domain;
+			range = q_range;
 		}
 	}
 	
