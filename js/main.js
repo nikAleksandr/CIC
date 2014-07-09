@@ -941,6 +941,7 @@ function updateView() {
 			}
 		}
 		var d = color.domain();
+		if (measureType === 'quartile' && quantiles[0] <= 1) measureType = 'threshold';
 		if (quantiles[quantiles.length - 1] === d[d.length - 1]) measureType = 'threshold';
 		
 		if (measureType === 'threshold') {
