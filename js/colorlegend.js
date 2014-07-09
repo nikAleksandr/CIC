@@ -94,7 +94,7 @@ var colorlegend = function (target, scale, type, options) {
 		} else if (measure_type === 'quartile') {
 			var quantiles = scale.quantiles();
 			dataValues.push(0);
-			dataValues.push(domain[0]);
+			(dataType === 'percent') ? dataValues.push(0.00001) : dataValues.push(1);
 			for (var i = 0; i < quantiles.length; i++) dataValues.push(quantiles[i]);
 			dataValues.push(domain[domain.length - 1]);
 		} else {
