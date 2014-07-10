@@ -960,10 +960,10 @@ function updateView() {
 			else {
 				domain = [];
 
-				// linear
+				// linear scale
 				//for (var i = 1; i < 5; i++) domain.push(small + (i * (large - small) / 5));
 				
-				// logarithmic
+				// logarithmic scale based 10
 				for (var i = 1; i < 5; i++) domain.push(large * Math.pow(10, i - 5));
 				for (var i = 0; i < domain.length; i++) { 
 					if (indObjects[0].format_type) {
