@@ -959,23 +959,25 @@ function updateView() {
 			if (currentDataType !== 'percent' && large <= 5) domain = [1, 2, 3, 4];
 			else {
 				domain = [];
-
-				// linear scale
-				//for (var i = 1; i < 5; i++) domain.push(small + (i * (large - small) / 5));
 				
-				// logarithmic scale based 10
-				for (var i = 1; i < 5; i++) domain.push(large * Math.pow(10, i - 5));
-				for (var i = 0; i < domain.length; i++) { 
-					if (indObjects[0].format_type) {
-						if (indObjects[0].format_type === 'dec1') domain[i] = domain[i].toFixed(1);
-						else if (indObjects[0].format_type === 'dec2') domain[i] = domain[i].toFixed(2);
-					} else domain[i] = Math.round(domain[i]);
-				}	
-				
-				// check to make sure no threshold values are the same.
-				if (domain[0] <= 0) domain[0] = 1;
-				for (var i = 1; i < domain.length; i++) {
-					if (domain[i] <= domain[i-1]) domain[i] = domain[i-1] + 1;
+				if (currentDataType === 'percent') {
+					// linear scale
+					for (var i = 1; i < 5; i++) domain.push(small + (i * (large - small) / 5));
+				} else {				
+					// logarithmic scale based 10
+					for (var i = 1; i < 5; i++) domain.push(large * Math.pow(10, i - 5));
+					for (var i = 0; i < domain.length; i++) { 
+						if (indObjects[0].format_type) {
+							if (indObjects[0].format_type === 'dec1') domain[i] = domain[i].toFixed(1);
+							else if (indObjects[0].format_type === 'dec2') domain[i] = domain[i].toFixed(2);
+						} else domain[i] = Math.round(domain[i]);
+					}	
+					
+					// check to make sure no threshold values are the same.
+					if (domain[0] <= 0) domain[0] = 1;
+					for (var i = 1; i < domain.length; i++) {
+						if (domain[i] <= domain[i-1]) domain[i] = domain[i-1] + 1;
+					}
 				}
 			}
 			color.domain(domain).range(range);			
