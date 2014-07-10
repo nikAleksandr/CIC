@@ -1017,25 +1017,30 @@ function updateView() {
 }
 
 function manipulateData(qbis, indObjs) {
-	// MANUAL DATA MODIFICATIONS; better to change database values when there's time
+	// MANUAL DATA MODIFICATIONS; this whole function should disappear...better to change database values
 	for (var i = 0; i < qbis.length; i++) {
 		for (var ind in qbis[i]) {
-			if (indObjs[i].dataType === 'binary') {
-				// modify binary values
-				if (quantByIds[i][ind] === true) quantByIds[i][ind] = 'Yes';
-				else if (quantByIds[i][ind] === false) quantByIds[i][ind] = 'No';
-				else if (quantByIds[i][ind] === 2) quantByIds[i][ind] = 'Yes';
-			} else if (indObjs[i].dataType === 'categorical') {
-				if (quantByIds[i][ind] === '0') quantByIds[i][ind] = 'None';
-			} else if (indObjs[i].dataType === 'level' && indObjs[i].category === 'Federal Funding') {
-				// if there's data for it, change null to 0 (prob should change in database, but this is easier for now)
-				if (isNaN(quantByIds[i][ind]) && !exceptionCounties.hasOwnProperty(parseInt(ind))) quantByIds[i][ind] = 0;
-				//if(perCap){quantByIds[i][ind] = quantByIds[i][ind]/popByIds[i][ind];}
-			} else if (indObjs[i].name === 'Level of CBSA') {
-				if (quantByIds[i][ind] === 1) quantByIds[i][ind] = 'Metropolitan';
-				else if (quantByIds[i][ind] === 2) quantByIds[i][ind] = 'Micropolitan';
-			} else if (indObjs[i].name === 'CSA Code') {
-				if (quantByIds[i][ind] === 0) quantByIds[i][ind] = null;
+			// if part of exception counties (connecticut, massachusetts, some of alaska, va independent cities), make it not available
+			if (exceptionCounties.hasOwnProperty(+ind)) {
+				qbis[i][ind] = '.';
+			} else {
+				if (indObjs[i].dataType === 'binary') {
+					// modify binary values
+					if (quantByIds[i][ind] === true) quantByIds[i][ind] = 'Yes';
+					else if (quantByIds[i][ind] === false) quantByIds[i][ind] = 'No';
+					else if (quantByIds[i][ind] === 2) quantByIds[i][ind] = 'Yes';
+				} else if (indObjs[i].dataType === 'categorical') {
+					if (quantByIds[i][ind] === 0) quantByIds[i][ind] = 'None';
+				} else if (indObjs[i].dataType === 'level' && indObjs[i].category === 'Federal Funding') {
+					// if there's data for it, change null to 0 (prob should change in database, but this is easier for now)
+					if (isNaN(quantByIds[i][ind]) && !exceptionCounties.hasOwnProperty(+ind)) quantByIds[i][ind] = 0;
+					//if(perCap){quantByIds[i][ind] = quantByIds[i][ind]/popByIds[i][ind];}
+				} else if (indObjs[i].name === 'Level of CBSA') {
+					if (quantByIds[i][ind] === 1) quantByIds[i][ind] = 'Metropolitan';
+					else if (quantByIds[i][ind] === 2) quantByIds[i][ind] = 'Micropolitan';
+				} else if (indObjs[i].name === 'CSA Code') {
+					if (quantByIds[i][ind] === 0) quantByIds[i][ind] = null;
+				}				
 			}
 		}
 	}
