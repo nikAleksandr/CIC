@@ -959,23 +959,25 @@ function updateView() {
 			if (currentDataType !== 'percent' && large <= 5) domain = [1, 2, 3, 4];
 			else {
 				domain = [];
-
-				// linear scale
-				//for (var i = 1; i < 5; i++) domain.push(small + (i * (large - small) / 5));
 				
-				// logarithmic scale based 10
-				for (var i = 1; i < 5; i++) domain.push(large * Math.pow(10, i - 5));
-				for (var i = 0; i < domain.length; i++) { 
-					if (indObjects[0].format_type) {
-						if (indObjects[0].format_type === 'dec1') domain[i] = domain[i].toFixed(1);
-						else if (indObjects[0].format_type === 'dec2') domain[i] = domain[i].toFixed(2);
-					} else domain[i] = Math.round(domain[i]);
-				}	
-				
-				// check to make sure no threshold values are the same.
-				if (domain[0] <= 0) domain[0] = 1;
-				for (var i = 1; i < domain.length; i++) {
-					if (domain[i] <= domain[i-1]) domain[i] = domain[i-1] + 1;
+				if (currentDataType === 'percent') {
+					// linear scale
+					for (var i = 1; i < 5; i++) domain.push(small + (i * (large - small) / 5));
+				} else {				
+					// logarithmic scale based 10
+					for (var i = 1; i < 5; i++) domain.push(large * Math.pow(10, i - 5));
+					for (var i = 0; i < domain.length; i++) { 
+						if (indObjects[0].format_type) {
+							if (indObjects[0].format_type === 'dec1') domain[i] = domain[i].toFixed(1);
+							else if (indObjects[0].format_type === 'dec2') domain[i] = domain[i].toFixed(2);
+						} else domain[i] = Math.round(domain[i]);
+					}	
+					
+					// check to make sure no threshold values are the same.
+					if (domain[0] <= 0) domain[0] = 1;
+					for (var i = 1; i < domain.length; i++) {
+						if (domain[i] <= domain[i-1]) domain[i] = domain[i-1] + 1;
+					}
 				}
 			}
 			color.domain(domain).range(range);			
@@ -1015,25 +1017,30 @@ function updateView() {
 }
 
 function manipulateData(qbis, indObjs) {
-	// MANUAL DATA MODIFICATIONS; better to change database values when there's time
+	// MANUAL DATA MODIFICATIONS; this whole function should disappear...better to change database values
 	for (var i = 0; i < qbis.length; i++) {
 		for (var ind in qbis[i]) {
-			if (indObjs[i].dataType === 'binary') {
-				// modify binary values
-				if (quantByIds[i][ind] === true) quantByIds[i][ind] = 'Yes';
-				else if (quantByIds[i][ind] === false) quantByIds[i][ind] = 'No';
-				else if (quantByIds[i][ind] === 2) quantByIds[i][ind] = 'Yes';
-			} else if (indObjs[i].dataType === 'categorical') {
-				if (quantByIds[i][ind] === '0') quantByIds[i][ind] = 'None';
-			} else if (indObjs[i].dataType === 'level' && indObjs[i].category === 'Federal Funding') {
-				// if there's data for it, change null to 0 (prob should change in database, but this is easier for now)
-				if (isNaN(quantByIds[i][ind]) && !exceptionCounties.hasOwnProperty(parseInt(ind))) quantByIds[i][ind] = 0;
-				//if(perCap){quantByIds[i][ind] = quantByIds[i][ind]/popByIds[i][ind];}
-			} else if (indObjs[i].name === 'Level of CBSA') {
-				if (quantByIds[i][ind] === 1) quantByIds[i][ind] = 'Metropolitan';
-				else if (quantByIds[i][ind] === 2) quantByIds[i][ind] = 'Micropolitan';
-			} else if (indObjs[i].name === 'CSA Code') {
-				if (quantByIds[i][ind] === 0) quantByIds[i][ind] = null;
+			// if part of exception counties (connecticut, massachusetts, some of alaska, va independent cities), make it not available
+			if (exceptionCounties.hasOwnProperty(+ind)) {
+				qbis[i][ind] = '.';
+			} else {
+				if (indObjs[i].dataType === 'binary') {
+					// modify binary values
+					if (quantByIds[i][ind] === true) quantByIds[i][ind] = 'Yes';
+					else if (quantByIds[i][ind] === false) quantByIds[i][ind] = 'No';
+					else if (quantByIds[i][ind] === 2) quantByIds[i][ind] = 'Yes';
+				} else if (indObjs[i].dataType === 'categorical') {
+					if (quantByIds[i][ind] === 0) quantByIds[i][ind] = 'None';
+				} else if (indObjs[i].dataType === 'level' && indObjs[i].category === 'Federal Funding') {
+					// if there's data for it, change null to 0 (prob should change in database, but this is easier for now)
+					if (isNaN(quantByIds[i][ind]) && !exceptionCounties.hasOwnProperty(+ind)) quantByIds[i][ind] = 0;
+					//if(perCap){quantByIds[i][ind] = quantByIds[i][ind]/popByIds[i][ind];}
+				} else if (indObjs[i].name === 'Level of CBSA') {
+					if (quantByIds[i][ind] === 1) quantByIds[i][ind] = 'Metropolitan';
+					else if (quantByIds[i][ind] === 2) quantByIds[i][ind] = 'Micropolitan';
+				} else if (indObjs[i].name === 'CSA Code') {
+					if (quantByIds[i][ind] === 0) quantByIds[i][ind] = null;
+				}				
 			}
 		}
 	}
