@@ -1452,18 +1452,43 @@ function setZoomIconBehavior() {
 	});
 }
 
-//Easter-Eggs, and other back-end functions
+//---------------  Easter-Eggs, and other back-end functions -----------------------------------
 function exportSVG(){
 	d3.selectAll('path').attr({'stroke': '#fff', 'stroke-width': '.2px'});
 	d3.select('#state-borders').attr({'fill': 'none', 'stroke': '#fff', 'stroke-linecap': 'round', 'stroke-linejoin': 'round', 'stroke-width': '1.5px'});
 	svgenie.save('mapSvg', {name: 'test.png'});
 }
-//bind crtl + shit + L to change colors to blues
-d3.select(document.body).on('keyup',function(){if(d3.event.ctrlKey&&d3.event.shiftKey&&d3.event.keyCode===76){level_colors=['rgb(189,215,231)','rgb(107,174,214)','rgb(49,130,189)','rgb(7,81,156)','rgb(28,53,99)'];var i=currentDI.lastIndexOf(' - ');update(currentDI.substring(0,i),currentDI.substring(i+3,currentDI.length));}});
-//bind ctrl + shift + e to exportSVG() function
-d3.select(document.body).on('keyup', function(){if(d3.event.ctrlKey&&d3.event.shiftKey&&d3.event.keyCode===69)exportSVG();});
+
+// ctrl + shift + e to exportSVG() function
+d3.select(document.body).on('keyup', function() {
+	if (d3.event.ctrlKey && d3.event.shiftKey && d3.event.keyCode === 69) exportSVG();
+});
+
+// ctrl + shift + L to change colors to blues
+d3.select(document.body).on('keyup',function() {
+	if (d3.event.ctrlKey && d3.event.shiftKey && d3.event.keyCode === 76) {
+		level_colors = ['rgb(189,215,231)','rgb(107,174,214)','rgb(49,130,189)','rgb(7,81,156)','rgb(28,53,99)'];
+		var i = currentDI.lastIndexOf(' - ');
+		update(currentDI.substring(0, i), currentDI.substring(i+3, currentDI.length));
+	}
+});
+
+// ctrl + shift + y to view data as per capita
+d3.select(document.body).on('keyup', function() {
+	if (d3.event.ctrlKey && d3.event.shiftKey && d3.event.keyCode === 89) {
+ 		d3.tsv("/CIC/data/CData.tsv", function(error, countyData) {
+			for (var i = 0; i < quantByIds.length; i++) {
+				for (var j = 0; j < countyData.length; j++) {
+					quantByIds[i][countyData[j].id] /= +countyData[j]['Population Levels and Trends - Population Level'];
+				}
+			}
+			updateView();
+		});
+	}
+});
+
 //
-//End Easter Eggs and Backend Section
+// ---------------- End Easter Eggs and Backend Section --------------------------------------
 //
 
 var throttleTimer;
