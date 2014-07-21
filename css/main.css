@@ -115,7 +115,15 @@ table th{
 	font-weight:300;
 }
 
-#byline{
+#perCapitaButton {
+	text-align: center;
+	margin-top: 15px;
+}
+#perCapitaButton:focus {
+	outline: none;
+}
+
+.byline{
 	color: rgb(0,64,112);
 	text-align: left;
 	display: inline-block;

@@ -97,6 +97,7 @@ var tipContainer = d3.select('#tipContainer');
 
 var CICstructure,
 	data, // all county data
+	pop_db, // object to store population numbers for "per capita" data
 	legend, // the color legend
 	selected, // county path that has been selected
 	currentDataType = '', // current datatype showing
@@ -337,8 +338,69 @@ function setIconBehavior() {
 		e.stopPropagation();
 		emptyInstructionText();
 		$('#mailingText').show();	
-		$('#instructions').show();
-		
+		$('#instructions').show();		
+	});
+	
+	$('#perCapitaButton').on('click', function() {
+		$(this).button('toggle');
+		if ($(this).hasClass('active')) {
+			// turned on
+			// currently only does it for the primary indicator not the companions (would have to poll multiple years)
+			if (typeof pop_db === 'undefined') pop_db = {}; // store population in object to avoid unnecessary querying
+			var year = indObjects[0].year;
+			
+			var updateQuants = function() {
+				for (var i = 0; i < quantByIds[0].length; i++) {
+					if (quantByIds[0][i]) quantByIds[0][i] /= pop_db[year][i];
+					
+					if (quantByIds[0][i] > 100) {
+						console.log(i);
+						console.log(quantByIds[0][i]);
+						console.log(pop_db[year][i]);
+					}
+				}
+			};
+			
+			// temporarily using local data
+			if (!pop_db.hasOwnProperty(year)) {
+				pop_db[year] = {};
+		 		d3.tsv("/CIC/data/CData.tsv", function(error, countyData) {
+		 			for (var i = 0; i < countyData.length; i++) {
+		 				pop_db[year][countyData[i].id] = +countyData[i]['Population Levels and Trends - Population Level'];
+		 			}
+	 				updateQuants();
+					updateView();
+				});
+			} else {
+				updateQuants();
+				updateView();
+			}
+			
+			/*if (!pop_db.hasOwnProperty(year)) {
+				pop_db[year] = {};
+				var query_str = 'db_set=Demographics&db_ind=Pop_LT_Population&db_year=' + year;
+				d3.xhr('http://nacocic.naco.org/ciccfm/indicators.cfm?'+ query_str, function(error, request) {
+					var responseObj = jQuery.parseJSON(request.responseText);
+					var population = responseObj.DATA.POP_LT_POPULATION;
+					for (var i = 0; i < population.length; i++) {
+						pop_db[year][responseObj.DATA.FIPS[i]] = +population[i];
+						
+					}
+	 				updateQuants();
+					updateView();
+				});
+			} else {
+				updateQuants();
+				updateView();
+			}*/
+		} else {
+			// turned off
+			this.blur();
+			for (var i = 0; i < quantByIds[0].length; i++) {
+				if (quantByIds[0][i]) quantByIds[0][i] *= pop_db[indObjects[0].year][i];
+			}
+			updateView();
+		}
 	});
 }
 function resetSecondInd() {
@@ -488,7 +550,7 @@ function setSearchBehavior() {
 	d3.select('#search_submit').on('click', submitSearch);
 	
 	// set search type buttons to toggle
-	$('.btn').on('click', function() {
+	$('#searchTypes .btn').on('click', function() {
 		$('#' + searchType).button('toggle');
 		searchType = $(this).attr('id');
 		$(this).button('toggle');
@@ -706,6 +768,11 @@ function update(dataset, indicator) {
 	// update global variables
 	indObjects = allInfo(dataset, indicator);
 	currentDataType = indObjects[0].dataType;
+	
+	// reset per capita button
+	$('#perCapitaButton').removeClass('active');
+	if (isNumFun(currentDataType)) $('#perCapitaButton').removeClass('disabled');
+	else $('#perCapitaButton').addClass('disabled');
 	
 	$(document.body).off('dataReceived'); // shady, should only be setting event observe once, instead of re-defining it every time
 	$(document.body).on('dataReceived', function(event, qbis, data) {
@@ -1458,7 +1525,6 @@ function exportSVG(){
 	d3.select('#state-borders').attr({'fill': 'none', 'stroke': '#fff', 'stroke-linecap': 'round', 'stroke-linejoin': 'round', 'stroke-width': '1.5px'});
 	svgenie.save('mapSvg', {name: 'test.png'});
 }
-
 // ctrl + shift + e to exportSVG() function
 d3.select(document.body).on('keyup', function() {
 	if (d3.event.ctrlKey && d3.event.shiftKey && d3.event.keyCode === 69) exportSVG();
@@ -1472,21 +1538,6 @@ d3.select(document.body).on('keyup',function() {
 		update(currentDI.substring(0, i), currentDI.substring(i+3, currentDI.length));
 	}
 });
-
-// ctrl + shift + y to view data as per capita
-d3.select(document.body).on('keyup', function() {
-	if (d3.event.ctrlKey && d3.event.shiftKey && d3.event.keyCode === 89) {
- 		d3.tsv("/CIC/data/CData.tsv", function(error, countyData) {
-			for (var i = 0; i < quantByIds.length; i++) {
-				for (var j = 0; j < countyData.length; j++) {
-					quantByIds[i][countyData[j].id] /= +countyData[j]['Population Levels and Trends - Population Level'];
-				}
-			}
-			updateView();
-		});
-	}
-});
-
 //
 // ---------------- End Easter Eggs and Backend Section --------------------------------------
 //
