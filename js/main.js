@@ -20,7 +20,7 @@ var format = {
 	"binary": function (num) { return num; },
 	"categorical": function (num) { return num; },
 	"level": function (num, type) {
-		if (type === 'year') return num;
+		if (type === 'year') return num.toFixed(0);
     	else if (Math.abs(num) >= 1000000000) {
     		var formatted = String((num/1000000000).toFixed(1)) + "bil";
     		return (type === 'currency') ? '$' + formatted : formatted;
@@ -57,7 +57,7 @@ format['level_np'] = format['level'];
 var format_tt = {};
 for (var ind in format) format_tt[ind] = format[ind];
 format_tt['level'] = function (num, type) {
-	if (type === 'year') return num;
+	if (type === 'year') return num.toFixed(0);
 	else if (Math.abs(num) >= 1000000000) {
 		var formatted = String((num/1000000000).toFixed(1)) + " Bil";
 		return (type === 'currency') ? '$' + formatted : formatted;
@@ -97,12 +97,13 @@ var tipContainer = d3.select('#tipContainer');
 
 var CICstructure,
 	data, // all county data
-	pop_db, // object to store population numbers for "per capita" data
 	legend, // the color legend
 	selected, // county path that has been selected
 	currentDataType = '', // current datatype showing
 	currentDI = '', // current dataset/indicator showing
-	currentSecondDI = '', // current secondary dataset/indicator showing; empty string if not showing
+	currentSecondDI = '', // current secondary dataset/indicator showing; empty string if not showing,
+	isPerCapita = false,
+	pop_db = {}, // object to store population numbers for "per capita" data
 	searchType = 'countySearch',
 	searchState = 'State';
 		
@@ -344,11 +345,9 @@ function setIconBehavior() {
 	$('#perCapitaButton').on('click', function() {
 		$(this).button('toggle');
 		if ($(this).hasClass('active')) {
-			// turned on
 			// currently only does it for the primary indicator not the companions (would have to poll multiple years)
-			if (typeof pop_db === 'undefined') pop_db = {}; // store population in object to avoid unnecessary querying
-			var year = indObjects[0].year;
-			
+			isPerCapita = true;
+			var year = indObjects[0].year;			
 			var updateQuants = function() {
 				for (var i = 0; i < quantByIds[0].length; i++) {
 					if (quantByIds[0][i]) quantByIds[0][i] /= pop_db[year][i];
@@ -394,7 +393,7 @@ function setIconBehavior() {
 				updateView();
 			}*/
 		} else {
-			// turned off
+			isPerCapita = false;
 			this.blur();
 			for (var i = 0; i < quantByIds[0].length; i++) {
 				if (quantByIds[0][i]) quantByIds[0][i] *= pop_db[indObjects[0].year][i];
@@ -1302,11 +1301,13 @@ function populateTooltip(d) {
 			}
 		}
 		
+		if (isPerCapita) unit += (unit === '') ? 'per capita' : ' per capita';
+		
 		var name = (obj.name.indexOf('(') != -1) ? obj.name.substring(0, obj.name.indexOf('(')) : obj.name; // cut off before parenthesis if there is one
 		if (type !== 'year') name = obj.year + ' ' + name;
 		
 		row.append('td').attr('class', 'dataName').classed('leftborder', secondary).text(name + ':');
-		row.append('td').attr('class', 'dataNum').text(value + " " + unit);		
+		row.append('td').attr('class', 'dataNum').text(value + " " + unit);
 	};
 	
 	var sameDataset = true, s_sameDataset = true;
