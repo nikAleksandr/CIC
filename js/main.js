@@ -415,6 +415,7 @@ function setDataButtonBehavior() {
 			$('#thresholdButton').button('toggle');
 			$('#thresholdInputContainer').hide();
 			
+			updateView();			
 			NProgress.done();
 		}		
 	});
