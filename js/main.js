@@ -19,25 +19,33 @@ var format = {
 	"percent": d3.format('.1%'),
 	"binary": function (num) { return num; },
 	"categorical": function (num) { return num; },
-	"level": function (num, type) {
+	"level": function (num, unit) {
+		var type = '';
+		if (unit && unit !== '') {
+			if (unit.indexOf("dollar") != -1) type = 'currency';
+			else if (unit.indexOf('year') != -1) type = 'year';
+			else if (unit.indexOf('person') != -1 || unit.indexOf('employee') != -1) type = 'person';
+		}
+
 		if (type === 'year') return num.toFixed(0);
     	else if (Math.abs(num) >= 1000000000) {
     		var formatted = String((num/1000000000).toFixed(1)) + "bil";
-    		return (type === 'currency') ? '$' + formatted : formatted;
     	} else if (Math.abs(num) >= 1000000) {
     		var formatted = String((num/1000000).toFixed(1)) + "mil";
-    		return (type === 'currency') ? '$' + formatted : formatted;
     	} else if (Math.abs(num) >= 10000) {
     		var formatted = String((num/1000).toFixed(1)) + "k";
-    		return (type === 'currency') ? '$' + formatted : formatted;
     	} else if (Math.abs(num) >= 100) {
     		return (type === 'currency') ? d3.format('$,.0f')(num) : d3.format(',.0f')(num);
     	} else if (num == 0) {
     		return (type === 'currency') ? '$0' : 0;
     	} else {
     		if (type === 'currency') return d3.format('$0f')(num);
+    		else if (type === 'person') return d3.format('0f')(num);
+    		else if (isPerCapita) return d3.format('.2f')(num); // kind of a hack for right now
     		else return d3.format('0f')(num);
     	}
+    	
+		return (type === 'currency') ? '$' + formatted : formatted;
     },
     "dec1": function(num, type) {
     	if (Math.abs(num) >= 1000) return d3.format(',.0f')(num);
@@ -56,25 +64,31 @@ format['level_np'] = format['level'];
 // formatting for the tooltip
 var format_tt = {};
 for (var ind in format) format_tt[ind] = format[ind];
-format_tt['level'] = function (num, type) {
+format_tt['level'] = function (num, unit) {
+	var type = '';
+	if (unit && unit !== '') {
+		if (unit.indexOf("dollar") != -1) type = 'currency';
+		else if (unit.indexOf('year') != -1) type = 'year';
+		else if (unit.indexOf('person') != -1 || unit.indexOf('employee') != -1) type = 'person';
+	}
+
 	if (type === 'year') return num.toFixed(0);
 	else if (Math.abs(num) >= 1000000000) {
 		var formatted = String((num/1000000000).toFixed(1)) + " Bil";
-		return (type === 'currency') ? '$' + formatted : formatted;
 	} else if (Math.abs(num) >= 1000000) {
 		var formatted = String((num/1000000).toFixed(1)) + " Mil";
-		return (type === 'currency') ? '$' + formatted : formatted;
 	} else if (Math.abs(num) >= 10000) {
 		var formatted = String((num/1000).toFixed(1)) + "k";
-		return (type === 'currency') ? '$' + formatted : formatted;
 	} else if (Math.abs(num) >= 100) {
 		return (type === 'currency') ? d3.format('$,.0f')(num) : d3.format(',.0f')(num);
 	} else if (num == 0) {
 		return (type === 'currency') ? '$0' : 0;
 	} else {
 		if (type === 'currency') return d3.format('$0f')(num);
+		else if (type === 'person') return d3.format('0f')(num);
 		else return d3.format('0f')(num);
 	}
+	return (type === 'currency') ? '$' + formatted : formatted;
 };
 format_tt['level_np'] = format_tt['level'];
 
@@ -356,12 +370,6 @@ function setDataButtonBehavior() {
 			var updateQuants = function() {
 				for (var i = 0; i < quantByIds[0].length; i++) {
 					if (quantByIds[0][i]) quantByIds[0][i] /= pop_db[year][i];
-					
-					if (quantByIds[0][i] > 100) {
-						console.log(i);
-						console.log(quantByIds[0][i]);
-						console.log(pop_db[year][i]);
-					}
 				}
 			};
 			
@@ -428,7 +436,7 @@ function setDataButtonBehavior() {
 			
 			small_large_array = switchToThreshold();
 			fillMapColors();
-			legend = createLegend('threshold', null, small_large_array);						
+			legend = createLegend('threshold', null, small_large_array);
 			showThresholdInputs();
 			NProgress.done();
 		}
@@ -1074,7 +1082,7 @@ function updateView() {
 		if (measureType === 'threshold') {
 			$('#quantileButton').addClass('disabled');
 			$('#quantileButton').removeClass('active');
-			$('#thresholdButton').addClass('disabled active');
+			$('#thresholdButton').addClass('active');
 			showThresholdInputs();
 		} else {
 			$('#quantileButton').removeClass('disabled');
@@ -1315,17 +1323,11 @@ function createLegend(measure_type, keyArray, dataVals) {
 
 	var primeIndObj = indObjects[0];
 	if (primeIndObj.dataType !== 'none') {	
-		var type = '';
-		if (primeIndObj.hasOwnProperty('unit')) {
-			if (primeIndObj.unit.indexOf("dollar") != -1) type = 'currency';
-			else if (primeIndObj.unit.indexOf('year') != -1) type = 'year';
-		}
-
 		var options = {
 			boxHeight : 18,
 			boxWidth : 58,
 			dataType : primeIndObj.dataType,
-			unitType : type,
+			unit	 : primeIndObj.unit,
 			measure_type: measure_type,
 			formatFnArr: format
 		};
@@ -1366,26 +1368,25 @@ function populateTooltip(d) {
 	var none_avail = true;
 	
 	var writeIndicators = function(row, obj, quant, secondary) {
-		var unit = '', type = '';
-		if (obj.hasOwnProperty('unit')) {
-			if (obj.unit.indexOf("dollar") != -1) type = 'currency';
-			else if (obj.unit.indexOf('year') != -1) type = 'year';
-		}
-		
-		if (obj.hasOwnProperty('format_type')) var value = format_tt[obj.format_type](quant[d.id], type);
-		else var value = format_tt[obj.dataType](quant[d.id], type);
+		var unit = (obj.hasOwnProperty('unit')) ? obj.unit : '';		
+		if (obj.hasOwnProperty('format_type')) var value = format_tt[obj.format_type](quant[d.id], unit);
+		else var value = format_tt[obj.dataType](quant[d.id], unit);
 		
 		if (value === '$NaN' || value === 'NaN' || value === 'NaN%' || value === null || value === '.' || (isNumFun(obj.dataType) && isNaN(quant[d.id])) ) {
 			value = 'Not Available';
 		} else {
-			none_avail = false;
-			if (type !== 'currency' && type !== 'year' && obj.hasOwnProperty('unit')) {
-				unit = obj.unit;
-				if (unit.charAt(unit.length - 1) === 's' && parseFloat(value.toString().replace(/[^\d\.\-]/g, '')) === 1) unit = unit.substr(0, unit.length - 1); // "1 employee"
+			// "1 employee" instead of "1 employees"
+			if (unit !== '' && unit.indexOf("dollar") != -1 && unit.indexOf('year') != -1) {
+				if (unit.charAt(unit.length - 1) === 's' && parseFloat(value.toString().replace(/[^\d\.\-]/g, '')) === 1) {
+					unit = unit.substr(0, unit.length - 1); // "1 employee"
+				}
 			}
 		}
 		
-		if (isPerCapita) unit += (unit === '') ? 'per capita' : ' per capita';
+		if (obj === indObjects[0]) {
+			// only for first indicator for now
+			if (isPerCapita) unit += (unit === '') ? 'per capita' : ' per capita';
+		}
 		
 		var name = (obj.name.indexOf('(') != -1) ? obj.name.substring(0, obj.name.indexOf('(')) : obj.name; // cut off before parenthesis if there is one
 		if (type !== 'year') name = obj.year + ' ' + name;
@@ -1427,11 +1428,6 @@ function populateTooltip(d) {
 		writeIndicators(row, indObjects[i], quantByIds[i], false);
 		if (currentSecondDI !== '' && i < s_indObjects.length) writeIndicators(row, s_indObjects[i], s_quantByIds[i], true);
 	}
-
-	/*if (none_avail) {
-		tipTable.selectAll('tr').remove();
-		tipTable.append('tr').attr('class', 'tipKey').html('<td>No data available for this county</td>');
-	}*/
 }
 
 function positionTooltip(county) {
