@@ -5636,7 +5636,33 @@
 	        	<div class="container-fluid">
 		        	<div class="row">
 		        		<div class="col-md-6">
-							<button type="button" class="btn btn-default" id="perCapitaButton">View As Per Capita</button>        			
+							<div id="perCapitaContainer">
+								<button type="button" class="btn btn-default" id="perCapitaButton">View As Per Capita</button>
+							</div>
+							<div id="measureTypeContainer" class="btn-group">
+								<button type="button" class="btn btn-default active" id="quantileButton">Quantile</button>
+								<button type="button" class="btn btn-default" id="thresholdButton">Threshold</button>
+							</div>
+							<div id="thresholdInputContainer">
+								<table>
+									<tr>
+										<td><input class="thresholdInput" id="thresholdInput1" size="10"></td>
+										<td><input class="thresholdInput" id="thresholdInput2" size="10"></td>
+										<td><input class="thresholdInput" id="thresholdInput3" size="10"></td>
+										<td><input class="thresholdInput" id="thresholdInput4" size="10"></td>
+									</tr>
+									<tr>
+										<td align="center"><span>low</span></td>
+										<td></td><td></td>
+										<td align="center"><span>high</span></td>										
+									</tr>
+									<tr>
+										<td colspan=4 align="center">
+											<input type="submit" id="thresholdSubmit">
+										</td>
+									</tr>
+								</table>
+							</div>
 		        		</div>
 		        		<div id="legend-container" class="col-sm-12 col-md-6">
 		        			<div id="legendTitleContainer">

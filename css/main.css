@@ -119,8 +119,15 @@ table th{
 	text-align: center;
 	margin-top: 15px;
 }
-#perCapitaButton:focus {
-	outline: none;
+#perCapitaButton:focus { outline: none; }
+#measureTypeContainer, #thresholdInputContainer { margin-top: 10px; }
+#thresholdInputContainer {
+	font-size: 0.8em;
+	display: none;
+}
+#thresholdInputContainer table {
+	border-collapse: separate; 
+	border-spacing: 10px 0px;
 }
 
 .byline{
