@@ -1456,7 +1456,8 @@
 						}, {
 							"name": "Size of Board",
 							"dataType": "level",
-							"definition": "The size of the elected governing body of the county (number of board members)."
+							"definition": "The size of the elected governing body of the county (number of board members).",
+							"thresholds": [4, 6, 15, 20]
 						}, {
 							"name": "Elected Executive",
 							"dataType": "binary",

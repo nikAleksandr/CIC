@@ -1039,35 +1039,39 @@ function updateView() {
 	// threshold trumps quartile trumps quintile
 	measureType = 'quintile';
 	if (isNumeric) {
-		var quantiles = color.quantiles();
-		
-		// if more than one fifth of counties are zeros, switch to quartile
-		if (quantiles[0] === 0) {
-			measureType = 'quartile';
+		if (indObjects[0].hasOwnProperty('thresholds')) {
+			measureType = 'threshold';
+		} else {
+			var quantiles = color.quantiles();
 			
-			// we do not want "zero" to be considered during the quartile categorization
-			var q_domain = [];			
-			for (var ind in domain) {
-				if (+domain[ind] !== 0) q_domain[ind] = domain[ind];
+			// if more than one fifth of counties are zeros, switch to quartile
+			if (quantiles[0] === 0) {
+				measureType = 'quartile';
+				
+				// we do not want "zero" to be considered during the quartile categorization
+				var q_domain = [];			
+				for (var ind in domain) {
+					if (+domain[ind] !== 0) q_domain[ind] = domain[ind];
+				}
+	
+				var q_range = [];
+				for (var i = 1; i < level_colors.length; i++) q_range.push(level_colors[i]);
+				color.domain(q_domain).range(q_range);
+				
+				quantiles = color.quantiles();
 			}
-
-			var q_range = [];
-			for (var i = 1; i < level_colors.length; i++) q_range.push(level_colors[i]);
-			color.domain(q_domain).range(q_range);
 			
-			quantiles = color.quantiles();
-		}
-		
-		// check if any quantile thresholds are the same value, if so switch to threshold 
-		for (var i = 0; i < quantiles.length - 1; i++) {
-			if (quantiles[i] === quantiles[i+1]) {
-				measureType = 'threshold';
-				break;
+			// check if any quantile thresholds are the same value, if so switch to threshold 
+			for (var i = 0; i < quantiles.length - 1; i++) {
+				if (quantiles[i] === quantiles[i+1]) {
+					measureType = 'threshold';
+					break;
+				}
 			}
+			var d = color.domain();
+			if (measureType === 'quartile' && quantiles[0] <= 1) measureType = 'threshold';
+			if (quantiles[0] === d[0] || quantiles[quantiles.length - 1] === d[d.length - 1]) measureType = 'threshold';
 		}
-		var d = color.domain();
-		if (measureType === 'quartile' && quantiles[0] <= 1) measureType = 'threshold';
-		if (quantiles[0] === d[0] || quantiles[quantiles.length - 1] === d[d.length - 1]) measureType = 'threshold';
 		
 		if (measureType === 'threshold') {
 			small_large_array = switchToThreshold();
@@ -1129,7 +1133,7 @@ function switchToThreshold() {
 	var domain = color.domain(), range = color.range();
 	color = d3.scale.threshold(); // quantize scale, threshold based
 	
-	// sort domain in ascending order (must be numbers)
+	// collect all values in array and sort in ascending order
 	var new_domain = [];
 	for (var i = 0; i < domain.length; i++) {
 		if (!isNaN(domain[i])) new_domain.push(domain[i]);
@@ -1138,27 +1142,33 @@ function switchToThreshold() {
 	large = new_domain[new_domain.length - 1];
 	small = (currentDataType === 'level') ? 0 : new_domain[0]; 
 
-	if (currentDataType !== 'percent' && large <= 5) domain = [1, 2, 3, 4];
-	else {
-		domain = [];
-		
-		if (currentDataType === 'percent') {
-			// linear scale
-			for (var i = 1; i < 5; i++) domain.push(small + (i * (large - small) / 5));
-		} else {				
-			// logarithmic scale based 10
-			for (var i = 1; i < 5; i++) domain.push(large * Math.pow(10, i - 5));
-			for (var i = 0; i < domain.length; i++) { 
-				if (indObjects[0].format_type) {
-					if (indObjects[0].format_type === 'dec1') domain[i] = domain[i].toFixed(1);
-					else if (indObjects[0].format_type === 'dec2') domain[i] = domain[i].toFixed(2);
-				} else domain[i] = Math.round(domain[i]);
-			}	
+	
+	if (indObjects[0].hasOwnProperty('thresholds')) {
+		domain = indObjects[0].thresholds;
+	} else {
+		if (currentDataType !== 'percent' && large <= 5) {
+			domain = [1, 2, 3, 4]; // really only works for natural numbers; need a better fix
+		} else {
+			domain = [];
 			
-			// check to make sure no threshold values are the same
-			if (domain[0] <= 0) domain[0] = 1;
-			for (var i = 1; i < domain.length; i++) {
-				if (domain[i] <= domain[i-1]) domain[i] = domain[i-1] + 1;
+			if (currentDataType === 'percent') {
+				// linear scale
+				for (var i = 1; i < 5; i++) domain.push(small + (i * (large - small) / 5));
+			} else {				
+				// logarithmic scale based 10
+				for (var i = 1; i < 5; i++) domain.push(large * Math.pow(10, i - 5));
+				for (var i = 0; i < domain.length; i++) { 
+					if (indObjects[0].format_type) {
+						if (indObjects[0].format_type === 'dec1') domain[i] = domain[i].toFixed(1);
+						else if (indObjects[0].format_type === 'dec2') domain[i] = domain[i].toFixed(2);
+					} else domain[i] = Math.round(domain[i]);
+				}	
+				
+				// check to make sure no threshold values are the same
+				if (domain[0] <= 0) domain[0] = 1;
+				for (var i = 1; i < domain.length; i++) {
+					if (domain[i] <= domain[i-1]) domain[i] = domain[i-1] + 1;
+				}
 			}
 		}
 	}
@@ -1389,7 +1399,7 @@ function populateTooltip(d) {
 		}
 		
 		var name = (obj.name.indexOf('(') != -1) ? obj.name.substring(0, obj.name.indexOf('(')) : obj.name; // cut off before parenthesis if there is one
-		if (type !== 'year') name = obj.year + ' ' + name;
+		if (unit.indexOf('year') !== -1) name = obj.year + ' ' + name;
 		
 		row.append('td').attr('class', 'dataName').classed('leftborder', secondary).text(name + ':');
 		row.append('td').attr('class', 'dataNum').text(value + " " + unit);
