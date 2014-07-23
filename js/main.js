@@ -19,25 +19,33 @@ var format = {
 	"percent": d3.format('.1%'),
 	"binary": function (num) { return num; },
 	"categorical": function (num) { return num; },
-	"level": function (num, type) {
-		if (type === 'year') return num;
+	"level": function (num, unit) {
+		var type = '';
+		if (unit && unit !== '') {
+			if (unit.indexOf("dollar") != -1) type = 'currency';
+			else if (unit.indexOf('year') != -1) type = 'year';
+			else if (unit.indexOf('person') != -1 || unit.indexOf('employee') != -1) type = 'person';
+		}
+
+		if (type === 'year') return num.toFixed(0);
     	else if (Math.abs(num) >= 1000000000) {
     		var formatted = String((num/1000000000).toFixed(1)) + "bil";
-    		return (type === 'currency') ? '$' + formatted : formatted;
     	} else if (Math.abs(num) >= 1000000) {
     		var formatted = String((num/1000000).toFixed(1)) + "mil";
-    		return (type === 'currency') ? '$' + formatted : formatted;
     	} else if (Math.abs(num) >= 10000) {
     		var formatted = String((num/1000).toFixed(1)) + "k";
-    		return (type === 'currency') ? '$' + formatted : formatted;
     	} else if (Math.abs(num) >= 100) {
     		return (type === 'currency') ? d3.format('$,.0f')(num) : d3.format(',.0f')(num);
     	} else if (num == 0) {
     		return (type === 'currency') ? '$0' : 0;
     	} else {
     		if (type === 'currency') return d3.format('$0f')(num);
+    		else if (type === 'person') return d3.format('0f')(num);
+    		else if (isPerCapita) return d3.format('.2f')(num); // kind of a hack for right now
     		else return d3.format('0f')(num);
     	}
+    	
+		return (type === 'currency') ? '$' + formatted : formatted;
     },
     "dec1": function(num, type) {
     	if (Math.abs(num) >= 1000) return d3.format(',.0f')(num);
@@ -56,25 +64,31 @@ format['level_np'] = format['level'];
 // formatting for the tooltip
 var format_tt = {};
 for (var ind in format) format_tt[ind] = format[ind];
-format_tt['level'] = function (num, type) {
-	if (type === 'year') return num;
+format_tt['level'] = function (num, unit) {
+	var type = '';
+	if (unit && unit !== '') {
+		if (unit.indexOf("dollar") != -1) type = 'currency';
+		else if (unit.indexOf('year') != -1) type = 'year';
+		else if (unit.indexOf('person') != -1 || unit.indexOf('employee') != -1) type = 'person';
+	}
+
+	if (type === 'year') return num.toFixed(0);
 	else if (Math.abs(num) >= 1000000000) {
 		var formatted = String((num/1000000000).toFixed(1)) + " Bil";
-		return (type === 'currency') ? '$' + formatted : formatted;
 	} else if (Math.abs(num) >= 1000000) {
 		var formatted = String((num/1000000).toFixed(1)) + " Mil";
-		return (type === 'currency') ? '$' + formatted : formatted;
 	} else if (Math.abs(num) >= 10000) {
 		var formatted = String((num/1000).toFixed(1)) + "k";
-		return (type === 'currency') ? '$' + formatted : formatted;
 	} else if (Math.abs(num) >= 100) {
 		return (type === 'currency') ? d3.format('$,.0f')(num) : d3.format(',.0f')(num);
 	} else if (num == 0) {
 		return (type === 'currency') ? '$0' : 0;
 	} else {
 		if (type === 'currency') return d3.format('$0f')(num);
+		else if (type === 'person') return d3.format('0f')(num);
 		else return d3.format('0f')(num);
 	}
+	return (type === 'currency') ? '$' + formatted : formatted;
 };
 format_tt['level_np'] = format_tt['level'];
 
@@ -101,7 +115,9 @@ var CICstructure,
 	selected, // county path that has been selected
 	currentDataType = '', // current datatype showing
 	currentDI = '', // current dataset/indicator showing
-	currentSecondDI = '', // current secondary dataset/indicator showing; empty string if not showing
+	currentSecondDI = '', // current secondary dataset/indicator showing; empty string if not showing,
+	isPerCapita = false,
+	pop_db = {}, // object to store population numbers for "per capita" data
 	searchType = 'countySearch',
 	searchState = 'State';
 		
@@ -126,6 +142,8 @@ var range = [], // array of colors used for coloring the map
 
 var frmrS, frmrT; // keep track of current translate and scale values
 var inTransition = false; // boolean to show whether in the middle of zooming in to county
+
+var small_large_array = []; // for threshold measuring types, need to store the smallest and largest value for the legend
 
 function setup(width, height) {
 	var projection = d3.geo.albersUsa().translate([0, 0]).scale(width * 1.0);
@@ -198,6 +216,7 @@ function setBehaviors() {
 	setSearchBehavior();
 	setIconBehavior();
 	setZoomIconBehavior();
+	setDataButtonBehavior();
 }	
 
 function draw(topo, stateMesh) {
@@ -337,8 +356,115 @@ function setIconBehavior() {
 		e.stopPropagation();
 		emptyInstructionText();
 		$('#mailingText').show();	
-		$('#instructions').show();
+		$('#instructions').show();		
+	});
+}
+function setDataButtonBehavior() {	
+	$('#perCapitaButton').on('click', function() {
+		NProgress.start();
+		$(this).button('toggle');
+		if ($(this).hasClass('active')) {
+			// currently only does it for the primary indicator not the companions (would have to poll multiple years)
+			isPerCapita = true;
+			var year = indObjects[0].year;			
+			var updateQuants = function() {
+				for (var i = 0; i < quantByIds[0].length; i++) {
+					if (quantByIds[0][i]) quantByIds[0][i] /= pop_db[year][i];
+				}
+			};
+			
+			// temporarily using local data
+			if (!pop_db.hasOwnProperty(year)) {
+				pop_db[year] = {};
+		 		d3.tsv("/CIC/data/CData.tsv", function(error, countyData) {
+		 			for (var i = 0; i < countyData.length; i++) {
+		 				pop_db[year][countyData[i].id] = +countyData[i]['Population Levels and Trends - Population Level'];
+		 			}
+	 				updateQuants();
+					updateView();
+				});
+			} else {
+				updateQuants();
+				updateView();
+			}
+			
+			/*if (!pop_db.hasOwnProperty(year)) {
+				pop_db[year] = {};
+				var query_str = 'db_set=Demographics&db_ind=Pop_LT_Population&db_year=' + year;
+				d3.xhr('http://nacocic.naco.org/ciccfm/indicators.cfm?'+ query_str, function(error, request) {
+					var responseObj = jQuery.parseJSON(request.responseText);
+					var population = responseObj.DATA.POP_LT_POPULATION;
+					for (var i = 0; i < population.length; i++) {
+						pop_db[year][responseObj.DATA.FIPS[i]] = +population[i];
+						
+					}
+	 				updateQuants();
+					updateView();
+				});
+			} else {
+				updateQuants();
+				updateView();
+			}*/
+		} else {
+			isPerCapita = false;
+			this.blur();
+			for (var i = 0; i < quantByIds[0].length; i++) {
+				if (quantByIds[0][i]) quantByIds[0][i] *= pop_db[indObjects[0].year][i];
+			}
+			updateView();
+		}
+		NProgress.done();
+	});
+	
+	$('#quantileButton').on('click', function() {
+		if ($('#thresholdButton').hasClass('active')) {
+			NProgress.start();
+			$(this).button('toggle');
+			$('#thresholdButton').button('toggle');
+			$('#thresholdInputContainer').hide();
+			
+			updateView();			
+			NProgress.done();
+		}		
+	});
+	
+	$('#thresholdButton').on('click', function() {
+		if ($('#quantileButton').hasClass('active')) {
+			NProgress.start();
+			$('#quantileButton').button('toggle');
+			$(this).button('toggle');
+			
+			small_large_array = switchToThreshold();
+			fillMapColors();
+			legend = createLegend('threshold', null, small_large_array);
+			showThresholdInputs();
+			NProgress.done();
+		}
+	});
+	
+	$('#thresholdSubmit').on('click', function() {
+		NProgress.start();
+		var tvs = [];
+		for (var i = 1; i <= 4; i++) {
+			tvs.push(+$('#thresholdInput'+i).val());
+		}
 		
+		// check to see if threshold values are valid
+		for (var i = 1; i < tvs.length; i++) {
+			if (tvs[i] <= tvs[i-1]) {
+				noty({text: 'Invalid threshold values. Please try again.'});
+				return;
+			}
+		}
+		if (tvs[0] <= small_large_array[0] || tvs[3] >= small_large_array[1]) {
+			noty({text: 'Invalid threshold values. Please try again.'});
+			return;
+		}
+
+		color.domain(tvs);
+		legend = createLegend('threshold', null, small_large_array);
+		fillMapColors();
+		NProgress.done();
 	});
 }
 function resetSecondInd() {
@@ -480,15 +606,11 @@ function setDropdownBehavior() {
 
 function setSearchBehavior() {
 	var searchField = d3.select('#search_field');
-	var stateDrop = d3.select('#stateDropLi');
-	
-	// both of these are redundant and causing search to fire multiple times
-	//d3.select('#search_form').on('submit', submitSearch);	
-	//var searchField = d3.select('#search_field').on('keyup', function() { if (d3.event.keyCode === 13) submitSearch(); });
+	var stateDrop = d3.select('#stateDropLi');	
 	d3.select('#search_submit').on('click', submitSearch);
 	
 	// set search type buttons to toggle
-	$('.btn').on('click', function() {
+	$('#searchTypes .btn').on('click', function() {
 		$('#' + searchType).button('toggle');
 		searchType = $(this).attr('id');
 		$(this).button('toggle');
@@ -707,6 +829,11 @@ function update(dataset, indicator) {
 	indObjects = allInfo(dataset, indicator);
 	currentDataType = indObjects[0].dataType;
 	
+	// reset per capita button
+	$('#perCapitaButton').removeClass('active');
+	if (isNumFun(currentDataType)) $('#perCapitaButton').removeClass('disabled');
+	else $('#perCapitaButton').addClass('disabled');
+	
 	$(document.body).off('dataReceived'); // shady, should only be setting event observe once, instead of re-defining it every time
 	$(document.body).on('dataReceived', function(event, qbis, data) {
 		NProgress.set(0.5);
@@ -851,16 +978,14 @@ function updateView() {
 	var isNumeric = isNumFun(currentDataType);
 	var quantById = quantByIds[0];	
 
-	// define domain
+	// define domain based on dataType
 	if (isNumeric) {
 		var domain = [];
 		for (var ind in quantById) domain[ind] = quantById[ind];
 	} else if (currentDataType === 'binary') {
 		corrDomain = [];
 		for (var ind in quantById) {
-			if (quantById[ind] === 'Yes') corrDomain[ind] = 1;
-			else if (quantById[ind] === 'No') corrDomain[ind] = 0;
-			else if (quantById[ind] === 0 || quantById[ind] === 1) corrDomain[ind] = quantById[ind];
+			if (quantById[ind] === 0 || quantById[ind] === 1) corrDomain[ind] = quantById[ind];
 		}
 		var vals = {'Yes': 1, 'No': 0};
 	} else if (currentDataType === 'categorical') {
@@ -868,9 +993,9 @@ function updateView() {
 		// translating string values to numeric values
 		var numCorrVals = 0, vals = {}, corrVal = 0;
 		for (var ind in quantById) {		
-			// create corresponding value array (e.g. {"Gulf of Mexico": 0, "Pacific Ocean": 1})
 			if (quantById[ind] !== '.' && quantById[ind] !== '' && quantById[ind] !== null) {
 				if (!vals.hasOwnProperty(quantById[ind])) {
+					// create corresponding value array (e.g. {"Gulf of Mexico": 0, "Pacific Ocean": 1})
 					vals[quantById[ind]] = corrVal;
 					corrVal++;
 				}
@@ -908,83 +1033,71 @@ function updateView() {
 		else color.domain(corrDomain).range(range);
 	}
 	
+	// define measureType
 	// if 0 spans more than one quintile, then switch to quartiles
 	// check if a value spans more than one quantile; if so, switch to threshold
 	// threshold trumps quartile trumps quintile
 	measureType = 'quintile';
-	var small = -1, large = 0;
 	if (isNumeric) {
-		var quantiles = color.quantiles();
-		
-		// if more than one fifth of counties are zeros, switch to quartile
-		if (quantiles[0] === 0) {
-			measureType = 'quartile';
+		if (indObjects[0].hasOwnProperty('thresholds')) {
+			measureType = 'threshold';
+		} else {
+			var quantiles = color.quantiles();
 			
-			// we do not want "zero" to be considered during the quartile categorization
-			var q_domain = [];			
-			for (var ind in domain) {
-				if (+domain[ind] !== 0) q_domain[ind] = domain[ind];
-			}
-
-			var q_range = [];
-			for (var i = 1; i < level_colors.length; i++) q_range.push(level_colors[i]);
-			color.domain(q_domain).range(q_range);
-			
-			quantiles = color.quantiles();
-		}
-		
-		// check if any quantile thresholds are the same value, if so switch to threshold 
-		for (var i = 0; i < quantiles.length - 1; i++) {
-			if (quantiles[i] === quantiles[i+1]) {
-				measureType = 'threshold';
-				break;
-			}
-		}
-		var d = color.domain();
-		if (measureType === 'quartile' && quantiles[0] <= 1) measureType = 'threshold';
-		if (quantiles[0] === d[0] || quantiles[quantiles.length - 1] === d[d.length - 1]) measureType = 'threshold';
-		
-		if (measureType === 'threshold') {
-			color = d3.scale.threshold(); // quantize scale, threshold based
-			
-			// sort domain in ascending order (must be numbers)
-			var new_domain = [];
-			for (var i = 0; i < domain.length; i++) {
-				if (!isNaN(domain[i])) new_domain.push(domain[i]);
-			}
-			new_domain.sort(function(a, b) { return (a - b); });
-			large = new_domain[new_domain.length - 1];
-			small = (currentDataType === 'level') ? 0 : new_domain[0]; 
-	
-			if (currentDataType !== 'percent' && large <= 5) domain = [1, 2, 3, 4];
-			else {
-				domain = [];
+			// if more than one fifth of counties are zeros, switch to quartile
+			if (quantiles[0] === 0) {
+				measureType = 'quartile';
 				
-				if (currentDataType === 'percent') {
-					// linear scale
-					for (var i = 1; i < 5; i++) domain.push(small + (i * (large - small) / 5));
-				} else {				
-					// logarithmic scale based 10
-					for (var i = 1; i < 5; i++) domain.push(large * Math.pow(10, i - 5));
-					for (var i = 0; i < domain.length; i++) { 
-						if (indObjects[0].format_type) {
-							if (indObjects[0].format_type === 'dec1') domain[i] = domain[i].toFixed(1);
-							else if (indObjects[0].format_type === 'dec2') domain[i] = domain[i].toFixed(2);
-						} else domain[i] = Math.round(domain[i]);
-					}	
-					
-					// check to make sure no threshold values are the same.
-					if (domain[0] <= 0) domain[0] = 1;
-					for (var i = 1; i < domain.length; i++) {
-						if (domain[i] <= domain[i-1]) domain[i] = domain[i-1] + 1;
-					}
+				// we do not want "zero" to be considered during the quartile categorization
+				var q_domain = [];			
+				for (var ind in domain) {
+					if (+domain[ind] !== 0) q_domain[ind] = domain[ind];
+				}
+	
+				var q_range = [];
+				for (var i = 1; i < level_colors.length; i++) q_range.push(level_colors[i]);
+				color.domain(q_domain).range(q_range);
+				
+				quantiles = color.quantiles();
+			}
+			
+			// check if any quantile thresholds are the same value, if so switch to threshold 
+			for (var i = 0; i < quantiles.length - 1; i++) {
+				if (quantiles[i] === quantiles[i+1]) {
+					measureType = 'threshold';
+					break;
 				}
 			}
-			color.domain(domain).range(range);			
+			var d = color.domain();
+			if (measureType === 'quartile' && quantiles[0] <= 1) measureType = 'threshold';
+			if (quantiles[0] === d[0] || quantiles[quantiles.length - 1] === d[d.length - 1]) measureType = 'threshold';
+		}
+		
+		if (measureType === 'threshold') {
+			small_large_array = switchToThreshold();
 		} else if (measureType === 'quartile') {
 			domain = q_domain;
 			range = q_range;
 		}
+	}
+	
+	// update quantile/threshold buttons based on dataType and measureType
+	if (isNumeric) {
+		if (measureType === 'threshold') {
+			$('#quantileButton').addClass('disabled');
+			$('#quantileButton').removeClass('active');
+			$('#thresholdButton').addClass('active');
+			showThresholdInputs();
+		} else {
+			$('#quantileButton').removeClass('disabled');
+			$('#quantileButton').addClass('active');
+			$('#thresholdButton').removeClass('disabled active');		
+			$('#thresholdInputContainer').hide();
+		}
+	} else {
+		$('#quantileButton, #thresholdButton').addClass('disabled');
+		$('#quantileButton, #thresholdButton').removeClass('active');
+		$('#thresholdInputContainer').hide();
 	}
 	
 
@@ -997,7 +1110,7 @@ function updateView() {
 	} else {
 		$('#quantileLegend').css('visibility', 'visible');
 		if (isNumeric) {
-			legend = createLegend(measureType, null, [small, large]); // note: small and large are included for "threshold" types to place in legend
+			legend = createLegend(measureType, null, small_large_array); // note: small and large are included for "threshold" types to place in legend
 		} else {
 			legend = createLegend(measureType, vals); // note: vals is a correspondence array linking strings with numbers for categorical dataTypes
 		}
@@ -1016,6 +1129,61 @@ function updateView() {
 		.html('<i>Source</i>: ' + indObjects[0].source + ', ' + indObjects[0].year);
 }
 
+function switchToThreshold() {
+	var domain = color.domain(), range = color.range();
+	color = d3.scale.threshold(); // quantize scale, threshold based
+	
+	// collect all values in array and sort in ascending order
+	var new_domain = [];
+	for (var i = 0; i < domain.length; i++) {
+		if (!isNaN(domain[i])) new_domain.push(domain[i]);
+	}
+	new_domain.sort(function(a, b) { return (a - b); });
+	large = new_domain[new_domain.length - 1];
+	small = (currentDataType === 'level') ? 0 : new_domain[0]; 
+
+	
+	if (indObjects[0].hasOwnProperty('thresholds')) {
+		domain = indObjects[0].thresholds;
+	} else {
+		if (currentDataType !== 'percent' && large <= 5) {
+			domain = [1, 2, 3, 4]; // really only works for natural numbers; need a better fix
+		} else {
+			domain = [];
+			
+			if (currentDataType === 'percent') {
+				// linear scale
+				for (var i = 1; i < 5; i++) domain.push(small + (i * (large - small) / 5));
+			} else {				
+				// logarithmic scale based 10
+				for (var i = 1; i < 5; i++) domain.push(large * Math.pow(10, i - 5));
+				for (var i = 0; i < domain.length; i++) { 
+					if (indObjects[0].format_type) {
+						if (indObjects[0].format_type === 'dec1') domain[i] = domain[i].toFixed(1);
+						else if (indObjects[0].format_type === 'dec2') domain[i] = domain[i].toFixed(2);
+					} else domain[i] = Math.round(domain[i]);
+				}	
+				
+				// check to make sure no threshold values are the same
+				if (domain[0] <= 0) domain[0] = 1;
+				for (var i = 1; i < domain.length; i++) {
+					if (domain[i] <= domain[i-1]) domain[i] = domain[i-1] + 1;
+				}
+			}
+		}
+	}
+	color.domain(domain).range(range);			
+		
+	return [small, large];
+}
+function showThresholdInputs() {
+	$('#thresholdInputContainer').show();
+	var domain = color.domain();
+	for (var i = 0; i < 4; i++) {
+		$('#thresholdInput'+(i+1)).val(domain[i]);
+	}
+}
+
 function manipulateData(qbis, indObjs) {
 	// MANUAL DATA MODIFICATIONS; this whole function should disappear...better to change database values
 	for (var i = 0; i < qbis.length; i++) {
@@ -1026,9 +1194,9 @@ function manipulateData(qbis, indObjs) {
 			} else {
 				if (indObjs[i].dataType === 'binary') {
 					// modify binary values
-					if (quantByIds[i][ind] === true) quantByIds[i][ind] = 'Yes';
-					else if (quantByIds[i][ind] === false) quantByIds[i][ind] = 'No';
-					else if (quantByIds[i][ind] === 2) quantByIds[i][ind] = 'Yes';
+					if (quantByIds[i][ind] == true || quantByIds[i][ind] === 'Yes') quantByIds[i][ind] = 1;
+					else if (quantByIds[i][ind] == false || quantByIds[i][ind] === 'No') quantByIds[i][ind] = 0;
+					else if (quantByIds[i][ind] === 2) quantByIds[i][ind] = 1;
 				} else if (indObjs[i].dataType === 'categorical') {
 					if (quantByIds[i][ind] === 0) quantByIds[i][ind] = 'None';
 				} else if (indObjs[i].dataType === 'level' && indObjs[i].category === 'Federal Funding') {
@@ -1165,17 +1333,11 @@ function createLegend(measure_type, keyArray, dataVals) {
 
 	var primeIndObj = indObjects[0];
 	if (primeIndObj.dataType !== 'none') {	
-		var type = '';
-		if (primeIndObj.hasOwnProperty('unit')) {
-			if (primeIndObj.unit.indexOf("dollar") != -1) type = 'currency';
-			else if (primeIndObj.unit.indexOf('year') != -1) type = 'year';
-		}
-
 		var options = {
 			boxHeight : 18,
 			boxWidth : 58,
 			dataType : primeIndObj.dataType,
-			unitType : type,
+			unit	 : primeIndObj.unit,
 			measure_type: measure_type,
 			formatFnArr: format
 		};
@@ -1216,30 +1378,31 @@ function populateTooltip(d) {
 	var none_avail = true;
 	
 	var writeIndicators = function(row, obj, quant, secondary) {
-		var unit = '', type = '';
-		if (obj.hasOwnProperty('unit')) {
-			if (obj.unit.indexOf("dollar") != -1) type = 'currency';
-			else if (obj.unit.indexOf('year') != -1) type = 'year';
-		}
-		
-		if (obj.hasOwnProperty('format_type')) var value = format_tt[obj.format_type](quant[d.id], type);
-		else var value = format_tt[obj.dataType](quant[d.id], type);
+		var unit = (obj.hasOwnProperty('unit')) ? obj.unit : '';		
+		if (obj.hasOwnProperty('format_type')) var value = format_tt[obj.format_type](quant[d.id], unit);
+		else var value = format_tt[obj.dataType](quant[d.id], unit);
 		
 		if (value === '$NaN' || value === 'NaN' || value === 'NaN%' || value === null || value === '.' || (isNumFun(obj.dataType) && isNaN(quant[d.id])) ) {
 			value = 'Not Available';
 		} else {
-			none_avail = false;
-			if (type !== 'currency' && type !== 'year' && obj.hasOwnProperty('unit')) {
-				unit = obj.unit;
-				if (unit.charAt(unit.length - 1) === 's' && parseFloat(value.toString().replace(/[^\d\.\-]/g, '')) === 1) unit = unit.substr(0, unit.length - 1); // "1 employee"
+			// "1 employee" instead of "1 employees"
+			if (unit !== '' && unit.indexOf("dollar") != -1 && unit.indexOf('year') != -1) {
+				if (unit.charAt(unit.length - 1) === 's' && parseFloat(value.toString().replace(/[^\d\.\-]/g, '')) === 1) {
+					unit = unit.substr(0, unit.length - 1); // "1 employee"
+				}
 			}
 		}
 		
+		if (obj === indObjects[0]) {
+			// only for first indicator for now
+			if (isPerCapita) unit += (unit === '') ? 'per capita' : ' per capita';
+		}
+		
 		var name = (obj.name.indexOf('(') != -1) ? obj.name.substring(0, obj.name.indexOf('(')) : obj.name; // cut off before parenthesis if there is one
-		if (type !== 'year') name = obj.year + ' ' + name;
+		if (unit.indexOf('year') !== -1) name = obj.year + ' ' + name;
 		
 		row.append('td').attr('class', 'dataName').classed('leftborder', secondary).text(name + ':');
-		row.append('td').attr('class', 'dataNum').text(value + " " + unit);		
+		row.append('td').attr('class', 'dataNum').text(value + " " + unit);
 	};
 	
 	var sameDataset = true, s_sameDataset = true;
@@ -1275,11 +1438,6 @@ function populateTooltip(d) {
 		writeIndicators(row, indObjects[i], quantByIds[i], false);
 		if (currentSecondDI !== '' && i < s_indObjects.length) writeIndicators(row, s_indObjects[i], s_quantByIds[i], true);
 	}
-
-	/*if (none_avail) {
-		tipTable.selectAll('tr').remove();
-		tipTable.append('tr').attr('class', 'tipKey').html('<td>No data available for this county</td>');
-	}*/
 }
 
 function positionTooltip(county) {
@@ -1452,18 +1610,27 @@ function setZoomIconBehavior() {
 	});
 }
 
-//Easter-Eggs, and other back-end functions
+//---------------  Easter-Eggs, and other back-end functions -----------------------------------
 function exportSVG(){
 	d3.selectAll('path').attr({'stroke': '#fff', 'stroke-width': '.2px'});
 	d3.select('#state-borders').attr({'fill': 'none', 'stroke': '#fff', 'stroke-linecap': 'round', 'stroke-linejoin': 'round', 'stroke-width': '1.5px'});
 	svgenie.save('mapSvg', {name: 'test.png'});
 }
-//bind crtl + shit + L to change colors to blues
-d3.select(document.body).on('keyup',function(){if(d3.event.ctrlKey&&d3.event.shiftKey&&d3.event.keyCode===76){level_colors=['rgb(189,215,231)','rgb(107,174,214)','rgb(49,130,189)','rgb(7,81,156)','rgb(28,53,99)'];var i=currentDI.lastIndexOf(' - ');update(currentDI.substring(0,i),currentDI.substring(i+3,currentDI.length));}});
-//bind ctrl + shift + e to exportSVG() function
-d3.select(document.body).on('keyup', function(){if(d3.event.ctrlKey&&d3.event.shiftKey&&d3.event.keyCode===69)exportSVG();});
+// ctrl + shift + e to exportSVG() function
+d3.select(document.body).on('keyup', function() {
+	if (d3.event.ctrlKey && d3.event.shiftKey && d3.event.keyCode === 69) exportSVG();
+});
+
+// ctrl + shift + L to change colors to blues
+d3.select(document.body).on('keyup',function() {
+	if (d3.event.ctrlKey && d3.event.shiftKey && d3.event.keyCode === 76) {
+		level_colors = ['rgb(189,215,231)','rgb(107,174,214)','rgb(49,130,189)','rgb(7,81,156)','rgb(28,53,99)'];
+		var i = currentDI.lastIndexOf(' - ');
+		update(currentDI.substring(0, i), currentDI.substring(i+3, currentDI.length));
+	}
+});
 //
-//End Easter Eggs and Backend Section
+// ---------------- End Easter Eggs and Backend Section --------------------------------------
 //
 
 var throttleTimer;

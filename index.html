@@ -5635,15 +5635,50 @@
 	        <div id="underMap">
 	        	<div class="container-fluid">
 		        	<div class="row">
-		        		<div id="legend-container" class="col-sm-12 col-md-5 col-md-push-7">
+		        		<div class="col-md-6">
+							<!-- <div id="perCapitaContainer">
+								<button type="button" class="btn btn-default" id="perCapitaButton">View As Per Capita</button>
+							</div>
+							<div id="measureTypeContainer" class="btn-group">
+								<button type="button" class="btn btn-default active" id="quantileButton">Quantile</button>
+								<button type="button" class="btn btn-default" id="thresholdButton">Threshold</button>
+							</div>
+							<div id="thresholdInputContainer">
+								<table>
+									<tr>
+										<td><input class="thresholdInput" id="thresholdInput1" size="10"></td>
+										<td><input class="thresholdInput" id="thresholdInput2" size="10"></td>
+										<td><input class="thresholdInput" id="thresholdInput3" size="10"></td>
+										<td><input class="thresholdInput" id="thresholdInput4" size="10"></td>
+									</tr>
+									<tr>
+										<td align="center"><span>low</span></td>
+										<td></td><td></td>
+										<td align="center"><span>high</span></td>										
+									</tr>
+									<tr>
+										<td colspan=4 align="center">
+											<input type="submit" id="thresholdSubmit">
+										</td>
+									</tr>
+								</table>
+							</div> -->
+		        		</div>
+		        		<div id="legend-container" class="col-sm-12 col-md-6">
 		        			<div id="legendTitleContainer">
 		        				<div id="legendTitle"></div>
 		        				<div id="legendSubtitle"></div>
 		        			</div>
 		        			<div id="quantileLegend" class="legend"></div>
 		        		</div>
-		        		<div class="col-md-2" id="legendNoData"><svg width="70" height="18" id="na-color"><rect style="fill: rgb(204, 204, 204);" y="0" x="0" height="18" width="70"></rect><text style="font-size: 1em; text-anchor: middle; pointer-events: none; fill: black;" y="12" x="35" class="colorlegend-boxlabels">Not Available</text></svg></div>
-			        	<div class="col-md-5 col-md-pull-7"id="byline">Brought to you by <a target="_blank" href="http://www.naco.org/research">NACo Research</a></div>
+			        </div>
+			        <div class="row">
+			        	<div class="col-md-6 byline">
+				        	Brought to you by <a target="_blank" href="http://www.naco.org/research">NACo Research</a>
+				        </div>
+				        <div class="col-md-6 byline" style="text-align:right;">
+				        	*county data is unavailable if the county is colored grey<br>
+				        </div>
 			        </div>
 			        <div id="moreInteractives" class="row">
 			        	<div class="col-md-6"><a href="http://www.uscounties.org/countyTracker/index.html"><h3>County Tracker Interactive: <small>County economies through recession and recovery</small></h3></a></div>

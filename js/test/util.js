@@ -166,7 +166,10 @@ function testDatabaseResponses() {
 					    		}
 					    	}
 					    	if (all_null) console.log('all null: ' + crosswalk[ind].db_dataset + ', ' + crosswalk[ind].db_indicator + ' (' + crosswalk[ind].year + ')');
-					    	else console.log('check! :)');
+					    	else {
+					    		//console.log('check! :)');
+					    		console.log(crosswalk[ind].dataset + ', ' + crosswalk[ind].indicator + ': ' + responseObj.ROWCOUNT);
+					    	}
 						});
 					}, time);
 				})(ind, time);
