@@ -1074,7 +1074,7 @@ function updateView() {
 		}
 		
 		if (measureType === 'threshold') {
-			small_large_array = switchToThreshold();
+			small_large_array = switchToThreshold(domain, range);
 		} else if (measureType === 'quartile') {
 			domain = q_domain;
 			range = q_range;
@@ -1129,8 +1129,7 @@ function updateView() {
 		.html('<i>Source</i>: ' + indObjects[0].source + ', ' + indObjects[0].year);
 }
 
-function switchToThreshold() {
-	var domain = color.domain(), range = color.range();
+function switchToThreshold(domain, range) {
 	color = d3.scale.threshold(); // quantize scale, threshold based
 	
 	// collect all values in array and sort in ascending order
