@@ -1126,7 +1126,7 @@ function updateView() {
 	// list source
 	d3.select("#sourceContainer").selectAll("p").remove();
 	d3.select('#sourceContainer').append('p').attr("id", "sourceText")
-		.html('<i>Source</i>: ' + indObjects[0].source + ', ' + indObjects[0].year);
+		.html('<i>Source</i>: NACo Analysis of ' + indObjects[0].source + ', ' + indObjects[0].year);
 }
 
 function switchToThreshold(domain, range) {
