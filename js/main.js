@@ -434,7 +434,7 @@ function setDataButtonBehavior() {
 			$('#quantileButton').button('toggle');
 			$(this).button('toggle');
 			
-			small_large_array = switchToThreshold();
+			small_large_array = switchToThreshold(color.domain(), color.range());
 			fillMapColors();
 			legend = createLegend('threshold', null, small_large_array);
 			showThresholdInputs();
@@ -1384,8 +1384,9 @@ function populateTooltip(d) {
 		if (value === '$NaN' || value === 'NaN' || value === 'NaN%' || value === null || value === '.' || (isNumFun(obj.dataType) && isNaN(quant[d.id])) ) {
 			value = 'Not Available';
 		} else {
-			// "1 employee" instead of "1 employees"
-			if (unit !== '' && unit.indexOf("dollar") != -1 && unit.indexOf('year') != -1) {
+			if (unit.indexOf('dollar') !== -1 || unit.indexOf('year') !== -1) unit = '';
+			if (unit !== '') {
+				// "1 employee" instead of "1 employees"
 				if (unit.charAt(unit.length - 1) === 's' && parseFloat(value.toString().replace(/[^\d\.\-]/g, '')) === 1) {
 					unit = unit.substr(0, unit.length - 1); // "1 employee"
 				}
