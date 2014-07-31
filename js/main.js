@@ -1121,7 +1121,7 @@ function updateView() {
 	// list source
 	d3.select("#sourceContainer").selectAll("p").remove();
 	d3.select('#sourceContainer').append('p').attr("id", "sourceText")
-		.html('<i>Source</i>: ' + indObjects[0].source + ', ' + indObjects[0].year);
+		.html('<i>Source</i>: NACo Analysis of ' + indObjects[0].source + ', ' + indObjects[0].year);
 }
 
 function switchToThreshold(domain, range) {
@@ -1698,8 +1698,10 @@ d3.json("/CIC/us.json", function(error, us) {
 			var noaccess_box = d3.select('#instructionText').append('div').attr('class', 'temp');
 			noaccess_box.append('p')
 				.style('text-align', 'center')
-				.html('<br><br><br><br>Denied COIN Access. Please check credentials and try logging in again.');
+				.html('<br><br><br><br>Sorry, you were not authorized to view the full-data version.  Please check your COIN credentials and try logging in again.');
 			$('#instructions').show();
+	    } else if(urlParams.hasOwnProperty('noaccess') && urlParams.noaccess === '0'){
+	    	window.location.href='http://cic.naco.org/coin/index.html';
 	    } else if (urlParams.hasOwnProperty('showhelp')) {
 	    	var idSelec = '#helpText' + urlParams.showhelp;
 	    	if ($(idSelec).length !== 0) {

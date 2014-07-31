@@ -247,3 +247,52 @@ function createDropdownStructure() {
 		}
 	});
 }
+
+function dataInventory(){
+	// JSON to CSV Converter
+    function convertToCSV(objArray) {
+        var array = typeof objArray != 'object' ? JSON.parse(objArray) : objArray;
+        var str = '';
+
+        for (var i = 0; i < array.length; i++) {
+            var line = '';
+            for (var index in array[i]) {
+                if (line != '') line += ','
+
+                line += array[i][index];
+            }
+
+            str += line + '\r\n';
+        }
+
+        return str;
+    }
+	
+	d3.json("data/CICstructure.json", function(error, CICStructure){
+		var dataInventoryArray = [{'category': 'Category', 'dataset': 'Dataset', 'indicator': 'Indicator'}];
+		for(i=0; i<CICStructure.children.length; i++){
+			var currentCat = CICStructure.children[i];
+			
+			for(j=0; j<currentCat.children.length; j++){
+				var currentDat = currentCat.children[j];
+				
+				for(k=0; k<currentDat.children.length; k++){
+					var currentInd = currentDat.children[k];
+					dataInventoryArray.push({
+						'category': currentCat.name,
+						'dataset': currentDat.name,
+						'indicator': currentInd.name
+					});
+				}
+			}
+		}
+		dataInventoryArray.sort(function(a,b){return a.indicator - b.indicator; });
+		dataInventoryArray.sort(function(a,b){return a.dataset - b.dataset; });
+		dataInventoryArray.sort(function(a,b){return a.category - b.category; });
+		console.log(dataInventoryArray);
+		
+		emptyInstructionText();
+		$('#instructionText').text(convertToCSV(dataInventoryArray));
+		$('#instructions').show();
+	});
+}
