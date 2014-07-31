@@ -715,6 +715,7 @@ div.tooltip {
 #moreDataContent{
 	margin-top: -1em;
 	padding-bottom: 2em;
+	margin-left:1em;
 }
 #moreDataContent h3{
 	font-family:'Arvo', serif;
