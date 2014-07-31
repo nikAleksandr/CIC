@@ -373,38 +373,33 @@ function setDataButtonBehavior() {
 				}
 			};
 			
-			// temporarily using local data
 			if (!pop_db.hasOwnProperty(year)) {
 				pop_db[year] = {};
-		 		d3.tsv("/CIC/data/CData.tsv", function(error, countyData) {
-		 			for (var i = 0; i < countyData.length; i++) {
-		 				pop_db[year][countyData[i].id] = +countyData[i]['Population Levels and Trends - Population Level'];
-		 			}
-	 				updateQuants();
-					updateView();
-				});
+				if (localVersion) {
+			 		d3.tsv("/CIC/data/CData.tsv", function(error, countyData) {
+			 			for (var i = 0; i < countyData.length; i++) {
+			 				pop_db[year][countyData[i].id] = +countyData[i]['Population Levels and Trends - Population Level'];
+			 			}
+		 				updateQuants();
+						updateView();
+					});
+				} else {
+					var query_str = 'db_set=Demographics&db_ind=Pop_LT_Population&db_year=' + year;
+					d3.xhr('http://nacocic.naco.org/ciccfm/indicators.cfm?'+ query_str, function(error, request) {
+						var responseObj = jQuery.parseJSON(request.responseText);
+						var population = responseObj.DATA.POP_LT_POPULATION;
+						for (var i = 0; i < population.length; i++) {
+							pop_db[year][+responseObj.DATA.FIPS[i]] = +population[i];
+							
+						}
+		 				updateQuants();
+						updateView();
+					});					
+				}
 			} else {
 				updateQuants();
 				updateView();
 			}
-			
-			/*if (!pop_db.hasOwnProperty(year)) {
-				pop_db[year] = {};
-				var query_str = 'db_set=Demographics&db_ind=Pop_LT_Population&db_year=' + year;
-				d3.xhr('http://nacocic.naco.org/ciccfm/indicators.cfm?'+ query_str, function(error, request) {
-					var responseObj = jQuery.parseJSON(request.responseText);
-					var population = responseObj.DATA.POP_LT_POPULATION;
-					for (var i = 0; i < population.length; i++) {
-						pop_db[year][responseObj.DATA.FIPS[i]] = +population[i];
-						
-					}
-	 				updateQuants();
-					updateView();
-				});
-			} else {
-				updateQuants();
-				updateView();
-			}*/
 		} else {
 			isPerCapita = false;
 			this.blur();
