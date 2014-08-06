@@ -1452,6 +1452,7 @@
 						{
 							"name": "Total Elected Officials",
 							"dataType": "level",
+							"thresholds": [1, 10, 15, 20],
 							"definition": "Total Number of Elected officials in a county government, including the board officials, elected executives, and any other elected officials."
 						}, {
 							"name": "Size of Board",
