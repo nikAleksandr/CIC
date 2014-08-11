@@ -517,14 +517,7 @@ function setDisabled() {
 
 function setDropdownBehavior() {
 	var pickedIndicator = function(dataset, indicator, html) {
-		$.SmartMenus.hideAll();
-		
-		// **temp redirect for issue where 3069 is not being filled in completely **delete this when fixed!!**
-		if (dataset.indexOf('Expenditures') !== -1 && indicator === 'Total County') {
-			hacked_dataset = dataset;
-			dataset = 'Administration Expenditures';
-		}
-		
+		$.SmartMenus.hideAll();		
 		
 		//if (currentDI === dataset + ' - ' + indicator) {
 		//	noty({text: 'Already showing "' + indicator + '"'});
@@ -1352,10 +1345,6 @@ function changeLegendTitle() {
 	} 		
 	d3.select('#legendTitle').text(primeIndObj.year + ' ' + primeIndObj.dataset);
 	d3.select('#legendSubtitle').text(subtitle);
-	
-	
-	// **temp hack for issue where 3069 is not being filled in completely **delete this when fixed!!**
-	if (primeIndObj.dataset.indexOf('Expenditures') !== -1 && primeIndObj.name === 'Total County') d3.select('#legendTitle').text(primeIndObj.year + ' ' + hacked_dataset);
 }
 
 function populateTooltip(d) {
@@ -1378,6 +1367,7 @@ function populateTooltip(d) {
 		
 		if (value === '$NaN' || value === 'NaN' || value === 'NaN%' || value === null || value === '.' || (isNumFun(obj.dataType) && isNaN(quant[d.id])) ) {
 			value = 'Not Available';
+			unit = '';
 		} else {
 			if (unit.indexOf('dollar') !== -1 || unit.indexOf('year') !== -1) unit = '';
 			if (unit !== '') {
