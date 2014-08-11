@@ -68,7 +68,7 @@ States: #States_List#<BR>
     </CFOUTPUT>   
 </select>
 <CFELSE>
-<p>Only one year of data availble for this selection.</p>
+<p>Only one year of data available for this selection.</p>
 </CFIF>
 
 
