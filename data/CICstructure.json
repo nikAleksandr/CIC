@@ -1816,7 +1816,7 @@
 					"name": "Education Employment",
 					"source": "U.S. Census Bureau - Census of Individual Governments: Employment",
 					"years": [2007, 2008, 2009, 2010, 2011, 2012],
-					"companions": [["Education Expenditures", "Total Education"], ["Education Employment", "Total Education"], ["Education Employment", "Elementary & Secondary Education"], ["Education Employment", "Higher Education"]
+					"companions": [["Education Employment", "Total County"], ["Education Employment", "Total Education"], ["Education Employment", "Elementary & Secondary Education"], ["Education Employment", "Higher Education"]
 					],
 					"children": [
 						{
@@ -1845,7 +1845,7 @@
 					"name": "Education Expenditures",
 					"source": "U.S. Census Bureau - Census of Individual Governments: Finance",
 					"years": [2007],
-					"companions": [["Education Expenditures", "Total Education"], ["Education Employment", "Total Education"], ["Education Expenditures", "Elementary & Secondary Education"], ["Education Expenditures", "Higher Education"]
+					"companions": [["Education Expenditures", "Total County"], ["Education Expenditures", "Total Education"], ["Education Expenditures", "Elementary & Secondary Education"], ["Education Expenditures", "Higher Education"]
 					],
 					"children": [
 						{
