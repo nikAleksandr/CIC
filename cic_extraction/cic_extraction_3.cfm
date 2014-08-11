@@ -34,14 +34,36 @@ where countrycode = 'USA'
 <link href='http://fonts.googleapis.com/css?family=Arvo' rel='stylesheet' type='text/css'>
 <link rel="stylesheet" href="../css/main.css">
 
+<!--Script for limiting the number of selections in the selection box-->
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="http://www.google.com/jsapi"></script>
+
+
+
+<script type="text/javascript">
+    google.load("jquery", "1");
+    $(document).ready(function() {
+      var last_valid_selection = null;
+      $('#statelist').change(function(event) {
+        if ($(this).val()=="ALL") {
+          alert('You selected All States' +  last_valid_selection + $(this).val().length);
+          $(this).val(last_valid_selection);
+        } else {
+          last_valid_selection = $(this).val();
+        }
+      });
+    });
+</script>
+
+
+
+
 </head>
  <body>
     <div id="extraction-header">
 	<div class="row" >
 		<div class="col-md-10">
 			<h1>NACo CIC Extraction Tool</h1>
-			
-			<H3><em>Select a specific State, or select "All States"</em></H3>
 		</div>
 		<div class="col-md-2">
 			<img id="nacoLogo" alt="National Association of Counties Logo" src="../img/NACoLogo_NoTagBLACK_tm.png" />
@@ -52,14 +74,15 @@ where countrycode = 'USA'
 
 <!-- start of third tab -->
 
+<H3><em>Select a specific State, or select "All States"</em></H3>
 <form class="extraction-form" action="cic_extraction_5.cfm" method="post">
-<!-- skip county selection for now -->
+<!-- skip county selection(4) for now -->
 
-    <select class="form-control extraction-multiple" id="statelist" name="States_List" size="10" multiple="multiple">
-      <option value="ALL">All States</option>
-      <CFOUTPUT query="get_states">
-      <option value="'#StateCode#'">#StateName#</option>
-      </CFOUTPUT>
+    <select id="statelist" class="form-control extraction-multiple"  name="States_List" size="10" multiple="multiple">
+      <option value="ALL"> - All States</option>
+			  <CFOUTPUT query="get_states">
+              <option value="'#StateCode#'">#StateName#</option>
+              </CFOUTPUT>
     </select>
     
      <CFOUTPUT>

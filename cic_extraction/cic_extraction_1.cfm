@@ -12,14 +12,46 @@
 <link href='http://fonts.googleapis.com/css?family=Arvo' rel='stylesheet' type='text/css'>
 <link rel="stylesheet" href="../css/main.css">
 
+<!--Google Analytics NACo -->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-53704295-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+<script src="http://www.google.com/jsapi"></script>
+    <script type="text/javascript">
+    google.load("jquery", "1");
+
+    $(document).ready(function() {
+
+      var last_valid_selection = null;
+
+      $('#catlist').change(function(event) {
+        if ($(this).val().length > 2) {
+          alert('Sorry, you can only choose 2!');
+          $(this).val(last_valid_selection);
+        } else {
+          last_valid_selection = $(this).val();
+        }
+      });
+    });
+</script>
+
+
 </head>
 <body>
 <div id="extraction-header">
 	<div class="row" >
 		<div class="col-md-10">
 			<h1>NACo CIC Extraction Tool</h1>
-			
-			<H3><em>Choose One or Two Categories</em></H3>
 		</div>
 		<div class="col-md-2">
 			<img id="nacoLogo" alt="National Association of Counties Logo" src="../img/NACoLogo_NoTagBLACK_tm.png" />
@@ -28,8 +60,10 @@
 	<a href="http://cic.naco.org">Return to Interactive Map</a>
 </div>
 
+
+			<H3><em>Choose One or Two Categories</em></H3>
 <form class="extraction-form" action="cic_extraction_2.cfm" method="post">
-    <select id="catlist" name="Category_List" multiple class="form-control extraction-multiple" size="17"  >
+          <select id="catlist" name="Category_List" multiple class="form-control extraction-multiple" size="17"  >
           <option value="ADMIN">Administration</option>
           <option value="EMPLO">County Employment</option>
           <option value="FINAN">County Finance</option>
