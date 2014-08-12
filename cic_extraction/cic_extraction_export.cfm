@@ -27,25 +27,27 @@
 <!--- QUERY DATA ONE OR TWO CATEGORIES --->
 
 
-
-
 <CFIF  #tablename1# EQ "COUNTY_DATA"  AND #tablename2#  EQ "">
- <cfquery name="get_data" datasource="naco_cic">
+     <cfquery name="get_data" datasource="naco_cic">
       select *    from COUNTY_DATA 
         where FIPS > 0
      <CFIF #States_List# NEQ "ALL"> and COUNTY_DATA.State in (#preservesinglequotes(States_List)#)</CFIF>
+    order by FIPS
      </cfquery>
 </CFIF>    
 
-<CFIF  #tablename1#  EQ "COUNTY_DATA"  AND #tablename2#  NEQ "">
+
+
+<CFIF #tablename1# EQ "COUNTY_DATA"  AND #tablename2#  NEQ "">
  <cfquery name="get_data" datasource="naco_cic">
       select * 
-      from  #tablename1#, #tablename2#
-      where  #tablename1#.FIPS = #tablename2#.FIPS 
+      from   #tablename2#, #tablename1#
+      where #tablename1#.FIPS = #tablename2#.FIPS 
      <CFIF #States_List# NEQ "ALL"> and COUNTY_DATA.State in (#preservesinglequotes(States_List)#)</CFIF>
      <CFIF #year_list# NEQ ""> and #tablename2#.DATA_YEAR in (#year_list#) </CFIF> 
     </cfquery>
 </CFIF> 
+
 
 <CFIF #tablename1# NEQ "COUNTY_DATA" AND #tablename2# EQ "">
     <cfquery name="get_data" datasource="naco_cic">
@@ -57,19 +59,6 @@
     </cfquery>
 </CFIF>
 
-
-
-<CFIF #tablename1# NEQ "COUNTY_DATA" AND #tablename2# NEQ "" AND #tablename2# NEQ "COUNTY_DATA">
-    <cfquery name="get_data" datasource="naco_cic">
-      select * 
-      from COUNTY_DATA, #tablename1#,  #tablename2# 
-      where
-           #tablename1#.FIPS = COUNTY_DATA.FIPS and
-           #tablename2#.FIPS = COUNTY_DATA.FIPS 
-     <CFIF #States_List# NEQ "ALL"> and COUNTY_DATA.State in (#preservesinglequotes(States_List)#)</CFIF>
-     <CFIF #year_list# NEQ ""> and #tablename1#.DATA_YEAR in (#year_list#) </CFIF> 
-    </cfquery>
-</CFIF>    
 
 <CFIF #tablename1# NEQ "COUNTY_DATA" AND #tablename2# EQ "COUNTY_DATA">
     <cfquery name="get_data" datasource="naco_cic">
@@ -84,10 +73,24 @@
 
 
 
-        
+<CFIF #tablename1# NEQ "COUNTY_DATA" AND #tablename2# NEQ "" AND #tablename2# NEQ "COUNTY_DATA">
+    <cfquery name="get_data" datasource="naco_cic">
+      select * 
+      from  #tablename1#,  #tablename2#, COUNTY_DATA
+      where
+           #tablename1#.FIPS = COUNTY_DATA.FIPS and  #tablename2#.FIPS = COUNTY_DATA.FIPS 
+           AND #tablename1#.Data_year = #tablename2#.DATA_YEAR
+     <CFIF #States_List# NEQ "ALL"> and COUNTY_DATA.State in (#preservesinglequotes(States_List)#)</CFIF>
+     <CFIF #year_list# NEQ ""> and #tablename1#.DATA_YEAR in (#year_list#) </CFIF> 
+    </cfquery>
+ 
+</CFIF>    
 
 
-<CFIF #get_data.recordcount# GT 4000>
+       
+
+
+<CFIF #get_data.recordcount# GT 100000>
 <CFABORT>
 <CFELSE>
 DATA EXPORT!
@@ -102,7 +105,8 @@ DATA EXPORT!
         
         <!--- Spill out data from a query --->
         <cfloop query="get_data">
-            <cfoutput>#fips# #chr(delim)# #county_name# #chr(delim)# #state# #chr(delim)# #Data_Year# #chr(delim)#
+            <cfoutput>#fips# #chr(delim)# #county_name# #chr(delim)# #state# #chr(delim)#
+             #Data_Year# #chr(delim)#
             <CFLOOP From="1" To = "#listLen(BigList)#" index="Counter">#evaluate(exportfield[Counter])# #chr(delim)#</CFLOOP>
             </cfoutput>
             <cfoutput>#chr(13)#</cfoutput>

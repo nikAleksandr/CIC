@@ -8,7 +8,7 @@
 
 
 <!--- CREATE ONE BIG LIST OF SUB-CATEGORIES --->
-<CFIF listLen(#SubCategory_List2#) GT 0>
+<CFIF listLen(#SubCategory_List2#)>
 <CFSET BigList = ListAppend(#SubCategory_List1#,#SubCategory_List2#)>
 <CFELSE>
 <CFSET BigList = #SubCategory_List1#>
@@ -49,6 +49,7 @@
      </cfquery>
 </CFIF>    
 
+
 <CFIF  #tablename1#  EQ "COUNTY_DATA"  AND #tablename2#  NEQ "">
  <cfquery name="get_data" datasource="naco_cic">
       select * 
@@ -58,6 +59,7 @@
      <CFIF #year_list# NEQ ""> and #tablename2#.DATA_YEAR in (#year_list#) </CFIF> 
     </cfquery>
 </CFIF> 
+
 
 <CFIF #tablename1# NEQ "COUNTY_DATA" AND #tablename2# EQ "">
     <cfquery name="get_data" datasource="naco_cic">
@@ -69,17 +71,19 @@
     </cfquery>
 </CFIF>
 
+
 <CFIF #tablename1# NEQ "COUNTY_DATA" AND #tablename2# NEQ "" AND #tablename2# NEQ "COUNTY_DATA">
     <cfquery name="get_data" datasource="naco_cic">
       select * 
       from COUNTY_DATA, #tablename1#,  #tablename2# 
       where
-           #tablename1#.FIPS = COUNTY_DATA.FIPS and
-           #tablename2#.FIPS = COUNTY_DATA.FIPS 
+           #tablename1#.FIPS = COUNTY_DATA.FIPS and   #tablename2#.FIPS = COUNTY_DATA.FIPS 
+           AND #tablename1#.Data_year = #tablename2#.DATA_YEAR
      <CFIF #States_List# NEQ "ALL"> and COUNTY_DATA.State in (#preservesinglequotes(States_List)#)</CFIF>
      <CFIF #year_list# NEQ ""> and #tablename1#.DATA_YEAR in (#year_list#) </CFIF> 
     </cfquery>
 </CFIF>    
+
 
 <CFIF #tablename1# NEQ "COUNTY_DATA" AND #tablename2# EQ "COUNTY_DATA">
     <cfquery name="get_data" datasource="naco_cic">
@@ -91,6 +95,9 @@
      <CFIF #year_list# NEQ ""> and #tablename1#.DATA_YEAR in (#year_list#) </CFIF> 
     </cfquery>
 </CFIF>
+
+
+
 
 <!-- SELECT USER FRIENDLY CATEGORY AND INDICATOR NAMES -->
 
@@ -119,6 +126,8 @@ order by cat_name
 </CFIF>
 
 
+
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 
@@ -139,8 +148,6 @@ order by cat_name
 	<div class="row" >
 		<div class="col-md-10">
 			<h1>NACo CIC Extraction Tool</h1>
-			
-			<H3><em>View your selections and download</em></H3>
 		</div>
 		<div class="col-md-2">
 			<img id="nacoLogo" alt="National Association of Counties Logo" src="../img/NACoLogo_NoTagBLACK_tm.png" />
@@ -165,6 +172,8 @@ Your selection did not result in any data. Please try again.
             <P>
             Expoort the data to an Excel File<P>
 
+			
+			<H3><em>View your selections and download</em></H3>
 <FORM class="extraction-form" action="cic_extraction_export.cfm">
 <CFOUTPUT>
 <input type="hidden" name="States_List" value="#States_List#" />
@@ -176,12 +185,11 @@ Your selection did not result in any data. Please try again.
 </CFOUTPUT>
 <input class="btn btn-success" type="submit"  value="DOWNLOAD DATA!" />
 </FORM> 
-
 </CFIF>
 
 <HR />
 
-		   <CFOUTPUT>
+		 <CFOUTPUT>
              <strong>#get_data.recordCount#</strong> records selected based on the following selections:
              <BR />
              States: #States_List#<BR />
@@ -200,7 +208,8 @@ Your selection did not result in any data. Please try again.
             </table>
             
             
-            
+            <CFIF  #tablename2# NEQ "">
+           
                <table style="white-space:normal;" class="table extraction-table">
             <CFOUTPUT query="get_uf2" group="Cat_Name" >
             <TR><TD colspan="2"><strong>#Cat_Name#</strong></TD></TR>
@@ -208,8 +217,8 @@ Your selection did not result in any data. Please try again.
                     <TR valign="top"><TD width="30%"> &nbsp; #Sub_Cat#</TD><TD width="70%"><font size="-1">#definition#</font></TD></TR>
                     </CFOUTPUT>
             </CFOUTPUT>
-            </table>
-            
+            </table> 
+           </CFIF>
             
    <P>         
             
