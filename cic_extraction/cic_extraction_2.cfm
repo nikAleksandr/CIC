@@ -38,7 +38,7 @@
 <CFABORT>
 </CFIF>
 
-<!--- Abort if more than two selectios --->
+<!--- Abort if more than two selections --->
 <CFOUTPUT>
 		<CFIF #ListLen(Category_List)# GT 2>
         Please limit the selection of Categories to TWO or fewer. <P>
