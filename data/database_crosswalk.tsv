@@ -34,7 +34,10 @@ COUNTY_DATA	Founded	Geography	County Profile	Year Founded	Year the county was re
 COUNTY_DATA	Year_Consolidated	Geography	County Profile	Year Consolidated	
 COUNTY_DATA	Board_Size	Geography	County Profile	Board Size	Nubmer of representatives elected to the county board
 COUNTY_DATA	Board_Size	Geography	Government Structure	Size of Board	The size of the elected governing body of the county (number of board members).
-COUNTY_DATA	Gov_Type				
+COUNTY_DATA	Gov_Type	County Structure	City-County Consolidations	Government Type	The type of government of the county.
+COUNTY_DATA	consolidation	County Structure	City-County Consolidations	Consolidation	
+COUNTY_DATA	Merging_entities	County Structure	City-County Consolidations	Merging Entities	
+COUNTY_DATA	source	County Structure	City-County Consolidations	Source	
 COUNTY_DATA	County_Government_Structure				
 COUNTY_DATA	Structure_Subgroup				
 COUNTY_DATA	Elected_Executive	County Structure	Government Structure	Elected Executive	Indicates if the county has an elected executive official.

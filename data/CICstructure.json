@@ -1473,6 +1473,31 @@
 							"definition": "Indicates if the county has an administrator, county manager, or similar position."
 						}
 					]
+				}, {
+					"name": "City-County Consolidations",
+					"source": "NACo Research",
+					"years": [2014],
+					"companions": [["City-County Consolidations", "Consolidation"], ["City-County Consolidations", "Government Type"], ["City-County Consolidations", "Merging Entities"]
+					],
+					"children": [
+						{
+							"name": "Consolidation",
+							"dataType": "binary",
+							"definition": "Whether the county is considered a city-county consolidation."
+						}, {
+							"name": "Government Type",
+							"dataType": "categorical",
+							"definition": "The type of government of the county."
+						}, {
+							"name": "Merging Entities",
+							"dataType": "none",
+							"definition": "The entities merged with the county during consolidation."
+						}, {
+							"name": "Source",
+							"dataType": "link",
+							"definition": "The source of the consolidation."
+						}
+					]
 				}
 			]
 		}, {
