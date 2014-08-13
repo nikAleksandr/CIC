@@ -64,6 +64,9 @@ format['level_np'] = format['level'];
 // formatting for the tooltip
 var format_tt = {};
 for (var ind in format) format_tt[ind] = format[ind];
+format_tt['binary'] = function(num) {
+	return (+num === 1) ? "Yes" : "No";
+}
 format_tt['level'] = function (num, unit) {
 	var type = '';
 	if (unit && unit !== '') {
@@ -1363,14 +1366,19 @@ function populateTooltip(d) {
 	var writeIndicators = function(row, obj, quant, secondary) {
 		var unit = (obj.hasOwnProperty('unit')) ? obj.unit : '';		
 		if (obj.hasOwnProperty('format_type')) var value = format_tt[obj.format_type](quant[d.id], unit);
-		else var value = format_tt[obj.dataType](quant[d.id], unit);
+		else {
+			if (obj.dataType === 'link') var value = '<a href='+value+'>Link</a>';
+			else var value = format_tt[obj.dataType](quant[d.id], unit);
+		}
 		
 		if (value === '$NaN' || value === 'NaN' || value === 'NaN%' || value === null || value === '.' || (isNumFun(obj.dataType) && isNaN(quant[d.id])) ) {
 			value = 'Not Available';
 			unit = '';
 		} else {
+			if (typeof value === 'string') value = value.charAt(0).toUpperCase() + value.substr(1);
+
 			if (unit.indexOf('dollar') !== -1 || unit.indexOf('year') !== -1) unit = '';
-			if (unit !== '') {
+			if (unit !== '') {				
 				// "1 employee" instead of "1 employees"
 				if (unit.charAt(unit.length - 1) === 's' && parseFloat(value.toString().replace(/[^\d\.\-]/g, '')) === 1) {
 					unit = unit.substr(0, unit.length - 1); // "1 employee"
@@ -1387,7 +1395,7 @@ function populateTooltip(d) {
 		if (unit.indexOf('year') !== -1) name = obj.year + ' ' + name;
 		
 		row.append('td').attr('class', 'dataName').classed('leftborder', secondary).text(name + ':');
-		row.append('td').attr('class', 'dataNum').text(value + " " + unit);
+		row.append('td').attr('class', 'dataNum').html(value + " " + unit);
 	};
 	
 	var sameDataset = true, s_sameDataset = true;
