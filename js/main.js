@@ -357,10 +357,13 @@ function setIconBehavior() {
 	
 	$('#addToMailingListIcon, #addToMailingListIconText').on('click', function(e) {
 		e.stopPropagation();
-		emptyInstructionText();
-		$('#mailingText').show();	
-		$('#instructions').show();		
+		showSignup();
 	});
+}
+function showSignup() {
+	emptyInstructionText();
+	$('#mailingText').show();	
+	$('#instructions').show();		
 }
 function setDataButtonBehavior() {	
 	$('#perCapitaButton').on('click', function() {
@@ -1691,15 +1694,20 @@ d3.json("/CIC/us.json", function(error, us) {
 	    	decode = function(s) { return decodeURIComponent(s.replace(pl, ' ')); },
 	    	query = window.location.search.substring(1);
 	    while (match = search.exec(query)) urlParams[decode(match[1])] = decode(match[2]);
-	    if (urlParams.hasOwnProperty('noaccess') && urlParams.noaccess === '1') {
-	    	emptyInstructionText();
-			var noaccess_box = d3.select('#instructionText').append('div').attr('class', 'temp');
-			noaccess_box.append('p')
-				.style('text-align', 'center')
-				.html('<br><br><br><br>Sorry, you were not authorized to view the full-data version.  Please check your COIN credentials and try logging in again.');
-			$('#instructions').show();
-	    } else if(urlParams.hasOwnProperty('noaccess') && urlParams.noaccess === '0'){
-	    	window.location.href='http://cic.naco.org/coin/index.html';
+	    if (urlParams.hasOwnProperty('noaccess')) {
+	    	if (urlParams.noaccess === '1') {
+		    	emptyInstructionText();
+				var noaccess_box = d3.select('#instructionText').append('div').attr('class', 'temp');
+				noaccess_box.append('p')
+					.style('text-align', 'center')
+					.html('<br><br><br><br>Sorry, you were not authorized to view the full-data version.  Please check your COIN credentials and try logging in again.');
+				$('#instructions').show();
+			} else if (urlParams.noaccess === '0') {
+		    	window.location.href='http://cic.naco.org/coin/index.html';				
+			}
+		} else if (urlParams.hasOwnProperty('signup')) {
+			console.log('signup');
+			showSignup();
 	    } else if (urlParams.hasOwnProperty('showhelp')) {
 	    	var idSelec = '#helpText' + urlParams.showhelp;
 	    	if ($(idSelec).length !== 0) {
