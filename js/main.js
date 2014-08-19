@@ -64,6 +64,9 @@ format['level_np'] = format['level'];
 // formatting for the tooltip
 var format_tt = {};
 for (var ind in format) format_tt[ind] = format[ind];
+format_tt['binary'] = function(num) {
+	return (+num === 1) ? "Yes" : "No";
+}
 format_tt['level'] = function (num, unit) {
 	var type = '';
 	if (unit && unit !== '') {
@@ -354,10 +357,13 @@ function setIconBehavior() {
 	
 	$('#addToMailingListIcon, #addToMailingListIconText').on('click', function(e) {
 		e.stopPropagation();
-		emptyInstructionText();
-		$('#mailingText').show();	
-		$('#instructions').show();		
+		showSignup();
 	});
+}
+function showSignup() {
+	emptyInstructionText();
+	$('#mailingText').show();	
+	$('#instructions').show();		
 }
 function setDataButtonBehavior() {	
 	$('#perCapitaButton').on('click', function() {
@@ -1363,14 +1369,19 @@ function populateTooltip(d) {
 	var writeIndicators = function(row, obj, quant, secondary) {
 		var unit = (obj.hasOwnProperty('unit')) ? obj.unit : '';		
 		if (obj.hasOwnProperty('format_type')) var value = format_tt[obj.format_type](quant[d.id], unit);
-		else var value = format_tt[obj.dataType](quant[d.id], unit);
+		else {
+			if (obj.dataType === 'link') var value = '<a href='+value+'>Link</a>';
+			else var value = format_tt[obj.dataType](quant[d.id], unit);
+		}
 		
 		if (value === '$NaN' || value === 'NaN' || value === 'NaN%' || value === null || value === '.' || (isNumFun(obj.dataType) && isNaN(quant[d.id])) ) {
 			value = 'Not Available';
 			unit = '';
 		} else {
+			if (typeof value === 'string') value = value.charAt(0).toUpperCase() + value.substr(1);
+
 			if (unit.indexOf('dollar') !== -1 || unit.indexOf('year') !== -1) unit = '';
-			if (unit !== '') {
+			if (unit !== '') {				
 				// "1 employee" instead of "1 employees"
 				if (unit.charAt(unit.length - 1) === 's' && parseFloat(value.toString().replace(/[^\d\.\-]/g, '')) === 1) {
 					unit = unit.substr(0, unit.length - 1); // "1 employee"
@@ -1387,7 +1398,7 @@ function populateTooltip(d) {
 		if (unit.indexOf('year') !== -1) name = obj.year + ' ' + name;
 		
 		row.append('td').attr('class', 'dataName').classed('leftborder', secondary).text(name + ':');
-		row.append('td').attr('class', 'dataNum').text(value + " " + unit);
+		row.append('td').attr('class', 'dataNum').html(value + " " + unit);
 	};
 	
 	var sameDataset = true, s_sameDataset = true;
@@ -1683,15 +1694,20 @@ d3.json("/CIC/us.json", function(error, us) {
 	    	decode = function(s) { return decodeURIComponent(s.replace(pl, ' ')); },
 	    	query = window.location.search.substring(1);
 	    while (match = search.exec(query)) urlParams[decode(match[1])] = decode(match[2]);
-	    if (urlParams.hasOwnProperty('noaccess') && urlParams.noaccess === '1') {
-	    	emptyInstructionText();
-			var noaccess_box = d3.select('#instructionText').append('div').attr('class', 'temp');
-			noaccess_box.append('p')
-				.style('text-align', 'center')
-				.html('<br><br><br><br>Sorry, you were not authorized to view the full-data version.  Please check your COIN credentials and try logging in again.');
-			$('#instructions').show();
-	    } else if(urlParams.hasOwnProperty('noaccess') && urlParams.noaccess === '0'){
-	    	window.location.href='http://cic.naco.org/coin/index.html';
+	    if (urlParams.hasOwnProperty('noaccess')) {
+	    	if (urlParams.noaccess === '1') {
+		    	emptyInstructionText();
+				var noaccess_box = d3.select('#instructionText').append('div').attr('class', 'temp');
+				noaccess_box.append('p')
+					.style('text-align', 'center')
+					.html('<br><br><br><br>Sorry, you were not authorized to view the full-data version.  Please check your COIN credentials and try logging in again.');
+				$('#instructions').show();
+			} else if (urlParams.noaccess === '0') {
+		    	window.location.href='http://cic.naco.org/coin/index.html';				
+			}
+		} else if (urlParams.hasOwnProperty('signup')) {
+			console.log('signup');
+			showSignup();
 	    } else if (urlParams.hasOwnProperty('showhelp')) {
 	    	var idSelec = '#helpText' + urlParams.showhelp;
 	    	if ($(idSelec).length !== 0) {
