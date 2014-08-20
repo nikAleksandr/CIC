@@ -1477,7 +1477,7 @@
 					"name": "City-County Consolidations",
 					"source": "NACo Research",
 					"years": [2014],
-					"companions": [["City-County Consolidations", "Consolidation"], ["City-County Consolidations", "Government Type"], ["City-County Consolidations", "Merging Entities"], ["City-County Consolidations", "Year of Consolidation"]
+					"companions": [["City-County Consolidations", "Consolidation"], ["City-County Consolidations", "Government Type"], ["City-County Consolidations", "Merging Entities"], ["City-County Consolidations", "Year Consolidated"]
 					],
 					"children": [
 						{
@@ -1493,9 +1493,10 @@
 							"dataType": "none",
 							"definition": "The entities merged with the county during consolidation."
 						}, {
-							"name": "Year of Consolidation",
-							"dataType": "level",
-							"definition": "The year of consolidation."
+							"name": "Year Consolidated",
+							"unit": "year",
+							"dataType": "level_np",
+							"definition": "Year a city and a county that have been merged into one unified jurisdiction. A consolidated government has the powers and responibilities of both types of entities."
 						}, {
 							"name": "Source",
 							"dataType": "link",
