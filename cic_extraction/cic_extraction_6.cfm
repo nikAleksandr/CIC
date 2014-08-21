@@ -37,7 +37,6 @@
 
 
 
-
 <!--- QUERY DATA ONE OR TWO CATEGORIES --->
 
 
@@ -102,7 +101,7 @@
 <!-- SELECT USER FRIENDLY CATEGORY AND INDICATOR NAMES -->
 
 <cfquery name="get_uf1" datasource="naco_cic" >
-select * from crosswalk
+select distinct cat_name, sub_type, sub_cat, definition from crosswalk
 where Table_Name = '#tablename1#'  and data_field = '#table1_fields[1]#'
 <CFLOOP From="1" To = "#listLen(SubCategory_List1)#" index="Counter">
 or data_field = '#table1_fields[counter]#'
@@ -113,7 +112,7 @@ order by cat_name
 
 <CFIF  #tablename2# NEQ "">
 <cfquery name="get_uf2" datasource="naco_cic" >
-select * from crosswalk
+select distinct cat_name, sub_type, sub_cat, definition from crosswalk
 where Table_Name = '#tablename2#' and data_field = '#table2_fields[1]#'
 <CFLOOP From="1" To = "#listLen(SubCategory_List2)#" index="Counter">
 or data_field = '#table2_fields[counter]#'
@@ -146,34 +145,22 @@ order by cat_name
  <body>
 <div id="extraction-header">
 	<div class="row" >
-		<div class="col-md-10">
-			<h1>NACo CIC Extraction Tool</h1>
+		<div class="col-md-10"><h1>NACo CIC Extraction Tool</h1></div>
+		<!--<div class="col-md-2"><img id="nacoLogo" alt="National Association of Counties Logo" src="../img/NACoLogo_NoTagBLACK_tm.png" /></div> -->
 		</div>
-		<div class="col-md-2">
-			<img id="nacoLogo" alt="National Association of Counties Logo" src="../img/NACoLogo_NoTagBLACK_tm.png" />
-		</div>
-	</div>
-	<a href="http://cic.naco.org">Return to Interactive Map</a>
+<A HREF="cic_extraction_1.cfm"><strong>Start a New Selection</strong></a> &nbsp;   &nbsp;   &nbsp; &nbsp;   &nbsp;
+<A HREF="cic_extraction_help.cfm"> <strong>CIC Extraction Tool Help</strong></a> 
 </div>
+<HR />
 
 
+<div align="center">
 <CFIF  #get_data.recordCount# EQ 0>
 Your selection did not result in any data. Please try again.
-<P>
-<A HREF="cic_extraction_1.cfm">Start a New Selection</A>
+<P><A HREF="cic_extraction_1.cfm">Start a New Selection</A>
 <CFELSE> 
+    
 
-            
-          
-            
-            
-            <P>
-            <A HREF="cic_extraction_1.cfm">Start a New Selection</A>
-            <P>
-            Expoort the data to an Excel File<P>
-
-			
-			<H3><em>View your selections and download</em></H3>
 <FORM class="extraction-form" action="cic_extraction_export.cfm">
 <CFOUTPUT>
 <input type="hidden" name="States_List" value="#States_List#" />
@@ -184,45 +171,89 @@ Your selection did not result in any data. Please try again.
 <input type="hidden" name="Year_List" value="#Year_List#" />
 </CFOUTPUT>
 <input class="btn btn-success" type="submit"  value="DOWNLOAD DATA!" />
+<BR /> <em>Expoort the data to an Excel File</em>
 </FORM> 
+<P> &nbsp; <BR />
+
+<FORM class="extraction-form" action="cic_extraction_export_defs.cfm">
+<CFOUTPUT>
+<input type="hidden" name="tablename1" value="#tablename1#" />
+<input type="hidden" name="SubCategory_List1" value="#SubCategory_List1#" />
+<input type="hidden" name="tablename2" value="#tablename2#" />
+<input type="hidden" name="SubCategory_List2" value="#SubCategory_List2#" />
+</CFOUTPUT>
+<input class="btn btn-success" type="submit"  value="DOWNLOAD DATA DEFINITIONS!" />
+<!--<BR /> <em>Expoort the data to an Excel File</em> -->
+</FORM> 
+
+
+
 </CFIF>
 
-<HR />
+<BR /> &nbsp; <P>
+
 
 		 <CFOUTPUT>
              <strong>#get_data.recordCount#</strong> records selected based on the following selections:
              <BR />
-             States: #States_List#<BR />
-             Years: <CFIF #Year_List# EQ ""> <em>no years selected</em><CFELSE>#Year_List#</CFIF>
+             State(s): <strong>#States_List#</strong><BR />
+             Year(s): <CFIF #Year_List# EQ ""> <em>no years selected</em><CFELSE><strong>#Year_List#</strong></CFIF>
 			</CFOUTPUT>
-			
+            <P>
+			Having trouble getting the data you want? <A HREF="cic_extraction_help.cfm">Visit our help center</A>.<BR />
+            Data not what was expected? <A HREF="cic_extraction_1.cfm">Start a New Selection</A>
+</div>
 
+<DIV>
 
-           <table style="white-space:normal;" class="table extraction-table">
+	<HR /><CENTER><H3>Data Definitions</H3>	</CENTER>
+    
+    	
+          <table width="85%" align="center" cellpadding="3" cellspacing="0" bgcolor="0">
+          <!-- <TR><TD colspan="2"><H3><font color="##5BC0DE">Data Definitions</font></H3></TD></TR> -->
+           
             <CFOUTPUT query="get_uf1" group="Cat_Name" >
-            <TR><TD colspan="2"><strong>#Cat_Name#</strong></TD></TR>
+            <TR> <TD colspan="2" align="left"><H3><font color="##5BC0DE">#Cat_Name#</font></H3> </TD></TR>
 					<CFOUTPUT>
-                    <TR valign="top"><TD width="30%"> &nbsp; #Sub_Cat#</TD><TD width="70%"><font size="-1">#definition#</font></TD></TR>
+                    <TR valign="top"><TD width="30%">#Sub_Cat#</TD><TD width="70%"><font size="-1">#definition#</font></TD></TR>
                     </CFOUTPUT>
             </CFOUTPUT>
             </table>
             
-            
+            <!--style="white-space:normal;" class="table extraction-table"  -->
             <CFIF  #tablename2# NEQ "">
-           
-               <table style="white-space:normal;" class="table extraction-table">
+            <table width="85%" align="center">
             <CFOUTPUT query="get_uf2" group="Cat_Name" >
-            <TR><TD colspan="2"><strong>#Cat_Name#</strong></TD></TR>
+            <TR><TD colspan="2" align="left"><H3><font color="##5BC0DE">#Cat_Name#</font></H3></TD></TR>
 					<CFOUTPUT>
-                    <TR valign="top"><TD width="30%"> &nbsp; #Sub_Cat#</TD><TD width="70%"><font size="-1">#definition#</font></TD></TR>
+                    <TR valign="top"><TD width="30%">#Sub_Cat#</TD><TD width="70%"><font size="-1">#definition#</font></TD></TR>
                     </CFOUTPUT>
             </CFOUTPUT>
             </table> 
-           </CFIF>
-            
+           </CFIF> 
    <P>         
+      
+      
+      
+      
+<!---<CFIF get_uf1.recordcount GT 0>
+    <TABLE width="85%" align="center" cellpadding="0" cellspacing="0" border="0">
+    <TR><TD>
+    <CFOUTPUT><H1><font color="##5BC0DE">#get_uf1.cat_Name#</font></H1></CFOUTPUT>
+            <CFOUTPUT query="get_uf1" group="sub_type">
+            <H3><font color="##5BC0DE">#sub_type#</font></H3>
+            <CFOUTPUT><strong>#sub_cat#</strong><BR />#definition#<P></CFOUTPUT>
+    </CFOUTPUT>
+    </TD></TR></TABLE>
+</CFIF>	 --->
+      
+      
+      
+      
+      
+      
             
-            
+</div>            
 			  
 
 

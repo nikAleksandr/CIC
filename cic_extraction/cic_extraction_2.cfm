@@ -36,18 +36,23 @@
     });
 </script>
 </head>
+
+
+
 <body>
 <div id="extraction-header">
 	<div class="row" >
-		<div class="col-md-10">
-			<h1>NACo CIC Extraction Tool</h1>
-		</div>
-		<div class="col-md-2">
-			<img id="nacoLogo" alt="National Association of Counties Logo" src="../img/NACoLogo_NoTagBLACK_tm.png" />
-		</div>
+		<div class="col-md-10">	<h1>NACo CIC Extraction Tool</h1></div>
+	<!--	<div class="col-md-2">	<img id="nacoLogo" alt="National Association of Counties Logo" src="../img/NACoLogo_NoTagBLACK_tm.png" />		</div> -->
 	</div>
-	<a href="http://cic.naco.org">Return to Interactive Map</a>
+	<A HREF="cic_extraction_help.cfm"> CIC Extraction Tool Help</a> &nbsp;   &nbsp;   &nbsp; &nbsp;   &nbsp;<a href="cic_extraction_1.cfm">Return - Start a New Selection</a> 
 </div>
+
+<HR />
+
+
+<DIV>
+
 
 <!--- Abort if no selection --->
 <CFIF #Category_List# EQ "">
@@ -55,7 +60,7 @@
 <CFABORT>
 </CFIF>
 
-<!--- Abort if more than two selections --->
+<!--- Abort if more than two selectios --->
 <CFOUTPUT>
 		<CFIF #ListLen(Category_List)# GT 2>
         Please limit the selection of Categories to TWO or fewer. <P>
@@ -82,18 +87,18 @@
 <CFOUTPUT>
 <H2>#get_sub_category.cat_name# Indicators</H2>
 </CFOUTPUT>
-</H2>
+
        
         
         <!-- start of second tab -->
-        
+         <!-- <select class="form-control extraction-multiple" id="sublist" name="SubCategory_List1" size="15" multiple>-->
     
         
 <CFIF #Category_List2# EQ "">
 
 			<H3><em>Select no more than TEN indicators below.</em></H3>
      <form class="extraction-form" action="cic_extraction_3.cfm" method="post">
-        <select class="form-control extraction-multiple" id="sublist" name="SubCategory_List1" size="15" multiple>
+        <select  id="sublist" name="SubCategory_List1" size="15" multiple>
           <CFOUTPUT query="get_sub_category">
           <option value="#Data_field#" >#sub_type# - #Sub_Cat#  &nbsp; </option>
           </CFOUTPUT>
@@ -102,9 +107,9 @@
         <input type="hidden" name="tablename1" value="#tablename1#" />
         </CFOUTPUT>
 <CFELSE>
-			<H3><em>Select no more than TEN indicators below.</em></H3>
+	<H3><em>Select no more than TEN indicators below.</em></H3>
      <form class="extraction-form" action="cic_extraction_2b.cfm" method="post">
-        <select class="form-control extraction-multiple" id="sublist" name="SubCategory_List1" size="15" multiple>
+        <select  id="sublist" name="SubCategory_List1" size="15" multiple>
           <CFOUTPUT query="get_sub_category">
           <option value="#Data_field#" >#sub_type# - #Sub_Cat# &nbsp; </option>
           </CFOUTPUT>
@@ -115,8 +120,11 @@
         
         </CFOUTPUT>
  </CFIF>       
-        <p>Hold <em>ctrl</em> key and click, to select multiple indicators. <input class="btn btn-info" type="submit"  value="Next..."></p>
+        <p>Hold <em>ctrl</em> key and click, to select multiple indicators. &nbsp; <input class="btn btn-info" type="submit"  value="Next..."></p>
     </form>
+    
+</DIV>
+    
 </body>
 </html>
 

@@ -36,59 +36,59 @@ order by cat_year DESC
 </head>
  <body>
 <div id="extraction-header">
-	<div class="row" >
-		<div class="col-md-10">
-			<h1>NACo CIC Extraction Tool</h1>
+	<div class="row" >		<div class="col-md-10">			<h1>NACo CIC Extraction Tool</h1>
 		</div>
-		<div class="col-md-2">
-			<img id="nacoLogo" alt="National Association of Counties Logo" src="../img/NACoLogo_NoTagBLACK_tm.png" />
-		</div>
+		<!--<div class="col-md-2">			<img id="nacoLogo" alt="National Association of Counties Logo" src="../img/NACoLogo_NoTagBLACK_tm.png" />		</div> -->
 	</div>
-	<a href="http://cic.naco.org">Return to Interactive Map</a>
+	 <A HREF="cic_extraction_help.cfm"> CIC Extraction Tool Help</a> &nbsp;   &nbsp;   &nbsp; &nbsp;   &nbsp;<a href="cic_extraction_1.cfm">Return - Start a New Selection</a>
 </div>
 
-<!-- start of tab5 -->
+<HR />
 
-<!---<CFOUTPUT>
-Selected Values:<P>
-Table1: #tablename1#<BR>
-Sub1: #SubCategory_List1#<BR>
-Table2: #tablename2#<BR>
-Sub2: #SubCategory_List2#<BR>
-States: #States_List#<BR>
-</CFOUTPUT> --->
-
-			
-<FORM class="extraction-form" action="cic_extraction_6.cfm">
-
-
-<CFIF #get_years.recordcount# GT 0>
-        <H3><em>Select a year</em></H3>
-        <select class="form-control extraction-multiple" id="yearlist" name="Year_List" size="10" multiple>
-            <CFOUTPUT query="get_years"> 
-                 <option value ="#CAT_YEAR#"> &nbsp; #CAT_YEAR#  &nbsp; </option>
-            </CFOUTPUT>   
-        </select>
-<CFELSE>
-<H3>Only one year of data available for this selection.</H3>
-<input type="hidden" name="Year_List" value="" />
-</CFIF>
-
-
-<CFOUTPUT>
-<input type="hidden" name="States_List" value="#States_List#" />
-<input type="hidden" name="tablename1" value="#tablename1#" />
-<input type="hidden" name="SubCategory_List1" value="#SubCategory_List1#" />
-<input type="hidden" name="tablename2" value="#tablename2#" />
-<input type="hidden" name="SubCategory_List2" value="#SubCategory_List2#" />
-</CFOUTPUT>
-
-  <CFIF #get_years.recordcount# GT 0><p>Hold the <i>Ctrl</i> key and click to select multiple years if desired.</CFIF>
- <input class="btn btn-info" type="submit" value="Next - Get Results!" /></p>
-
-</FORM>
-
-<CFIF #get_years.recordcount# GT 0><i>Data may not be available for all years. </i></CFIF>
+<DIV>
+        <!-- start of tab5 -->
+        
+        <!---<CFOUTPUT>
+        Selected Values:<P>
+        Table1: #tablename1#<BR>
+        Sub1: #SubCategory_List1#<BR>
+        Table2: #tablename2#<BR>
+        Sub2: #SubCategory_List2#<BR>
+        States: #States_List#<BR>
+        </CFOUTPUT> --->
+        
+                    
+        <FORM class="extraction-form" action="cic_extraction_6.cfm">
+        
+        
+        <CFIF #get_years.recordcount# GT 0>
+                <H3><em>Select a year</em></H3>
+                <select  id="yearlist" name="Year_List" size="7" multiple>
+                    <CFOUTPUT query="get_years"> 
+                         <option value ="#CAT_YEAR#"> &nbsp; #CAT_YEAR#  &nbsp; </option>
+                    </CFOUTPUT>   
+                </select>
+        <CFELSE>
+        <H3>Only one year of data available for this selection.</H3>
+        <input type="hidden" name="Year_List" value="" />
+        </CFIF>
+        
+        
+        <CFOUTPUT>
+        <input type="hidden" name="States_List" value="#States_List#" />
+        <input type="hidden" name="tablename1" value="#tablename1#" />
+        <input type="hidden" name="SubCategory_List1" value="#SubCategory_List1#" />
+        <input type="hidden" name="tablename2" value="#tablename2#" />
+        <input type="hidden" name="SubCategory_List2" value="#SubCategory_List2#" />
+        </CFOUTPUT>
+        
+          <CFIF #get_years.recordcount# GT 0><p>Hold the <i>Ctrl</i> key and click to select multiple years if desired.</CFIF> &nbsp; 
+         <input class="btn btn-info" type="submit" value="Next... Get Results" /></p>
+        
+        </FORM>
+        
+        <CFIF #get_years.recordcount# GT 0><i>Data may not be available for all years. </i></CFIF>
+</DIV>
 
 </body>
 </html>
