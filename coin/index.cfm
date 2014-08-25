@@ -1,11 +1,18 @@
-<CFIF #CGI.REMOTE_ADDR# "64.34.167.180" OR #CGI.REMOTE_ADDR# EQ "199.10.10.78" OR #CGI.REMOTE_ADDR# EQ "4.34.167.180" OR #CGI.REMOTE_ADDR# EQ "199.10.10.67" OR #CGI.REMOTE_ADDR# EQ "199.10.10.72" OR #CGI.REMOTE_ADDR# EQ "199.10.10.66">
-<CFOUTPUT>
-</CFOUTPUT>
-<CFELSE>
-<CFOUTPUT>
-Please log in to COIN and try again. <CFLOCATION url="../index.html?noaccess=1">
-</CFOUTPUT>
+<CFPARAM name="token" default="0">
+
+
+<CFIF #token# EQ 0>
+<CFLOCATION URL="invalid.html" >
+<CFABORT>
 </CFIF>
+
+<CFIF  #CGI.HTTP_REFERER#  NEQ "https://www.countyinnovation.us/wapps/partners/cic/">
+<CFLOCATION URL="invalid.html" >
+<CFABORT>
+<CFELSE>
+
+
+
 
 
 <!DOCTYPE html>
@@ -36,8 +43,8 @@ Please log in to COIN and try again. <CFLOCATION url="../index.html?noaccess=1">
 		
         <link rel="stylesheet" href="../css/normalize.css">
 		<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" media="all">
-		<link href='http://fonts.googleapis.com/css?family=Roboto+Condensed:300,400' rel='stylesheet' type='text/css'>
-		<link href='http://fonts.googleapis.com/css?family=Arvo:400,700' rel='stylesheet' type='text/css'>
+		<link href='https://fonts.googleapis.com/css?family=Roboto+Condensed:300,400' rel='stylesheet' type='text/css'>
+		<link href='https://fonts.googleapis.com/css?family=Arvo:400,700' rel='stylesheet' type='text/css'>
 		<link rel="stylesheet" href="../css/main.css" media="all">
         <!-- SmartMenus jQuery Bootstrap Addon CSS -->
 		<link href="../css/jquery.smartmenus.bootstrap.css" rel="stylesheet">
@@ -45,8 +52,8 @@ Please log in to COIN and try again. <CFLOCATION url="../index.html?noaccess=1">
         <link rel="stylesheet" href="../css/rrssb.css" />
         <link rel='stylesheet' href='../css/nprogress.css' />
         <script src="../js/vendor/modernizr-2.7.1.min.js"></script>
-        <script src="http://d3js.org/d3.v3.min.js"></script>
-		<script src="http://d3js.org/topojson.v1.min.js"></script>
+        <script src="../js/vendor/d3.min.js"></script>
+		<script src="../js/vendor/topojson.v1.min.js"></script>
     </head>
     <body>
     	<div id="header" class="navbar-fixed-top">
@@ -642,9 +649,9 @@ Please log in to COIN and try again. <CFLOCATION url="../index.html?noaccess=1">
 												<li>
 													<a class="indicator" name="Insurance Trust - Employee Retirement" href="#">Insurance Trust - Employee Retirement</a>
 												</li>
-												<li>
+												<!-- <li>
 													<a class="indicator" name="Insurance Trust - Unemployment" href="#">Insurance Trust - Unemployment</a>
-												</li>
+												</li> -->
 											</ul>
 										</li>
 										<li class="dataset" name="Justice &amp; Public Safety Expenditures">
@@ -959,6 +966,14 @@ Please log in to COIN and try again. <CFLOCATION url="../index.html?noaccess=1">
 												<!--<li>
 													<a class="indicator" name="County Administrator" href="#">County Administrator</a>
 												</li>-->
+											</ul>
+										</li>
+										<li class="dataset" name="City-County Consolidations">
+											<a>City-County Consolidations</a>
+											<ul class="dropdown-menu">
+												<li>
+													<a class="indicator" name="Consolidation" href="#">Consolidation<span class="badge">new</span></a>
+												</li>
 											</ul>
 										</li>
 									</ul>
@@ -1466,9 +1481,9 @@ Please log in to COIN and try again. <CFLOCATION url="../index.html?noaccess=1">
 												<!-- <li>
 													<a class="indicator" name="Fiscal Year End Date" href="#">Fiscal Year End Date</a>
 												</li> -->
-												<li>
+												<!-- <li>
 													<a class="indicator" name="State Capitol" href="#">State Capitol</a>
-												</li>
+												</li> -->
 												<li>
 													<a class="indicator" name="CBSA Title" href="#">CBSA Title</a>
 												</li>
@@ -3295,9 +3310,9 @@ Please log in to COIN and try again. <CFLOCATION url="../index.html?noaccess=1">
 												<li>
 													<a class="indicator" name="Insurance Trust - Employee Retirement" href="#">Insurance Trust - Employee Retirement</a>
 												</li>
-												<li>
+												<!-- <li>
 													<a class="indicator" name="Insurance Trust - Unemployment" href="#">Insurance Trust - Unemployment</a>
-												</li>
+												</li> -->
 											</ul>
 										</li>
 										<li class="dataset" name="Justice &amp; Public Safety Expenditures">
@@ -3612,6 +3627,14 @@ Please log in to COIN and try again. <CFLOCATION url="../index.html?noaccess=1">
 												<!--<li>
 													<a class="indicator" name="County Administrator" href="#">County Administrator</a>
 												</li>-->
+											</ul>
+										</li>
+										<li class="dataset" name="City-County Consolidations">
+											<a>City-County Consolidations</a>
+											<ul class="dropdown-menu">
+												<li>
+													<a class="indicator" name="Consolidation" href="#">Consolidation<span class="badge">new</span></a>
+												</li>
 											</ul>
 										</li>
 									</ul>
@@ -4119,9 +4142,9 @@ Please log in to COIN and try again. <CFLOCATION url="../index.html?noaccess=1">
 												<!-- <li>
 													<a class="indicator" name="Fiscal Year End Date" href="#">Fiscal Year End Date</a>
 												</li> -->
-												<li>
+												<!-- <li>
 													<a class="indicator" name="State Capitol" href="#">State Capitol</a>
-												</li>
+												</li> -->
 												<li>
 													<a class="indicator" name="CBSA Title" href="#">CBSA Title</a>
 												</li>
@@ -5474,11 +5497,11 @@ Please log in to COIN and try again. <CFLOCATION url="../index.html?noaccess=1">
 	        <div id="instructions">
 	        	<div id="showOnMap"><img class="svgCircle" src="../img/showOnMap.svg"/>show on map</div>
 	        	<div id="print"><img class="svgCircle" src="../img/print.svg"/>print</div>
-	        	<div id="close">close<img class="svgCircle" src="../img/close.svg"/></div>
+	        	<div id="close">close<img class="svgCircle" src="../img/Close.svg"/></div>
 	        	<div id="instructionText">
 	        		<div class="iText" id="mdText">
 						<div id="moreDataContent">
-							<div class="row">
+							<!--<div class="row">
 								<div class="col-md-5">
 									<h3><a href="http://www.countyinnovation.us/t/cic">Full Interactive Map</a></h3>
 									<a href="http://www.countyinnovation.us/t/cic"><img src="../img/CICFullThumb.png"/></a>
@@ -5486,7 +5509,7 @@ Please log in to COIN and try again. <CFLOCATION url="../index.html?noaccess=1">
 								<div class="col-md-7">
 									<p>Access all 18 categories, 66 datasets, and over 500 indicators for display on the interactive map.<br/><br/>Login free to COIN <a href="http://www.countyinnovation.us/t/cic">here</a> to access</p>
 								</div>
-							</div>
+							</div>-->
 							<div class="row">
 								<div class="col-md-5">
 									<h3><a href="http://cic.naco.org/cic_extraction/cic_extraction_1.cfm">CIC Extraction Tool</a></h3>
@@ -5644,7 +5667,7 @@ Please log in to COIN and try again. <CFLOCATION url="../index.html?noaccess=1">
 			<!--Under map area -->
 	        <div id="underMap">
 	        	<div class="container-fluid">
-		        	<div class="row">
+		        	<!-- <div class="row">
 		        		<div id="legend-container" class="col-sm-12 col-md-5 col-md-push-7">
 		        			<div id="legendTitleContainer">
 		        				<div id="legendTitle"></div>
@@ -5654,6 +5677,24 @@ Please log in to COIN and try again. <CFLOCATION url="../index.html?noaccess=1">
 		        		</div>
 		        		<div class="col-md-2" id="legendNoData"><svg width="70" height="18" id="na-color"><rect style="fill: rgb(204, 204, 204);" y="0" x="0" height="18" width="70"></rect><text style="font-size: 1em; text-anchor: middle; pointer-events: none; fill: black;" y="12" x="35" class="colorlegend-boxlabels">Not Available</text></svg></div>
 			        	<div class="col-md-5 col-md-pull-7"id="byline">Brought to you by <a target="_blank" href="http://www.naco.org/research">NACo Research</a></div>
+			        </div> -->
+			        <div class="row">
+			        	<div class="col-md-6"></div>
+			        	<div class="col-sm-12 col-md-6" id="legend-container">
+		        			<div id="legendTitleContainer">
+		        				<div id="legendTitle"></div>
+		        				<div id="legendSubtitle"></div>
+		        			</div>
+		        			<div id="quantileLegend" class="legend"></div>			        		
+			        	</div>
+			        </div>
+			        <div class="row">
+			        	<div class="col-md-6 byline">
+				        	Brought to you by <a target="_blank" href="http://www.naco.org/research">NACo Research</a>
+				        </div>
+				        <div class="col-md-6 byline" style="text-align:right;">
+				        	*county data is unavailable if the county is colored grey<br>
+				        </div>
 			        </div>
 			        <div id="moreInteractives" class="row">
 			        	<div class="col-md-6"><a href="http://www.uscounties.org/countyTracker/index.html"><h3>County Tracker Interactive: <small>County economies through recession and recovery</small></h3></a></div>
@@ -5784,9 +5825,10 @@ Please log in to COIN and try again. <CFLOCATION url="../index.html?noaccess=1">
 		  ga('send', 'pageview');
 		
 		</script>
-		<div class="browsehappy" id="IE-update"><p>It looks like you may be using an <strong>outdated</strong> browser. In order to view this interactive, please <a href="http://browsehappy.com/">upgrade your browser</a></p></div>
-    	<script>
-			d3.select(".browsehappy").attr("class", "hidden");
-		</script>
+	
     </body>
 </html>
+
+
+
+</CFIF>
