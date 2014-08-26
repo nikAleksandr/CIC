@@ -1237,6 +1237,7 @@ function getInfo(dataset, indicator){
 				selectedInd.source = Jdataset.source;
 				selectedInd.companions = Jdataset.companions;
 				if (Jdataset.hasOwnProperty('vintage')) selectedInd.vintage = Jdataset.vintage;
+				if (Jdataset.hasOwnProperty('legend_title_footer')) selectedInd.legend_title_footer = Jdataset.legend_title_footer;
 				
 				if (typeof indicator !== 'undefined') {
 					for (var h = 0; h < Jdataset.children.length; h++) {
@@ -1348,8 +1349,14 @@ function changeLegendTitle() {
 	var subtitle = primeIndObj.name;
 	if (primeIndObj.hasOwnProperty('unit') && (primeIndObj.unit.indexOf('square mile') !== -1 || primeIndObj.unit === 'per 1,000 population')) {
 		subtitle += ' (' + primeIndObj.unit + ')';
-	} 		
-	d3.select('#legendTitle').text(primeIndObj.year + ' ' + primeIndObj.dataset);
+	} 
+	
+	if (primeIndObj.hasOwnProperty('legend_title_footer')) {
+		var legendTitle = primeIndObj.dataset + primeIndObj.legend_title_footer;
+	} else {
+		var legendTitle = primeIndObj.year + ' ' + primeIndObj.dataset;		
+	}
+	d3.select('#legendTitle').text(legendTitle);
 	d3.select('#legendSubtitle').text(subtitle);
 }
 

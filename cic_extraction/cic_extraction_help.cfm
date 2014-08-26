@@ -1,3 +1,14 @@
+<cfparam name="Category_List" default="">
+
+       <cfquery datasource="naco_cic" name="get_sub_category">
+        select * from crosswalk
+        where cat_ID_FK = '#Category_List#' 
+        and sub_type is not null
+        order by sub_type
+        </cfquery>
+ 
+
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 
@@ -10,7 +21,6 @@
 <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
 <link href='http://fonts.googleapis.com/css?family=Roboto+Condensed:300,400' rel='stylesheet' type='text/css'>
 <link href='http://fonts.googleapis.com/css?family=Arvo' rel='stylesheet' type='text/css'>
-
 <link rel="stylesheet" href="../css/main.css">
 
 <!--Google Analytics NACo -->
@@ -25,49 +35,27 @@
 
 </script>
 
-
-<!--Script to limit the number of selections in the selection box-->
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-
-<script src="http://www.google.com/jsapi"></script>
-    <script type="text/javascript">
-    google.load("jquery", "1");
-
-    $(document).ready(function() {
-
-      var last_valid_selection = null;
-
-      $('#catlist').change(function(event) {
-        if ($(this).val().length > 2) {
-          alert('Sorry, you can only choose 2!');
-          $(this).val(last_valid_selection);
-        } else {
-          last_valid_selection = $(this).val();
-        }
-      });
-    });
-</script>
-
 </head>
 
 
-<body >
 
+<body>
 <div id="extraction-header">
-	<div>
-		<div><h1>NACo CIC Extraction Tool</h1></div>
-<!--		<div class="col-md-2">	<img id="nacoLogo" alt="National Association of Counties Logo" src="../img/NACoLogo_NoTagBLACK_tm.png" />		</div> -->
-	</div>
-    <A HREF="cic_extraction_help.cfm"> CIC Extraction Tool Help</a> 
+	<div class="row" >
+		<div class="col-md-10">	<h1>NACo CIC Extraction Tool Help</h1></div>
+		<!--<div class="col-md-2">	<img id="nacoLogo" alt="National Association of Counties Logo" src="../img/NACoLogo_NoTagBLACK_tm.png" />	</div> -->
+    </div>
+	  <a href="cic_extraction_1.cfm">Return to CIC Extraction Tool</a> &nbsp;   &nbsp;   &nbsp; &nbsp;   &nbsp;   
 </div>
-
-
-
-<!--class="extraction-form"  class="form-control extraction-multiple" -->
+<HR />
 <DIV>
-<H3><em>Choose One or Two Categories</em></H3>
-         <form  class="extraction-form"  action="cic_extraction_2.cfm" method="post">
-          <select id="catlist" name="Category_List" multiple  size="17"  >
+
+<H2>Having trouble finding what you need?</H2>
+
+
+		<H3><em>Choose a Category</em></H3>
+          <form  action="cic_extraction_help.cfm" method="post" >
+          <select  name="Category_List" size="1"  >
           <option value="ADMIN">Administration</option>
           <option value="EMPL">County Employment</option>
           <option value="FINAN">County Finance</option>
@@ -86,17 +74,25 @@
           <option value="UTIL">Utility</option>
           <option value="WSSW">Water, Sewage & Solid Waste</option>
     </select> 
-    
-      <p>Hold <em>ctrl</em> key and click, to select multiple indicators. &nbsp; <input class="btn btn-info" type="submit"  value="Next..."></p>
-    
-       
-
+    <P>
+<input class="btn btn-info" type="submit"  value="Get Help" />
 </form>
 </DIV>
 
+<DIV align="left">
 
-	
-
+<P >
+<CFIF get_sub_category.recordcount GT 0>
+    <TABLE width="85%" align="center" cellpadding="0" cellspacing="0" border="0">
+    <TR><TD>
+    <CFOUTPUT><H1><font color="##5BC0DE">#get_sub_category.cat_Name#</font></H1></CFOUTPUT>
+            <CFOUTPUT query="get_sub_category" group="sub_type">
+            <H3><font color="##5BC0DE">#sub_type#</font></H3>
+            <CFOUTPUT><strong>#sub_cat#</strong><BR />#definition#<P></CFOUTPUT>
+    </CFOUTPUT>
+    </TD></TR></TABLE>
+</CFIF>	
+</DIV>
 
 </body>
 </html>

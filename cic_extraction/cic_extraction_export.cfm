@@ -45,6 +45,7 @@
       where #tablename1#.FIPS = #tablename2#.FIPS 
      <CFIF #States_List# NEQ "ALL"> and COUNTY_DATA.State in (#preservesinglequotes(States_List)#)</CFIF>
      <CFIF #year_list# NEQ ""> and #tablename2#.DATA_YEAR in (#year_list#) </CFIF> 
+     order by #tablename1#.FIPS
     </cfquery>
 </CFIF> 
 
@@ -56,6 +57,7 @@
       where  #tablename1#.FIPS = COUNTY_DATA.FIPS 
      <CFIF #States_List# NEQ "ALL"> and COUNTY_DATA.State in (#preservesinglequotes(States_List)#)</CFIF>
      <CFIF #year_list# NEQ ""> and #tablename1#.DATA_YEAR in (#year_list#) </CFIF> 
+     order by #tablename1#.FIPS
     </cfquery>
 </CFIF>
 
@@ -68,6 +70,7 @@
            #tablename1#.FIPS = #tablename2#.FIPS
      <CFIF #States_List# NEQ "ALL"> and COUNTY_DATA.State in (#preservesinglequotes(States_List)#)</CFIF>
      <CFIF #year_list# NEQ ""> and #tablename1#.DATA_YEAR in (#year_list#) </CFIF> 
+     order by #tablename1#.FIPS
     </cfquery>
 </CFIF>
 
@@ -82,6 +85,7 @@
            AND #tablename1#.Data_year = #tablename2#.DATA_YEAR
      <CFIF #States_List# NEQ "ALL"> and COUNTY_DATA.State in (#preservesinglequotes(States_List)#)</CFIF>
      <CFIF #year_list# NEQ ""> and #tablename1#.DATA_YEAR in (#year_list#) </CFIF> 
+     order by #tablename1#.FIPS
     </cfquery>
  
 </CFIF>    
@@ -93,14 +97,17 @@
 <CFIF #get_data.recordcount# GT 100000>
 <CFABORT>
 <CFELSE>
-DATA EXPORT!
         <cfsetting enablecfoutputonly="yes"> <!--- Required for CSV export to function properly --->
         <cfset delim = 44> <!--- comma --->
         
         <cfcontent type="text/csv">
         <cfheader name="Content-Disposition" value="attachment; filename=NACoData.csv">
-        <cfoutput>
-        FIPS  #chr(delim)# County  #chr(delim)# State #chr(delim)# Year #chr(delim)# <CFLOOP From="1" To = "#listLen(BigList)#" index="Counter">#exportfield[Counter]#  #chr(delim)# </CFLOOP></cfoutput>
+      
+       <cfoutput>
+        FIPS  #chr(delim)# County  #chr(delim)# State #chr(delim)# Year #chr(delim)#
+        <CFLOOP From="1" To = "#listLen(BigList)#" index="Counter">#exportfield[Counter]#  #chr(delim)#
+        </CFLOOP>
+        </cfoutput>
         <cfoutput>#chr(13)#</cfoutput> <!--- line break --->
         
         <!--- Spill out data from a query --->

@@ -6,7 +6,6 @@
 <cfparam name="Category_List2" default="">
 
 
-
 <CFOUTPUT>
 <CFIF #ListLen(Category_List)# GT 2>
 AT THIST TIME, PLEASE LIMIT YOUR SELECTION OF CATEGORIES to 1 or 2. <P>
@@ -70,23 +69,24 @@ PLEASE GO BACK AND LIMIT YOUR SELECTION TO JUST 1 OR 2 Primary Categories.
     });
 </script>
 </head>
- <body>
+
+
+<body>
 <div id="extraction-header">
 	<div class="row" >
-		<div class="col-md-10">
-			<h1>NACo CIC Exraction Tool</h1>
-		</div>
-		<div class="col-md-2">
-			<img id="nacoLogo" alt="National Association of Counties Logo" src="../img/NACoLogo_NoTagBLACK_tm.png" />
-		</div>
-	</div>
+		<div class="col-md-10">			<h1>NACo CIC Exraction Tool</h1>		</div>
+	<!--	<div class="col-md-2">	<img id="nacoLogo" alt="National Association of Counties Logo" src="../img/NACoLogo_NoTagBLACK_tm.png" />		</div> -->
+	
+    <A HREF="cic_extraction_help.cfm"> CIC Extraction Tool Help</a> &nbsp;   &nbsp;   &nbsp; &nbsp;   &nbsp;<a href="cic_extraction_1.cfm">Return - Start a New Selection</a> 
+    </div>
 </div>
-        
+   <HR />
+<DIV>     
  
       <CFOUTPUT><H2>#get_sub_category.cat_name# Indicators</H2></CFOUTPUT> 
 			<H3><em>Choose up to TEN indicators</em></H3>
          <form class="extraction-form" action="cic_extraction_3.cfm" method="post">
-            <select class="form-control extraction-multiple" id="sublist" name="SubCategory_List2" size="15" multiple>
+            <select  id="sublist" name="SubCategory_List2" size="15" multiple>
               <CFOUTPUT query="get_sub_category">
               <option value="#Data_field#" >#sub_type# - #Sub_Cat#  <em>#units#</em> &nbsp; </option>
               </CFOUTPUT>
@@ -98,12 +98,11 @@ PLEASE GO BACK AND LIMIT YOUR SELECTION TO JUST 1 OR 2 Primary Categories.
             <input type="hidden" name="Category_List" value="#Category_List#" />
             
             </CFOUTPUT>
-                    <p>Hold the <em>Ctrl</em> key and click to select multiple indicators. 
-                    <input class="btn btn-info" type="submit"  value="Next..."></p> 
+                    <p>Hold the <em>Ctrl</em> key and click to select multiple indicators.  &nbsp; <input class="btn btn-info" type="submit"  value="Next..."></p> 
 
         </form> 
         
-        
+ </DIV>       
 </body>
 </html>
 
