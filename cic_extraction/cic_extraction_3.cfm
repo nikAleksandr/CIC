@@ -35,25 +35,29 @@ where countrycode = 'USA'
 <link rel="stylesheet" href="../css/main.css">
 
 <!--Script for limiting the number of selections in the selection box-->
+<!--Script to limit the number of selections in the selection box-->
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+
+
 <script src="http://www.google.com/jsapi"></script>
-
-
-
-<script type="text/javascript">
+    <script type="text/javascript">
     google.load("jquery", "1");
+
     $(document).ready(function() {
+
       var last_valid_selection = null;
+
       $('#statelist').change(function(event) {
-        if ($(this).val()=="ALL") {
-          alert('You selected All States' +  last_valid_selection + $(this).val().length);
-          $(this).val(last_valid_selection);
+        if ($(this).val() == "ALL") {
+          alert('You have selected All States. No need to select any others.'  );
         } else {
           last_valid_selection = $(this).val();
         }
       });
     });
 </script>
+
 
 
 
@@ -65,38 +69,39 @@ where countrycode = 'USA'
 		<div class="col-md-10">
 			<h1>NACo CIC Extraction Tool</h1>
 		</div>
-		<div class="col-md-2">
-			<img id="nacoLogo" alt="National Association of Counties Logo" src="../img/NACoLogo_NoTagBLACK_tm.png" />
-		</div>
+<!--		<div class="col-md-2">			<img id="nacoLogo" alt="National Association of Counties Logo" src="../img/NACoLogo_NoTagBLACK_tm.png" />		</div> -->
 	</div>
-	<a href="http://cic.naco.org">Return to Interactive Map</a>
+	 <A HREF="cic_extraction_help.cfm"> CIC Extraction Tool Help</a> &nbsp;   &nbsp;   &nbsp; &nbsp;   &nbsp;<a href="cic_extraction_1.cfm">Return - Start a New Selection</a> 
 </div>
+<HR />
+
 
 <!-- start of third tab -->
+<DIV>
 
-<H3><em>Select a specific State, or select "All States"</em></H3>
-<form class="extraction-form" action="cic_extraction_5.cfm" method="post">
-<!-- skip county selection(4) for now -->
-
-    <select id="statelist" class="form-control extraction-multiple"  name="States_List" size="10" multiple="multiple">
-      <option value="ALL"> - All States</option>
-			  <CFOUTPUT query="get_states">
-              <option value="'#StateCode#'">#StateName#</option>
-              </CFOUTPUT>
-    </select>
+    <H3><em>Select a specific State, or select "All States"</em></H3>
+    <form class="extraction-form" action="cic_extraction_5.cfm" method="post">
+    <!-- skip county selection(4) for now -->
     
-     <CFOUTPUT>
-     <input type="hidden"  name="tablename1" value="#tablename1#" />
-    <input type="hidden"  name="SubCategory_List1" value="#SubCategory_List1#" />
-    <input type="hidden"  name="tablename2" value="#tablename2#" />
-    <input type="hidden"  name="SubCategory_List2" value="#SubCategory_List2#" />
+        <select id="statelist"   name="States_List" size="10" multiple="multiple">
+          <option value="ALL"> - All States</option>
+                  <CFOUTPUT query="get_states">
+                  <option value="'#StateCode#'">#StateName#</option>
+                  </CFOUTPUT>
+        </select>
+        
+         <CFOUTPUT>
+         <input type="hidden"  name="tablename1" value="#tablename1#" />
+        <input type="hidden"  name="SubCategory_List1" value="#SubCategory_List1#" />
+        <input type="hidden"  name="tablename2" value="#tablename2#" />
+        <input type="hidden"  name="SubCategory_List2" value="#SubCategory_List2#" />
+        
+        </CFOUTPUT> 
     
-    </CFOUTPUT> 
-
-<p>Hold the <i>Ctrl</i> key and select multiple states if desired. <input class="btn btn-info" type="submit" value="Next" /></p>
-
-</form>
-
+    <p>Hold the <i>Ctrl</i> key and select multiple states if desired.  &nbsp; <input class="btn btn-info" type="submit" value="Next..." /></p>
+    
+    </form>
+</DIV>
 
 
 </body>
