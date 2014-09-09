@@ -47,15 +47,15 @@ var format = {
     	
 		return (type === 'currency') ? '$' + formatted : formatted;
     },
-    "dec1": function(num, type) {
-    	if (Math.abs(num) >= 1000) return d3.format(',.0f')(num);
+    "dec1": function(num, unit) {
+    	if (Math.abs(num) >= 1000) return (unit === 'dollars') ? d3.format('$,.0f')(num) : d3.format(',.0f')(num);
     	else if (num === 0) return 0;
-    	else return d3.format('.1f')(num);
+    	else return (type === 'dollars') ? d3.format('$.1f')(num) : d3.format('.1f')(num);
     },
-    "dec2": function(num, type) {
-    	if (Math.abs(num) >= 1000) return d3.format(',.0f')(num);
+    "dec2": function(num, unit) {
+    	if (Math.abs(num) >= 1000) return (unit === 'dollars') ? d3.format('$,.0f')(num) : d3.format(',.0f')(num);
     	else if (num === 0) return 0;
-    	else return d3.format('.2f')(num);
+    	else return (unit === 'dollars') ? d3.format('$.2f')(num) : d3.format('.2f')(num);
     },
     'none': function(num) { return num; }
 };
