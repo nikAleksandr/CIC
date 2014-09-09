@@ -1437,6 +1437,24 @@
 							"definition": "Other expenses incurred"
 						}
 					]
+				}, {
+					"name": "County Taxes",
+					"source": "NACo Research",
+					"years": [2014],
+					"legend_title_footer": ", as of Sept 2014",
+					"companions": [["County Taxes", "State Sales Tax"], ["Tax Revenue", "Total County"], ["Tax Revenue", "Total Taxes"], ["Tax Revenue", "Property Taxes"]
+					],
+					"children": [
+						{
+							"name": "Sales Tax",
+							"dataType": "percent",
+							"definition": "The median sales tax of a county"
+						}, {
+							"name": "State Sales Tax",
+							"dataType": "percent",
+							"definition": "The sales tax of a county's state"
+						}
+					]
 				}
 			]
 		}, {
