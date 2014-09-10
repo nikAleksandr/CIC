@@ -943,14 +943,14 @@
 												</li>
 											</ul>
 										</li>
-										<!-- <li class="dataset" name="County Tax Rates">
+										<li class="dataset" name="County Tax Rates">
 											<a>County Tax Rates</a>
 											<ul class="dropdown-menu">
 												<li>
 													<a class="indicator" name="Sales Tax" href="#">Sales Tax<span class="badge">new</span></a>
 												</li>
 											</ul>
-										</li> -->
+										</li>
 									</ul>
 								</li>
 								<li class="category" name="County Structure">
@@ -3612,14 +3612,14 @@
 												</li>
 											</ul>
 										</li>
-										<!-- <li class="dataset" name="County Taxes">
-											<a>County Taxes</a>
+										<li class="dataset" name="County Tax Rates">
+											<a>County Tax Rates</a>
 											<ul class="dropdown-menu">
 												<li>
 													<a class="indicator" name="Sales Tax" href="#">Sales Tax<span class="badge">new</span></a>
 												</li>
 											</ul>
-										</li> -->
+										</li>
 									</ul>
 								</li>
 								<li class="category" name="County Structure">
