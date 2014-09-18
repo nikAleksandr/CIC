@@ -1729,8 +1729,8 @@ d3.json("/CIC/us.json", function(error, us) {
 	    	}	    	
 	    } else {
 	    	// show update dialog
-		    emptyInstructionText();
-		    $('#instructions, #updateText').show();
+		    /*emptyInstructionText();
+		    $('#instructions, #updateText').show();*/
 	    	
 	    }
   	});
