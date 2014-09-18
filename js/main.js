@@ -359,6 +359,12 @@ function setIconBehavior() {
 		e.stopPropagation();
 		showSignup();
 	});
+	
+	$('.newsletter-link').on('click', function(e) {
+		e.stopPropagation();
+		emptyInstructionText();
+		showSignup();
+	});
 }
 function showSignup() {
 	emptyInstructionText();
@@ -1693,6 +1699,7 @@ d3.json("/CIC/us.json", function(error, us) {
 	    	});
 	    }
 	    
+	    
 	    // check url for showHelp query string
 	    var match,
 	    	urlParams = {}, 
@@ -1713,7 +1720,6 @@ d3.json("/CIC/us.json", function(error, us) {
 		    	window.location.href='http://cic.naco.org/coin/index.html';				
 			}
 		} else if (urlParams.hasOwnProperty('signup')) {
-			console.log('signup');
 			showSignup();
 	    } else if (urlParams.hasOwnProperty('showhelp')) {
 	    	var idSelec = '#helpText' + urlParams.showhelp;
@@ -1721,6 +1727,11 @@ d3.json("/CIC/us.json", function(error, us) {
 				goToPage(urlParams.showhelp);
 				$('#instructions').show();
 	    	}	    	
+	    } else {
+	    	// show update dialog
+		    emptyInstructionText();
+		    $('#instructions, #updateText').show();
+	    	
 	    }
   	});
 });
