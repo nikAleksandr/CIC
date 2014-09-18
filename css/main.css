@@ -150,7 +150,9 @@ table th{
 	position: absolute;
 	top: 5%;
 	z-index: 100;
-	box-shadow: 0 0 .938em rgba(0, 0, 0, 0.2);
+	box-shadow: 0 0 .938em rgba(0, 0, 0, 0.5);
+	moz-box-shadow: 0 0 .938em rgba(0, 0, 0, 0.5);
+	webkit-box-shadow: 0 0 .938em rgba(0, 0, 0, 0.5);
 	background-attachment: scroll;
 	background-clip: border-box;
 	background-color: rgba(255, 255, 255, .95);
@@ -172,7 +174,7 @@ table th{
 #instructionText, #fullDefsText{
 	display: inline-block;
 	position: absolute;
-	top: 30px;
+	top: 40px;
 	bottom: 0px;
 	left: 0px;
 	right: 0px;
@@ -194,8 +196,8 @@ table th{
 	right: 20px;
 }
 #instructionPagination a, .helpLink { cursor: pointer; }
-.helpTitle { padding: 0px 0px 0px 10px; }
-.helpContainer { padding: 5px 0px 0px 25px; }
+.helpTitle { padding: 10px 0px 0px 35px; }
+.helpContainer { padding: 5px 0px 0px 45px; }
 .helpLinkContainer { padding-bottom: 5px; }
 .iText { display: none; }
 
@@ -212,7 +214,7 @@ table th{
 	cursor: pointer;
 	text-align: right;
 	clear: right;
-	padding-right: 1em;
+	margin: 1em 1em 0px 0px;
 }
 .svgCircle{
 	margin: 0 .7em;
