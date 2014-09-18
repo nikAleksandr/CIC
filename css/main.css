@@ -197,7 +197,7 @@ table th{
 }
 #instructionPagination a, .helpLink { cursor: pointer; }
 .helpTitle { padding: 10px 0px 0px 35px; }
-.helpContainer { padding: 5px 0px 0px 45px; }
+.helpContainer { padding: 5px 0px 0px 50px; }
 .helpLinkContainer { padding-bottom: 5px; }
 .iText { display: none; }
 
