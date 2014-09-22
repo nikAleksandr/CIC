@@ -98,7 +98,9 @@ PLEASE GO BACK AND LIMIT YOUR SELECTION TO JUST 1 OR 2 Primary Categories.
             <input type="hidden" name="Category_List" value="#Category_List#" />
             
             </CFOUTPUT>
-                    <p>Hold the <em>Ctrl</em> key and click to select multiple indicators.  &nbsp; <input class="btn btn-info" type="submit"  value="Next..."></p> 
+      <div class="extraction-help-box">
+      	<span class="extraction-help-text">Hold the CTRL key and click, to select multiple indicators.</span><input class="btn btn-info" type="submit"  value="Next...">
+      </div>
 
         </form> 
         

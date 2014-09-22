@@ -723,11 +723,13 @@ div.tooltip {
 	font-family:'Arvo', serif;
 }
 #moreDataContent img{
-	height:180px;
+	height: 180px;
+	width: 255px;
 	margin-right:2em;
+	border: 1px solid #CCC;
 }
 #moreDataContent p {
-	margin-top:100px;
+	margin-top:80px;
 	text-align:left;
 	margin-right:1em;
 }
@@ -764,6 +766,14 @@ input[name="Logout"], input[value="Next..."]{
 }
 .extraction-table td{
 	word-wrap:break-word;
+}
+.extraction-help-box {
+	padding: 10px;
+	margin-top: 15px;	
+}
+.extraction-help-text {
+	position: relative;
+	top: 4px;
 }
 
 /* ==========================================================================
