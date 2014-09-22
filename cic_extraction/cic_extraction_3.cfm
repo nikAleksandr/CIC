@@ -97,9 +97,11 @@ where countrycode = 'USA'
         <input type="hidden"  name="SubCategory_List2" value="#SubCategory_List2#" />
         
         </CFOUTPUT> 
-    
-    <p>Hold the <i>Ctrl</i> key and select multiple states if desired.  &nbsp; <input class="btn btn-info" type="submit" value="Next..." /></p>
-    
+
+      <div class="extraction-help-box">
+      	<span class="extraction-help-text">Hold the CTRL key and click, to select multiple states if desired.</span><input class="btn btn-info" type="submit"  value="Next...">
+      </div>
+        
     </form>
 </DIV>
 
