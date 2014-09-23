@@ -1089,10 +1089,16 @@
 													<a class="indicator" name="Percent Under 5 years old" href="#">Percent Under 5 years old</a>
 												</li>
 												<li>
-													<a class="indicator" name="5-24 years old Population" href="#">5-24 years old Population</a>
+													<a class="indicator" name="5-14 years old Population" href="#">5-14 years old Population</a>
 												</li>
 												<li>
-													<a class="indicator" name="Percent 5-24 years old" href="#">Percent 5-24 years old</a>
+													<a class="indicator" name="Percent 5-14 years old" href="#">Percent 5-14 years old</a>
+												</li>
+												<li>
+													<a class="indicator" name="15-24 years old Population" href="#">15-24 years old Population</a>
+												</li>
+												<li>
+													<a class="indicator" name="Percent 15-24 years old" href="#">Percent 15-24 years old</a>
 												</li>
 												<li>
 													<a class="indicator" name="25-64 years old Population" href="#">25-64 years old Population</a>
@@ -3758,10 +3764,16 @@
 													<a class="indicator" name="Percent Under 5 years old" href="#">Percent Under 5 years old</a>
 												</li>
 												<li>
-													<a class="indicator" name="5-24 years old Population" href="#">5-24 years old Population</a>
+													<a class="indicator" name="5-14 years old Population" href="#">5-14 years old Population</a>
 												</li>
 												<li>
-													<a class="indicator" name="Percent 5-24 years old" href="#">Percent 5-24 years old</a>
+													<a class="indicator" name="Percent 5-14 years old" href="#">Percent 5-14 years old</a>
+												</li>
+												<li>
+													<a class="indicator" name="15-24 years old Population" href="#">15-24 years old Population</a>
+												</li>
+												<li>
+													<a class="indicator" name="Percent 15-24 years old" href="#">Percent 15-24 years old</a>
 												</li>
 												<li>
 													<a class="indicator" name="25-64 years old Population" href="#">25-64 years old Population</a>

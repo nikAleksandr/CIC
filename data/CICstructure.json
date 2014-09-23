@@ -1656,7 +1656,7 @@
 				}, {
 					"name": "Population by Age/Gender",
 					"years": [2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012],
-					"companions": [["Population Density", "Population Level"], ["Population by Age/Gender", "Percent 5-24 years old"], ["Population by Age/Gender", "Percent 25-64 years old"], ["Population Density", "Population Density"]
+					"companions": [["Population Density", "Population Level"], ["Population by Age/Gender", "Percent 15-24 years old"], ["Population by Age/Gender", "Percent 25-64 years old"], ["Population Density", "Population Density"]
 					],
 					"source": "U.S. Census Bureau - Population Estimates Program (PEP)",
 					"vintage": 2012,
@@ -1690,13 +1690,21 @@
 							"dataType": "percent",
 							"definition": "Percentage of people under the age of 5 years as of April 1st of the data year over the total population."
 						}, {
-							"name": "5-24 years old Population",
+							"name": "5-14 years old Population",
 							"dataType": "level",
-							"definition": "Population estimate of people between (and including) the ages of 5 and 24 years as of April 1st of the data year."
+							"definition": "Population estimate of people between (and including) the ages of 5 and 14 years as of April 1st of the data year."
 						}, {
-							"name": "Percent 5-24 years old",
+							"name": "Percent 5-14 years old",
 							"dataType": "percent",
-							"definition": "Percentage of people between (and including) the ages of 5 and 24 years as of April 1st of the data year over the total population."
+							"definition": "Percentage of people between (and including) the ages of 5 and 14 years as of April 1st of the data year over the total population."
+						}, {
+							"name": "15-24 years old Population",
+							"dataType": "level",
+							"definition": "Population estimate of people between (and including) the ages of 15 and 24 years as of April 1st of the data year."
+						}, {
+							"name": "Percent 15-24 years old",
+							"dataType": "percent",
+							"definition": "Percentage of people between (and including) the ages of 15 and 24 years as of April 1st of the data year over the total population."
 						}, {
 							"name": "25-64 years old Population",
 							"dataType": "level",
