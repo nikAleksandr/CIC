@@ -222,8 +222,8 @@ function displayDefs(d){
 				break;
 			}
 		}
+		if (consecutive_years) yearsAvail = years[0] + ' - ' + years[years.length - 1];
 	}
-	if (consecutive_years) yearsAvail = years[0] + ' - ' + years[years.length - 1];
 	
 	d3.select('#indName').append('p').attr('class', 'indData').text(d.name);
 	d3.select('#indDef').append('p').attr('class', 'indData').text(d.definition);
