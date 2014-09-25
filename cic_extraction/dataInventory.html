@@ -212,7 +212,18 @@ function update(source) {
 function displayDefs(d){
 	d3.selectAll('.indData').remove();
 	
-	var yearsAvail = d.parent.years.join(', ');
+	var years = d.parent.years,
+		yearsAvail = years.join(', '),
+		consecutive_years = true;
+	if (years.length > 1) {
+		for (var i = 1; i < years.length; i++) {
+			if (years[i] !== years[0] + i) {
+				consecutive_years = false;
+				break;
+			}
+		}
+	}
+	if (consecutive_years) yearsAvail = years[0] + ' - ' + years[years.length - 1];
 	
 	d3.select('#indName').append('p').attr('class', 'indData').text(d.name);
 	d3.select('#indDef').append('p').attr('class', 'indData').text(d.definition);
