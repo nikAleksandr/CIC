@@ -365,6 +365,15 @@ function setIconBehavior() {
 		emptyInstructionText();
 		showSignup();
 	});
+
+	$('#countyTaxRatesLink').on('click', function() {
+		if (window.location.pathname == '/coin/index.cfm') {
+			$('#instructions').hide();
+			update('County Tax Rates', 'Sales Tax');
+		} else {
+			moreDataShow();
+		}	
+	});
 }
 function showSignup() {
 	emptyInstructionText();
