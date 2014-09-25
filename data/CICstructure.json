@@ -1441,7 +1441,7 @@
 					"name": "County Tax Rates",
 					"source": "NACo Research",
 					"years": [2014],
-					"legend_title_footer": ", as of Sept 2014",
+					"legend_title_footer": ", collected over 2007-2014",
 					"companions": [["County Tax Rates", "Sales Tax"], ["County Tax Rates", "State Sales Tax"], ["Tax Revenue", "Total Taxes"], ["Tax Revenue", "Sales & Gross Receipts Taxes"]
 					],
 					"children": [
@@ -1655,7 +1655,7 @@
 					]
 				}, {
 					"name": "Population by Age/Gender",
-					"years": [2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012],
+					"years": [2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013],
 					"companions": [["Population Density", "Population Level"], ["Population by Age/Gender", "Percent 15-24 years old"], ["Population by Age/Gender", "Percent 25-64 years old"], ["Population Density", "Population Density"]
 					],
 					"source": "U.S. Census Bureau - Population Estimates Program (PEP)",
@@ -1725,7 +1725,7 @@
 					]
 				}, {
 					"name": "Population by Ethnicity",
-					"years": [2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012],
+					"years": [2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013],
 					"companions": [["Population Density", "Population Level"], ["Population Density", "Population Density"], ["Population Density", "Population Density Growth Rate (from previous year)"]
 					],
 					"source": "U.S. Census Bureau - Population Estimates Program (PEP)",

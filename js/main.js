@@ -365,6 +365,15 @@ function setIconBehavior() {
 		emptyInstructionText();
 		showSignup();
 	});
+
+	$('#countyTaxRatesLink').on('click', function() {
+		if (window.location.pathname == '/coin/index.cfm') {
+			$('#instructions').hide();
+			update('County Tax Rates', 'Sales Tax');
+		} else {
+			moreDataShow();
+		}	
+	});
 }
 function showSignup() {
 	emptyInstructionText();
@@ -1380,6 +1389,7 @@ function populateTooltip(d) {
 	var none_avail = true;
 	
 	var writeIndicators = function(row, obj, quant, secondary) {
+		// set up unit and link
 		var unit = (obj.hasOwnProperty('unit')) ? obj.unit : '';		
 		if (obj.hasOwnProperty('format_type')) var value = format_tt[obj.format_type](quant[d.id], unit);
 		else {
@@ -1387,6 +1397,8 @@ function populateTooltip(d) {
 			else var value = format_tt[obj.dataType](quant[d.id], unit);
 		}
 		
+		
+		// adjust unit values
 		if (value === '$NaN' || value === 'NaN' || value === 'NaN%' || value === null || value === '.' || (isNumFun(obj.dataType) && isNaN(quant[d.id])) ) {
 			value = 'Not Available';
 			unit = '';
@@ -1408,12 +1420,13 @@ function populateTooltip(d) {
 		}
 		
 		var name = (obj.name.indexOf('(') != -1) ? obj.name.substring(0, obj.name.indexOf('(')) : obj.name; // cut off before parenthesis if there is one
-		if (unit.indexOf('year') !== -1) name = obj.year + ' ' + name;
+		if ((!secondary && !all_same_year) || (secondary && !s_all_same_year)) name = obj.year + ' ' + name;
 		
 		row.append('td').attr('class', 'dataName').classed('leftborder', secondary).text(name + ':');
 		row.append('td').attr('class', 'dataNum').html(value + " " + unit);
 	};
-	
+
+	// find out if all indicators are in same dataset
 	var sameDataset = true, s_sameDataset = true;
 	for (var i = 1; i < indObjects.length; i++){
 		if (indObjects[i].dataset !== indObjects[0].dataset) {
@@ -1421,7 +1434,7 @@ function populateTooltip(d) {
 			break;
 		}
 	}
-	if (currentSecondDI!== '') {
+	if (currentSecondDI !== '') {
 		for (var i = 1; i < s_indObjects.length; i++) {
 			if (s_indObjects[i].dataset !== s_indObjects[0].dataset) {
 				s_sameDataset = false;
@@ -1429,16 +1442,37 @@ function populateTooltip(d) {
 			}
 		}
 	}
+	
+	// find out if all indicators are from same year
+	var all_same_year = true;
+	for (var i = 1; i < indObjects.length; i++) {
+		if (indObjects[i].year !== indObjects[0].year) {
+			all_same_year = false;
+			break;
+		}
+	}
+	var s_all_same_year = true;
+	for (var i = 1; i < s_indObjects.length; i++) {
+		if (s_indObjects[i].year !== s_indObjects[0].year) {
+			s_all_same_year = false;
+			break;
+		}
+	}	
+	// populate tooltip with header and each indicator
 	for (var i = 0; i < indObjects.length; i++) {
 		// if all the indicators are from the same dataset, add a dataset title to the tooltip
 		if (i == 0) {
 			var row = tipTable.append('tr').attr('class', 'tipKey');			
 			row.append('td').attr({'class': 'datasetName', 'colspan': '2'}).text(function() {
-				return (sameDataset) ? indObjects[i].dataset : indObjects[i].category;
+				var titleText = (sameDataset) ? indObjects[i].dataset : indObjects[i].category;
+				if (all_same_year) titleText += ', ' + indObjects[i].year;
+				return titleText;
 			});
 			if (currentSecondDI !== '') {
 				row.append('td').attr({'class': 'datasetName', 'colspan': '2'}).text(function() {
-					return (s_sameDataset) ? s_indObjects[i].dataset : s_indObjects[i].category;
+					var s_titleText = (s_sameDataset) ? s_indObjects[i].dataset : s_indObjects[i].category;
+					if (s_all_same_year) s_titleText += ', ' + s_indObjects[i].year;
+					return s_titleText;
 				});
 			}
 		}
