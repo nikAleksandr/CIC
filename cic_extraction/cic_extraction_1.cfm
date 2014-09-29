@@ -88,7 +88,8 @@
     </select> 
     
       <div class="extraction-help-box">
-      	<span class="extraction-help-text">Hold the CTRL key and click, to select multiple indicators.</span><input class="btn btn-info" type="submit"  value="Next...">
+      	<div class="extraction-help-text">Hold the CTRL key and click, to select multiple indicators.</div>
+      	<input class="btn btn-info" type="submit"  value="Next...">
       </div>
     
        

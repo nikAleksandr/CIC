@@ -99,7 +99,8 @@ where countrycode = 'USA'
         </CFOUTPUT> 
 
       <div class="extraction-help-box">
-      	<span class="extraction-help-text">Hold the CTRL key and click, to select multiple states if desired.</span><input class="btn btn-info" type="submit"  value="Next...">
+      	<div class="extraction-help-text">Hold the CTRL key and click, to select multiple states if desired.</div><br/>
+      	<input class="btn btn-info" type="submit"  value="Next...">
       </div>
         
     </form>

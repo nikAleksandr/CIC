@@ -773,9 +773,15 @@ input[name="Logout"], input[value="Next..."]{
 .extraction-table td{
 	word-wrap:break-word;
 }
+.extraction-help-button {
+	margin-top: 20px;
+}
 .extraction-help-box {
 	padding: 10px;
 	margin-top: 15px;	
+}
+.extraction-help-box input {
+	margin-left: 10px;
 }
 .extraction-help-text {
 	position: relative;
