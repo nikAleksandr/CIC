@@ -781,6 +781,12 @@ input[name="Logout"], input[value="Next..."]{
 	position: relative;
 	top: 4px;
 }
+.extraction-definitions {
+	max-width: 900px;
+	margin-bottom: 50px;
+	text-align: center;
+	margin: 0 auto;
+}
 
 /* ==========================================================================
    Helper classes

@@ -209,7 +209,7 @@ Your selection did not result in any data. Please try again.
 	<HR /><CENTER><H3>Data Definitions</H3>	</CENTER>
     
     	
-          <table width="85%" align="center" cellpadding="3" cellspacing="0" bgcolor="0">
+          <table class="table" width="85%" align="center" cellpadding="3" cellspacing="0" bgcolor="0">
           <!-- <TR><TD colspan="2"><H3><font color="##5BC0DE">Data Definitions</font></H3></TD></TR> -->
            
             <CFOUTPUT query="get_uf1" group="Cat_Name" >
