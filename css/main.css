@@ -207,7 +207,7 @@ table th{
 	cursor: pointer;
 }
 #close, #close2, #help, #fullReport{
-	color:rgb(0,64,112);
+	color: rgb(0,64,112);
 	font-size: 1em;
 	position: relative;
 	float: right;
@@ -215,6 +215,7 @@ table th{
 	text-align: right;
 	clear: right;
 	margin: 1em 1em 0px 0px;
+	z-index: 5;
 }
 .svgCircle{
 	margin: 0 .7em;
@@ -629,6 +630,7 @@ div.tooltip {
 	color:rgb(255,152,51);
 	font-weight:bold;
 }
+#instructionText { z-index: 4; }
 #instructionText table td{
 	border-top:none;
 	font-size:.8em;
