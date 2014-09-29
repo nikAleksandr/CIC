@@ -1448,11 +1448,13 @@
 						{
 							"name": "Sales Tax",
 							"dataType": "percent",
+							"year_ind": "Sales Tax Year Collected",
 							"thresholds": [0.001, 0.01, 0.03, 0.05],
 							"definition": "The county sales tax rate.  Some rates may be median estimates calculated from a range of sales tax rates."
 						}, {
 							"name": "State Sales Tax",
 							"dataType": "percent",
+							"year_ind": "State Sales Tax Year Collected",
 							"definition": "The sales tax of a county's state"
 						}
 					]

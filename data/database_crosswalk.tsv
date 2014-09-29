@@ -119,6 +119,8 @@ County_Finance	Tax_Rev_Property_Taxes	County Finance	Tax Revenue	Property Taxes	
 County_Finance	Tax_Rev_Sales_and_Gross_Receipts_Taxes	County Finance	Tax Revenue	Sales & Gross Receipts Taxes	"Taxes on goods and services, measured on the basis of the volume or value of their transfer, upon gross receipts or gross income therefrom, or as an amount per unit sold (gallon, package, etc.); and related taxes based upon use, storage, production, importation, or consumption of goods and services. Includes licenses levied at more than minor rates. Excludes dealer discounts or “commissions” allowed to merchants for collecting taxes; taxes on the severance of natural resources, measured by value or quantity severed (report at Severance Taxes, code T53), except when imposed as a part of and at the same rate as general sales or gross receipts taxes."
 County_Finance	County_Tax_Sales_Use_Tax	County Finance	County Tax Rates	Sales Tax	
 County_Finance	County_Tax_State_Tax	County Finance	County Tax Rates	State Sales Tax	
+County_Finance	County_Tax_County_Tax_Year_Collected	County Finance	County Tax Rates	Sales Tax Year Collected	
+County_Finance	County_Tax_State_Tax_Year_Collected	County Finance	County Tax Rates	State Sales Tax Year Collected	
 Demographics	KEYID				
 Demographics	FIPS				
 Demographics	DATA_YEAR				

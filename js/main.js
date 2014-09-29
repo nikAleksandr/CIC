@@ -912,7 +912,13 @@ function getData(indObjs) {
 	  		if (!indicatorList.hasOwnProperty(crossObject.db_dataset)) indicatorList[crossObject.db_dataset] = {};
 			var dataset_obj = indicatorList[crossObject.db_dataset];
 			if (!dataset_obj.hasOwnProperty(year)) dataset_obj[year] = [];
-			dataset_obj[year].push(crossObject.db_indicator);	  		
+			dataset_obj[year].push(crossObject.db_indicator);
+			
+			// if an indicator has a "comapnion" year indicator, query that indicator as well
+			if (indObjs[i].hasOwnProperty('year_ind')) {
+				var year_ind_obj = crosswalk[indObjs[i].dataset+' - '+indObjs[i].year_ind];
+				dataset_obj[year].push(year_ind_obj.db_indicator);
+			}
 	  	}
 
 		// configure query string for each dataset
