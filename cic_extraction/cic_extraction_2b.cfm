@@ -74,7 +74,7 @@ PLEASE GO BACK AND LIMIT YOUR SELECTION TO JUST 1 OR 2 Primary Categories.
 <body>
 <div id="extraction-header">
 	<div class="row" >
-		<div class="col-md-10">			<h1>NACo CIC Exraction Tool</h1>		</div>
+		<div class="col-md-10">			<h1>NACo CIC Extraction Tool</h1>		</div>
 	<!--	<div class="col-md-2">	<img id="nacoLogo" alt="National Association of Counties Logo" src="../img/NACoLogo_NoTagBLACK_tm.png" />		</div> -->
 	
     <A HREF="cic_extraction_help.cfm"> CIC Extraction Tool Help</a> &nbsp;   &nbsp;   &nbsp; &nbsp;   &nbsp;<a href="cic_extraction_1.cfm">Return - Start a New Selection</a> 

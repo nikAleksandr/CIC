@@ -75,7 +75,7 @@
           <option value="WSSW">Water, Sewage & Solid Waste</option>
     </select> 
     <P>
-<input class="btn btn-info" type="submit"  value="Get Help" />
+<input class="btn btn-info extraction-help-button" type="submit"  value="Get Help" />
 </form>
 </DIV>
 
