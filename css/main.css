@@ -201,6 +201,10 @@ table th{
 .helpLinkContainer { padding-bottom: 5px; }
 .iText { display: none; }
 
+.google-form { margin-top: 35px; }
+.google-form .email-input { width: 220px; }
+.ss-item { margin-top: 20px; }
+
 #fullDefsButton{
 	color:rgb(0,64,112);
 	font-size: 1em;
