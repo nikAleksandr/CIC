@@ -14,6 +14,26 @@ $.noty.defaults.timeout = 3000;
 $.noty.defaults.closeWith = ['click', 'button'];
 $.noty.defaults.template = '<div class="noty_message"><div class="noty_text"></div><div class="noty_close"></div></div>';
 
+
+// initialize angular
+angular.module('CIC', [])
+	.directive('indicatorList', function() {
+		return {
+			restrict: 'A',
+			templateUrl: 'indicatorList.html',
+			controller: function($scope) {
+				/*$('#primeInd, #secondInd').smartmenus({
+					subMenusSubOffsetX: 1,
+					subMenusSubOffsetY: -8
+				});*/				
+			}
+		};
+	});
+	
+// initialize smartmenus
+
+
+
 // general formatting by data type
 var format = {
 	"percent": d3.format('.1%'),
