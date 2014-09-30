@@ -1442,7 +1442,7 @@
 					"source": "NACo Research",
 					"years": [2014],
 					"legend_title_footer": ", collected over 2007-2014",
-					"companions": [["County Tax Rates", "Sales Tax"], ["County Tax Rates", "State Sales Tax"], ["Tax Revenue", "Total Taxes"], ["Tax Revenue", "Sales & Gross Receipts Taxes"]
+					"companions": [["County Tax Rates", "Sales Tax"], ["County Tax Rates", "State Sales Tax"]
 					],
 					"children": [
 						{
