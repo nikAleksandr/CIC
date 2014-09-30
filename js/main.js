@@ -15,8 +15,19 @@ $.noty.defaults.closeWith = ['click', 'button'];
 $.noty.defaults.template = '<div class="noty_message"><div class="noty_text"></div><div class="noty_close"></div></div>';
 
 
-// initialize angular
+// initialize angular module
 angular.module('CIC', [])
+	.controller('MenuController', function() {
+		this.accessMoreData = function() {
+			if ($('#mdText').is(':visible')) {
+				//$('#instructions').hide();
+			} else {
+				emptyInstructionText();
+				$('#mdText').show();
+				$('#instructions').show();
+			}			
+		};
+	})
 	.directive('indicatorList', function() {		
 		return {
 			restrict: 'A',
@@ -31,9 +42,20 @@ angular.module('CIC', [])
 				menu.find('.sub-arrow').first().hide();
 			}
 		};
+	})
+	.directive('stateList', function() {
+		return {
+			restrict: 'A',
+			templateUrl: 'stateList.html'		
+		}
+	})
+	.directive('socialButtons', function() {
+		return {
+			restrict: 'A',
+			templateUrl: 'socialButtons.html'
+		}
 	});
 	
-
 
 
 // general formatting by data type
