@@ -1426,7 +1426,7 @@ function populateTooltip(d) {
 		}
 		
 		var name = (obj.name.indexOf('(') != -1) ? obj.name.substring(0, obj.name.indexOf('(')) : obj.name; // cut off before parenthesis if there is one
-		if ((!secondary && !all_same_year) || (secondary && !s_all_same_year)) name = obj.year + ' ' + name;
+		if (((!secondary && !all_same_year) || (secondary && !s_all_same_year)) && !obj.hasOwnProperty('year_ind')) name = obj.year + ' ' + name;
 		
 		row.append('td').attr('class', 'dataName').classed('leftborder', secondary).text(name + ':');
 		row.append('td').attr('class', 'dataNum').html(value + " " + unit);
