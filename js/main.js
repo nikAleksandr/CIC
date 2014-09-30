@@ -1,12 +1,3 @@
-d3.select(window).on("resize", throttle);
-//d3.select('.rrssb-buttons').style('display', 'none');
-
-function toTitleCase(str){ return str.replace(/\w\S*/g, function(txt){return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();}); }
-function isNumFun(data_type) { return (data_type === 'level' || data_type === 'level_np' || data_type === 'percent'); }
-function positionInstruction(){var instructionLeft = (windowWidth * .2) / 2; if(windowWidth > 1125){instructionLeft = (windowWidth - 900)/2;}; d3.select('#instructions').style({"left": instructionLeft - containerOffset.left + "px", "height": height + "px"});}
-var stateNameList = ['AK', 'AL', 'AR', 'AZ', 'CA', 'CO', 'CT', 'DC', 'DE', 'FL', 'GA', 'HI', 'IA', 'ID', 'IL', 'IN', 'KS', 'KY', 'LA', 'MA', 'MD', 'ME', 'MI', 'MN', 'MO', 'MS', 'MT', 'NC', 'ND', 'NE', 'NH', 'NJ', 'NM', 'NV', 'NY', 'OH', 'OK', 'OR', 'PA', 'RI', 'SC', 'SD', 'TN', 'TX', 'UT', 'VA', 'VT', 'WA', 'WI', 'WV', 'WY'];
-var exceptionCounties = {9001: true, 9003: true, 9005: true, 9007: true, 9009: true, 9011: true, 9013: true, 9015: true, 44001: true, 44003: true, 44005: true, 44007: true, 44009: true, 25003: true, 25009: true, 25011: true, 25013: true, 25015: true, 25017: true, 25027: true, 51510: true, 51520: true, 51530: true, 51540: true, 51550: true, 51570: true, 51580: true, 51590: true, 51595: true, 51600: true, 51610: true, 51620: true, 51630: true, 51640: true, 51650: true, 51660: true, 51670: true, 51678: true, 51680: true, 51683: true, 51685: true, 51690: true, 51700: true, 51710: true, 51720: true, 51730: true, 51735: true, 51740: true, 51750: true, 51760: true, 51770: true, 51775: true, 51790: true, 51800: true, 51810: true, 51820: true, 51830: true, 51840: true};
-
 // default for noty alert system
 $.noty.defaults.layout = 'center';
 $.noty.defaults.killer = true;
@@ -15,46 +6,118 @@ $.noty.defaults.closeWith = ['click', 'button'];
 $.noty.defaults.template = '<div class="noty_message"><div class="noty_text"></div><div class="noty_close"></div></div>';
 
 
-// initialize angular module
-angular.module('CIC', [])
-	.controller('MenuController', function() {
-		this.accessMoreData = function() {
-			if ($('#mdText').is(':visible')) {
-				//$('#instructions').hide();
-			} else {
-				emptyInstructionText();
-				$('#mdText').show();
-				$('#instructions').show();
-			}			
-		};
-	})
-	.directive('indicatorList', function() {		
-		return {
-			restrict: 'A',
-			templateUrl: 'indicatorList.html',
-			link: function(scope, elem) {
-				// initialize smartmenus
-				var menu = $(elem).closest('.nav');
-				menu.smartmenus({
-					subMenusSubOffsetX: 1,
-					subMenusSubOffsetY: -8
-				});
-				menu.find('.sub-arrow').first().hide();
-			}
-		};
-	})
-	.directive('stateList', function() {
-		return {
-			restrict: 'A',
-			templateUrl: 'stateList.html'		
-		}
-	})
-	.directive('socialButtons', function() {
-		return {
-			restrict: 'A',
-			templateUrl: 'socialButtons.html'
-		}
-	});
+(function() {
+
+
+	// initialize angular module
+	var app = angular.module('CIC', [])
+		.controller('MenuController', function() {
+			this.accessMoreData = function() {
+				if ($('#mdText').is(':visible')) {
+					//$('#instructions').hide();
+				} else {
+					emptyInstructionText();
+					$('#mdText').show();
+					$('#instructions').show();
+				}			
+			};
+		})
+		.controller('MainController', function() {
+
+			// -------------- Social Buttons -----------------
+			// TODO almost functional - unable to get c.social.showing to toggle 
+			/*this.social = {
+				showing: false,
+				toggle: function() {				
+					// first build twitter link relative to indicator displayed on map
+					var twitterContentIntro = "http://twitter.com/home?status=See%20";
+					var twitterContentEnd = "%20data%20for%20your%20county%20by%20@NACoTweets%20%23NACoCIC%20www.naco.org%2FCIC";
+					var i = currentDI.indexOf(' - ');
+					var twitterContentDataset = encodeURIComponent(currentDI.substring(0, i));
+					
+					// show or hide
+					if (socialButtons.showing) {
+						d3.select('#rrssbContainer').transition().duration(500)
+							.style('right', '-200px')
+							.each('end', function() {
+								socialButtons.showing = false;
+							});
+					} else {
+						socialButtons.showing = true;
+						d3.select('#twitterContent').attr('href', twitterContentIntro + twitterContentDataset + twitterContentEnd);
+						d3.select('#rrssbContainer').transition().duration(500).style('right', '80px');
+					}
+				}
+			};
+			var socialButtons = this.social;
+			
+			// bind click on links
+			$('.share-toggle').on('click', function(e) {
+				e.stopPropagation();
+				socialButtons.toggle();
+			});	*/
+			
+			
+		})
+		.directive('indicatorList', function() {		
+			return {
+				restrict: 'A',
+				templateUrl: 'indicatorList.html',
+				link: function(scope, elem) {
+					// initialize smartmenus
+					var menu = $(elem).closest('.nav');
+					menu.smartmenus({
+						subMenusSubOffsetX: 1,
+						subMenusSubOffsetY: -8
+					});
+					menu.find('.sub-arrow').first().hide();
+				}
+			};
+		})
+		.directive('stateList', function() {
+			return {restrict: 'A', templateUrl: 'stateList.html'};
+		})
+		.directive('socialButtons', function() {
+			return {restrict: 'A', templateUrl: 'socialButtons.html'};
+		});	
+	
+	// resize handler
+	var throttleTimer;
+	window.onresize = function() {
+		window.clearTimeout(throttleTimer);
+		throttleTimer = window.setTimeout(redraw, 200);
+	};
+})();
+	
+	
+	// miscellaneous helper functions
+	function toTitleCase(str){
+		return str.replace(/\w\S*/g, function(txt){
+			return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
+		});
+	}
+	function isNumFun(data_type) {
+		return (data_type === 'level' || data_type === 'level_np' || data_type === 'percent');
+	}
+	var exceptionList = [9001, 9003, 9005, 9007, 9009, 9011, 9013, 9015, 25003, 25009, 25011, 25013, 25015, 25017, 25027, 44001, 44003, 44005, 44007, 44009, 51510, 51520, 51530, 51540, 51550, 51570, 51580, 51590, 51595, 51600, 51610, 51620, 51630, 51640, 51650, 51660, 51670, 51678, 51680, 51683, 51685, 51690, 51700, 51710, 51720, 51730, 51735, 51740, 51750, 51760, 51770, 51775, 51790, 51800, 51810, 51820, 51830, 51840];
+	var exceptionCounties = {};	// converting array of exception counties to object for faster lookup
+	for (var i = 0; i < exceptionList.length; i++) exceptionCounties[exceptionList[i]] = true;
+
+
+
+
+	var positionInstruction = function() {
+		var instructionLeft = (windowWidth * .2) / 2;
+		if (windowWidth > 1125) instructionLeft = (windowWidth - 900) / 2;
+		d3.select('#instructions').style({
+			"left": instructionLeft - containerOffset.left + "px",
+			"height": height + "px"
+		});
+	}
+
+
+
+
 	
 
 
@@ -110,7 +173,7 @@ var format_tt = {};
 for (var ind in format) format_tt[ind] = format[ind];
 format_tt['binary'] = function(num) {
 	return (+num === 1) ? "Yes" : "No";
-}
+};
 format_tt['level'] = function (num, unit) {
 	var type = '';
 	if (unit && unit !== '') {
@@ -379,8 +442,8 @@ function setIconBehavior() {
 		e.stopPropagation();
 		resetSecondInd();
 	});
-	
-	$('#showHideRrssbIcon, #showHideRrssbIconText, #showHideRrssbLink').on('click', function(e) {
+
+	$('.share-toggle').on('click', function(e) {
 		e.stopPropagation();
 		var twitterContentIntro = "http://twitter.com/home?status=See%20";
 		var twitterContentEnd = "%20data%20for%20your%20county%20by%20@NACoTweets%20%23NACoCIC%20www.naco.org%2FCIC";
@@ -397,7 +460,7 @@ function setIconBehavior() {
 			//console.log(twitterContentIntro + twitterContentDataset + twitterContentEnd);
 			d3.select('#rrssbContainer').transition().duration(500).style('right', '80px');
 		}		
-	});
+	});	
 	
 	$('#addToMailingListIcon, #addToMailingListIconText').on('click', function(e) {
 		e.stopPropagation();
@@ -1726,11 +1789,6 @@ d3.select(document.body).on('keyup',function() {
 // ---------------- End Easter Eggs and Backend Section --------------------------------------
 //
 
-var throttleTimer;
-function throttle() {
-  window.clearTimeout(throttleTimer);
-    throttleTimer = window.setTimeout(redraw, 200);
-}
 
 setup(width,height);
 
@@ -1748,7 +1806,7 @@ $.getScript('js/test/util.js', function(){
 });
 */
 
-d3.json("/CIC/us.json", function(error, us) {
+d3.json("data/us.json", function(error, us) {
   	var counties = topojson.feature(us, us.objects.counties).features;
   	var states = topojson.mesh(us, us.objects.states, function(a, b) { return a !== b; });
 	
@@ -1761,7 +1819,7 @@ d3.json("/CIC/us.json", function(error, us) {
   	draw(topo, stateMesh); 
 	  
   	// load cic structure
-  	d3.json("/CIC/data/CICstructure.json", function(error, CICStructure){
+  	d3.json("data/CICstructure.json", function(error, CICStructure){
 	    CICstructure = CICStructure;
 		setBehaviors();
 
@@ -1769,7 +1827,7 @@ d3.json("/CIC/us.json", function(error, us) {
 	    	update('Population Levels and Trends', 'Population Level'); // fill in map colors for default indicator now that everything is loaded 	
 	    } else {  
 	    	// load crosswalk
-	    	d3.tsv('/CIC/data/database_crosswalk.tsv', function(error, data_array) {
+	    	d3.tsv('data/database_crosswalk.tsv', function(error, data_array) {
 	    		// set up crosswalk object; indexed by front-end "Dataset - Indicator" field names, filled with database names
 		      	crosswalk = {};
 	      		for (var i = 0; i < data_array.length; i++) {
