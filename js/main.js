@@ -17,20 +17,22 @@ $.noty.defaults.template = '<div class="noty_message"><div class="noty_text"></d
 
 // initialize angular
 angular.module('CIC', [])
-	.directive('indicatorList', function() {
+	.directive('indicatorList', function() {		
 		return {
 			restrict: 'A',
 			templateUrl: 'indicatorList.html',
-			controller: function($scope) {
-				/*$('#primeInd, #secondInd').smartmenus({
+			link: function(scope, elem) {
+				// initialize smartmenus
+				var menu = $(elem).closest('.nav');
+				menu.smartmenus({
 					subMenusSubOffsetX: 1,
 					subMenusSubOffsetY: -8
-				});*/				
+				});
+				menu.find('.sub-arrow').first().hide();
 			}
 		};
 	});
 	
-// initialize smartmenus
 
 
 
