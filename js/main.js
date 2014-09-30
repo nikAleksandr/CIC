@@ -126,7 +126,7 @@ $.noty.defaults.template = '<div class="noty_message"><div class="noty_text"></d
 			specWindow.document.close();
 			specWindow.focus();
 			specWindow.print();
-			specWindow.close(); // bug: doesn't reach this point if print dialog is closed
+			specWindow.close(); // bug: doesn't reach this point if print dialog is closed by user
 		});
 	
 		setDisabled();
@@ -1587,7 +1587,8 @@ $.noty.defaults.template = '<div class="noty_message"><div class="noty_text"></d
 		d3.select('#state-borders').attr({'fill': 'none', 'stroke': '#fff', 'stroke-linecap': 'round', 'stroke-linejoin': 'round', 'stroke-width': '1.5px'});
 		svgenie.save('mapSvg', {name: 'test.png'});
 	}
-	// ctrl + shift + e to exportSVG() function
+	
+	// ctrl + shift + E to exportSVG() function
 	d3.select(document.body).on('keyup', function() {
 		if (d3.event.ctrlKey && d3.event.shiftKey && d3.event.keyCode === 69) exportSVG();
 	});
@@ -1605,10 +1606,6 @@ $.noty.defaults.template = '<div class="noty_message"><div class="noty_text"></d
 	//
 	
 	
-	setup(width,height);
-	
-	//disableIndicators('indicator', 'County Profile', 'Fiscal Year End Date');
-	//disableIndicators('indicator', 'Land & Water Area', 'Coastal Status');
 	
 	// for testing
 	/*
@@ -1618,9 +1615,10 @@ $.noty.defaults.template = '<div class="noty_message"><div class="noty_text"></d
 		//areAllCompanionsValid();
 		//checkDropdownNames();
 		//testDatabaseResponses(); // will only work if on nacocic.naco.org and localVersion disabled (note: 700+ requests being sent! will take more than a minute!)
-	});
-	*/
+	}); */
 	
+	setup(width, height);
+
 	d3.json("data/us.json", function(error, us) {
 	  	var counties = topojson.feature(us, us.objects.counties).features;
 	  	var states = topojson.mesh(us, us.objects.states, function(a, b) { return a !== b; });
@@ -1687,19 +1685,19 @@ $.noty.defaults.template = '<div class="noty_message"><div class="noty_text"></d
 		    } else {
 		    	// show update dialog
 			    emptyInstructionText();
-			    $('#instructions, #updateText').show();
-		    	
+			    $('#instructions, #updateText').show();		    	
 		    }
+		    
 	  	});
 	});
 
 
 	// Resize Handler
 	var throttleTimer;
-	window.onresize = function() {
+	d3.select(window).on('resize', function() {
 		window.clearTimeout(throttleTimer);
 		throttleTimer = window.setTimeout(redraw, 200);
-	};
+	});
 
 
 	// ---------------------------- Miscellaneous Helper Functions ----------------------------------
