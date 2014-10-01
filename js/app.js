@@ -26,13 +26,16 @@
 			this.isShowing = function(textId) {
 				return this.currentText === textId;
 			};
-			this.setShowing = function(newTextId) {
-				this.setVisible(true);
-				this.currentText = newTextId;
+			this.toggleShowing = function(newTextId) {
+				if (this.currentText === newTextId) this.setVisible(!this.visible);
+				else {
+					this.setVisible(true);
+					this.currentText = newTextId;
+				}
 			};
 			
 			this.selectHelpTab = function(newTab) {
-				if (newTab > 0 && newTabNum <= this.NUM_HELP_TABS) this.currentHelpTab = newTab;
+				if (newTab > 0 && newTab <= this.NUM_HELP_TABS) this.currentHelpTab = newTab;
 			};
 			this.incrementHelpTab = function(incr) {
 				var newTabNum = this.currentHelpTab + incr;

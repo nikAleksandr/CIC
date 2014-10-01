@@ -125,8 +125,8 @@
 				<div id="map">
 					<table id="iconsGroup"><tbody>
 						<tr>
-							<td><a id="showHelpIcon" title="Help" ng-click="panel.setShowing('help')"><img class="my-icons" alt="Help" src="img/Help.svg"/></a></td>
-							<td id="showHelpIconText" class="extraInstructions" ng-click="panel.setShowing('help')">Help</td>
+							<td><a id="showHelpIcon" title="Help" ng-click="panel.toggleShowing('help')"><img class="my-icons" alt="Help" src="img/Help.svg"/></a></td>
+							<td id="showHelpIconText" class="extraInstructions" ng-click="panel.toggleShowing('help')">Help</td>
 						</tr>
 						<tr>
 							<td><a id="backToMapIcon" title="Back to US Map" ng-click="panel.setVisible(false)"><img class="my-icons" alt="Back to US Map" src="img/Back_to_US.svg"/></a></td>
@@ -141,8 +141,8 @@
 							<td class="extraInstructions share-toggle">Share this map!</td>
 						</tr>
 						<tr>
-							<td><a id="addToMailingListIcon" title="Add Me To Mailing List" ng-click="panel.setShowing('mailingList')"><img class="my-icons" alt="Add Me To Mailing List" src="img/Mail.svg"/></a></td>
-							<td id="addToMailingListIconText" class="extraInstructions" ng-click="panel.setShowing('mailingList')">Add to Mailing List</td>
+							<td><a id="addToMailingListIcon" title="Add Me To Mailing List" ng-click="panel.toggleShowing('mailingList')"><img class="my-icons" alt="Add Me To Mailing List" src="img/Mail.svg"/></a></td>
+							<td id="addToMailingListIconText" class="extraInstructions" ng-click="panel.toggleShowing('mailingList')">Add to Mailing List</td>
 						</tr>
 					</tbody></table>
 				</div>

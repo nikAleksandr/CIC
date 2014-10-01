@@ -1641,7 +1641,7 @@ $.noty.defaults.template = '<div class="noty_message"><div class="noty_text"></d
 		    } else if (urlParams.hasOwnProperty('showhelp')) {	    		
 	    		var scope = angular.element($('#container')).scope();
 	    		scope.$apply(function() {
-	    			scope.panel.setShowing('help');
+	    			scope.panel.toggleShowing('help');
 	    			scope.panel.selectHelpTab(parseInt(urlParams.showhelp));
 	    		})	    		
 		    }
