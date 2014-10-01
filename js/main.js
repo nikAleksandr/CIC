@@ -31,7 +31,7 @@ var na_color = 'rgb(204,204,204)', // color for counties with no data
 		windowHeight = $(window).height(),
 		containerOffset = $('#container').offset(); // position of container relative to document.body
 	
-	var topo,stateMesh,path,svg,g;
+	var topo, stateMesh, path, svg, g;
 	
 	var tooltip = d3.select('#tt');
 	var tipContainer = d3.select('#tipContainer');
@@ -64,8 +64,7 @@ var na_color = 'rgb(204,204,204)', // color for counties with no data
 
 	
 	var setup = function(width, height) {
-		var projection = d3.geo.albersUsa().translate([0, 0]).scale(width * 1.0);
-	    
+		var projection = d3.geo.albersUsa().translate([0, 0]).scale(width * 1.0);	    
 		path = d3.geo.path().projection(projection);
 		svg = d3.select("#map").insert("svg", "div")
 	    	.attr("width", width)
@@ -107,51 +106,9 @@ var na_color = 'rgb(204,204,204)', // color for counties with no data
 		positionZoomIcons();	
 		positionInstruction();
 	}
-	
-	var setBehaviors = function() { 		
-		d3.select('#map').on('click', function() { 
-			if (selected !== null) highlight(selected);
-		});
-		d3.select('#showOnMap').on('click', function() {
-	  		$('#instructions').hide();
-	  		if (d3.select('.county.active').empty() !== true) {
-	  			var active_county = document.getElementsByClassName('county active')[0];
-	  			var zoomTransition = zoomTo(active_county.id);
-	  			populateTooltip(active_county);
-	  			zoomTransition.each('end', function() {
-					positionTooltip(active_county);  				
-		  			tooltip.classed('hidden', false);
-	  			});
-	  		}
-		});
-		d3.select('#print').on('click', function() {
-			var window_title = '';
-			if (selected !== null) {
-				window_title = countyObjectById[selected.id].geography.split(',')[0];
-				window_title += ' Information, NACo Research';
-			} else {
-				window_title = 'County Information, NACo Research'; 
-			}
-			var specWindow = window.open('', window_title, 'left=0,top=0,toolbar=0,scrollbars=0,status=0');
-			specWindow.document.write(document.getElementById('instructionText').innerHTML);
-			specWindow.document.write('<link rel="stylesheet" media="print" href="css/main.css">');
-			specWindow.document.close();
-			specWindow.focus();
-			specWindow.print();
-			specWindow.close(); // bug: doesn't reach this point if print dialog is closed by user
-		});
-	
-		setDisabled();
-		setDropdownBehavior();
-		setSearchBehavior();
-		setIconBehavior();
-		setZoomIconBehavior();
-		setDataButtonBehavior();
-	}	
-	
+		
 	var draw = function(topo, stateMesh) {
-		var county = g.selectAll(".county").data(topo);
-	
+		var county = g.selectAll(".county").data(topo);	
 		county.enter().insert("path")
 			.attr("class", "county")
 			.attr("d", path)
@@ -178,8 +135,7 @@ var na_color = 'rgb(204,204,204)', // color for counties with no data
 				else transition.each('end.bool', function() { inTransition = false; });
 			}		
 		};
-		
-		
+				
 		if ($('html').hasClass('no-touch')) {
 			// for non-touch screens
 			county.each(function(d, i) {
@@ -222,26 +178,53 @@ var na_color = 'rgb(204,204,204)', // color for counties with no data
 		}
 	}
 	
-	var emptyInstructionText = function() {
-		$('#instructionText .temp').remove();
-		//$('#instructionText .iText').hide();
-		//$('#instructionPagination').hide();
-		$('#showOnMap').hide();
-		$('#print').hide();
-		$('#instructionText').scrollTop(0);
-	}
-	//form submit thank you
-	var thankYou = function(){
-		emptyInstructionText();
-		$('#thankYouText').show();
-		$('#instructions').show();
-	}
+	var setBehaviors = function() { 		
+		d3.select('#map').on('click', function() { 
+			if (selected !== null) highlight(selected);
+		});
+		d3.select('#showOnMap').on('click', function() {
+	  		$('#instructions').hide();
+	  		if (d3.select('.county.active').empty() !== true) {
+	  			var active_county = document.getElementsByClassName('county active')[0];
+	  			var zoomTransition = zoomTo(active_county.id);
+	  			populateTooltip(active_county);
+	  			zoomTransition.each('end', function() {
+					positionTooltip(active_county);  				
+		  			tooltip.classed('hidden', false);
+	  			});
+	  		}
+		});
+		d3.select('#print').on('click', function() {
+			var window_title = '';
+			if (selected !== null) {
+				window_title = countyObjectById[selected.id].geography.split(',')[0];
+				window_title += ' Information, NACo Research';
+			} else {
+				window_title = 'County Information, NACo Research'; 
+			}
+			var specWindow = window.open('', window_title, 'left=0,top=0,toolbar=0,scrollbars=0,status=0');
+			specWindow.document.write(document.getElementById('instructionText').innerHTML);
+			specWindow.document.write('<link rel="stylesheet" media="print" href="css/main.css">');
+			specWindow.document.close();
+			specWindow.focus();
+			specWindow.print();
+			specWindow.close(); // bug: doesn't reach this point if print dialog is closed by user
+		});
+	
+		setDisabled();
+		setDropdownBehavior();
+		setSearchBehavior();
+		setIconBehavior();
+		setZoomIconBehavior();
+		setDataButtonBehavior();
+	}	
+
 	//Functions for Icons
 	var setIconBehavior = function() {
 		$('#backToMapIcon, #backToMapIconText').on('click', function(e) {
 			e.stopPropagation();
 			tooltip.classed('hidden', true);
-			zoomMap([0,0], 1);
+			zoomMap([0, 0], 1);
 		});
 		
 		$('#resetAllIcon, #resetAllIconText, #resetSecondInd').on('click', function(e) {
@@ -267,12 +250,6 @@ var na_color = 'rgb(204,204,204)', // color for counties with no data
 				d3.select('#rrssbContainer').transition().duration(500).style('right', '80px');
 			}		
 		});	
-		
-		$('.newsletter-link').on('click', function(e) {
-			e.stopPropagation();
-			emptyInstructionText();
-			showSignup();
-		});
 	
 		$('#countyTaxRatesLink').on('click', function() {
 			if (window.location.pathname == '/coin/index.cfm') {
@@ -1499,7 +1476,7 @@ var na_color = 'rgb(204,204,204)', // color for counties with no data
 		containerOffset = $('#container').offset();
 			
 		d3.select('svg').remove();
-		setup(width,height);
+		setup(width, height);
 		draw(topo, stateMesh);
 		
 		if (typeof legend !== 'undefined' && legend !== false) legend.reposition();
