@@ -1138,9 +1138,9 @@ var na_color = 'rgb(204,204,204)', // color for counties with no data
 						
 						// for pilt, change land areas from square miles to acres
 						if (indObjs[i].DI === 'Payment in Lieu of Taxes (PILT) - PILT per Acre') {
-							qbis[i][ind] *= 640;
-						} else if (indObjs[i].DI === 'Payment in Lieu of Taxes (PILT) - Total Federal Land Area' || indObjs[i].DI === 'Payment in Lieu of Taxes (PILT) - Total County Area') {
 							qbis[i][ind] /= 640;
+						} else if (indObjs[i].DI === 'Payment in Lieu of Taxes (PILT) - Total Federal Land Area' || indObjs[i].DI === 'Payment in Lieu of Taxes (PILT) - Total County Area') {
+							qbis[i][ind] *= 640;
 						}
 						
 						
@@ -1294,7 +1294,7 @@ var na_color = 'rgb(204,204,204)', // color for counties with no data
 	var changeLegendTitle = function() {
 		var primeIndObj = indObjects[0];
 		var subtitle = primeIndObj.name;
-		if (primeIndObj.hasOwnProperty('unit') && (primeIndObj.unit.indexOf('square mile') !== -1 || primeIndObj.unit === 'per 1,000 population')) {
+		if (primeIndObj.hasOwnProperty('unit') && (primeIndObj.unit.indexOf('acre') !== -1 || primeIndObj.unit.indexOf('square mile') !== -1 || primeIndObj.unit === 'per 1,000 population')) {
 			subtitle += ' (' + primeIndObj.unit + ')';
 		} 
 		
@@ -1726,19 +1726,22 @@ var na_color = 'rgb(204,204,204)', // color for counties with no data
 	var isNumFun = function(data_type) {
 		return (data_type === 'level' || data_type === 'level_np' || data_type === 'percent');
 	}
+	var determineType = function(unit) {
+		var type = '';
+		if (unit && unit !== '') {
+			if (unit.indexOf("dollar") != -1) type = 'currency';
+			else if (unit.indexOf('year') != -1) type = 'year';
+			else if (unit.indexOf('person') != -1 || unit.indexOf('employee') != -1) type = 'person';
+		}
+		return type;
+	}
 	var format = {
 		// legend formatting
 		"percent": d3.format('.1%'),
 		"binary": function (num) { return num; },
 		"categorical": function (num) { return num; },
 		"level": function (num, unit) {
-			var type = '';
-			if (unit && unit !== '') {
-				if (unit.indexOf("dollar") != -1) type = 'currency';
-				else if (unit.indexOf('year') != -1) type = 'year';
-				else if (unit.indexOf('person') != -1 || unit.indexOf('employee') != -1) type = 'person';
-			}
-	
+			var type = determineType(unit);
 			if (type === 'year') return num.toFixed(0);
 	    	else if (Math.abs(num) >= 1000000000) {
 	    		var formatted = String((num/1000000000).toFixed(1)) + "bil";
@@ -1760,14 +1763,16 @@ var na_color = 'rgb(204,204,204)', // color for counties with no data
 			return (type === 'currency') ? '$' + formatted : formatted;
 	    },
 	    "dec1": function(num, unit) {
-	    	if (Math.abs(num) >= 1000) return (unit === 'dollars') ? d3.format('$,.0f')(num) : d3.format(',.0f')(num);
+			var type = determineType(unit);
+	    	if (Math.abs(num) >= 1000) return (type === 'currency') ? d3.format('$,.0f')(num) : d3.format(',.0f')(num);
 	    	else if (num === 0) return 0;
-	    	else return (unit === 'dollars') ? d3.format('$.1f')(num) : d3.format('.1f')(num);
+	    	else return (type === 'currency') ? d3.format('$.1f')(num) : d3.format('.1f')(num);
 	    },
 	    "dec2": function(num, unit) {
-	    	if (Math.abs(num) >= 1000) return (unit === 'dollars') ? d3.format('$,.0f')(num) : d3.format(',.0f')(num);
+			var type = determineType(unit);
+	    	if (Math.abs(num) >= 1000) return (type === 'currency') ? d3.format('$,.0f')(num) : d3.format(',.0f')(num);
 	    	else if (num === 0) return 0;
-	    	else return (unit === 'dollars') ? d3.format('$.2f')(num) : d3.format('.2f')(num);
+	    	else return (type === 'currency') ? d3.format('$.2f')(num) : d3.format('.2f')(num);
 	    },
 	    'none': function(num) { return num; }
 	};
@@ -1780,13 +1785,7 @@ var na_color = 'rgb(204,204,204)', // color for counties with no data
 		return (+num === 1) ? "Yes" : "No";
 	};
 	format_tt['level'] = function (num, unit) {
-		var type = '';
-		if (unit && unit !== '') {
-			if (unit.indexOf("dollar") != -1) type = 'currency';
-			else if (unit.indexOf('year') != -1) type = 'year';
-			else if (unit.indexOf('person') != -1 || unit.indexOf('employee') != -1) type = 'person';
-		}
-	
+		var type = determineType(unit);	
 		if (type === 'year') return num.toFixed(0);
 		else if (Math.abs(num) >= 1000000000) {
 			var formatted = String((num/1000000000).toFixed(1)) + " Bil";

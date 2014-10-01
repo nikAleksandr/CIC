@@ -2199,6 +2199,7 @@
 							"name": "PILT per Acre",
 							"unit": "dollars per acre",
 							"dataType": "level",
+							"format_type": "dec2",
 							"definition": "The Payment in Lieu of Taxes annual funding per acre of federal land"
 						}
 					]
