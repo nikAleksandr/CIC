@@ -5,6 +5,17 @@ $.noty.defaults.timeout = 3000;
 $.noty.defaults.closeWith = ['click', 'button'];
 $.noty.defaults.template = '<div class="noty_message"><div class="noty_text"></div><div class="noty_close"></div></div>';
 
+var na_color = 'rgb(204,204,204)', // color for counties with no data
+	highlight_color = 'rgb(225,0,0)', // highlight color for counties
+	percent_colors = ['rgb(522,204,102)', 'rgb(255,153,51)', 'rgb(49,130,189)', 'rgb(7,81,156)', 'rgb(28,53,99)'],
+	binary_colors = ['rgb(28,53,99)', 'rgb(255,153,51)'],
+	categorical_colors = ['rgb(522,204,102)', 'rgb(255,153,51)', 'rgb(49,130,189)', 'rgb(7,81,156)', 'rgb(28,53,99)'],
+	level_colors = ['rgb(255,204,102)', 'rgb(255,153,51)', 'rgb(49,130,189)', 'rgb(7,81,156)', 'rgb(28,53,99)'],
+	neighbor_colors = d3.scale.category10();
+	//percent_colors = ['rgb(189, 215, 231)','rgb(107, 174, 214)','rgb(49, 130, 189)','rgb(7, 81, 156)','rgb(28, 53, 99)']
+	//categorical_colors = ['rgb(253,156,2)', 'rgb(0,153,209)', 'rgb(70,200,245)', 'rgb(254,207,47)', 'rgb(102,204,204)', 'rgb(69,178,157)']
+	//level_colors = ['rgb(189, 215, 231)','rgb(107, 174, 214)','rgb(49, 130, 189)','rgb(7, 81, 156)','rgb(28, 53, 99)'];
+
 
 (function() {
 	
@@ -12,9 +23,8 @@ $.noty.defaults.template = '<div class="noty_message"><div class="noty_text"></d
 	var localVersion = true;
 	
 	var zoom = d3.behavior.zoom()
-	    .scaleExtent([1, 10])
-	    .on("zoom", move);
-	
+	    .scaleExtent([1, 10]);
+	    	
 	var width = document.getElementById('container').offsetWidth-90,
 		height = width / 2,
 		windowWidth = $(window).width(),
@@ -40,23 +50,12 @@ $.noty.defaults.template = '<div class="noty_message"><div class="noty_text"></d
 		measureType = 'quintile';
 			
 	var corrDomain = [], // only used for categorical data; a crosswalk for the range between text and numbers
+		range = [], // array of colors used for coloring the map
 		quantByIds = [], s_quantByIds = [], // for primary and secondary indicators, array of 2-4 objects (primary and companions) with data values indexed by FIPS 
 		indObjects = [], s_indObjects = [], // for primary and secondary indicators, array of 2-4 objects (primary and companions) with indicator properties (category, dataset, definition, year, etc.)
 		idByName = {}, // object of FIPS values indexed by "County, State"
 		countyObjectById = {}, // object of data values and name indexed by FIPS
 		countyPathById = {}; // svg of county on the map indexed by FIPS
-	
-	var range = [], // array of colors used for coloring the map
-		na_color = 'rgb(204,204,204)', // color for counties with no data
-		highlight_color = 'rgb(225,0,0)', // highlight color for counties
-		percent_colors = ['rgb(522,204,102)', 'rgb(255,153,51)', 'rgb(49,130,189)', 'rgb(7,81,156)', 'rgb(28,53,99)'],
-		binary_colors = ['rgb(28,53,99)', 'rgb(255,153,51)'],
-		categorical_colors = ['rgb(522,204,102)', 'rgb(255,153,51)', 'rgb(49,130,189)', 'rgb(7,81,156)', 'rgb(28,53,99)'],
-		level_colors = ['rgb(255,204,102)', 'rgb(255,153,51)', 'rgb(49,130,189)', 'rgb(7,81,156)', 'rgb(28,53,99)'],
-		neighbor_colors = d3.scale.category10();
-		//percent_colors = ['rgb(189, 215, 231)','rgb(107, 174, 214)','rgb(49, 130, 189)','rgb(7, 81, 156)','rgb(28, 53, 99)']
-		//categorical_colors = ['rgb(253,156,2)', 'rgb(0,153,209)', 'rgb(70,200,245)', 'rgb(254,207,47)', 'rgb(102,204,204)', 'rgb(69,178,157)']
-		//level_colors = ['rgb(189, 215, 231)','rgb(107, 174, 214)','rgb(49, 130, 189)','rgb(7, 81, 156)','rgb(28, 53, 99)'];
 	
 	var frmrS, frmrT; // keep track of current translate and scale values
 	var inTransition = false; // boolean to show whether in the middle of zooming in to county
@@ -83,6 +82,20 @@ $.noty.defaults.template = '<div class="noty_message"><div class="noty_text"></d
 	    frmrT = [0, 0];	
 		zoom.scale(frmrS);
 		zoom.translate(frmrT);
+		zoom.on('zoom', function() {
+			inTransition = false;
+		  	tooltip.classed("hidden", true); // hides on zoom or pan	
+			
+		  	var t = d3.event.translate;
+		  	var s = d3.event.scale;
+		  	var h = height / 2;
+		
+		  	t[0] = Math.min(width / 2 * (s - 1), Math.max(width / 2 * (1 - s), t[0]));
+		  	t[1] = Math.min(height / 2 * (s - 1), Math.max(height / 2 * (1 - s), t[1]));
+			
+		  	var zoomSmoothly = !(s === frmrS); // dont do smoothly if panning
+			zoomMap(t, s, zoomSmoothly);			
+		});
 	
 		if (windowWidth <= 768) {
 			$('#secondIndLi').hide();
@@ -706,8 +719,15 @@ $.noty.defaults.template = '<div class="noty_message"><div class="noty_text"></d
 			var zoomTransition = zoomTo(+FIPS);
 		    populateTooltip(county);
 			zoomTransition.each('end', function() { 
-				positionTooltip($('.county.active')[0]); 
-			});
+				positionTooltip($('.county.active')[0]);
+				if (currentDI === 'Payment in Lieu of Taxes (PILT) - PILT Profiles') {
+					if (quantByIds[0][+FIPS] === 0) {
+						noty({text: '<strong>No Profile Available</strong></br>This county did not receive PILT in 2014!'})
+					} else {
+						window.open('http://127.0.0.1:8020/CIC/profiles/' + county.geography + '.pdf', '_blank');
+					}
+				}			 
+			});			
 			return zoomTransition;
 		} else {
 			tooltip.classed('hidden', true);
@@ -1123,20 +1143,29 @@ $.noty.defaults.template = '<div class="noty_message"><div class="noty_text"></d
 				} else {
 					if (indObjs[i].dataType === 'binary') {
 						// modify binary values
-						if (quantByIds[i][ind] == true || quantByIds[i][ind] === 'Yes') quantByIds[i][ind] = 1;
-						else if (quantByIds[i][ind] == false || quantByIds[i][ind] === 'No') quantByIds[i][ind] = 0;
-						else if (quantByIds[i][ind] === 2) quantByIds[i][ind] = 1;
+						if (qbis[i][ind] == true || qbis[i][ind] === 'Yes') qbis[i][ind] = 1;
+						else if (qbis[i][ind] == false || qbis[i][ind] === 'No') qbis[i][ind] = 0;
+						else if (qbis[i][ind] === 2) qbis[i][ind] = 1;
 					} else if (indObjs[i].dataType === 'categorical') {
-						if (quantByIds[i][ind] === 0) quantByIds[i][ind] = 'None';
+						if (qbis[i][ind] === 0) qbis[i][ind] = 'None';
 					} else if (indObjs[i].dataType === 'level' && indObjs[i].category === 'Federal Funding') {
 						// if there's data for it, change null to 0 (prob should change in database, but this is easier for now)
-						if (isNaN(quantByIds[i][ind]) && !exceptionCounties.hasOwnProperty(+ind)) quantByIds[i][ind] = 0;
-						//if(perCap){quantByIds[i][ind] = quantByIds[i][ind]/popByIds[i][ind];}
+						if (isNaN(qbis[i][ind]) && !exceptionCounties.hasOwnProperty(+ind)) qbis[i][ind] = 0;
+						//if(perCap){qbis[i][ind] = qbis[i][ind]/popByIds[i][ind];}
+						
+						// for pilt, change land areas from square miles to acres
+						if (indObjs[i].DI === 'Payment in Lieu of Taxes (PILT) - PILT per Acre') {
+							qbis[i][ind] /= 640;
+						} else if (indObjs[i].DI === 'Payment in Lieu of Taxes (PILT) - Total Federal Land Area' || indObjs[i].DI === 'Payment in Lieu of Taxes (PILT) - Total County Area') {
+							qbis[i][ind] *= 640;
+						}
+						
+						
 					} else if (indObjs[i].name === 'Level of CBSA') {
-						if (quantByIds[i][ind] === 1) quantByIds[i][ind] = 'Metropolitan';
-						else if (quantByIds[i][ind] === 2) quantByIds[i][ind] = 'Micropolitan';
+						if (qbis[i][ind] === 1) qbis[i][ind] = 'Metropolitan';
+						else if (qbis[i][ind] === 2) qbis[i][ind] = 'Micropolitan';
 					} else if (indObjs[i].name === 'CSA Code') {
-						if (quantByIds[i][ind] === 0) quantByIds[i][ind] = null;
+						if (qbis[i][ind] === 0) qbis[i][ind] = null;
 					}				
 				}
 			}
@@ -1282,7 +1311,7 @@ $.noty.defaults.template = '<div class="noty_message"><div class="noty_text"></d
 	var changeLegendTitle = function() {
 		var primeIndObj = indObjects[0];
 		var subtitle = primeIndObj.name;
-		if (primeIndObj.hasOwnProperty('unit') && (primeIndObj.unit.indexOf('square mile') !== -1 || primeIndObj.unit === 'per 1,000 population')) {
+		if (primeIndObj.hasOwnProperty('unit') && (primeIndObj.unit.indexOf('acre') !== -1 || primeIndObj.unit.indexOf('square mile') !== -1 || primeIndObj.unit === 'per 1,000 population')) {
 			subtitle += ' (' + primeIndObj.unit + ')';
 		} 
 		
@@ -1514,22 +1543,7 @@ $.noty.defaults.template = '<div class="noty_message"><div class="noty_text"></d
 		if (typeof legend !== 'undefined' && legend !== false) legend.reposition();
 		fillMapColors();
 	}
-	
-	var move = function() {	
-		inTransition = false;
-	  	tooltip.classed("hidden", true); // hides on zoom or pan	
 		
-	  var t = d3.event.translate;
-	  var s = d3.event.scale;
-	  var h = height / 2;
-	
-	  t[0] = Math.min(width / 2 * (s - 1), Math.max(width / 2 * (1 - s), t[0]));
-	  t[1] = Math.min(height / 2 * (s - 1), Math.max(height / 2 * (1 - s), t[1]));
-		
-	  	var zoomSmoothly = !(s === frmrS); // dont do smoothly if panning
-		zoomMap(t, s, zoomSmoothly);	
-	}
-	
 	var zoomMap = function(t, s, smooth) {
 		if (typeof smooth === 'undefined') var smooth = true;
 		zoom.translate(t);
@@ -1714,19 +1728,22 @@ $.noty.defaults.template = '<div class="noty_message"><div class="noty_text"></d
 	var isNumFun = function(data_type) {
 		return (data_type === 'level' || data_type === 'level_np' || data_type === 'percent');
 	}
+	var determineType = function(unit) {
+		var type = '';
+		if (unit && unit !== '') {
+			if (unit.indexOf("dollar") != -1) type = 'currency';
+			else if (unit.indexOf('year') != -1) type = 'year';
+			else if (unit.indexOf('person') != -1 || unit.indexOf('employee') != -1) type = 'person';
+		}
+		return type;
+	}
 	var format = {
 		// legend formatting
 		"percent": d3.format('.1%'),
 		"binary": function (num) { return num; },
 		"categorical": function (num) { return num; },
 		"level": function (num, unit) {
-			var type = '';
-			if (unit && unit !== '') {
-				if (unit.indexOf("dollar") != -1) type = 'currency';
-				else if (unit.indexOf('year') != -1) type = 'year';
-				else if (unit.indexOf('person') != -1 || unit.indexOf('employee') != -1) type = 'person';
-			}
-	
+			var type = determineType(unit);
 			if (type === 'year') return num.toFixed(0);
 	    	else if (Math.abs(num) >= 1000000000) {
 	    		var formatted = String((num/1000000000).toFixed(1)) + "bil";
@@ -1748,14 +1765,14 @@ $.noty.defaults.template = '<div class="noty_message"><div class="noty_text"></d
 			return (type === 'currency') ? '$' + formatted : formatted;
 	    },
 	    "dec1": function(num, unit) {
-	    	if (Math.abs(num) >= 1000) return (unit === 'dollars') ? d3.format('$,.0f')(num) : d3.format(',.0f')(num);
-	    	else if (num === 0) return 0;
-	    	else return (unit === 'dollars') ? d3.format('$.1f')(num) : d3.format('.1f')(num);
+			var type = determineType(unit);
+	    	if (Math.abs(num) >= 1000) return (type === 'currency') ? d3.format('$,.0f')(num) : d3.format(',.0f')(num);
+	    	else return (type === 'currency') ? d3.format('$.1f')(num) : d3.format('.1f')(num);
 	    },
 	    "dec2": function(num, unit) {
-	    	if (Math.abs(num) >= 1000) return (unit === 'dollars') ? d3.format('$,.0f')(num) : d3.format(',.0f')(num);
-	    	else if (num === 0) return 0;
-	    	else return (unit === 'dollars') ? d3.format('$.2f')(num) : d3.format('.2f')(num);
+			var type = determineType(unit);
+	    	if (Math.abs(num) >= 1000) return (type === 'currency') ? d3.format('$,.0f')(num) : d3.format(',.0f')(num);
+	    	else return (type === 'currency') ? d3.format('$.2f')(num) : d3.format('.2f')(num);
 	    },
 	    'none': function(num) { return num; }
 	};
@@ -1768,13 +1785,7 @@ $.noty.defaults.template = '<div class="noty_message"><div class="noty_text"></d
 		return (+num === 1) ? "Yes" : "No";
 	};
 	format_tt['level'] = function (num, unit) {
-		var type = '';
-		if (unit && unit !== '') {
-			if (unit.indexOf("dollar") != -1) type = 'currency';
-			else if (unit.indexOf('year') != -1) type = 'year';
-			else if (unit.indexOf('person') != -1 || unit.indexOf('employee') != -1) type = 'person';
-		}
-	
+		var type = determineType(unit);	
 		if (type === 'year') return num.toFixed(0);
 		else if (Math.abs(num) >= 1000000000) {
 			var formatted = String((num/1000000000).toFixed(1)) + " Bil";

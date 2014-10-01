@@ -250,11 +250,12 @@ Federal_Funding	USDA_Total	Federal Funding	USDA Rural Development	USDA Total Amo
 Federal_Funding	USDA_Grant_Trend	Federal Funding	USDA Rural Development	USDA Grant Annual Growth Rate (from previous year)	Percent change in grants received for the USDA Rural Development program from the previous year
 Federal_Funding	USDA_Loan_Trend	Federal Funding	USDA Rural Development	USDA Loan Annual Growth Rate (from previous year)	Percent change in loans received for the USDA Rural Development program from the previous year
 Federal_Funding	USDA_Total_Trend	Federal Funding	USDA Rural Development	USDA Total Annual Growth Rate (from previous year)	Percent change in funding for the USDA Rural Development program from the previous year
+Federal_Funding	PILT_Allocation	Federal Funding	Payment in Lieu of Taxes (PILT)	PILT Profiles	Payment in Lieu of Taxes annual funding
 Federal_Funding	PILT_Allocation	Federal Funding	Payment in Lieu of Taxes (PILT)	PILT Amount	Payment in Lieu of Taxes annual funding
 Federal_Funding	Total_Federal_Land_Area	Federal Funding	Payment in Lieu of Taxes (PILT)	Total Federal Land Area	The area of total federal land in the county (in square miles)
 Federal_Funding	Total_County_Area	Federal Funding	Payment in Lieu of Taxes (PILT)	Total County Area	The area of total land in the county (in square miles)
 Federal_Funding	Percentage_of_Federal_Land	Federal Funding	Payment in Lieu of Taxes (PILT)	Percent of Federal Land	The percentage of the county's total land area that consists of federal land.
-Federal_Funding	PILT_per_square_mile	Federal Funding	Payment in Lieu of Taxes (PILT)	PILT per Square Mile	The Payment in Lieu of Taxes annual funding per square mile of federal land
+Federal_Funding	PILT_per_square_mile	Federal Funding	Payment in Lieu of Taxes (PILT)	PILT per Acre	The Payment in Lieu of Taxes annual funding per square mile of federal land
 Federal_Funding	PILT_Trend	Federal Funding	Payment in Lieu of Taxes (PILT)	PILT Annual Growth Rate (from previous year)	Percent change in Payment in Lieu of Taxes annual funding from the previous year
 Federal_Funding	SRS	Federal Funding	Secure Rural Schools (SRS)	SRS Amount	Funding received for the Secure Rural Schools program.
 Health_Hospitals	KEYID	Health & Hospitals			
