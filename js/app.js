@@ -1,52 +1,53 @@
 (function() {
 	// initialize angular module
 	var app = angular.module('CIC', [])
-		.controller('MenuController', function() {
-			this.accessMoreData = function() {
-				if ($('#mdText').is(':visible')) {
-					//$('#instructions').hide();
-				} else {
-					emptyInstructionText();
-					$('#mdText').show();
-					$('#instructions').show();
-				}			
-			};
+		.factory('spanel', function() {
+			return {};
 		})
-		.controller('PanelController', function() {
-			this.NUM_HELP_TABS = 6;
-			this.visible = true;
-			this.showOnMapVisible = false;
-			this.printVisible = false;
-			this.currentText = 'update';
-			this.currentHelpTab = 1;
+		.controller('MenuController', ['spanel', function(spanel) {
+			this.accessMoreData = function() {
+				spanel.toggleShowing('accessMoreData');
+			};
+		}])
+		.controller('PanelController', ['$scope', 'spanel', function($scope, spanel) {
+			var panel = $scope.panel;
+			panel.NUM_HELP_TABS = 6;
+			panel.visible = true;
+			panel.showOnMapVisible = false;
+			panel.printVisible = false;
+			panel.currentText = 'update';
+			panel.currentHelpTab = 1;
 			
-			this.setVisible = function(vis) {
-				this.visible = vis;
+			panel.setVisible = function(vis) {
+				panel.visible = vis;
 			};
-			this.isShowing = function(textId) {
-				return this.currentText === textId;
+			panel.isShowing = function(textId) {
+				return panel.currentText === textId;
 			};
-			this.toggleShowing = function(newTextId) {
-				if (this.currentText === newTextId) this.setVisible(!this.visible);
+			panel.toggleShowing = function(newTextId) {
+				if (panel.currentText === newTextId) panel.setVisible(!panel.visible);
 				else {
-					this.setVisible(true);
-					this.currentText = newTextId;
+					panel.setVisible(true);
+					panel.currentText = newTextId;
 				}
 			};
 			
-			this.selectHelpTab = function(newTab) {
-				if (newTab > 0 && newTab <= this.NUM_HELP_TABS) this.currentHelpTab = newTab;
+			panel.selectHelpTab = function(newTab) {
+				if (newTab > 0 && newTab <= panel.NUM_HELP_TABS) panel.currentHelpTab = newTab;
 			};
-			this.incrementHelpTab = function(incr) {
-				var newTabNum = this.currentHelpTab + incr;
-				if (newTabNum > 0 && newTabNum <= this.NUM_HELP_TABS) {
-					this.currentHelpTab += incr;
+			panel.incrementHelpTab = function(incr) {
+				var newTabNum = panel.currentHelpTab + incr;
+				if (newTabNum > 0 && newTabNum <= panel.NUM_HELP_TABS) {
+					panel.currentHelpTab += incr;
 				}				
 			};
-			this.isHelpSelected = function(tab) {
-				return this.currentHelpTab === tab;
+			panel.isHelpSelected = function(tab) {
+				return panel.currentHelpTab === tab;
 			};
-		})
+			
+			// attach to service to use outside this controller
+			spanel.toggleShowing = panel.toggleShowing;
+		}])
 		.controller('MainController', function() {
 			// -------------- Social Buttons -----------------
 			// TODO almost functional - unable to get c.social.showing to toggle 
