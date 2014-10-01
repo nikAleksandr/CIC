@@ -23,9 +23,8 @@ var na_color = 'rgb(204,204,204)', // color for counties with no data
 	var localVersion = true;
 	
 	var zoom = d3.behavior.zoom()
-	    .scaleExtent([1, 10])
-	    .on("zoom", move);
-	
+	    .scaleExtent([1, 10]);
+	    	
 	var width = document.getElementById('container').offsetWidth-90,
 		height = width / 2,
 		windowWidth = $(window).width(),
@@ -83,6 +82,20 @@ var na_color = 'rgb(204,204,204)', // color for counties with no data
 	    frmrT = [0, 0];	
 		zoom.scale(frmrS);
 		zoom.translate(frmrT);
+		zoom.on('zoom', function() {
+			inTransition = false;
+		  	tooltip.classed("hidden", true); // hides on zoom or pan	
+			
+		  	var t = d3.event.translate;
+		  	var s = d3.event.scale;
+		  	var h = height / 2;
+		
+		  	t[0] = Math.min(width / 2 * (s - 1), Math.max(width / 2 * (1 - s), t[0]));
+		  	t[1] = Math.min(height / 2 * (s - 1), Math.max(height / 2 * (1 - s), t[1]));
+			
+		  	var zoomSmoothly = !(s === frmrS); // dont do smoothly if panning
+			zoomMap(t, s, zoomSmoothly);			
+		});
 	
 		if (windowWidth <= 768) {
 			$('#secondIndLi').hide();
@@ -1530,22 +1543,7 @@ var na_color = 'rgb(204,204,204)', // color for counties with no data
 		if (typeof legend !== 'undefined' && legend !== false) legend.reposition();
 		fillMapColors();
 	}
-	
-	var move = function() {	
-		inTransition = false;
-	  	tooltip.classed("hidden", true); // hides on zoom or pan	
 		
-	  var t = d3.event.translate;
-	  var s = d3.event.scale;
-	  var h = height / 2;
-	
-	  t[0] = Math.min(width / 2 * (s - 1), Math.max(width / 2 * (1 - s), t[0]));
-	  t[1] = Math.min(height / 2 * (s - 1), Math.max(height / 2 * (1 - s), t[1]));
-		
-	  	var zoomSmoothly = !(s === frmrS); // dont do smoothly if panning
-		zoomMap(t, s, zoomSmoothly);	
-	}
-	
 	var zoomMap = function(t, s, smooth) {
 		if (typeof smooth === 'undefined') var smooth = true;
 		zoom.translate(t);
