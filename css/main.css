@@ -142,8 +142,10 @@ table th{
 	margin-left:-1em;
 }
 
+
+/* ------ instruction style ----- */
+
 #instructions, #fullDefs{
-	display: none;
 	text-align: left;
 	width: 80%;
 	max-width: 900px;
@@ -184,8 +186,11 @@ table th{
 	font-size: 1em;
 }
 .helpList { padding-bottom: 5px; }
-#instructionText a, #fullDefsText a, .county_link{
-	color:rgb(0,64,112);
+
+.iText a,
+#fullDefsText a,
+.county_link {
+	color: rgb(0,64,112);
 	cursor: pointer;
 }
 
@@ -196,14 +201,20 @@ table th{
 	right: 20px;
 }
 #instructionPagination a, .helpLink { cursor: pointer; }
+.pagination .active a:hover { text-decoration: none; }
+
 .helpTitle { padding: 10px 0px 0px 35px; }
 .helpContainer { padding: 5px 0px 0px 50px; }
 .helpLinkContainer { padding-bottom: 5px; }
-.iText { display: none; }
 
-.google-form { margin-top: 35px; }
-.google-form .email-input { width: 220px; }
-.ss-item { margin-top: 20px; }
+mailing-form form { margin-top: 35px; }
+mailing-form .email-input { width: 220px; }
+mailing-form .ss-item { margin-top: 20px; }
+
+#mailingText,
+#thankYouText {
+	text-align: center;
+}
 
 #fullDefsButton{
 	color:rgb(0,64,112);
@@ -221,9 +232,6 @@ table th{
 	margin: 1em 1em 0px 0px;
 	z-index: 5;
 }
-.svgCircle{
-	margin: 0 .7em;
-}
 
 #showOnMap, #print {
 	position: relative;
@@ -235,13 +243,21 @@ table th{
 }
 #print { margin-left: 10px; }
 
-#close:hover, #close2:hover, #instructionText a:hover, #help:hover, #showOnMap:hover, #print:hover, .county_link:hover, .extraInstructions:hover, .helpLink{
+#close:hover, #close2:hover, #help:hover, #showOnMap:hover, #print:hover, .county_link:hover, .extraInstructions:hover, .helpLink{
 	text-decoration:underline;
 }
+
+/* --------- ---------------- */
+
 .noty_text { 
 	margin: 25px;
 	font-size: 1.1em;
 }
+
+.svgCircle{
+	margin: 0 .7em;
+}
+
 
 html, body { height: 100%; }
 body { position: relative; }

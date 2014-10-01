@@ -12,6 +12,38 @@
 				}			
 			};
 		})
+		.controller('PanelController', function() {
+			this.NUM_HELP_TABS = 6;
+			this.visible = true;
+			this.showOnMapVisible = false;
+			this.printVisible = false;
+			this.currentText = 'update';
+			this.currentHelpTab = 1;
+			
+			this.setVisible = function(vis) {
+				this.visible = vis;
+			};
+			this.isShowing = function(textId) {
+				return this.currentText === textId;
+			};
+			this.setShowing = function(newTextId) {
+				this.setVisible(true);
+				this.currentText = newTextId;
+			};
+			
+			this.selectHelpTab = function(newTab) {
+				if (newTab > 0 && newTabNum <= this.NUM_HELP_TABS) this.currentHelpTab = newTab;
+			};
+			this.incrementHelpTab = function(incr) {
+				var newTabNum = this.currentHelpTab + incr;
+				if (newTabNum > 0 && newTabNum <= this.NUM_HELP_TABS) {
+					this.currentHelpTab += incr;
+				}				
+			};
+			this.isHelpSelected = function(tab) {
+				return this.currentHelpTab === tab;
+			};
+		})
 		.controller('MainController', function() {
 			// -------------- Social Buttons -----------------
 			// TODO almost functional - unable to get c.social.showing to toggle 
@@ -60,6 +92,12 @@
 					menu.find('.sub-arrow').first().hide();
 				}
 			};
+		})
+		.directive('overlayContent', function() {
+			return {restrict: 'A', templateUrl: 'assets/overlayContent.html'};
+		})
+		.directive('mailingForm', function() {
+			return {restrict: 'E', templateUrl: 'assets/mailingForm.html'};
 		})
 		.directive('stateList', function() {
 			return {restrict: 'A', templateUrl: 'assets/stateList.html'};

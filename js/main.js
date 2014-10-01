@@ -99,7 +99,6 @@ $.noty.defaults.template = '<div class="noty_message"><div class="noty_text"></d
 		d3.select('#map').on('click', function() { 
 			if (selected !== null) highlight(selected);
 		});
-		d3.select('#close').on('click', function() { $('#instructions').hide(); });
 		d3.select('#showOnMap').on('click', function() {
 	  		$('#instructions').hide();
 	  		if (d3.select('.county.active').empty() !== true) {
@@ -212,8 +211,8 @@ $.noty.defaults.template = '<div class="noty_message"><div class="noty_text"></d
 	
 	var emptyInstructionText = function() {
 		$('#instructionText .temp').remove();
-		$('#instructionText .iText').hide();
-		$('#instructionPagination').hide();
+		//$('#instructionText .iText').hide();
+		//$('#instructionPagination').hide();
 		$('#showOnMap').hide();
 		$('#print').hide();
 		$('#instructionText').scrollTop(0);
@@ -226,22 +225,8 @@ $.noty.defaults.template = '<div class="noty_message"><div class="noty_text"></d
 	}
 	//Functions for Icons
 	var setIconBehavior = function() {
-		$('#showHelpIcon, #showHelpIconText').on('click', function(e) {
-			e.stopPropagation();
-			emptyInstructionText();
-			$('#instructionPagination').show();
-			//var activePage = $('#instructionPagination .active').attr('name');
-			//$('#helpText'+activePage).show();
-			$('#instructionPagination .active').removeClass('active');
-			$('#instructionPagination li[name=1]').addClass('active');	
-			$('#helpText1').show();
-		
-			$('#instructions').show();
-		});
-		
 		$('#backToMapIcon, #backToMapIconText').on('click', function(e) {
 			e.stopPropagation();
-			$('#instructions').hide();
 			tooltip.classed('hidden', true);
 			zoomMap([0,0], 1);
 		});
@@ -270,11 +255,6 @@ $.noty.defaults.template = '<div class="noty_message"><div class="noty_text"></d
 			}		
 		});	
 		
-		$('#addToMailingListIcon, #addToMailingListIconText').on('click', function(e) {
-			e.stopPropagation();
-			showSignup();
-		});
-		
 		$('.newsletter-link').on('click', function(e) {
 			e.stopPropagation();
 			emptyInstructionText();
@@ -289,11 +269,6 @@ $.noty.defaults.template = '<div class="noty_message"><div class="noty_text"></d
 				moreDataShow();
 			}	
 		});
-	}
-	var showSignup = function() {
-		emptyInstructionText();
-		$('#mailingText').show();	
-		$('#instructions').show();		
 	}
 	var setDataButtonBehavior = function() {	
 		$('#perCapitaButton').on('click', function() {
@@ -416,19 +391,6 @@ $.noty.defaults.template = '<div class="noty_message"><div class="noty_text"></d
 			$('#mdText').show();
 			$('#instructions').show();
 		}
-	}
-	var incrementPage = function(dx) {
-		var currPageNum = parseInt($('#instructionPagination .active').attr('name'));
-		if (currPageNum === 1 && parseInt(dx) === -1) goToPage(1);
-		else if (currPageNum === 6 && parseInt(dx) === 1) goToPage(6);
-		else goToPage(currPageNum + parseInt(dx));
-	}
-	var goToPage = function(pageNum) {
-		$('#instructionPagination .active').removeClass('active');
-		$('#instructionPagination li[name='+pageNum+']').addClass('active');
-		
-		$('.helpText').hide();
-		$('#helpText'+pageNum).show();
 	}
 	
 	var disableIndicators = function(type, name, indicator) {
@@ -1676,18 +1638,13 @@ $.noty.defaults.template = '<div class="noty_message"><div class="noty_text"></d
 				}
 			} else if (urlParams.hasOwnProperty('signup')) {
 				showSignup();
-		    } else if (urlParams.hasOwnProperty('showhelp')) {
-		    	var idSelec = '#helpText' + urlParams.showhelp;
-		    	if ($(idSelec).length !== 0) {
-					goToPage(urlParams.showhelp);
-					$('#instructions').show();
-		    	}	    	
-		    } else {
-		    	// show update dialog
-			    emptyInstructionText();
-			    $('#instructions, #updateText').show();		    	
+		    } else if (urlParams.hasOwnProperty('showhelp')) {	    		
+	    		var scope = angular.element($('#container')).scope();
+	    		scope.$apply(function() {
+	    			scope.panel.setShowing('help');
+	    			scope.panel.selectHelpTab(parseInt(urlParams.showhelp));
+	    		})	    		
 		    }
-		    
 	  	});
 	});
 
