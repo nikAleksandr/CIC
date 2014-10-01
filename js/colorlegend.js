@@ -55,7 +55,7 @@ var colorlegend = function (target, scale, type, options) {
 
   	
   	// setup the colors to use
-  	colors = range;
+ 	for (var i = 0; i < range.length; i++) colors[i] = range[i];
   	if (measure_type === 'quartile') colors.unshift(level_colors[0]);
   
   	// check the width and height and adjust if necessary to fit in the element
