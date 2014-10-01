@@ -5,6 +5,17 @@ $.noty.defaults.timeout = 3000;
 $.noty.defaults.closeWith = ['click', 'button'];
 $.noty.defaults.template = '<div class="noty_message"><div class="noty_text"></div><div class="noty_close"></div></div>';
 
+var na_color = 'rgb(204,204,204)', // color for counties with no data
+	highlight_color = 'rgb(225,0,0)', // highlight color for counties
+	percent_colors = ['rgb(522,204,102)', 'rgb(255,153,51)', 'rgb(49,130,189)', 'rgb(7,81,156)', 'rgb(28,53,99)'],
+	binary_colors = ['rgb(28,53,99)', 'rgb(255,153,51)'],
+	categorical_colors = ['rgb(522,204,102)', 'rgb(255,153,51)', 'rgb(49,130,189)', 'rgb(7,81,156)', 'rgb(28,53,99)'],
+	level_colors = ['rgb(255,204,102)', 'rgb(255,153,51)', 'rgb(49,130,189)', 'rgb(7,81,156)', 'rgb(28,53,99)'],
+	neighbor_colors = d3.scale.category10();
+	//percent_colors = ['rgb(189, 215, 231)','rgb(107, 174, 214)','rgb(49, 130, 189)','rgb(7, 81, 156)','rgb(28, 53, 99)']
+	//categorical_colors = ['rgb(253,156,2)', 'rgb(0,153,209)', 'rgb(70,200,245)', 'rgb(254,207,47)', 'rgb(102,204,204)', 'rgb(69,178,157)']
+	//level_colors = ['rgb(189, 215, 231)','rgb(107, 174, 214)','rgb(49, 130, 189)','rgb(7, 81, 156)','rgb(28, 53, 99)'];
+
 
 (function() {
 	
@@ -40,23 +51,12 @@ $.noty.defaults.template = '<div class="noty_message"><div class="noty_text"></d
 		measureType = 'quintile';
 			
 	var corrDomain = [], // only used for categorical data; a crosswalk for the range between text and numbers
+		range = [], // array of colors used for coloring the map
 		quantByIds = [], s_quantByIds = [], // for primary and secondary indicators, array of 2-4 objects (primary and companions) with data values indexed by FIPS 
 		indObjects = [], s_indObjects = [], // for primary and secondary indicators, array of 2-4 objects (primary and companions) with indicator properties (category, dataset, definition, year, etc.)
 		idByName = {}, // object of FIPS values indexed by "County, State"
 		countyObjectById = {}, // object of data values and name indexed by FIPS
 		countyPathById = {}; // svg of county on the map indexed by FIPS
-	
-	var range = [], // array of colors used for coloring the map
-		na_color = 'rgb(204,204,204)', // color for counties with no data
-		highlight_color = 'rgb(225,0,0)', // highlight color for counties
-		percent_colors = ['rgb(522,204,102)', 'rgb(255,153,51)', 'rgb(49,130,189)', 'rgb(7,81,156)', 'rgb(28,53,99)'],
-		binary_colors = ['rgb(28,53,99)', 'rgb(255,153,51)'],
-		categorical_colors = ['rgb(522,204,102)', 'rgb(255,153,51)', 'rgb(49,130,189)', 'rgb(7,81,156)', 'rgb(28,53,99)'],
-		level_colors = ['rgb(255,204,102)', 'rgb(255,153,51)', 'rgb(49,130,189)', 'rgb(7,81,156)', 'rgb(28,53,99)'],
-		neighbor_colors = d3.scale.category10();
-		//percent_colors = ['rgb(189, 215, 231)','rgb(107, 174, 214)','rgb(49, 130, 189)','rgb(7, 81, 156)','rgb(28, 53, 99)']
-		//categorical_colors = ['rgb(253,156,2)', 'rgb(0,153,209)', 'rgb(70,200,245)', 'rgb(254,207,47)', 'rgb(102,204,204)', 'rgb(69,178,157)']
-		//level_colors = ['rgb(189, 215, 231)','rgb(107, 174, 214)','rgb(49, 130, 189)','rgb(7, 81, 156)','rgb(28, 53, 99)'];
 	
 	var frmrS, frmrT; // keep track of current translate and scale values
 	var inTransition = false; // boolean to show whether in the middle of zooming in to county
@@ -706,8 +706,11 @@ $.noty.defaults.template = '<div class="noty_message"><div class="noty_text"></d
 			var zoomTransition = zoomTo(+FIPS);
 		    populateTooltip(county);
 			zoomTransition.each('end', function() { 
-				positionTooltip($('.county.active')[0]); 
-			});
+				positionTooltip($('.county.active')[0]);
+				if (currentDI === 'Payment in Lieu of Taxes (PILT) - PILT Amount') {
+					window.open('http://127.0.0.1:8020/CIC/profiles/' + county.geography + '.pdf', '_blank');
+				}			 
+			});			
 			return zoomTransition;
 		} else {
 			tooltip.classed('hidden', true);
