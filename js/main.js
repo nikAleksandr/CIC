@@ -1126,20 +1126,29 @@ var na_color = 'rgb(204,204,204)', // color for counties with no data
 				} else {
 					if (indObjs[i].dataType === 'binary') {
 						// modify binary values
-						if (quantByIds[i][ind] == true || quantByIds[i][ind] === 'Yes') quantByIds[i][ind] = 1;
-						else if (quantByIds[i][ind] == false || quantByIds[i][ind] === 'No') quantByIds[i][ind] = 0;
-						else if (quantByIds[i][ind] === 2) quantByIds[i][ind] = 1;
+						if (qbis[i][ind] == true || qbis[i][ind] === 'Yes') qbis[i][ind] = 1;
+						else if (qbis[i][ind] == false || qbis[i][ind] === 'No') qbis[i][ind] = 0;
+						else if (qbis[i][ind] === 2) qbis[i][ind] = 1;
 					} else if (indObjs[i].dataType === 'categorical') {
-						if (quantByIds[i][ind] === 0) quantByIds[i][ind] = 'None';
+						if (qbis[i][ind] === 0) qbis[i][ind] = 'None';
 					} else if (indObjs[i].dataType === 'level' && indObjs[i].category === 'Federal Funding') {
 						// if there's data for it, change null to 0 (prob should change in database, but this is easier for now)
-						if (isNaN(quantByIds[i][ind]) && !exceptionCounties.hasOwnProperty(+ind)) quantByIds[i][ind] = 0;
-						//if(perCap){quantByIds[i][ind] = quantByIds[i][ind]/popByIds[i][ind];}
+						if (isNaN(qbis[i][ind]) && !exceptionCounties.hasOwnProperty(+ind)) qbis[i][ind] = 0;
+						//if(perCap){qbis[i][ind] = qbis[i][ind]/popByIds[i][ind];}
+						
+						// for pilt, change land areas from square miles to acres
+						if (indObjs[i].DI === 'Payment in Lieu of Taxes (PILT) - PILT per Acre') {
+							qbis[i][ind] *= 640;
+						} else if (indObjs[i].DI === 'Payment in Lieu of Taxes (PILT) - Total Federal Land Area' || indObjs[i].DI === 'Payment in Lieu of Taxes (PILT) - Total County Area') {
+							qbis[i][ind] /= 640;
+						}
+						
+						
 					} else if (indObjs[i].name === 'Level of CBSA') {
-						if (quantByIds[i][ind] === 1) quantByIds[i][ind] = 'Metropolitan';
-						else if (quantByIds[i][ind] === 2) quantByIds[i][ind] = 'Micropolitan';
+						if (qbis[i][ind] === 1) qbis[i][ind] = 'Metropolitan';
+						else if (qbis[i][ind] === 2) qbis[i][ind] = 'Micropolitan';
 					} else if (indObjs[i].name === 'CSA Code') {
-						if (quantByIds[i][ind] === 0) quantByIds[i][ind] = null;
+						if (qbis[i][ind] === 0) qbis[i][ind] = null;
 					}				
 				}
 			}

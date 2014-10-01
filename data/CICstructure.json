@@ -2183,23 +2183,23 @@
 							"definition": "Percent change in Payment in Lieu of Taxes annual funding from the previous year"
 						}, {
 							"name": "Total Federal Land Area",
-							"unit": "square miles",
+							"unit": "acres",
 							"dataType": "level",
-							"definition": "The area of total federal land in the county (in square miles)"
+							"definition": "The area of total federal land in the county (in acres)"
 						}, {
 							"name": "Total County Area",
-							"unit": "square miles",
+							"unit": "acres",
 							"dataType": "level",
-							"definition": "The area of total land in the county (in square miles)"
+							"definition": "The area of total land in the county (in acres)"
 						}, {
 							"name": "Percent of Federal Land",
 							"dataType": "percent",
 							"definition": "The percentage of the county's total land area that consists of federal land."
 						}, {
-							"name": "PILT per Square Mile",
-							"unit": "dollars per square mile",
+							"name": "PILT per Acre",
+							"unit": "dollars per acre",
 							"dataType": "level",
-							"definition": "The Payment in Lieu of Taxes annual funding per square mile of federal land"
+							"definition": "The Payment in Lieu of Taxes annual funding per acre of federal land"
 						}
 					]
 				}, {
