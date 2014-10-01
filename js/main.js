@@ -707,8 +707,12 @@ var na_color = 'rgb(204,204,204)', // color for counties with no data
 		    populateTooltip(county);
 			zoomTransition.each('end', function() { 
 				positionTooltip($('.county.active')[0]);
-				if (currentDI === 'Payment in Lieu of Taxes (PILT) - PILT Amount') {
-					window.open('http://127.0.0.1:8020/CIC/profiles/' + county.geography + '.pdf', '_blank');
+				if (currentDI === 'Payment in Lieu of Taxes (PILT) - PILT Profiles') {
+					if (quantByIds[0][+FIPS] === 0) {
+						noty({text: '<strong>No Profile Available</strong></br>This county did not receive PILT in 2014!'})
+					} else {
+						window.open('http://127.0.0.1:8020/CIC/profiles/' + county.geography + '.pdf', '_blank');
+					}
 				}			 
 			});			
 			return zoomTransition;
@@ -1765,13 +1769,11 @@ var na_color = 'rgb(204,204,204)', // color for counties with no data
 	    "dec1": function(num, unit) {
 			var type = determineType(unit);
 	    	if (Math.abs(num) >= 1000) return (type === 'currency') ? d3.format('$,.0f')(num) : d3.format(',.0f')(num);
-	    	else if (num === 0) return 0;
 	    	else return (type === 'currency') ? d3.format('$.1f')(num) : d3.format('.1f')(num);
 	    },
 	    "dec2": function(num, unit) {
 			var type = determineType(unit);
 	    	if (Math.abs(num) >= 1000) return (type === 'currency') ? d3.format('$,.0f')(num) : d3.format(',.0f')(num);
-	    	else if (num === 0) return 0;
 	    	else return (type === 'currency') ? d3.format('$.2f')(num) : d3.format('.2f')(num);
 	    },
 	    'none': function(num) { return num; }
