@@ -5551,10 +5551,48 @@
 	        		</div>
 	        		<div class="iText" id="mailingText" style="text-align:center;">
         				<p style="font-size:1.5em;">Keep Me Updated!</p>
-        				<p>Submit your email to the mailing list and receive updates when new features have been added.</p><br><br>
-        				<script type="text/javascript">var submitted=false;</script>
+        				<p>Submit your email to the mailing list and receive updates when new features have been added.</p>
+
+						<!-- -------------- GOOGLE FORM ------------- -->
+						<div class="google-form">
+							<form action="https://docs.google.com/forms/d/1M_d1nLsn4KIUuTeB6N_EjzV4lmLVsJNh6ajSPN_2ySk/formResponse" method="POST" id="ss-form" target="_self" onsubmit="">
+								<ol role="list" class="ss-question-list" style="padding-left: 0">
+									<div class="ss-form-question errorbox-good" role="listitem">
+										<div dir="ltr" class="ss-item ss-item-required ss-text">
+											<div class="ss-form-entry">
+												<label class="ss-q-item-label" for="entry_1728571306">
+													<div class="ss-q-title">
+														Email: <label for="itemView.getDomIdToLabel()" aria-label="(Required field)"></label>
+													</div> <div class="ss-q-help ss-secondary-text" dir="ltr"></div></label>
+												<input class="email-input" type="email" name="entry.1728571306" value="" class="ss-q-short" id="entry_1728571306" dir="auto" aria-label="Email  Must be a valid email address" aria-required="true" required="" title="Must be a valid email address">
+											</div>
+										</div>
+									</div>
+									<input type="hidden" name="draftResponse" value="[,,&quot;-4003443060083881728&quot;]">
+									<input type="hidden" name="pageHistory" value="0">
+									<input type="hidden" name="fbzx" value="-4003443060083881728">
+	
+									<div class="ss-item ss-navigate" style="text-align: center;">
+										<table id="navigation-table" style="margin: 0 auto;">
+											<tbody>
+												<tr>
+													<td class="ss-form-entry goog-inline-block" id="navigation-buttons" dir="ltr">
+													<input class="btn btn-default" type="submit" name="submit" value="Submit" id="ss-submit" class="jfk-button jfk-button-action ">
+													</td>
+												</tr>
+											</tbody>
+										</table>
+									</div>
+								</ol>
+							</form>
+						</div>
+						<!-- -------------- GOOGLE FORM ------------- -->
+
+
+        				<!-- old Google form -->
+						<!-- <script type="text/javascript">var submitted=false;</script>
         				<iframe name="hidden_iframe" id="hidden_iframe" style="display:none;" onload="if(submitted){thankYou();}"></iframe>
-        				<form action="https://docs.google.com/forms/d/1m3fF7twvVyIj42GuDNqtTKnfZwXrtOZ1p1Z7jQoJa70/formResponse" method="POST" id="ss-form" target="hidden_iframe" onsubmit="submitted=true;">
+						<form action="https://docs.google.com/forms/d/1m3fF7twvVyIj42GuDNqtTKnfZwXrtOZ1p1Z7jQoJa70/formResponse" method="POST" id="ss-form" target="hidden_iframe" onsubmit="submitted=true;">
         					<ol role="list" class="ss-question-list" style="padding-left: 0">
 							<div class="ss-form-question errorbox-good" role="listitem">
 							<div dir="ltr" class="ss-item ss-item-required ss-text"><div class="ss-form-entry">
@@ -5573,11 +5611,21 @@
 							<input type="hidden" name="fbzx" value="8946414525009973512">
 							
 							</ol>
-						</form>
+						</form> -->
 	        		</div>
 	        		<div class="iText" id="thankYouText" style="text-align:center;">
 	        			<p style="font-size:1.5em;">Thank you!  Now you will be the first to know about the latest county data.</p>
 	        			<p>Don't forget to <a href="#" id="showHideRrssbLink">share the CIC</a> with others!</p>
+	        		</div>
+	        		<div class="iText" id="updateText">
+						<div class="helpTitle"><h3><a id="updateLink" href="http://cic.naco.org/updates/sep14.html">September 2014 Update</a></h3></div>
+						<div class="helpContainer">
+							<p>
+								<div class="helpList">New Datasets!</div>
+								<div class="helpList" style="margin-left:20px">&bull; <a id="countyTaxRatesLink">County Finance - County Tax Rates</a></div>
+								<div class="helpList">Sign up for our newsletter <a class="newsletter-link">here</a></div>
+							</p>
+						</div>
 	        		</div>
 	        		<div class="iText helpText" id="helpText1">
 						<div class="helpTitle"><h3>Help</h3></div>
@@ -5845,18 +5893,17 @@
 	    <script>window.jQuery || document.write('<script src="../js/vendor/jquery-1.10.2.min.js"><\/script>')</script>
         <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
         <!-- SmartMenus jQuery plugin -->
-		<script src="../js/jquery.smartmenus.js" type="text/javascript"></script>
+		<script src="../js/vendor/jquery.smartmenus.js" type="text/javascript"></script>
 		<!-- SmartMenus jQuery Bootstrap Addon -->
-		<script type="text/javascript" src="../js/jquery.smartmenus.bootstrap.min.js"></script>
+		<script type="text/javascript" src="../js/vendor/jquery.smartmenus.bootstrap.min.js"></script>
 		<!--RRSSB js -->
-        <script src="../js/rrssb.min.js"></script>
+        <script src="../js/vendor/rrssb.min.js"></script>
         <script src="../js/vendor/nprogress.js"></script>
 		<script src="../js/vendor/jquery.noty.packaged.min.js"></script>
 		<script src="../js/vendor/jquery.doubletap.js"></script>
-		<script src="../js/svgenie/rgbcolor.js"></script>
-		<script src="../js/svgenie/canvg.js"></script>
-		<script src="../js/svgenie/svgenie.js"></script>
-        <script src="../js/plugins.js"></script>
+		<script src="../js/vendor/svgenie/rgbcolor.js"></script>
+		<script src="../js/vendor/svgenie/canvg.js"></script>
+		<script src="../js/vendor/svgenie/svgenie.js"></script>
         <script src="../js/colorlegend.js"></script>
         <script src="../js/main.js"></script>
         <!-- Google Analytics: -->
