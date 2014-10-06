@@ -1636,13 +1636,10 @@ var na_color = 'rgb(204,204,204)', // color for counties with no data
 	    			scope.panel.selectHelpTab(parseInt(urlParams.showhelp));
 	    		})	    		
 		    }
-<<<<<<< HEAD
-=======
-		    
+
 		    if (window.location.pathname === '/coin/index.cfm' || window.location.pathname === '/coin/lahoya.html') {
 		    	$('.disabled').removeClass('disabled');
 		    }		    
->>>>>>> master
 	  	});
 	});
 
