@@ -1081,6 +1081,15 @@ var na_color = 'rgb(204,204,204)', // color for counties with no data
 		d3.select("#sourceContainer").selectAll("p").remove();
 		d3.select('#sourceContainer').append('p').attr("id", "sourceText")
 			.html('<i>Source</i>: NACo Analysis of ' + indObjects[0].source + ', ' + indObjects[0].year);
+			
+		// if showing profile, show a mini help dialog
+		if (indObjects[0].name === 'PILT Profiles') {
+			noty({
+				type: 'alert',
+				text: '<strong>Click once on a county to see their profile.</strong></br></br>Please make sure to enable popups.',
+				timeout: false
+			})
+		}
 	}
 	
 	var switchToThreshold = function(domain, range) {
