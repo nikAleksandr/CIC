@@ -220,7 +220,7 @@ var na_color = 'rgb(204,204,204)', // color for counties with no data
 	}	
 
 	//Functions for Icons
-	var setIconBehavior = function() {
+	var setIconBehavior = function() {		
 		$('#backToMapIcon, #backToMapIconText').on('click', function(e) {
 			e.stopPropagation();
 			tooltip.classed('hidden', true);
@@ -277,7 +277,7 @@ var na_color = 'rgb(204,204,204)', // color for counties with no data
 				if (!pop_db.hasOwnProperty(year)) {
 					pop_db[year] = {};
 					if (localVersion) {
-				 		d3.tsv("/CIC/data/local_data.tsv", function(error, countyData) {
+				 		d3.tsv("data/local_data.tsv", function(error, countyData) {
 				 			for (var i = 0; i < countyData.length; i++) {
 				 				pop_db[year][countyData[i].id] = +countyData[i]['Population Levels and Trends - Population Level'];
 				 			}
@@ -663,7 +663,7 @@ var na_color = 'rgb(204,204,204)', // color for counties with no data
 					if (quantByIds[0][+FIPS] === 0) {
 						noty({text: '<strong>No Profile Available</strong></br>This county did not receive PILT in 2014!'})
 					} else {
-						window.open('http://127.0.0.1:8020/CIC/profiles/' + county.geography + '.pdf', '_blank');
+						window.open('http://cic.naco.org/profiles/' + county.geography + '.pdf', '_blank');
 					}
 				}			 
 			});			
@@ -760,7 +760,7 @@ var na_color = 'rgb(204,204,204)', // color for counties with no data
 	var getData = function(indObjs) {
 	 	// grab data and set up quantByIds and other objects
 	 	if (localVersion) {
-	 		d3.tsv("/CIC/data/local_data.tsv", function(error, countyData) {
+	 		d3.tsv("data/local_data.tsv", function(error, countyData) {
 		 		var qbis = [];
 				for (var i = 0; i < indObjs.length; i++) qbis.push([]);
 		
@@ -1636,6 +1636,13 @@ var na_color = 'rgb(204,204,204)', // color for counties with no data
 	    			scope.panel.selectHelpTab(parseInt(urlParams.showhelp));
 	    		})	    		
 		    }
+<<<<<<< HEAD
+=======
+		    
+		    if (window.location.pathname === '/coin/index.cfm' || window.location.pathname === '/coin/lahoya.html') {
+		    	$('.disabled').removeClass('disabled');
+		    }		    
+>>>>>>> master
 	  	});
 	});
 
