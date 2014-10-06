@@ -720,25 +720,23 @@ div.tooltip {
 /*
  * Access more data content stylings
  */
-#moreDataContent{
-	margin-top: -1em;
-	padding-bottom: 2em;
-	margin-left:1em;
+
+#moreDataContent {
+	width: 95%;
+	margin-left: 2%;
 }
-#moreDataContent h3{
-	font-family:'Arvo', serif;
+#moreDataContent h3 {
+	font-family: 'Arvo', serif;
 }
-#moreDataContent img{
+#moreDataContent img {
 	height: 180px;
 	width: 255px;
-	margin-right:2em;
 	border: 1px solid #CCC;
 }
 #moreDataContent p {
-	margin-top:80px;
-	text-align:left;
-	margin-right:1em;
+	margin-top: 80px;
 }
+
 /*
  * Extraction tool styling
  */
