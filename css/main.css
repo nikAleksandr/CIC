@@ -70,7 +70,7 @@ fieldset {
    Custom Styles
    ========================================================================== */
 body {
-	width:100%;
+	width: 100%;
 	background-color: white;
 	text-align: center;
 	font-family: 'Roboto Condensed', sans-serif;
@@ -81,31 +81,18 @@ body {
 table th{
 	font-style: normal;
 	font-weight: normal;
-	color:#000;
-	text-align:inherit;
+	color: #000;
+	text-align: inherit;
 }
 
 #underMap {
 	margin: 0 auto;
 	text-align: left;
-	font-size: .9em;
-	font-weight:300;
+	font-size: 0.9em;
+	font-weight: 300;
 }
 
-#perCapitaButton {
-	text-align: center;
-	margin-top: 15px;
-}
-#perCapitaButton:focus { outline: none; }
-#measureTypeContainer, #thresholdInputContainer { margin-top: 10px; }
-#thresholdInputContainer {
-	font-size: 0.8em;
-	display: none;
-}
-#thresholdInputContainer table {
-	border-collapse: separate; 
-	border-spacing: 10px 0px;
-}
+
 
 .byline{
 	color: rgb(0,64,112);
@@ -644,59 +631,24 @@ div.tooltip {
 }
 
 /*
- * Extraction tool styling
+ * Quantile and Threshold Button Styling
  */
-input[name="Logout"], input[value="Next..."]{
-	float:right;
-	margin-right:2em;
-	z-index:100;
+#perCapitaButton {
+	text-align: center;
+	margin-top: 15px;
+}
+#perCapitaButton:focus { outline: none; }
+#measureTypeContainer, #thresholdInputContainer { margin-top: 10px; }
+#thresholdInputContainer {
+	font-size: 0.8em;
+	display: none;
+}
+#thresholdInputContainer table {
+	border-collapse: separate; 
+	border-spacing: 10px 0px;
 }
 
-#extraction-header {
-	position: relative;
-	z-index: 10;
-	width: 100%;
-	height: auto;
-	padding-bottom:2em;
-	padding-left:2em;
-	margin-bottom: 2em;
-	margin-top:2em;
-	box-shadow: 0em 1em .7em 0em rgba(0, 0, 0, 0.2);
-	text-align: left;
-}
-#extraction-header h1{
-	font-family: 'Arvo', serif;
-}
-.extraction-multiple{
-	margin:20px;
-}
-.extraction-form, .extraction-table{
-	max-width:500px;
-	margin: 0 auto;
-}
-.extraction-table td{
-	word-wrap:break-word;
-}
-.extraction-help-button {
-	margin-top: 20px;
-}
-.extraction-help-box {
-	padding: 10px;
-	margin-top: 15px;	
-}
-.extraction-help-box input {
-	margin-left: 10px;
-}
-.extraction-help-text {
-	position: relative;
-	top: 4px;
-}
-.extraction-definitions {
-	max-width: 900px;
-	margin-bottom: 50px;
-	text-align: center;
-	margin: 0 auto;
-}
+
 
 /* ==========================================================================
    Helper classes

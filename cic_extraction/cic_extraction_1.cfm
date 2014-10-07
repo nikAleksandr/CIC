@@ -11,6 +11,7 @@
 <link href='http://fonts.googleapis.com/css?family=Roboto+Condensed:300,400' rel='stylesheet' type='text/css'>
 <link href='http://fonts.googleapis.com/css?family=Arvo' rel='stylesheet' type='text/css'>
 
+<link rel="stylesheet" href="../css/extraction.css">
 <link rel="stylesheet" href="../css/main.css">
 
 <!--Google Analytics NACo -->
@@ -54,11 +55,11 @@
 <body >
 
 <div id="extraction-header">
-	<div>
-		<div><h1>NACo CIC Extraction Tool</h1></div>
-<!--		<div class="col-md-2">	<img id="nacoLogo" alt="National Association of Counties Logo" src="../img/NACoLogo_NoTagBLACK_tm.png" />		</div> -->
-	</div>
-    <A HREF="cic_extraction_help.cfm"> CIC Extraction Tool Help</a> 
+<div>
+<img id="nacoLogo" alt="National Association of Counties Logo" src="../img/NACoLogo_NoTagBLACK_tm.png" />	
+<div><h1>NACo CIC Extraction Tool</h1></div>
+</div>
+<A HREF="cic_extraction_help.cfm"> CIC Extraction Tool Help</a> 
 </div>
 
 
@@ -88,8 +89,7 @@
     </select> 
     
       <div class="extraction-help-box">
-      	<div class="extraction-help-text">Hold the CTRL key and click, to select multiple indicators.</div>
-      	<input class="btn btn-info" type="submit"  value="Next...">
+      	<span class="extraction-help-text">Hold the CTRL key and click, to select multiple indicators.</span><input class="btn btn-info" type="submit"  value="Next...">
       </div>
     
        

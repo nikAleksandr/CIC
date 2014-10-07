@@ -27,21 +27,24 @@
 <div id="extraction-header">
 	<div class="row" >
 		<div class="col-md-10">
+        <img id="nacoLogo" alt="National Association of Counties Logo" src="../img/NACoLogo_NoTagBLACK_tm.png" />
 			<h1>NACo CIC Extraction Tool</h1>
 			
-			<H3><em>Choose One or Two Categories</em></H3>
+			
 		</div>
-		<div class="col-md-2">
-			<img id="nacoLogo" alt="National Association of Counties Logo" src="../img/NACoLogo_NoTagBLACK_tm.png" />
-		</div>
+		
 	</div>
 	<a href="http://cic.naco.org">Return to Interactive Map</a>
 </div>
 
+
+
+
 <div class="container" style="background-color:#FFFFFF;margin:0 auto;">
-    <p>Coming in September!  This tool is not yet available, but please check back shortly.  If you have any questions, please don't hesitate to <a href="mailto:naco@naco.org">contact us</a>.</p>
-	<p>See our pricing options <a href="http://cic.naco.org/signup/signup_form.cfm">here.</a></p>
-    <p>Please Log In</p>
+
+        
+ 
+    <p><strong>Please Log In</strong></p>
     
     <cfoutput> 
          <form class="extraction-form" action="#CGI.script_name#?#CGI.query_string#" method="Post">
@@ -57,6 +60,12 @@
            </form>   
     </cfoutput>
 </div>
+<P>&nbsp;  </P>
+<P>  &nbsp </P>
+  <A HREF="http://www.naco.org/research/Pages/CIC-Signup.aspx" target="_blank"><strong>Request an Account Now!</strong></A><BR>
+  This is a paid subscription.
 
+<P>&nbsp;   </P>
+<!--- Send questions or comments regarding NACo's CIC Extraction Tool to  <a href="mailto:naco@naco.org">NACo</a>.</p> --->
 </body>
 </html>

@@ -32,6 +32,7 @@ where countrycode = 'USA'
 <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
 <link href='http://fonts.googleapis.com/css?family=Roboto+Condensed:300,400' rel='stylesheet' type='text/css'>
 <link href='http://fonts.googleapis.com/css?family=Arvo' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="../css/extraction.css">
 <link rel="stylesheet" href="../css/main.css">
 
 <!--Script for limiting the number of selections in the selection box-->
@@ -99,8 +100,7 @@ where countrycode = 'USA'
         </CFOUTPUT> 
 
       <div class="extraction-help-box">
-      	<div class="extraction-help-text">Hold the CTRL key and click, to select multiple states if desired.</div><br/>
-      	<input class="btn btn-info" type="submit"  value="Next...">
+      	<span class="extraction-help-text">Hold the CTRL key and click, to select multiple states if desired.</span><input class="btn btn-info" type="submit"  value="Next...">
       </div>
         
     </form>
