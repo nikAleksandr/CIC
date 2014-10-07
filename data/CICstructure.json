@@ -2181,6 +2181,7 @@
 							"name": "PILT Amount",
 							"unit": "dollars",
 							"dataType": "level",
+							"thresholds": [1, 10000, 100000, 1000000],
 							"definition": "Payment in Lieu of Taxes annual funding"
 						}, {
 							"name": "PILT Annual Growth Rate (from previous year)",
