@@ -69,7 +69,7 @@ var na_color = 'rgb(204,204,204)', // color for counties with no data
 		svg = d3.select("#map").insert("svg", "div")
 	    	.attr("width", width)
 	    	.attr("height", height)
-	    	.attr("id", "mapSvg")
+	    	.attr("id", "map-svg")
 	    	.append("g")
 	    		.attr("transform", "translate(" + width / 2 + "," + height / 2 + ")")
 	    		.call(zoom)
@@ -226,7 +226,7 @@ var na_color = 'rgb(204,204,204)', // color for counties with no data
 			zoomMap([0, 0], 1);
 		});
 		
-		$('#resetAllIcon, #resetAllIconText, #resetSecondInd').on('click', function(e) {
+		$('#resetAllIcon, #resetAllIconText').on('click', function(e) {
 			e.stopPropagation();
 			resetSecondInd();
 		});
@@ -447,9 +447,9 @@ var na_color = 'rgb(204,204,204)', // color for counties with no data
 	}
 	
 	var setSearchBehavior = function() {
-		var searchField = d3.select('#search_field');
-		var stateDrop = d3.select('#stateDropLi');	
-		d3.select('#search_submit').on('click', submitSearch);
+		var searchField = d3.select('#search-field');
+		var stateDrop = d3.select('#state-drop-container');	
+		d3.select('#search-submit').on('click', submitSearch);
 		
 		// set search type buttons to toggle
 		$('#searchTypes .btn').on('click', function() {
@@ -479,7 +479,7 @@ var na_color = 'rgb(204,204,204)', // color for counties with no data
 	var submitSearch = function() {
 		d3.event.preventDefault();
 			
-		var search_str = d3.select('#search_field').property('value');
+		var search_str = d3.select('#search-field').property('value');
 		var results_container = d3.select('#container');
 	
 		if (searchType === 'stateSearch') {
@@ -615,7 +615,7 @@ var na_color = 'rgb(204,204,204)', // color for counties with no data
 	
 	executeSearchMatch = function(FIPS) {
 		hideInstructions();
-		$('#search_field').val('');
+		$('#search-field').val('');
 		
 		var county = countyObjectById[+FIPS];
 	    if (county) {
@@ -1388,7 +1388,7 @@ var na_color = 'rgb(204,204,204)', // color for counties with no data
 			tooltip.transition()
 			  	.style("left", (left) + "px")
 			  	.style("top", (top) + "px");
-			d3.select('.arrow_box').transition().style('right', arrow_left + 'px');
+			d3.select('.arrow-box').transition().style('right', arrow_left + 'px');
 		}
 	}
 	
@@ -1490,8 +1490,8 @@ var na_color = 'rgb(204,204,204)', // color for counties with no data
 	}
 	var positionZoomIcons = function() {
 		var coords = map.offsetWidth;
-		d3.select("#iconsGroup").style('left', (coords + 20) + 'px');
-		d3.selectAll('.extraInstructions').style('display', function() {
+		d3.select("#side-icon-container").style('left', (coords + 20) + 'px');
+		d3.selectAll('.side-icon-text').style('display', function() {
 			return ((windowWidth - coords) / 2 < 150) ? 'none' : 'table-cell';
 		});	
 	}
@@ -1520,7 +1520,7 @@ var na_color = 'rgb(204,204,204)', // color for counties with no data
 	var exportSVG = function(){
 		d3.selectAll('path').attr({'stroke': '#fff', 'stroke-width': '.2px'});
 		d3.select('#state-borders').attr({'fill': 'none', 'stroke': '#fff', 'stroke-linecap': 'round', 'stroke-linejoin': 'round', 'stroke-width': '1.5px'});
-		svgenie.save('mapSvg', {name: 'test.png'});
+		svgenie.save('map-svg', {name: 'test.png'});
 	}
 	
 	// ctrl + shift + E to exportSVG() function

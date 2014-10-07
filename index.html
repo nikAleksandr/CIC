@@ -55,7 +55,7 @@
   					</p>
 				</div>
 				<div class="col-md-2">
-					<img id="nacoLogo" alt="National Association of Counties Logo" src="img/NACoLogo_NoTagBLACK_tm.png" />
+					<img id="nacoLogo" width="180" height="44" alt="National Association of Counties Logo" src="img/NACoLogo_NoTagBLACK_tm.png" />
 				</div>
 			</div>
 				
@@ -79,10 +79,10 @@
 				    </ul>
 				    
 				    <!-- Right Nav-->
-					<ul class="nav navbar-nav navbar-right" id="searchContainer">
+					<ul class="nav navbar-nav navbar-right" id="search-container">
 						
 						<!-- Search Type Button Group -->
-						<li id="searchTypeLi">
+						<li id="search-type-container">
 							<div class="btn-group" id="searchTypes">
 								<button type="button" class="btn btn-default" name="city name" id="citySearch">City Search</button>
 								<button type="button" class="btn btn-default active" name="county name" id="countySearch">County Search</button>
@@ -90,20 +90,20 @@
 							</div>
 						</li>
 						
-						<li id="stateDropLi" class="hidden">
+						<li id="state-drop-container" class="hidden">
 							<a id="stateDropText">State</a>
 							<ul id="stateDrop" class="dropdown-menu" state-list></ul>
 						</li>
 						<li id="searchBox"><a>
 							<form id="search_form">
-								<input type="search" id="search_field" placeholder="county name">
-								<input type="image" src="img/active-search.svg" width="18px" height="18px" id="search_submit" value="Search">
+								<input type="search" id="search-field" placeholder="county name">
+								<input type="image" src="img/active-search.svg" width="18px" height="18px" id="search-submit" value="Search">
 							</form>
 						</a></li>
-						<li id="moreData">
-							<a id="moreDataButton" ng-click="menu.accessMoreData()" href="#">
-								<span id="moreDataText">ACCESS MORE DATA</span>
-								<img id="moreDataImg" src="img/more_data.svg"/>
+						<li id="more-data">
+							<a ng-click="menu.accessMoreData()" href="#">
+								<span>ACCESS MORE DATA</span>
+								<img width="30" height="30" src="img/more_data.svg"/>
 							</a>
 						</li>
 					</ul>
@@ -117,26 +117,26 @@
     			<overlay id="instructions" ng-show="panel.visible"></overlay>
 			
 				<div id="map">
-					<table id="iconsGroup"><tbody>
+					<table id="side-icon-container"><tbody>
 						<tr>
-							<td><a id="showHelpIcon" title="Help" ng-click="panel.toggleShowing('help')"><img class="my-icons" alt="Help" src="img/Help.svg"/></a></td>
-							<td id="showHelpIconText" class="extraInstructions" ng-click="panel.toggleShowing('help')">Help</td>
+							<td><a id="showHelpIcon" title="Help" ng-click="panel.toggleShowing('help')"><img class="side-icon" width="30" height="30" alt="Help" src="img/Help.svg"/></a></td>
+							<td id="showHelpIconText" class="icon-text side-icon-text" ng-click="panel.toggleShowing('help')">Help</td>
 						</tr>
 						<tr>
-							<td><a id="backToMapIcon" title="Back to US Map" ng-click="panel.setVisible(false)"><img class="my-icons" alt="Back to US Map" src="img/Back_to_US.svg"/></a></td>
-							<td id="backToMapIconText" class="extraInstructions" ng-click="panel.setVisible(false)">Back to US Map</td>
+							<td><a id="backToMapIcon" title="Back to US Map" ng-click="panel.setVisible(false)"><img class="side-icon" width="30" height="30" alt="Back to US Map" src="img/Back_to_US.svg"/></a></td>
+							<td id="backToMapIconText" class="icon-text side-icon-text" ng-click="panel.setVisible(false)">Back to US Map</td>
 						</tr>
 						<tr>
-							<td><a id="resetAllIcon" title="Reset Indicators"><img class="my-icons" alt="Reset Indicators" src="img/Reset_indicators.svg"/></a></td>
-							<td id="resetAllIconText" class="extraInstructions">Remove Second Indicator</td>
+							<td><a id="resetAllIcon" title="Reset Indicators"><img class="side-icon" width="30" height="30" alt="Reset Indicators" src="img/Reset_indicators.svg"/></a></td>
+							<td id="resetAllIconText" class="icon-text side-icon-text">Remove Second Indicator</td>
 						</tr>
 						<tr>
-							<td><a class="share-toggle" title="Share this info"><img class="my-icons" alt="Share this info" src="img/Share.svg"/></a></td>
-							<td class="extraInstructions share-toggle">Share this map!</td>
+							<td><a class="share-toggle" title="Share this info"><img class="side-icon" width="30" height="30" alt="Share this info" src="img/Share.svg"/></a></td>
+							<td class="icon-text side-icon-text share-toggle">Share this map!</td>
 						</tr>
 						<tr>
-							<td><a id="addToMailingListIcon" title="Add Me To Mailing List" ng-click="panel.toggleShowing('mailingList')"><img class="my-icons" alt="Add Me To Mailing List" src="img/Mail.svg"/></a></td>
-							<td id="addToMailingListIconText" class="extraInstructions" ng-click="panel.toggleShowing('mailingList')">Add to Mailing List</td>
+							<td><a id="addToMailingListIcon" title="Add Me To Mailing List" ng-click="panel.toggleShowing('mailingList')"><img class="side-icon" width="30" height="30" alt="Add Me To Mailing List" src="img/Mail.svg"/></a></td>
+							<td id="addToMailingListIconText" class="icon-text side-icon-text" ng-click="panel.toggleShowing('mailingList')">Add to Mailing List</td>
 						</tr>
 					</tbody></table>
 				</div>
@@ -146,11 +146,11 @@
 		        </div>
 		        <div id="tt" class="tooltip hidden">
 		        	<div id="tipContainer"></div>
-		        	<div class="arrow_box"></div>
+		        	<div class="arrow-box"></div>
 		        </div>
 		        
 				<!--Under map area -->
-		        <div id="underMap">
+		        <div id="undermap">
 		        	<div class="container-fluid">
 			        	<div class="row">
 			        		<div class="col-md-6">

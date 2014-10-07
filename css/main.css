@@ -1,61 +1,22 @@
-
-html {
-    color: #222;
-    font-size: 1em;
-    line-height: 1.4;
-}
-
 /*
- * Remove text-shadow in selection highlight: h5bp.com/i
- * These selection rule sets have to be separate.
- * Customize the background color to match your design.
+ * HTML5 Boilerplate suggestions
  */
-
 ::-moz-selection,
 ::selection {
     background: #b3d4fc;
     text-shadow: none;
 }
-
-/*
- * A better looking default horizontal rule
- */
-
-hr {
-    display: block;
-    height: 1px;
-    border: 0;
-    border-top: 1px solid #ccc;
-    margin: 1em 0;
-    padding: 0;
-}
-
-/*
- * Remove the gap between images, videos, audio and canvas and the bottom of
- * their containers: h5bp.com/i/440
- */
-
-audio,
-canvas,
-img,
-svg,
-video {
-    vertical-align: middle;
-}
-
-/*
- * Remove default fieldset styles.
- */
-
-fieldset {
-    border: 0;
-    margin: 0;
-    padding: 0;
+svg { vertical-align: middle; }
+table th {
+	font-style: normal;
+	font-weight: normal;
+	color: #000;
+	text-align: inherit;
 }
 
 
 /*
- * Default classes
+ * Default classes - css pertaining to entire document
  */
 
 .center { text-align: center; }
@@ -64,12 +25,30 @@ fieldset {
 	cursor: pointer;	
 }
 .link:hover { text-decoration: underline; }
+.icon-text:hover { text-decoration: underline; }
+
+.svgCircle{ margin: 0 0.7em; }
+
+.noty_text { 
+	margin: 25px;
+	font-size: 1.1em;
+}
 
 
 /* ==========================================================================
    Custom Styles
    ========================================================================== */
+  
+html {
+	height: 100%;
+    color: #222;
+    font-size: 1em;
+    line-height: 1.4;
+}
+
 body {
+	position: relative;
+	height: 100%;
 	width: 100%;
 	background-color: white;
 	text-align: center;
@@ -78,78 +57,10 @@ body {
 	overflow-x: hidden;
 }
 
-table th{
-	font-style: normal;
-	font-weight: normal;
-	color: #000;
-	text-align: inherit;
-}
 
-#underMap {
-	margin: 0 auto;
-	text-align: left;
-	font-size: 0.9em;
-	font-weight: 300;
-}
-
-
-
-.byline{
-	color: rgb(0,64,112);
-	text-align: left;
-	display: inline-block;
-	font-size: 0.8em;
-	margin-top:1em;
-}
-#byline p{
-	color:#333;
-	margin-left:-1em;
-}
-
-
-
-
-
-
-#close, #close2, #help, #fullReport{
-	color: rgb(0,64,112);
-	font-size: 1em;
-	position: relative;
-	float: right;
-	cursor: pointer;
-	text-align: right;
-	clear: right;
-	margin: 1em 1em 0px 0px;
-	z-index: 5;
-}
-
-#showOnMap, #print {
-	position: relative;
-	color: rgb(0, 64, 112);
-	font-size: .9em;
-	cursor: pointer;
-	padding-left: 1em;
-	display: inline;
-}
-#print { margin-left: 10px; }
-
-#close:hover, #close2:hover, #help:hover, #showOnMap:hover, #print:hover, .extraInstructions:hover, .helpLink{
-	text-decoration:underline;
-}
-
-
-.noty_text { 
-	margin: 25px;
-	font-size: 1.1em;
-}
-
-.svgCircle{
-	margin: 0 .7em;
-}
-
-
-html, body { height: 100%; }
-body { position: relative; }
+/*
+ * -------------  Header Styling -------------------
+ */
 
 #header {
 	position: relative;
@@ -160,113 +71,133 @@ body { position: relative; }
 	box-shadow: 0em 1em .7em 0em rgba(0, 0, 0, 0.2);
 	text-align: left;
 }
-
-#cc {
-	width: 100%;
-	text-align: center;
-	padding-top: 7px;
-}
-
-#container {
-	position: relative;
-	height: 100%;
-}
-
-#header p {
-	margin:0 3em;
-	padding: 0;
-	font-weight:300;
-	font-size:1em;
-}
-#header h1{
+#header h1 {
 	font-family: 'Arvo', serif;
 	color: #000;
 	font-weight: 100;
 	width:auto;
-	margin: 1.0em 0 .5em 1.1em;
-	font-size:2.0em;
+	margin: 1em 0 0.5em 1.1em;
+	font-size: 2em;
 }
-h1 small {
-	color:rgb(0,64,112);
+#header p {
+	margin: 0 3em;
+	padding: 0;
+	font-weight: 300;
+	font-size: 1em;
 }
-
 #nacoLogo {
-	width:180px;
 	margin: 2.2em 2.2em 0 0;
-	float:right;
+	float: right;
 }
 
 
+/* Indicator Dropdown */
 .navbar-CIC {
 	background-color:#fff;
 	border: none;
 	border-radius: 0;
 	margin-bottom: 10px;
 	color: #CCC;
-	font-size:1em;
-	min-height:47px;
-	max-height:47px;
+	font-size: 1em;
+	min-height: 47px;
+	max-height: 47px;
 }
+.navbar-nav > li > a {
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+.navbar a { color: #000; }
+.dropdown-menu { text-align: left; }
 
-.navbar-nav > li > a{
-	padding-top:10px;
-	padding-bottom:10px;
-}
-.navbar a {
-	color:#000;
-}
-.navbar .icon-bar{
-	background-color:#ccc;
-}
 
-.dropdown-menu {
-	text-align: left;
-}
-#search_field{
-	width:100px;
-}
-#searchContainer{
+/* Search */
+#search-container {
 	font-size: .8em;
 	padding-right: 0px;
 }
-#searchTypeLi { margin-top: 6px; }
-#stateDropLi {
+#search-field { width: 100px; }
+#search-type-container { margin-top: 6px; }
+#state-drop-container {
 	margin-top: 2px;
 	margin-left: 10px;
 }
-#search_submit {
+#search-submit {
 	position: relative;
 	top: 2px;
 }
 
-#map {
-	z-index:-10;
-	float:left;
+
+/* Access More Data Button */
+#more-data { background-color: rgb(0, 173, 220); }
+#more-data a {
+	font-size: 1.2em;
+	color: #FFF;
+	padding: 10px 30px 7px 15px;
 }
-#moreData, #moreDataButton2{ background-color:rgb(0, 173, 220); }
-#moreDataButton, #moreDataButton2{
-	font-size:1.2em;
-	color:#fff;
-	padding:10px 30px 7px 15px;
+#more-data a:hover {
+	color: rgb(255, 204, 102);
+	background-color: transparent;
 }
-#moreDataButton2{
-	font-size:1em;
-	display:inline-block;
-	padding-right:10px;
-}
-#moreDataImg, #moreDataImg2{
-	height:30px;
-	width:30px;
+#more-data img {
 	margin-left:5px;
 	margin-right: 2em;
 }
-#moreDataImg2{
-	margin-right:0;
+
+
+/*
+ * ----------------  Body Styling -------------------
+ */
+
+#cc {
+	width: 100%;
+	text-align: center;
+	padding-top: 7px;
 }
-#moreDataButton:hover{
-	color:rgb(255,204,102);
-	background-color:transparent;
+#container {
+	position: relative;
+	height: 100%;
 }
+
+
+/* Map Styling */
+#map {
+	z-index: -10;
+	float: left;
+}
+#map-svg {
+	position: relative;
+	background-color: #FFF;
+}
+.county {
+  	fill: none;
+  	stroke-width: .2px;
+  	stroke: rgb(255,255,255);
+  	stroke-linejoin: round;
+  	stroke-linecap: round;
+}
+.county:hover {
+	stroke: black;
+  	stroke-width: 0.7px;
+  	opacity: .5;
+}
+.county.active {
+	stroke: rgb(255,166,1);
+	stroke-width: 0.7px;
+	fill: rgb(225, 0, 0);
+	/*fill: rgb(0, 173, 220); */
+	/*fill: rgb(253, 156, 2);*/
+}
+#state-borders {
+  fill: none;
+  stroke: #fff;
+  stroke-width: 1.5px;
+  stroke-linejoin: round;
+  stroke-linecap: round;
+  pointer-events: none;
+}
+
+
+/* Icons Styling */
 #zoomIcons {
   position: absolute;
   left: 65px;
@@ -291,146 +222,36 @@ h1 small {
 }
 #zoomMinusIcon { 
 	border-top: none;
-	font-size:1.5em;
-	line-height:1em;
+	font-size: 1.5em;
+	line-height: 1em;
 }
 
-#sourceContainer, #definitionsContainer, #notesContainer {
-	text-align: left;
-	font-size: .85em;
-	margin-top: 5px;
-}
-#sourceContainer { margin-top: 20px; }
-#notesContainer { padding-bottom: 30px; }
-/*
- * Map and SVG CSS
- */
-#mapSvg{
-	position:relative;
-	background-color:#ffffff;
-}
-.county {
-  fill: none;
-  stroke-width: .2px;
-  stroke: rgb(255,255,255);
-  stroke-linejoin: round;
-  stroke-linecap: round;
-}
-.county:hover{
-  /*stroke: rgb(255,166,1);*/
- stroke: black;
-  stroke-width: .7px;
-  opacity: .5;
-}
-.county.active {
-	/*fill: rgb(0, 173, 220); */
-	stroke:rgb(255,166,1);
-	fill: rgb(225,0,0);
-	stroke-width: .7px;
-	/*fill: rgb(253,156,2);*/
-}
-
-#state-borders {
-  fill: none;
-  stroke: #fff;
-  stroke-width: 1.5px;
-  stroke-linejoin: round;
-  stroke-linecap: round;
-  pointer-events: none;
-}
-/*
- * 
- * Icons CSS
- * 
- */
-#iconsGroup{
-	position:absolute;
-	width:100px;
-	white-space:nowrap;
+#side-icon-container {
+	position: absolute;
+	width: 100px;
+	white-space: nowrap;
 	top: 15px;
 }
-#iconsGroup a { cursor: pointer }
-.iconContainer{
-	display:block;
-	vertical-align:middle;
-}
-.my-icons{
-	width:30px;
-	height:30px;
-	margin: 15px;
-}
-.extraInstructions{
-	font-size:.8em;
-	color:#555;
-	vertical-align:middle;
+.side-icon { margin: 15px; }
+.side-icon-text {
+	font-size: 0.8em;
+	color: #555;
+	vertical-align: middle;
 	text-overflow: nowrap;
-	text-align:left;
+	text-align: left;
 	cursor: pointer;
 }
-#rrssbContainer{
-	position:absolute;
+#rrssbContainer {
+	position: absolute;
 	right: -200px;
-	top:30%;
-	width:200px;
+	top: 30%;
+	width: 200px;
 	z-index: 6;
 }
-/*
- * 
- * Legend CSS
- * 
- */
-#legend-container{
-	margin-top:1em;
-}
-#legendNoData {
-	margin-top:4em;
-	display: inline-block;
-	font-size: 0.8em;
-	text-align:right;
-}
-#quantileLegend{
-	font-weight:400;
-	border: 0;
-  	height:60px;
-  	width: 100%;
-}
-
-#quantileLegend .colorlegend-labels {
-  font-size: 1em;
-  fill: black;
-}
-
-#quantileLegend .colorlegend-boxlabels {
-  font-size: 1em;
-  text-align: center;
-}
-
-#legendTitleContainer { text-align: center; }
-#legendTitle {
-	font-weight:400;
-	font-size: 1em;
-	white-space: nowrap;
-}
-#legendSubtitle {
-	font-weight: 400;
-	font-size: 0.8em;
-}
-
-.rotate {
-	-webkit-transform: rotate(45deg);
-	-moz-transform: rotate(45deg);
-	-ms-transform: rotate(45deg);
-	-o-transform: rotate(45deg);
-}
-
-/*
- * CSS for the 
- * Tooltip
- * 
- */
 
 
-div.tooltip {
+/* Tooltip Styling */
+.tooltip {
   z-index: 5;
   color: #222; 
   background: #fff; 
@@ -440,15 +261,14 @@ div.tooltip {
   -mox-box-shadow: 0px 0px 2px 0px #a6a6a6; 
   -webkit-box-shadow: 0px 0px 2px 0px #a6a6a6;   
   position: absolute;
-  opacity:.95;
+  opacity: 0.95;
   pointer-events: none;
 }
-
-.arrow_box {
+.arrow-box {
 	position: relative;
 	background: #fff;
 }
-.arrow_box:after {
+.arrow-box:after {
 	top: 100%;
 	right: 20px;
 	border: solid transparent;
@@ -459,8 +279,8 @@ div.tooltip {
 	pointer-events: none;
 	border-color: rgba(136, 183, 213, 0);
 	border-top-color: #fff;
-	border-width: 15px;
-/*this sort-of works*/
+	border-width: 15px;	
+	/*this sort-of works*/
 	/*transform: rotate(45deg); 
 	box-shadow: -1px -1px 10px -2px rgba(0,0,0,0.5);*/
 }
@@ -474,53 +294,95 @@ div.tooltip {
 	position: relative;
 }
 #tipInfo { 
-	font-weight:300;
-	padding: .6em;
-	font-size:1.2em;
-	line-height:1.8em;	
+	font-weight: 300;
+	padding: 0.6em;
+	font-size: 1.2em;
+	line-height: 1.8em;	
 }
 .tipKey {
-	padding:  .1em .5em;
+	padding: 0.1em 0.5em;
 	font-size: 1.1em;
 	white-space: nowrap;
 	text-align:center;
 }
-.tipKey .datasetName{
-	font-weight:400;
-}
+.tipKey .datasetName { font-weight: 400; }
 .tipKey .dataName {
 	text-align: right;
-	padding-right:1em;
+	padding-right: 1em;
 }
 .tipKey .dataNum {
-	text-align:left;
+	text-align: left;
 	vertical-align: bottom;
-	padding-right:.6em;
+	padding-right: 0.6em;
 }
-.leftborder{
+.leftborder {
 	border-left: 1px solid black;
-	padding-left:.6em;
+	padding-left: 0.6em;
 }
-/*
- * Dropdown stylin'
- */
-#primeIndLi{
-	margin-left:.7em;
+
+
+/* Under The Map Styling */
+#undermap {
+	margin: 0 auto;
+	text-align: left;
+	font-size: 0.9em;
+	font-weight: 300;
 }
+
+#legend-container { margin-top: 1em; }
+#quantileLegend{
+	font-weight:400;
+	border: 0;
+  	height:60px;
+  	width: 100%;
+}
+#quantileLegend .colorlegend-labels {
+  font-size: 1em;
+  fill: black;
+}
+#quantileLegend .colorlegend-boxlabels {
+  font-size: 1em;
+  text-align: center;
+}
+#legendTitleContainer { text-align: center; }
+#legendTitle {
+	font-weight:400;
+	font-size: 1em;
+	white-space: nowrap;
+}
+#legendSubtitle {
+	font-weight: 400;
+	font-size: 0.8em;
+}
+
+#sourceContainer, #definitionsContainer, #notesContainer {
+	text-align: left;
+	font-size: 0.85em;
+	margin-top: 5px;
+}
+#sourceContainer { margin-top: 20px; }
+#notesContainer { padding-bottom: 30px; }
+.byline{
+	color: rgb(0,64,112);
+	text-align: left;
+	display: inline-block;
+	font-size: 0.8em;
+	margin-top: 1em;
+}
+
+
+/* Dropdown Styling */
+#primeIndLi { margin-left: 0.7em; }
 #primeInd a, #secondInd a:not(#resetSecondInd), #stateDropText {
 	cursor: default; 
 }
-#primeIndText, #secondIndText, #stateDropText, #stateDrop a {
-	cursor: pointer;
-}
-#resetSecondInd {
-	 text-align: center;
-	 cursor: pointer;
-}
+#primeIndText, #secondIndText, #stateDropText, #stateDrop a { cursor: pointer; }
 .badge {
 	margin-left: 5px;
 	font-weight: 500;
 }
+
+
 
 /*
  * Styling for ALL CFM Responses
@@ -731,9 +593,9 @@ div.tooltip {
 
 @media (max-width: 1010px){
 	#nacoLogo { display: none; }
-	.extraInstructions { display: none; }
-	#moreDataText { display: none; }
-	#moreDataButton { padding: 10px 5px 7px 15px; }
+	.side-icon-text { display: none; }
+	#more-data a { padding: 10px 5px 7px 15px; }
+	#more-data span { display: none; }
 }
 
 @media (min-width: 640px) {
