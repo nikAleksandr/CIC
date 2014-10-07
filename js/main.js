@@ -252,12 +252,8 @@ var na_color = 'rgb(204,204,204)', // color for counties with no data
 		});	
 	
 		$('#countyTaxRatesLink').on('click', function() {
-			if (window.location.pathname == '/coin/index.cfm') {
-				hideInstructions();
-				update('County Tax Rates', 'Sales Tax');
-			} else {
-				moreDataShow();
-			}	
+			hideInstructions();
+			update('County Tax Rates', 'Sales Tax');
 		});
 	}
 	var setDataButtonBehavior = function() {	
@@ -373,15 +369,6 @@ var na_color = 'rgb(204,204,204)', // color for counties with no data
 			//d3.select('#secondIndText').html('Secondary Indicator' + '<span class="sub-arrow"></span>');
 		}
 	}
-	var moreDataShow = function(){
-		if ($('#mdText').is(':visible')) {
-			//hideInstructions();
-		} else {
-			emptyInstructionText();
-			$('#mdText').show();
-			$('#instructions').show();
-		}
-	}
 	
 	var disableIndicators = function(type, name, indicator) {
 		// type is either category, dataset, or indicator (e.g. disableIndicators('category', 'Administration') or disableIndicators('dataset', 'County Profile') or disableIndicators('indicator', 'County Profile', 'Census Region'))
@@ -435,7 +422,6 @@ var na_color = 'rgb(204,204,204)', // color for counties with no data
 				} else {
 					d3.event.stopPropagation();
 					$.SmartMenus.hideAll();
-					moreDataShow();
 				}
 			});
 		});
@@ -470,7 +456,6 @@ var na_color = 'rgb(204,204,204)', // color for counties with no data
 				} else {
 					d3.event.stopPropagation();
 					$.SmartMenus.hideAll();
-					moreDataShow();
 				}
 			});
 		});
