@@ -179,9 +179,7 @@ var na_color = 'rgb(204,204,204)', // color for counties with no data
 	}
 	
 	var setBehaviors = function() { 		
-		d3.select('#map').on('click', function() { 
-			if (selected !== null) highlight(selected);
-		});
+		d3.select('#map').on('click', unhighlight);
 		d3.select('#showOnMap').on('click', function() {
 	  		hideInstructions();
 	  		if (d3.select('.county.active').empty() !== true) {
@@ -203,7 +201,7 @@ var na_color = 'rgb(204,204,204)', // color for counties with no data
 				window_title = 'County Information, NACo Research'; 
 			}
 			var specWindow = window.open('', window_title, 'left=0,top=0,toolbar=0,scrollbars=0,status=0');
-			specWindow.document.write(document.getElementById('instructionText').innerHTML);
+			specWindow.document.write(document.getElementById('instruction-content').innerHTML);
 			specWindow.document.write('<link rel="stylesheet" media="print" href="css/main.css">');
 			specWindow.document.close();
 			specWindow.focus();
@@ -224,6 +222,7 @@ var na_color = 'rgb(204,204,204)', // color for counties with no data
 		$('#backToMapIcon, #backToMapIconText').on('click', function(e) {
 			e.stopPropagation();
 			tooltip.classed('hidden', true);
+			unhighlight();
 			zoomMap([0, 0], 1);
 		});
 		
@@ -390,11 +389,10 @@ var na_color = 'rgb(204,204,204)', // color for counties with no data
 		$('.category.disabled').find('.indicator').parent().addClass('disabled');
 	}
 	
-	var setDropdownBehavior = function() {
+	var setDropdownBehavior = function() {		
 		var pickedIndicator = function(dataset, indicator, html) {
 			$.SmartMenus.hideAll();		
-			hideInstructions();
-			
+			hideInstructions();			
 			if (currentDI === dataset + ' - ' + indicator) {
 			//	noty({text: 'Already showing "' + indicator + '"'});
 			} else {
@@ -402,36 +400,9 @@ var na_color = 'rgb(204,204,204)', // color for counties with no data
 				//d3.select('#primeIndText').html(html + '<span class="sub-arrow"></span>');
 			}
 		};
-				
-		d3.select('#primeInd').selectAll('.dataset').each(function() {
-			var dataset = d3.select(this);		
-			var datasetName = dataset.attr('name');
-			
-			// when clicking on dataset, update to first companion; but only for non-touch screens
-			if ($('html').hasClass('no-touch')) {
-				dataset.selectAll('a:not(.indicator)').on('click', function() {
-					var primeDI = getInfo(datasetName).companions[0];
-					var indHtml = dataset.select('.indicator[name="' + primeDI[1] + '"]').html();
-					pickedIndicator(primeDI[0], primeDI[1], indHtml);
-				});
-			}
-	
-			dataset.selectAll('li').on('click', function() {
-				if (!d3.select(this).classed('disabled')) {
-					var indicatorName = d3.select(this).select('.indicator').attr('name');
-					pickedIndicator(datasetName, indicatorName, this.innerHTML);
-				} else {
-					d3.event.stopPropagation();
-					$.SmartMenus.hideAll();
-				}
-			});
-		});
-	
-		
 		var pickedSecondaryIndicator = function(dataset, indicator, html) {
 			$.SmartMenus.hideAll();
 			hideInstructions();
-
 			if (currentSecondDI === dataset + ' - ' + indicator) {
 			//	noty({text: 'Already showing "' + indicator + '" as a secondary indicator'});
 			} else {
@@ -439,30 +410,37 @@ var na_color = 'rgb(204,204,204)', // color for counties with no data
 				//d3.select('#secondIndText').html(html + '<span class="sub-arrow"></span>');
 			}
 		};
-	
-		d3.select('#secondInd').selectAll('.dataset').each(function() {
-			var dataset = d3.select(this);		
-			var datasetName = dataset.attr('name');
-	
-			if ($('html').hasClass('no-touch')) {
-				dataset.selectAll('a:not(.indicator)').on('click', function() {
-					var secDI = getInfo(datasetName).companions[0];
-					var indHtml = dataset.select('.indicator[name="' + secDI[1] + '"]').html();
-					pickedSecondaryIndicator(secDI[0], secDI[1], indHtml);
-				});
-			}
-	
-			dataset.selectAll('li').on('click', function() {
-				if (!d3.select(this).classed('disabled')) {
-					var indicatorName = d3.select(this).select('.indicator').attr('name');
-					pickedSecondaryIndicator(datasetName, indicatorName, this.innerHTML);
-				} else {
-					d3.event.stopPropagation();
-					$.SmartMenus.hideAll();
+				
+		var setDropdownClick = function(menuId, endFunction) {
+			d3.select(menuId).selectAll('.dataset').each(function() {
+				var dataset = d3.select(this);		
+				var datasetName = dataset.attr('name');
+				
+				// when clicking on dataset, update to first companion; but only for non-touch screens
+				if ($('html').hasClass('no-touch')) {
+					dataset.selectAll('a:not(.indicator)').on('click', function() {
+						var DI = getInfo(datasetName).companions[0];
+						var indHtml = dataset.select('.indicator[name="' + DI[1] + '"]').html();
+						endFunction(DI[0], DI[1], indHtml);
+					});
 				}
-			});
-		});
 		
+				dataset.selectAll('li').on('click', function() {
+					if (!d3.select(this).classed('disabled')) {
+						var indicatorName = d3.select(this).select('.indicator').attr('name');
+						endFunction(datasetName, indicatorName, this.innerHTML);
+					} else {
+						d3.event.stopPropagation();
+						$.SmartMenus.hideAll();
+					}
+				});
+			});
+		};
+	
+		setDropdownClick('#primeInd', pickedIndicator);
+		setDropdownClick('#secondInd', pickedSecondaryIndicator);
+		
+		// set a pointer cursor for all menu items
 		d3.selectAll('.dataset a').style('cursor', 'pointer');
 		d3.selectAll('.dataset.disabled a:first-child').style('cursor', 'default');
 		d3.selectAll('.dataset').selectAll('li .disabled').selectAll('.indicator').style('cursor', 'default');
@@ -606,7 +584,7 @@ var na_color = 'rgb(204,204,204)', // color for counties with no data
 					var FIPS_cell = countyRow.append('td')
 						.text(countyObj.id);
 					var name_cell = countyRow.append('td')
-						.classed('county_link', true)
+						.classed('link', true)
 						.text(nameArr[0]); 
 					var state_cell = countyRow.append('td')
 						.text(nameArr[1]);
@@ -1466,6 +1444,9 @@ var na_color = 'rgb(204,204,204)', // color for counties with no data
 			frmrFill = frmrActive.style("fill");
 			frmrActive.style("fill", null);
 		}
+	}
+	var unhighlight = function() {
+		if (selected !== null) highlight(selected);
 	}
 	
 	var redraw = function() {
