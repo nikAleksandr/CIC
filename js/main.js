@@ -1625,18 +1625,8 @@ var na_color = 'rgb(204,204,204)', // color for counties with no data
 		    	decode = function(s) { return decodeURIComponent(s.replace(pl, ' ')); },
 		    	query = window.location.search.substring(1);
 		    while (match = search.exec(query)) urlParams[decode(match[1])] = decode(match[2]);
-		    if (urlParams.hasOwnProperty('noaccess')) {
-		    	if (urlParams.noaccess === '1') {
-			    	emptyInstructionText();
-					var noaccess_box = d3.select('#instructionText').append('div').attr('class', 'temp');
-					noaccess_box.append('p')
-						.style('text-align', 'center')
-						.html('<br><br><br><br>Sorry, you were not authorized to view the full-data version.  Please check your COIN credentials and try logging in again.');
-					$('#instructions').show();
-				} else if (urlParams.noaccess === '0') {
-			    	window.location.href='http://cic.naco.org/coin/index.html';				
-				}
-			} else if (urlParams.hasOwnProperty('signup')) {
+		    
+		    if (urlParams.hasOwnProperty('signup')) {
 				showSignup();
 		    } else if (urlParams.hasOwnProperty('showhelp')) {	    		
 	    		var scope = angular.element($('#container')).scope();
@@ -1645,10 +1635,6 @@ var na_color = 'rgb(204,204,204)', // color for counties with no data
 	    			scope.panel.selectHelpTab(parseInt(urlParams.showhelp));
 	    		})	    		
 		    }
-
-		    if (window.location.pathname === '/coin/index.cfm' || window.location.pathname === '/coin/lahoya.html') {
-		    	$('.disabled').removeClass('disabled');
-		    }		    
 	  	});
 	});
 
