@@ -1,17 +1,53 @@
 (function() {
 	// initialize angular module
 	var app = angular.module('CIC', [])
-		.controller('MenuController', function() {
-			this.accessMoreData = function() {
-				if ($('#mdText').is(':visible')) {
-					//$('#instructions').hide();
-				} else {
-					emptyInstructionText();
-					$('#mdText').show();
-					$('#instructions').show();
-				}			
-			};
+		.factory('spanel', function() {
+			return {};
 		})
+		.controller('MenuController', ['spanel', function(spanel) {
+			this.accessMoreData = function() {
+				spanel.toggleShowing('accessMoreData');
+			};
+		}])
+		.controller('PanelController', ['$scope', 'spanel', function($scope, spanel) {
+			var panel = $scope.panel;
+			panel.NUM_HELP_TABS = 6;
+			panel.visible = true;
+			panel.showOnMapVisible = false;
+			panel.printVisible = false;
+			panel.currentText = 'update';
+			panel.currentHelpTab = 1;
+			
+			panel.setVisible = function(vis) {
+				panel.visible = vis;
+			};
+			panel.isShowing = function(textId) {
+				return panel.currentText === textId;
+			};
+			panel.toggleShowing = function(newTextId) {				
+				if (panel.currentText === newTextId) panel.setVisible(!panel.visible);
+				else {
+					panel.setVisible(true);
+					panel.currentText = newTextId;
+				}
+			};
+			
+			panel.selectHelpTab = function(newTab) {
+				if (newTab > 0 && newTab <= panel.NUM_HELP_TABS) panel.currentHelpTab = newTab;
+			};
+			panel.incrementHelpTab = function(incr) {
+				var newTabNum = panel.currentHelpTab + incr;
+				if (newTabNum > 0 && newTabNum <= panel.NUM_HELP_TABS) {
+					panel.currentHelpTab += incr;
+				}				
+			};
+			panel.isHelpSelected = function(tab) {
+				return panel.currentHelpTab === tab;
+			};
+			
+			// attach to service to use outside this controller
+			spanel.toggleShowing = panel.toggleShowing;
+		}])
 		.controller('MainController', function() {
 			// -------------- Social Buttons -----------------
 			// TODO almost functional - unable to get c.social.showing to toggle 
@@ -60,6 +96,12 @@
 					menu.find('.sub-arrow').first().hide();
 				}
 			};
+		})
+		.directive('overlay', function() {
+			return {restrict: 'E', templateUrl: 'assets/overlay.html'};
+		})
+		.directive('mailingForm', function() {
+			return {restrict: 'E', templateUrl: 'assets/mailingForm.html'};
 		})
 		.directive('stateList', function() {
 			return {restrict: 'A', templateUrl: 'assets/stateList.html'};

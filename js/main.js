@@ -20,7 +20,7 @@ var na_color = 'rgb(204,204,204)', // color for counties with no data
 (function() {
 	
 	// -------------------------- Variable Definitions ---------------------------
-	var localVersion = true;
+	var localVersion = false;
 	
 	var zoom = d3.behavior.zoom()
 	    .scaleExtent([1, 10]);
@@ -31,7 +31,7 @@ var na_color = 'rgb(204,204,204)', // color for counties with no data
 		windowHeight = $(window).height(),
 		containerOffset = $('#container').offset(); // position of container relative to document.body
 	
-	var topo,stateMesh,path,svg,g;
+	var topo, stateMesh, path, svg, g;
 	
 	var tooltip = d3.select('#tt');
 	var tipContainer = d3.select('#tipContainer');
@@ -64,8 +64,7 @@ var na_color = 'rgb(204,204,204)', // color for counties with no data
 
 	
 	var setup = function(width, height) {
-		var projection = d3.geo.albersUsa().translate([0, 0]).scale(width * 1.0);
-	    
+		var projection = d3.geo.albersUsa().translate([0, 0]).scale(width * 1.0);	    
 		path = d3.geo.path().projection(projection);
 		svg = d3.select("#map").insert("svg", "div")
 	    	.attr("width", width)
@@ -107,52 +106,9 @@ var na_color = 'rgb(204,204,204)', // color for counties with no data
 		positionZoomIcons();	
 		positionInstruction();
 	}
-	
-	var setBehaviors = function() { 		
-		d3.select('#map').on('click', function() { 
-			if (selected !== null) highlight(selected);
-		});
-		d3.select('#close').on('click', function() { $('#instructions').hide(); });
-		d3.select('#showOnMap').on('click', function() {
-	  		$('#instructions').hide();
-	  		if (d3.select('.county.active').empty() !== true) {
-	  			var active_county = document.getElementsByClassName('county active')[0];
-	  			var zoomTransition = zoomTo(active_county.id);
-	  			populateTooltip(active_county);
-	  			zoomTransition.each('end', function() {
-					positionTooltip(active_county);  				
-		  			tooltip.classed('hidden', false);
-	  			});
-	  		}
-		});
-		d3.select('#print').on('click', function() {
-			var window_title = '';
-			if (selected !== null) {
-				window_title = countyObjectById[selected.id].geography.split(',')[0];
-				window_title += ' Information, NACo Research';
-			} else {
-				window_title = 'County Information, NACo Research'; 
-			}
-			var specWindow = window.open('', window_title, 'left=0,top=0,toolbar=0,scrollbars=0,status=0');
-			specWindow.document.write(document.getElementById('instructionText').innerHTML);
-			specWindow.document.write('<link rel="stylesheet" media="print" href="css/main.css">');
-			specWindow.document.close();
-			specWindow.focus();
-			specWindow.print();
-			specWindow.close(); // bug: doesn't reach this point if print dialog is closed by user
-		});
-	
-		setDisabled();
-		setDropdownBehavior();
-		setSearchBehavior();
-		setIconBehavior();
-		setZoomIconBehavior();
-		setDataButtonBehavior();
-	}	
-	
+		
 	var draw = function(topo, stateMesh) {
-		var county = g.selectAll(".county").data(topo);
-	
+		var county = g.selectAll(".county").data(topo);	
 		county.enter().insert("path")
 			.attr("class", "county")
 			.attr("d", path)
@@ -171,7 +127,7 @@ var na_color = 'rgb(204,204,204)', // color for counties with no data
 	
 		var clicked = function(d, event) {
 			highlight(d);
-			$('#instructions').hide();
+			hideInstructions();
 			if (d3.select('.county.active').empty() !== true) {
 				inTransition = true;
 				var transition = executeSearchMatch(event.target.id);
@@ -179,8 +135,7 @@ var na_color = 'rgb(204,204,204)', // color for counties with no data
 				else transition.each('end.bool', function() { inTransition = false; });
 			}		
 		};
-		
-		
+				
 		if ($('html').hasClass('no-touch')) {
 			// for non-touch screens
 			county.each(function(d, i) {
@@ -223,44 +178,53 @@ var na_color = 'rgb(204,204,204)', // color for counties with no data
 		}
 	}
 	
-	var emptyInstructionText = function() {
-		$('#instructionText .temp').remove();
-		$('#instructionText .iText').hide();
-		$('#instructionPagination').hide();
-		$('#showOnMap').hide();
-		$('#print').hide();
-		$('#instructionText').scrollTop(0);
-	}
-	//form submit thank you
-	var thankYou = function(){
-		emptyInstructionText();
-		$('#thankYouText').show();
-		$('#instructions').show();
-	}
+	var setBehaviors = function() { 		
+		d3.select('#map').on('click', function() { 
+			if (selected !== null) highlight(selected);
+		});
+		d3.select('#showOnMap').on('click', function() {
+	  		hideInstructions();
+	  		if (d3.select('.county.active').empty() !== true) {
+	  			var active_county = document.getElementsByClassName('county active')[0];
+	  			var zoomTransition = zoomTo(active_county.id);
+	  			populateTooltip(active_county);
+	  			zoomTransition.each('end', function() {
+					positionTooltip(active_county);  				
+		  			tooltip.classed('hidden', false);
+	  			});
+	  		}
+		});
+		d3.select('#print').on('click', function() {
+			var window_title = '';
+			if (selected !== null) {
+				window_title = countyObjectById[selected.id].geography.split(',')[0];
+				window_title += ' Information, NACo Research';
+			} else {
+				window_title = 'County Information, NACo Research'; 
+			}
+			var specWindow = window.open('', window_title, 'left=0,top=0,toolbar=0,scrollbars=0,status=0');
+			specWindow.document.write(document.getElementById('instructionText').innerHTML);
+			specWindow.document.write('<link rel="stylesheet" media="print" href="css/main.css">');
+			specWindow.document.close();
+			specWindow.focus();
+			specWindow.print();
+			specWindow.close(); // bug: doesn't reach this point if print dialog is closed by user
+		});
+	
+		setDisabled();
+		setDropdownBehavior();
+		setSearchBehavior();
+		setIconBehavior();
+		setZoomIconBehavior();
+		setDataButtonBehavior();
+	}	
+
 	//Functions for Icons
-	var setIconBehavior = function() {
-		$('#showHelpIcon, #showHelpIconText').on('click', function(e) {
-			e.stopPropagation();
-			emptyInstructionText();
-			$('#instructionPagination').show();
-			//var activePage = $('#instructionPagination .active').attr('name');
-			//$('#helpText'+activePage).show();
-			$('#instructionPagination .active').removeClass('active');
-			$('#instructionPagination li[name=1]').addClass('active');	
-			$('#helpText1').show();
-		
-			$('#instructions').show();
-		});
-		
-		$('#moreDataButton').click(function() {
-			moreDataShow();
-		});
-		
+	var setIconBehavior = function() {		
 		$('#backToMapIcon, #backToMapIconText').on('click', function(e) {
 			e.stopPropagation();
-			$('#instructions').hide();
 			tooltip.classed('hidden', true);
-			zoomMap([0,0], 1);
+			zoomMap([0, 0], 1);
 		});
 		
 		$('#resetAllIcon, #resetAllIconText, #resetSecondInd').on('click', function(e) {
@@ -286,31 +250,11 @@ var na_color = 'rgb(204,204,204)', // color for counties with no data
 				d3.select('#rrssbContainer').transition().duration(500).style('right', '80px');
 			}		
 		});	
-		
-		$('#addToMailingListIcon, #addToMailingListIconText').on('click', function(e) {
-			e.stopPropagation();
-			showSignup();
-		});
-		
-		$('.newsletter-link').on('click', function(e) {
-			e.stopPropagation();
-			emptyInstructionText();
-			showSignup();
-		});
 	
 		$('#countyTaxRatesLink').on('click', function() {
-			if (window.location.pathname == '/coin/index.cfm') {
-				$('#instructions').hide();
-				update('County Tax Rates', 'Sales Tax');
-			} else {
-				moreDataShow();
-			}	
+			hideInstructions();
+			update('County Tax Rates', 'Sales Tax');
 		});
-	}
-	var showSignup = function() {
-		emptyInstructionText();
-		$('#mailingText').show();	
-		$('#instructions').show();		
 	}
 	var setDataButtonBehavior = function() {	
 		$('#perCapitaButton').on('click', function() {
@@ -425,28 +369,6 @@ var na_color = 'rgb(204,204,204)', // color for counties with no data
 			//d3.select('#secondIndText').html('Secondary Indicator' + '<span class="sub-arrow"></span>');
 		}
 	}
-	var moreDataShow = function(){
-		if ($('#mdText').is(':visible')) {
-			//$('#instructions').hide();
-		} else {
-			emptyInstructionText();
-			$('#mdText').show();
-			$('#instructions').show();
-		}
-	}
-	var incrementPage = function(dx) {
-		var currPageNum = parseInt($('#instructionPagination .active').attr('name'));
-		if (currPageNum === 1 && parseInt(dx) === -1) goToPage(1);
-		else if (currPageNum === 6 && parseInt(dx) === 1) goToPage(6);
-		else goToPage(currPageNum + parseInt(dx));
-	}
-	var goToPage = function(pageNum) {
-		$('#instructionPagination .active').removeClass('active');
-		$('#instructionPagination li[name='+pageNum+']').addClass('active');
-		
-		$('.helpText').hide();
-		$('#helpText'+pageNum).show();
-	}
 	
 	var disableIndicators = function(type, name, indicator) {
 		// type is either category, dataset, or indicator (e.g. disableIndicators('category', 'Administration') or disableIndicators('dataset', 'County Profile') or disableIndicators('indicator', 'County Profile', 'Census Region'))
@@ -500,7 +422,6 @@ var na_color = 'rgb(204,204,204)', // color for counties with no data
 				} else {
 					d3.event.stopPropagation();
 					$.SmartMenus.hideAll();
-					moreDataShow();
 				}
 			});
 		});
@@ -535,7 +456,6 @@ var na_color = 'rgb(204,204,204)', // color for counties with no data
 				} else {
 					d3.event.stopPropagation();
 					$.SmartMenus.hideAll();
-					moreDataShow();
 				}
 			});
 		});
@@ -662,8 +582,8 @@ var na_color = 'rgb(204,204,204)', // color for counties with no data
 				}
 							
 				// display all matches if more than one match
-				emptyInstructionText();
-				var searchResults = d3.select('#instructionText').append('div').attr('class', 'temp');
+				showResults();
+				var searchResults = d3.select('#results-container').append('div').attr('class', 'temp');
 				searchResults.append('p')
 					.style('text-align', 'center')
 					.text('Your search returned ' + pMatchArray.length + ' results');
@@ -693,8 +613,8 @@ var na_color = 'rgb(204,204,204)', // color for counties with no data
 					})(name_cell, pMatchArray[i].fips);
 				}
 				
-				$('#instructions').show();
-							
+				showInstructions();
+									
 			} else if (pMatchArray.length == 1) {
 				executeSearchMatch(pMatchArray[0].fips); // if only one match, display county
 			} else {
@@ -712,8 +632,8 @@ var na_color = 'rgb(204,204,204)', // color for counties with no data
 		}
 	}
 	
-	var executeSearchMatch = function(FIPS) {
-		$('#instructions').hide();
+	executeSearchMatch = function(FIPS) {
+		hideInstructions();
 		$('#search_field').val('');
 		
 		var county = countyObjectById[+FIPS];
@@ -741,7 +661,7 @@ var na_color = 'rgb(204,204,204)', // color for counties with no data
 	};
 	
 	var displayResults = function(url) {
-		emptyInstructionText();
+		showResults();
 		$('#print').css('display', 'inline');
 		
 		d3.xhr('/ciccfm/'+ url, function(error, request){
@@ -752,14 +672,13 @@ var na_color = 'rgb(204,204,204)', // color for counties with no data
 					return;
 				}
 				
-				var frame = d3.select("#instructionText").append('div')
-					.attr('class', 'container-fluid temp')
-					.attr('id', 'resultsContainer');
+				var frame = d3.select("#results-container").append('div')
+					.attr('class', 'container-fluid temp');
 					
-					frame.html(response);
+				frame.html(response);
 				
 				(url.indexOf('county') != -1) ? $('#showOnMap').show() : $('#showOnMap').hide();
-				$('#instructions').show();
+				showInstructions();
 			} else {
 				console.log('Error retrieving data from : ' + '/ciccfm/' + url);
 				console.log(error);
@@ -1081,6 +1000,15 @@ var na_color = 'rgb(204,204,204)', // color for counties with no data
 		d3.select("#sourceContainer").selectAll("p").remove();
 		d3.select('#sourceContainer').append('p').attr("id", "sourceText")
 			.html('<i>Source</i>: NACo Analysis of ' + indObjects[0].source + ', ' + indObjects[0].year);
+			
+		// if showing profile, show a mini help dialog
+		if (indObjects[0].name === 'PILT Profiles') {
+			noty({
+				type: 'alert',
+				text: '<strong>Click once on a county to see their profile.</strong></br></br>Please make sure to enable popups.',
+				timeout: false
+			})
+		}
 	}
 	
 	var switchToThreshold = function(domain, range) {
@@ -1541,7 +1469,7 @@ var na_color = 'rgb(204,204,204)', // color for counties with no data
 		containerOffset = $('#container').offset();
 			
 		d3.select('svg').remove();
-		setup(width,height);
+		setup(width, height);
 		draw(topo, stateMesh);
 		
 		if (typeof legend !== 'undefined' && legend !== false) legend.reposition();
@@ -1681,34 +1609,16 @@ var na_color = 'rgb(204,204,204)', // color for counties with no data
 		    	decode = function(s) { return decodeURIComponent(s.replace(pl, ' ')); },
 		    	query = window.location.search.substring(1);
 		    while (match = search.exec(query)) urlParams[decode(match[1])] = decode(match[2]);
-		    if (urlParams.hasOwnProperty('noaccess')) {
-		    	if (urlParams.noaccess === '1') {
-			    	emptyInstructionText();
-					var noaccess_box = d3.select('#instructionText').append('div').attr('class', 'temp');
-					noaccess_box.append('p')
-						.style('text-align', 'center')
-						.html('<br><br><br><br>Sorry, you were not authorized to view the full-data version.  Please check your COIN credentials and try logging in again.');
-					$('#instructions').show();
-				} else if (urlParams.noaccess === '0') {
-			    	window.location.href='http://cic.naco.org/coin/index.html';				
-				}
-			} else if (urlParams.hasOwnProperty('signup')) {
-				showSignup();
-		    } else if (urlParams.hasOwnProperty('showhelp')) {
-		    	var idSelec = '#helpText' + urlParams.showhelp;
-		    	if ($(idSelec).length !== 0) {
-					goToPage(urlParams.showhelp);
-					$('#instructions').show();
-		    	}	    	
-		    } else {
-		    	// show update dialog
-			    emptyInstructionText();
-			    $('#instructions, #updateText').show();		    	
-		    }
 		    
-		    if (window.location.pathname === '/coin/index.cfm' || window.location.pathname === '/coin/lahoya.html') {
-		    	$('.disabled').removeClass('disabled');
-		    }		    
+		    if (urlParams.hasOwnProperty('signup')) {
+				showSignup();
+		    } else if (urlParams.hasOwnProperty('showhelp')) {	    		
+	    		var scope = angular.element($('#container')).scope();
+	    		scope.$apply(function() {
+	    			scope.panel.toggleShowing('help');
+	    			scope.panel.selectHelpTab(parseInt(urlParams.showhelp));
+	    		})	    		
+		    }
 	  	});
 	});
 
@@ -1720,6 +1630,29 @@ var na_color = 'rgb(204,204,204)', // color for counties with no data
 		throttleTimer = window.setTimeout(redraw, 200);
 	});
 
+
+	// ----------------------------------- App Helper Functions -------------------------------------
+
+	var showInstructions = function() {
+		var scope = angular.element($('#container')).scope();
+		scope.$apply(function() {
+			scope.panel.setVisible(true);
+		});
+	};
+	var hideInstructions = function() {
+		var scope = angular.element($('#container')).scope();
+		scope.$apply(function() {
+			scope.panel.setVisible(false);
+		});
+	};
+	var showResults = function() {
+		$('#results-container').empty();
+		var scope = angular.element($('#container')).scope();
+		scope.$apply(function() {
+			scope.panel.toggleShowing('results');
+		});		
+	};
+	
 
 	// ---------------------------- Miscellaneous Helper Functions ----------------------------------
 	
