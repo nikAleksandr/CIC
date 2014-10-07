@@ -127,7 +127,7 @@ var na_color = 'rgb(204,204,204)', // color for counties with no data
 	
 		var clicked = function(d, event) {
 			highlight(d);
-			$('#instructions').hide();
+			hideInstructions();
 			if (d3.select('.county.active').empty() !== true) {
 				inTransition = true;
 				var transition = executeSearchMatch(event.target.id);
@@ -183,7 +183,7 @@ var na_color = 'rgb(204,204,204)', // color for counties with no data
 			if (selected !== null) highlight(selected);
 		});
 		d3.select('#showOnMap').on('click', function() {
-	  		$('#instructions').hide();
+	  		hideInstructions();
 	  		if (d3.select('.county.active').empty() !== true) {
 	  			var active_county = document.getElementsByClassName('county active')[0];
 	  			var zoomTransition = zoomTo(active_county.id);
@@ -253,7 +253,7 @@ var na_color = 'rgb(204,204,204)', // color for counties with no data
 	
 		$('#countyTaxRatesLink').on('click', function() {
 			if (window.location.pathname == '/coin/index.cfm') {
-				$('#instructions').hide();
+				hideInstructions();
 				update('County Tax Rates', 'Sales Tax');
 			} else {
 				moreDataShow();
@@ -375,7 +375,7 @@ var na_color = 'rgb(204,204,204)', // color for counties with no data
 	}
 	var moreDataShow = function(){
 		if ($('#mdText').is(':visible')) {
-			//$('#instructions').hide();
+			//hideInstructions();
 		} else {
 			emptyInstructionText();
 			$('#mdText').show();
@@ -628,8 +628,8 @@ var na_color = 'rgb(204,204,204)', // color for counties with no data
 					})(name_cell, pMatchArray[i].fips);
 				}
 				
-				$('#instructions').show();
-							
+				showInstructions();
+									
 			} else if (pMatchArray.length == 1) {
 				executeSearchMatch(pMatchArray[0].fips); // if only one match, display county
 			} else {
@@ -648,7 +648,7 @@ var na_color = 'rgb(204,204,204)', // color for counties with no data
 	}
 	
 	var executeSearchMatch = function(FIPS) {
-		$('#instructions').hide();
+		hideInstructions();
 		$('#search_field').val('');
 		
 		var county = countyObjectById[+FIPS];
@@ -694,7 +694,7 @@ var na_color = 'rgb(204,204,204)', // color for counties with no data
 					frame.html(response);
 				
 				(url.indexOf('county') != -1) ? $('#showOnMap').show() : $('#showOnMap').hide();
-				$('#instructions').show();
+				showInstructions();
 			} else {
 				console.log('Error retrieving data from : ' + '/ciccfm/' + url);
 				console.log(error);
@@ -1646,6 +1646,22 @@ var na_color = 'rgb(204,204,204)', // color for counties with no data
 		throttleTimer = window.setTimeout(redraw, 200);
 	});
 
+
+	// ----------------------------------- App Helper Functions -------------------------------------
+
+	var showInstructions = function() {
+		var scope = angular.element($('#container')).scope();
+		scope.$apply(function() {
+			scope.panel.setVisible(true);
+		});
+	};
+	var hideInstructions = function() {
+		var scope = angular.element($('#container')).scope();
+		scope.$apply(function() {
+			scope.panel.setVisible(false);
+		});
+	};
+	
 
 	// ---------------------------- Miscellaneous Helper Functions ----------------------------------
 	
