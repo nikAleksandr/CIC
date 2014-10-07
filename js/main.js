@@ -393,13 +393,14 @@ var na_color = 'rgb(204,204,204)', // color for counties with no data
 	var setDropdownBehavior = function() {
 		var pickedIndicator = function(dataset, indicator, html) {
 			$.SmartMenus.hideAll();		
+			hideInstructions();
 			
-			//if (currentDI === dataset + ' - ' + indicator) {
+			if (currentDI === dataset + ' - ' + indicator) {
 			//	noty({text: 'Already showing "' + indicator + '"'});
-			//} else {
+			} else {
 				update(dataset, indicator);
 				//d3.select('#primeIndText').html(html + '<span class="sub-arrow"></span>');
-			//}
+			}
 		};
 				
 		d3.select('#primeInd').selectAll('.dataset').each(function() {
@@ -429,12 +430,14 @@ var na_color = 'rgb(204,204,204)', // color for counties with no data
 		
 		var pickedSecondaryIndicator = function(dataset, indicator, html) {
 			$.SmartMenus.hideAll();
-			//if (currentSecondDI === dataset + ' - ' + indicator) {
+			hideInstructions();
+
+			if (currentSecondDI === dataset + ' - ' + indicator) {
 			//	noty({text: 'Already showing "' + indicator + '" as a secondary indicator'});
-			//} else {
+			} else {
 				appendSecondInd(dataset, indicator);
 				//d3.select('#secondIndText').html(html + '<span class="sub-arrow"></span>');
-			//}
+			}
 		};
 	
 		d3.select('#secondInd').selectAll('.dataset').each(function() {
@@ -1000,12 +1003,13 @@ var na_color = 'rgb(204,204,204)', // color for counties with no data
 		d3.select("#sourceContainer").selectAll("p").remove();
 		d3.select('#sourceContainer').append('p').attr("id", "sourceText")
 			.html('<i>Source</i>: NACo Analysis of ' + indObjects[0].source + ', ' + indObjects[0].year);
-			
+		
+				
 		// if showing profile, show a mini help dialog
 		if (indObjects[0].name === 'PILT Profiles') {
 			noty({
 				type: 'alert',
-				text: '<strong>Click once on a county to see their profile.</strong></br></br>Please make sure to enable popups.',
+				text: '<strong>Click once on a county to see their PILT profile.</strong></br></br>Please make sure to enable popups.',
 				timeout: false
 			})
 		}
@@ -1078,6 +1082,10 @@ var na_color = 'rgb(204,204,204)', // color for counties with no data
 						if (qbis[i][ind] == true || qbis[i][ind] === 'Yes') qbis[i][ind] = 1;
 						else if (qbis[i][ind] == false || qbis[i][ind] === 'No') qbis[i][ind] = 0;
 						else if (qbis[i][ind] === 2) qbis[i][ind] = 1;
+						
+						if (indObjs[i].name === 'Consolidation') {
+							if (qbis[i][ind] === null) qbis[i][ind] = 0;
+						}
 					} else if (indObjs[i].dataType === 'categorical') {
 						if (qbis[i][ind] === 0) qbis[i][ind] = 'None';
 					} else if (indObjs[i].dataType === 'level' && indObjs[i].category === 'Federal Funding') {
