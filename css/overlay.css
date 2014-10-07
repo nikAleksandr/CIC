@@ -1,0 +1,95 @@
+#instructions {
+	text-align: left;
+	width: 80%;
+	max-width: 900px;
+	position: absolute;
+	top: 5%;
+	z-index: 100;
+	box-shadow: 0 0 .938em rgba(0, 0, 0, 0.5);
+	moz-box-shadow: 0 0 .938em rgba(0, 0, 0, 0.5);
+	webkit-box-shadow: 0 0 .938em rgba(0, 0, 0, 0.5);
+	background-attachment: scroll;
+	background-clip: border-box;
+	background-color: rgba(255, 255, 255, .95);
+	background-image: none;
+	background-size: auto auto;
+	padding: 1% 0% 2% 0%;
+	overflow: auto;
+}
+
+#instruction-content {
+	display: inline-block;
+	position: absolute;
+	top: 40px;
+	bottom: 0px;
+	left: 0px;
+	right: 0px;
+	overflow: auto;
+	padding-bottom: 20px;
+	text-align: left;
+	font-size: 1em;
+}
+#instruction-content { z-index: 4; }
+#instruction-content th {
+	font-weight: bold;
+	border-top: none;
+	font-size: 0.8em;
+	padding-top: 4px;
+	padding-bottom: 4px;
+}
+#instruction-content td {
+	border-top: none;
+	font-size: 0.8em;
+	padding-top: 4px;
+	padding-bottom: 4px;
+}
+
+.instructionImg {
+	display: inline-block;
+	float: left;
+	height: 5%;
+	width: 5%;
+	margin: 0 1em;
+	display: none;
+}
+
+.pagination-container {
+	text-align: right;
+	position: absolute;
+	bottom: 0px;
+	right: 20px;
+}
+.pagination a:hover { text-decoration: none; }
+.pagination .active { color: white; }
+
+.helpTitle { padding: 10px 0px 0px 35px; }
+.helpContainer { padding: 5px 0px 0px 50px; }
+.helpLinkContainer { padding-bottom: 5px; }
+.helpLink { cursor: pointer; }
+.helpList { padding-bottom: 5px; }
+
+mailing-form form { margin-top: 35px; }
+mailing-form .email-input { width: 220px; }
+mailing-form .ss-item { margin-top: 20px; }
+
+#close {
+	position: relative;
+	color: rgb(0, 64, 112);
+	font-size: 1em;
+	float: right;
+	cursor: pointer;
+	text-align: right;
+	clear: right;
+	margin: 1em 1em 0px 0px;
+	z-index: 5;
+}
+
+#showOnMap, #print {
+	position: relative;
+	color: rgb(0, 64, 112);
+	font-size: .9em;
+	cursor: pointer;
+	padding-left: 1em;
+	display: inline;
+}
+#print { margin-left: 10px; }

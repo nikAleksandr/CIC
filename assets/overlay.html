@@ -1,161 +1,163 @@
-<div id="showOnMap" ng-show="panel.showOnMapVisible"><img class="svgCircle" src="img/showOnMap.svg" />show on map</div>
-<div id="print" ng-show="panel.printVisible"><img class="svgCircle" src="img/print.svg" />print</div>
-<div id="close" ng-click="panel.setVisible(false)">close<img class="svgCircle" src="img/close.svg"/></div>
+<div id="showOnMap" class="icon-text" ng-show="panel.showOnMapVisible"><img class="svgCircle" src="img/showOnMap.svg" />show on map</div>
+<div id="print" class="icon-text" ng-show="panel.printVisible"><img class="svgCircle" src="img/print.svg" />print</div>
+<div id="close" class="icon-text" ng-click="panel.setVisible(false)">close<img class="svgCircle" src="img/close.svg"/></div>
 
 <!-- All Popup Content -->
-<div id="results-container" ng-show="panel.isShowing('results')">
+<div id="instruction-content">
+	<div id="results-container" ng-show="panel.isShowing('results')">
+		
+	</div>
 	
-</div>
-
-<div ng-show="panel.isShowing('update')">
-	<div class="helpTitle"><h3><a id="updateLink" href="http://cic.naco.org/updates/sep14.html">September 2014 Update</a></h3></div>
-	<div class="helpContainer">
-		<p>
-			<div class="helpList">New Datasets!</div>
-			<div class="helpList" style="margin-left:20px">&bull; <a id="countyTaxRatesLink">County Finance - County Tax Rates</a></div>
-			<div class="helpList">Sign up for our monthly update <a ng-click="panel.toggleShowing('mailingList')">here</a></div>
-		</p>
-	</div>
-</div>
-
-<div ng-show="panel.isShowing('accessMoreData')">
-	<div id="moreDataContent">
-		<div class="row">
-			<div class="col-md-4">
-				<h3><a href="http://cic.naco.org/cic_extraction/cic_extraction_1.cfm">CIC Extraction Tool</a></h3>
-				<a href="http://cic.naco.org/cic_extraction/cic_extraction_1.cfm"><img src="img/CICExtractionThumb.png"/></a>
-			</div>
-			<div class="col-md-8">
-				<p>Full access to all the most recent data and additional historical data for all 18 categories, 66 datasets, and over 500 indicators.<br/><br/>Customizable data downloads available <a href="http://cic.naco.org/cic_extraction/cic_extraction_1.cfm">here</a></p>
-			</div>
+	<div ng-show="panel.isShowing('update')">
+		<div class="helpTitle"><h3><a class="link" id="updateLink" href="http://cic.naco.org/updates/sep14.html">September 2014 Update</a></h3></div>
+		<div class="helpContainer">
+			<p>
+				<div class="helpList">New Datasets!</div>
+				<div class="helpList" style="margin-left:20px">&bull; <a class="link" id="countyTaxRatesLink">County Finance - County Tax Rates</a></div>
+				<div class="helpList">Sign up for our monthly update <a class="link" ng-click="panel.toggleShowing('mailingList')">here</a></div>
+			</p>
 		</div>
-	</div>	        			
-</div>
-
-<div class="center" ng-show="panel.isShowing('mailingList')">
-	<p style="font-size:1.5em;">Keep Me Updated!</p>
-	<p>Submit your email to the mailing list and receive updates when new features have been added.</p>
-
-	<mailing-form></mailing-form>	
-</div>
-
-<div class="center" ng-show="panel.isShowing('thankYou')">
-	<p style="font-size:1.5em;">Thank you! Now you will be the first to know about the latest county data.</p>
-	<p>Don't forget to <a href="#" class="share-toggle">share the CIC</a> with others!</p>
-</div>
-
-<div class="helpText" ng-show="panel.isShowing('help') && panel.isHelpSelected(1)">
-	<div class="helpTitle"><h3>Help</h3></div>
-	<div class="helpContainer">
-		<p>
-			<div class="helpLinkContainer">&bull; <span class="helpLink" onclick="goToPage(2);">View a new indicator on the map</span></div>
-			<div class="helpLinkContainer">&bull; <span class="helpLink" onclick="goToPage(2);">See detailed information on an indicator</span></div>
-			<div class="helpLinkContainer">&bull; <span class="helpLink" onclick="goToPage(4);">Find a county</span></div>
-			<div class="helpLinkContainer">&bull; <span class="helpLink" onclick="goToPage(4);">Find a county by a city name</span></div>
-			<div class="helpLinkContainer">&bull; <span class="helpLink" onclick="goToPage(4);">Find a county by a state name</span></div>
-			<div class="helpLinkContainer">&bull; <span class="helpLink" onclick="goToPage(6);">Find a county seat or an elected official</span></div>
-			<div class="helpLinkContainer">&bull; <span class="helpLink" onclick="goToPage(3);">Compare two indicators</span></div>
-		</p>
 	</div>
-</div>
-
-<div class="helpText" ng-show="panel.isShowing('help') && panel.isHelpSelected(2)">
-	<div class="helpTitle"><h3>Getting Started</h3></div>
-	<div class="helpContainer">
-		<p>
-			<div class="helpList">&bull; The map always displays the latest year of data in the CIC database for the &quot;Primary Indicator&quot;.</div>
+	
+	<div ng-show="panel.isShowing('accessMoreData')">
+		<div id="moreDataContent">
+			<div class="row">
+				<div class="col-md-4">
+					<h3><a class="link" href="http://cic.naco.org/cic_extraction/cic_extraction_1.cfm">CIC Extraction Tool</a></h3>
+					<a class="link" href="http://cic.naco.org/cic_extraction/cic_extraction_1.cfm"><img src="img/CICExtractionThumb.png"/></a>
+				</div>
+				<div class="col-md-8">
+					<p>Full access to all the most recent data and additional historical data for all 18 categories, 66 datasets, and over 500 indicators.<br/><br/>Customizable data downloads available <a class="link" href="http://cic.naco.org/cic_extraction/cic_extraction_1.cfm">here</a></p>
+				</div>
+			</div>
+		</div>	        			
+	</div>
+	
+	<div class="center" ng-show="panel.isShowing('mailingList')">
+		<p style="font-size:1.5em;">Keep Me Updated!</p>
+		<p>Submit your email to the mailing list and receive updates when new features have been added.</p>
+	
+		<mailing-form></mailing-form>	
+	</div>
+	
+	<div class="center" ng-show="panel.isShowing('thankYou')">
+		<p style="font-size:1.5em;">Thank you! Now you will be the first to know about the latest county data.</p>
+		<p>Don't forget to <a class="link share-toggle">share the CIC</a> with others!</p>
+	</div>
+	
+	<div class="helpText" ng-show="panel.isShowing('help') && panel.isHelpSelected(1)">
+		<div class="helpTitle"><h3>Help</h3></div>
+		<div class="helpContainer">
+			<p>
+				<div class="helpLinkContainer">&bull; <span class="helpLink" onclick="goToPage(2);">View a new indicator on the map</span></div>
+				<div class="helpLinkContainer">&bull; <span class="helpLink" onclick="goToPage(2);">See detailed information on an indicator</span></div>
+				<div class="helpLinkContainer">&bull; <span class="helpLink" onclick="goToPage(4);">Find a county</span></div>
+				<div class="helpLinkContainer">&bull; <span class="helpLink" onclick="goToPage(4);">Find a county by a city name</span></div>
+				<div class="helpLinkContainer">&bull; <span class="helpLink" onclick="goToPage(4);">Find a county by a state name</span></div>
+				<div class="helpLinkContainer">&bull; <span class="helpLink" onclick="goToPage(6);">Find a county seat or an elected official</span></div>
+				<div class="helpLinkContainer">&bull; <span class="helpLink" onclick="goToPage(3);">Compare two indicators</span></div>
+			</p>
+		</div>
+	</div>
+	
+	<div class="helpText" ng-show="panel.isShowing('help') && panel.isHelpSelected(2)">
+		<div class="helpTitle"><h3>Getting Started</h3></div>
+		<div class="helpContainer">
+			<p>
+				<div class="helpList">&bull; The map always displays the latest year of data in the CIC database for the &quot;Primary Indicator&quot;.</div>
+				<br/>
+				<div class="helpList">&bull; Pick a statistic by clicking on &quot;Primary Indicator&quot; on the top left of the screen and choosing an indicator.</div>
+				<div class="helpList">&bull; Click on a county on the map to show detailed statistics for that county.</div>
+				<div class="helpList">&bull; Or search for a county with the search bar on the top right of the screen.</div>
+			</p>
 			<br/>
-			<div class="helpList">&bull; Pick a statistic by clicking on &quot;Primary Indicator&quot; on the top left of the screen and choosing an indicator.</div>
-			<div class="helpList">&bull; Click on a county on the map to show detailed statistics for that county.</div>
-			<div class="helpList">&bull; Or search for a county with the search bar on the top right of the screen.</div>
-		</p>
-		<br/>
-		<div>Click on the big blue button in the top-right corner to access more data or to sign up to download data through the CIC extraction tool (Coming September, 2014)</div>
-		<br/>
-		<div><img src="img/Mail.svg"> - Sign up for CIC DATA UPDATES to be the first to know the latest information about counties</div>
-		<br/>
-		<div><img src="img/Share.svg"> - Share the CIC on social media</div>
-		<br/><br/><br/>
-	</div>
-</div>
-
-<div class="helpText" ng-show="panel.isShowing('help') && panel.isHelpSelected(3)">
-	<div class="helpTitle"><h3>Comparing Two Indicators</h3></div>
-	<div class="helpContainer">
-		<p>To show additional statistics, click on &quot;Secondary Indicator&quot; on the top left of the screen and choose another indicator.</p>
-		<br>
-		<p>Clicking on a county will now compare statistics for both selected indicators</p>
-		<br/>
-		<p><img src="img/Reset_indicators.svg"> - Click this to no longer see the secondary indicator</p>
-	</div>
-</div>
-
-<div class="helpText" ng-show="panel.isShowing('help') && panel.isHelpSelected(4)">
-	<div class="helpTitle"><h3>Finding A County</h3></div>
-	<div class="helpContainer">
-		<p>There are multiple ways to find a county.</p>
-		<p>
-			<div class="helpList">&bull; Click on "County Search" and search for any county.</div>
-			<div class="helpList">&bull; Click on "City Search", type in the name of a city, and all counties located within that city will appear in the search results.</div>
-			<div class="helpList">&bull; Click on "State Search", pick a state from the dropdown, and all counties located in the state will appear in the search results.</div>
-			<div class="helpList">&bull; Double-click on any county to view basic information about it, including its county seat.</div>
-		</p>
-	</div>
-</div>
-
-<div class="helpText" ng-show="panel.isShowing('help') && panel.isHelpSelected(5)">
-	<div class="helpTitle"><h3>Using the Map</h3></div>
-	<div class="helpContainer">
-		<p>
-			<div class="helpList">&bull; Pick a new statistic by clicking on &quot;Primary Indicator&quot; on the top left of the screen and choosing an indicator.</div>
-			<div class="helpList">&bull; Click on a county on the map to show statistics.</div>
+			<div>Click on the big blue button in the top-right corner to access more data or to sign up to download data through the CIC extraction tool (Coming September, 2014)</div>
 			<br/>
-			<div class="helpList">&bull; Scroll up when hovering over the map to ZOOM IN.</div>
-			<div class="helpList">&bull; Scroll down when hovering over the map to ZOOM OUT.</div>
-			<p>&bull; Click <img src="img/Back_to_US.svg"> to fully zoom out and see the entire map</p>
-		</p>
+			<div><img src="img/Mail.svg"> - Sign up for CIC DATA UPDATES to be the first to know the latest information about counties</div>
+			<br/>
+			<div><img src="img/Share.svg"> - Share the CIC on social media</div>
+			<br/><br/><br/>
+		</div>
 	</div>
-</div>
-
-<div class="helpText" ng-show="panel.isShowing('help') && panel.isHelpSelected(6)">
-	<div class="helpTitle"><h3>County Seats and Elected Executives</h3></div>
-	<div class="helpContainer">
-		<!-- <p>Coming Soon!  We are in the process of collecting and cleaning this data for your use.</p> -->
-		<p class="helpList">Double-click on any county to view basic information about it, including its county seat and a list of elected officials.</p>
-		<p class="helpList">You can also find out whether a county has an Elected Executive or County Administrator by selecting from the "Primary Indicator"</p>
-		<p>
-			<div class="helpList">&bull; Hover over the "County Structure" category</div>
-			<div class="helpList">&bull; Hover over the "Government Structure" dataset</div>
-			<div class="helpList">&bull; Select "Elected Executive" or "County Administrator" to see which counties have that position</div>
-		</p>
+	
+	<div class="helpText" ng-show="panel.isShowing('help') && panel.isHelpSelected(3)">
+		<div class="helpTitle"><h3>Comparing Two Indicators</h3></div>
+		<div class="helpContainer">
+			<p>To show additional statistics, click on &quot;Secondary Indicator&quot; on the top left of the screen and choose another indicator.</p>
+			<br>
+			<p>Clicking on a county will now compare statistics for both selected indicators</p>
+			<br/>
+			<p><img src="img/Reset_indicators.svg"> - Click this to no longer see the secondary indicator</p>
+		</div>
 	</div>
-</div>
-
-<div id="instructionPagination" ng-show="panel.isShowing('help')">
-	<ul class="pagination">
-		<li>
-			<a ng-click="panel.incrementHelpTab(-1)">&laquo;</a>
-		</li>
-		<li name="1" ng-class="{active: panel.isHelpSelected(1)}">
-			<a ng-click="panel.selectHelpTab(1)">1</a>
-		</li>
-		<li name="2" ng-class="{active: panel.isHelpSelected(2)}">
-			<a ng-click="panel.selectHelpTab(2)">2</a>
-		</li>
-		<li name="3" ng-class="{active: panel.isHelpSelected(3)}">
-			<a ng-click="panel.selectHelpTab(3)">3</a>
-		</li>
-		<li name="4" ng-class="{active: panel.isHelpSelected(4)}">
-			<a ng-click="panel.selectHelpTab(4)">4</a>
-		</li>
-		<li name="5" ng-class="{active: panel.isHelpSelected(5)}">
-			<a ng-click="panel.selectHelpTab(5)">5</a>
-		</li>
-		<li name="6" ng-class="{active: panel.isHelpSelected(6)}">
-			<a ng-click="panel.selectHelpTab(6)">6</a>
-		</li>
-		<li>
-			<a ng-click="panel.incrementHelpTab(1)">&raquo;</a>
-		</li>
-	</ul>
+	
+	<div class="helpText" ng-show="panel.isShowing('help') && panel.isHelpSelected(4)">
+		<div class="helpTitle"><h3>Finding A County</h3></div>
+		<div class="helpContainer">
+			<p>There are multiple ways to find a county.</p>
+			<p>
+				<div class="helpList">&bull; Click on "County Search" and search for any county.</div>
+				<div class="helpList">&bull; Click on "City Search", type in the name of a city, and all counties located within that city will appear in the search results.</div>
+				<div class="helpList">&bull; Click on "State Search", pick a state from the dropdown, and all counties located in the state will appear in the search results.</div>
+				<div class="helpList">&bull; Double-click on any county to view basic information about it, including its county seat.</div>
+			</p>
+		</div>
+	</div>
+	
+	<div class="helpText" ng-show="panel.isShowing('help') && panel.isHelpSelected(5)">
+		<div class="helpTitle"><h3>Using the Map</h3></div>
+		<div class="helpContainer">
+			<p>
+				<div class="helpList">&bull; Pick a new statistic by clicking on &quot;Primary Indicator&quot; on the top left of the screen and choosing an indicator.</div>
+				<div class="helpList">&bull; Click on a county on the map to show statistics.</div>
+				<br/>
+				<div class="helpList">&bull; Scroll up when hovering over the map to ZOOM IN.</div>
+				<div class="helpList">&bull; Scroll down when hovering over the map to ZOOM OUT.</div>
+				<p>&bull; Click <img src="img/Back_to_US.svg"> to fully zoom out and see the entire map</p>
+			</p>
+		</div>
+	</div>
+	
+	<div class="helpText" ng-show="panel.isShowing('help') && panel.isHelpSelected(6)">
+		<div class="helpTitle"><h3>County Seats and Elected Executives</h3></div>
+		<div class="helpContainer">
+			<!-- <p>Coming Soon!  We are in the process of collecting and cleaning this data for your use.</p> -->
+			<p class="helpList">Double-click on any county to view basic information about it, including its county seat and a list of elected officials.</p>
+			<p class="helpList">You can also find out whether a county has an Elected Executive or County Administrator by selecting from the "Primary Indicator"</p>
+			<p>
+				<div class="helpList">&bull; Hover over the "County Structure" category</div>
+				<div class="helpList">&bull; Hover over the "Government Structure" dataset</div>
+				<div class="helpList">&bull; Select "Elected Executive" or "County Administrator" to see which counties have that position</div>
+			</p>
+		</div>
+	</div>
+	
+	<div class="pagination-container" ng-show="panel.isShowing('help')">
+		<ul class="pagination">
+			<li>
+				<a class="link" ng-click="panel.incrementHelpTab(-1)">&laquo;</a>
+			</li>
+			<li name="1" ng-class="{active: panel.isHelpSelected(1)}">
+				<a class="link" ng-click="panel.selectHelpTab(1)">1</a>
+			</li>
+			<li name="2" ng-class="{active: panel.isHelpSelected(2)}">
+				<a class="link" ng-click="panel.selectHelpTab(2)">2</a>
+			</li>
+			<li name="3" ng-class="{active: panel.isHelpSelected(3)}">
+				<a class="link" ng-click="panel.selectHelpTab(3)">3</a>
+			</li>
+			<li name="4" ng-class="{active: panel.isHelpSelected(4)}">
+				<a class="link" ng-click="panel.selectHelpTab(4)">4</a>
+			</li>
+			<li name="5" ng-class="{active: panel.isHelpSelected(5)}">
+				<a class="link" ng-click="panel.selectHelpTab(5)">5</a>
+			</li>
+			<li name="6" ng-class="{active: panel.isHelpSelected(6)}">
+				<a class="link" ng-click="panel.selectHelpTab(6)">6</a>
+			</li>
+			<li>
+				<a class="link" ng-click="panel.incrementHelpTab(1)">&raquo;</a>
+			</li>
+		</ul>
+	</div>
 </div>

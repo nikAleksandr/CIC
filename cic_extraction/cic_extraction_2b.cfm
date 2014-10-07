@@ -47,6 +47,7 @@ PLEASE GO BACK AND LIMIT YOUR SELECTION TO JUST 1 OR 2 Primary Categories.
 <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
 <link href='http://fonts.googleapis.com/css?family=Roboto+Condensed:300,400' rel='stylesheet' type='text/css'>
 <link href='http://fonts.googleapis.com/css?family=Arvo' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="../css/extraction.css">
 <link rel="stylesheet" href="../css/main.css">
 <!--Script for limiting the number of selections in the selection box-->
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>

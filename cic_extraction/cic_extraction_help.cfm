@@ -21,6 +21,7 @@
 <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
 <link href='http://fonts.googleapis.com/css?family=Roboto+Condensed:300,400' rel='stylesheet' type='text/css'>
 <link href='http://fonts.googleapis.com/css?family=Arvo' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="../css/extraction.css">
 <link rel="stylesheet" href="../css/main.css">
 
 <!--Google Analytics NACo -->

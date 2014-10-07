@@ -291,8 +291,8 @@ function dataInventory(){
 		dataInventoryArray.sort(function(a,b){return a.category - b.category; });
 		console.log(dataInventoryArray);
 		
-		emptyInstructionText();
+		/*emptyInstructionText();
 		$('#instructionText').text(convertToCSV(dataInventoryArray));
-		$('#instructions').show();
+		$('#instructions').show();*/
 	});
 }

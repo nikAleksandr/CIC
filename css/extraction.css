@@ -1,0 +1,55 @@
+/*
+ * Extraction tool styling
+ */
+
+input[name="Logout"], input[value="Next..."]{
+	float:right;
+	margin-right:2em;
+	z-index:100;
+}
+
+#extraction-header {
+	position: relative;
+	z-index: 10;
+	width: 100%;
+	height: auto;
+	padding-bottom:2em;
+	padding-left:2em;
+	margin-bottom: 2em;
+	margin-top:2em;
+	box-shadow: 0em 1em .7em 0em rgba(0, 0, 0, 0.2);
+	text-align: left;
+}
+#extraction-header h1{
+	font-family: 'Arvo', serif;
+}
+.extraction-multiple{
+	margin:20px;
+}
+.extraction-form, .extraction-table{
+	max-width:500px;
+	margin: 0 auto;
+}
+.extraction-table td{
+	word-wrap:break-word;
+}
+.extraction-help-button {
+	margin-top: 20px;
+}
+.extraction-help-box {
+	padding: 10px;
+	margin-top: 15px;	
+}
+.extraction-help-box input {
+	margin-left: 10px;
+}
+.extraction-help-text {
+	position: relative;
+	top: 4px;
+}
+.extraction-definitions {
+	max-width: 900px;
+	margin-bottom: 50px;
+	text-align: center;
+	margin: 0 auto;
+}
