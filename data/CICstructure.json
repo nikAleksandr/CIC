@@ -3957,10 +3957,12 @@
 						}, {
 							"name": "Total Road Miles per Square Mile",
 							"dataType": "level",
+							"format_type": "dec1",
 							"definition": "Total public road miles per square mile of county land area."
 						}, {
 							"name": "Total County Road Miles per Square Mile",
 							"dataType": "level",
+							"format_type": "dec1",
 							"definition": "Total public road miles under the control of the county plus city or municipality for consolidated governments per square mile of the county land area."
 						}, {
 							"name": "Unknown Road Miles",
