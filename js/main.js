@@ -20,7 +20,7 @@ var na_color = 'rgb(204,204,204)', // color for counties with no data
 (function() {
 	
 	// -------------------------- Variable Definitions ---------------------------
-	var localVersion = true;
+	var localVersion = false;
 	
 	var zoom = d3.behavior.zoom()
 	    .scaleExtent([1, 10]);
@@ -582,8 +582,8 @@ var na_color = 'rgb(204,204,204)', // color for counties with no data
 				}
 							
 				// display all matches if more than one match
-				emptyInstructionText();
-				var searchResults = d3.select('#instructionText').append('div').attr('class', 'temp');
+				showResults();
+				var searchResults = d3.select('#results-container').append('div').attr('class', 'temp');
 				searchResults.append('p')
 					.style('text-align', 'center')
 					.text('Your search returned ' + pMatchArray.length + ' results');
@@ -632,7 +632,7 @@ var na_color = 'rgb(204,204,204)', // color for counties with no data
 		}
 	}
 	
-	var executeSearchMatch = function(FIPS) {
+	executeSearchMatch = function(FIPS) {
 		hideInstructions();
 		$('#search_field').val('');
 		
@@ -661,7 +661,7 @@ var na_color = 'rgb(204,204,204)', // color for counties with no data
 	};
 	
 	var displayResults = function(url) {
-		emptyInstructionText();
+		showResults();
 		$('#print').css('display', 'inline');
 		
 		d3.xhr('/ciccfm/'+ url, function(error, request){
@@ -672,11 +672,10 @@ var na_color = 'rgb(204,204,204)', // color for counties with no data
 					return;
 				}
 				
-				var frame = d3.select("#instructionText").append('div')
-					.attr('class', 'container-fluid temp')
-					.attr('id', 'resultsContainer');
+				var frame = d3.select("#results-container").append('div')
+					.attr('class', 'container-fluid temp');
 					
-					frame.html(response);
+				frame.html(response);
 				
 				(url.indexOf('county') != -1) ? $('#showOnMap').show() : $('#showOnMap').hide();
 				showInstructions();
@@ -1645,6 +1644,13 @@ var na_color = 'rgb(204,204,204)', // color for counties with no data
 		scope.$apply(function() {
 			scope.panel.setVisible(false);
 		});
+	};
+	var showResults = function() {
+		$('#results-container').empty();
+		var scope = angular.element($('#container')).scope();
+		scope.$apply(function() {
+			scope.panel.toggleShowing('results');
+		});		
 	};
 	
 

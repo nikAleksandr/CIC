@@ -76,6 +76,15 @@ textarea {
     resize: vertical;
 }
 
+/*
+ * Helper classes
+ */
+
+.center {
+	text-align: center;
+}
+
+
 /* ==========================================================================
    Browse Happy prompt
    ========================================================================== */
@@ -187,7 +196,7 @@ table th{
 }
 .helpList { padding-bottom: 5px; }
 
-.iText a,
+#instructions a,
 #fullDefsText a,
 .county_link {
 	color: rgb(0,64,112);
@@ -211,10 +220,6 @@ mailing-form form { margin-top: 35px; }
 mailing-form .email-input { width: 220px; }
 mailing-form .ss-item { margin-top: 20px; }
 
-#mailingText,
-#thankYouText {
-	text-align: center;
-}
 
 #fullDefsButton{
 	color:rgb(0,64,112);

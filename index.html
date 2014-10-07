@@ -112,15 +112,8 @@
 
 		<!-- Main Body of Page -->
     	<div id="cc">	
-    		<div class="container" id="container" ng-controller="PanelController as panel">	        
-		        <div id="instructions" ng-show="panel.visible">
-		        	<div id="showOnMap" ng-show="panel.showOnMapVisible"><img class="svgCircle" src="img/showOnMap.svg" />show on map</div>
-		        	<div id="print" ng-show="panel.printVisible"><img class="svgCircle" src="img/print.svg" />print</div>
-		        	<div id="close" ng-click="panel.setVisible(false)">close<img class="svgCircle" src="img/close.svg"/></div>
-		        	
-		        	<!-- All Popup Content -->
-		        	<div id="instructionText" overlay-content></div>		        	
-		        </div>
+    		<div class="container" id="container" ng-controller="PanelController as panel">	 
+    			<overlay id="instructions" ng-show="panel.visible"></overlay>
 			
 				<div id="map">
 					<table id="iconsGroup"><tbody>

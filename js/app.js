@@ -24,7 +24,7 @@
 			panel.isShowing = function(textId) {
 				return panel.currentText === textId;
 			};
-			panel.toggleShowing = function(newTextId) {
+			panel.toggleShowing = function(newTextId) {				
 				if (panel.currentText === newTextId) panel.setVisible(!panel.visible);
 				else {
 					panel.setVisible(true);
@@ -97,8 +97,8 @@
 				}
 			};
 		})
-		.directive('overlayContent', function() {
-			return {restrict: 'A', templateUrl: 'assets/overlayContent.html'};
+		.directive('overlay', function() {
+			return {restrict: 'E', templateUrl: 'assets/overlay.html'};
 		})
 		.directive('mailingForm', function() {
 			return {restrict: 'E', templateUrl: 'assets/mailingForm.html'};
