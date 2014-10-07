@@ -182,6 +182,7 @@ table th{
 	padding-bottom: 20px;
 	text-align: left;
 	font-size: 1em;
+	z-index: 4;
 }
 .helpList { padding-bottom: 5px; }
 #instructionText a, #fullDefsText a, .county_link{
@@ -194,6 +195,7 @@ table th{
 	position: absolute;
 	bottom: 0px;
 	right: 20px;
+	z-index: 5;
 }
 #instructionPagination a, .helpLink { cursor: pointer; }
 .helpTitle { padding: 10px 0px 0px 35px; }

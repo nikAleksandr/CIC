@@ -2,15 +2,7 @@
 	// initialize angular module
 	var app = angular.module('CIC', [])
 		.controller('MenuController', function() {
-			this.accessMoreData = function() {
-				if ($('#mdText').is(':visible')) {
-					//$('#instructions').hide();
-				} else {
-					emptyInstructionText();
-					$('#mdText').show();
-					$('#instructions').show();
-				}			
-			};
+
 		})
 		.controller('MainController', function() {
 			// -------------- Social Buttons -----------------

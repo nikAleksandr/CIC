@@ -237,6 +237,15 @@ var na_color = 'rgb(204,204,204)', // color for counties with no data
 		$('#thankYouText').show();
 		$('#instructions').show();
 	}
+	var accessMoreData = function() {
+		if ($('#mdText').is(':visible')) {
+			//$('#instructions').hide();
+		} else {
+			emptyInstructionText();
+			$('#mdText').show();
+			$('#instructions').show();
+		}			
+	};
 	//Functions for Icons
 	var setIconBehavior = function() {
 		$('#showHelpIcon, #showHelpIconText').on('click', function(e) {
@@ -434,13 +443,13 @@ var na_color = 'rgb(204,204,204)', // color for counties with no data
 			$('#instructions').show();
 		}
 	}
-	var incrementPage = function(dx) {
+	incrementPage = function(dx) {
 		var currPageNum = parseInt($('#instructionPagination .active').attr('name'));
 		if (currPageNum === 1 && parseInt(dx) === -1) goToPage(1);
 		else if (currPageNum === 6 && parseInt(dx) === 1) goToPage(6);
 		else goToPage(currPageNum + parseInt(dx));
 	}
-	var goToPage = function(pageNum) {
+	goToPage = function(pageNum) {
 		$('#instructionPagination .active').removeClass('active');
 		$('#instructionPagination li[name='+pageNum+']').addClass('active');
 		
