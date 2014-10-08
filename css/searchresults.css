@@ -1,0 +1,83 @@
+
+/* CFM Response Styling */
+#resultsContainer{
+	padding:1em 0 1em 0;
+}
+#multiCountyResult{
+	padding-bottom: 3em;
+}
+
+#responseContent h4{
+	color: rgb(255,152,51);
+	font-weight:bold;
+}
+
+/* 
+ * County Response, all classes begin with countyResponse-<class>
+ */
+#countyResponse-title, #stateResponse-title{
+	font-family: 'Arvo', serif;
+	padding-left:2em;
+}
+#countyResponse-title h3, #stateResponse-title h3{
+	font-weight:700;
+	margin:15px 0 15px 0;
+}
+#countyResponse-title, #countyResponse-quickLinks, #stateResponse-title{
+	background-color:rgb(255,153,51);
+	color:#fff;
+}
+#countyResponse-basicInfoRow{
+	border-bottom-color: rgb(255,153,51);
+	border-bottom-style: solid;
+	border-bottom-width: 2px;
+}
+#countyResponse-quickLinks{
+	margin-bottom:0;
+	height:117px;
+}
+#countyResponse-quickLinks h4{
+	color:#fff;
+}
+#countyResponse-quickLinks a{
+	color:#fff;
+}
+#countyResponse-memberRow #countyResponse-nacoMember{
+	height: 1.4em;
+	margin-top:-1em;
+}
+#countyResponse-nacoMember h4{
+	text-align:right;
+	font-size: .8em;
+}
+#countyResponse-countyDetails table{
+	text-align:left;
+}
+#countyResponse-populations table{
+	text-align:center;
+	margin:0 auto;
+	width: 80%;
+}
+#countyResponse-quickLinks ul{
+	text-align:left;
+	padding-left:3em;
+	list-style:none;
+}
+#countyResponse-electedOfficials table, #multiCountyResult table, #cityResponse table{
+	width:auto;
+	margin: 0 auto;
+}
+#multiCountyResult td{
+	padding-left:1em;
+	padding-right:1em;
+} 
+#stateResponse-table{
+	margin:0 auto;
+	width:90%;
+}
+#stateResponse-table th{
+	color:rgb(255,153,51);
+	font-size:1em;
+	margin-right:5px;
+	text-align:right;
+}

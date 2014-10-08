@@ -35,8 +35,10 @@
         <link rel='stylesheet' href='css/nprogress.css' />
 		<link href='https://fonts.googleapis.com/css?family=Roboto+Condensed:300,400' rel='stylesheet' type='text/css'>
 		<link href='https://fonts.googleapis.com/css?family=Arvo:400,700' rel='stylesheet' type='text/css'>
-		<link rel="stylesheet" href="css/overlay.css" media="all">
+
 		<link rel="stylesheet" href="css/main.css" media="all">
+		<link rel="stylesheet" href="css/overlay.css" media="all">
+		<link rel="stylesheet" href="css/searchresults.css" media="all">
 
 		<!-- JS Files -->
         <script src="js/vendor/modernizr-2.7.1.min.js"></script>
@@ -66,7 +68,7 @@
 				    
 				    <!-- Left Nav - Two Lists of Indicators by Dataset by Category -->
 				    <ul class="nav navbar-nav" id="primeIndList">
-						<li id="primeIndLi">
+						<li>
 							<a id="primeIndText">Primary Indicator</a>
 							<ul id="primeInd" class="dropdown-menu" indicator-list></ul>
 						</li>
@@ -100,7 +102,7 @@
 								<input type="image" src="img/active-search.svg" width="18px" height="18px" id="search-submit" value="Search">
 							</form>
 						</a></li>
-						<li id="more-data">
+						<li id="more-data-button">
 							<a ng-click="menu.accessMoreData()" href="#">
 								<span>ACCESS MORE DATA</span>
 								<img width="30" height="30" src="img/more_data.svg"/>
@@ -119,23 +121,23 @@
 				<div id="map">
 					<table id="side-icon-container"><tbody>
 						<tr>
-							<td><a id="showHelpIcon" title="Help" ng-click="panel.toggleShowing('help')"><img class="side-icon" width="30" height="30" alt="Help" src="img/Help.svg"/></a></td>
+							<td><a id="showHelpIcon" class="link" title="Help" ng-click="panel.toggleShowing('help')"><img class="side-icon" width="30" height="30" alt="Help" src="img/Help.svg"/></a></td>
 							<td id="showHelpIconText" class="icon-text side-icon-text" ng-click="panel.toggleShowing('help')">Help</td>
 						</tr>
 						<tr>
-							<td><a id="backToMapIcon" title="Back to US Map" ng-click="panel.setVisible(false)"><img class="side-icon" width="30" height="30" alt="Back to US Map" src="img/Back_to_US.svg"/></a></td>
+							<td><a id="backToMapIcon" class="link" title="Back to US Map" ng-click="panel.setVisible(false)"><img class="side-icon" width="30" height="30" alt="Back to US Map" src="img/Back_to_US.svg"/></a></td>
 							<td id="backToMapIconText" class="icon-text side-icon-text" ng-click="panel.setVisible(false)">Back to US Map</td>
 						</tr>
 						<tr>
-							<td><a id="resetAllIcon" title="Reset Indicators"><img class="side-icon" width="30" height="30" alt="Reset Indicators" src="img/Reset_indicators.svg"/></a></td>
+							<td><a id="resetAllIcon" class="link" title="Reset Indicators"><img class="side-icon" width="30" height="30" alt="Reset Indicators" src="img/Reset_indicators.svg"/></a></td>
 							<td id="resetAllIconText" class="icon-text side-icon-text">Remove Second Indicator</td>
 						</tr>
 						<tr>
-							<td><a class="share-toggle" title="Share this info"><img class="side-icon" width="30" height="30" alt="Share this info" src="img/Share.svg"/></a></td>
+							<td><a class="share-toggle" class="link" title="Share this info"><img class="side-icon" width="30" height="30" alt="Share this info" src="img/Share.svg"/></a></td>
 							<td class="icon-text side-icon-text share-toggle">Share this map!</td>
 						</tr>
 						<tr>
-							<td><a id="addToMailingListIcon" title="Add Me To Mailing List" ng-click="panel.toggleShowing('mailingList')"><img class="side-icon" width="30" height="30" alt="Add Me To Mailing List" src="img/Mail.svg"/></a></td>
+							<td><a id="addToMailingListIcon" class="link" title="Add Me To Mailing List" ng-click="panel.toggleShowing('mailingList')"><img class="side-icon" width="30" height="30" alt="Add Me To Mailing List" src="img/Mail.svg"/></a></td>
 							<td id="addToMailingListIconText" class="icon-text side-icon-text" ng-click="panel.toggleShowing('mailingList')">Add to Mailing List</td>
 						</tr>
 					</tbody></table>

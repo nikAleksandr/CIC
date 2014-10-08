@@ -216,8 +216,8 @@ function addToCrosswalk() {
 function createDropdownStructure() {
 	// create menu structure to be copied over to index.html; be cautious not overwriting anything; most likely will not use this again
 	d3.json("data/CICstructure.json", function(error, CICStructure){
-		$('#primeIndLi').empty();
-		var primeList = d3.select('#primeIndLi');
+		$('#primeIndList li').empty();
+		var primeList = d3.select('#primeIndList li');
 		primeList.append('a')
 			.attr('id', 'primeIndText')
 			.text('Primary Indicator');

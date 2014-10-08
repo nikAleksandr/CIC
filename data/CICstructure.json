@@ -1519,10 +1519,6 @@
 							"unit": "year",
 							"dataType": "level_np",
 							"definition": "Year a city and a county that have been merged into one unified jurisdiction. A consolidated government has the powers and responibilities of both types of entities."
-						}, {
-							"name": "Source",
-							"dataType": "link",
-							"definition": "The source of the consolidation."
 						}
 					]
 				}
@@ -4147,6 +4143,33 @@
 							"unit": "thousands of dollars",
 							"dataType": "level",
 							"definition": "Amounts paid to other local governments government for performance of specific functions or for general financial support. Includes grants, shared taxes, contingent loans and advances, and any significant and identifiable amounts or reimbursement paid to other governments for performance of general government services or activities. By definition, it excludes amounts paid to other governments for purchase of commodities, property, or utility services and for any tax levied as such on facilities of the government."
+						}
+					]
+				}, {
+					"name": "Broadband Connections",
+					"source": "Federal Communications Commission",
+					"years": [2011, 2012, 2013],
+					"companions": [["Broadband Connections", "Fixed Internet Connections"], ["Broadband Connections", "Fixed Internet Providers"], ["Broadband Connections", "Mobile Internet Providers"] 
+					],
+					"children": [
+						{
+							"name": "Fixed Internet Connections",
+							"unit": "connections per 1,000 households",
+							"dataType": "level",
+							"thresholds": [200, 400, 600, 800],
+							"definition": "Number of residential fixed connections over 200 kbps in at least one direction in the county per 1000 households."
+						}, {
+							"name": "Fixed Internet Providers",
+							"unit": "providers",
+							"dataType": "level",
+							"thresholds": [1, 4, 5, 6],
+							"definition": "Number of providers of residential fixed connections over 200 kbps in at least one direction available in the county."
+						}, {
+							"name": "Mobile Internet Providers",
+							"unit": "providers",
+							"dataType": "level",
+							"thresholds": [1, 4, 5, 6],
+							"definition": "Number of providers of mobile connections available in the county."
 						}
 					]
 				}
