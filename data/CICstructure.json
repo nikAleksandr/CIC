@@ -4149,6 +4149,30 @@
 							"definition": "Amounts paid to other local governments government for performance of specific functions or for general financial support. Includes grants, shared taxes, contingent loans and advances, and any significant and identifiable amounts or reimbursement paid to other governments for performance of general government services or activities. By definition, it excludes amounts paid to other governments for purchase of commodities, property, or utility services and for any tax levied as such on facilities of the government."
 						}
 					]
+				}, {
+					"name": "Broadband Connections",
+					"source": "Federal Communications Commission",
+					"years": [2011, 2012, 2013],
+					"companions": [["Utility Expenditures", "Total Utility"], ["Utility Expenditures", "Electric Utilities"], ["Utility Expenditures", "Gas Utilities"], ["Utility Expenditures", "Construction"]
+					],
+					"children": [
+						{
+							"name": "Broadband Connections",
+							"unit": "connections per 1,000 households",
+							"dataType": "level",
+							"definition": "Number of residential fixed connections over 200 kbps in at least one direction in the county per 1000 households."
+						}, {
+							"name": "Broadband Providers",
+							"unit": "providers per 1,000 households",
+							"dataType": "level",
+							"definition": "Number of providers of residential fixed connections over 200 kbps in at least one direction available in the county."
+						}, {
+							"name": "Mobile Providers",
+							"unit": "providers",
+							"dataType": "level",
+							"definition": "Number of providers of mobile connections available in the county."
+						}
+					]
 				}
 			]
 		}, {

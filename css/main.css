@@ -90,12 +90,12 @@ body {
 
 /* Indicator Dropdown Styling */
 .navbar a {
-	color: rgba(0, 0, 0);
+	color: rgb(0, 0, 0);
 	cursor: pointer;
 }
 #primeInd a,
 #secondInd a:not(#resetSecondInd) {
-	cursor: default; 
+	cursor: default;
 }
 
 .navbar-CIC {
