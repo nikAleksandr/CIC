@@ -35,7 +35,9 @@
         <link rel='stylesheet' href='css/nprogress.css' />
 		<link href='https://fonts.googleapis.com/css?family=Roboto+Condensed:300,400' rel='stylesheet' type='text/css'>
 		<link href='https://fonts.googleapis.com/css?family=Arvo:400,700' rel='stylesheet' type='text/css'>
+
 		<link rel="stylesheet" href="css/overlay.css" media="all">
+		<link rel="stylesheet" href="css/searchresults.css" media="all">
 		<link rel="stylesheet" href="css/main.css" media="all">
 
 		<!-- JS Files -->
@@ -66,7 +68,7 @@
 				    
 				    <!-- Left Nav - Two Lists of Indicators by Dataset by Category -->
 				    <ul class="nav navbar-nav" id="primeIndList">
-						<li id="primeIndLi">
+						<li>
 							<a id="primeIndText">Primary Indicator</a>
 							<ul id="primeInd" class="dropdown-menu" indicator-list></ul>
 						</li>
@@ -100,7 +102,7 @@
 								<input type="image" src="img/active-search.svg" width="18px" height="18px" id="search-submit" value="Search">
 							</form>
 						</a></li>
-						<li id="more-data">
+						<li id="more-data-button">
 							<a ng-click="menu.accessMoreData()" href="#">
 								<span>ACCESS MORE DATA</span>
 								<img width="30" height="30" src="img/more_data.svg"/>
