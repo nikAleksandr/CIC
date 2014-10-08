@@ -627,9 +627,9 @@ Utility	Utility_Rev_Electric_Power_Systems	Utility	Utility Revenue	Electric Powe
 Utility	Utility_Rev_Gas_Supply_Systems	Utility	Utility Revenue	Gas Supply Systems	"State aid for maintenance, operation, and construction of public natural gas supply and distribution systems."
 Utility	Utility_Rev_Public_Mass_Transit_Systems	Utility	Utility Revenue	Public Mass Transit Systems	"State aid for maintenance, operation, and construction of public mass transit systems (buses, subways, commuter railroads, urban mass transit, and the like)."
 Utility	Utility_Rev_Water_Supply_Systems	Utility	Utility Revenue	Water Supply Systems	"State aid for maintenance, operation, and construction of public water supply systems, water purification plants, etc."
-Utility	BC_Rfc_P_1000	Utility	Broadband Connections	Broadband Connections	Number of residential fixed connections over 200 kbps in at least one direction in the county per 1000 households
-Utility	BC_Rfc_Providers	Utility	Broadband Connections	Broadband Providers	Number of providers of residential fixed connections over 200 kbps in at least one direction available in the county
-Utility	BC_Mob_Providers	Utility	Broadband Connections	Mobile Providers	Number of providers of mobile connections available in the county
+Utility	BC_Rfc_P_1000	Utility	Broadband Connections	Fixed Internet Connections	Number of residential fixed connections over 200 kbps in at least one direction in the county per 1000 households
+Utility	BC_Rfc_Providers	Utility	Broadband Connections	Fixed Internet Providers	Number of providers of residential fixed connections over 200 kbps in at least one direction available in the county
+Utility	BC_Mob_Providers	Utility	Broadband Connections	Mobile Internet Providers	Number of providers of mobile connections available in the county
 W_S_SW	KEYID	"Water, Sewerage & Solid Waste"			
 W_S_SW	FIPS	"Water, Sewerage & Solid Waste"			
 W_S_SW	DATA_YEAR	"Water, Sewerage & Solid Waste"			

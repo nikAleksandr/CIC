@@ -1066,22 +1066,25 @@ var na_color = 'rgb(204,204,204)', // color for counties with no data
 						}
 					} else if (indObjs[i].dataType === 'categorical') {
 						if (qbis[i][ind] === 0) qbis[i][ind] = 'None';
-					} else if (indObjs[i].dataType === 'level' && indObjs[i].category === 'Federal Funding') {
-						// if there's data for it, change null to 0 (prob should change in database, but this is easier for now)
-						if (isNaN(qbis[i][ind]) && !exceptionCounties.hasOwnProperty(+ind)) qbis[i][ind] = 0;
-						//if(perCap){qbis[i][ind] = qbis[i][ind]/popByIds[i][ind];}
-						
-						// for pilt, change land areas from square miles to acres
-						if (indObjs[i].DI === 'Payment in Lieu of Taxes (PILT) - PILT per Acre') {
-							qbis[i][ind] /= 640;
-						} else if (indObjs[i].DI === 'Payment in Lieu of Taxes (PILT) - Total Federal Land Area' || indObjs[i].DI === 'Payment in Lieu of Taxes (PILT) - Total County Area') {
-							qbis[i][ind] *= 640;
+
+						if (indObjs[i].name === 'Level of CBSA') {
+							if (qbis[i][ind] === 1) qbis[i][ind] = 'Metropolitan';
+							else if (qbis[i][ind] === 2) qbis[i][ind] = 'Micropolitan';
 						}
-						
-						
-					} else if (indObjs[i].name === 'Level of CBSA') {
-						if (qbis[i][ind] === 1) qbis[i][ind] = 'Metropolitan';
-						else if (qbis[i][ind] === 2) qbis[i][ind] = 'Micropolitan';
+					} else if (indObjs[i].dataType === 'level') {
+						if (indObjs[i].category === 'Federal Funding') {
+							if (isNaN(qbis[i][ind])) qbis[i][ind] = 0; // assume if county is unavailable in database, the county gets 0 funding 
+							
+							// for pilt, change land areas from square miles to acres
+							if (indObjs[i].DI === 'Payment in Lieu of Taxes (PILT) - PILT per Acre') {
+								qbis[i][ind] /= 640;
+							} else if (indObjs[i].DI === 'Payment in Lieu of Taxes (PILT) - Total Federal Land Area' || indObjs[i].DI === 'Payment in Lieu of Taxes (PILT) - Total County Area') {
+								qbis[i][ind] *= 640;
+							}
+						} else if (indObjs[i].name === 'Fixed Internet Connections') {
+							if (qbis[i][ind] === 5) qbis[i][ind] = 1000;
+							else if (qbis[i][ind] >= 1) qbis[i][ind] = qbis[i][ind] * 200 - 100;
+						}
 					} else if (indObjs[i].name === 'CSA Code') {
 						if (qbis[i][ind] === 0) qbis[i][ind] = null;
 					}				
@@ -1243,29 +1246,43 @@ var na_color = 'rgb(204,204,204)', // color for counties with no data
 	}
 	
 	var populateTooltip = function(d) {
-		$('#tipContainer').empty();
-	    tipContainer.append('div')
-	    	.attr('id', 'tipLocation')
-	    	.text(countyObjectById[d.id].geography);
-			
-		// loop through primary and all three companions and display corresponding formatted values
-		var tipInfo = tipContainer.append('div').attr('id', 'tipInfo');	
-		var tipTable = tipInfo.append('table')
-			.attr('class', 'table')
-			.style({'margin-bottom': '5px', 'margin-top': '0px'}); // bootstrap defaults margin-bottom at 20px
-		var none_avail = true;
-		
-		var writeIndicators = function(row, obj, quant, secondary) {
-			// set up unit and link
-			var unit = (obj.hasOwnProperty('unit')) ? obj.unit : '';		
-			if (obj.hasOwnProperty('format_type')) var value = format_tt[obj.format_type](quant[d.id], unit);
-			else {
-				if (obj.dataType === 'link') var value = '<a href='+value+'>Link</a>';
-				else var value = format_tt[obj.dataType](quant[d.id], unit);
+		var getAttributes = function(objs) {
+			// find out if all indicators are in same dataset
+			var sameDataset = true;
+			for (var i = 1; i < objs.length; i++){
+				if (objs[i].dataset !== objs[0].dataset) {
+					sameDataset = false;
+					break;
+				}
 			}
-			
-			
-			// adjust unit values
+	
+			// find out if all indicators are from same year
+			var allSameYear = true;
+			for (var i = 1; i < objs.length; i++) {
+				if (objs[i].year !== objs[0].year) {
+					allSameYear = false;
+					break;
+				}
+			}
+			return {sameDataset: sameDataset, allSameYear: allSameYear};				
+		}		
+		var writeHeader = function(objs, attr) {
+			// title for group of indicators; either name of dataset or category; includes year if all from same year
+			row.append('td').attr({'class': 'datasetName', 'colspan': '2'}).text(function() {
+				var titleText = (attr.sameDataset) ? objs[0].dataset : objs[0].category;
+				return (attr.allSameYear) ? titleText + ', ' + objs[0].year : titleText;
+			});			
+		}
+		var writeIndicators = function(row, obj, quant, attr, isSecondary) {
+			// set up unit and formatted value
+			var unit = (obj.hasOwnProperty('unit')) ? obj.unit : '';		
+			if (obj.hasOwnProperty('format_type')) {
+				var value = format_tt[obj.format_type](quant[d.id], unit);
+			} else {
+				var value = format_tt[obj.dataType](quant[d.id], unit);
+			}
+						
+			// adjust unit and value for display
 			if (value === '$NaN' || value === 'NaN' || value === 'NaN%' || value === null || value === '.' || (isNumFun(obj.dataType) && isNaN(quant[d.id])) ) {
 				value = 'Not Available';
 				unit = '';
@@ -1273,81 +1290,68 @@ var na_color = 'rgb(204,204,204)', // color for counties with no data
 				if (typeof value === 'string') value = value.charAt(0).toUpperCase() + value.substr(1);
 	
 				if (unit.indexOf('dollar') !== -1 || unit.indexOf('year') !== -1) unit = '';
-				if (unit !== '') {				
-					// "1 employee" instead of "1 employees"
-					if (unit.charAt(unit.length - 1) === 's' && parseFloat(value.toString().replace(/[^\d\.\-]/g, '')) === 1) {
-						unit = unit.substr(0, unit.length - 1); // "1 employee"
+				else if (unit !== '') {				
+					// change unit from plural to singular if necessary
+					if (parseFloat(value.toString().replace(/[^\d\.\-]/g, '')) === 1) {
+						if (unit.charAt(unit.length - 1) === 's') {
+							unit = unit.substr(0, unit.length - 1); // "1 employee"
+						} else if (unit.indexOf('s per') !== -1) {
+							var index = unit.indexOf('s per');
+							unit = unit.substr(0, index) + unit.substr(index + 1);
+						}
 					}
 				}
 			}
 			
-			if (obj === indObjects[0]) {
-				// only for first indicator for now
-				if (isPerCapita) unit += (unit === '') ? 'per capita' : ' per capita';
+			// manual manipulation of tooltip values shown T_T
+			if (obj.name === 'Fixed Internet Connections') {
+				if (value === 1000) value = '800-1000';
+				else value = (parseInt(value) - 100) + '-' + (parseInt(value) + 100);
+			} else if (obj.name === 'Fixed Internet Providers' || obj.name === 'Mobile Internet Providers') {
+				if (value = 1) value = '1-3';
 			}
 			
-			var name = (obj.name.indexOf('(') != -1) ? obj.name.substring(0, obj.name.indexOf('(')) : obj.name; // cut off before parenthesis if there is one
-			if (((!secondary && !all_same_year) || (secondary && !s_all_same_year)) && !obj.hasOwnProperty('year_ind')) name = obj.year + ' ' + name;
+			// define name variable and cut off before parenthesis if there is one
+			var name = (obj.name.indexOf('(') != -1) ? obj.name.substring(0, obj.name.indexOf('(')) : obj.name;
 			
-			row.append('td').attr('class', 'dataName').classed('leftborder', secondary).text(name + ':');
+			// if all indicators displayed in tooltip are not from same year, add year before name
+			if (!attr.allSameYear && !obj.hasOwnProperty('year_ind')) name = obj.year + ' ' + name;
+			
+			row.append('td').attr('class', 'dataName').classed('leftborder', isSecondary).text(name + ':');
 			row.append('td').attr('class', 'dataNum').html(value + " " + unit);
 		};
-	
-		// find out if all indicators are in same dataset
-		var sameDataset = true, s_sameDataset = true;
-		for (var i = 1; i < indObjects.length; i++){
-			if (indObjects[i].dataset !== indObjects[0].dataset) {
-				sameDataset = false;
-				break;
-			}
-		}
-		if (currentSecondDI !== '') {
-			for (var i = 1; i < s_indObjects.length; i++) {
-				if (s_indObjects[i].dataset !== s_indObjects[0].dataset) {
-					s_sameDataset = false;
-					break;
-				}
-			}
-		}
+		
+		var includeSecondary = (currentSecondDI !== '');
+		var attrib = getAttributes(indObjects);
+		if (includeSecondary) var s_attrib = getAttributes(s_indObjects);
 
-		// find out if all indicators are from same year
-		var all_same_year = true;
-		for (var i = 1; i < indObjects.length; i++) {
-			if (indObjects[i].year !== indObjects[0].year) {
-				all_same_year = false;
-				break;
-			}
-		}
-		var s_all_same_year = true;
-		for (var i = 1; i < s_indObjects.length; i++) {
-			if (s_indObjects[i].year !== s_indObjects[0].year) {
-				s_all_same_year = false;
-				break;
-			}
-		}	
-		// populate tooltip with header and each indicator
-		for (var i = 0; i < indObjects.length; i++) {
-			// if all the indicators are from the same dataset, add a dataset title to the tooltip
-			if (i == 0) {
-				var row = tipTable.append('tr').attr('class', 'tipKey');			
-				row.append('td').attr({'class': 'datasetName', 'colspan': '2'}).text(function() {
-					var titleText = (sameDataset) ? indObjects[i].dataset : indObjects[i].category;
-					if (all_same_year) titleText += ', ' + indObjects[i].year;
-					return titleText;
-				});
-				if (currentSecondDI !== '') {
-					row.append('td').attr({'class': 'datasetName', 'colspan': '2'}).text(function() {
-						var s_titleText = (s_sameDataset) ? s_indObjects[i].dataset : s_indObjects[i].category;
-						if (s_all_same_year) s_titleText += ', ' + s_indObjects[i].year;
-						return s_titleText;
-					});
-				}
-			}
+
+		// empty out tooltip
+		$('#tipContainer').empty();
+		
+		// county name on top of tooltip
+	    tipContainer.append('div')
+	    	.attr('id', 'tipLocation')
+	    	.text(countyObjectById[d.id].geography);
 			
+		// main content table
+		var tipInfo = tipContainer.append('div').attr('id', 'tipInfo');	
+		var tipTable = tipInfo.append('table')
+			.attr('class', 'table')
+			.style({'margin-bottom': '5px', 'margin-top': '0px'}); // bootstrap defaults margin-bottom at 20px
+		var none_avail = true;
+		
+		// write header			
+		var row = tipTable.append('tr').attr('class', 'tipKey');
+		writeHeader(indObjects, attrib);
+		if (includeSecondary) writeHeader(s_indObjects, s_attrib);		
+
+		// write each indicator row
+		for (var i = 0; i < indObjects.length; i++) {			
 			var row = tipTable.append('tr').attr('class', 'tipKey');	
-			writeIndicators(row, indObjects[i], quantByIds[i], false);
-			if (currentSecondDI !== '' && i < s_indObjects.length) writeIndicators(row, s_indObjects[i], s_quantByIds[i], true);
-		}
+			writeIndicators(row, indObjects[i], quantByIds[i], attrib, false);
+			if (includeSecondary && i < s_indObjects.length) writeIndicators(row, s_indObjects[i], s_quantByIds[i], s_attrib, true);
+		}			
 	}
 	
 	var positionTooltip = function(county) {
