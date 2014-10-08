@@ -4,10 +4,10 @@
  */
 
 #instructions {
+	position: absolute;
 	text-align: left;
 	width: 80%;
 	max-width: 900px;
-	position: absolute;
 	top: 5%;
 	z-index: 100;
 	box-shadow: 0 0 .938em rgba(0, 0, 0, 0.5);
@@ -33,67 +33,38 @@
 	padding-bottom: 20px;
 	text-align: left;
 	font-size: 1em;
-}
-#instruction-content { z-index: 4; }
-#instruction-content th {
-	font-weight: bold;
-	border-top: none;
-	font-size: 0.8em;
-	padding-top: 4px;
-	padding-bottom: 4px;
-}
-#instruction-content td {
-	border-top: none;
-	font-size: 0.8em;
-	padding-top: 4px;
-	padding-bottom: 4px;
+	z-index: 4;
 }
 
-.instructionImg {
-	display: inline-block;
-	float: left;
-	height: 5%;
-	width: 5%;
-	margin: 0 1em;
-	display: none;
-}
+.panel-title { padding: 10px 0px 0px 35px; }
+.panel-content { padding: 5px 0px 0px 50px; }
 
-/* Content for Extraction Tool */
-#more-data-content {
-	width: 95%;
-	margin-left: 2%;
-	padding-top: 10px;
-}
-#more-data-content h3 {
+
+/* Content for Extraction Tool (Access More Data) */
+.extraction-tool-header a {
 	font-family: 'Arvo', serif;
+	color: rgb(204, 153, 51);
 }
-#more-data-content img {
-	height: 180px;
-	width: 255px;
+.extraction-tool-content {
+	text-align: left;
+	display: inline-block;
+	max-width: 600px;
+	margin-top: 15px;
+}
+.extraction-tool-img {
 	border: 1px solid #CCC;
+	margin-top: 15px;
 }
-#more-data-content p {
-	margin-top: 80px;
-}
-
-
-/* Pagination */
-.pagination-container {
-	text-align: right;
-	position: absolute;
-	bottom: 0px;
-	right: 20px;
-}
-.pagination a:hover { text-decoration: none; }
-.pagination .active { color: white; }
 
 
 /* Help Content */
-.helpTitle { padding: 10px 0px 0px 35px; }
-.helpContainer { padding: 5px 0px 0px 50px; }
-.helpLinkContainer { padding-bottom: 5px; }
-.helpLink { cursor: pointer; }
-.helpList { padding-bottom: 5px; }
+.help-link-container { padding-bottom: 5px; }
+.help-link {
+	cursor: pointer;
+	text-decoration: underline;
+}
+.help-link:hover { color: #2a6496; }
+.help-list { padding-bottom: 5px; }
 
 
 /* Google Form */
@@ -124,3 +95,14 @@ mailing-form .ss-item { margin-top: 20px; }
 	display: inline;
 }
 #print { margin-left: 10px; }
+
+
+/* Pagination */
+.pagination-container {
+	text-align: right;
+	position: absolute;
+	bottom: 0px;
+	right: 20px;
+}
+.pagination a:hover { text-decoration: none; }
+.pagination .active { color: white; }
