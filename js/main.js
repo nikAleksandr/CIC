@@ -953,7 +953,9 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 			$('#thresholdInputContainer').hide();
 		}
 		
-	
+		// if county is active and tooltip is not showing, unhighlight selected county
+		if (d3.select('.county.active').empty() !== true && $('#tt').hasClass('hidden') === true) unhighlight();
+		
 		fillMapColors(); // fill in map colors
 		
 		// create the legend
@@ -969,8 +971,8 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 			}
 		}
 		
-		// if county is active and tooltip is showing, re-populate tooltip
 		if (d3.select('.county.active').empty() !== true && $('#tt').hasClass('hidden') === false) {
+			// if county is active and tooltip is showing, re-populate tooltip
 			var active_county = d3.select('.county.active')[0][0];
 			populateTooltip(active_county);
 			positionTooltip(active_county);
@@ -982,7 +984,7 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 			.html('<i>Source</i>: NACo Analysis of ' + indObjects[0].source + ', ' + indObjects[0].year);
 		
 				
-		// if showing profile, show a mini help dialog
+		// if showing a "county profile" indicator, show a mini help dialog
 		if (indObjects[0].name === 'PILT Profiles') {
 			noty({
 				type: 'alert',
@@ -1441,18 +1443,19 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 		    selected = null;
 		  }
 		
-		g.selectAll("path")
-	      .classed("active", selected && function(d) { return d === selected; });
+		g.selectAll('path')
+	      .classed('active', selected && function(d) { return d === selected; });
 		
 		if (frmrActive) frmrActive.style("fill", frmrFill);	
-		frmrActive = d3.select(".county.active");
+		frmrActive = d3.select('.county.active');
 		if (frmrActive.empty() !== true) {
-			frmrFill = frmrActive.style("fill");
-			frmrActive.style("fill", null);
+			frmrFill = frmrActive.style('fill');
+			frmrActive.style('fill', null);
 		}
 	}
 	var unhighlight = function() {
 		if (selected !== null) highlight(selected);
+		$('.county.active').removeClass('active');
 	}
 	
 	var redraw = function() {
