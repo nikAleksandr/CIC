@@ -43,7 +43,10 @@
 /* Content for Extraction Tool (Access More Data) */
 .extraction-tool-header a {
 	font-family: 'Arvo', serif;
-	color: rgb(204, 153, 51);
+	color: rgb(255,153,51);
+}
+.extraction-tool-header a:hover {
+	color: rgb(230,128,26);
 }
 .extraction-tool-content {
 	text-align: left;
@@ -64,7 +67,7 @@
 	text-decoration: underline;
 }
 .help-link:hover { color: #2a6496; }
-.help-list { padding-bottom: 5px; }
+.panel-bullet { margin-left: 20px; }
 
 
 /* Google Form */
