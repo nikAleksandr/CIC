@@ -8,7 +8,7 @@
 					"name": "Administration Expenditures",
 					"years": [2007],
 					"source": "U.S. Census Bureau - Census of Individual Governments: Finance",
-					"companions": [["Administration Expenditures", "Total Administration"], ["Administration Expenditures", "Financial Administration"], ["Administration Expenditures", "Other Governmental Administration"], ["Administration Expenditures", "Liquor Stores"]
+					"companions": [["Administration Expenditures", "Total Administration"], ["Administration Expenditures", "Financial Administration"], ["Administration Expenditures", "Other Governmental Administration"], ["Administration Expenditures", "Current Operations"]
 					],
 					"children": [
 						{
@@ -72,7 +72,7 @@
 					"name": "Administration Employment",
 					"source": "U.S. Census Bureau - Census of Individual Governments: Employment",
 					"years": [2007, 2008, 2009, 2010, 2011, 2012],
-					"companions": [["Administration Employment", "Total Administration"], ["Administration Employment", "Financial Administration"], ["Administration Employment", "Other Governmental Administration"], ["Administration Employment", "Social Insurance Administration"]
+					"companions": [["Administration Employment", "Total Administration"], ["Administration Employment", "Financial Administration"], ["Administration Employment", "Other Governmental Administration"]
 					],
 					"children": [
 						{
@@ -155,7 +155,7 @@
 					"name": "Administration Employment",
 					"source": "U.S. Census Bureau - Census of Individual Governments: Employment",
 					"years": [2007, 2008, 2009, 2010, 2011, 2012],
-					"companions": [["Administration Employment", "Total Administration"], ["Administration Employment", "Financial Administration"], ["Administration Employment", "Other Governmental Administration"], ["Administration Employment", "Social Insurance Administration"]
+					"companions": [["Administration Employment", "Total Administration"], ["Administration Employment", "Financial Administration"], ["Administration Employment", "Other Governmental Administration"]
 					],
 					"children": [
 						{
@@ -645,7 +645,7 @@
 					"name": "Administration Expenditures",
 					"source": "U.S. Census Bureau - Census of Individual Governments: Finance",
 					"years": [2007],
-					"companions": [["Administration Expenditures", "Total Administration"], ["Administration Expenditures", "Financial Administration"], ["Administration Expenditures", "Other Governmental Administration"], ["Administration Expenditures", "Liquor Stores"]
+					"companions": [["Administration Expenditures", "Total Administration"], ["Administration Expenditures", "Financial Administration"], ["Administration Expenditures", "Other Governmental Administration"], ["Administration Expenditures", "Current Operations"]
 					],
 					"children": [
 						{
