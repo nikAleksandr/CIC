@@ -277,7 +277,7 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 						});
 					} else {
 						var query_str = 'db_set=Demographics&db_ind=Pop_LT_Population&db_year=' + year;
-						d3.xhr('http://nacocic.naco.org/ciccfm/indicators.cfm?'+ query_str, function(error, request) {
+						d3.xhr('/ciccfm/indicators.cfm?'+ query_str, function(error, request) {
 							var responseObj = jQuery.parseJSON(request.responseText);
 							var population = responseObj.DATA.POP_LT_POPULATION;
 							for (var i = 0; i < population.length; i++) {
@@ -415,7 +415,7 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 				// when clicking on dataset, update to first companion; but only for non-touch screens
 				if ($('html').hasClass('no-touch')) {
 					dataset.selectAll('a:not(.indicator)').on('click', function() {
-						var DI = getInfo(datasetName).companions[0];
+						var DI = CIC.getInfo(datasetName).companions[0];
 						var indHtml = dataset.select('.indicator[name="' + DI[1] + '"]').html();
 						endFunction(DI[0], DI[1], indHtml);
 					});
@@ -775,7 +775,10 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 			    	try {
 			    		var responseObj = jQuery.parseJSON(request.responseText);
 			    	}
-			    	catch(error) { noty({text: 'Error retrieving information from database.'}); }
+			    	catch(error) {
+			    		noty({text: 'Error retrieving information from database.'});
+			    		NProgress.done(true);
+			    	}
 			    	if (responseObj.ROWCOUNT === 0) noty({text: 'Database error: ROWCOUNT = 0'});
 			    	
 			    	// restructure response object to object indexed by fips, and add it to "data"	
@@ -1091,11 +1094,11 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 	}
 	
 	var allInfo = function(dataset, indicator){
-		var firstObj = getInfo(dataset, indicator);
+		var firstObj = CIC.getInfo(dataset, indicator);
 		var objArray = [firstObj];
 		for (var i = 0; i < firstObj.companions.length; i++) {
 			if (objArray.length < firstObj.companions.length) {
-				var obj = getInfo(firstObj.companions[i][0], firstObj.companions[i][1]);
+				var obj = CIC.getInfo(firstObj.companions[i][0], firstObj.companions[i][1]);
 				var isDisabled = $('.dataset[name="'+obj.dataset+'"] .indicator[name="'+obj.name+'"]').parent().hasClass('disabled'); // checks if companion is disabled or not
 				if (obj.name !== firstObj.name && !isDisabled) objArray.push(obj);			
 			}
@@ -1103,7 +1106,7 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 		return objArray;
 	}
 	
-	var getInfo = function(dataset, indicator){
+	CIC.getInfo = function(dataset, indicator){
 		var selectedInd = {};
 		var structure = CICstructure.children;
 		for (var i = 0; i < structure.length; i++) {				
@@ -1539,22 +1542,9 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 			CIC.update(currentDI.substring(0, i), currentDI.substring(i+3, currentDI.length));
 		}
 	});
-	//
 	// ---------------- End Easter Eggs and Backend Section --------------------------------------
-	//
 	
-	
-	
-	// for testing
-	/*
-	$.getScript('js/util.js', function(){
-		//countIndicators();
-		//areAllIndicatorsInDatabase();
-		//areAllCompanionsValid();
-		//checkDropdownNames();
-		//testDatabaseResponses(); // will only work if on nacocic.naco.org and localVersion disabled (note: 700+ requests being sent! will take more than a minute!)
-	}); */
-	
+		
 	setup(width, height);
 
 	d3.json("data/us.json", function(error, us) {
@@ -1589,6 +1579,17 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 		      		}
 		      		
 		      		CIC.update('Population Levels and Trends', 'Population Level'); // fill in map colors for default indicator now that everything is loaded
+
+
+					// for testing
+					/*
+					$.getScript('js/util.js', function(){
+						//countIndicators();
+						//areAllIndicatorsInDatabase();
+						//areAllCompanionsValid();
+						//checkDropdownNames();
+						//testDatabaseResponses(); // will only work if on nacocic.naco.org and localVersion disabled (note: 700+ requests being sent! will take more than a minute!)
+					}); */
 		    	});
 		    }
 		    

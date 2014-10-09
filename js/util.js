@@ -134,7 +134,7 @@ function testDatabaseResponses() {
 		        if (data_array[i].indicator !== '') {
           			var di = data_array[i].dataset + ' - ' + data_array[i].indicator;
           			crosswalk[di] = data_array[i];
-		      		crosswalk[di].year = getInfo(data_array[i].dataset, data_array[i].indicator).year;
+		      		crosswalk[di].year = CIC.getInfo(data_array[i].dataset, data_array[i].indicator).year;
         		}
       		}
       		
@@ -145,7 +145,7 @@ function testDatabaseResponses() {
 				(function(ind, time){
 					var query_str = 'db_set=' + crosswalk[ind].db_dataset + '&db_year=' + crosswalk[ind].year + '&db_ind=' + crosswalk[ind].db_indicator;
 					setTimeout(function() {
-					  	d3.xhr('http://nacocic.naco.org/ciccfm/indicators.cfm?'+ query_str, function(error, request){
+					  	d3.xhr('/ciccfm/indicators.cfm?'+ query_str, function(error, request){
 					    	// restructure response object to object indexed by fips
 					    	try {
 					    		var responseObj = jQuery.parseJSON(request.responseText);
@@ -168,7 +168,7 @@ function testDatabaseResponses() {
 					    	if (all_null) console.log('all null: ' + crosswalk[ind].db_dataset + ', ' + crosswalk[ind].db_indicator + ' (' + crosswalk[ind].year + ')');
 					    	else {
 					    		//console.log('check! :)');
-					    		console.log(crosswalk[ind].dataset + ', ' + crosswalk[ind].indicator + ': ' + responseObj.ROWCOUNT);
+					    		//console.log(crosswalk[ind].dataset + ', ' + crosswalk[ind].indicator + ': ' + responseObj.ROWCOUNT);
 					    	}
 						});
 					}, time);
