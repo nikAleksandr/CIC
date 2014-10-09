@@ -60,7 +60,7 @@ ORDER BY county_data.STATE, county_name
 			<TD align="center">#State#</TD>
 			<TD>#CITY#</TD>
 	 		<TD>#CensusPlace# <CFIF #IncorporatedArea# EQ "Yes"> &nbsp; (Incorporated Area)<CFELSE>&nbsp; </CFIF>  &nbsp; </TD>
-			<TD><a onclick="executeSearchMatch('#FIPS#')">#County_Name#</a>
+			<TD><a onclick="CIC.executeSearchMatch('#FIPS#')">#County_Name#</a>
 	        </TD>
 		</TR>
 		</CFOUTPUT> 
