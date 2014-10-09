@@ -54,7 +54,7 @@
 			</TR>
             <CFOUTPUT>
             <TR>
-				<TD align="right"><a style="font-weight:bold; color:black;" id="#FIPS#" onClick="executeSearchMatch('#FIPS#')" >#County_Name#</a><CFIF Gov_Type EQ  "Consolidated">*</CFIF>
+				<TD align="right"><a style="font-weight:bold; color:black;" id="#FIPS#" onClick="CIC.executeSearchMatch('#FIPS#')" >#County_Name#</a><CFIF Gov_Type EQ  "Consolidated">*</CFIF>
                 </TD>
 				<TD ALIGN="RIGHT"><CFIF #Population_2013# GT 0>#NumberFormat(Population_2013)#  <CFELSE><em>N/A</em></CFIF> </TD>
 				<TD ALIGN="RIGHT"><CFIF #Total_Square_Miles# GT 0>#NumberFormat(Total_Square_Miles)#  <CFELSE><em>N/A</em></CFIF> </TD> 

@@ -45,6 +45,11 @@
 				return panel.currentHelpTab === tab;
 			};
 			
+			panel.goToIndicator = function(dataset, indicator) {
+				panel.setVisible(false);
+				CIC.update(dataset, indicator);
+			};
+			
 			// attach to service to use outside this controller
 			spanel.toggleShowing = panel.toggleShowing;
 		}])

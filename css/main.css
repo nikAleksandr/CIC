@@ -414,6 +414,8 @@ body {
     display: none !important;
     visibility: hidden;
 }
+.pad-down-5 { padding-bottom: 5px; }
+.pad-5 { padding: 5px 0px; }
 
 
 

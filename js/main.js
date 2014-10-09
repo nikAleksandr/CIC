@@ -16,6 +16,7 @@ var na_color = 'rgb(204,204,204)', // color for counties with no data
 	//categorical_colors = ['rgb(253,156,2)', 'rgb(0,153,209)', 'rgb(70,200,245)', 'rgb(254,207,47)', 'rgb(102,204,204)', 'rgb(69,178,157)']
 	//level_colors = ['rgb(189, 215, 231)','rgb(107, 174, 214)','rgb(49, 130, 189)','rgb(7, 81, 156)','rgb(28, 53, 99)'];
 
+CIC = {}; // main namespace containing functions, to avoid global namespace clutter
 
 (function() {
 	
@@ -130,7 +131,7 @@ var na_color = 'rgb(204,204,204)', // color for counties with no data
 			hideInstructions();
 			if (d3.select('.county.active').empty() !== true) {
 				inTransition = true;
-				var transition = executeSearchMatch(event.target.id);
+				var transition = CIC.executeSearchMatch(event.target.id);
 				if (transition === false) inTransition = false;
 				else transition.each('end.bool', function() { inTransition = false; });
 			}		
@@ -249,11 +250,6 @@ var na_color = 'rgb(204,204,204)', // color for counties with no data
 				d3.select('#rrssbContainer').transition().duration(500).style('right', '80px');
 			}		
 		});	
-	
-		$('#countyTaxRatesLink').on('click', function() {
-			hideInstructions();
-			update('County Tax Rates', 'Sales Tax');
-		});
 	}
 	var setDataButtonBehavior = function() {	
 		$('#perCapitaButton').on('click', function() {
@@ -281,7 +277,7 @@ var na_color = 'rgb(204,204,204)', // color for counties with no data
 						});
 					} else {
 						var query_str = 'db_set=Demographics&db_ind=Pop_LT_Population&db_year=' + year;
-						d3.xhr('http://nacocic.naco.org/ciccfm/indicators.cfm?'+ query_str, function(error, request) {
+						d3.xhr('/ciccfm/indicators.cfm?'+ query_str, function(error, request) {
 							var responseObj = jQuery.parseJSON(request.responseText);
 							var population = responseObj.DATA.POP_LT_POPULATION;
 							for (var i = 0; i < population.length; i++) {
@@ -396,7 +392,7 @@ var na_color = 'rgb(204,204,204)', // color for counties with no data
 			if (currentDI === dataset + ' - ' + indicator) {
 			//	noty({text: 'Already showing "' + indicator + '"'});
 			} else {
-				update(dataset, indicator);
+				CIC.update(dataset, indicator);
 				//d3.select('#primeIndText').html(html + '<span class="sub-arrow"></span>');
 			}
 		};
@@ -419,7 +415,7 @@ var na_color = 'rgb(204,204,204)', // color for counties with no data
 				// when clicking on dataset, update to first companion; but only for non-touch screens
 				if ($('html').hasClass('no-touch')) {
 					dataset.selectAll('a:not(.indicator)').on('click', function() {
-						var DI = getInfo(datasetName).companions[0];
+						var DI = CIC.getInfo(datasetName).companions[0];
 						var indHtml = dataset.select('.indicator[name="' + DI[1] + '"]').html();
 						endFunction(DI[0], DI[1], indHtml);
 					});
@@ -520,13 +516,13 @@ var na_color = 'rgb(204,204,204)', // color for counties with no data
 				for (var j = 0; j < geoDesc.length; j++) {
 					var search_comb = toTitleCase(countyName) + geoDesc[j] + ', ' + stateName;
 					if (idByName[search_comb]) {
-						executeSearchMatch(parseInt(idByName[search_comb]));
+						CIC.executeSearchMatch(parseInt(idByName[search_comb]));
 						return;
 					}
 				}
 				
 				// special case
-				if (countyName.toLowerCase() === 'washington' && stateName === 'DC') { executeSearchMatch(11001); return; }
+				if (countyName.toLowerCase() === 'washington' && stateName === 'DC') { CIC.executeSearchMatch(11001); return; }
 			}
 			
 			// check for partial word matches
@@ -558,7 +554,7 @@ var na_color = 'rgb(204,204,204)', // color for counties with no data
 					}
 				}
 				if (numExactCountyMatch === 1) {
-					executeSearchMatch(cMatchFIPS);
+					CIC.executeSearchMatch(cMatchFIPS);
 					return;
 				}
 							
@@ -590,14 +586,14 @@ var na_color = 'rgb(204,204,204)', // color for counties with no data
 						.text(nameArr[1]);
 	
 					(function(cell, fips) {
-						cell.on('click', function() { executeSearchMatch(fips); });
+						cell.on('click', function() { CIC.executeSearchMatch(fips); });
 					})(name_cell, pMatchArray[i].fips);
 				}
 				
 				showInstructions();
 									
 			} else if (pMatchArray.length == 1) {
-				executeSearchMatch(pMatchArray[0].fips); // if only one match, display county
+				CIC.executeSearchMatch(pMatchArray[0].fips); // if only one match, display county
 			} else {
 				noty({text: 'Your search did not match any counties.'});
 				document.getElementById('search_form').reset();	
@@ -613,7 +609,7 @@ var na_color = 'rgb(204,204,204)', // color for counties with no data
 		}
 	}
 	
-	executeSearchMatch = function(FIPS) {
+	CIC.executeSearchMatch = function(FIPS) {
 		hideInstructions();
 		$('#search-field').val('');
 		
@@ -667,7 +663,7 @@ var na_color = 'rgb(204,204,204)', // color for counties with no data
 		});
 	}
 	
-	var update = function(dataset, indicator) {
+	CIC.update = function(dataset, indicator) {
 		NProgress.start();
 		currentDI = dataset + ' - ' + indicator; 
 		//tooltip.classed("hidden", true);
@@ -779,7 +775,10 @@ var na_color = 'rgb(204,204,204)', // color for counties with no data
 			    	try {
 			    		var responseObj = jQuery.parseJSON(request.responseText);
 			    	}
-			    	catch(error) { noty({text: 'Error retrieving information from database.'}); }
+			    	catch(error) {
+			    		noty({text: 'Error retrieving information from database.'});
+			    		NProgress.done(true);
+			    	}
 			    	if (responseObj.ROWCOUNT === 0) noty({text: 'Database error: ROWCOUNT = 0'});
 			    	
 			    	// restructure response object to object indexed by fips, and add it to "data"	
@@ -1095,11 +1094,11 @@ var na_color = 'rgb(204,204,204)', // color for counties with no data
 	}
 	
 	var allInfo = function(dataset, indicator){
-		var firstObj = getInfo(dataset, indicator);
+		var firstObj = CIC.getInfo(dataset, indicator);
 		var objArray = [firstObj];
 		for (var i = 0; i < firstObj.companions.length; i++) {
 			if (objArray.length < firstObj.companions.length) {
-				var obj = getInfo(firstObj.companions[i][0], firstObj.companions[i][1]);
+				var obj = CIC.getInfo(firstObj.companions[i][0], firstObj.companions[i][1]);
 				var isDisabled = $('.dataset[name="'+obj.dataset+'"] .indicator[name="'+obj.name+'"]').parent().hasClass('disabled'); // checks if companion is disabled or not
 				if (obj.name !== firstObj.name && !isDisabled) objArray.push(obj);			
 			}
@@ -1107,7 +1106,7 @@ var na_color = 'rgb(204,204,204)', // color for counties with no data
 		return objArray;
 	}
 	
-	var getInfo = function(dataset, indicator){
+	CIC.getInfo = function(dataset, indicator){
 		var selectedInd = {};
 		var structure = CICstructure.children;
 		for (var i = 0; i < structure.length; i++) {				
@@ -1305,10 +1304,13 @@ var na_color = 'rgb(204,204,204)', // color for counties with no data
 			
 			// manual manipulation of tooltip values shown T_T
 			if (obj.name === 'Fixed Internet Connections') {
-				if (value === 1000) value = '800-1000';
+				if (value === '1,000') value = '800-1000';
 				else value = (parseInt(value) - 100) + '-' + (parseInt(value) + 100);
 			} else if (obj.name === 'Fixed Internet Providers' || obj.name === 'Mobile Internet Providers') {
-				if (value = 1) value = '1-3';
+				if (value === '1') {
+					value = '1-3';
+					unit = unit + 's';
+				}
 			}
 			
 			// define name variable and cut off before parenthesis if there is one
@@ -1537,25 +1539,12 @@ var na_color = 'rgb(204,204,204)', // color for counties with no data
 		if (d3.event.ctrlKey && d3.event.shiftKey && d3.event.keyCode === 76) {
 			level_colors = ['rgb(189,215,231)','rgb(107,174,214)','rgb(49,130,189)','rgb(7,81,156)','rgb(28,53,99)'];
 			var i = currentDI.lastIndexOf(' - ');
-			update(currentDI.substring(0, i), currentDI.substring(i+3, currentDI.length));
+			CIC.update(currentDI.substring(0, i), currentDI.substring(i+3, currentDI.length));
 		}
 	});
-	//
 	// ---------------- End Easter Eggs and Backend Section --------------------------------------
-	//
 	
-	
-	
-	// for testing
-	/*
-	$.getScript('js/util.js', function(){
-		//countIndicators();
-		//areAllIndicatorsInDatabase();
-		//areAllCompanionsValid();
-		//checkDropdownNames();
-		//testDatabaseResponses(); // will only work if on nacocic.naco.org and localVersion disabled (note: 700+ requests being sent! will take more than a minute!)
-	}); */
-	
+		
 	setup(width, height);
 
 	d3.json("data/us.json", function(error, us) {
@@ -1576,7 +1565,7 @@ var na_color = 'rgb(204,204,204)', // color for counties with no data
 			setBehaviors();
 	
 		    if (localVersion) {
-		    	update('Population Levels and Trends', 'Population Level'); // fill in map colors for default indicator now that everything is loaded 	
+		    	CIC.update('Population Levels and Trends', 'Population Level'); // fill in map colors for default indicator now that everything is loaded 	
 		    } else {  
 		    	// load crosswalk
 		    	d3.tsv('data/database_crosswalk.tsv', function(error, data_array) {
@@ -1589,7 +1578,18 @@ var na_color = 'rgb(204,204,204)', // color for counties with no data
 		        		}
 		      		}
 		      		
-		      		update('Population Levels and Trends', 'Population Level'); // fill in map colors for default indicator now that everything is loaded
+		      		CIC.update('Population Levels and Trends', 'Population Level'); // fill in map colors for default indicator now that everything is loaded
+
+
+					// for testing
+					/*
+					$.getScript('js/util.js', function(){
+						//countIndicators();
+						//areAllIndicatorsInDatabase();
+						//areAllCompanionsValid();
+						//checkDropdownNames();
+						//testDatabaseResponses(); // will only work if on nacocic.naco.org and localVersion disabled (note: 700+ requests being sent! will take more than a minute!)
+					}); */
 		    	});
 		    }
 		    

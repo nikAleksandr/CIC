@@ -11,6 +11,7 @@
 	color: rgb(255,152,51);
 	font-weight:bold;
 }
+#responseContent a { cursor: pointer; }
 
 /* 
  * County Response, all classes begin with countyResponse-<class>
