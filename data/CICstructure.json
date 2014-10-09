@@ -4169,7 +4169,7 @@
 							"unit": "providers",
 							"dataType": "level_np",
 							"thresholds": [4, 5, 6, 7],
-							"definition": "Number of providers of mobile connections available in the county."
+							"definition": "Number of providers of mobile connections available in the county. Wireless ISPs report in the mobile wireless category if providing a commercial service that can be received at any location within a service footprint. Wireless local area networks (such as Wi-Fi hotspots) that only enable local distribution and sharing of a premises connection are not included, although the shared premises connection is included."
 						}
 					]
 				}
