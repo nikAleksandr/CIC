@@ -1,1 +1,4 @@
+.project
 profiles/
+node_modules/
+Gruntfile.js
