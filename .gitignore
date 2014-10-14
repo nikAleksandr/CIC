@@ -1,1 +1,6 @@
+.project
 profiles/
+node_modules/
+Gruntfile.js
+build/CIC.js
+build/lib.js
