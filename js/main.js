@@ -621,13 +621,19 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 		    populateTooltip(county);
 			zoomTransition.each('end', function() { 
 				positionTooltip($('.county.active')[0]);
-				if (currentDI === 'Payment in Lieu of Taxes (PILT) - PILT Profiles') {
-					if (quantByIds[0][+FIPS] === 0) {
-						noty({text: '<strong>No Profile Available</strong></br>This county did not receive PILT in 2014!'});
-					} else {
-						window.open('http://cic.naco.org/profiles/' + county.geography + '.pdf', '_blank');
+				
+				if (indObjects[0].has_profile) {
+					if (currentDI === 'Payment in Lieu of Taxes (PILT) - PILT Profiles') {
+						if (quantByIds[0][+FIPS] === 0) {
+							noty({text: '<strong>No Profile Available</strong></br>This county did not receive PILT in 2014!'});
+						} else {
+							window.open('http://cic.naco.org/profiles/' + county.geography + '.pdf', '_blank');
+						}
+					} else if (currentDI === 'Economic Conditions - County Tracker') {
+						var countyName = county.geography.replace(/,| /g, '');
+						window.open('http://www.uscounties.org/countytracker/profiles/' + countyName + '.pdf');
 					}
-				}			 
+				}
 			});			
 			return zoomTransition;
 		} else {
@@ -985,10 +991,10 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 		
 				
 		// if showing a "county profile" indicator, show a mini help dialog
-		if (indObjects[0].name === 'PILT Profiles') {
+		if (indObjects[0].has_profile) {
 			noty({
 				type: 'alert',
-				text: '<strong>Click once on a county to see their PILT profile.</strong></br></br>Please make sure to enable popups.',
+				text: '<strong>Click once on a county to see their county profile.</strong></br></br>Please make sure to enable popups.',
 				timeout: false
 			});
 		}
