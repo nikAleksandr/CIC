@@ -87,7 +87,8 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 		zoom.translate(frmrT);
 		zoom.on('zoom', function() {
 			inTransition = false;
-		  	tooltip.classed("hidden", true); // hides on zoom or pan	
+		  	tooltip.classed("hidden", true); // hides on zoom or pan
+		  	unhighlight();
 			
 		  	var t = d3.event.translate;
 		  	var s = d3.event.scale;
