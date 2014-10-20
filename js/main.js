@@ -23,6 +23,9 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 	// -------------------------- Variable Definitions ---------------------------
 	var localVersion = false;
 	
+	var default_dset = 'Population Levels and Trends';
+	var default_ind = 'Population Level';
+	
 	var zoom = d3.behavior.zoom()
 	    .scaleExtent([1, 10]);
 	    	
@@ -1578,8 +1581,25 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 		    CICstructure = CICStructure;
 			setBehaviors();
 	
+	
+		    // check url for parameters; if there, decode into object
+		    var match,
+		    	urlParams = {}, 
+		    	pl = /\+/g, 
+		    	search = /([^&=]+)=?([^&]*)/g, 
+		    	decode = function(s) { return decodeURIComponent(s.replace(pl, ' ')); },
+		    	query = window.location.search.substring(1);
+		    while (match = search.exec(query)) urlParams[decode(match[1])] = decode(match[2]);
+
+		    // check to see if need to default to certain indicator
+		    if (urlParams.hasOwnProperty('dset') && urlParams.hasOwnProperty('ind')) {
+		    	default_dset = urlParams.dset;
+		    	default_ind = urlParams.ind;
+		    }
+
+
 		    if (localVersion) {
-		    	CIC.update('Population Levels and Trends', 'Population Level'); // fill in map colors for default indicator now that everything is loaded 	
+		    	CIC.update(default_dset, default_ind); // fill in map colors for default indicator now that everything is loaded 	
 		    } else {  
 		    	// load crosswalk
 		    	d3.tsv('data/database_crosswalk.tsv', function(error, data_array) {
@@ -1592,7 +1612,7 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 		        		}
 		      		}
 		      		
-		      		CIC.update('Population Levels and Trends', 'Population Level'); // fill in map colors for default indicator now that everything is loaded
+		      		CIC.update(default_dset, default_ind); // fill in map colors for default indicator now that everything is loaded
 
 
 					// for testing
@@ -1606,25 +1626,20 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 					}); */
 		    	});
 		    }
+		    	    
 		    
-		    
-		    // check url for showHelp query string
-		    var match,
-		    	urlParams = {}, 
-		    	pl = /\+/g, 
-		    	search = /([^&=]+)=?([^&]*)/g, 
-		    	decode = function(s) { return decodeURIComponent(s.replace(pl, ' ')); },
-		    	query = window.location.search.substring(1);
-		    while (match = search.exec(query)) urlParams[decode(match[1])] = decode(match[2]);
-		    
+		    // check to toggle certain overlay popup on page load
 		    if (urlParams.hasOwnProperty('signup')) {
-				showSignup();
+	    		var scope = angular.element($('#container')).scope();
+	    		scope.$apply(function() {
+	    			scope.panel.toggleShowing('mailingList');
+	    		});
 		    } else if (urlParams.hasOwnProperty('showhelp')) {	    		
 	    		var scope = angular.element($('#container')).scope();
 	    		scope.$apply(function() {
 	    			scope.panel.toggleShowing('help');
 	    			scope.panel.selectHelpTab(parseInt(urlParams.showhelp));
-	    		})	;    		
+	    		});    		
 		    }
 	  	});
 	});
