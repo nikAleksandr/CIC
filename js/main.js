@@ -1241,13 +1241,18 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 		var subtitle = primeIndObj.name;
 		if (primeIndObj.hasOwnProperty('unit') && (primeIndObj.unit.indexOf('acre') !== -1 || primeIndObj.unit.indexOf('square mile') !== -1 || primeIndObj.unit === 'per 1,000 population')) {
 			subtitle += ' (' + primeIndObj.unit + ')';
-		} 
+		}
 		
 		if (primeIndObj.hasOwnProperty('legend_title_footer')) {
 			var legendTitle = primeIndObj.dataset + primeIndObj.legend_title_footer;
 		} else {
 			var legendTitle = primeIndObj.year + ' ' + primeIndObj.dataset;		
 		}
+		
+		// special titles for profiles
+		if (primeIndObj.name === 'PILT Profiles') subtitle = 'PILT Amount';
+		else if (primeIndObj.name === 'County Tracker') subtitle = 'Unemployment Rate';
+		
 		d3.select('#legendTitle').text(legendTitle);
 		d3.select('#legendSubtitle').text(subtitle);
 	};

@@ -76,6 +76,10 @@ mailing-form .email-input { width: 220px; }
 mailing-form .ss-item { margin-top: 20px; }
 
 
+/* County Facts */
+#results-container { margin-top: 20px; }
+
+
 /* Overlay Components */
 #close {
 	position: relative;
