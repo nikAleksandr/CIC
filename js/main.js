@@ -1592,7 +1592,10 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 		    while (match = search.exec(query)) urlParams[decode(match[1])] = decode(match[2]);
 
 		    // check to see if need to default to certain indicator
+		    var custom_indicator = false;
 		    if (urlParams.hasOwnProperty('dset') && urlParams.hasOwnProperty('ind')) {
+		    	// need to check crosswalk to make sure it exists
+		    	custom_indicator = true;
 		    	default_dset = urlParams.dset;
 		    	default_ind = urlParams.ind;
 		    }
@@ -1629,18 +1632,25 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 		    	    
 		    
 		    // check to toggle certain overlay popup on page load
-		    if (urlParams.hasOwnProperty('signup')) {
+		    if (custom_indicator) {
 	    		var scope = angular.element($('#container')).scope();
 	    		scope.$apply(function() {
-	    			scope.panel.toggleShowing('mailingList');
-	    		});
-		    } else if (urlParams.hasOwnProperty('showhelp')) {	    		
-	    		var scope = angular.element($('#container')).scope();
-	    		scope.$apply(function() {
-	    			scope.panel.toggleShowing('help');
-	    			scope.panel.selectHelpTab(parseInt(urlParams.showhelp));
-	    		});    		
-		    }
+	    			scope.panel.setVisible(false);
+	    		});		    	
+		    } else {
+			    if (urlParams.hasOwnProperty('signup')) {
+		    		var scope = angular.element($('#container')).scope();
+		    		scope.$apply(function() {
+		    			scope.panel.toggleShowing('mailingList');
+		    		});
+			    } else if (urlParams.hasOwnProperty('showhelp')) {	    		
+		    		var scope = angular.element($('#container')).scope();
+		    		scope.$apply(function() {
+		    			scope.panel.toggleShowing('help');
+		    			scope.panel.selectHelpTab(parseInt(urlParams.showhelp));
+		    		});    		
+			    }
+			}
 	  	});
 	});
 
