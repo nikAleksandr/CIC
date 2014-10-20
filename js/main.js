@@ -1592,12 +1592,12 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 		    while (match = search.exec(query)) urlParams[decode(match[1])] = decode(match[2]);
 
 		    // check to see if need to default to certain indicator
-		    var custom_indicator = false;
+		    var custom_dset = '',
+		    	custom_ind = '';
 		    if (urlParams.hasOwnProperty('dset') && urlParams.hasOwnProperty('ind')) {
 		    	// need to check crosswalk to make sure it exists
-		    	custom_indicator = true;
-		    	default_dset = urlParams.dset;
-		    	default_ind = urlParams.ind;
+		    	custom_dset = urlParams.dset;
+		    	custom_ind = urlParams.ind;
 		    }
 
 
@@ -1615,7 +1615,12 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 		        		}
 		      		}
 		      		
-		      		CIC.update(default_dset, default_ind); // fill in map colors for default indicator now that everything is loaded
+		      		// fill in map colors now that everything is loaded
+		      		if (custom_dset !== '' && crosswalk.hasOwnProperty(custom_dset + ' - ' + custom_ind)) {
+		      			CIC.update(custom_dset, custom_ind);
+		      		} else {
+		      			CIC.update(default_dset, default_ind);
+		      		}
 
 
 					// for testing
@@ -1632,7 +1637,8 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 		    	    
 		    
 		    // check to toggle certain overlay popup on page load
-		    if (custom_indicator) {
+		    if (custom_dset !== '') {
+		    	// close overlay if there is a custom indicator
 	    		var scope = angular.element($('#container')).scope();
 	    		scope.$apply(function() {
 	    			scope.panel.setVisible(false);
@@ -1643,7 +1649,7 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 		    		scope.$apply(function() {
 		    			scope.panel.toggleShowing('mailingList');
 		    		});
-			    } else if (urlParams.hasOwnProperty('showhelp')) {	    		
+			    } else if (urlParams.hasOwnProperty('showhelp')) {
 		    		var scope = angular.element($('#container')).scope();
 		    		scope.$apply(function() {
 		    			scope.panel.toggleShowing('help');
