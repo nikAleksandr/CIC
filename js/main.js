@@ -23,6 +23,9 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 	// -------------------------- Variable Definitions ---------------------------
 	var localVersion = false;
 	
+	var default_dset = 'Population Levels and Trends';
+	var default_ind = 'Population Level';
+	
 	var zoom = d3.behavior.zoom()
 	    .scaleExtent([1, 10]);
 	    	
@@ -621,13 +624,19 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 		    populateTooltip(county);
 			zoomTransition.each('end', function() { 
 				positionTooltip($('.county.active')[0]);
-				if (currentDI === 'Payment in Lieu of Taxes (PILT) - PILT Profiles') {
-					if (quantByIds[0][+FIPS] === 0) {
-						noty({text: '<strong>No Profile Available</strong></br>This county did not receive PILT in 2014!'});
-					} else {
-						window.open('http://cic.naco.org/profiles/' + county.geography + '.pdf', '_blank');
+				
+				if (indObjects[0].has_profile) {
+					if (currentDI === 'Payment in Lieu of Taxes (PILT) - PILT Profiles') {
+						if (quantByIds[0][+FIPS] === 0) {
+							noty({text: '<strong>No Profile Available</strong></br>This county did not receive PILT in 2014!'});
+						} else {
+							window.open('http://cic.naco.org/profiles/' + county.geography + '.pdf', '_blank');
+						}
+					} else if (currentDI === 'Economic Conditions - County Tracker') {
+						var countyName = county.geography.replace(/,| /g, '');
+						window.open('http://www.uscounties.org/countytracker/profiles/' + countyName + '.pdf');
 					}
-				}			 
+				}
 			});			
 			return zoomTransition;
 		} else {
@@ -985,10 +994,10 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 		
 				
 		// if showing a "county profile" indicator, show a mini help dialog
-		if (indObjects[0].name === 'PILT Profiles') {
+		if (indObjects[0].has_profile) {
 			noty({
 				type: 'alert',
-				text: '<strong>Click once on a county to see their PILT profile.</strong></br></br>Please make sure to enable popups.',
+				text: '<strong>Click once on a county to see their county profile.</strong></br></br>Please make sure to enable popups.',
 				timeout: false
 			});
 		}
@@ -1235,13 +1244,18 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 		var subtitle = primeIndObj.name;
 		if (primeIndObj.hasOwnProperty('unit') && (primeIndObj.unit.indexOf('acre') !== -1 || primeIndObj.unit.indexOf('square mile') !== -1 || primeIndObj.unit === 'per 1,000 population')) {
 			subtitle += ' (' + primeIndObj.unit + ')';
-		} 
+		}
 		
 		if (primeIndObj.hasOwnProperty('legend_title_footer')) {
 			var legendTitle = primeIndObj.dataset + primeIndObj.legend_title_footer;
 		} else {
 			var legendTitle = primeIndObj.year + ' ' + primeIndObj.dataset;		
 		}
+		
+		// special titles for profiles
+		if (primeIndObj.name === 'PILT Profiles') subtitle = 'PILT Amount';
+		else if (primeIndObj.name === 'County Tracker') subtitle = 'Unemployment Rate';
+		
 		d3.select('#legendTitle').text(legendTitle);
 		d3.select('#legendSubtitle').text(subtitle);
 	};
@@ -1567,8 +1581,28 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 		    CICstructure = CICStructure;
 			setBehaviors();
 	
+	
+		    // check url for parameters; if there, decode into object
+		    var match,
+		    	urlParams = {}, 
+		    	pl = /\+/g, 
+		    	search = /([^&=]+)=?([^&]*)/g, 
+		    	decode = function(s) { return decodeURIComponent(s.replace(pl, ' ')); },
+		    	query = window.location.search.substring(1);
+		    while (match = search.exec(query)) urlParams[decode(match[1])] = decode(match[2]);
+
+		    // check to see if need to default to certain indicator
+		    var custom_dset = '',
+		    	custom_ind = '';
+		    if (urlParams.hasOwnProperty('dset') && urlParams.hasOwnProperty('ind')) {
+		    	// need to check crosswalk to make sure it exists
+		    	custom_dset = urlParams.dset;
+		    	custom_ind = urlParams.ind;
+		    }
+
+
 		    if (localVersion) {
-		    	CIC.update('Population Levels and Trends', 'Population Level'); // fill in map colors for default indicator now that everything is loaded 	
+		    	CIC.update(default_dset, default_ind); // fill in map colors for default indicator now that everything is loaded 	
 		    } else {  
 		    	// load crosswalk
 		    	d3.tsv('data/database_crosswalk.tsv', function(error, data_array) {
@@ -1581,7 +1615,12 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 		        		}
 		      		}
 		      		
-		      		CIC.update('Population Levels and Trends', 'Population Level'); // fill in map colors for default indicator now that everything is loaded
+		      		// fill in map colors now that everything is loaded
+		      		if (custom_dset !== '' && crosswalk.hasOwnProperty(custom_dset + ' - ' + custom_ind)) {
+		      			CIC.update(custom_dset, custom_ind);
+		      		} else {
+		      			CIC.update(default_dset, default_ind);
+		      		}
 
 
 					// for testing
@@ -1595,26 +1634,29 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 					}); */
 		    	});
 		    }
+		    	    
 		    
-		    
-		    // check url for showHelp query string
-		    var match,
-		    	urlParams = {}, 
-		    	pl = /\+/g, 
-		    	search = /([^&=]+)=?([^&]*)/g, 
-		    	decode = function(s) { return decodeURIComponent(s.replace(pl, ' ')); },
-		    	query = window.location.search.substring(1);
-		    while (match = search.exec(query)) urlParams[decode(match[1])] = decode(match[2]);
-		    
-		    if (urlParams.hasOwnProperty('signup')) {
-				showSignup();
-		    } else if (urlParams.hasOwnProperty('showhelp')) {	    		
+		    // check to toggle certain overlay popup on page load
+		    if (custom_dset !== '') {
+		    	// close overlay if there is a custom indicator
 	    		var scope = angular.element($('#container')).scope();
 	    		scope.$apply(function() {
-	    			scope.panel.toggleShowing('help');
-	    			scope.panel.selectHelpTab(parseInt(urlParams.showhelp));
-	    		})	;    		
-		    }
+	    			scope.panel.setVisible(false);
+	    		});		    	
+		    } else {
+			    if (urlParams.hasOwnProperty('signup')) {
+		    		var scope = angular.element($('#container')).scope();
+		    		scope.$apply(function() {
+		    			scope.panel.toggleShowing('mailingList');
+		    		});
+			    } else if (urlParams.hasOwnProperty('showhelp')) {
+		    		var scope = angular.element($('#container')).scope();
+		    		scope.$apply(function() {
+		    			scope.panel.toggleShowing('help');
+		    			scope.panel.selectHelpTab(parseInt(urlParams.showhelp));
+		    		});    		
+			    }
+			}
 	  	});
 	});
 

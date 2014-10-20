@@ -1864,6 +1864,20 @@
 							"definition": "Number of persons unemployed as a percent of the labor force."
 						}
 					]
+				}, {
+					"name": "Economic Conditions",
+					"source": "NACo Reasarch",
+					"years": [2013],
+					"companions": [["Labor Force", "Unemployment Rate"], ["Labor Force", "Number Employed"], ["Labor Force", "Number Unemployed"]
+					],
+					"children": [
+						{
+							"name": "County Tracker",
+							"dataType": "percent",
+							"has_profile": true,
+							"definition": "Number of persons unemployed as a percent of the labor force."
+						}
+					]
 				}
 			]
 		}, {
@@ -2172,6 +2186,7 @@
 							"name": "PILT Profiles",
 							"unit": "dollars",
 							"dataType": "level",
+							"has_profile": true,
 							"definition": "Payment in Lieu of Taxes annual funding"
 						}, {
 							"name": "PILT Amount",
