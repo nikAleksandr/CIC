@@ -1458,6 +1458,36 @@
 							"definition": "The sales tax of a county's state"
 						}
 					]
+				}, {
+					"name": "Municipal Bonds",
+					"source": "2012 County Payments for Tax-Exempt Municipal Bonds",
+					"years": [2012],
+					"companions": [["Municipal Bonds", "Muni Bonds Profiles"], ["Municipal Bonds", "Interest on Muni Bonds"], ["Municipal Bonds", "Cost of 28% Cap"], ["Municipal Bonds", "Cost of Full Repeal"]
+					],
+					"children": [
+						{
+							"name": "Muni Bonds Profiles",
+							"unit": "dollars",
+							"dataType": "level",
+							"has_profile": true,
+							"definition": "Interest paid on tax-exempt municipal bonds by a county"
+						}, {
+							"name": "Interest on Muni Bonds",
+							"unit": "dollars",
+							"dataType": "level",
+							"definition": "Interest paid on tax-exempt municipal bonds by a county"
+						}, {
+							"name": "Cost of 28% Cap",
+							"unit": "dollars",
+							"dataType": "level",
+							"definition": "The estimated cost of a 28 percent cap proposal that a county government would have to pay in interest for tax-exempt municipal bonds in the fiscal year if a 28 percent cap were in place over the last 15 years."
+						}, {
+							"name": "Cost of Full Repeal",
+							"unit": "dollars",
+							"dataType": "level",
+							"definition": "The estimated cost of the repeal of the tax-exempt status of municipal bond interest for a county government is how much the county government would have had to pay additionally in interest for municipal bonds in the fiscal year if it were fully taxable over the last 15 years. "
+						}
+					]
 				}
 			]
 		}, {
