@@ -121,6 +121,10 @@ County_Finance	County_Tax_Sales_Use_Tax	County Finance	County Tax Rates	Sales Ta
 County_Finance	County_Tax_State_Tax	County Finance	County Tax Rates	State Sales Tax	
 County_Finance	County_Tax_County_Tax_Year_Collected	County Finance	County Tax Rates	Sales Tax Year Collected	
 County_Finance	County_Tax_State_Tax_Year_Collected	County Finance	County Tax Rates	State Sales Tax Year Collected	
+County_Finance	Muni_Bonds_Interest	County Finance	Municipal Bonds	Muni Bonds Profiles	
+County_Finance	Muni_Bonds_Interest	County Finance	Municipal Bonds	Interest on Muni Bonds	
+County_Finance	Muni_Bonds_County_Cap_Cost	County Finance	Municipal Bonds	Cost of 28% Cap	
+County_Finance	Muni_Bonds_County_Repeal_Cost	County Finance	Municipal Bonds	Cost of Full Repeal	
 Demographics	KEYID				
 Demographics	FIPS				
 Demographics	DATA_YEAR				

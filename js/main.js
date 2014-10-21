@@ -627,18 +627,25 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 				positionTooltip($('.county.active')[0]);
 				
 				if (indObjects[0].has_profile) {
-					if (currentDI === 'Payment in Lieu of Taxes (PILT) - PILT Profiles') {
+					if (currentDI === 'Economic Conditions - County Tracker') {
+						var countyName = parseCountyName(+FIPS, county.geography);
+						window.open('http://www.uscounties.org/countytracker/profiles/' + countyName + '.pdf');
+					} else if (currentDI === 'Municipal Bonds - Muni Bonds Profiles') {
+						if (isNaN(quantByIds[0][+FIPS])) {
+							noty({text: '<strong>No Profile Available</strong>'});
+						} else {
+							var countyName = parseCountyName(+FIPS, county.geography);
+							window.open('http://www.uscounties.org/MuniBondInteractive/CountyProfiles/muni_bonds_profile_' + countyName + '.pdf');
+						}
+					} else if (currentDI === 'Payment in Lieu of Taxes (PILT) - PILT Profiles') {
 						if (quantByIds[0][+FIPS] === 0) {
 							noty({text: '<strong>No Profile Available</strong></br>This county did not receive PILT in 2014!'});
 						} else {
 							window.open('http://cic.naco.org/profiles/' + county.geography + '.pdf', '_blank');
 						}
-					} else if (currentDI === 'Economic Conditions - County Tracker') {
-						var countyName = county.geography.replace(/,| /g, '');
-						window.open('http://www.uscounties.org/countytracker/profiles/' + countyName + '.pdf');
 					}
 				}
-			});			
+			});		
 			return zoomTransition;
 		} else {
 			tooltip.classed('hidden', true);
@@ -1254,8 +1261,7 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 		}
 		
 		// special titles for profiles
-		if (primeIndObj.name === 'PILT Profiles') subtitle = 'PILT Amount';
-		else if (primeIndObj.name === 'County Tracker') subtitle = 'Unemployment Rate';
+		if (primeIndObj.has_profile === true) subtitle = primeIndObj.companions[0][1];
 		
 		d3.select('#legendTitle').text(legendTitle);
 		d3.select('#legendSubtitle').text(subtitle);
@@ -1366,7 +1372,8 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 		if (includeSecondary) writeHeader(s_indObjects, s_attrib);		
 
 		// write each indicator row
-		for (var i = 0; i < indObjects.length; i++) {			
+		for (var i = 0; i < indObjects.length; i++) {
+			if (indObjects[i].has_profile === true) continue;
 			var row = tipTable.append('tr').attr('class', 'tipKey');	
 			writeIndicators(row, indObjects[i], quantByIds[i], attrib, false);
 			if (includeSecondary && i < s_indObjects.length) writeIndicators(row, s_indObjects[i], s_quantByIds[i], s_attrib, true);
@@ -1699,6 +1706,16 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 	var exceptionCounties = {};	// converting array of exception counties to object for faster lookup
 	for (var i = 0; i < exceptionList.length; i++) exceptionCounties[exceptionList[i]] = true;
 
+	// for matching county name with county name used in url for profiles
+	var parseCountyName = function(fips, name) {
+		var countyName = name.replace(/,| /g, ''); // rmeove commas and spaces
+		if (fips === 6075) countyName = 'SanFranciscoCountyCA';
+		else if (fips === 21111) countyName = 'JeffersonCountyKY';
+		else if (fips === 24033) countyName = 'PrinceGeorgesCountyMD';
+		else if (fips === 25025) countyName = 'SuffolkCountyMA';
+		return countyName;		
+	};
+	
 	var toTitleCase = function(str) {
 		return str.replace(/\w\S*/g, function(txt){
 			return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
