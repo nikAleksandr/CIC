@@ -37,7 +37,15 @@
 }
 
 .panel-title { padding: 10px 0px 0px 35px; }
-.panel-content { padding: 5px 0px 0px 50px; }
+.panel-content {
+	padding: 5px 0px 0px 50px;
+	max-width: 800px;
+}
+
+
+/* Update Content */
+.update-help-button-container { margin-top: 40px; }
+.update-help-button:first-child { margin-right: 15px; }
 
 
 /* Content for Extraction Tool (Access More Data) */
