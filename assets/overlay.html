@@ -19,6 +19,10 @@
 				<div class="pad-5">Sign up for our monthly update <a class="link" ng-click="panel.toggleShowing('mailingList')">here</a></div>
 			</p>
 		</div>
+		<div class="center update-help-button-container">
+			<button type="button" class="btn btn-lg btn-primary update-help-button" ng-click="panel.toggleShowing('help'); panel.selectHelpTab(4);">City-County Search</button>
+			<button type="button" class="btn btn-lg btn-primary update-help-button" ng-click="panel.toggleShowing('help'); panel.selectHelpTab(6);">County Officials</button>
+		</div>
 	</div>
 	
 	<div ng-show="panel.isShowing('accessMoreData')">
@@ -71,7 +75,7 @@
 				<div class="pad-down-5">&bull; Or search for a county with the search bar on the top right of the screen.</div>
 			</p>
 			<br/>
-			<div>Click on the big blue button in the top-right corner to access more data or to sign up to download data through the CIC extraction tool (Coming September, 2014)</div>
+			<div>Click on the big blue button in the top-right corner to access more data or to sign up to download data through the CIC extraction tool (coming September 2014)</div>
 			<br/>
 			<div><img src="img/Mail.svg"> - Sign up for CIC DATA UPDATES to be the first to know the latest information about counties</div>
 			<br/>
@@ -123,11 +127,12 @@
 		<div class="panel-content">
 			<!-- <p>Coming Soon!  We are in the process of collecting and cleaning this data for your use.</p> -->
 			<p class="pad-down-5">Double-click on any county to view basic information about it, including its county seat and a list of elected officials.</p>
-			<p class="pad-down-5">You can also find out whether a county has an Elected Executive or County Administrator by selecting from the "Primary Indicator"</p>
+			<p class="pad-down-5">You can also find out whether a county has an Elected Executive or County Administrator by navigating to the "Government Structure" dataset</p>
+			<!-- <p class="pad-down-5">You can also find out whether a county has an Elected Executive or County Administrator by selecting from the "Primary Indicator"</p> -->
 			<p>
 				<div class="pad-down-5">&bull; Hover over the "County Structure" category</div>
 				<div class="pad-down-5">&bull; Hover over the "Government Structure" dataset</div>
-				<div class="pad-down-5">&bull; Select "Elected Executive" or "County Administrator" to see which counties have that position</div>
+				<!-- <div class="pad-down-5">&bull; Select "Elected Executive" or "County Administrator" to see which counties have that position</div> -->
 			</p>
 		</div>
 	</div>
