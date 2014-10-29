@@ -46,6 +46,8 @@
 			};
 			
 			panel.goToIndicator = function(dataset, indicator) {
+				indicator = indicator.replace("’", "'"); // replace apostrophes with single quotes
+				
 				panel.setVisible(false);
 				CIC.update(dataset, indicator);
 			};
