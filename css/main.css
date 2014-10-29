@@ -334,7 +334,7 @@ body {
 
 /* Under The Map Styling */
 #undermap {
-	margin: 0 auto;
+	margin: 0;
 	text-align: left;
 	font-size: 0.9em;
 	font-weight: 300;

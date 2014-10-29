@@ -2289,7 +2289,7 @@
 					]
 				}, {
 					"name": "Secure Rural Schools (SRS)",
-					"years": [2012],
+					"years": [2012, 2013],
 					"source": "U.S. Department of Agriculture",
 					"companions": [["Secure Rural Schools (SRS)", "SRS Amount"]
 					],
@@ -3581,6 +3581,35 @@
 							"name": "Total Programs",
 							"dataType": "level",
 							"definition": "Total number of programs offered by the library. A program is any planned event which introduces the group attending to any of the broad range of library services or activities or which directly provides information to participants. Programs may cover use of the library, library services, or library tours. Programs may also provide cultural, recreational, or educational information, often designed to meet a specific social need. Examples of these types of programs include film showings,  lectures, story hours, literacy, English as a second language, citizenship classes, and book discussions.  All programs, whether held on- or off-site, that are sponsored or co-sponsored by the library are included. Programs sponsored by other groups that use library facilities are excluded. If programs are offered as a series, each program in the series is counted. For example, a film series offered once a week for eight weeks is  counted as eight programs. Library activities delivered on a one-to-one basis, rather than to a group, are excluded such as one-to-one literacy tutoring, services to homebound, resume writing assistance, homework assistance, and mentoring activities."
+						}
+					]
+				}, {
+					"name": "Arts Establishments",
+					"source": "NACo Analysis of Americans for the Arts Creative Industries",
+					"years": [2014],
+					"companions": [["Arts Establishments", "Arts Businesses"], ["Arts Establishments", "Arts Employees"], ["Arts Establishments", "Total Public Amenity"], ["Arts Establishments", "Total Public Amenity"]
+					],
+					"children": [
+						{
+							"name": "Arts Businesses",
+							"unit": "businesses",
+							"dataType": "level",
+							"definition": "The number of Full-time equivalent (FTE) employees for each county is a computed statistic representing the number of full-time employees that could have been employed if the reported number of hours worked by part-time employees had been worked by full-time employees."
+						}, {
+							"name": "Arts Employees",
+							"unit": "employees",
+							"dataType": "level",
+							"definition": "Number of FTEs working on libraries, parks and recreation, as well as other natural resources."
+						}, {
+							"name": "Arts Businesses per 10,000 people",
+							"unit": "businesses per 10,000 people",
+							"dataType": "level",
+							"definition": "Number of FTEs working on Establishment and provision of libraries for use by the general public and the technical support of privately-operated libraries. Includes: Public libraries, community libraries, consolidated libraries, regional libraries, and their variously-named equivalents; library extension services including bookmobiles; public library (special) districts; U.S. Library of Congress (including Copyright Office); state library commissions and boards; programs to promote, develop, and coordinate library services and facilities."
+						}, {
+							"name": "Arts Employees per 10,000 people",
+							"unit": "employees per 10,000 people",
+							"dataType": "level",
+							"definition": "Number of FTEs working on Conservation, promotion, and development of natural resources (soil, water, energy, minerals, etc.) and the regulation of industries which develop, utilize, or affect natural resources. Includes: Employees engaged in irrigation; drainage; flood control; soil conservation and reclamation including prevention of soil erosion; surveying, development, and regulation of water resources; regulation of mineral resources and related industries including land reclamation; wetlands and watershed management and protection; geological surveying and mapping; regulation of gas and oil drilling and production; dam and reservoir safety; public education programs related to the above; fairs; technical assistance to private or other governmental efforts in these areas."
 						}
 					]
 				}
