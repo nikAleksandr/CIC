@@ -12,7 +12,7 @@
 		<div class="panel-title"><h3><a class="link" id="updateLink" href="http://cic.naco.org/updates/sep14.html">November 2014 Update</a></h3></div>
 		<div class="panel-content">
 			<p>
-				<div class="pad-down-5">New Datasets!</div>
+				<div class="pad-down-5">New Indicators!</div>
 				<div class="pad-down-5 panel-bullet">&bull; <a class="link" ng-click="panel.goToIndicator('Educational Attainment', 'Less than 9th Grade')">Educational Attainment - Less than 9th Grade</a></div>
 				<div class="pad-down-5 panel-bullet">&bull; <a class="link" ng-click="panel.goToIndicator('Educational Attainment', '9th to 12th Grade')">Educational Attainment - 9th to 12th Grade</a></div>
 				<div class="pad-down-5 panel-bullet">&bull; <a class="link" ng-click="panel.goToIndicator('Educational Attainment', 'High School Graduate')">Educational Attainment - High School Graduate</a></div>
@@ -20,12 +20,15 @@
 				<div class="pad-down-5 panel-bullet">&bull; <a class="link" ng-click="panel.goToIndicator('Educational Attainment', 'Associate&#8217;s Degree')">Educational Attainment - Associate's Degree</a></div>
 				<div class="pad-down-5 panel-bullet">&bull; <a class="link" ng-click="panel.goToIndicator('Educational Attainment', 'Bachelor&#8217;s Degree')">Educational Attainment - Bachelor's Degree</a></div>
 				<div class="pad-down-5 panel-bullet">&bull; <a class="link" ng-click="panel.goToIndicator('Educational Attainment', 'Graduate or Professional Degree')">Educational Attainment - Graduate or Professional Degree</a></div>
-				<div class="pad-5">Sign up for our monthly update <a class="link" ng-click="panel.toggleShowing('mailingList')">here</a></div>
+				<div class="pad-5">Sign up for our monthly update <a class="link" ng-click="panel.toggleShowing('mailingList')">here</a>.</div>
 			</p>
 		</div>
 		<div class="center update-help-button-container">
-			<button type="button" class="btn btn-lg btn-primary update-help-button" ng-click="panel.toggleShowing('help'); panel.selectHelpTab(4);">City-County Search</button>
-			<button type="button" class="btn btn-lg btn-primary update-help-button" ng-click="panel.toggleShowing('help'); panel.selectHelpTab(6);">County Officials</button>
+			<div class="pad-down-10 update-help-button-text">NACo About Counties Tools</div>
+			<div>
+				<button type="button" class="btn btn-lg btn-primary update-help-button" ng-click="panel.toggleShowing('help'); panel.selectHelpTab(4);">City-County Search</button>
+				<button type="button" class="btn btn-lg btn-primary update-help-button" ng-click="panel.toggleShowing('help'); panel.selectHelpTab(6);">County Officials</button>
+			</div>
 		</div>
 	</div>
 	
@@ -102,12 +105,11 @@
 	<div class="helpText" ng-show="panel.isShowing('help') && panel.isHelpSelected(4)">
 		<div class="panel-title"><h3>Finding A County</h3></div>
 		<div class="panel-content">
-			<p>There are multiple ways to find a county.</p>
 			<p>
-				<div class="pad-down-5">&bull; Click on "County Search" and search for any county.</div>
-				<div class="pad-down-5">&bull; Click on "City Search", type in the name of a city, and all counties located within that city will appear in the search results.</div>
-				<div class="pad-down-5">&bull; Click on "State Search", pick a state from the dropdown, and all counties located in the state will appear in the search results.</div>
-				<div class="pad-down-5">&bull; Want to find county elected officials and other basic county information? Double click on a county.</div>
+				<div class="pad-down-5">&bull; To find out which county a <b>city</b> is in, click on "City Search" and type in the name of the city.</div>
+				<div class="pad-down-5">&bull; To find a particular <b>county</b>, click on "County Search" and type in the name of the county.</div>
+				<div class="pad-down-5">&bull; To see all the counties within a <b>state</b>, click on "State Search" and pick a state from the dropdown.</div>
+				<div class="pad-down-5">&bull; To find county elected officials and other basic county information, double click on a county on the map.</div>
 			</p>
 		</div>
 	</div>
@@ -127,17 +129,21 @@
 	</div>
 	
 	<div class="helpText" ng-show="panel.isShowing('help') && panel.isHelpSelected(6)">
-		<div class="panel-title"><h3>County Seats and Elected Executives</h3></div>
+		<div class="panel-title"><h3>County Information and Details</h3></div>
 		<div class="panel-content">
-			<!-- <p>Coming Soon!  We are in the process of collecting and cleaning this data for your use.</p> -->
-			<p class="pad-down-5">Double-click on any county to view basic information about it, including its county seat and a list of elected officials.</p>
-			<p class="pad-down-5">You can also find out whether a county has an Elected Executive or County Administrator by navigating to the "Government Structure" dataset</p>
-			<!-- <p class="pad-down-5">You can also find out whether a county has an Elected Executive or County Administrator by selecting from the "Primary Indicator"</p> -->
+			<div class="pad-down-5">Double-click on any county on the map to view more information about the county.</div><br/>
+			<div class="pad-down-5">Available information includes:</div>
+			<div class="pad-down-5 margin-left-10">&bull; Population</div>
+			<div class="pad-down-5 margin-left-10">&bull; County Seat</div>
+			<div class="pad-down-5 margin-left-10">&bull; Size of Board</div>
+			<div class="pad-down-5 margin-left-10">&bull; List of Elected Officials</div>
+			<!-- <p class="pad-down-5">You can also find out whether a county has an Elected Executive or County Administrator by navigating to the "Government Structure" dataset</p>
+			<p class="pad-down-5">You can also find out whether a county has an Elected Executive or County Administrator by selecting from the "Primary Indicator"</p>
 			<p>
 				<div class="pad-down-5">&bull; Hover over the "County Structure" category</div>
 				<div class="pad-down-5">&bull; Hover over the "Government Structure" dataset</div>
-				<!-- <div class="pad-down-5">&bull; Select "Elected Executive" or "County Administrator" to see which counties have that position</div> -->
-			</p>
+				<div class="pad-down-5">&bull; Select "Elected Executive" or "County Administrator" to see which counties have that position</div>
+			</p> -->
 		</div>
 	</div>
 	
