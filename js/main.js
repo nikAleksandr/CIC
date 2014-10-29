@@ -80,6 +80,9 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 	    		.on("dblclick.zoom", null);		
 		g = svg.append("g").attr("class", "counties");
 		
+		// adjust undermap width
+		$('#undermap').width(width);
+		
 		// reset scale and translate values
 	    frmrS = 1;
 	    frmrT = [0, 0];	
@@ -1252,7 +1255,7 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 	var changeLegendTitle = function() {
 		var primeIndObj = indObjects[0];
 		var subtitle = primeIndObj.name;
-		if (primeIndObj.hasOwnProperty('unit') && (primeIndObj.unit.indexOf('acre') !== -1 || primeIndObj.unit.indexOf('square mile') !== -1 || primeIndObj.unit === 'per 1,000 population')) {
+		if (primeIndObj.hasOwnProperty('unit') && primeIndObj.unit.indexOf('per ') !== -1) {
 			subtitle += ' (' + primeIndObj.unit + ')';
 		}
 		
