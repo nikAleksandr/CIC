@@ -2092,6 +2092,43 @@
 							"definition": "The tuition charged by institutions to those students who do not meet the institution's or state's residency requirements."
 						}
 					]
+				}, {
+					"name": "Educational Attainment",
+					"source": "U.S. Census Bureau",
+					"years": [2009, 2010, 2011, 2012],
+					"companions": [["Educational Attainment", "High School Graduate"], ["Educational Attainment", "Bachelor's Degree"], ["Educational Attainment", "Graduate or Professional Degree"], ["Educational Attainment", "Associate's Degree"]
+					],
+					"children": [
+						{
+							"name": "Less than 9th Grade",
+							"dataType": "percent",
+							"definition": "The percentage of the county's over-25 population with a highest degree of education of less than 9th grade."
+						}, {
+							"name": "9th to 12th Grade",
+							"dataType": "percent",
+							"definition": "The percentage of the county's over-25 population with a highest degree of education of between 9th and 12th grade with no diploma."
+						}, {
+							"name": "High School Graduate",
+							"dataType": "percent",
+							"definition": "The percentage of the county's over-25 population with a highest degree of education of a high school graduate, including equivalency."
+						}, {
+							"name": "Some College",
+							"dataType": "percent",
+							"definition": "The percentage of the county's over-25 population with a highest degree of education of some college, with no degree."
+						}, {
+							"name": "Associate's Degree",
+							"dataType": "percent",
+							"definition": "The percentage of the county's over-25 population with a highest degree of education of an associate's degree."
+						}, {
+							"name": "Bachelor's Degree",
+							"dataType": "percent",
+							"definition": "The percentage of the county's over-25 population with a highest degree of education of a bachelor's degree."
+						}, {
+							"name": "Graduate or Professional Degree",
+							"dataType": "percent",
+							"definition": "The percentage of the county's over-25 population with a highest degree of education of a graduate or professional degree."
+						}
+					]
 				}
 			]
 		}, {

@@ -231,6 +231,13 @@ Education	PESS_Other_School_Agencies	Education	Public Elementary & Secondary Sch
 Education	PESS_Total_Students	Education	Public Elementary & Secondary Schools	Total Students	The total number of students in all the school districts located in the county.
 Education	PESS_FTE_Teachers	Education	Public Elementary & Secondary Schools	FTE Teachers	The total number of Full-Time Equivalent teachers working in all the school districts located in the county.
 Education	PESS_Pupil_Teacher_Ratio_Ave	Education	Public Elementary & Secondary Schools	Pupil/Teacher Ratio	The ratio of total students to full-time equivalent teachers in the county.
+Education	Edu_Attain_less_than_9th_grade_25up	Education	Educational Attainment	Less than 9th Grade	
+Education	Edu_Attain_9th_to_12th_grade_no_diploma_25up	Education	Educational Attainment	9th to 12th Grade	
+Education	Edu_Attain_high_school_grad_with_equivalency_25up	Education	Educational Attainment	High School Graduate	
+Education	Edu_Attain_some_college_no_degree_25up	Education	Educational Attainment	Some College	
+Education	Edu_Attain_associate_degree_25up	Education	Educational Attainment	Associate's Degree	
+Education	Edu_Attain_bachelor_degree_25up	Education	Educational Attainment	Bachelor's Degree	
+Education	Edu_Attain_grad_or_prof_degree_25up	Education	Educational Attainment	Graduate or Professional Degree	
 Federal_Funding	FIPS	Federal Funding			
 Federal_Funding	DATA_YEAR	Federal Funding			
 Federal_Funding	ADDI	Federal Funding	American Dream Downpayment Initiative (ADDI)	ADDI Amount	Funding received for the American Dream Downpayment Initiative program

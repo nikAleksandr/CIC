@@ -1103,6 +1103,8 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 							if (qbis[i][ind] === 5) qbis[i][ind] = 1000;
 							else if (qbis[i][ind] >= 1) qbis[i][ind] = qbis[i][ind] * 200 - 100;
 						}
+					} else if (indObjs[i].dataType === 'percent') {
+						if (indObjs[i].dataset === 'Educational Attainment') qbis[i][ind] /= 100;	
 					} else if (indObjs[i].name === 'CSA Code') {
 						if (qbis[i][ind] === 0) qbis[i][ind] = null;
 					}				
