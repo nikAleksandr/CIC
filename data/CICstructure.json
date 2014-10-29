@@ -22,7 +22,6 @@
 							"dataType": "level",
 							"definition": "Includes expenditure on Financial Administration, Social Insurance Administration and Other Governmental Administration (including Federal and State Legislative and Central Staff Services).  Covers  administration of unemployment compensation systems, public employment services, and the Federal Social Security, Medicare, and Railroad Retirement trusts; officials and central staff agencies concerned with tax assessment and collection, accounting, auditing, budgeting, purchasing, custody of funds, and other finance activities; legislative bodies and related activities involved in the making, enacting, and repeal of law; and government-wide executive, administrative, and staff service agencies other than financial, judicial, legal, and Federal or state legislative activities."
 						}, {
-							"name": "Financial Administration",
 							"unit": "thousands of dollars",
 							"dataType": "level",
 							"definition": "Officials and central staff agencies concerned with tax assessment and collection, accounting, auditing, budgeting, purchasing, custody of funds, and other finance activities. Includes Expenditures to administer the offices of auditor, comptroller, treasurer, finance director, and other central accounting, budgeting, and purchasing offices; tax administration, assessment, billing, and collection; custody and disbursement of funds; revenue collection activities like delinquent tax sales, tax litigation, and charges of depositories; state supervision of local finances; management of debt and of investments (including that of own utilities); cost of insurance for issuing debt; administration of employee-retirement, workers’ compensation, and federal and state other insurance trust funds; lottery administrative costs ; licensing and tax collection activities of motor vehicle departments; distinctive tax collection activities of regulatory agencies; central data processing centers; and other finance activities not recorded elsewhere."
@@ -1906,6 +1905,34 @@
 							"dataType": "percent",
 							"has_profile": true,
 							"definition": "Number of persons unemployed as a percent of the labor force."
+						}
+					]
+				}, {
+					"name": "Cost of Living",
+					"source": "Bureau of Labor Statistics",
+					"years": [2013],
+					"companions": [["Cost of Living", "RPP Wage"], ["Cost of Living", "RPP Wage Growth"], ["Cost of Living", "COLI Wage"], ["Cost of Living", "COLI Wage Growth"]
+					],
+					"children": [
+						{
+							"name": "RPP Wage",
+							"dataType": "level",
+							"definition": ""
+						},
+						{
+							"name": "RPP Wage Growth",
+							"dataType": "percent",
+							"definition": ""
+						},
+						{
+							"name": "COLI Wage",
+							"dataType": "level",
+							"definition": ""
+						},
+						{
+							"name": "COLI Wage Growth",
+							"dataType": "percent",
+							"definition": ""
 						}
 					]
 				}
