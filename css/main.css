@@ -83,7 +83,7 @@ body {
 	font-size: 1em;
 }
 #nacoLogo {
-	margin: 2.2em 2.2em 0 0;
+	margin: 1.2em 2.2em 0 0;
 	float: right;
 }
 
@@ -368,10 +368,8 @@ body {
 
 .byline{
 	color: rgb(0,64,112);
-	text-align: left;
-	display: inline-block;
+	text-align: center;
 	font-size: 0.8em;
-	margin-top: 1em;
 }
 #sourceContainer,
 #definitionsContainer,
@@ -380,7 +378,9 @@ body {
 	font-size: 0.85em;
 	margin-top: 5px;
 }
-#sourceContainer { margin-top: 20px; }
+#sourceContainer {
+	margin-top: 20px;
+}
 #notesContainer { padding-bottom: 30px; }
 
 

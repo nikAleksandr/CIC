@@ -608,11 +608,13 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 			
 		} else if (searchType === 'citySearch') {
 			// city search: use city-county lookup
-			var search_str_array = search_str.toLowerCase().split('city');
-			var city_search_str = 'city_res.cfm?city=';
-			for (var i = 0; i < search_str_array.length; i++) city_search_str += search_str_array[i];
+			// first strip out city or anything after commas
+			var city_str_index = search_str.toLowerCase().indexOf('city');
+			var comma_index = search_str.toLowerCase().indexOf(',');
+			if (city_str_index !== -1) search_str = search_str.substr(0, city_str_index);
+			if (comma_index !== -1 && comma_index <= search_str.length) search_str = search_str.substr(0, comma_index);
 			
-			displayResults(city_search_str);
+			displayResults('city_res.cfm?city=' + search_str);
 		}
 	};
 	
@@ -760,8 +762,14 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 	 	} else {
 	 		// need to sort by dataset because we want to send one query per dataset needed
 		  	var indicatorList = {}; // list of indicators indexed by dataset then indexed by year
-		  	for (var i = 0; i < indObjs.length; i++) {
-			  	var crossObject = crosswalk[indObjs[i].dataset+' - '+indObjs[i].name];
+		  	for (var i = 0; i < indObjs.length; i++) {		  		
+			  	var DI = indObjs[i].dataset+' - '+indObjs[i].name;
+			  	
+			  	// for debugging
+		  		if (!indObjs[i].hasOwnProperty('name')) console.log('Indicator #' + i + ' not matched in CIC structure');
+			  	if (!crosswalk.hasOwnProperty(DI)) console.log('Indicator #' + i + ' not matched in crosswalk');
+			  	
+			  	var crossObject = crosswalk[DI];
 			  	var year = indObjs[i].year;
 		
 		  		if (!indicatorList.hasOwnProperty(crossObject.db_dataset)) indicatorList[crossObject.db_dataset] = {};
@@ -1001,7 +1009,7 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 		// list source
 		d3.select("#sourceContainer").selectAll("p").remove();
 		d3.select('#sourceContainer').append('p').attr("id", "sourceText")
-			.html('<i>Source</i>: NACo Analysis of ' + indObjects[0].source + ', ' + indObjects[0].year);
+			.html('<span style="font-weight:400;">Source:</span> NACo Analysis of ' + indObjects[0].source + ', ' + indObjects[0].year);
 		
 				
 		// if showing a "county profile" indicator, show a mini help dialog
@@ -1255,7 +1263,7 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 	var changeLegendTitle = function() {
 		var primeIndObj = indObjects[0];
 		var subtitle = primeIndObj.name;
-		if (primeIndObj.hasOwnProperty('unit') && primeIndObj.unit.indexOf('per ') !== -1) {
+		if (primeIndObj.hasOwnProperty('unit') && primeIndObj.unit.indexOf('per ') !== -1 && subtitle.indexOf('per ') === -1) {
 			subtitle += ' (' + primeIndObj.unit + ')';
 		}
 		

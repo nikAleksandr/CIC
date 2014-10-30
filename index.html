@@ -51,10 +51,6 @@
 			<div class="row">
 				<div class="col-md-10">
 					<h1>NACo County Intelligence Connection 2.0</h1>
-				
-					<p>Select a <i>Primary Indicator</i>&nbsp; below and click on a county to view more detailed information.  
-						<br/>Double-click on a county to view basic information about it.
-  					</p>
 				</div>
 				<div class="col-md-2">
 					<img id="nacoLogo" width="180" height="44" alt="National Association of Counties Logo" src="img/NACoLogo_NoTagBLACK_tm.png" />
@@ -133,7 +129,7 @@
 							<td id="resetAllIconText" class="icon-text side-icon-text">Remove Second Indicator</td>
 						</tr>
 						<tr>
-							<td><a class="share-toggle" class="link" title="Share this info"><img class="side-icon" width="30" height="30" alt="Share this info" src="img/Share.svg"/></a></td>
+							<td><a class="share-toggle link" title="Share this info"><img class="side-icon" width="30" height="30" alt="Share this info" src="img/Share.svg"/></a></td>
 							<td class="icon-text side-icon-text share-toggle">Share this map!</td>
 						</tr>
 						<tr>
@@ -156,6 +152,7 @@
 		        	<div class="container-fluid">
 			        	<div class="row">
 			        		<div class="col-md-6">
+					        	<div id="sourceContainer"></div>
 								<!-- <div id="perCapitaContainer">
 									<button type="button" class="btn btn-default" id="perCapitaButton">View As Per Capita</button>
 								</div>
@@ -190,13 +187,8 @@
 			        				<div id="legendSubtitle"></div>
 			        			</div>
 			        			<div id="quantileLegend" class="legend"></div>
+						        <div class="byline">*county data is unavailable if the county is colored grey</div>
 			        		</div>
-				        </div>
-				        <div class="row">
-				        	<div class="col-md-6 pad-down-10" id="sourceContainer"></div>
-					        <div class="col-md-6 byline" style="text-align:right;">
-					        	*county data is unavailable if the county is colored grey<br>
-					        </div>
 				        </div>
 				        <div id="moreInteractives" class="row">
 				        	<div class="col-md-6"><a href="http://www.uscounties.org/countyTracker/index.html"><h3>County Tracker Interactive: <small>County economies through recession and recovery</small></h3></a></div>
