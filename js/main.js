@@ -760,8 +760,14 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 	 	} else {
 	 		// need to sort by dataset because we want to send one query per dataset needed
 		  	var indicatorList = {}; // list of indicators indexed by dataset then indexed by year
-		  	for (var i = 0; i < indObjs.length; i++) {
-			  	var crossObject = crosswalk[indObjs[i].dataset+' - '+indObjs[i].name];
+		  	for (var i = 0; i < indObjs.length; i++) {		  		
+			  	var DI = indObjs[i].dataset+' - '+indObjs[i].name;
+			  	
+			  	// for debugging
+		  		if (!indObjs[i].hasOwnProperty('name')) console.log('Indicator #' + i + ' not matched in CIC structure');
+			  	if (!crosswalk.hasOwnProperty(DI)) console.log('Indicator #' + i + ' not matched in crosswalk');
+			  	
+			  	var crossObject = crosswalk[DI];
 			  	var year = indObjs[i].year;
 		
 		  		if (!indicatorList.hasOwnProperty(crossObject.db_dataset)) indicatorList[crossObject.db_dataset] = {};
@@ -1255,7 +1261,7 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 	var changeLegendTitle = function() {
 		var primeIndObj = indObjects[0];
 		var subtitle = primeIndObj.name;
-		if (primeIndObj.hasOwnProperty('unit') && primeIndObj.unit.indexOf('per ') !== -1) {
+		if (primeIndObj.hasOwnProperty('unit') && primeIndObj.unit.indexOf('per ') !== -1 && subtitle.indexOf('per ') === -1) {
 			subtitle += ' (' + primeIndObj.unit + ')';
 		}
 		

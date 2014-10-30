@@ -3587,7 +3587,7 @@
 					"name": "Arts Establishments",
 					"source": "NACo Analysis of Americans for the Arts Creative Industries",
 					"years": [2014],
-					"companions": [["Arts Establishments", "Arts Businesses"], ["Arts Establishments", "Arts Employees"], ["Arts Establishments", "Total Public Amenity"], ["Arts Establishments", "Total Public Amenity"]
+					"companions": [["Arts Establishments", "Arts Businesses"], ["Arts Establishments", "Arts Businesses per 10,000 people"], ["Arts Establishments", "Arts Employees"], ["Arts Establishments", "Arts Employees per 10,000 people"]
 					],
 					"children": [
 						{
