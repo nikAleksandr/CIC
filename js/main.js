@@ -608,11 +608,13 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 			
 		} else if (searchType === 'citySearch') {
 			// city search: use city-county lookup
-			var search_str_array = search_str.toLowerCase().split('city');
-			var city_search_str = 'city_res.cfm?city=';
-			for (var i = 0; i < search_str_array.length; i++) city_search_str += search_str_array[i];
+			// first strip out city or anything after commas
+			var city_str_index = search_str.toLowerCase().indexOf('city');
+			var comma_index = search_str.toLowerCase().indexOf(',');
+			if (city_str_index !== -1) search_str = search_str.substr(0, city_str_index);
+			if (comma_index !== -1 && comma_index <= search_str.length) search_str = search_str.substr(0, comma_index);
 			
-			displayResults(city_search_str);
+			displayResults('city_res.cfm?city=' + search_str);
 		}
 	};
 	
