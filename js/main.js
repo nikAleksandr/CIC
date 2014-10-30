@@ -1007,7 +1007,7 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 		// list source
 		d3.select("#sourceContainer").selectAll("p").remove();
 		d3.select('#sourceContainer').append('p').attr("id", "sourceText")
-			.html('<i>Source</i>: NACo Analysis of ' + indObjects[0].source + ', ' + indObjects[0].year);
+			.html('<span style="font-weight:400;">Source:</span> NACo Analysis of ' + indObjects[0].source + ', ' + indObjects[0].year);
 		
 				
 		// if showing a "county profile" indicator, show a mini help dialog
