@@ -25,6 +25,7 @@
 				<div class="pad-down-5 panel-bullet">&bull; <a class="link" ng-click="panel.goToIndicator('Educational Attainment', 'Graduate or Professional Degree')">Educational Attainment - Graduate or Professional Degree</a></div>
 				-->
 				<div class="pad-5">Sign up for our monthly update <a class="link" ng-click="panel.toggleShowing('mailingList')">here</a>.</div>
+				<div class="pad-5">Coming soon! December 2014 Update: Educational Attainment</div>
 			</p>
 		</div>
 		<div class="center update-help-button-container">
@@ -79,27 +80,24 @@
 		<div class="panel-title"><h3>Getting Started</h3></div>
 		<div class="panel-content">
 			<p>
-				<div class="pad-down-5">&bull; The map always displays the latest year of data in the CIC database for the &quot;Primary Indicator&quot;.</div>
-				<br/>
+				<!-- <div class="pad-down-5">&bull; The map always displays the latest year of data in the CIC database for the &quot;Primary Indicator&quot;.</div> -->
 				<div class="pad-down-5">&bull; Pick a statistic by clicking on &quot;Primary Indicator&quot; on the top left of the screen and choosing an indicator.</div>
-				<div class="pad-down-5">&bull; Click on a county on the map to show detailed statistics for that county.</div>
-				<div class="pad-down-5">&bull; Or search for a county with the search bar on the top right of the screen.</div>
+				<div class="pad-down-5">&bull; <b>Click</b> on a county on the map to show the statistics for the chosen indicator for that county.</div>
+				<div class="pad-down-5">&bull; <b>Double-click</b> on a county on the map to show detailed information about that county.</div>
 			</p>
 			<br/>
-			<div>Click on the big blue button in the top-right corner to access more data or to sign up to download data through the CIC extraction tool (coming September 2014)</div>
+			<div>Click on the "Access More Data" button in the top-right corner to sign up to download data through the CIC extraction tool</div>
 			<br/>
-			<div><img src="img/Mail.svg"> - Sign up for CIC DATA UPDATES to be the first to know the latest information about counties</div>
+			<div><img src="img/Mail.svg"> - Sign up for <b>CIC data updates</b> to be the first to know the latest information about counties</div>
 			<br/>
 			<div><img src="img/Share.svg"> - Share the CIC on social media</div>
-			<br/><br/><br/>
 		</div>
 	</div>
 	
 	<div class="helpText" ng-show="panel.isShowing('help') && panel.isHelpSelected(3)">
 		<div class="panel-title"><h3>Comparing Two Indicators</h3></div>
 		<div class="panel-content">
-			<p>To show additional statistics, click on &quot;Secondary Indicator&quot; on the top left of the screen and choose another indicator.</p>
-			<br>
+			<p>To show additional statistics or compare indicators within a county, click on &quot;Secondary Indicator&quot; on the top left of the screen and choose another indicator.</p>
 			<p>Clicking on a county will now compare statistics for both selected indicators</p>
 			<br/>
 			<p><img src="img/Reset_indicators.svg"> - Click this to no longer see the secondary indicator</p>
