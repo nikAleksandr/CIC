@@ -756,6 +756,7 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 					idByName[d.geography] = d.id;
 					countyObjectById[d.id] = d;
 				});
+				attachCountyTitles();
 				
 				$(document.body).trigger('dataReceived', [qbis]);
 	 		});
@@ -844,8 +845,9 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 						}
 			
 						idByName[data[fips].geography] = fips;
-						countyObjectById[fips] = data[fips];
+						countyObjectById[fips] = data[fips];						
 					}
+					attachCountyTitles();
 	
 					$(document.body).trigger('dataReceived', [qbis, data]);
 				}
@@ -1558,6 +1560,12 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 			zoomMap(t, s);
 			tooltip.classed('hidden', true);
 		});
+	};
+	var attachCountyTitles = function() {
+		d3.selectAll('.county').append('title').html(function(d) {
+			if (countyObjectById.hasOwnProperty(d.id) && countyObjectById[d.id].hasOwnProperty('geography')) return countyObjectById[d.id].geography;
+			else return false;
+		});		
 	};
 	
 	//---------------  Easter-Eggs, and other back-end functions -----------------------------------
