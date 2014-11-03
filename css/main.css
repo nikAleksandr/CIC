@@ -167,6 +167,7 @@ body {
 #container {
 	position: relative;
 	height: 100%;
+	padding-bottom: 20px;
 }
 
 
@@ -366,10 +367,10 @@ body {
 	font-size: 0.8em;
 }
 
-.byline{
-	color: rgb(0,64,112);
+.unavailable-text {
 	text-align: center;
 	font-size: 0.8em;
+	color: rgb(0,64,112);
 }
 #sourceContainer,
 #definitionsContainer,
@@ -378,11 +379,13 @@ body {
 	font-size: 0.85em;
 	margin-top: 5px;
 }
-#sourceContainer {
-	margin-top: 20px;
+#sourceContainer { margin-top: 20px; }
+#definitionsContainer { margin-top: 10px; }
+.byline {
+	text-align: center;
+	font-size: 0.85em;
+	margin-top: 25px;
 }
-#notesContainer { padding-bottom: 30px; }
-
 
 
 /*
