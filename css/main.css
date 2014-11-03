@@ -73,7 +73,7 @@ body {
 	color: #000;
 	font-weight: 100;
 	width:auto;
-	margin: 1em 0 0.5em 1.1em;
+	margin: 1em 0 0.5em 27px;
 	font-size: 2em;
 }
 #header p {
@@ -112,7 +112,7 @@ body {
 	padding-top: 10px;
 	padding-bottom: 10px;
 }
-#primeIndList > li { margin-left: 0.7em; }
+#primeIndList { margin-left: 15px; }
 .dropdown-menu { text-align: left; }
 .badge {
 	margin-left: 5px;
