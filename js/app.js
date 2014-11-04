@@ -52,7 +52,7 @@
 				CIC.update(dataset, indicator);
 				
 				// send to google analytics
-				ga('send', 'event', 'map a new indicator', 'click', dataset + indicator);
+				ga('send', 'event', 'map a new indicator', dataset, indicator);
 
 			};
 			
