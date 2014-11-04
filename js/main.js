@@ -403,11 +403,7 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 				//d3.select('#primeIndText').html(html + '<span class="sub-arrow"></span>');
 				
 				// send event tracking to google analytics
-				ga('send', 'event', 'indicator', 'click', 'map an indicator', {
-					category: indObjects[0].category,
-					dataset: dataset,
-					indicator: indicator
-				});
+				ga('send', 'event', 'map an indicator', 'click', dataset + indicator);
 			}
 		};
 		var pickedSecondaryIndicator = function(dataset, indicator, html) {
@@ -420,11 +416,7 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 				//d3.select('#secondIndText').html(html + '<span class="sub-arrow"></span>');
 
 				// send event tracking to google analytics
-				ga('send', 'event', 'indicator', 'click', 'compare an indicator', {
-					category: indObjects[0].category,
-					dataset: dataset,
-					indicator: indicator
-				});
+				ga('send', 'event', 'compare an indicator', 'click', dataset + indicator);
 			}
 		};
 				
