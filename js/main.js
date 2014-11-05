@@ -401,6 +401,9 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 			} else {
 				CIC.update(dataset, indicator);
 				//d3.select('#primeIndText').html(html + '<span class="sub-arrow"></span>');
+				
+				// send event tracking to google analytics
+				ga('send', 'event', 'map an indicator', dataset, indicator);
 			}
 		};
 		var pickedSecondaryIndicator = function(dataset, indicator, html) {
@@ -411,6 +414,9 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 			} else {
 				appendSecondInd(dataset, indicator);
 				//d3.select('#secondIndText').html(html + '<span class="sub-arrow"></span>');
+
+				// send event tracking to google analytics
+				ga('send', 'event', 'compare an indicator', dataset, indicator);
 			}
 		};
 				

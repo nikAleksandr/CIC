@@ -50,6 +50,10 @@
 				
 				panel.setVisible(false);
 				CIC.update(dataset, indicator);
+				
+				// send to google analytics
+				ga('send', 'event', 'map a new indicator', dataset, indicator);
+
 			};
 			
 			// attach to service to use outside this controller
