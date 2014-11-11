@@ -2574,6 +2574,10 @@
 							"dataType": "level",
 							"definition": "Number of hospitals located in the county."
 						}, {
+							"name": "Number of County Supported Facilities",
+							"dataType": "level",
+							"definition": "Number of hospitals supported by a county agency. Includes county, hospital district, and city-county hospitals."
+						}, {
 							"name": "Number of City Facilities",
 							"dataType": "level",
 							"definition": "Number of hospitals controlled by the city in the county."
@@ -2651,6 +2655,10 @@
 							"name": "Number of Nursing Homes",
 							"dataType": "level",
 							"definition": "The number of nursing homes located in the county. A nursing home is considered a place which provides 24 hour services including board and room to 3 or more unrelated residents who because of their mental or physical condition require nursing care. Nursing homes are licensed by DHS under ch. HFS 132 Adm. Codes."
+						}, {
+							"name": "Number of County Supported Facilities",
+							"dataType": "level",
+							"definition": "The number of nursing homes supported by a county agency. Includes county, hospital district, and city-county facilities."
 						}, {
 							"name": "Number of City Facilities",
 							"dataType": "level",

@@ -303,12 +303,13 @@ Health_Hospitals	Health_Insruance_Percent_6_24_Insured	Health & Hospitals	Health
 Health_Hospitals	Health_Insruance_Population_25_64	Health & Hospitals	Health Insurance	Population 25-64	The calculated number of people living in the county between (and including) the ages of 25 and 64 years as of April 1st of the data year.
 Health_Hospitals	Health_Insruance_Population_25_64_Insured	Health & Hospitals	Health Insurance	Population 25-64 Insured	The number of people living in the county between (and including) the ages of 25 and 64 years that are covered by a public health insurance program or by private health insurance.
 Health_Hospitals	Health_Insruance_Population_25_64_Uninsured	Health & Hospitals	Health Insurance	Population 25-64 Uninsured	
-Health_Hospitals	[Health_Insruance_Percent_25-64_Insured]	Health & Hospitals	Health Insurance	Percent 25-64 Insured	
+Health_Hospitals	Health_Insruance_Percent_25-64_Insured	Health & Hospitals	Health Insurance	Percent 25-64 Insured	
 Health_Hospitals	Health_Insruance_Population_65_and_over	Health & Hospitals	Health Insurance	Population 65 and Over	The calculated number of people living in the county over (and including) the ages of 65 years as of April 1st of the data year.
 Health_Hospitals	Health_Insruance_Population_65_and_over_Insured	Health & Hospitals	Health Insurance	Population 65 and Over Insured	The number of people living in the county over (and including) the ages of 65 years that are covered by a public health insurance program or by private health insurance.
 Health_Hospitals	Health_Insruance_Population_65_and_over_Uninsured	Health & Hospitals	Health Insurance	Population 65 and Over Uninsured	
 Health_Hospitals	Health_Insruance_Percent_65_and_over_Insured	Health & Hospitals	Health Insurance	Percent 65 and Over Insured	
 Health_Hospitals	Hospitals_Number_of_Hospitals	Health & Hospitals	Hospitals	Number of Hospitals	Number of hospitals located in the county.
+Health_Hospitals	Hospitals_Number_of_County_Supported_Hospitals	Health & Hospitals	Hospitals	Number of County Supported Facilities	
 Health_Hospitals	Hospitals_Number_of_City_Facilities	Health & Hospitals	Hospitals	Number of City Facilities	Number of hospitals controlled by the city in the county.
 Health_Hospitals	Hospitals_Number_of_County_Facilities	Health & Hospitals	Hospitals	Number of County Facilities	Number of hospitals controlled by the county in the county.
 Health_Hospitals	Hospitals_Number_of_City_County_Facilities	Health & Hospitals	Hospitals	Number of City-County Facilities	Number of hospitals controlled by city-county in the county.
@@ -325,6 +326,7 @@ Health_Hospitals	Hospitals_Patient_Days	Health & Hospitals	Hospitals	Patient Day
 Health_Hospitals	Hospitals_Revenue_per_Day	Health & Hospitals	Hospitals	Revenue per Bed	Average amount of revenue per hospital bed of all hospitals located in the county.
 Health_Hospitals	Hospitals_Revenue_per_Patient_Day	Health & Hospitals	Hospitals	Revenue per Patient Day	Amount of revenue per patient day of all hospitals located in the county.
 Health_Hospitals	Nursing_Home_Number_Nursing_Home_Facilities	Health & Hospitals	Nursing Homes	Number of Nursing Homes	The number of nursing homes located in the county. A nursing home is considered a place which provides 24 hour services including board and room to 3 or more unrelated residents who because of their mental or physical condition require nursing care. Nursing homes are licensed by DHS under ch. HFS 132 Adm. Codes.
+Health_Hospitals	Nursing_Home_Number_of_County_Supported_Nursing_Homes	Health & Hospitals	Nursing Homes	Number of County Supported Facilities	
 Health_Hospitals	Nursing_Home_Number_of_City_Facilities	Health & Hospitals	Nursing Homes	Number of City Facilities	The number of nursing homes owned by a city agency.
 Health_Hospitals	Nursing_Home_Number_of_County_Facilities	Health & Hospitals	Nursing Homes	Number of County Facilities	The number of nursing homes owned by a county agency.
 Health_Hospitals	Nursing_Home_Number_of_City_CountyFacilities	Health & Hospitals	Nursing Homes	Number of City-County Facilities	The number of nursing homes jointly owned by a city and county agency.
