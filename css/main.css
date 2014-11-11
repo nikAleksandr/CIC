@@ -114,6 +114,10 @@ body {
 }
 #primeIndList { margin-left: 15px; }
 .dropdown-menu { text-align: left; }
+#primeIndText, #secondIndText {
+	font-size: 18px;
+	font-weight: 400;	
+}
 .badge {
 	margin-left: 5px;
 	font-weight: 500;
