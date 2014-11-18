@@ -69,12 +69,15 @@ body {
 	text-align: left;
 }
 #header h1 {
-	font-family: 'Arvo', serif;
+	font-family: 'Merriweather', serif;
 	color: #000;
-	font-weight: 100;
+	font-weight: 700;
 	width:auto;
 	margin: 1em 0 0.5em 27px;
 	font-size: 2em;
+}
+#header small {
+	font-size: 0.6em;
 }
 #header p {
 	margin: 0 3em;
@@ -304,7 +307,7 @@ body {
 #tipLocation {
 	color: #fff;
 	padding: 0.3em;
-	font-family: 'Arvo', serif;
+	font-family: 'Merriweather', serif;
 	font-size: 1.8em;
 	background-color: rgb(253,156,2);
 	position: relative;
