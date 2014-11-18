@@ -69,18 +69,17 @@ body {
 	text-align: left;
 }
 #header h1 {
-	font-family: 'Arvo', serif;
+	font-family: 'Oswald', serif;
 	color: #000;
-	font-weight: 100;
+	font-weight: 700;
 	width:auto;
-	margin: 1em 0 0.5em 27px;
+	margin: 1em 0 0.5em 29px;
 	font-size: 2em;
+	line-height: 0.9em;
+	word-spacing: 0.08em;
 }
-#header p {
-	margin: 0 3em;
-	padding: 0;
-	font-weight: 300;
-	font-size: 1em;
+#header small {
+	font-size: 0.6em;
 }
 #nacoLogo {
 	margin: 1.2em 2.2em 0 0;
@@ -304,7 +303,7 @@ body {
 #tipLocation {
 	color: #fff;
 	padding: 0.3em;
-	font-family: 'Arvo', serif;
+	font-family: 'Oswald', serif;
 	font-size: 1.8em;
 	background-color: rgb(253,156,2);
 	position: relative;
@@ -432,13 +431,15 @@ body {
    Media Queries for Responsive Design
    ========================================================================== */
 
-@media (max-width: 1010px){
+@media (max-width: 1025px) {
 	#nacoLogo { display: none; }
 	.side-icon-text { display: none; }
-	#more-data a { padding: 10px 5px 7px 15px; }
-	#more-data span { display: none; }
+	#more-data-button a { padding: 10px 5px 7px 15px; }
+	#more-data-button span { display: none; }
 }
-
+@media (max-width: 910px) {
+	#secondIndList { display: none; }
+}
 @media (min-width: 640px) {
 	.navbar-brand { display: none; }
 }
