@@ -2127,6 +2127,24 @@
 							"name": "Graduate or Professional Degree",
 							"dataType": "percent",
 							"definition": "The percentage of the county's over-25 population with a highest degree of education of a graduate or professional degree."
+						}, {
+							"name": "Above K-12",
+							"dataType": "percent",
+							"definition": "The percentage of the county's over-25 population with a highest degree of education of between kindergarten and 12th grade."
+						}
+					]
+				}, {
+					"name": "Jobs Skills",
+					"source": "U.S. Census Bureau",
+					"years": [2009, 2010, 2011, 2012],
+					"companions": [["Jobs Skills", "Jobs Skills"], ["Educational Attainment", "Bachelor's Degree"], ["Educational Attainment", "Graduate or Professional Degree"], ["Educational Attainment", "Associate's Degree"]
+					],
+					"children": [
+						{
+							"name": "Jobs Skills",
+							"dataType": "categorical",
+							"definition": "The classification of the county's state of supply and demand for skilled labor.",
+							"order": {"Skills Surplus": 3, "Low Skills Equilibrium": 1, "Skills Deficit": 0, "High Skills Equilibrium": 2}
 						}
 					]
 				}

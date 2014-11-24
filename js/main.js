@@ -7,9 +7,9 @@ $.noty.defaults.template = '<div class="noty_message"><div class="noty_text"></d
 
 var na_color = 'rgb(204,204,204)', // color for counties with no data
 	highlight_color = 'rgb(225,0,0)', // highlight color for counties
-	percent_colors = ['rgb(522,204,102)', 'rgb(255,153,51)', 'rgb(49,130,189)', 'rgb(7,81,156)', 'rgb(28,53,99)'],
+	percent_colors = ['rgb(255,204,102)', 'rgb(255,153,51)', 'rgb(49,130,189)', 'rgb(7,81,156)', 'rgb(28,53,99)'],
 	binary_colors = ['rgb(28,53,99)', 'rgb(255,153,51)'],
-	categorical_colors = ['rgb(522,204,102)', 'rgb(255,153,51)', 'rgb(49,130,189)', 'rgb(7,81,156)', 'rgb(28,53,99)'],
+	categorical_colors = ['rgb(255,204,102)', 'rgb(255,153,51)', 'rgb(49,130,189)', 'rgb(7,81,156)', 'rgb(28,53,99)'],
 	level_colors = ['rgb(255,204,102)', 'rgb(255,153,51)', 'rgb(49,130,189)', 'rgb(7,81,156)', 'rgb(28,53,99)'],
 	neighbor_colors = d3.scale.category10();
 	//percent_colors = ['rgb(189, 215, 231)','rgb(107, 174, 214)','rgb(49, 130, 189)','rgb(7, 81, 156)','rgb(28, 53, 99)']
@@ -881,17 +881,25 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 			corrDomain = [];
 			// translating string values to numeric values
 			var numCorrVals = 0, vals = {}, corrVal = 0;
-			for (var ind in quantById) {		
-				if (quantById[ind] !== '.' && quantById[ind] !== '' && quantById[ind] !== null) {
-					if (!vals.hasOwnProperty(quantById[ind])) {
-						// create corresponding value array (e.g. {"Gulf of Mexico": 0, "Pacific Ocean": 1})
-						vals[quantById[ind]] = corrVal;
-						corrVal++;
+			
+			if (indObjects[0].hasOwnProperty('order')) {
+				vals = indObjects[0].order;
+				for (var ind in quantById) corrDomain[ind] = vals[quantById[ind]];
+			} else {
+				for (var ind in quantById) {		
+					if (quantById[ind] !== '.' && quantById[ind] !== '' && quantById[ind] !== null) {
+						if (!vals.hasOwnProperty(quantById[ind])) {
+							// create corresponding value array (e.g. vals = {"Gulf of Mexico": 0, "Pacific Ocean": 1})
+							vals[quantById[ind]] = corrVal;
+							corrVal++;
+						}
+						// change domain value to numeric representation (corrDomain[0] goes from "Gulf of Mexico" to 0)
+						corrDomain[ind] = vals[quantById[ind]];
 					}
-					corrDomain[ind] = vals[quantById[ind]];
 				}
 			}
-			for (var ind in vals) numCorrVals++;
+		
+			for (var ind in vals) numCorrVals++; // keep track of number of categories
 		}
 	
 		// define range i.e. color output

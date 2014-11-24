@@ -54,6 +54,9 @@ var colorlegend = function (target, scale, type, options) {
   	if (!found) throw new Error('Scale type, ' + type + ', is not supported.');
 
   	
+  	// make rectangles wider for categorical
+  	if (dataType === 'categorical') boxWidth += 20;
+  	
   	// setup the colors to use
  	for (var i = 0; i < range.length; i++) colors[i] = range[i];
   	if (measure_type === 'quartile') colors.unshift(level_colors[0]);
@@ -113,6 +116,13 @@ var colorlegend = function (target, scale, type, options) {
 					break;
 				}
 			}
+		}
+	}
+	
+	// exception for "Jobs Skills"
+	if (typeof dataValues[0] === 'string') {
+		for (var k = 0; k < dataValues.length; k++) {
+			if (dataValues[k].indexOf('Skills ') !== -1) dataValues[k] = dataValues[k].replace('Skills ', '');
 		}
 	}
 	
