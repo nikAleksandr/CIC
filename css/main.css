@@ -69,21 +69,20 @@ body {
 	text-align: left;
 }
 #header h1 {
-	font-family: 'Arvo', serif;
+	font-family: 'Oswald', serif;
 	color: #000;
-	font-weight: 100;
+	font-weight: 700;
 	width:auto;
-	margin: 1em 0 0.5em 1.1em;
+	margin: 1em 0 0.5em 29px;
 	font-size: 2em;
+	line-height: 0.9em;
+	word-spacing: 0.08em;
 }
-#header p {
-	margin: 0 3em;
-	padding: 0;
-	font-weight: 300;
-	font-size: 1em;
+#header small {
+	font-size: 0.6em;
 }
 #nacoLogo {
-	margin: 2.2em 2.2em 0 0;
+	margin: 1.2em 2.2em 0 0;
 	float: right;
 }
 
@@ -112,8 +111,12 @@ body {
 	padding-top: 10px;
 	padding-bottom: 10px;
 }
-#primeIndList > li { margin-left: 0.7em; }
+#primeIndList { margin-left: 15px; }
 .dropdown-menu { text-align: left; }
+#primeIndText, #secondIndText {
+	font-size: 18px;
+	font-weight: 400;	
+}
 .badge {
 	margin-left: 5px;
 	font-weight: 500;
@@ -167,6 +170,7 @@ body {
 #container {
 	position: relative;
 	height: 100%;
+	padding-bottom: 20px;
 }
 
 
@@ -299,7 +303,7 @@ body {
 #tipLocation {
 	color: #fff;
 	padding: 0.3em;
-	font-family: 'Arvo', serif;
+	font-family: 'Oswald', serif;
 	font-size: 1.8em;
 	background-color: rgb(253,156,2);
 	position: relative;
@@ -334,7 +338,7 @@ body {
 
 /* Under The Map Styling */
 #undermap {
-	margin: 0 auto;
+	margin: 0;
 	text-align: left;
 	font-size: 0.9em;
 	font-weight: 300;
@@ -366,12 +370,10 @@ body {
 	font-size: 0.8em;
 }
 
-.byline{
-	color: rgb(0,64,112);
-	text-align: left;
-	display: inline-block;
+.unavailable-text {
+	text-align: center;
 	font-size: 0.8em;
-	margin-top: 1em;
+	color: rgb(0,64,112);
 }
 #sourceContainer,
 #definitionsContainer,
@@ -381,8 +383,12 @@ body {
 	margin-top: 5px;
 }
 #sourceContainer { margin-top: 20px; }
-#notesContainer { padding-bottom: 30px; }
-
+#definitionsContainer { margin-top: 10px; }
+.byline {
+	text-align: center;
+	font-size: 0.85em;
+	margin-top: 25px;
+}
 
 
 /*
@@ -414,7 +420,9 @@ body {
     display: none !important;
     visibility: hidden;
 }
+.margin-left-10 { margin-left: 10px; }
 .pad-down-5 { padding-bottom: 5px; }
+.pad-down-10 { padding-bottom: 10px; }
 .pad-5 { padding: 5px 0px; }
 
 
@@ -423,13 +431,15 @@ body {
    Media Queries for Responsive Design
    ========================================================================== */
 
-@media (max-width: 1010px){
+@media (max-width: 1025px) {
 	#nacoLogo { display: none; }
 	.side-icon-text { display: none; }
-	#more-data a { padding: 10px 5px 7px 15px; }
-	#more-data span { display: none; }
+	#more-data-button a { padding: 10px 5px 7px 15px; }
+	#more-data-button span { display: none; }
 }
-
+@media (max-width: 910px) {
+	#secondIndList { display: none; }
+}
 @media (min-width: 640px) {
 	.navbar-brand { display: none; }
 }

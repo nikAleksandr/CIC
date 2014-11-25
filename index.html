@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>County Intelligence Connection (CIC)</title>
+        <title>NACo County Explorer</title>
         <meta name="description" content="Explore your county through over 500 indicators and nearly 70 datasets.">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 		<link href="img/favicon.ico" rel="icon" type="image/x-icon" />
@@ -11,19 +11,19 @@
 		<!-- Facebook sharing tags -->
     	<meta property="og:title" content="How much do you know about your county?"/>
 		<meta property="og:image" content="http://cic.naco.org/img/CICFullThumb.png"/>
-		<meta property="og:site_name" content="County Intelligence Connection 2.0"/>
+		<meta property="og:site_name" content="County Explorer"/>
 		<meta property="og:description" content="Explore your county through over 500 indicators and nearly 70 datasets."/>
 		<meta property="og:url" content="http://cic.naco.org"/>
 
 		<!--Twitter Card tags -->
 		<meta name="twitter:card" content="summary_large_image">
 		<meta name="twitter:site" content="@NACoTweets">
-		<meta name="twitter:title" content="NACo County Intelligence Connection (CIC) 2.0">
+		<meta name="twitter:title" content="NACo County Explorer">
 		<meta name="twitter:description" content="Explore your county through over 500 indicators and nearly 70 datasets.">
 		<meta name="twitter:image:src" content="http://cic.naco.org/img/CICFullThumb.png">
 
 		<!--Google +  Meta Tags-->
-		<meta itemprop="name" content="County Intelligence Connection (CIC) 2.0">
+		<meta itemprop="name" content="County Explorer">
 		<meta itemprop="description" content="Explore your county through over 500 indicators and nearly 70 datasets.">
 		<meta itemprop="image" content="http://cic.naco.org/CICFullThumb.png">
 		
@@ -34,7 +34,7 @@
         <link rel="stylesheet" href="css/rrssb.css" />
         <link rel='stylesheet' href='css/nprogress.css' />
 		<link href='https://fonts.googleapis.com/css?family=Roboto+Condensed:300,400' rel='stylesheet' type='text/css'>
-		<link href='https://fonts.googleapis.com/css?family=Arvo:400,700' rel='stylesheet' type='text/css'>
+		<link href='https://fonts.googleapis.com/css?family=Oswald:300,400,700' rel='stylesheet' type='text/css'>
 
 		<link rel="stylesheet" href="css/main.css" media="all">
 		<link rel="stylesheet" href="css/overlay.css" media="all">
@@ -50,11 +50,10 @@
     	<div id="header" class="navbar-fixed-top">
 			<div class="row">
 				<div class="col-md-10">
-					<h1>NACo County Intelligence Connection 2.0</h1>
-				
-					<p>Select a <i>Primary Indicator</i>&nbsp; below and click on a county to view more detailed information.  
-						<br/>Double-click on a county to view basic information about it.
-  					</p>
+					<h1>
+						NACo COUNTY EXPLORER<br/>
+						<small>MAPPING COUNTY DATA</small>
+					</h1>
 				</div>
 				<div class="col-md-2">
 					<img id="nacoLogo" width="180" height="44" alt="National Association of Counties Logo" src="img/NACoLogo_NoTagBLACK_tm.png" />
@@ -63,19 +62,19 @@
 				
 				
 			<!-- Horizontal Navbar -->
-			<div class="navbar-CIC navbar" role="navigation" ng-controller="MenuController as menu">			
+			<div class="navbar-CIC navbar" role="navigation" ng-controller="MenuController as menu">
 				<div class="navbar-collapse collapse">
 				    
 				    <!-- Left Nav - Two Lists of Indicators by Dataset by Category -->
 				    <ul class="nav navbar-nav" id="primeIndList">
 						<li>
-							<a id="primeIndText">Primary Indicator</a>
+							<a id="primeIndText">Map an Indicator</a>
 							<ul id="primeInd" class="dropdown-menu" indicator-list></ul>
 						</li>
 					</ul>
 				    <ul class="nav navbar-nav" id="secondIndList">
 						<li id="secondIndLi">
-							<a id="secondIndText">Secondary Indicator</a>
+							<a id="secondIndText">Compare an Indicator</a>
 							<ul id="secondInd" class="dropdown-menu" indicator-list></ul>	
 						</li>
 				    </ul>
@@ -133,7 +132,7 @@
 							<td id="resetAllIconText" class="icon-text side-icon-text">Remove Second Indicator</td>
 						</tr>
 						<tr>
-							<td><a class="share-toggle" class="link" title="Share this info"><img class="side-icon" width="30" height="30" alt="Share this info" src="img/Share.svg"/></a></td>
+							<td><a class="share-toggle link" title="Share this info"><img class="side-icon" width="30" height="30" alt="Share this info" src="img/Share.svg"/></a></td>
 							<td class="icon-text side-icon-text share-toggle">Share this map!</td>
 						</tr>
 						<tr>
@@ -156,6 +155,7 @@
 		        	<div class="container-fluid">
 			        	<div class="row">
 			        		<div class="col-md-6">
+					        	<div id="sourceContainer"></div>
 								<!-- <div id="perCapitaContainer">
 									<button type="button" class="btn btn-default" id="perCapitaButton">View As Per Capita</button>
 								</div>
@@ -190,26 +190,20 @@
 			        				<div id="legendSubtitle"></div>
 			        			</div>
 			        			<div id="quantileLegend" class="legend"></div>
+						        <div class="unavailable-text">*county data is unavailable if the county is colored grey</div>
 			        		</div>
-				        </div>
-				        <div class="row">
-				        	<div class="col-md-6 byline">
-					        	Brought to you by <a target="_blank" href="http://www.naco.org/research">NACo Research</a>
-					        </div>
-					        <div class="col-md-6 byline" style="text-align:right;">
-					        	*county data is unavailable if the county is colored grey<br>
-					        </div>
 				        </div>
 				        <div id="moreInteractives" class="row">
 				        	<div class="col-md-6"><a href="http://www.uscounties.org/countyTracker/index.html"><h3>County Tracker Interactive: <small>County economies through recession and recovery</small></h3></a></div>
 				        	<div class="col-md-6"><a href="http://www.uscounties.org/county-transportation-funding/index.html"><h3>Road Ahead Interactive: <small>County transportation funding and financing</small></h3></a></div>
 				        </div>
 			        </div>
-		        	<div id="sourceContainer" class="container-fluid"></div>
+		        	
 		        	<div id="definitionsContainer" class="container-fluid"></div>
 		        	<div id="notesContainer" class="container-fluid">
 		        		<p><i>Notes:</i><br>New York City is a consolidation of the five boroughs of the city of New York:<br>&nbsp;&bull; Manhattan (New York County)<br>&nbsp;&bull; The Bronx (Bronx County)<br>&nbsp;&bull; Brooklyn (Kings County)<br>&nbsp;&bull; Queens (Queens County)<br>&nbsp;&bull; Staten Island (Richmond County).</p>
 		        	</div>
+		        	<div class="byline container-fluid">Brought to you by <a target="_blank" href="http://www.naco.org/research">NACo Research</a></div>
 		        </div>
 		        
 		        <!-- Social Buttons (email, facebook, linkedin, twitter, google+) -->

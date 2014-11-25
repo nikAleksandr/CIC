@@ -7,9 +7,9 @@ $.noty.defaults.template = '<div class="noty_message"><div class="noty_text"></d
 
 var na_color = 'rgb(204,204,204)', // color for counties with no data
 	highlight_color = 'rgb(225,0,0)', // highlight color for counties
-	percent_colors = ['rgb(522,204,102)', 'rgb(255,153,51)', 'rgb(49,130,189)', 'rgb(7,81,156)', 'rgb(28,53,99)'],
+	percent_colors = ['rgb(255,204,102)', 'rgb(255,153,51)', 'rgb(49,130,189)', 'rgb(7,81,156)', 'rgb(28,53,99)'],
 	binary_colors = ['rgb(28,53,99)', 'rgb(255,153,51)'],
-	categorical_colors = ['rgb(522,204,102)', 'rgb(255,153,51)', 'rgb(49,130,189)', 'rgb(7,81,156)', 'rgb(28,53,99)'],
+	categorical_colors = ['rgb(255,204,102)', 'rgb(255,153,51)', 'rgb(49,130,189)', 'rgb(7,81,156)', 'rgb(28,53,99)'],
 	level_colors = ['rgb(255,204,102)', 'rgb(255,153,51)', 'rgb(49,130,189)', 'rgb(7,81,156)', 'rgb(28,53,99)'],
 	neighbor_colors = d3.scale.category10();
 	//percent_colors = ['rgb(189, 215, 231)','rgb(107, 174, 214)','rgb(49, 130, 189)','rgb(7, 81, 156)','rgb(28, 53, 99)']
@@ -79,6 +79,9 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 	    		.call(zoom)
 	    		.on("dblclick.zoom", null);		
 		g = svg.append("g").attr("class", "counties");
+		
+		// adjust undermap width
+		$('#undermap').width(width);
 		
 		// reset scale and translate values
 	    frmrS = 1;
@@ -398,6 +401,9 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 			} else {
 				CIC.update(dataset, indicator);
 				//d3.select('#primeIndText').html(html + '<span class="sub-arrow"></span>');
+				
+				// send event tracking to google analytics
+				ga('send', 'event', 'map an indicator', dataset, indicator);
 			}
 		};
 		var pickedSecondaryIndicator = function(dataset, indicator, html) {
@@ -408,6 +414,9 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 			} else {
 				appendSecondInd(dataset, indicator);
 				//d3.select('#secondIndText').html(html + '<span class="sub-arrow"></span>');
+
+				// send event tracking to google analytics
+				ga('send', 'event', 'compare an indicator', dataset, indicator);
 			}
 		};
 				
@@ -605,11 +614,13 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 			
 		} else if (searchType === 'citySearch') {
 			// city search: use city-county lookup
-			var search_str_array = search_str.toLowerCase().split('city');
-			var city_search_str = 'city_res.cfm?city=';
-			for (var i = 0; i < search_str_array.length; i++) city_search_str += search_str_array[i];
+			// first strip out city or anything after commas
+			var city_str_index = search_str.toLowerCase().indexOf('city');
+			var comma_index = search_str.toLowerCase().indexOf(',');
+			if (city_str_index !== -1) search_str = search_str.substr(0, city_str_index);
+			if (comma_index !== -1 && comma_index <= search_str.length) search_str = search_str.substr(0, comma_index);
 			
-			displayResults(city_search_str);
+			displayResults('city_res.cfm?city=' + search_str);
 		}
 	};
 	
@@ -751,14 +762,21 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 					idByName[d.geography] = d.id;
 					countyObjectById[d.id] = d;
 				});
+				attachCountyTitles();
 				
 				$(document.body).trigger('dataReceived', [qbis]);
 	 		});
 	 	} else {
 	 		// need to sort by dataset because we want to send one query per dataset needed
 		  	var indicatorList = {}; // list of indicators indexed by dataset then indexed by year
-		  	for (var i = 0; i < indObjs.length; i++) {
-			  	var crossObject = crosswalk[indObjs[i].dataset+' - '+indObjs[i].name];
+		  	for (var i = 0; i < indObjs.length; i++) {		  		
+			  	var DI = indObjs[i].dataset+' - '+indObjs[i].name;
+			  	
+			  	// for debugging
+		  		if (!indObjs[i].hasOwnProperty('name')) console.log('Indicator #' + i + ' not matched in CIC structure');
+			  	if (!crosswalk.hasOwnProperty(DI)) console.log('Indicator #' + i + ' not matched in crosswalk');
+			  	
+			  	var crossObject = crosswalk[DI];
 			  	var year = indObjs[i].year;
 		
 		  		if (!indicatorList.hasOwnProperty(crossObject.db_dataset)) indicatorList[crossObject.db_dataset] = {};
@@ -833,8 +851,9 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 						}
 			
 						idByName[data[fips].geography] = fips;
-						countyObjectById[fips] = data[fips];
+						countyObjectById[fips] = data[fips];						
 					}
+					attachCountyTitles();
 	
 					$(document.body).trigger('dataReceived', [qbis, data]);
 				}
@@ -862,17 +881,25 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 			corrDomain = [];
 			// translating string values to numeric values
 			var numCorrVals = 0, vals = {}, corrVal = 0;
-			for (var ind in quantById) {		
-				if (quantById[ind] !== '.' && quantById[ind] !== '' && quantById[ind] !== null) {
-					if (!vals.hasOwnProperty(quantById[ind])) {
-						// create corresponding value array (e.g. {"Gulf of Mexico": 0, "Pacific Ocean": 1})
-						vals[quantById[ind]] = corrVal;
-						corrVal++;
+			
+			if (indObjects[0].hasOwnProperty('order')) {
+				vals = indObjects[0].order;
+				for (var ind in quantById) corrDomain[ind] = vals[quantById[ind]];
+			} else {
+				for (var ind in quantById) {		
+					if (quantById[ind] !== '.' && quantById[ind] !== '' && quantById[ind] !== null) {
+						if (!vals.hasOwnProperty(quantById[ind])) {
+							// create corresponding value array (e.g. vals = {"Gulf of Mexico": 0, "Pacific Ocean": 1})
+							vals[quantById[ind]] = corrVal;
+							corrVal++;
+						}
+						// change domain value to numeric representation (corrDomain[0] goes from "Gulf of Mexico" to 0)
+						corrDomain[ind] = vals[quantById[ind]];
 					}
-					corrDomain[ind] = vals[quantById[ind]];
 				}
 			}
-			for (var ind in vals) numCorrVals++;
+		
+			for (var ind in vals) numCorrVals++; // keep track of number of categories
 		}
 	
 		// define range i.e. color output
@@ -998,7 +1025,7 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 		// list source
 		d3.select("#sourceContainer").selectAll("p").remove();
 		d3.select('#sourceContainer').append('p').attr("id", "sourceText")
-			.html('<i>Source</i>: NACo Analysis of ' + indObjects[0].source + ', ' + indObjects[0].year);
+			.html('<span style="font-weight:400;">Source:</span> NACo Analysis of ' + indObjects[0].source + ', ' + indObjects[0].year);
 		
 				
 		// if showing a "county profile" indicator, show a mini help dialog
@@ -1252,7 +1279,7 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 	var changeLegendTitle = function() {
 		var primeIndObj = indObjects[0];
 		var subtitle = primeIndObj.name;
-		if (primeIndObj.hasOwnProperty('unit') && (primeIndObj.unit.indexOf('acre') !== -1 || primeIndObj.unit.indexOf('square mile') !== -1 || primeIndObj.unit === 'per 1,000 population')) {
+		if (primeIndObj.hasOwnProperty('unit') && primeIndObj.unit.indexOf('per ') !== -1 && subtitle.indexOf('per ') === -1) {
 			subtitle += ' (' + primeIndObj.unit + ')';
 		}
 		
@@ -1547,6 +1574,12 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 			zoomMap(t, s);
 			tooltip.classed('hidden', true);
 		});
+	};
+	var attachCountyTitles = function() {
+		d3.selectAll('.county').append('title').html(function(d) {
+			if (countyObjectById.hasOwnProperty(d.id) && countyObjectById[d.id].hasOwnProperty('geography')) return countyObjectById[d.id].geography;
+			else return false;
+		});		
 	};
 	
 	//---------------  Easter-Eggs, and other back-end functions -----------------------------------
