@@ -1935,6 +1935,32 @@
 							"definition": ""
 						}
 					]
+				}, {
+					"name": "County Tracker",
+					"source": "Moodys",
+					"years": [2014],
+					"companions": [["Cost of Living", "RPP Wage"], ["Cost of Living", "RPP Wage Growth"], ["Cost of Living", "COLI Wage"], ["Cost of Living", "COLI Wage Growth"]
+					],
+					"children": [
+						{
+							"name": "Jobs Growth",
+							"dataType": "categorical",
+							"definition": "",
+							"order": {"Growth, but Slowing": 2, "Negative, but Slowing": 1, "Negative and Worsening": 0, "Growth and Accelerating": 3}
+						},
+						{
+							"name": "Recovery 2013",
+							"dataType": "categorical",
+							"definition": "",
+							"order": {"0":0, "1":1, "2":2, "3":3, "4":4}
+						},
+						{
+							"name": "Recovery 2014",
+							"dataType": "categorical",
+							"definition": "",
+							"order": {"0":0, "1":1, "2":2, "3":3, "4":4}
+						}
+					]
 				}
 			]
 		}, {
