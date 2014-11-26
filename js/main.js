@@ -654,6 +654,9 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 						} else {
 							window.open('http://cic.naco.org/profiles/' + county.geography + '.pdf', '_blank');
 						}
+					} else if (currentDI === 'MITFA Profiles - MITFA Profiles') {
+						var state = countyObjectById[+FIPS].STATE;
+						window.open('http://cic.naco.org/profiles/MITFA_' + state + '.pdf', '_blank');
 					}
 				}
 			});		
@@ -838,7 +841,7 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 				requestsReceived++;
 				
 				// all requests have been received; send back event trigger after formatting
-				if (requestsReceived == qsa.length) {
+				if (requestsReceived === qsa.length) {
 					
 					// write data to "quantById" format
 					var qbis = [];
@@ -1030,9 +1033,11 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 				
 		// if showing a "county profile" indicator, show a mini help dialog
 		if (indObjects[0].has_profile) {
+			var text = 'Click once on a county to see their county profile.';
+			if (indObjects[0].name === 'MITFA Profiles') text = 'Click once on a county to see their state profile.';
 			noty({
 				type: 'alert',
-				text: '<strong>Click once on a county to see their county profile.</strong></br></br>Please make sure to enable popups.',
+				text: '<strong>' + text + '</strong></br></br>Please make sure to enable popups.',
 				timeout: false
 			});
 		}
