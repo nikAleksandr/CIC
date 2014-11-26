@@ -240,7 +240,7 @@ Education	Edu_Attain_associate_degree_25up	Education	Educational Attainment	Asso
 Education	Edu_Attain_bachelor_degree_25up	Education	Educational Attainment	Bachelor's Degree	
 Education	Edu_Attain_grad_or_prof_degree_25up	Education	Educational Attainment	Graduate or Professional Degree	
 Education	Edu_Attain_K12_25up	Education	Educational Attainment	Above K-12	
-Education	Jobs_Skills_Classification	Education	Jobs Skills	Jobs Skills	
+Education	Jobs_Skills_Classification	Education	County Job Skills	Skill Levels	
 Federal_Funding	FIPS	Federal Funding			
 Federal_Funding	DATA_YEAR	Federal Funding			
 Federal_Funding	ADDI	Federal Funding	American Dream Downpayment Initiative (ADDI)	ADDI Amount	Funding received for the American Dream Downpayment Initiative program
