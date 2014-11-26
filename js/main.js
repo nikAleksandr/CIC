@@ -1293,6 +1293,7 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 		} else {
 			var legendTitle = primeIndObj.year + ' ' + primeIndObj.dataset;		
 		}
+		if (primeIndObj.name === 'MITFA Profiles') legendTitle = 'Sales Tax' + primeIndObj.legend_title_footer;
 		
 		// special titles for profiles
 		if (primeIndObj.has_profile === true) subtitle = primeIndObj.companions[0][1];
