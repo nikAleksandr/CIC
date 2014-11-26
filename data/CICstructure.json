@@ -2143,7 +2143,7 @@
 						{
 							"name": "Skill Levels",
 							"dataType": "categorical",
-							"definition": "The classification of the county's state of supply and demand for skilled labor.",
+							"definition": "The balance between skill supply and skill demand in a county.  Skill supply and skill demand is partly determined by indicators such as income levels, percentage employed people in medium-high occupations, and labor productivity.",
 							"order": {"Skills Surplus": 3, "Low Skills Equilibrium": 1, "Skills Deficit": 0, "High Skills Equilibrium": 2}
 						}
 					]
