@@ -2134,14 +2134,14 @@
 						}
 					]
 				}, {
-					"name": "Jobs Skills",
+					"name": "County Job Skills",
 					"source": "Organization for Economic Co-operation and Devleopment (OECD)",
 					"years": [2009, 2010, 2011, 2012],
-					"companions": [["Jobs Skills", "Jobs Skills"], ["Educational Attainment", "Bachelor's Degree"], ["Educational Attainment", "Graduate or Professional Degree"], ["Educational Attainment", "Associate's Degree"]
+					"companions": [["County Job Skills", "Skill Levels"], ["Educational Attainment", "Bachelor's Degree"], ["Educational Attainment", "Graduate or Professional Degree"], ["Educational Attainment", "Associate's Degree"]
 					],
 					"children": [
 						{
-							"name": "Jobs Skills",
+							"name": "Skill Levels",
 							"dataType": "categorical",
 							"definition": "The classification of the county's state of supply and demand for skilled labor.",
 							"order": {"Skills Surplus": 3, "Low Skills Equilibrium": 1, "Skills Deficit": 0, "High Skills Equilibrium": 2}
