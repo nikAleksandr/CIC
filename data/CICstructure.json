@@ -2135,7 +2135,7 @@
 					]
 				}, {
 					"name": "Jobs Skills",
-					"source": "U.S. Census Bureau",
+					"source": "Organization for Economic Co-operation and Devleopment (OECD)",
 					"years": [2009, 2010, 2011, 2012],
 					"companions": [["Jobs Skills", "Jobs Skills"], ["Educational Attainment", "Bachelor's Degree"], ["Educational Attainment", "Graduate or Professional Degree"], ["Educational Attainment", "Associate's Degree"]
 					],
@@ -4407,6 +4407,27 @@
 							"unit": "thousands of dollars",
 							"dataType": "level",
 							"definition": "Amounts paid to other local governments government for performance of specific functions or for general financial support. Includes grants, shared taxes, contingent loans and advances, and any significant and identifiable amounts or reimbursement paid to other governments for performance of general government services or activities. By definition, it excludes amounts paid to other governments for purchase of commodities, property, or utility services and for any tax levied as such on facilities of the government."
+						}
+					]
+				}
+			]
+		}, {
+			"name": "County Profiles",
+			"children": [
+				{
+					"name": "MITFA Profiles",
+					"source": "NACo Research",
+					"years": [2014],
+					"legend_title_footer": ", collected over 2007-2014",
+					"companions": [["County Tax Rates", "Sales Tax"], ["County Tax Rates", "State Sales Tax"]
+					],
+					"children": [
+						{
+							"name": "MITFA Profiles",
+							"dataType": "percent",
+							"thresholds": [0.001, 0.01, 0.03, 0.05],
+							"definition": "The county sales tax rate.  Some rates may be median estimates calculated from a range of sales tax rates.",
+							"has_profile": true
 						}
 					]
 				}
