@@ -119,10 +119,11 @@ var colorlegend = function (target, scale, type, options) {
 		}
 	}
 	
-	// exception for "Jobs Skills"
+	// exception for "Jobs Skills" - fix in database when given chance
 	if (typeof dataValues[0] === 'string') {
 		for (var k = 0; k < dataValues.length; k++) {
-			if (dataValues[k].indexOf('Skills ') !== -1) dataValues[k] = dataValues[k].replace('Skills ', '');
+			if (dataValues[k] === "Low Skills Equilibrium") dataValues[k] = "Low Skills";
+			else if (dataValues[k] === "High Skills Equilibrium") dataValues[k] = "High Skills";
 		}
 	}
 	
