@@ -2150,6 +2150,29 @@
 				}
 			]
 		}, {
+			"name": "Energy & Environment",
+			"children": [
+				{
+					"name": "Ozone Concentration",
+					"years": [2013],
+					"source": "Environmental Protection Agency",
+					"companions": [["American Dream Downpayment Initiative (ADDI)", "ADDI Amount"], ["American Dream Downpayment Initiative (ADDI)", "ADDI Annual Growth Rate (from previous year)"], ["Housing & Urban Development Grants", "Total HUD Amount"], ["Housing & Urban Development Grants", "HUD Annual Growth Rate (from previous year)"]
+					],
+					"children": [
+						{
+							"name": "Ozone Level",
+							"unit": "parts per billion",
+							"dataType": "categorical",
+							"definition": "2011-2013 3-year conecntration levels of ground-level ozone as measured by county monitors"
+						}, {
+							"name": "Forecasted Ozone Level",
+							"dataType": "percent",
+							"definition": "Model projections for 2025 of projected 3-year conecntration levels of ground-level ozone as measured by county monitors."
+						}
+					]
+				}
+			]
+		}, {
 			"name": "Federal Funding",
 			"children": [
 				{
