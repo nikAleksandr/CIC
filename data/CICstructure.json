@@ -2156,7 +2156,7 @@
 					"name": "Ozone Concentration",
 					"years": [2013],
 					"source": "Environmental Protection Agency",
-					"companions": [["American Dream Downpayment Initiative (ADDI)", "ADDI Amount"], ["American Dream Downpayment Initiative (ADDI)", "ADDI Annual Growth Rate (from previous year)"], ["Housing & Urban Development Grants", "Total HUD Amount"], ["Housing & Urban Development Grants", "HUD Annual Growth Rate (from previous year)"]
+					"companions": [["Ozone Concentration", "Ozone Level"], ["Ozone Concentration", "Forecasted Ozone Level"]
 					],
 					"children": [
 						{
