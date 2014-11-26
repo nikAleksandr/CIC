@@ -2134,16 +2134,16 @@
 						}
 					]
 				}, {
-					"name": "Jobs Skills",
+					"name": "Skilled Labor",
 					"source": "Organization for Economic Co-operation and Devleopment (OECD)",
 					"years": [2009, 2010, 2011, 2012],
-					"companions": [["Jobs Skills", "Jobs Skills"], ["Educational Attainment", "Bachelor's Degree"], ["Educational Attainment", "Graduate or Professional Degree"], ["Educational Attainment", "Associate's Degree"]
+					"companions": [["Skilled Labor", "Level"], ["Educational Attainment", "Bachelor's Degree"], ["Educational Attainment", "Graduate or Professional Degree"], ["Educational Attainment", "Associate's Degree"]
 					],
 					"children": [
 						{
-							"name": "Jobs Skills",
+							"name": "Level",
 							"dataType": "categorical",
-							"definition": "The classification of the county's state of supply and demand for skilled labor.",
+							"definition": "The <a href='http://www.oecd.org/cfe/leed/job-creation-and-local-economic-development-9789264215009-en.htm'>Organization for Economic Co-operation and Development (OECD)</a> classification of the county's state of supply and demand for skilled labor. The skills supply is the share of the working age county population having post-secondary education, based on the 2012 5-year estimate American Community Survey (ACS). The skills demand is a combined index of the share of county residents having medium and high skilled occupations and income from employment. For more on the methodology, click <a href='http://www.oecd.org/cfe/leed/Skills-methodology.pdf'>here</a>",
 							"order": {"Skills Surplus": 3, "Low Skills Equilibrium": 1, "Skills Deficit": 0, "High Skills Equilibrium": 2}
 						}
 					]
