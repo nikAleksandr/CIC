@@ -2156,17 +2156,20 @@
 					"name": "Ozone Concentration",
 					"years": [2013],
 					"source": "Environmental Protection Agency",
-					"companions": [["Ozone Concentration", "Ozone Level"], ["Ozone Concentration", "Forecasted Ozone Level"]
+					"companions": [["Ozone Concentration", "2011-2013 Level"], ["Ozone Concentration", "Projected 2025 Level"]
 					],
 					"children": [
 						{
 							"name": "2011-2013 Level",
 							"unit": "parts per billion",
 							"dataType": "categorical",
+							"order": {"Less than 65": 0, "65-70": 1, "More than 70": 2},
 							"definition": "2011-2013 3-year conecntration levels of ground-level ozone as measured by county monitors"
 						}, {
 							"name": "Projected 2025 Level",
-							"dataType": "percent",
+							"unit": "parts per billion",
+							"dataType": "categorical",
+							"order": {"Less than 65": 0, "65-70": 1, "More than 70": 2},
 							"definition": "Model projections for 2025 of projected 3-year conecntration levels of ground-level ozone as measured by county monitors."
 						}
 					]

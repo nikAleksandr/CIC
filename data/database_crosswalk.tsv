@@ -240,8 +240,8 @@ Education	Edu_Attain_associate_degree_25up	Education	Educational Attainment	Asso
 Education	Edu_Attain_bachelor_degree_25up	Education	Educational Attainment	Bachelor's Degree	
 Education	Edu_Attain_grad_or_prof_degree_25up	Education	Educational Attainment	Graduate or Professional Degree	
 Education	Edu_Attain_K12_25up	Education	Educational Attainment	Above K-12	
-???	???	Energy & Environment	Ozone Concentration	Ozone Level	2011-2013 3-year conecntration levels of ground-level ozone as measured by county monitors
-???	???	Energy & Environment	Ozone Concentration	Forecasted Ozone Level	Model projections for 2025 of projected 3-year conecntration levels of ground-level ozone as measured by county monitors
+COUNTY_DATA 	Ozone_Class	Energy & Environment	Ozone Concentration	2011-2013 Level	2011-2013 3-year conecntration levels of ground-level ozone as measured by county monitors
+COUNTY_DATA 	Projected_Ozone_Class	Energy & Environment	Ozone Concentration	Projected 2025 Level	Model projections for 2025 of projected 3-year conecntration levels of ground-level ozone as measured by county monitors
 Education					
 Federal_Funding	Jobs_Skills_Classification	Education	County Job Skills	Level	
 Federal_Funding	FIPS	Federal Funding			
