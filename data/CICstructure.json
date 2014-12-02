@@ -2134,10 +2134,10 @@
 						}
 					]
 				}, {
-					"name": "Skilled Labor",
+					"name": "County Job Skills",
 					"source": "Organization for Economic Co-operation and Devleopment (OECD)",
 					"years": [2009, 2010, 2011, 2012],
-					"companions": [["Skilled Labor", "Level"], ["Educational Attainment", "Bachelor's Degree"], ["Educational Attainment", "Graduate or Professional Degree"], ["Educational Attainment", "Associate's Degree"]
+					"companions": [["County Job Skills", "Level"], ["Educational Attainment", "Bachelor's Degree"], ["Educational Attainment", "Graduate or Professional Degree"], ["Educational Attainment", "Associate's Degree"]
 					],
 					"children": [
 						{
@@ -2160,12 +2160,12 @@
 					],
 					"children": [
 						{
-							"name": "Ozone Level",
+							"name": "2011-2013 Level",
 							"unit": "parts per billion",
 							"dataType": "categorical",
 							"definition": "2011-2013 3-year conecntration levels of ground-level ozone as measured by county monitors"
 						}, {
-							"name": "Forecasted Ozone Level",
+							"name": "Projected 2025 Level",
 							"dataType": "percent",
 							"definition": "Model projections for 2025 of projected 3-year conecntration levels of ground-level ozone as measured by county monitors."
 						}

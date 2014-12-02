@@ -243,7 +243,7 @@ Education	Edu_Attain_K12_25up	Education	Educational Attainment	Above K-12
 ???	???	Energy & Environment	Ozone Concentration	Ozone Level	2011-2013 3-year conecntration levels of ground-level ozone as measured by county monitors
 ???	???	Energy & Environment	Ozone Concentration	Forecasted Ozone Level	Model projections for 2025 of projected 3-year conecntration levels of ground-level ozone as measured by county monitors
 Education					
-Federal_Funding	Jobs_Skills_Classification	Education	Skilled Labor	Level	
+Federal_Funding	Jobs_Skills_Classification	Education	County Job Skills	Level	
 Federal_Funding	FIPS	Federal Funding			
 Federal_Funding	DATA_YEAR	Federal Funding			
 Federal_Funding	ADDI	Federal Funding	American Dream Downpayment Initiative (ADDI)	ADDI Amount	Funding received for the American Dream Downpayment Initiative program
