@@ -656,7 +656,11 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 						}
 					} else if (currentDI === 'MITFA Profiles - MITFA Profiles') {
 						var state = countyObjectById[+FIPS].STATE;
-						window.open('http://cic.naco.org/profiles/MITFA_' + state + '.pdf', '_blank');
+						if(state=="MT" | state=="OR" | state=="NH" | state=="DE"){
+							noty({text: '<strong>No Profile Available</strong></br>This state does not have a sales tax.'});
+						} else {
+							window.open('http://cic.naco.org/profiles/MITFA_' + state + '.pdf', '_blank');
+						}
 					}
 				}
 			});		

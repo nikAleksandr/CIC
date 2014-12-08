@@ -244,7 +244,7 @@ COUNTY_DATA 	Ozone_Class	Energy & Environment	Ozone Concentration	2011-2013 Leve
 COUNTY_DATA 	Projected_Ozone_Class	Energy & Environment	Ozone Concentration	Projected 2025 Level	Model projections for 2025 of projected 3-year conecntration levels of ground-level ozone as measured by county monitors
 COUNTY_DATA 	Ozone_Level	Energy & Environment	Ozone Concentration	2011-2013 Count	
 COUNTY_DATA 	Projected_Ozone_Level	Energy & Environment	Ozone Concentration	Projected 2025 Count	
-Education	Jobs_Skills_Classification	Education	County Job Skills	Level	
+Education	Jobs_Skills_Classification	Economy	County Job Skills	Level	
 Federal_Funding	FIPS	Federal Funding			
 Federal_Funding	DATA_YEAR	Federal Funding			
 Federal_Funding	ADDI	Federal Funding	American Dream Downpayment Initiative (ADDI)	ADDI Amount	Funding received for the American Dream Downpayment Initiative program
