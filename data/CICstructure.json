@@ -1047,6 +1047,11 @@
 							"dataType": "level",
 							"definition": "Public welfare payments made directly to private vendors for medical assistance and hospital or health care, including Medicaid (Title XIX), plus mandatory state payments to the Federal Government to offset costs of prescription drugs under Medicare Part D. Payments to vendors or the Federal Government must be made on behalf of low-income or means tested beneficiaries, or other medically qualified persons."
 						}, {
+							"name": "Payments to Medicare Trust Fund",
+							"unit": "thousands of dollars",
+							"dataType": "level",
+							"definition": "Needs definition"
+						}, {
 							"name": "Other Public Welfare",
 							"unit": "thousands of dollars",
 							"dataType": "level",
@@ -1312,6 +1317,11 @@
 							"unit": "thousands of dollars",
 							"dataType": "level",
 							"definition": "Construction, equipping, maintenance, and operation of general public buildings not related to specific functions or agencies.  Includes: General county offices buildings, city halls, multi-purpose office buildings and annexes; and lighting, janitorial, custodial, and other services furnished for general public buildings. Excludes: School buildings, police stations, firehouses, libraries, institutional buildings, jails, hospitals, courthouses that hold only courts and related judicial agencies, etc."
+						}, {
+							"name": "Federal and State Veterans' Services",
+							"unit": "thousands of dollars",
+							"dataType": "level",
+							"definition": "Needs definition"
 						}
 					]
 				}, {
@@ -3725,6 +3735,11 @@
 							"unit": "thousands of dollars",
 							"dataType": "level",
 							"definition": "Public welfare payments made directly to private vendors for medical assistance and hospital or health care, including Medicaid (Title XIX), plus mandatory state payments to the Federal Government to offset costs of prescription drugs under Medicare Part D. Payments to vendors or the Federal Government must be made on behalf of low-income or means tested beneficiaries, or other medically qualified persons."
+						}, {
+							"name": "Payments to Medicare Trust Fund",
+							"unit": "thousands of dollars",
+							"dataType": "level",
+							"definition": "Needs definition"
 						}, {
 							"name": "Other Public Welfare",
 							"unit": "thousands of dollars",
