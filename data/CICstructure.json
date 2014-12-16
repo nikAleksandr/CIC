@@ -1919,7 +1919,7 @@
 							"definition": ""
 						},{
 							"name": "Unemployment Rate Change, 2013-2014",
-							"dataType": "percent",
+							"dataType": "level",
 							"unit": "PPT",
 							"definition": ""
 						},{
@@ -1948,7 +1948,7 @@
 							"definition": ""
 						},{
 							"name": "Unemployment Rate Change, Recession",
-							"dataType": "percent",
+							"dataType": "level",
 							"unit": "PPT",
 							"definition": ""
 						},{
@@ -1965,7 +1965,7 @@
 							"definition": ""
 						},{
 							"name": "Unemployment Rate Change, Recovery",
-							"dataType": "percent",
+							"dataType": "level",
 							"unit": "PPT",
 							"definition": ""
 						},{
