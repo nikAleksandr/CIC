@@ -638,9 +638,10 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 				positionTooltip($('.county.active')[0]);
 				
 				if (indObjects[0].has_profile) {
-					if (currentDI === 'Economic Conditions - County Tracker') {
+					if (currentDI === 'County Economic Tracker - County Economic Profiles') {
 						var countyName = parseCountyName(+FIPS, county.geography);
-						window.open('http://www.uscounties.org/countytracker/profiles/' + countyName + '.pdf');
+						countyName = countyName.replace(/\s/g, '');
+						window.open('http://explorer.naco.org/countytracker/' + countyName + '.pdf');
 					} else if (currentDI === 'Municipal Bonds - Muni Bonds Profiles') {
 						if (isNaN(quantByIds[0][+FIPS])) {
 							noty({text: '<strong>No Profile Available</strong>'});
@@ -652,14 +653,14 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 						if (quantByIds[0][+FIPS] === 0) {
 							noty({text: '<strong>No Profile Available</strong></br>This county did not receive PILT in 2014!'});
 						} else {
-							window.open('http://cic.naco.org/profiles/' + county.geography + '.pdf', '_blank');
+							window.open('http://explorer.naco.org/profiles/' + county.geography + '.pdf', '_blank');
 						}
 					} else if (currentDI === 'MITFA Profiles - MITFA Profiles') {
 						var state = countyObjectById[+FIPS].STATE;
 						if(state=="MT" | state=="OR" | state=="NH" | state=="DE"){
 							noty({text: '<strong>No Profile Available</strong></br>This state does not have a sales tax.'});
 						} else {
-							window.open('http://cic.naco.org/profiles/MITFA_' + state + '.pdf', '_blank');
+							window.open('http://explorer.naco.org/profiles/MITFA_' + state + '.pdf', '_blank');
 						}
 					}
 				}

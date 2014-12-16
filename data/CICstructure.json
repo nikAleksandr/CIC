@@ -1905,8 +1905,103 @@
 						}
 					]
 				}, {
+					"name": "County Economic Tracker",
+					"source": "Moody's Analytics, U.S. Bureau of Labor Statistics, U.S. Bureau of Economic Analysis, U.S. Census Bureau",
+					"years": [2013],
+					"companions": [["County Economic Tracker", "Recovered on # Indicators"], ["County Economic Tracker", "Unemployment Rate Change, 2013-2014"], ["County Economic Tracker", "Jobs Growth Rate, 2013-2014"], ["County Economic Tracker", "GDP Growth Rate, 2013-2014"]
+					],
+					"children": [
+						{
+							"name": "County Economic Profile",
+							"dataType": "level",
+							"has_profile": true,
+							"unit": "indicator(s)"
+							"definition": ""
+						},{
+							"name": "Unemployment Rate Change, 2013-2014",
+							"dataType": "percent",
+							"unit": "PPT",
+							"definition": ""
+						},{
+							"name": "Jobs Growth Rate, 2013-2014",
+							"dataType": "percent",
+							"definition": ""
+						},{
+							"name": "GDP Growth Rate, 2013-2014",
+							"dataType": "percent",
+							"definition": ""
+						},{
+							"name": "Home Price Growth Rate, 2013-2014",
+							"dataType": "percent",
+							"definition": ""
+						},{
+							"name": "Jobs Growth Rate, Long-term",
+							"dataType": "percent",
+							"definition": ""
+						},{
+							"name": "GDP Growth Rate, Long-term",
+							"dataType": "percent",
+							"definition": ""
+						},{
+							"name": "Home Price Growth Rate, Long-term",
+							"dataType": "percent",
+							"definition": ""
+						},{
+							"name": "Unemployment Rate Change, Recession",
+							"dataType": "percent",
+							"unit": "PPT"
+							"definition": ""
+						},{
+							"name": "Jobs Growth Rate, Recession",
+							"dataType": "percent",
+							"definition": ""
+						},{
+							"name": "GDP Growth Rate, Recession",
+							"dataType": "percent",
+							"definition": ""
+						},{
+							"name": "Home Price Growth Rate, Recession",
+							"dataType": "percent",
+							"definition": ""
+						},{
+							"name": "Unemployment Rate Change, Recovery",
+							"dataType": "percent",
+							"unit": "PPT"
+							"definition": ""
+						},{
+							"name": "Jobs Growth Rate, Recovery",
+							"dataType": "percent",
+							"definition": ""
+						},{
+							"name": "GDP Growth Rate, Recovery",
+							"dataType": "percent",
+							"definition": ""
+						},{
+							"name": "Home Price Growth Rate, Recovery",
+							"dataType": "percent",
+							"definition": ""
+						},{
+							"name": "Unemployment Rate Recovered",
+							"dataType": "binary",
+							"definition": ""
+						},{
+							"name": "Jobs Recovered",
+							"dataType": "binary",
+							"definition": ""
+						},{
+							"name": "GDP Recovered",
+							"dataType": "binary",
+							"definition": ""
+						},{
+							"name": "Recovered on # Indicators",
+							"dataType": "level",
+							"unit": "indicator(s)",
+							"definition": ""
+						}
+					]
+				}, {
 					"name": "Economic Conditions",
-					"source": "NACo Reasarch",
+					"source": "Moody's Analytics data",
 					"years": [2013],
 					"companions": [["Labor Force", "Unemployment Rate"], ["Labor Force", "Number Employed"], ["Labor Force", "Number Unemployed"]
 					],
