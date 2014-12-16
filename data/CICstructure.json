@@ -1915,7 +1915,7 @@
 							"name": "County Economic Profile",
 							"dataType": "level",
 							"has_profile": true,
-							"unit": "indicator(s)"
+							"unit": "indicator(s)",
 							"definition": ""
 						},{
 							"name": "Unemployment Rate Change, 2013-2014",
@@ -1949,7 +1949,7 @@
 						},{
 							"name": "Unemployment Rate Change, Recession",
 							"dataType": "percent",
-							"unit": "PPT"
+							"unit": "PPT",
 							"definition": ""
 						},{
 							"name": "Jobs Growth Rate, Recession",
@@ -1966,7 +1966,7 @@
 						},{
 							"name": "Unemployment Rate Change, Recovery",
 							"dataType": "percent",
-							"unit": "PPT"
+							"unit": "PPT",
 							"definition": ""
 						},{
 							"name": "Jobs Growth Rate, Recovery",

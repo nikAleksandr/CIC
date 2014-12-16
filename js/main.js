@@ -641,7 +641,7 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 					if (currentDI === 'County Economic Tracker - County Economic Profiles') {
 						var countyName = parseCountyName(+FIPS, county.geography);
 						countyName = countyName.replace(/\s/g, '');
-						window.open('http://explorer.naco.org/countytracker/' + countyName + '.pdf');
+						window.open('http://explorer.naco.org/profiles/countytracker/' + countyName + '.pdf');
 					} else if (currentDI === 'Municipal Bonds - Muni Bonds Profiles') {
 						if (isNaN(quantByIds[0][+FIPS])) {
 							noty({text: '<strong>No Profile Available</strong>'});
