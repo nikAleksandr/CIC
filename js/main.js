@@ -1782,12 +1782,12 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 	var format = {
 		// legend formatting
 		"percent": d3.format('.1%'),
-		'PPT': d3.format('.1r'),
 		"binary": function (num) { return num; },
 		"categorical": function (num) { return num; },
 		"level": function (num, unit) {
 			var type = determineType(unit);
 			if (type === 'year') return num.toFixed(0);
+			else if (unit === 'PPT') return d3.format('.1r')(num) + " PPT";
 	    	else if (Math.abs(num) >= 1000000000) {
 	    		var formatted = String((num/1000000000).toFixed(1)) + "bil";
 	    	} else if (Math.abs(num) >= 1000000) {
