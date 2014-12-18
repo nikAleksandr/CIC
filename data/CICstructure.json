@@ -1907,7 +1907,7 @@
 				}, {
 					"name": "County Economic Tracker",
 					"source": "Moody's Analytics, U.S. Bureau of Labor Statistics, U.S. Bureau of Economic Analysis, U.S. Census Bureau",
-					"years": [2013],
+					"years": [2014],
 					"companions": [["County Economic Tracker", "Recovered on # Indicators"], ["County Economic Tracker", "Unemployment Rate Change, 2013-2014"], ["County Economic Tracker", "Jobs Growth Rate, 2013-2014"], ["County Economic Tracker", "GDP Growth Rate, 2013-2014"]
 					],
 					"children": [
@@ -2008,8 +2008,9 @@
 							"definition": ""
 						},{
 							"name": "Recovered on # Indicators",
-							"dataType": "level",
+							"dataType": "categorical",
 							"unit": "indicator(s)",
+							"order": {"1": 1, "2": 2, "3": 3, "4": 4},
 							"definition": ""
 						}
 					]
