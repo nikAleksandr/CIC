@@ -638,7 +638,7 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 				positionTooltip($('.county.active')[0]);
 				
 				if (indObjects[0].has_profile) {
-					if (currentDI === 'County Economic Tracker - County Economic Profiles') {
+					if (currentDI === 'County Economic Tracker - County Economic Profile') {
 						var countyName = parseCountyName(+FIPS, county.geography);
 						countyName = countyName.replace(/\s/g, '');
 						window.open('http://explorer.naco.org/profiles/countytracker/' + countyName + '.pdf');

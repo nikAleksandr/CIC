@@ -1918,14 +1918,13 @@
 							"unit": "indicator(s)",
 							"definition": ""
 						},{
-							"name": "Ajdusted County Average Pay, 2012",
+							"name": "Adjusted Average County Pay, 2012",
 							"dataType": "level",
 							"unit": "dollars",
 							"definition": ""
 						},{
-							"name": "Adjusted County Average Pay Growth Rate, 2012-2013",
-							"dataType": "level",
-							"unit": "dollars",
+							"name": "Adjusted Average County Pay Growth Rate, 2012-2013",
+							"dataType": "percent",
 							"definition": ""
 						},{
 							"name": "Unemployment Rate Change, 2013-2014",
@@ -2010,7 +2009,7 @@
 							"name": "Recovered on # Indicators",
 							"dataType": "categorical",
 							"unit": "indicator(s)",
-							"order": {"1": 1, "2": 2, "3": 3, "4": 4},
+							"order": {"None": 0, "1": 1, "2": 2, "3": 3, "4": 4},
 							"definition": ""
 						}
 					]
