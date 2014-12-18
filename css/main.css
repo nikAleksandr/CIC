@@ -121,7 +121,9 @@ body {
 	margin-left: 5px;
 	font-weight: 500;
 }
-
+.dropdown-menu > li .dropdown-header{
+	font-weight:800;
+}
 
 /* Search */
 #search-container {
