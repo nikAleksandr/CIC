@@ -29,6 +29,7 @@ var colorlegend = function (target, scale, type, options) {
     	, linearBoxes = opts.linearBoxes || 9 // number of boxes for linear scales (int)
     	, isNumeric = (dataType === 'level' || dataType === 'level_np' || dataType === 'percent')
     	, unit = opts.unit || ''
+    	, supressMinMax = opts.supressMinMax || false
     	, htmlElement = document.getElementById(target.substring(0, 1) === '#' ? target.substring(1, target.length) : target) // target container element - strip the prefix #
     	, w = htmlElement.offsetWidth // width of container element
     	, h = htmlElement.offsetHeight // height of container element
@@ -188,7 +189,9 @@ var colorlegend = function (target, scale, type, options) {
 	        // show label for all ordinal values
     	    if (type === 'ordinal') return dataValues[i];
     	    else {
-    	    	if (format_type === false) return format[dataType](dataValues[i], unit); // format is defined based on dataType
+    	    	//supress max and minimum values for those with JSON property "supressMinMax" == true
+    	    	if (supressMinMax & i==0 || supressMinMax & i==5) return ' ';
+    	    	else if (format_type === false) return format[dataType](dataValues[i], unit); // format is defined based on dataType
     	    	else return format[format_type](dataValues[i], unit);
     	    }
       	});

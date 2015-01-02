@@ -1283,6 +1283,7 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 			if (dataVals) options.small_large = dataVals;
 			if (primeIndObj.name === 'Body of Water') options.boxWidth = 68;
 			if (primeIndObj.hasOwnProperty('format_type')) options.format_type = primeIndObj.format_type;
+			if (primeIndObj.hasOwnProperty('supressMinMax')) options.supressMinMax = primeIndObj.supressMinMax;
 	
 			changeLegendTitle();
 			return colorlegend("#quantileLegend", color, "quantile", options);
