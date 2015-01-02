@@ -1032,7 +1032,6 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 		
 		// list source
 		d3.select("#sourceContainer").selectAll("p").remove();
-		console.log(indObjects[0].supressYear);
 		d3.select('#sourceContainer').append('p').attr("id", "sourceText")
 			.html('<span style="font-weight:400;">Source:</span> NACo Analysis of ' + indObjects[0].source + ((indObjects[0].supressYear) ? '.' : ', ' + indObjects[0].year));
 		
