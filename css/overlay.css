@@ -12,7 +12,8 @@
   position: absolute;
   margin: 0;
   z-index: -1;
-  left:100px;
+  left:10%;
+  top:20%;
 }
 #instructions {
 	position: absolute;

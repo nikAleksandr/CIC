@@ -1908,14 +1908,16 @@
 					"name": "County Economic Tracker",
 					"source": "Moody's Analytics, U.S. Bureau of Labor Statistics, U.S. Bureau of Economic Analysis and U.S. Census Bureau",
 					"years": [2014],
+					"supressYear": true,
 					"companions": [["County Economic Tracker", "Recovered on # Indicators"], ["County Economic Tracker", "Unemployment Rate Change, 2013-2014"], ["County Economic Tracker", "Jobs Growth Rate, 2013-2014"], ["County Economic Tracker", "GDP Growth Rate, 2013-2014"]
 					],
 					"children": [
 						{
 							"name": "County Economic Profile",
-							"dataType": "level",
+							"dataType": "categorical",
 							"has_profile": true,
 							"unit": "indicator(s)",
+							"order": {"None": 0, "1": 1, "2": 2, "3": 3, "4": 4},
 							"definition": "The total number of indicators for which this county has recovered by 2014.  Made up of Unemployment Rate recovery, Jobs recovery, GDP recovery and Home Prices recovery."
 						},{
 							"name": "Adjusted Average County Wage, 2012",
