@@ -1918,12 +1918,12 @@
 							"unit": "indicator(s)",
 							"definition": "The total number of indicators for which this county has recovered by 2014.  Made up of Unemployment Rate recovery, Jobs recovery, GDP recovery and Home Prices recovery."
 						},{
-							"name": "Adjusted Average County Pay, 2012",
+							"name": "Adjusted Average County Wage, 2012",
 							"dataType": "level",
 							"unit": "dollars",
 							"definition": "Cost-of-living adjsuted pay for the county economy reflecting price differneces between county economies."
 						},{
-							"name": "Adjusted Average County Pay Growth Rate, 2012-2013",
+							"name": "Adjusted Average County Wage Growth Rate, 2012-2013",
 							"dataType": "percent",
 							"definition": "Growth rate in cost-of-living adjsuted pay for the county economy reflecting price differneces between county economies."
 						},{

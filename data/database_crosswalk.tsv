@@ -720,10 +720,10 @@ Economy	CET_recoveredHHprice	Economy	County Economic Tracker	Home Prices Recover
 Economy	CET_recoveredjobs	Economy	County Economic Tracker	Jobs Recovered	
 Economy	CET_recoveredunem	Economy	County Economic Tracker	Unemployment Rate Recovered	
 Economy	CET_recoveredNum	Economy	County Economic Tracker	Recovered on # Indicators	
-Economy	CET_RPP_adj_12	Economy	County Economic Tracker	"Adjusted Average County Pay, 2012"	
+Economy	CET_RPP_adj_12	Economy	County Economic Tracker	"Adjusted Average County Wage, 2012"	
 Economy	CET_RPP_adj_sub_12	Economy	County Economic Tracker	Alt Wage 2012	
 Economy	CET_RPP_adj_sub_13	Economy	County Economic Tracker	Alt Wage 2013	
-Economy	CET_RPP_adj_sub_Growth_13	Economy	County Economic Tracker	"Adjusted Average County Pay Growth Rate, 2012-2013"	
+Economy	CET_RPP_adj_sub_Growth_13	Economy	County Economic Tracker	"Adjusted Average County Wage Growth Rate, 2012-2013"	
 Economy	CET_unemGainedPR	Economy	County Economic Tracker	"Unemployment Rate Change, Recovery"	
 Economy	CET_unemLostDR	Economy	County Economic Tracker	"Unemployment Rate Change, Recession"	
 Economy	CET_recoveredNum	Economy	County Economic Tracker	County Economic Profile	

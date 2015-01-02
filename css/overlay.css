@@ -2,7 +2,18 @@
  * CSS for Overlay (popup)
  * includes "update" content, "newsletter" content, help docs, etc.
  */
-
+#watermark {
+  color: #d0d0d0;
+  font-size: 4.5em;
+  text-indent:-1em;
+  padding-left:1em;
+  -webkit-transform: rotate(-45deg);
+  -moz-transform: rotate(-45deg);
+  position: absolute;
+  margin: 0;
+  z-index: -1;
+  left:100px;
+}
 #instructions {
 	position: absolute;
 	text-align: left;
