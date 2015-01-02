@@ -1927,6 +1927,7 @@
 						},{
 							"name": "Adjusted Average County Wage Growth Rate, 2012-2013",
 							"dataType": "percent",
+							"supressMinMax": true,
 							"definition": "Growth rate in cost-of-living adjusted pay for the county economy reflecting price differences between county economies."
 						},{
 							"name": "Unemployment Rate Change, 2013-2014",
