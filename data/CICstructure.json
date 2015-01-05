@@ -1909,7 +1909,7 @@
 					"source": "Moody's Analytics, U.S. Bureau of Labor Statistics, U.S. Bureau of Economic Analysis and U.S. Census Bureau",
 					"years": [2014],
 					"supressYear": true,
-					"companions": [["County Economic Tracker", "Jobs Recovered"], ["County Economic Tracker", "Unemployment Rate Recovered"], ["County Economic Tracker", "GDP Recovered"], ["County Economic Tracker", "Home Prices Recovered"]
+					"companions": [["County Economic Tracker", "Jobs Recovered"], ["County Economic Tracker", "Unemployment Rate Recovered"], ["County Economic Tracker", "GDP Recovered"], ["County Economic Tracker", "Home Prices Recovered"], ["County Economic Tracker", "Recovered on # Indicators"]
 					],
 					"children": [
 						{
