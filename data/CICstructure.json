@@ -1909,7 +1909,7 @@
 					"source": "Moody's Analytics, U.S. Bureau of Labor Statistics, U.S. Bureau of Economic Analysis and U.S. Census Bureau",
 					"years": [2014],
 					"supressYear": true,
-					"companions": [["County Economic Tracker", "Recovered on # Indicators"], ["County Economic Tracker", "Unemployment Rate Change, 2013-2014"], ["County Economic Tracker", "Jobs Growth Rate, 2013-2014"], ["County Economic Tracker", "GDP Growth Rate, 2013-2014"]
+					"companions": [["County Economic Tracker", "Jobs Recovered"], ["County Economic Tracker", "Unemployment Rate Recovered"], ["County Economic Tracker", "GDP Recovered"], ["County Economic Tracker", "Home Prices Recovered"]
 					],
 					"children": [
 						{
@@ -1923,6 +1923,7 @@
 							"name": "Adjusted Average County Wage, 2012",
 							"dataType": "level",
 							"unit": "dollars",
+							"supressMinMax": true,
 							"definition": "Cost-of-living adjusted pay for the county economy reflecting price differences between county economies."
 						},{
 							"name": "Adjusted Average County Wage Growth Rate, 2012-2013",
@@ -1949,22 +1950,22 @@
 							"name": "Home Price Growth Rate, 2013-2014",
 							"dataType": "percent",
 							"supressMinMax": true,
-							"definition": "Year-over-year Median Home Prices growth rate. Median Home Sales Prices are median sales prices of existing single-family homes."
+							"definition": "Year-over-year Median Home Sales Prices growth rate. Median Home Sales Prices are median sales prices of existing single-family homes."
 						},{
 							"name": "Jobs Growth Rate, Long-term",
 							"dataType": "percent",
 							"supressMinMax": true,
-							"definition": "The annualized growth rate (showing how much an indicator would have grown annually, if it increased at a steady rate) from 1990-2014 of jobs.  Total Jobs represent the total wage and salary jobs, whether full or part-time, temporary or permanent in a county economy. It counts the number of jobs, not employed people, for all employers in a county economy, not only for the county government."
+							"definition": "The annualized growth rate (showing how much an indicator would have grown annually, if it increased at a steady rate) from 1990-2014.  Total Jobs represent the total wage and salary jobs, whether full or part-time, temporary or permanent in a county economy. It counts the number of jobs, not employed people, for all employers in a county economy, not only for the county government."
 						},{
 							"name": "GDP Growth Rate, Long-term",
 							"dataType": "percent",
 							"supressMinMax": true,
-							"definition": "The inflation-adjusted annualized growth rate (showing how much an indicator would have grown annually, if it increased at a steady rate) from 1990-2014 of GDP.  County economic output is the total value of goods and services produced by a county economy, also known as GDP."
+							"definition": "The inflation-adjusted annualized growth rate (showing how much an indicator would have grown annually, if it increased at a steady rate) from 1990-2014.  County economic output is the total value of goods and services produced by a county economy, also known as GDP."
 						},{
 							"name": "Home Price Growth Rate, Long-term",
 							"dataType": "percent",
 							"supressMinMax": true,
-							"definition": "The annualized growth rate (showing how much an indicator would have grown annually, if it increased at a steady rate) from 1990-2014 of home prices.  Median Home Sales Prices are median sales prices of existing single-family homes."
+							"definition": "The annualized growth rate (showing how much an indicator would have grown annually, if it increased at a steady rate) from 1990-2014.  Median Home Sales Prices are median sales prices of existing single-family homes."
 						},{
 							"name": "Unemployment Rate Change, Recession",
 							"dataType": "level_np",
@@ -1975,17 +1976,17 @@
 							"name": "Jobs Growth Rate, Recession",
 							"dataType": "percent",
 							"supressMinMax": true,
-							"definition": "The annualized growth-rate (showing how much an indicator would have grown annually, if it increased at a steady rate) from the pre-recession peak to the trough of jobs.  Total Jobs represent the total wage and salary jobs, whether full or part-time, temporary or permanent in a county economy. It counts the number of jobs, not employed people, for all employers in a county economy, not only for the county government."
+							"definition": "The annualized growth-rate (showing how much an indicator would have grown annually, if it increased at a steady rate) from the pre-recession peak to the trough.  Total Jobs represent the total wage and salary jobs, whether full or part-time, temporary or permanent in a county economy. It counts the number of jobs, not employed people, for all employers in a county economy, not only for the county government."
 						},{
 							"name": "GDP Growth Rate, Recession",
 							"dataType": "percent",
 							"supressMinMax": true,
-							"definition": "The annualized growth-rate (showing how much an indicator would have grown annually, if it increased at a steady rate) from the pre-recession peak to the trough of GDP.  County economic output is the total value of goods and services produced by a county economy, also known as GDP.  A gray-colored county indicates that there was no GDP recession in this county."
+							"definition": "The annualized growth-rate (showing how much an indicator would have grown annually, if it increased at a steady rate) from the pre-recession peak to the trough.  County economic output is the total value of goods and services produced by a county economy, also known as GDP.  A gray-colored county indicates that there was no GDP recession in this county."
 						},{
 							"name": "Home Price Growth Rate, Recession",
 							"dataType": "percent",
 							"supressMinMax": true,
-							"definition": "The annualized growth-rate (showing how much an indicator would have grown annually, if it increased at a steady rate) from the pre-recession peak to the trough of home prices.  Median Home Sales Prices are median sales prices of existing single-family homes.  A gray-colored county indicates that there was no Home Price recession in this county."
+							"definition": "The annualized growth-rate (showing how much an indicator would have grown annually, if it increased at a steady rate) from the pre-recession peak to the trough.  Median Home Sales Prices are median sales prices of existing single-family homes.  A gray-colored county indicates that there was no Home Price recession in this county."
 						},{
 							"name": "Unemployment Rate Change, Recovery",
 							"dataType": "level_np",
@@ -1996,17 +1997,17 @@
 							"name": "Jobs Growth Rate, Recovery",
 							"dataType": "percent",
 							"supressMinMax": true,
-							"definition": "The annualized growth-rate (showing how much an indicator would have grown annually, if it increased at a steady rate) from the trough to the 2014 value of jobs.  Total Jobs represent the total wage and salary jobs, whether full or part-time, temporary or permanent in a county economy. It counts the number of jobs, not employed people, for all employers in a county economy, not only for the county government."
+							"definition": "The annualized growth-rate (showing how much an indicator would have grown annually, if it increased at a steady rate) from the trough to the 2014 value.  Total Jobs represent the total wage and salary jobs, whether full or part-time, temporary or permanent in a county economy. It counts the number of jobs, not employed people, for all employers in a county economy, not only for the county government."
 						},{
 							"name": "GDP Growth Rate, Recovery",
 							"dataType": "percent",
 							"supressMinMax": true,
-							"definition": "The annualized growth-rate (showing how much an indicator would have grown annually, if it increased at a steady rate) from the trough to the 2014 value of inflation-adjusted GDP.  County economic output is the total value of goods and services produced by a county economy, also known as GDP.  A gray-colored county indicates that this county has not yet begun to recover on GDP."
+							"definition": "The annualized growth-rate (showing how much an indicator would have grown annually, if it increased at a steady rate) from the trough to the 2014 value.  County economic output is the total value of goods and services produced by a county economy, also known as GDP.  A gray-colored county indicates that this county has not yet begun to recover on GDP."
 						},{
 							"name": "Home Price Growth Rate, Recovery",
 							"dataType": "percent",
 							"supressMinMax": true,
-							"definition": "The annualized growth-rate (showing how much an indicator would have grown annually, if it increased at a steady rate) from the trough to the 2014 value of home prices. Median Home Sales Prices are median sales prices of existing single-family homes.  A gray-colored county indicates that this county has not yet begun to recover on Home Prices."
+							"definition": "The annualized growth-rate (showing how much an indicator would have grown annually, if it increased at a steady rate) from the trough to the 2014 value. Median Home Sales Prices are median sales prices of existing single-family homes.  A gray-colored county indicates that this county has not yet begun to recover on Home Prices."
 						},{
 							"name": "Unemployment Rate Recovered",
 							"dataType": "binary",
@@ -2018,7 +2019,7 @@
 						},{
 							"name": "Home Prices Recovered",
 							"dataType": "binary",
-							"definition": "Has this county recovered to its pre-recession level of Home Prices by 2014?  Median Home Sales Prices are median sales prices of existing single-family homes."
+							"definition": "Has this county recovered to its pre-recession level of median home sales prices by 2014?  Median Home Sales Prices are median sales prices of existing single-family homes."
 						},{
 							"name": "GDP Recovered",
 							"dataType": "binary",
