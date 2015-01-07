@@ -23,8 +23,8 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 	// -------------------------- Variable Definitions ---------------------------
 	var localVersion = false;
 	
-	var default_dset = 'Population Levels and Trends';
-	var default_ind = 'Population Level';
+	var default_dset = 'County Economic Tracker';
+	var default_ind = 'County Economic Profile';
 	
 	var zoom = d3.behavior.zoom()
 	    .scaleExtent([1, 10]);
@@ -1342,7 +1342,7 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 			var unit = (obj.hasOwnProperty('unit')) ? obj.unit : '';		
 			if (obj.hasOwnProperty('format_type')) {
 				var value = format_tt[obj.format_type](quant[d.id], unit);
-			} else {
+			}  else {
 				var value = format_tt[obj.dataType](quant[d.id], unit);
 			}
 						
@@ -1368,6 +1368,7 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 			}
 			
 			// manual manipulation of tooltip values shown T_T
+			//CETNulls finds coded values of 999 and -999 that indicate "No Recession" and "No REcoverey", respectively
 			if (obj.name === 'Fixed Internet Connections') {
 				if (value === '1,000') value = '800-1000';
 				else value = (parseInt(value) - 100) + '-' + (parseInt(value) + 100);
@@ -1376,6 +1377,15 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 					value = '1-3';
 					unit = unit + 's';
 				}
+			} else if (obj.hasOwnProperty('CETNulls')){
+					if (value === '99900.0%' || value === '1000'){
+						value = 'No Recession';
+						unit = (unit==='PPT') ? unit = '' : unit = unit;
+					}
+					else if (value ==='-99900.0%' || value === '-1000'){
+						value = 'No Recovery';
+						unit = (unit==='PPT') ? unit = '' : unit = unit;
+					}
 			}
 			
 			// define name variable and cut off before parenthesis if there is one
