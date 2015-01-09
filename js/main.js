@@ -24,7 +24,7 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 	var localVersion = false;
 	
 	var default_dset = 'County Economic Tracker';
-	var default_ind = 'County Economic Profile';
+	var default_ind = 'Recovered on # of Indicators';
 	
 	var zoom = d3.behavior.zoom()
 	    .scaleExtent([1, 10]);
