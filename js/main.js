@@ -1771,6 +1771,7 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 		else if (fips === 21111) countyName = 'JeffersonCountyKY';
 		else if (fips === 24033) countyName = 'PrinceGeorgesCountyMD';
 		else if (fips === 25025) countyName = 'SuffolkCountyMA';
+		else if (fips === 2020) countyName = 'AnchorageBoroughAK';
 		return countyName;		
 	};
 	
