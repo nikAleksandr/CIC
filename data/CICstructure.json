@@ -2895,6 +2895,29 @@
 						}
 					]
 				}, {
+					"name": "Local Health Departments",
+					"source": "NACCHO, National Association of County and City Health Officials",
+					"years": [2015],
+					"companions": [["Local Health Departments", "County-supported LHD"]
+					],
+					"children": [
+						{
+							"name": "County-supported LHD",
+							"dataType": "categorical",
+							"unit": "",
+							"definition": "The category of county-supported Local Health Department(s) in a county.  If a county has more than one type of county-supported Local Health Department, it is categorized as Mixed LHDs.",
+							"order": {"No LHD": 0, "County LHD": 1, "Multi-county LHD": 2, "City-county LHD": 3, "Mixed LHDs": 4}
+						}, {
+							"name": "County supported LHDs",
+							"dataType": "text",
+							"definition": ""
+						}, {
+							"name": "City LHD",
+							"dataType": "binary",
+							"definition": "Number of hospitals controlled by the city in the county."
+						}
+					]
+				}, {
 					"name": "Nursing Homes",
 					"source": "Department of Health & Human Services",
 					"years": [2014],
