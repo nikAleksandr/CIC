@@ -21,10 +21,10 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 (function() {
 	
 	// -------------------------- Variable Definitions ---------------------------
-	var localVersion = false;
+	var localVersion = true;
 	
-	var default_dset = 'County Economic Tracker';
-	var default_ind = 'Recovered on # Indicators';
+	var default_dset = 'Population Levels and Trends';
+	var default_ind = 'Population Level';
 	
 	var zoom = d3.behavior.zoom()
 	    .scaleExtent([1, 10]);
@@ -1280,9 +1280,10 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 			};
 			if (keyArray) options.keyArray = keyArray;
 			if (dataVals) options.small_large = dataVals;
-			if (primeIndObj.name === 'Body of Water') options.boxWidth = 68;
+			if (primeIndObj.name === 'Body of Water' || primeIndObj.name === 'County Supported Local Health Departments (LHDs)') options.boxWidth = 68;
 			if (primeIndObj.hasOwnProperty('format_type')) options.format_type = primeIndObj.format_type;
 			if (primeIndObj.hasOwnProperty('supressMinMax')) options.supressMinMax = primeIndObj.supressMinMax;
+			if (primeIndObj.hasOwnProperty('longLegendNames')) options.longLegendNames = primeIndObj.longLegendNames;
 	
 			changeLegendTitle();
 			return colorlegend("#quantileLegend", color, "quantile", options);

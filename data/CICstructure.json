@@ -2896,17 +2896,18 @@
 					]
 				}, {
 					"name": "Local Health Departments",
-					"source": "NACCHO, National Association of County and City Health Officials",
+					"source": "NACCHO (National Association of County and City Health Officials)",
 					"years": [2015],
-					"companions": [["Local Health Departments", "County-supported LHD"]
+					"companions": [["Local Health Departments", "County Supported Local Health Departments (LHDs)"]
 					],
 					"children": [
 						{
-							"name": "County-supported LHD",
+							"name": "County Supported Local Health Departments (LHDs)",
 							"dataType": "categorical",
-							"unit": "",
-							"definition": "The category of county-supported Local Health Department(s) in a county.  If a county has more than one type of county-supported Local Health Department, it is categorized as Mixed LHDs.",
-							"order": {"No LHD": 0, "County LHD": 1, "Multi-county LHD": 2, "City-county LHD": 3, "Mixed LHDs": 4}
+							"unit": "Local Health Departments (LHDs)",
+							"definition": "County-supported LHD: County, city-county and multi-county Local Health Department(s) located within a county.",
+							"order": {"No County Supported LHD": 0, "County LHD": 1, "Multi-county LHD": 2, "City-county LHD": 3, "Multiple Types of County Supported LHDs": 4},
+							"longLegendNames": true
 						}, {
 							"name": "County supported LHDs",
 							"dataType": "text",

@@ -29,6 +29,7 @@ var colorlegend = function (target, scale, type, options) {
     	, linearBoxes = opts.linearBoxes || 9 // number of boxes for linear scales (int)
     	, isNumeric = (dataType === 'level' || dataType === 'level_np' || dataType === 'percent')
     	, unit = opts.unit || ''
+    	, longLegendNames = opts.longLegendNames || false
     	, supressMinMax = opts.supressMinMax || false
     	, htmlElement = document.getElementById(target.substring(0, 1) === '#' ? target.substring(1, target.length) : target) // target container element - strip the prefix #
     	, w = htmlElement.offsetWidth // width of container element
@@ -168,7 +169,34 @@ var colorlegend = function (target, scale, type, options) {
 	    		if (i === 4) return "top 20%";
 	    	});
 	}
-
+	
+	///for wrapping text when the legend names are too long
+	if(longLegendNames){
+		var dataValuesWrap = ['', '', '', ''];
+		dataValuesWrap.wrapText = function(){
+			
+			for(var index = 0; index<dataValues.length; index++){
+				var value = dataValues[index];
+				var tempValue = value.split(' ');
+				
+				console.log(tempValue);
+				if(tempValue.length>3){
+					dataValues[index] = tempValue[0] + " " + tempValue[1] + " " + tempValue[2];
+					
+					dataValuesWrap[index] = tempValue[3];
+					console.log(dataValues[index]);
+					if(dataValues.length>4){
+						for(j=4; j<tempValue.length; j++){
+							dataValuesWrap[index] = dataValuesWrap[index] + " " + tempValue[j];
+						}
+					}
+				}
+				else dataValuesWrap[index]='';
+			}
+		}
+		dataValuesWrap.wrapText();
+	}
+	
  	// value labels
   	legendBoxes.append('text')
     	.attr('class', 'colorlegend-labels')
@@ -195,7 +223,31 @@ var colorlegend = function (target, scale, type, options) {
     	    	else return format[format_type](dataValues[i], unit);
     	    }
       	});
-      	  
+     //additional line of legend text when there are long legend names.  See dataValuesWrap above.
+     if(longLegendNames){
+	     legendBoxes.append('text')
+	    	.attr('class', 'colorlegend-labels')
+	      	.attr('dy', '1.71em')
+	      	.attr('x', function (d, i) {
+		        var leftAlignX = i * (boxWidth + boxSpacing);
+	    	    return isNumeric ? leftAlignX : (leftAlignX + boxWidth / 2);
+	      	})
+	      	.attr('y', boxLabelHeight + boxHeight + 4)
+	      	.style('text-anchor', function () {
+		        return type === 'ordinal' ? 'start' : 'middle';
+	      	})
+	      	.style('pointer-events', 'none')
+	      	.text(function (d, i) {
+		        // show label for all ordinal values
+	    	    if (type === 'ordinal') return dataValuesWrap[i];
+	    	    else {
+	    	    	//supress max and minimum values for those with JSON property "supressMinMax" == true
+	    	    	if (supressMinMax & i==0 || supressMinMax & i==5) return ' ';
+	    	    	else if (format_type === false) return format[dataType](dataValuesWrap[i], unit); // format is defined based on dataType
+	    	    	else return format[format_type](dataValuesWrap[i], unit);
+	    	    }
+	      	});
+	 }
   	// show a title in center of legend (bottom)
   	if (title) {
 	    legend.append('text')
