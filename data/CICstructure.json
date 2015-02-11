@@ -2343,13 +2343,13 @@
 							"name": "2011-2013 Level",
 							"unit": "parts per billion",
 							"dataType": "categorical",
-							"order": {"65 and Under": 0, "66-70": 1, "More Than 70": 2},
+							"order": {"Under 60": 0, "60-64": 1, "65-69": 2, "70 and Above": 3},
 							"definition": "2011-2013 3-year concentration levels of ground-level ozone as measured by county monitors"
 						}, {
 							"name": "Projected 2025 Level",
 							"unit": "parts per billion",
 							"dataType": "categorical",
-							"order": {"65 and Under": 0, "66-70": 1, "More Than 70": 2},
+							"order": {"Under 60": 0, "60-64": 1, "65-69": 2, "70 and Above": 3},
 							"definition": "Model projections for 2025 of projected 3-year conecntration levels of ground-level ozone as measured by county monitors."
 						}, {
 							"name": "2011-2013 Count",
@@ -2896,22 +2896,21 @@
 					]
 				}, {
 					"name": "Local Health Departments",
-					"source": "NACCHO (National Association of County and City Health Officials)",
+					"source": "NACCHO (National Association of County and City Health Officials) data",
 					"years": [2015],
-					"companions": [["Local Health Departments", "County Supported Local Health Departments (LHDs)"]
+					"companions": [["Local Health Departments", "County Supported Local Health Departments (LHDs)"], ["Local Health Departments", "County Supported LHDs"]
 					],
 					"children": [
 						{
 							"name": "County Supported Local Health Departments (LHDs)",
 							"dataType": "categorical",
-							"unit": "Local Health Departments (LHDs)",
-							"definition": "County-supported LHD: County, city-county and multi-county Local Health Department(s) located within a county.",
-							"order": {"No County Supported LHD": 0, "County LHD": 1, "Multi-county LHD": 2, "City-county LHD": 3, "Multiple Types of County Supported LHDs": 4},
+							"definition": "County, city-county and multi-county local health department(s) located within a county.",
+							"order": {"No County Supported LHD": 0, "County LHD": 1, "Multi-county LHD": 2, "City-county LHD": 3, "Multiple County Supported LHDs": 4},
 							"longLegendNames": true
 						}, {
-							"name": "County supported LHDs",
-							"dataType": "text",
-							"definition": ""
+							"name": "County Supported LHDs",
+							"dataType": "categorical",
+							"definition": "The names of all county supported local health departments located within a county, including county, city-county, and multi-county local health departments."
 						}, {
 							"name": "City LHD",
 							"dataType": "binary",

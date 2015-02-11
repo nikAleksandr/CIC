@@ -179,21 +179,19 @@ var colorlegend = function (target, scale, type, options) {
 				var value = dataValues[index];
 				var tempValue = value.split(' ');
 				
-				console.log(tempValue);
-				if(tempValue.length>3){
-					dataValues[index] = tempValue[0] + " " + tempValue[1] + " " + tempValue[2];
+				if(tempValue.length>2){
+					dataValues[index] = tempValue[0] + " " + tempValue[1];
 					
-					dataValuesWrap[index] = tempValue[3];
-					console.log(dataValues[index]);
-					if(dataValues.length>4){
-						for(j=4; j<tempValue.length; j++){
+					dataValuesWrap[index] = tempValue[2];
+					if(dataValues.length>3){
+						for(j=3; j<tempValue.length; j++){
 							dataValuesWrap[index] = dataValuesWrap[index] + " " + tempValue[j];
 						}
 					}
 				}
 				else dataValuesWrap[index]='';
 			}
-		}
+		};
 		dataValuesWrap.wrapText();
 	}
 	
