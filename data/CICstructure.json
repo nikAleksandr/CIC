@@ -2368,7 +2368,36 @@
 		}, {
 			"name": "Federal Funding",
 			"children": [
-				{
+				 {
+					"name": "Airports Funding",
+					"source": "Federal Aviation Administration and Office of Aviation Analysis, U.S. Department of Transportation",
+					"years": [2014],
+					"companions": [["Airports Funding", "Airport Investment Program (AIP) Total"], ["Airports Funding", "Airport Investment Program (AIP) Entitlement"], ["Airports Funding", "Airport Investment Program (AIP) Discretionary"], ["Airports Funding", "Essential Air Service (EAS) Annual Subsidy"], ["Airports", "County Airports"]
+					],
+					"children": [
+						{
+							"name": "Airport Investment Program (AIP) Total",
+							"dataType": "level",
+							"unit": "dollars",
+							"definition": "The total amount received by county airports in federal fiscal year 2014 from the Airport Investment Program (AIP) in a county.  Some amounts may be preliminary estimates, subject to change prior to award.  Data current as of September 30, 2014."
+						}, {
+							"name": "Airport Investment Program (AIP) Entitlement",
+							"dataType": "level",
+							"unit": "dollars",
+							"definition": "The entitlement amount received by county airports from the Airport Investment Program (AIP) in a county for federal fiscal year 2014.  Some amounts may be preliminary estimates, subject to change prior to award.  Data current as of September 30, 2014."
+						}, {
+							"name": "Airport Investment Program (AIP) Discretionary",
+							"dataType": "level",
+							"unit": "dollars",
+							"definition": "The discretional amount received by county airports from the Airport Investment Program (AIP) in a county for federal fiscal year 2014.  Some amounts may be preliminary estimates, subject to change prior to award.  Data current as of September 30, 2014."
+						}, {
+							"name": "Essential Air Service (EAS) Annual Subsidy",
+							"dataType": "level",
+							"unit": "dollars",
+							"definition": "The total annual subsidy rate as of November 2014 for subsidized air service carriers serving a county under the Essential Air Service (EAS) program."
+						}
+					]
+				}, {
 					"name": "American Dream Downpayment Initiative (ADDI)",
 					"years": [2003, 2004, 2005, 2006, 2007, 2008],
 					"source": "U.S. Department of Housing and Urban Development",
@@ -2397,6 +2426,7 @@
 							"name": "JAG Amount",
 							"unit": "dollars",
 							"dataType": "level",
+							"thresholds": [1, 50000, 100000, 500000],
 							"definition": "Funding received from the Edward Byrne Memorial Justice Assistance Grant (JAG) Program. Note that this funding reflects only the funding received by counties directly from the federal government and it does not include does not include pass-through funds that may have been received by the county from an award made to the state or another local jurisdiction"
 						}
 					]
@@ -2533,6 +2563,35 @@
 							"dataType": "level",
 							"format_type": "dec2",
 							"definition": "The Payment in Lieu of Taxes annual funding per acre of federal land"
+						}
+					]
+				}, {
+					"name": "Second Chance Act (SCA) Awards",
+					"years": [2014],
+					"source": "Department of Justice, Office of Justice Programs, Bureau of Justice Assistance and Office of Juvenile Justice and Delinquency data",
+					"companions": [["Second Chance Act (SCA) Awards", "SCA Total"], ["Second Chance Act (SCA) Awards", "County Total"], ["Second Chance Act (SCA) Awards", "City Total"], ["Second Chance Act (SCA) Awards", "Nonprofit Total"]
+					],
+					"children": [
+						{
+							"name": "SCA Total",
+							"unit": "dollars",
+							"dataType": "level",
+							"definition": "Total amount of SCA grant money awarded to any of the following within a county: Unit(s) of county government, unit(s) of city government and/or nonprofit organization(s). Total does not include grant money awarded to state governments or any funds to counties, cities or nonprofits that pass-through state government."
+						}, {
+							"name": "County Total",
+							"unit": "dollars",
+							"dataType": "level",
+							"definition": "Total amount of SCA grant money awarded to any unit(s) of county government."
+						}, {
+							"name": "City Total",
+							"unit": "dollars",
+							"dataType": "level",
+							"definition": "Total amount of SCA grant money awarded to any unit(s) of city government."
+						}, {
+							"name": "Nonprofit Total",
+							"unit": "dollars",
+							"dataType": "level",
+							"definition": "Total amount of SCA grant money awarded to any nonprofit organization(s) providing services to residents of the county, including county jail inmates and state prison inmates who are returned to the county."
 						}
 					]
 				}, {
@@ -2898,13 +2957,13 @@
 					"name": "Local Health Departments",
 					"source": "NACCHO (National Association of County and City Health Officials) data",
 					"years": [2015],
-					"companions": [["Local Health Departments", "County Supported Local Health Departments (LHDs)"], ["Local Health Departments", "County Supported LHDs"]
+					"companions": [["Local Health Departments", "County Supported Local Health Departments (LHDs)"], ["Local Health Departments", "County Supported LHDs"], ["Local Health Departments", "County LHD"], ["Local Health Departments", "Multi-county LHD"], ["Local Health Departments", "City-county LHD"]
 					],
 					"children": [
 						{
 							"name": "County Supported Local Health Departments (LHDs)",
 							"dataType": "categorical",
-							"definition": "County, city-county and multi-county local health department(s) located within a county.",
+							"definition": "County, city-county and multi-county local health department(s) located within a county.  Mutiple county supported LHDs indicates that different types of county supported LHDs (county, city-county and/or multi-county) serve the population of a county.",
 							"order": {"No County Supported LHD": 0, "County LHD": 1, "Multi-county LHD": 2, "City-county LHD": 3, "Multiple County Supported LHDs": 4},
 							"longLegendNames": true
 						}, {
@@ -2912,9 +2971,17 @@
 							"dataType": "categorical",
 							"definition": "The names of all county supported local health departments located within a county, including county, city-county, and multi-county local health departments."
 						}, {
-							"name": "City LHD",
+							"name": "County LHD",
 							"dataType": "binary",
-							"definition": "Number of hospitals controlled by the city in the county."
+							"definition": "LHD primarily serves population of a county"
+						}, {
+							"name": "Multi-county LHD",
+							"dataType": "binary",
+							"definition": "LHD primarily serves population of 2 or more counties"
+						}, {
+							"name": "City-county LHD",
+							"dataType": "binary",
+							"definition": "LHD primarily serves population of a county and a population of a city that does not lie within the boundaries of the county it serves"
 						}
 					]
 				}, {
@@ -4107,30 +4174,34 @@
 				}, {
 					"name": "Airports",
 					"source": "Federal Aviation Administration and Office of Aviation Analysis, U.S. Department of Transportation",
-					"years": [2015],
-					"companions": [["Airports", "Number of Airports"], ["Airports", "Number of Publicly Owned Airports"], ["Airports", "Number of Privately Owned Airports"], ["Airports", "Number of Military Owned Airports"]
+					"years": [2013, 2014, 2015],
+					"companions": [["Airports", "County Airports"], ["Airports", "Commercial Aviation County Airports"], ["Airports", "Publicly Owned Airports"], ["Airports", "Privately Owned Airports"], ["Airports", "Military Owned Airports"]
 					],
 					"children": [
 						{
-							"name": "Number of Airports",
+							"name": "Total Airports",
 							"dataType": "level",
 							"definition": "Total number of airports located in the county.  An airport includes an appurtenant area used or intended for airport buildings, facilities, as well as rights of way together with the buildings and facilities."
 						}, {
 							"name": "Publicly Owned Airports",
 							"dataType": "level",
-							"definition": "The number of airports designated for public use that are located in the county."
+							"definition": "Number of publicly owned airports in the county as of January 2015."
 						}, {
 							"name": "Privately Owned Airports",
 							"dataType": "level",
-							"definition": "The number of airports designated for private use that are located in the county."
+							"definition": "Number of privately owned airports in the county as of January 2015."
 						}, {
 							"name": "Military Owned Airports",
 							"dataType": "level",
-							"definition": "The number of airports designated for military use that are located in the county."
+							"definition": "Number of military owned airports in the county, including MA (U.S. Government United States Air Force), MR (U.S. Army), MN (U.S. Navy) and CG (U.S. Coast Guard) as of January 2015."
 						}, {
 							"name": "County Airports",
 							"dataType": "level",
 							"definition": "Number of airports in a county that are county-owned or operated by a county regional or airport authority as of January 2015"
+						}, {
+							"name": "Number of Aircraft at County Airports",
+							"dataType": "level",
+							"definition": "Total number of aircraft at all county-owned airports in a county, including Single Engine General Aviation, Multi-Engine General Aviation, Jet Engine General Aviation, and Helicopter General Aviation aircraft as of January 2015."
 						}, {
 							"name": "General Aviation County Airports",
 							"dataType": "level",

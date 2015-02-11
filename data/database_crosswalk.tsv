@@ -255,7 +255,11 @@ COUNTY_DATA 	Ozone_Level	Energy & Environment	Ozone Concentration	2011-2013 Coun
 COUNTY_DATA 	Projected_Ozone_Level	Energy & Environment	Ozone Concentration	Projected 2025 Count	
 Education	Jobs_Skills_Classification	Economy	County Job Skills	Level	
 Federal_Funding	FIPS	Federal Funding			
-Federal_Funding	DATA_YEAR	Federal Funding			
+Federal_Funding	DATA_YEAR				
+Federal_Funding	Total_AIP_Amount	Federal Funding	Airports Funding	Airport Investment Program (AIP) Total	
+Federal_Funding	Entitlement_Amount	Federal Funding	Airports Funding	Airport Investment Program (AIP) Entitlement	
+Federal_Funding	Discretionary_Amount	Federal Funding	Airports Funding	Airport Investment Program (AIP) Discretionary	
+Federal_Funding	Annual_Subsity_Rates	Federal Funding	Airports Funding	Essential Air Service (EAS) Annual Subsidy	
 Federal_Funding	ADDI	Federal Funding	American Dream Downpayment Initiative (ADDI)	ADDI Amount	Funding received for the American Dream Downpayment Initiative program
 Federal_Funding	ADDI_Trend	Federal Funding	American Dream Downpayment Initiative (ADDI)	ADDI Annual Growth Rate (from previous year)	Percent change in funding for the American Dream Downpayment Initiative program from the previous year
 Federal_Funding	CDBG	Federal Funding	Community Development Block Grants (CDBG)	CDBG Amount	Funding received for the Community Development Block Grants program
@@ -286,6 +290,11 @@ Federal_Funding	Percentage_of_Federal_Land	Federal Funding	Payment in Lieu of Ta
 Federal_Funding	PILT_per_square_mile	Federal Funding	Payment in Lieu of Taxes (PILT)	PILT per Acre	The Payment in Lieu of Taxes annual funding per square mile of federal land
 Federal_Funding	PILT_Trend	Federal Funding	Payment in Lieu of Taxes (PILT)	PILT Annual Growth Rate (from previous year)	Percent change in Payment in Lieu of Taxes annual funding from the previous year
 Federal_Funding	SRS	Federal Funding	Secure Rural Schools (SRS)	SRS Amount	Funding received for the Secure Rural Schools program.
+Federal_Funding	JAG_Amount	Federal Funding	Byrne (JAG) Program Awards	JAG Amount	
+Federal_Funding	SCA_Total	Federal Funding	Second Chance Act (SCA) Awards	SCA Total	
+Federal_Funding	SCA_County_Total	Federal Funding	Second Chance Act (SCA) Awards	County Total	
+Federal_Funding	SCA_City_Total	Federal Funding	Second Chance Act (SCA) Awards	City Total	
+Federal_Funding	SCA_NonProfit_Total	Federal Funding	Second Chance Act (SCA) Awards	Nonprofit Total	
 Health_Hospitals	KEYID	Health & Hospitals			
 Health_Hospitals	FIPS	Health & Hospitals			
 Health_Hospitals	DATA_YEAR	Health & Hospitals			
@@ -302,6 +311,12 @@ County_Finance	CE_Health__Hospitals_Construction	Health & Hospitals	Health & Hos
 County_Finance	CE_Health__Hospitals_Other_Capital_Outlay	Health & Hospitals	Health & Hospitals Expenditures	Other Capital Outlay	"Direct expenditure for contract or force account construction of buildings, grounds, and other improvements, and purchase of equipment, land, and existing structures. Includes amounts for additions, replacements, and major alterations to fixed works and structures. However, expenditure for repairs to such works and structures is classified as current operation expenditure."
 County_Finance	CE_Health__Hospitals_Intergovernmental_to_State	Health & Hospitals	Health & Hospitals Expenditures	Intergovernmental to State	"Amounts paid to the state government for performance of specific functions or for general financial support. Includes grants, shared taxes, contingent loans and advances, and any significant and identifiable amounts or reimbursement paid to other governments for performance of general government services or activities. By definition, it excludes amounts paid to other governments for purchase of commodities, property, or utility services and for any tax levied as such on facilities of the government."
 County_Finance	CE_Health__Hospitals_Intergovernmental_to_Local	Health & Hospitals	Health & Hospitals Expenditures	Intergovernmental to Local	"Amounts paid to other local governments government for performance of specific functions or for general financial support. Includes grants, shared taxes, contingent loans and advances, and any significant and identifiable amounts or reimbursement paid to other governments for performance of general government services or activities. By definition, it excludes amounts paid to other governments for purchase of commodities, property, or utility services and for any tax levied as such on facilities of the government."
+Health_Hospitals	county_lhd	Health & Hospitals	Local Health Departments	County LHD	
+Health_Hospitals	multicounty_lhd	Health & Hospitals	Local Health Departments	Multi-county LHD	
+Health_Hospitals	citycounty_lhd	Health & Hospitals	Local Health Departments	City-county LHD	
+Health_Hospitals	totalcounty_lhd	Health & Hospitals	Local Health Departments		
+Health_Hospitals	County_Supported_LHD	Health & Hospitals	Local Health Departments	County Supported Local Health Departments (LHDs)	
+Health_Hospitals	LHDname_list	Health & Hospitals	Local Health Departments	County Supported LHDs	
 Health_Hospitals	Health_Insruance_Population	Health & Hospitals	Health Insurance	Population Level	The calculated number of people living in the county.
 Health_Hospitals	Health_Insruance_Population_Insured	Health & Hospitals	Health Insurance	Population Insured	The number of people that are covered by a public health insurance program or by private health insurance.
 Health_Hospitals	Health_Insruance_Population_Uninsured	Health & Hospitals	Health Insurance	Population Uninsured	The number of people that are not covered by a health insurance plan.
@@ -531,10 +546,16 @@ County_Finance	CE_Public_Welfare_Intergovernmental_to_Federal_Governments_State	
 County_Finance	CE_Public_Welfare_Expenditure_Payments_to_Medicare_Trust_Fund	Public Welfare	Public Welfare Expenditures	Payments to Medicare Trust Fund	
 Transportation	FIPS	Transportation			
 Transportation	DATA_YEAR	Transportation			
-Transportation	Total_Airports	Transportation	Airports	Number of Airports	"The number of airports located in the county. The definition for airports in the law refers to any area of land or water used or inteded for landing or takeoff of aircraft. This includes, within the five categories of airports listed below, special types of facilities including seaplane bases, heliports, and facilities to accommodate tilt rotor aircraft. An airport includes an appurtenant area used or intended for airport buildings, facilities, as well as rights of way together with the buildings and facilities."
-Transportation	Public_Airports	Transportation	Airports	Number of Publicly Owned Airports	The number of airports designated for public use that are located in the county.
-Transportation	Private_Airports	Transportation	Airports	Number of Privately Owned Airports	The number of airports designated for private use that are located in the county.
-Transportation	Military_Airports	Transportation	Airports	Number of Military Owned Airports	The number of airports designated for military use that are located in the county.
+Transportation	Total_Airports	Transportation	Airports	Total Airports	"The number of airports located in the county. The definition for airports in the law refers to any area of land or water used or inteded for landing or takeoff of aircraft. This includes, within the five categories of airports listed below, special types of facilities including seaplane bases, heliports, and facilities to accommodate tilt rotor aircraft. An airport includes an appurtenant area used or intended for airport buildings, facilities, as well as rights of way together with the buildings and facilities."
+Transportation	Public_Airports	Transportation	Airports	Publicly Owned Airports	The number of airports designated for public use that are located in the county.
+Transportation	Private_Airports	Transportation	Airports	Privately Owned Airports	The number of airports designated for private use that are located in the county.
+Transportation	Military_Airports	Transportation	Airports	Military Owned Airports	The number of airports designated for military use that are located in the county.
+Transportation	CountyAirports	Transportation	Airports	County Airports	
+Transportation	CountyNumAircraft	Transportation	Airports	Number of Aircraft at County Airports	
+Transportation	CountyGeneralAviation	Transportation	Airports	General Aviation County Airports	
+Transportation	CountyPrimaryAviation	Transportation	Airports	Primary County Airports	
+Transportation	CountyRelieverAviation	Transportation	Airports	Reliever County Airports	
+Transportation	CountyCommercialAviation	Transportation	Airports	Commercial Aviation County Airports	
 Transportation	RO_Total_Public_Road_Miles	Transportation	Road Ownership	Total Public Road Miles	"Total miles of public roads, which are any roads or streets owned and maintained by a public authority and open to public travel."
 Transportation	RO_State_Highway_Agency_Road_Miles	Transportation	Road Ownership	State Highway Agency Road Miles	Public road miles that are under the control of a state highway agency.
 Transportation	RO_County_Highway_Agency_Road_Miles	Transportation	Road Ownership	County Highway Agency Road Miles	Public road miles under the control of the county plus city or municipality for consolidated governments.
