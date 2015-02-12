@@ -256,10 +256,10 @@ COUNTY_DATA 	Projected_Ozone_Level	Energy & Environment	Ozone Concentration	Proj
 Education	Jobs_Skills_Classification	Economy	County Job Skills	Level	
 Federal_Funding	FIPS	Federal Funding			
 Federal_Funding	DATA_YEAR				
-Federal_Funding	Total_AIP_Amount	Federal Funding	Airports Funding	Airport Investment Program (AIP) Total	
-Federal_Funding	Entitlement_Amount	Federal Funding	Airports Funding	Airport Investment Program (AIP) Entitlement	
-Federal_Funding	Discretionary_Amount	Federal Funding	Airports Funding	Airport Investment Program (AIP) Discretionary	
-Federal_Funding	Annual_Subsity_Rates	Federal Funding	Airports Funding	Essential Air Service (EAS) Annual Subsidy	
+Transportation	Total_AIP_Amount	Federal Funding	Airports Funding	Airport Investment Program (AIP) Total	
+Transportation	Entitlement_AIP_Amount	Federal Funding	Airports Funding	Airport Investment Program (AIP) Entitlement	
+Transportation	Discretionary_AIP_Amount	Federal Funding	Airports Funding	Airport Investment Program (AIP) Discretionary	
+Transportation	Annual_EAS_Subsidy_Rates	Federal Funding	Airports Funding	Essential Air Service (EAS) Annual Subsidy	
 Federal_Funding	ADDI	Federal Funding	American Dream Downpayment Initiative (ADDI)	ADDI Amount	Funding received for the American Dream Downpayment Initiative program
 Federal_Funding	ADDI_Trend	Federal Funding	American Dream Downpayment Initiative (ADDI)	ADDI Annual Growth Rate (from previous year)	Percent change in funding for the American Dream Downpayment Initiative program from the previous year
 Federal_Funding	CDBG	Federal Funding	Community Development Block Grants (CDBG)	CDBG Amount	Funding received for the Community Development Block Grants program

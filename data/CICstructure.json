@@ -2336,7 +2336,7 @@
 					"name": "Ozone Concentration",
 					"years": [2013],
 					"source": "Environmental Protection Agency",
-					"companions": [ ["Ozone Concentration", "2011-2013 Count"], ["Ozone Concentration", "Projected 2025 Count"]
+					"companions": [ ["Ozone Concentration", "2011-2013 Level"], ["Ozone Concentration", "2011-2013 Count"], ["Ozone Concentration", "Projected 2025 Level"], ["Ozone Concentration", "Projected 2025 Count"]
 					],
 					"children": [
 						{
@@ -2355,7 +2355,7 @@
 							"name": "2011-2013 Count",
 							"unit": "parts per billion",
 							"dataType": "level",
-							"definition": "Model projections for 2025 of 3-year levels of ground-level ozone concentration as measured by county monitors."
+							"definition": "2011-2013 3-year concentration levels of ground-level ozone as measured by county monitors"
 						}, {
 							"name": "Projected 2025 Count",
 							"unit": "parts per billion",
@@ -2419,7 +2419,7 @@
 					"name": "Byrne (JAG) Program Awards",
 					"years": [2014],
 					"source": "U.S. Department of Justice, Office of Justice Programs, Bureau of Justice Assistance data",
-					"companions": [["Byrne (JAG) Program Awards", "JAG Amount"], ["State Criminal Alien Assistance Program (SCAAP)", "SCAAP Amount"]
+					"companions": [["Byrne (JAG) Program Awards", "JAG Amount"]
 					],
 					"children": [
 						{
@@ -2427,7 +2427,7 @@
 							"unit": "dollars",
 							"dataType": "level",
 							"thresholds": [1, 50000, 100000, 500000],
-							"definition": "Funding received from the Edward Byrne Memorial Justice Assistance Grant (JAG) Program. Note that this funding reflects only the funding received by counties directly from the federal government and it does not include does not include pass-through funds that may have been received by the county from an award made to the state or another local jurisdiction"
+							"definition": "Funding received by the county from the Edward Byrne Memorial Justice Assistance Grant (JAG) Program. Note that this funding reflects only the funding received by counties directly from the federal government and it does not include pass-through funds that may have been received by the county from an award made to the state or another local jurisdiction."
 						}
 					]
 				}, {
@@ -2568,7 +2568,7 @@
 				}, {
 					"name": "Second Chance Act (SCA) Awards",
 					"years": [2014],
-					"source": "Department of Justice, Office of Justice Programs, Bureau of Justice Assistance and Office of Juvenile Justice and Delinquency data",
+					"source": "U.S. Department of Justice, Office of Justice Programs, Bureau of Justice Assistance and Office of Juvenile Justice and Delinquency data",
 					"companions": [["Second Chance Act (SCA) Awards", "SCA Total"], ["Second Chance Act (SCA) Awards", "County Total"], ["Second Chance Act (SCA) Awards", "City Total"], ["Second Chance Act (SCA) Awards", "Nonprofit Total"]
 					],
 					"children": [
@@ -2576,7 +2576,7 @@
 							"name": "SCA Total",
 							"unit": "dollars",
 							"dataType": "level",
-							"definition": "Total amount of SCA grant money awarded to any of the following within a county: Unit(s) of county government, unit(s) of city government and/or nonprofit organization(s). Total does not include grant money awarded to state governments or any funds to counties, cities or nonprofits that pass-through state government."
+							"definition": "Total amount of SCA grant money awarded to any of the following within a county: unit(s) of county government, unit(s) of city government and/or nonprofit organization(s). SCA total does not include grant money awarded to state governments or any funds to counties, cities or nonprofits that pass through state government."
 						}, {
 							"name": "County Total",
 							"unit": "dollars",
@@ -2619,13 +2619,13 @@
 							"name": "SCAAP Amount",
 							"unit": "dollars",
 							"dataType": "level",
-							"definition": "Funding received for the State Criminal Alien Assistance Program"
+							"definition": "Funding received by the county for the State Criminal Alien Assistance Program."
 						}, {
 							"name": "SCAAP Annual Growth Rate (from previous year)",
 							"dataType": "percent",
 							"thresholds": [-0.25, 0, 0.01, 0.25],
 							"supressMinMax": true,
-							"definition": "Percent change in funding for the State Criminal Alien Assistance program from the previous year"
+							"definition": "Percent change in funding for the State Criminal Alien Assistance program from the previous year."
 						}
 					]
 				}, {

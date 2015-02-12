@@ -21,7 +21,7 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 (function() {
 	
 	// -------------------------- Variable Definitions ---------------------------
-	var localVersion = true;
+	var localVersion = false;
 	
 	var default_dset = 'Population Levels and Trends';
 	var default_ind = 'Population Level';
@@ -1808,6 +1808,7 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 	    		var formatted = String((num/1000000).toFixed(1)) + "mil";
 	    	} else if (Math.abs(num) >= 10000) {
 	    		var formatted = String((num/1000).toFixed(1)) + "k";
+				if(formatted = "1000.0k")formatted = String((num/1000000).toFixed(1)) + " Mil";
 	    	} else if (Math.abs(num) >= 100) {
 	    		return (type === 'currency') ? d3.format('$,.0f')(num) : d3.format(',.0f')(num);
 	    	} else if (num == 0) {
@@ -1851,6 +1852,7 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 			var formatted = String((num/1000000).toFixed(1)) + " Mil";
 		} else if (Math.abs(num) >= 10000) {
 			var formatted = String((num/1000).toFixed(1)) + "k";
+			if(formatted = "1000.0k")formatted = String((num/1000000).toFixed(1)) + " Mil";
 		} else if (Math.abs(num) >= 100) {
 			return (type === 'currency') ? d3.format('$,.0f')(num) : d3.format(',.0f')(num);
 		} else if (num == 0) {
