@@ -205,6 +205,11 @@ Economy	Number_Employed	Economy	Labor Force	Number Employed	"All Persons 16 year
 Economy	Number_Unemployed	Economy	Labor Force	Number Unemployed	"Persons aged 16 years and older who had no employment during the reference week, were available for work, except for temporary illness, and had made specific efforts to find employment sometime during the 4-week period ending with the reference week. Persons who were waiting to be recalled to a job from which they had been laid off need not have been looking for work to be classified as unemployed."
 Economy	Percent_Unemployed	Economy	Labor Force	Unemployment Rate	Number of persons unemployed as a percent of the labor force.
 Economy	Percent_Unemployed	Economy	Economic Conditions	County Tracker	Number of persons unemployed as a percent of the labor force.
+Economy	ExIm_tot_export	Economy	U.S. Ex-Im Bank Financing	U.S. Ex-Im Bank County Profiles	
+Economy	ExIm_total_disb_shipped_amt	Economy	U.S. Ex-Im Bank Financing	U.S. Ex-Im Bank Export Financing	
+Economy	EXIM_TotalDisbExVal	Economy	U.S. Ex-Im Bank Financing	Supported Exports	
+Economy	ExIm_share_small_biz	Economy	U.S. Ex-Im Bank Financing	Share of Small Business Supported Exporters	
+Economy	ExIm_tot_export	Economy	U.S. Ex-Im Bank Financing	Supported Exporters	
 Education	KEYID	Education			
 Education	FIPS	Education			
 Education	DATA_YEAR	Education			
@@ -256,10 +261,10 @@ COUNTY_DATA 	Projected_Ozone_Level	Energy & Environment	Ozone Concentration	Proj
 Education	Jobs_Skills_Classification	Economy	County Job Skills	Level	
 Federal_Funding	FIPS	Federal Funding			
 Federal_Funding	DATA_YEAR				
-Transportation	Total_AIP_Amount	Federal Funding	Airports Funding	Airport Investment Program (AIP) Total	
-Transportation	Entitlement_AIP_Amount	Federal Funding	Airports Funding	Airport Investment Program (AIP) Entitlement	
-Transportation	Discretionary_AIP_Amount	Federal Funding	Airports Funding	Airport Investment Program (AIP) Discretionary	
-Transportation	Annual_EAS_Subsidy_Rates	Federal Funding	Airports Funding	Essential Air Service (EAS) Annual Subsidy	
+Transportation	Total_AIP_Amount	Federal Funding	Airports Funding	Airport Investment Program Total	
+Transportation	Entitlement_AIP_Amount	Federal Funding	Airports Funding	Airport Investment Program Entitlement	
+Transportation	Discretionary_AIP_Amount	Federal Funding	Airports Funding	Airport Investment Program Discretionary	
+Transportation	Annual_EAS_Subsidy_Rates	Federal Funding	Airports Funding	Essential Air Service Annual Subsidy	
 Federal_Funding	ADDI	Federal Funding	American Dream Downpayment Initiative (ADDI)	ADDI Amount	Funding received for the American Dream Downpayment Initiative program
 Federal_Funding	ADDI_Trend	Federal Funding	American Dream Downpayment Initiative (ADDI)	ADDI Annual Growth Rate (from previous year)	Percent change in funding for the American Dream Downpayment Initiative program from the previous year
 Federal_Funding	CDBG	Federal Funding	Community Development Block Grants (CDBG)	CDBG Amount	Funding received for the Community Development Block Grants program
@@ -316,7 +321,7 @@ Health_Hospitals	multicounty_lhd	Health & Hospitals	Local Health Departments	Mul
 Health_Hospitals	citycounty_lhd	Health & Hospitals	Local Health Departments	City-county LHD	
 Health_Hospitals	totalcounty_lhd	Health & Hospitals	Local Health Departments		
 Health_Hospitals	County_Supported_LHD	Health & Hospitals	Local Health Departments	County Supported Local Health Departments (LHDs)	
-Health_Hospitals	LHDname_list	Health & Hospitals	Local Health Departments	County Supported LHDs	
+Health_Hospitals	LHDname_list	Health & Hospitals	Local Health Departments	County Supported LHD Names	
 Health_Hospitals	Health_Insruance_Population	Health & Hospitals	Health Insurance	Population Level	The calculated number of people living in the county.
 Health_Hospitals	Health_Insruance_Population_Insured	Health & Hospitals	Health Insurance	Population Insured	The number of people that are covered by a public health insurance program or by private health insurance.
 Health_Hospitals	Health_Insruance_Population_Uninsured	Health & Hospitals	Health Insurance	Population Uninsured	The number of people that are not covered by a health insurance plan.
@@ -529,6 +534,12 @@ Public_Amenity	Art_Est_Arts_Employees_per_10000	Public Amenity	Arts Establishmen
 Public_Welfare	KEYID	Public Welfare			
 Public_Welfare	FIPS	Public Welfare			
 Public_Welfare	DATA_YEAR	Public Welfare			
+Public_Welfare	SNAP_HH	Public Welfare	Supplementary Nutrition Assistance Program (SNAP)	SNAP Recipient Households	
+Public_Welfare	SNAP_bens	Public Welfare	Supplementary Nutrition Assistance Program (SNAP)	SNAP Benefits	
+Public_Welfare	SNAP_bens_per_HH	Public Welfare	Supplementary Nutrition Assistance Program (SNAP)	SNAP Benefits per Household	
+Public_Welfare	gr_SNAP_HH	Public Welfare	Supplementary Nutrition Assistance Program (SNAP)	SNAP Recipient Growth Rate	
+Public_Welfare	gr_SNAP_bens	Public Welfare	Supplementary Nutrition Assistance Program (SNAP)	SNAP Benefit Growth Rate	
+Public_Welfare	gr_SNAP_bens_per_HH	Public Welfare	Supplementary Nutrition Assistance Program (SNAP)	SNAP per Household Growth Rate	
 Administration	Admin_Empl_Total_County_FTE	Public Welfare	Public Welfare Employment	Total County	The number of Full-time equivalent (FTE) employees for each county is a computed statistic representing the number of full-time employees that could have been employed if the reported number of hours worked by part-time employees had been worked by full-time employees.
 Public_Welfare	PW_Empl_FTE	Public Welfare	Public Welfare Employment	Public Welfare	Number of FTEs working on Support of and assistance to needy persons contingent upon their need.
 County_Finance	CE_County_Expenditure_Total	Public Welfare	Public Welfare Expenditures	Total County	"All amounts of money paid out by a government--net of recoveries and other correcting transactions--other than for retirement of debt, investment in securities, extension of credit, or as agency transactions. Note that expenditure includes only external transactions of a government and excludes non-cash transactions such as the provision of perquisites or other payments in kind."

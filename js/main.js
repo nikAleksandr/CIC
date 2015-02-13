@@ -663,6 +663,11 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 							window.open('http://explorer.naco.org/profiles/MITFA_' + state + '.pdf', '_blank');
 						}
 					}
+					else if (currentDI === "Export-Import Bank - U.S. Ex-Im Bank County Profiles") {
+						var countyName = parseCountyName(+FIPS, county.geography);
+						countyName = countyName.replace(/\s/g, '');
+						window.open('http://explorer.naco.org/profiles/exim/' + countyName + '.pdf');
+					}
 				}
 			});		
 			return zoomTransition;
@@ -1139,6 +1144,8 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 						} else if (indObjs[i].name === 'Fixed Internet Connections') {
 							if (qbis[i][ind] === 5) qbis[i][ind] = 1000;
 							else if (qbis[i][ind] >= 1) qbis[i][ind] = qbis[i][ind] * 200 - 100;
+						} else if (indObjs[i].name === 'Supported Exporters' | indObjs[i].name === 'U.S. Ex-Im Bank County Profiles') {
+							if (qbis[i][ind] === 5) qbis[i][ind] = 4;
 						}
 					} else if (indObjs[i].dataType === 'percent') {
 						if (indObjs[i].dataset === 'Educational Attainment') qbis[i][ind] /= 100;	
@@ -1178,6 +1185,7 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 					selectedInd.year = d3.max(Jdataset.years);
 					selectedInd.source = Jdataset.source;
 					selectedInd.companions = Jdataset.companions;
+					if (Jdataset.hasOwnProperty('yearSpan')) selectedInd.yearSpan = Jdataset.yearSpan;
 					if (Jdataset.hasOwnProperty('vintage')) selectedInd.vintage = Jdataset.vintage;
 					if (Jdataset.hasOwnProperty('legend_title_footer')) selectedInd.legend_title_footer = Jdataset.legend_title_footer;
 					if (Jdataset.hasOwnProperty('supressYear')) selectedInd.supressYear = Jdataset.supressYear;
@@ -1298,6 +1306,8 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 		
 		if (primeIndObj.hasOwnProperty('legend_title_footer')) {
 			var legendTitle = primeIndObj.dataset + primeIndObj.legend_title_footer;
+		} else if(primeIndObj.hasOwnProperty('yearSpan')){
+			var legendTitle = primeIndObj.yearSpan + ' ' + primeIndObj.dataset;
 		} else {
 			var legendTitle = primeIndObj.year + ' ' + primeIndObj.dataset;		
 		}
@@ -1335,7 +1345,9 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 			// title for group of indicators; either name of dataset or category; includes year if all from same year
 			row.append('td').attr({'class': 'datasetName', 'colspan': '2'}).text(function() {
 				var titleText = (attr.sameDataset) ? objs[0].dataset : objs[0].category;
-				return (attr.allSameYear) ? titleText + ', ' + objs[0].year : titleText;
+				if(objs[0].hasOwnProperty('yearSpan')){
+					return (attr.allSameYear) ? titleText + ', ' + objs[0].yearSpan : titleText;
+				}else return (attr.allSameYear) ? titleText + ', ' + objs[0].year : titleText;
 			});			
 		};
 		var writeIndicators = function(row, obj, quant, attr, isSecondary) {
@@ -1387,6 +1399,10 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 						value = 'No Recovery';
 						unit = (unit==='PPT') ? unit = '' : unit = unit;
 					}
+			} else if (obj.name === 'Supported Exporters') {
+				if (value === '4') {
+					value = '1-5';
+				}
 			}
 			
 			// define name variable and cut off before parenthesis if there is one
@@ -1808,7 +1824,7 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 	    		var formatted = String((num/1000000).toFixed(1)) + "mil";
 	    	} else if (Math.abs(num) >= 10000) {
 	    		var formatted = String((num/1000).toFixed(1)) + "k";
-				if(formatted = "1000.0k")formatted = String((num/1000000).toFixed(1)) + " Mil";
+				if(formatted === "1000.0k")formatted = String((num/1000000).toFixed(1)) + " Mil";
 	    	} else if (Math.abs(num) >= 100) {
 	    		return (type === 'currency') ? d3.format('$,.0f')(num) : d3.format(',.0f')(num);
 	    	} else if (num == 0) {
@@ -1852,7 +1868,7 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 			var formatted = String((num/1000000).toFixed(1)) + " Mil";
 		} else if (Math.abs(num) >= 10000) {
 			var formatted = String((num/1000).toFixed(1)) + "k";
-			if(formatted = "1000.0k")formatted = String((num/1000000).toFixed(1)) + " Mil";
+			if(formatted === "1000.0k")formatted = String((num/1000000).toFixed(1)) + " Mil";
 		} else if (Math.abs(num) >= 100) {
 			return (type === 'currency') ? d3.format('$,.0f')(num) : d3.format(',.0f')(num);
 		} else if (num == 0) {

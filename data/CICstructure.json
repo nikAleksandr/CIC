@@ -2075,6 +2075,42 @@
 						}
 					]
 				}, {
+					"name": "U.S. Ex-Im Bank Financing",
+					"source": "Export Import Bank of the United States data covering 2007-2014.  Data is current as of October 6th",
+					"years": [2014],
+					"yearSpan": "2007-2014",
+					"companions": [["U.S. Ex-Im Bank Financing", "Supported Exporters"], ["U.S. Ex-Im Bank Financing", "Share of Small Business Supported Exporters"], ["U.S. Ex-Im Bank Financing", "Supported Exports"], ["U.S. Ex-Im Bank Financing", "U.S. Ex-Im Bank Export Financing"]
+					],
+					"children": [
+						{
+							"name": "U.S. Ex-Im Bank County Profiles",
+							"dataType": "level",
+							"has_profile": true,
+							"thresholds": [1,5,25,50],
+							"definition": "A report on the Ex-Im support given to businesses in a particular county over the course of 2007-2014.  Enable popups and click on any county to view or print a profile."
+						},{
+							"name": "Supported Exporters",
+							"dataType": "level",
+							"thresholds": [1,5,25,50],
+							"definition": "The number of unique exporting businesses located in a county and receiving export financing from the Export Import Bank of the United States between 2007 and 2014. To qualify for U.S. Ex-Im Bank support, a business must export goods or services produced with more than 50% U.S. parts and labor."
+						},{
+							"name": "Share of Small Business Supported Exporters",
+							"dataType": "percent",
+							"thresholds": [0.10,0.40,0.60,0.80],
+							"definition": "TThe share of U.S. Ex-Im Bank supported exporters in a county that are small businesses. According to the U.S. Small Business Administration's definition, small businesses have less than 500 employees for most manufacturing and mining industries and $7.5 million in average annual receipts for many nonmanufacturing industries.  There are a number of exceptions- for more see <a href='https://www.sba.gov/content/summary-size-standards-industry-sector'>here</a>."
+						},{
+							"name": "U.S. Ex-Im Bank Export Financing",
+							"dataType": "level",
+							"thresholds": [1,700,5000000,30000000],
+							"definition": "The total dollar value of shipments from 2007-2014 of U.S. Ex-Im Bank supported exporters located in a county."
+						},{
+							"name": "Supported Exports",
+							"dataType": "level",
+							"thresholds": [1,700000,7000000,40000000],
+							"definition": "The dollar value of exports between 2007 and 2014 of U.S. Ex-Im Bank supported exporters located in a county."
+						}
+					]
+				}, {
 					"name": "Economic Conditions",
 					"source": "Moody's Analytics data",
 					"years": [2013],
@@ -2372,29 +2408,33 @@
 					"name": "Airports Funding",
 					"source": "Federal Aviation Administration and Office of Aviation Analysis, U.S. Department of Transportation",
 					"years": [2014],
-					"companions": [["Airports Funding", "Airport Investment Program (AIP) Total"], ["Airports Funding", "Airport Investment Program (AIP) Entitlement"], ["Airports Funding", "Airport Investment Program (AIP) Discretionary"], ["Airports Funding", "Essential Air Service (EAS) Annual Subsidy"], ["Airports", "County Airports"]
+					"companions": [["Airports Funding", "Airport Investment Program Total"], ["Airports Funding", "Airport Investment Program Entitlement"], ["Airports Funding", "Airport Investment Program Discretionary"], ["Airports Funding", "Essential Air Service Annual Subsidy"]
 					],
 					"children": [
 						{
-							"name": "Airport Investment Program (AIP) Total",
+							"name": "Airport Investment Program Total",
 							"dataType": "level",
 							"unit": "dollars",
+							"thresholds": [1,100000,500000,1000000],
 							"definition": "The total amount received by county airports in federal fiscal year 2014 from the Airport Investment Program (AIP) in a county.  Some amounts may be preliminary estimates, subject to change prior to award.  Data current as of September 30, 2014."
 						}, {
-							"name": "Airport Investment Program (AIP) Entitlement",
+							"name": "Airport Investment Program Entitlement",
 							"dataType": "level",
 							"unit": "dollars",
+							"thresholds": [1,100000,500000,1000000],
 							"definition": "The entitlement amount received by county airports from the Airport Investment Program (AIP) in a county for federal fiscal year 2014.  Some amounts may be preliminary estimates, subject to change prior to award.  Data current as of September 30, 2014."
 						}, {
-							"name": "Airport Investment Program (AIP) Discretionary",
+							"name": "Airport Investment Program Discretionary",
 							"dataType": "level",
 							"unit": "dollars",
-							"definition": "The discretional amount received by county airports from the Airport Investment Program (AIP) in a county for federal fiscal year 2014.  Some amounts may be preliminary estimates, subject to change prior to award.  Data current as of September 30, 2014."
+							"thresholds": [1,1000000,3000000,5000000],
+							"definition": "The discretionary amount received by county airports from the Airport Investment Program (AIP) in a county for federal fiscal year 2014.  Some amounts may be preliminary estimates, subject to change prior to award.  Data current as of September 30, 2014."
 						}, {
-							"name": "Essential Air Service (EAS) Annual Subsidy",
+							"name": "Essential Air Service Annual Subsidy",
 							"dataType": "level",
 							"unit": "dollars",
-							"definition": "The total annual subsidy rate as of November 2014 for subsidized air service carriers serving a county under the Essential Air Service (EAS) program."
+							"thresholds": [1,1000000,2000000,3000000],
+							"definition": "The amount received by subsidized air service carriers serving communities within a county under the Essential Air Service (EAS) program, as of November 2014."
 						}
 					]
 				}, {
@@ -2576,6 +2616,7 @@
 							"name": "SCA Total",
 							"unit": "dollars",
 							"dataType": "level",
+							"thresholds": [1, 100000, 250000, 1000000],
 							"definition": "Total amount of SCA grant money awarded to any of the following within a county: unit(s) of county government, unit(s) of city government and/or nonprofit organization(s). SCA total does not include grant money awarded to state governments or any funds to counties, cities or nonprofits that pass through state government."
 						}, {
 							"name": "County Total",
@@ -2610,8 +2651,8 @@
 					]
 				}, {
 					"name": "State Criminal Alien Assistance Program (SCAAP)",
-					"years": [2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013],
-					"source": "U.S. Department of Justice - Bureau of Justice Assistance",
+					"years": [2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014],
+					"source": "U.S. Department of Justice, Office of Justice Programs, Bureau of Justice Assistance data",
 					"companions": [["State Criminal Alien Assistance Program (SCAAP)", "SCAAP Amount"], ["State Criminal Alien Assistance Program (SCAAP)", "SCAAP Annual Growth Rate (from previous year)"]
 					],
 					"children": [
@@ -2619,13 +2660,14 @@
 							"name": "SCAAP Amount",
 							"unit": "dollars",
 							"dataType": "level",
-							"definition": "Funding received by the county for the State Criminal Alien Assistance Program."
+							"thresholds": [1,3000,10000,100000],
+							"definition": "Funding received by a county from the State Criminal Alien Assistance Program (SCAAP) Program. SCAAP provides federal payments to states and localities that incurred correctional officer salary costs for incarcerating undocumented criminal aliens with at least one felony or two misdemeanor convictions for violations of state or local law, and incarcerated for at least 4 consecutive days during the reporting period."
 						}, {
 							"name": "SCAAP Annual Growth Rate (from previous year)",
 							"dataType": "percent",
 							"thresholds": [-0.25, 0, 0.01, 0.25],
 							"supressMinMax": true,
-							"definition": "Percent change in funding for the State Criminal Alien Assistance program from the previous year."
+							"definition": "Percent change in funding for the State Criminal Alien Assistance program from the previous year. SCAAP provides federal payments to states and localities that incurred correctional officer salary costs for incarcerating undocumented criminal aliens with at least one felony or two misdemeanor convictions for violations of state or local law, and incarcerated for at least 4 consecutive days during the reporting period."
 						}
 					]
 				}, {
@@ -2957,7 +2999,7 @@
 					"name": "Local Health Departments",
 					"source": "NACCHO (National Association of County and City Health Officials) data",
 					"years": [2015],
-					"companions": [["Local Health Departments", "County Supported Local Health Departments (LHDs)"], ["Local Health Departments", "County Supported LHDs"], ["Local Health Departments", "County LHD"], ["Local Health Departments", "Multi-county LHD"], ["Local Health Departments", "City-county LHD"]
+					"companions": [["Local Health Departments", "County Supported Local Health Departments (LHDs)"], ["Local Health Departments", "County Supported LHD Names"], ["Local Health Departments", "County LHD"], ["Local Health Departments", "Multi-county LHD"], ["Local Health Departments", "City-county LHD"]
 					],
 					"children": [
 						{
@@ -2967,21 +3009,21 @@
 							"order": {"No County Supported LHD": 0, "County LHD": 1, "Multi-county LHD": 2, "City-county LHD": 3, "Multiple County Supported LHDs": 4},
 							"longLegendNames": true
 						}, {
-							"name": "County Supported LHDs",
+							"name": "County Supported LHD Names",
 							"dataType": "categorical",
 							"definition": "The names of all county supported local health departments located within a county, including county, city-county, and multi-county local health departments."
 						}, {
 							"name": "County LHD",
 							"dataType": "binary",
-							"definition": "LHD primarily serves population of a county"
+							"definition": "LHD primarily serves population of a county."
 						}, {
 							"name": "Multi-county LHD",
 							"dataType": "binary",
-							"definition": "LHD primarily serves population of 2 or more counties"
+							"definition": "LHD primarily serves population of 2 or more counties."
 						}, {
 							"name": "City-county LHD",
 							"dataType": "binary",
-							"definition": "LHD primarily serves population of a county and a population of a city that does not lie within the boundaries of the county it serves"
+							"definition": "LHD primarily serves population of a county and a population of a city that does not lie within the boundaries of the county it serves."
 						}
 					]
 				}, {
@@ -3966,6 +4008,42 @@
 			"name": "Public Welfare",
 			"children": [
 				{
+					"name": "Supplementary Nutrition Assistance Program (SNAP)",
+					"source": "U.S. Census Bureau,  2009-2013 American Community Survey 5-Year Estimates; U.S. Bureau of Economic Analysis Personal Current Transfer Receipts Data",
+					"years": [2013],
+					"companions": [["Supplementary Nutrition Assistance Program (SNAP)", "SNAP Benefits"], ["Supplementary Nutrition Assistance Program (SNAP)", "SNAP Recipient Households"], ["Supplementary Nutrition Assistance Program (SNAP)", "SNAP Benefits per Household"]
+					],
+					"children": [
+						{
+							"name": "SNAP Benefits",
+							"unit": "dollars",
+							"dataType": "level",
+							"definition": "Benefits issued to qualifying low-income  individuals in order to supplement their ability to purchase food. Eligibility is determined by the state authorities' interpretation of Federal regulations; the U.S. Department of Agriculture (USDA) pays the cost of the assistance."
+						}, {
+							"name": "SNAP Recipient Households",
+							"unit": "Households",
+							"dataType": "level",
+							"definition": "The number of households in a county receiving Supplemental Nutrition Assistance Program (SNAP) benefits. A SNAP recipient household has one or more of the current household members that received food stamps or a food stamp benefit card during the past 12 months"
+						}, {
+							"name": "SNAP Benefits per Household",
+							"unit": "dollars",
+							"dataType": "level",
+							"definition": "The average amount of SNAP benefits received by the SNAP recipient households located in a county."
+						}, {
+							"name": "SNAP Benefit Growth Rate",
+							"dataType": "percent",
+							"definition": "Growth Rate in the average amount of SNAP benefits received by the SNAP recipient households located in a county."
+						}, {
+							"name": "SNAP Recipient Growth Rate",
+							"dataType": "percent",
+							"definition": "Growth Rate in the number of households in a county receiving Supplemental Nutrition Assistance Program (SNAP) benefits. A SNAP recipient household has one or more of the current household members that received food stamps or a food stamp benefit card during the past 12 months."
+						}, {
+							"name": "SNAP per Household Growth Rate",
+							"dataType": "percent",
+							"definition": "Growth rate in the average amount of SNAP benefits received by the SNAP recipient households located in a county."
+						}
+					]
+				}, {
 					"name": "Public Welfare Employment",
 					"source": "U.S. Census Bureau - Census of Individual Governments: Employment",
 					"years": [2007, 2008, 2009, 2010, 2011, 2012],
@@ -4175,49 +4253,56 @@
 					"name": "Airports",
 					"source": "Federal Aviation Administration and Office of Aviation Analysis, U.S. Department of Transportation",
 					"years": [2013, 2014, 2015],
-					"companions": [["Airports", "County Airports"], ["Airports", "Commercial Aviation County Airports"], ["Airports", "Publicly Owned Airports"], ["Airports", "Privately Owned Airports"], ["Airports", "Military Owned Airports"]
+					"companions": [["Airports", "County Airports"], ["Airports", "Commercial Aviation County Airports"], ["Airports", "Publicly Owned Airports"], ["Airports", "Privately Owned Airports"], ["Airports", "Number of Aircraft at County Airports"]
 					],
 					"children": [
 						{
 							"name": "Total Airports",
 							"dataType": "level",
-							"definition": "Total number of airports located in the county.  An airport includes an appurtenant area used or intended for airport buildings, facilities, as well as rights of way together with the buildings and facilities."
+							"thresholds": [1, 5, 10, 15],
+							"definition": "Total number of airports located in a county, as of January 2015.  An airport includes an appurtenant area used or intended for airport buildings, facilities, as well as rights of way together with the buildings and facilities."
 						}, {
 							"name": "Publicly Owned Airports",
 							"dataType": "level",
-							"definition": "Number of publicly owned airports in the county as of January 2015."
+							"definition": "Number of publicly owned airports located in a county, as of January 2015.  This category includes publicly-owned public use aiports as well as military, hospital and other publicly-owned private use airports."
 						}, {
 							"name": "Privately Owned Airports",
 							"dataType": "level",
-							"definition": "Number of privately owned airports in the county as of January 2015."
+							"companions": [["Airports", "County Airports"], ["Airports", "Publicly Owned Airports"], ["Airports", "Privately Owned Airports"]
+							],
+							"definition": "Number of privately owned airports located in a county, as of January 2015."
 						}, {
 							"name": "Military Owned Airports",
 							"dataType": "level",
-							"definition": "Number of military owned airports in the county, including MA (U.S. Government United States Air Force), MR (U.S. Army), MN (U.S. Navy) and CG (U.S. Coast Guard) as of January 2015."
+							"definition": "Number of military owned airports located in a county, including MA (U.S. Government United States Air Force), MR (U.S. Army), MN (U.S. Navy) and CG (U.S. Coast Guard), as of January 2015."
 						}, {
 							"name": "County Airports",
 							"dataType": "level",
-							"definition": "Number of airports in a county that are county-owned or operated by a county regional or airport authority as of January 2015"
+							"companions": [["Airports", "County Airports"], ["Airports", "Commercial Aviation County Airports"], ["Airports", "Publicly Owned Airports"]
+							],
+							"definition": "Number of public airports owned by counties or regional airport authorities with county ownership or county elected officials on the board of the airport authorities, as of January 2015."
 						}, {
 							"name": "Number of Aircraft at County Airports",
 							"dataType": "level",
-							"definition": "Total number of aircraft at all county-owned airports in a county, including Single Engine General Aviation, Multi-Engine General Aviation, Jet Engine General Aviation, and Helicopter General Aviation aircraft as of January 2015."
+							"definition": "Total number of aircraft at all county-owned airports in a county, including Single Engine General Aviation, Multi-Engine General Aviation, Jet Engine General Aviation, and Helicopter General Aviation aircraft, as of January 2015."
 						}, {
 							"name": "General Aviation County Airports",
 							"dataType": "level",
-							"definition": "Number of County-owned General Aviation Airports in a county as of January 2015.  These are airports not designated by the Federal Aviation Administration (FAA) as Commercial Service Airports, Cargo Service Airports, or Reliever Airports that enplane more than 2500 passengers annually and receive scheduled airline service."
+							"companions": [["Airports", "County Airports"], ["Airports", "Publicly Owned Airports"], ["Airports", "Privately Owned Airports"]
+							],
+							"definition": "Number of county airports not designated by the Federal Aviation Administration (FAA) as commercial service airports, cargo service airports, or reliever airports that enplane more than 2500 passengers annually and receive scheduled airline service, as of January 2015."
 						}, {
 							"name": "Commercial Aviation County Airports",
 							"dataType": "level",
-							"definition": "Number of County-owned Commercial Aviation Airports in a county as of January 2015.  These are airports with more than 2500 passenger boardings each year and receive scheduled passenger service.  This category includes Primary Airports, and non-primary commercial-service airports."
+							"definition": "Number of county airports with more than 2,500 passenger boardings each year that receive scheduled passenger service, as of January 2015. This category includes primary airports and non-primary commercial-service airports."
 						}, {
 							"name": "Primary County Airports",
 							"dataType": "level",
-							"definition": "Number of County-owned Primary Airports in a county as of January 2015.  These are airports designated by the Federal Aviation Administration (FAA) that have more than 10,000 passenger boardings each year."
+							"definition": "Number of County-owned Primary Airports in a county, as of January 2015.  These are airports designated by the Federal Aviation Administration (FAA) that have more than 10,000 passenger boardings each year."
 						}, {
 							"name": "Reliever County Airports",
 							"dataType": "level",
-							"definition": "Number of County-owned Reliever Airports in a county as of January 2015.  These are airports designated by the Federal Aviation Administration (FAA) to relieve congestion at Commercial Service Airports."
+							"definition": "Number of County-owned Reliever Airports in a county, as of January 2015.  These are airports designated by the Federal Aviation Administration (FAA) to relieve congestion at Commercial Service Airports."
 						}
 					]
 				}, {
