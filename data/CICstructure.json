@@ -4008,10 +4008,10 @@
 			"name": "Public Welfare",
 			"children": [
 				{
-					"name": "Supplementary Nutrition Assistance Program (SNAP)",
+					"name": "Supplemental Nutrition Assistance Program (SNAP)",
 					"source": "U.S. Census Bureau,  2009-2013 American Community Survey 5-Year Estimates; U.S. Bureau of Economic Analysis Personal Current Transfer Receipts Data",
 					"years": [2013],
-					"companions": [["Supplementary Nutrition Assistance Program (SNAP)", "SNAP Benefits"], ["Supplementary Nutrition Assistance Program (SNAP)", "SNAP Recipient Households"], ["Supplementary Nutrition Assistance Program (SNAP)", "SNAP Benefits per Household"]
+					"companions": [["Supplemental Nutrition Assistance Program (SNAP)", "SNAP Benefits"], ["Supplemental Nutrition Assistance Program (SNAP)", "SNAP Recipient Households"], ["Supplemental Nutrition Assistance Program (SNAP)", "SNAP Benefits per Household"]
 					],
 					"children": [
 						{

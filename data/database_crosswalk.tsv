@@ -534,12 +534,12 @@ Public_Amenity	Art_Est_Arts_Employees_per_10000	Public Amenity	Arts Establishmen
 Public_Welfare	KEYID	Public Welfare			
 Public_Welfare	FIPS	Public Welfare			
 Public_Welfare	DATA_YEAR	Public Welfare			
-Public_Welfare	SNAP_HH	Public Welfare	Supplementary Nutrition Assistance Program (SNAP)	SNAP Recipient Households	
-Public_Welfare	SNAP_bens	Public Welfare	Supplementary Nutrition Assistance Program (SNAP)	SNAP Benefits	
-Public_Welfare	SNAP_bens_per_HH	Public Welfare	Supplementary Nutrition Assistance Program (SNAP)	SNAP Benefits per Household	
-Public_Welfare	gr_SNAP_HH	Public Welfare	Supplementary Nutrition Assistance Program (SNAP)	SNAP Recipient Growth Rate	
-Public_Welfare	gr_SNAP_bens	Public Welfare	Supplementary Nutrition Assistance Program (SNAP)	SNAP Benefit Growth Rate	
-Public_Welfare	gr_SNAP_bens_per_HH	Public Welfare	Supplementary Nutrition Assistance Program (SNAP)	SNAP per Household Growth Rate	
+Public_Welfare	SNAP_HH	Public Welfare	Supplemental Nutrition Assistance Program (SNAP)	SNAP Recipient Households	
+Public_Welfare	SNAP_bens	Public Welfare	Supplemental Nutrition Assistance Program (SNAP)	SNAP Benefits	
+Public_Welfare	SNAP_bens_per_HH	Public Welfare	Supplemental Nutrition Assistance Program (SNAP)	SNAP Benefits per Household	
+Public_Welfare	gr_SNAP_HH	Public Welfare	Supplemental Nutrition Assistance Program (SNAP)	SNAP Recipient Growth Rate	
+Public_Welfare	gr_SNAP_bens	Public Welfare	Supplemental Nutrition Assistance Program (SNAP)	SNAP Benefit Growth Rate	
+Public_Welfare	gr_SNAP_bens_per_HH	Public Welfare	Supplemental Nutrition Assistance Program (SNAP)	SNAP per Household Growth Rate	
 Administration	Admin_Empl_Total_County_FTE	Public Welfare	Public Welfare Employment	Total County	The number of Full-time equivalent (FTE) employees for each county is a computed statistic representing the number of full-time employees that could have been employed if the reported number of hours worked by part-time employees had been worked by full-time employees.
 Public_Welfare	PW_Empl_FTE	Public Welfare	Public Welfare Employment	Public Welfare	Number of FTEs working on Support of and assistance to needy persons contingent upon their need.
 County_Finance	CE_County_Expenditure_Total	Public Welfare	Public Welfare Expenditures	Total County	"All amounts of money paid out by a government--net of recoveries and other correcting transactions--other than for retirement of debt, investment in securities, extension of credit, or as agency transactions. Note that expenditure includes only external transactions of a government and excludes non-cash transactions such as the provision of perquisites or other payments in kind."

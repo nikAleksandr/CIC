@@ -663,7 +663,7 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 							window.open('http://explorer.naco.org/profiles/MITFA_' + state + '.pdf', '_blank');
 						}
 					}
-					else if (currentDI === "Export-Import Bank - U.S. Ex-Im Bank County Profiles") {
+					else if (currentDI === "U.S. Ex-Im Bank Financing - U.S. Ex-Im Bank County Profiles") {
 						var countyName = parseCountyName(+FIPS, county.geography);
 						countyName = countyName.replace(/\s/g, '');
 						window.open('http://explorer.naco.org/profiles/exim/' + countyName + '.pdf');
