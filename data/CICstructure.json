@@ -2582,6 +2582,8 @@
 						}, {
 							"name": "PILT Annual Growth Rate (from previous year)",
 							"dataType": "percent",
+							"thresholds": [-0.1, 0, 0.05, 0.50],
+							"supressMinMax": true,
 							"definition": "Percent change in Payment in Lieu of Taxes annual funding from the previous year"
 						}, {
 							"name": "Total Federal Land Area",
@@ -4863,6 +4865,20 @@
 							"dataType": "percent",
 							"thresholds": [0.001, 0.01, 0.03, 0.05],
 							"definition": "The county sales tax rate.  Some rates may be median estimates calculated from a range of sales tax rates.",
+							"has_profile": true
+						}
+					]
+				}, {
+					"name": "Transportation Funding Profiles",
+					"source": "NACo Research",
+					"years": [2014],
+					"companions": [["Bridges", "Structurally Deficient Bridges - County Owned"], ["Bridges", "Structurally Deficient Bridges - County Owned"]
+					],
+					"children": [
+						{
+							"name": "Transportation Funding Profiles",
+							"dataType": "level",
+							"definition": "Total number of structurally deficient bridges owned by a County Highway Agency.",
 							"has_profile": true
 						}
 					]

@@ -662,8 +662,10 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 						} else {
 							window.open('http://explorer.naco.org/profiles/MITFA_' + state + '.pdf', '_blank');
 						}
-					}
-					else if (currentDI === "U.S. Ex-Im Bank Financing - U.S. Ex-Im Bank County Profiles") {
+					}  else if (currentDI === 'Transportation Funding Profiles - Transportation Funding Profiles') {
+						var state = countyObjectById[+FIPS].STATE;
+						window.open('http://explorer.naco.org/profiles/stateTransportation/state_summary_' + state + '.pdf', '_blank');
+					}  else if (currentDI === "U.S. Ex-Im Bank Financing - U.S. Ex-Im Bank County Profiles") {
 						var countyName = parseCountyName(+FIPS, county.geography);
 						countyName = countyName.replace(/\s/g, '');
 						window.open('http://explorer.naco.org/profiles/exim/' + countyName + '.pdf');
@@ -1044,7 +1046,7 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 		// if showing a "county profile" indicator, show a mini help dialog
 		if (indObjects[0].has_profile) {
 			var text = 'Click once on a county to see their county profile.';
-			if (indObjects[0].name === 'MITFA Profiles') text = 'Click once on a county to see their state profile.';
+			if (indObjects[0].name === 'MITFA Profiles' || indObjects[0].name === 'Transportation Funding Profiles') text = 'Click once on a county to see their state profile.';
 			noty({
 				type: 'alert',
 				text: '<strong>' + text + '</strong></br></br>Please make sure to enable popups.',
