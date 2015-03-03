@@ -653,14 +653,14 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 						if (quantByIds[0][+FIPS] === 0) {
 							noty({text: '<strong>No Profile Available</strong></br>This county did not receive PILT in 2014!'});
 						} else {
-							window.open('http://explorer.naco.org/profiles/' + county.geography + '.pdf', '_blank');
+							window.open('http://explorer.naco.org/profiles/PILT/' + county.geography + '.pdf', '_blank');
 						}
 					} else if (currentDI === 'MITFA Profiles - MITFA Profiles') {
 						var state = countyObjectById[+FIPS].STATE;
 						if(state=="MT" | state=="OR" | state=="NH" | state=="DE"){
 							noty({text: '<strong>No Profile Available</strong></br>This state does not have a sales tax.'});
 						} else {
-							window.open('http://explorer.naco.org/profiles/MITFA_' + state + '.pdf', '_blank');
+							window.open('http://explorer.naco.org/profiles/MITFA/MITFA_' + state + '.pdf', '_blank');
 						}
 					}  else if (currentDI === 'Transportation Funding Profiles - Transportation Funding Profiles') {
 						var state = countyObjectById[+FIPS].STATE;
