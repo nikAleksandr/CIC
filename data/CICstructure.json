@@ -1470,9 +1470,9 @@
 					]
 				}, {
 					"name": "Municipal Bonds",
-					"source": "2012 County Payments for Tax-Exempt Municipal Bonds",
+					"source": "2012 county interest payments for tax-exempt municipal bonds",
 					"years": [2012],
-					"companions": [["Municipal Bonds", "County Muni Bonds Profiles"], ["Municipal Bonds", "Interest on Muni Bonds"], ["Municipal Bonds", "Cost of 28% Cap"], ["Municipal Bonds", "Cost of Full Repeal"]
+					"companions": [["Municipal Bonds", "Interest on Muni Bonds"], ["Municipal Bonds", "Cost of 28% Cap"], ["Municipal Bonds", "Cost of Full Repeal"]
 					],
 					"children": [
 						{
@@ -1480,14 +1480,15 @@
 							"unit": "dollars",
 							"dataType": "level",
 							"has_profile": true,
-							"definition": "Interest paid on tax-exempt municipal bonds by a county"
+							"definition": "Profiles on the county-level impact of changing the tax-exempt status of municipal bonds interest."
 						}, {
 							"name": "State Muni Bonds Profiles",
 							"unit": "dollars",
 							"dataType": "level",
 							"has_profile": true,
-							"companions": [["Municipal Bonds", "State Muni Bonds Profiles"], ["Road Ownership", "County Highway Agency Road Miles"]],
-							"definition": "Interest paid on tax-exempt municipal bonds at the state level"
+							"source": "February, 2013 Thompson Reuters data",
+							"companions": [["Road Ownership", "County Highway Agency Road Miles"], ["Road Ownership", "County Highway Agency Road Miles"]],
+							"definition": "Profiles covering the state and local government impact of changing the tax-exempt status of municipal bonds interest."
 						}, {
 							"name": "Interest on Muni Bonds",
 							"unit": "dollars",
@@ -4892,7 +4893,7 @@
 					]
 				}, {
 					"name": "Transportation Funding Profiles",
-					"source": "NACo Research",
+					"source": "Federal Highway Administration, Highway Performance Monitoring System, 2011; National Bridge Inventory, 2013; and NACo independent research",
 					"years": [2014],
 					"companions": [["Bridges", "Structurally Deficient Bridges - County Owned"], ["Bridges", "Structurally Deficient Bridges - County Owned"]
 					],
@@ -4906,7 +4907,7 @@
 							"name": "MAP-21 Profiles",
 							"dataType": "level",
 							"has_profile": true,
-							"definition": "Profiles on state-level impotance and impacts of MAP-21 and county transportation investments."
+							"definition": "Profiles at the state level on the critical role local governments play in our nation's infrastructure."
 						}
 					]
 				}
