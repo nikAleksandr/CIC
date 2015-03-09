@@ -642,13 +642,16 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 						var countyName = parseCountyName(+FIPS, county.geography);
 						countyName = countyName.replace(/\s/g, '');
 						window.open('http://explorer.naco.org/profiles/countytracker/' + countyName + '.pdf');
-					} else if (currentDI === 'Municipal Bonds - Muni Bonds Profiles') {
+					} else if (currentDI === 'Municipal Bonds - County Muni Bonds Profiles') {
 						if (isNaN(quantByIds[0][+FIPS])) {
 							noty({text: '<strong>No Profile Available</strong>'});
 						} else {
 							var countyName = parseCountyName(+FIPS, county.geography);
 							window.open('http://www.uscounties.org/MuniBondInteractive/CountyProfiles/muni_bonds_profile_' + countyName + '.pdf');
 						}
+					} else if (currentDI === 'Municipal Bonds - State Muni Bonds Profiles') {
+						var state = countyObjectById[+FIPS].STATE;
+						window.open('http://www.uscounties.org/MuniBondInteractive/StateProfiles/state_bonds_profiles' + state + '.pdf', '_blank');
 					} else if (currentDI === 'Payment in Lieu of Taxes (PILT) - PILT Profiles') {
 						if (quantByIds[0][+FIPS] === 0) {
 							noty({text: '<strong>No Profile Available</strong></br>This county did not receive PILT in 2014!'});
@@ -665,6 +668,9 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 					}  else if (currentDI === 'Transportation Funding Profiles - Transportation Funding Profiles') {
 						var state = countyObjectById[+FIPS].STATE;
 						window.open('http://explorer.naco.org/profiles/stateTransportation/state_summary_' + state + '.pdf', '_blank');
+					}  else if (currentDI === 'Transportation Funding Profiles - MAP-21 Profiles') {
+						var state = countyObjectById[+FIPS].STATE;
+						window.open('http://www.uscounties.org/county-transportation-funding/profiles/MAP21/' + state + '%20MAP-21%20Profile.pdf', '_blank');
 					}  else if (currentDI === "U.S. Ex-Im Bank Financing - U.S. Ex-Im Bank County Profiles") {
 						var countyName = parseCountyName(+FIPS, county.geography);
 						countyName = countyName.replace(/\s/g, '');

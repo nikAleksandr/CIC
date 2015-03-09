@@ -332,7 +332,7 @@
 							"name": "Fire Protection",
 							"unit": "FTE employees",
 							"dataType": "level",
-							"definition": "Fire fighting organization and auxiliary services; fire inspection and investigation; support of volunteer fire forces; and other fire prevention activities. Includes cost of fire fighting facilities, such as fire hydrants and water, furnished by other agencies of the government."
+							"definition": "Prevention, avoidance, and suppression of fires and provision of ambulance, medical, rescue, or auxiliary services provided by fire protection agencies. This includes regular fire departments; financial, technical, and operational support of volunteer fire forces; fire hydrant maintenance; rescue squads; fire inspection, investigation, and regulation; fire marshals; fire prevention education; fire suppression training; auxiliary services; and the following activities IF handled by a fire department: ambulances, emergency medical technicians (EMTs), paramedic squads, and arson investigation.  This excludes forest-fire protection and suppression; ambulances, emergency medical technicians, and paramedic squads handled by non-fire departments."
 						}
 					]
 				}, {
@@ -986,7 +986,7 @@
 							"name": "Fire Protection",
 							"unit": "dollars",
 							"dataType": "level",
-							"definition": "Prevention, avoidance, and suppression of fires and provision of ambulance, medical, rescue, or auxiliary services provided by fire protection agencies.  Includes: Expenditures of regular fire departments; financial, technical, and operational support of volunteer fire forces; fire hydrant maintenance; rescue squads; fire inspection, investigation, and regulation; fire marshals; fire prevention education; fire suppression training; auxiliary services; fire stations, buildings, and other facilities used exclusively for fire protection purposes; and the following activities IF handled by a fire department: ambulances, emergency medical technicians (EMTs), paramedic squads, and arson investigation. Also include any identifiable amounts for services rendered by other agencies of the same government for fire protection or suppression, such as provision of water by water supply utility."
+							"definition": "Prevention, avoidance, and suppression of fires and provision of ambulance, medical, rescue, or auxiliary services provided by fire protection agencies. This includes expenditures of regular fire departments; financial, technical, and operational support of volunteer fire forces; fire hydrant maintenance; rescue squads; fire inspection, investigation, and regulation; fire marshals; fire prevention education; fire suppression training; auxiliary services; fire stations, buildings, and other facilities used exclusively for fire protection purposes; and the following activities IF handled by a fire department: ambulances, emergency medical technicians (EMTs), paramedic squads, and arson investigation. Also includes any identifiable amounts for services rendered by other agencies of the same government for fire protection or suppression, such as provision of water by water supply utility. This excludes forest-fire protection and suppression; ambulances, emergency medical technicians, and paramedic squads handled by non-fire departments."
 						}, {
 							"name": "Protective Inspection",
 							"unit": "dollars",
@@ -1472,15 +1472,22 @@
 					"name": "Municipal Bonds",
 					"source": "2012 County Payments for Tax-Exempt Municipal Bonds",
 					"years": [2012],
-					"companions": [["Municipal Bonds", "Muni Bonds Profiles"], ["Municipal Bonds", "Interest on Muni Bonds"], ["Municipal Bonds", "Cost of 28% Cap"], ["Municipal Bonds", "Cost of Full Repeal"]
+					"companions": [["Municipal Bonds", "County Muni Bonds Profiles"], ["Municipal Bonds", "Interest on Muni Bonds"], ["Municipal Bonds", "Cost of 28% Cap"], ["Municipal Bonds", "Cost of Full Repeal"]
 					],
 					"children": [
 						{
-							"name": "Muni Bonds Profiles",
+							"name": "County Muni Bonds Profiles",
 							"unit": "dollars",
 							"dataType": "level",
 							"has_profile": true,
 							"definition": "Interest paid on tax-exempt municipal bonds by a county"
+						}, {
+							"name": "State Muni Bonds Profiles",
+							"unit": "dollars",
+							"dataType": "level",
+							"has_profile": true,
+							"companions": [["Municipal Bonds", "State Muni Bonds Profiles"], ["Road Ownership", "County Highway Agency Road Miles"]],
+							"definition": "Interest paid on tax-exempt municipal bonds at the state level"
 						}, {
 							"name": "Interest on Muni Bonds",
 							"unit": "dollars",
@@ -1496,6 +1503,21 @@
 							"unit": "dollars",
 							"dataType": "level",
 							"definition": "The estimated cost of the repeal of the tax-exempt status of municipal bond interest for a county government is how much the county government would have had to pay additionally in interest for municipal bonds in the fiscal year if it were fully taxable over the last 15 years. "
+						}, {
+							"name": "State Issuance Value",
+							"unit": "dollars",
+							"dataType": "level",
+							"definition": "The value of state and local governments and authorities municipal bonds for 21 infrastructure purposes, 2003-2012"
+						}, {
+							"name": "State Cost of 28% Cap",
+							"unit": "dollars",
+							"dataType": "level",
+							"definition": "The estimated cost of a 28 percent cap proposal that state and local governments would have to pay in interest for tax-exempt municipal bonds in the fiscal year if a 28 percent cap were in place over the last 15 years."
+						}, {
+							"name": "State Cost of Full Repeal",
+							"unit": "dollars",
+							"dataType": "level",
+							"definition": "The estimated cost of the repeal of the tax-exempt status of municipal bond interest for state and local governments is how much the state and local governments would have had to pay additionally in interest for municipal bonds in the fiscal year if it were fully taxable over the last 15 years."
 						}
 					]
 				}
@@ -3341,7 +3363,7 @@
 							"name": "Fire Protection",
 							"unit": "FTE employees",
 							"dataType": "level",
-							"definition": "Fire fighting organization and auxiliary services; fire inspection and investigation; support of volunteer fire forces; and other fire prevention activities. Includes cost of fire fighting facilities, such as fire hydrants and water, furnished by other agencies of the government."
+							"definition": "Prevention, avoidance, and suppression of fires and provision of ambulance, medical, rescue, or auxiliary services provided by fire protection agencies. This includes regular fire departments; financial, technical, and operational support of volunteer fire forces; fire hydrant maintenance; rescue squads; fire inspection, investigation, and regulation; fire marshals; fire prevention education; fire suppression training; auxiliary services; and the following activities IF handled by a fire department: ambulances, emergency medical technicians (EMTs), paramedic squads, and arson investigation.  This excludes forest-fire protection and suppression; ambulances, emergency medical technicians, and paramedic squads handled by non-fire departments."
 						}
 					]
 				}, {
@@ -3380,7 +3402,7 @@
 							"name": "Fire Protection",
 							"unit": "dollars",
 							"dataType": "level",
-							"definition": "Prevention, avoidance, and suppression of fires and provision of ambulance, medical, rescue, or auxiliary services provided by fire protection agencies.  Includes: Expenditures of regular fire departments; financial, technical, and operational support of volunteer fire forces; fire hydrant maintenance; rescue squads; fire inspection, investigation, and regulation; fire marshals; fire prevention education; fire suppression training; auxiliary services; fire stations, buildings, and other facilities used exclusively for fire protection purposes; and the following activities IF handled by a fire department: ambulances, emergency medical technicians (EMTs), paramedic squads, and arson investigation. Also include any identifiable amounts for services rendered by other agencies of the same government for fire protection or suppression, such as provision of water by water supply utility."
+							"definition": "Prevention, avoidance, and suppression of fires and provision of ambulance, medical, rescue, or auxiliary services provided by fire protection agencies. This includes expenditures of regular fire departments; financial, technical, and operational support of volunteer fire forces; fire hydrant maintenance; rescue squads; fire inspection, investigation, and regulation; fire marshals; fire prevention education; fire suppression training; auxiliary services; fire stations, buildings, and other facilities used exclusively for fire protection purposes; and the following activities IF handled by a fire department: ambulances, emergency medical technicians (EMTs), paramedic squads, and arson investigation. Also includes any identifiable amounts for services rendered by other agencies of the same government for fire protection or suppression, such as provision of water by water supply utility. This excludes forest-fire protection and suppression; ambulances, emergency medical technicians, and paramedic squads handled by non-fire departments."
 						}, {
 							"name": "Protective Inspection",
 							"unit": "dollars",
@@ -4878,8 +4900,13 @@
 						{
 							"name": "Transportation Funding Profiles",
 							"dataType": "level",
-							"definition": "Total number of structurally deficient bridges owned by a County Highway Agency.",
+							"definition": "Profiles on state-level transportation funding and financing for counties.",
 							"has_profile": true
+						}, {
+							"name": "MAP-21 Profiles",
+							"dataType": "level",
+							"has_profile": true,
+							"definition": "Profiles on state-level impotance and impacts of MAP-21 and county transportation investments."
 						}
 					]
 				}

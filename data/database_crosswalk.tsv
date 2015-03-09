@@ -130,10 +130,14 @@ XCounty_Finance	County_Tax_Sales_Use_Tax	County Finance	County Tax Rates	Sales T
 XCounty_Finance	County_Tax_State_Tax	County Finance	County Tax Rates	State Sales Tax	
 XCounty_Finance	County_Tax_County_Tax_Year_Collected	County Finance	County Tax Rates	Sales Tax Year Collected	
 XCounty_Finance	County_Tax_State_Tax_Year_Collected	County Finance	County Tax Rates	State Sales Tax Year Collected	
-County_Finance	Muni_Bonds_Interest	County Finance	Municipal Bonds	Muni Bonds Profiles	
+County_Finance	Muni_Bonds_Interest	County Finance	Municipal Bonds	County Muni Bonds Profiles	
 County_Finance	Muni_Bonds_Interest	County Finance	Municipal Bonds	Interest on Muni Bonds	
 County_Finance	Muni_Bonds_County_Cap_Cost	County Finance	Municipal Bonds	Cost of 28% Cap	
 County_Finance	Muni_Bonds_County_Repeal_Cost	County Finance	Municipal Bonds	Cost of Full Repeal	
+Transportation	RO_County_Highway_Agency_Road_Miles	County Finance	Municipal Bonds	State Muni Bonds Profiles	
+County_Finance	Muni_Bonds_state_value	County Finance	Municipal Bonds	State Issuance Value	
+County_Finance	Muni_Bonds_state_cap_cost	County Finance	Municipal Bonds	State Cost of 28% Cap	
+County_Finance	Muni_Bonds_state_repeal_cost	County Finance	Municipal Bonds	State Cost of Full Repeal	
 Demographics	KEYID				
 Demographics	FIPS				
 Demographics	DATA_YEAR				
@@ -607,6 +611,7 @@ Transportation	Structurally_Deficient_Bridges_Total_Bridges	Transportation	Bridg
 Transportation	Structurally_Deficient_Bridges_City_Town_Owned	Transportation	Bridges	Structurally Deficient Bridges - City/Town Owned	Total number of structurally deficient bridges owned by a Town or Township Highway Agency or a City or Municipal Highway Agency.
 Transportation	Structurally_Deficient_Bridges_County_Owned	Transportation	Bridges	Structurally Deficient Bridges - County Owned	Total number of structurally deficient bridges owned by a County Highway Agency.
 Transportation	Structurally_Deficient_Bridges_County_Owned	Transportation	Transportation Funding Profiles	Transportation Funding Profiles	
+Transportation	Structurally_Deficient_Bridges_County_Owned	Transportation	Transportation Funding Profiles	MAP-21 Profiles	
 Transportation	Structurally_Deficient_Bridges_Federal_Owned	Transportation	Bridges	Structurally Deficient Bridges - Federal Owned	"Total number of structurally deficient bridges owned by a Federal Agency. Includes the Indian Tribal Government, Bureau of Indian Affairs, Bureau of Fish and Wildlife, U.S. Forest Service, National Park Service, Tennessee Valley Authority, Bureau of Land Management, Bureau of Reclamation, Corps of Engineers, Air Force, Navy/Marines, Army, NASA, or the Metropolitan Washington Airports Service."
 Transportation	Structurally_Deficient_Bridges_Local_Owned	Transportation	Bridges	Structurally Deficient Bridges - Local Owned	"Total number of structurally deficient bridges owned by a Local Park, Forest, or Reservation Agency or Local Toll Authority, or Other Local Agencies."
 Transportation	Structurally_Deficient_Bridges_Privately_Owned	Transportation	Bridges	Structurally Deficient Bridges - Privately Owned	Total number of structurally deficient bridges owned by a Private agency.
