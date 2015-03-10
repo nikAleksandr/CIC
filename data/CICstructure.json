@@ -1480,30 +1480,31 @@
 							"unit": "dollars",
 							"dataType": "level",
 							"has_profile": true,
-							"definition": "Profiles on the county-level impact of changing the tax-exempt status of municipal bonds interest."
+							"definition": "Profiles on the county-level impact of changing the tax-exempt status of municipal bond interest."
 						}, {
 							"name": "State Muni Bonds Profiles",
 							"unit": "dollars",
 							"dataType": "level",
 							"has_profile": true,
-							"source": "February, 2013 Thompson Reuters data",
-							"companions": [["Road Ownership", "County Highway Agency Road Miles"], ["Road Ownership", "County Highway Agency Road Miles"]],
-							"definition": "Profiles covering the state and local government impact of changing the tax-exempt status of municipal bonds interest."
+							"source": "Federal Highway Administration - Highway Performance Monitoring System",
+							"companions": [["Road Classification", "Total Public Road Miles"], ["Road Classification", "Total Public Road Miles"]],
+							"definition": "Profiles showing the impact of changing the tax-exempt status of municipal bond interest on state and local governments and authorities."
 						}, {
-							"name": "Interest on Muni Bonds",
+							"name": "Interest Payment on Muni Bonds",
 							"unit": "dollars",
 							"dataType": "level",
-							"definition": "Interest paid on tax-exempt municipal bonds by a county"
+							"thresholds": [500000,1000000,10000000,100000000],
+							"definition": "Interest paid on tax-exempt municipal bonds by a county government."
 						}, {
 							"name": "Cost of 28% Cap",
 							"unit": "dollars",
 							"dataType": "level",
-							"definition": "The estimated cost of a 28 percent cap proposal that a county government would have to pay in interest for tax-exempt municipal bonds in the fiscal year if a 28 percent cap were in place over the last 15 years."
+							"definition": "The estimated cost of a 28 percent cap proposal for a county government is how much a county government would have had to pay additionally in interest for tax-exempt municipal bonds in the fiscal year 2012 if a 28 percent cap were in place over the last 15 years."
 						}, {
 							"name": "Cost of Full Repeal",
 							"unit": "dollars",
 							"dataType": "level",
-							"definition": "The estimated cost of the repeal of the tax-exempt status of municipal bond interest for a county government is how much the county government would have had to pay additionally in interest for municipal bonds in the fiscal year if it were fully taxable over the last 15 years. "
+							"definition": "The estimated cost of the repeal of the tax-exempt status for a county government is how much the county government would have had to pay additionally in interest for municipal bonds in the fiscal year 2012 if it were fully taxable over the last 15 years. "
 						}, {
 							"name": "State Issuance Value",
 							"unit": "dollars",
@@ -2634,14 +2635,14 @@
 					"name": "Second Chance Act (SCA) Awards",
 					"years": [2014],
 					"source": "U.S. Department of Justice, Office of Justice Programs, Bureau of Justice Assistance and Office of Juvenile Justice and Delinquency data",
-					"companions": [["Second Chance Act (SCA) Awards", "SCA Total"], ["Second Chance Act (SCA) Awards", "County Total"], ["Second Chance Act (SCA) Awards", "City Total"], ["Second Chance Act (SCA) Awards", "Nonprofit Total"]
+					"companions": [["Second Chance Act (SCA) Awards", "SCA Total"]
 					],
 					"children": [
 						{
 							"name": "SCA Total",
 							"unit": "dollars",
 							"dataType": "level",
-							"thresholds": [1, 100000, 250000, 1000000],
+							"yearSpan": "2009-2014",
 							"definition": "Total amount of SCA grant money awarded to any of the following within a county: unit(s) of county government, unit(s) of city government and/or nonprofit organization(s). SCA total does not include grant money awarded to state governments or any funds to counties, cities or nonprofits that pass through state government."
 						}, {
 							"name": "County Total",
@@ -2668,10 +2669,25 @@
 					],
 					"children": [
 						{
+							"name": "SRS Profiles",
+							"unit": "dollars",
+							"dataType": "level",
+							"definition": "Profiles showing that without the SRS Act reauthorization, states revert to the Payments to States Act of 1908 as amended, receiving a 25 percent payment from national forest receipts.  USFS estimates FY 2014 county 25 percent payments based on county shares of the national forest receipts.  These estimates do not reflect the application of a 7.3 percent sequester to the state payments."
+						}, {
 							"name": "SRS Amount",
 							"unit": "dollars",
 							"dataType": "level",
-							"definition": "Funding received for the Secure Rural Schools program"
+							"definition": "Funding received for the Secure Rural Schools program. Note: The receipts year reflects when U.S. Forest Service (USFS) collects revenues from national forest lands."
+						}, {
+							"name": "SRS Projected 25% Payment, FY 2014",
+							"unit": "dollars",
+							"dataType": "level",
+							"definition": "Projected funding levels for SRS payments in FY 2014.  Without the SRS Act reauthorization, states revert to the Payments to States Act of 1908 as amended, receiving a 25 percent payment from national forest receipts.  USFS estimates FY 2014 county 25 percent payments based on county shares of the national forest receipts.  These estimates do not reflect the application of a 7.3 percent sequester to the state payments.  Note: The receipts year reflects when U.S. Forest Service (USFS) collects revenues from national forest lands."
+						}, {
+							"name": "Projected Payment Percent Change, FY 2013-2014",
+							"unit": "dollars",
+							"dataType": "level",
+							"definition": "Projected SRS payment change rates from FY 2013 to FY 2014.  Without the SRS Act reauthorization, states revert to the Payments to States Act of 1908 as amended, receiving a 25 percent payment from national forest receipts.  USFS estimates FY 2014 county 25 percent payments based on county shares of the national forest receipts.  These estimates do not reflect the application of a 7.3 percent sequester to the state payments.  Note: The receipts year reflects when U.S. Forest Service (USFS) collects revenues from national forest lands."
 						}
 					]
 				}, {
@@ -3028,6 +3044,11 @@
 					],
 					"children": [
 						{
+							"name": "Total Local Health Departments (LHDs)",
+							"dataType": "level",
+							"companions": [["Local Health Departments", "Total Local Health Departments (LHDs)"], ["Local Health Departments", "County Supported Local Health Departments (LHDs)"], ["Local Health Departments", "City LHD"], ["Local Health Departments", "Multi-city LHD"]],
+							"definition": "The total local health departments serving a county's residents, including county-supported, city, and multi-city local health departments."
+						}, {
 							"name": "County Supported Local Health Departments (LHDs)",
 							"dataType": "categorical",
 							"definition": "County, city-county and multi-county local health department(s) located within a county.  Mutiple county supported LHDs indicates that different types of county supported LHDs (county, city-county and/or multi-county) serve the population of a county.",
@@ -3049,6 +3070,16 @@
 							"name": "City-county LHD",
 							"dataType": "binary",
 							"definition": "LHD primarily serves population of a county and a population of a city that does not lie within the boundaries of the county it serves."
+						}, {
+							"name": "City LHD",
+							"dataType": "binary",
+							"companions": [["Local Health Departments", "City LHD"], ["Local Health Departments", "Multi-city LHD"]],
+							"definition": "LHD primarily serves population of a city."
+						}, {
+							"name": "Multi-city LHD",
+							"dataType": "binary",
+							"companions": [["Local Health Departments", "City LHD"], ["Local Health Departments", "Multi-city LHD"]],
+							"definition": "LHD primarily serves population of 2 or more cities."
 						}
 					]
 				}, {
@@ -4350,6 +4381,10 @@
 							"dataType": "level",
 							"definition": "Total number of bridges owned by a County Highway Agency."
 						}, {
+							"name": "All Bridges - Local Government Owned",
+							"dataType": "level",
+							"definition": "Total number of bridges owned by a town or township highway agency, a city or municipal highwya agency, or a county highway agency."
+						}, {
 							"name": "All Bridges - Federal Owned",
 							"dataType": "level",
 							"definition": "Total number of bridges owned by a Federal Agency. Includes the Indian Tribal Government, Bureau of Indian Affairs, Bureau of Fish and Wildlife, U.S. Forest Service, National Park Service, Tennessee Valley Authority, Bureau of Land Management, Bureau of Reclamation, Corps of Engineers, Air Force, Navy/Marines, Army, NASA, or the Metropolitan Washington Airports Service."
@@ -4378,6 +4413,10 @@
 							"dataType": "level",
 							"definition": "Total number of structurally deficient bridges owned by a County Highway Agency."
 						}, {
+							"name": "Structurally Deficient Bridges - Local Government Owned",
+							"dataType": "level",
+							"definition": "Total number of structurally deficient bridges owned by a town or township highway agency, a city or municipal highwya agency, or a county highway agency."
+						}, {
 							"name": "Structurally Deficient Bridges - Federal Owned",
 							"dataType": "level",
 							"definition": "Total number of structurally deficient bridges owned by a Federal Agency. Includes the Indian Tribal Government, Bureau of Indian Affairs, Bureau of Fish and Wildlife, U.S. Forest Service, National Park Service, Tennessee Valley Authority, Bureau of Land Management, Bureau of Reclamation, Corps of Engineers, Air Force, Navy/Marines, Army, NASA, or the Metropolitan Washington Airports Service."
@@ -4405,6 +4444,10 @@
 							"name": "Functionally Obsolete Bridges - County Owned",
 							"dataType": "level",
 							"definition": "Total number of functionally obsolete bridges owned by a County Highway Agency."
+						}, {
+							"name": "Functionally Obsolete Bridges - Local Government Owned",
+							"dataType": "level",
+							"definition": "Total number of functionally obsolete bridges owned by a town or township highway agency, a city or municipal highwya agency, or a county highway agency."
 						}, {
 							"name": "Functionally Obsolete Bridges - Federal Owned",
 							"dataType": "level",
@@ -4901,13 +4944,13 @@
 						{
 							"name": "Transportation Funding Profiles",
 							"dataType": "level",
-							"definition": "Profiles on state-level transportation funding and financing for counties.",
+							"definition": "Profiles on state level transportation funding and financing for counties.",
 							"has_profile": true
 						}, {
 							"name": "MAP-21 Profiles",
 							"dataType": "level",
 							"has_profile": true,
-							"definition": "Profiles at the state level on the critical role local governments play in our nation's infrastructure."
+							"definition": "State level profiles of the MAP-21 decreases for locally-owned bridges & federal aid highways."
 						}
 					]
 				}

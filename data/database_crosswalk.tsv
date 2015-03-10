@@ -299,8 +299,11 @@ Federal_Funding	Percentage_of_Federal_Land	Federal Funding	Payment in Lieu of Ta
 Federal_Funding	PILT_per_square_mile	Federal Funding	Payment in Lieu of Taxes (PILT)	PILT per Acre	The Payment in Lieu of Taxes annual funding per square mile of federal land
 Federal_Funding	PILT_Trend	Federal Funding	Payment in Lieu of Taxes (PILT)	PILT Annual Growth Rate (from previous year)	Percent change in Payment in Lieu of Taxes annual funding from the previous year
 Federal_Funding	SRS	Federal Funding	Secure Rural Schools (SRS)	SRS Amount	Funding received for the Secure Rural Schools program.
+Federal_Funding	SRS_projected_2014	Federal Funding	Secure Rural Schools (SRS)	SRS Profiles	
+Federal_Funding	SRS_projected_2014	Federal Funding	Secure Rural Schools (SRS)	"SRS Projected 25% Payment, FY 2014"	
+Federal_Funding	SRS_projected_growth_rate_2013_2014	Federal Funding	Secure Rural Schools (SRS)	"Projected Payment Percent Change, FY 2013-2014"	
 Federal_Funding	JAG_Amount	Federal Funding	Byrne (JAG) Program Awards	JAG Amount	
-Federal_Funding	SCA_Total	Federal Funding	Second Chance Act (SCA) Awards	SCA Total	
+Federal_Funding	SCA_Total_2009_2014	Federal Funding	Second Chance Act (SCA) Awards	SCA Total	
 Federal_Funding	SCA_County_Total	Federal Funding	Second Chance Act (SCA) Awards	County Total	
 Federal_Funding	SCA_City_Total	Federal Funding	Second Chance Act (SCA) Awards	City Total	
 Federal_Funding	SCA_NonProfit_Total	Federal Funding	Second Chance Act (SCA) Awards	Nonprofit Total	
@@ -323,9 +326,11 @@ County_Finance	CE_Health__Hospitals_Intergovernmental_to_Local	Health & Hospital
 Health_Hospitals	county_lhd	Health & Hospitals	Local Health Departments	County LHD	
 Health_Hospitals	multicounty_lhd	Health & Hospitals	Local Health Departments	Multi-county LHD	
 Health_Hospitals	citycounty_lhd	Health & Hospitals	Local Health Departments	City-county LHD	
-Health_Hospitals	totalcounty_lhd	Health & Hospitals	Local Health Departments		
+Health_Hospitals	total_lhd	Health & Hospitals	Local Health Departments	Total LHDs	
 Health_Hospitals	County_Supported_LHD	Health & Hospitals	Local Health Departments	County Supported Local Health Departments (LHDs)	
 Health_Hospitals	LHDname_list	Health & Hospitals	Local Health Departments	County Supported LHD Names	
+Health_Hospitals	city_lhd	Local Health Departments	Local Health Departments	City LHD	
+Health_Hospitals	multicity_lhd	Local Health Departments	Local Health Departments	Multi-city LHD	
 Health_Hospitals	Health_Insruance_Population	Health & Hospitals	Health Insurance	Population Level	The calculated number of people living in the county.
 Health_Hospitals	Health_Insruance_Population_Insured	Health & Hospitals	Health Insurance	Population Insured	The number of people that are covered by a public health insurance program or by private health insurance.
 Health_Hospitals	Health_Insruance_Population_Uninsured	Health & Hospitals	Health Insurance	Population Uninsured	The number of people that are not covered by a health insurance plan.
@@ -392,6 +397,15 @@ Housing_Community_Development	Owner_occupied_Housing_Units	Housing & Community D
 Housing_Community_Development	Percent_of_Owner_occupied	Housing & Community Development	Housing Units	Percent of Owner-Occupied Housing Units	The percentage of owner-occupied housing units located in the county. A housing unit is owner occupied if the owner or co-owner lives in the unit even if it is mortgaged or not fully paid for.
 Housing_Community_Development	Renter_Occupied_Housing_Units	Housing & Community Development	Housing Units	Renter-Occupied Housing Units	"The number of renter-occupied housing units located in the county. All occupied housing units which are not owner occupied, whether they are rented or occupied without payment of rent, are classified as renter occupied."
 Housing_Community_Development	Percent_of_Renter_Occupied	Housing & Community Development	Housing Units	Percent of Renter-Occupied Housing Units	"The percentage of renter-occupied housing units located in the county. All occupied housing units which are not owner occupied, whether they are rented or occupied without payment of rent, are classified as renter occupied."
+Housing_Community_Development	tot_hholder	Housing & Community Development	Housing Units	Total Householders	
+Housing_Community_Development	tot_1yr_resident_hh	Housing & Community Development	Housing Units	Same HH for a Year or More	
+Housing_Community_Development	pct_1yr_resident_hh	Housing & Community Development	Housing Units	Percentage in Same HH for a Year or More	
+Housing_Community_Development	tot_moved_within_co	Housing & Community Development	Housing Units	Moved Within the County	
+Housing_Community_Development	pct_moved_within_co	Housing & Community Development	Housing Units	Percentage Moved Within the County	
+Housing_Community_Development	tot_moved_from_diff_co	Housing & Community Development	Housing Units	Moved from Outside the County	
+Housing_Community_Development	pct_moved_from_diff_co	Housing & Community Development	Housing Units	Percentage Moved from Outside the County	
+Housing_Community_Development	med_value	Housing & Community Development	Housing Units	Median HH Value	
+Housing_Community_Development	med_groww_rent	Housing & Community Development	Housing Units	Median Rent	
 Housing_Community_Development	HCD_Employment	Housing & Community Development	Housing & Community Development Employment	Housing & Community Development	"Number of FTEs working on Construction, operation, and support of housing and redevelopment projects and other activities to promote or aid public and private housing and community development.  Includes: Housing: Planning, construction, furnishing, and operation of public housing projects (generally for persons not adequately served by private sector). Community development: Urban renewal and slum clearance; redevelopment and rehabilitation of substandard or deteriorated facilities and areas; rural redevelopment; and revitalization of commercial areas."
 County_Finance	CE_County_Expenditure_Total	Housing & Community Development	Housing & Community Development Expenditures	Total County	"All amounts of money paid out by a government--net of recoveries and other correcting transactions--other than for retirement of debt, investment in securities, extension of credit, or as agency transactions. Note that expenditure includes only external transactions of a government and excludes non-cash transactions such as the provision of perquisites or other payments in kind."
 County_Finance	CE_Housing__Community_Development_Expenditure_Housing__Community	Housing & Community Development	Housing & Community Development Expenditures	Total Housing & Community Development	"Total housing and community development expenditures, including Current Operations, Construction, Other Capital Outlay, Intergovernmental to State and Intergovernmental to Local."
