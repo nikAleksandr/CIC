@@ -670,7 +670,7 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 						window.open('http://explorer.naco.org/profiles/stateTransportation/state_summary_' + state + '.pdf', '_blank');
 					}  else if (currentDI === 'Transportation Funding Profiles - MAP-21 Profiles') {
 						var state = countyObjectById[+FIPS].STATE;
-						window.open('http://www.uscounties.org/county-transportation-funding/profiles/MAP21/' + state + '%20MAP-21%20Profile.pdf', '_blank');
+						window.open('http://explorer.naco.org/profiles/MAP-21/' + state + '.pdf', '_blank');
 					}  else if (currentDI === "U.S. Ex-Im Bank Financing - U.S. Ex-Im Bank County Profiles") {
 						var countyName = parseCountyName(+FIPS, county.geography);
 						countyName = countyName.replace(/\s/g, '');

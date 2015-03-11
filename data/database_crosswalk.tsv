@@ -616,7 +616,7 @@ Transportation	RO_Share_Indian_Tribe_Nation	Transportation	Road Ownership	Share 
 Transportation	All_Bridges_Total_Bridges	Transportation	Bridges	All Bridges - Total Bridges	Total number of bridges located in the county.
 Transportation	All_Bridges_City_Town_wned	Transportation	Bridges	All Bridges - City/Town Owned	Total number of bridges owned by a Town or Township Highway Agency or a City or Municipal Highway Agency.
 Transportation	All_Bridges_County_Owned	Transportation	Bridges	All Bridges - County Owned	Total number of bridges owned by a County Highway Agency.
-Transportation	All_Bridges_Local_Government_Owned	Transportation	Bridges	All Bridges - Local Government Owned	
+Transportation	All_Bridges_Local_Govt_Owned	Transportation	Bridges	All Bridges - Local Government Owned	
 Transportation	All_Bridges_Federal_Owned	Transportation	Bridges	All Bridges - Federal Owned	"Total number of bridges owned by a Federal Agency. Includes the Indian Tribal Government, Bureau of Indian Affairs, Bureau of Fish and Wildlife, U.S. Forest Service, National Park Service, Tennessee Valley Authority, Bureau of Land Management, Bureau of Reclamation, Corps of Engineers, Air Force, Navy/Marines, Army, NASA, or the Metropolitan Washington Airports Service."
 Transportation	All_Bridges_Local_Owned	Transportation	Bridges	All Bridges - Local Owned	"Total number of bridges owned by a Local Park, Forest, or Reservation Agency or Local Toll Authority, or Other Local Agencies."
 Transportation	All_Bridges_Privately_Owned	Transportation	Bridges	All Bridges - Privately Owned	Total number of bridges owned by a Private agency.
@@ -626,7 +626,7 @@ Transportation	Structurally_Deficient_Bridges_City_Town_Owned	Transportation	Bri
 Transportation	Structurally_Deficient_Bridges_County_Owned	Transportation	Bridges	Structurally Deficient Bridges - County Owned	Total number of structurally deficient bridges owned by a County Highway Agency.
 Transportation	Structurally_Deficient_Bridges_Local_Govt_Owned	Transportation	Bridges	Structurally Deficient Bridges - Local Government Owned	
 Transportation	Structurally_Deficient_Bridges_County_Owned	Transportation	Transportation Funding Profiles	Transportation Funding Profiles	
-Transportation	Structurally_Deficient_Bridges_County_Owned	Transportation	Transportation Funding Profiles	MAP-21 Profiles	
+Transportation	All_Bridges_Local_Govt_Owned	Transportation	Transportation Funding Profiles	MAP-21 Profiles	
 Transportation	Structurally_Deficient_Bridges_Federal_Owned	Transportation	Bridges	Structurally Deficient Bridges - Federal Owned	"Total number of structurally deficient bridges owned by a Federal Agency. Includes the Indian Tribal Government, Bureau of Indian Affairs, Bureau of Fish and Wildlife, U.S. Forest Service, National Park Service, Tennessee Valley Authority, Bureau of Land Management, Bureau of Reclamation, Corps of Engineers, Air Force, Navy/Marines, Army, NASA, or the Metropolitan Washington Airports Service."
 Transportation	Structurally_Deficient_Bridges_Local_Owned	Transportation	Bridges	Structurally Deficient Bridges - Local Owned	"Total number of structurally deficient bridges owned by a Local Park, Forest, or Reservation Agency or Local Toll Authority, or Other Local Agencies."
 Transportation	Structurally_Deficient_Bridges_Privately_Owned	Transportation	Bridges	Structurally Deficient Bridges - Privately Owned	Total number of structurally deficient bridges owned by a Private agency.
