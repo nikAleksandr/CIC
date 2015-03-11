@@ -2496,7 +2496,7 @@
 					]
 				}, {
 					"name": "Community Development Block Grants (CDBG)",
-					"years": [2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014],
+					"years": [2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015],
 					"source": "U.S. Department of Housing and Urban Development",
 					"companions": [["Community Development Block Grants (CDBG)", "CDBG Amount"], ["Community Development Block Grants (CDBG)", "CDBG Annual Growth Rate (from previous year)"], ["Housing & Urban Development Grants", "Total HUD Amount"], ["Housing & Urban Development Grants", "HUD Annual Growth Rate (from previous year)"]
 					],
@@ -2509,12 +2509,13 @@
 						}, {
 							"name": "CDBG Annual Growth Rate (from previous year)",
 							"dataType": "percent",
+							"thresholds": [-0.1, 0, 0.01, 0.1],
 							"definition": "Percent change in funding for the Community Development Block Grants program from the previous year"
 						}
 					]
 				}, {
 					"name": "Emergency Shelter Grants (ESG)",
-					"years": [2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014],
+					"years": [2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015],
 					"source": "U.S. Department of Housing and Urban Development",
 					"companions": [["Emergency Shelter Grants (ESG)", "ESG Amount"], ["Emergency Shelter Grants (ESG)", "ESG Annual Growth Rate (from previous year)"], ["Housing & Urban Development Grants", "Total HUD Amount"], ["Housing & Urban Development Grants", "HUD Annual Growth Rate (from previous year)"]
 					],
@@ -2527,12 +2528,13 @@
 						}, {
 							"name": "ESG Annual Growth Rate (from previous year)",
 							"dataType": "percent",
+							"thresholds": [-0.1, 0, 0.01, 0.1],
 							"definition": "Percent change in funding for the Emergency Shelter Grants program from the previous year"
 						}
 					]
 				}, {
 					"name": "HOME Investment Partnership Program",
-					"years": [2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014],
+					"years": [2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015],
 					"source": "U.S. Department of Housing and Urban Development",
 					"companions": [["HOME Investment Partnership Program", "HOME Amount"], ["HOME Investment Partnership Program", "HOME Annual Growth Rate (from previous year)"], ["Housing & Urban Development Grants", "Total HUD Amount"], ["Housing & Urban Development Grants", "HUD Annual Growth Rate (from previous year)"]
 					],
@@ -2545,12 +2547,13 @@
 						}, {
 							"name": "HOME Annual Growth Rate (from previous year)",
 							"dataType": "percent",
+							"thresholds": [-0.1, -0.05, 0, 0.01],
 							"definition": "Percent change in funding for the HOME Investment Partnership Program program from the previous year"
 						}
 					]
 				}, {
 					"name": "Housing & Urban Development Grants",
-					"years": [2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014],
+					"years": [2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015],
 					"source": "U.S. Department of Housing and Urban Development",
 					"companions": [["Housing & Urban Development Grants", "Total HUD Amount"], ["Housing & Urban Development Grants", "HUD Annual Growth Rate (from previous year)"], ["Community Development Block Grants (CDBG)", "CDBG Amount"], ["HOME Investment Partnership Program", "HOME Amount"]
 					],
@@ -2563,12 +2566,13 @@
 						}, {
 							"name": "HUD Annual Growth Rate (from previous year)",
 							"dataType": "percent",
+							"thresholds": [0, 0.01, 0.05, 0.1],
 							"definition": "Percent change in funding for the Housing & Urban Development Grants program from the previous year. Includes funding from the Community Development Block Grants (CDBG), HOME Investment Partnerships Program (HOME), Housing Opportunities for Persons with AIDS (HOPWA), Emergency Shelter Grants (ESG) and the American Dream Downpayment Initiative (ADDI)."
 						}
 					]
 				}, {
 					"name": "Housing Opportunities for Persons with AIDS (HOPWA)",
-					"years": [2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014],
+					"years": [2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015],
 					"source": "U.S. Department of Housing and Urban Development",
 					"companions": [["Housing Opportunities for Persons with AIDS (HOPWA)", "HOPWA Amount"], ["Housing Opportunities for Persons with AIDS (HOPWA)", "HOPWA Annual Growth Rate (from previous year)"], ["Housing & Urban Development Grants", "Total HUD Amount"], ["Housing & Urban Development Grants", "HUD Annual Growth Rate (from previous year)"]
 					],
@@ -2581,6 +2585,7 @@
 						}, {
 							"name": "HOPWA Annual Growth Rate (from previous year)",
 							"dataType": "percent",
+							"thresholds": [0, 0.01, 0.05, 0.1],
 							"definition": "Percent change in funding for the Housing Opportunities for Persons with AIDS program from the previous year"
 						}
 					]
@@ -2664,7 +2669,7 @@
 				}, {
 					"name": "Secure Rural Schools (SRS)",
 					"years": [2012, 2013],
-					"source": "U.S. Department of Agriculture",
+					"source": "data from the U.S. Department of Agriculture, U.S. Forest Service and Headwaters Economics analysis of U.S. Geological Survey, Protected Areas Database",
 					"companions": [["Secure Rural Schools (SRS)", "SRS Amount"]
 					],
 					"children": [
@@ -2672,22 +2677,25 @@
 							"name": "SRS Profiles",
 							"unit": "dollars",
 							"dataType": "level",
-							"definition": "Profiles showing that without the SRS Act reauthorization, states revert to the Payments to States Act of 1908 as amended, receiving a 25 percent payment from national forest receipts.  USFS estimates FY 2014 county 25 percent payments based on county shares of the national forest receipts.  These estimates do not reflect the application of a 7.3 percent sequester to the state payments."
+							"has_profile": true,
+							"companions": [["Secure Rural Schools (SRS)", "25% Payment, FY 2014"], ["Secure Rural Schools (SRS)", "25% Payment, FY 2014"]],
+							"definition": "Profiles showing that without the SRS Act reauthorization, states revert to the Payments to States Act of 1908 as amended, receiving a 25 percent payment from national forest receipts.  USFS estimates FY 2014 county 25 percent payments based on county shares of the national forest receipts.  These estimates do not reflect the application of a 7.3 percent sequester to the state payments.  Note: The receipts year reflects when U.S. Forest Service (USFS) collects revenues from national forest lands."
 						}, {
 							"name": "SRS Amount",
 							"unit": "dollars",
 							"dataType": "level",
-							"definition": "Funding received for the Secure Rural Schools program. Note: The receipts year reflects when U.S. Forest Service (USFS) collects revenues from national forest lands."
+							"definition": "Funding received by counties through the Secure Rural Schools program based on forest receipts.  Note: The receipts year reflects when U.S. Forest Service (USFS) collects revenues from national forest lands."
 						}, {
-							"name": "SRS Projected 25% Payment, FY 2014",
+							"name": "25% Payment, FY 2014",
 							"unit": "dollars",
 							"dataType": "level",
-							"definition": "Projected funding levels for SRS payments in FY 2014.  Without the SRS Act reauthorization, states revert to the Payments to States Act of 1908 as amended, receiving a 25 percent payment from national forest receipts.  USFS estimates FY 2014 county 25 percent payments based on county shares of the national forest receipts.  These estimates do not reflect the application of a 7.3 percent sequester to the state payments.  Note: The receipts year reflects when U.S. Forest Service (USFS) collects revenues from national forest lands."
+							"definition": "Projected funding to counties under the 25% Fund Payment in FY 2014.  Without the SRS Act reauthorization, states revert to the Payments to States Act of 1908 as amended, receiving a 25 percent payment from national forest receipts.  USFS estimates FY 2014 county 25 percent payments based on county shares of the national forest receipts.  These estimates do not reflect the application of a 7.3 percent sequester to the state payments.  Note: The receipts year reflects when U.S. Forest Service (USFS) collects revenues from national forest lands."
 						}, {
-							"name": "Projected Payment Percent Change, FY 2013-2014",
-							"unit": "dollars",
-							"dataType": "level",
-							"definition": "Projected SRS payment change rates from FY 2013 to FY 2014.  Without the SRS Act reauthorization, states revert to the Payments to States Act of 1908 as amended, receiving a 25 percent payment from national forest receipts.  USFS estimates FY 2014 county 25 percent payments based on county shares of the national forest receipts.  These estimates do not reflect the application of a 7.3 percent sequester to the state payments.  Note: The receipts year reflects when U.S. Forest Service (USFS) collects revenues from national forest lands."
+							"name": "Payment Percent Change, FY 2013-2014",
+							"dataType": "percent",
+							"thresholds": [-0.75, -0.25, 0, 0.001 ],
+							"supressMinMax": true,
+							"definition": "Projected percentage change in funding to counties from the Secure Rural Schools program (SRS) in FY 2013 to the 25% Fund Payment in FY 2014.  Without the SRS Act reauthorization, states revert to the Payments to States Act of 1908 as amended, receiving a 25 percent payment from national forest receipts.  USFS estimates FY 2014 county 25 percent payments based on county shares of the national forest receipts.  These estimates do not reflect the application of a 7.3 percent sequester to the state payments.  Note: The receipts year reflects when U.S. Forest Service (USFS) collects revenues from national forest lands."
 						}
 					]
 				}, {
@@ -3314,15 +3322,39 @@
 					]
 				}, {
 					"name": "Housing Units",
-					"source": "U.S. Census Bureau - American Community Survey (ACS)",
-					"years": [2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012],
+					"source": "U.S. Census Bureau - American Community Survey (ACS) 5 year estimates",
+					"years": [2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013],
 					"companions": [["Housing Units", "Number of Housing Units"], ["Housing Units", "Average Household Size"], ["Housing Units", "Percent of Owner-Occupied Housing Units"], ["Housing Units", "Percent of Renter-Occupied Housing Units"]
 					],
 					"children": [
 						{
-							"name": "Population",
+							"name": "Householders",
 							"dataType": "level",
-							"definition": "The calculated number of people living in the county."
+							"definition": "Total Population 1 year and over in households in a county."
+						}, {
+							"name": "Same House as 1 Year Ago",
+							"dataType": "level",
+							"definition": "Total Population 1 year and over in households in a county living in same house as 1 year ago."
+						}, {
+							"name": "Percent In Same House as 1 Year Ago",
+							"dataType": "percent",
+							"definition": "Percent Population 1 year and over in households in a county living in same house as 1 year ago."
+						}, {
+							"name": "Moved Within Same County",
+							"dataType": "level",
+							"definition": "Total Population 1 year and over in households in a county that moved within the same county in the past year."
+						}, {
+							"name": "Percent Moved Within Same County",
+							"dataType": "percent",
+							"definition": "Percent Population 1 year and over in households in a county that moved within the same county in the past year."
+						}, {
+							"name": "Moved From Outside the County",
+							"dataType": "level",
+							"definition": "Total Population 1 year and over in households in a county that moved from outside the county in the past year."
+						}, {
+							"name": "Percent Moved From Outside the County",
+							"dataType": "percent",
+							"definition": "Percent Population 1 year and over in households in a county that moved from outside the county in the past year."
 						}, {
 							"name": "Number of Housing Units",
 							"dataType": "level",
@@ -3352,7 +3384,17 @@
 							"name": "Percent of Renter-Occupied Housing Units",
 							"dataType": "percent",
 							"definition": "The percentage of renter-occupied housing units located in the county. All occupied housing units which are not owner occupied, whether they are rented or occupied without payment of rent, are classified as renter occupied."
-						}
+						}, {
+							"name": "Median Home Value",
+							"dataType": "level",
+							"unit": "dollars",
+							"definition": "."
+						}, {
+							"name": "Median Gross Rent",
+							"dataType": "level",
+							"unit": "dollars",
+							"definition": "."
+						} 
 					]
 				}
 			]
@@ -4936,7 +4978,7 @@
 					]
 				}, {
 					"name": "Transportation Funding Profiles",
-					"source": "Federal Highway Administration, Highway Performance Monitoring System, 2011; National Bridge Inventory, 2013; and NACo independent research",
+					"source": "Federal Highway Administration, Highway Performance Monitoring System, 2011",
 					"years": [2014],
 					"companions": [["Bridges", "Structurally Deficient Bridges - County Owned"], ["Bridges", "Structurally Deficient Bridges - County Owned"]
 					],
@@ -4949,7 +4991,9 @@
 						}, {
 							"name": "MAP-21 Profiles",
 							"dataType": "level",
+							"source": "National Bridge Inventory, 2013",
 							"has_profile": true,
+							"companions": [["Bridges", "All Bridges - Local Government Owned"], ["Bridges", "All Bridges - Local Government Owned"]],
 							"definition": "State level profiles of the MAP-21 decreases for locally-owned bridges & federal aid highways."
 						}
 					]

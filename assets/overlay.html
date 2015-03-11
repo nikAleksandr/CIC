@@ -10,22 +10,28 @@
 	
 	<div ng-show="panel.isShowing('update')">
 		<!--<div id="watermark">Embargoed until <br/> 01/12/2015 12:01AM</div>-->
-		<div class="panel-title"><h3><a class="link" id="updateLink" href="http://cic.naco.org/updates/feb15.html">February 2015 Update</a></h3></div>
+		<div class="panel-title"><h3><a class="link" id="updateLink" href="http://cic.naco.org/updates/mar15.html">March 2015 Update</a></h3></div>
 		<div class="panel-content">
 			<p>
-				<div class="pad-down-5">New Federal Funding Data Added!</div>
-				<div class="pad-down-5 panel-bullet">Click on "Map an Indicator", select "Federal Funding" and select any of these new indicators:</div>
+				<div class="pad-down-5">New Data</div>
+				<div class="pad-down-5 panel-bullet">&bull; Click on "Map an Indicator", select "County Profiles" and select our new <a class="link" ng-click="panel.goToIndicator('Secure Rural Schools (SRS)', 'SRS Profiles')">Secure Rural Schools (SRS) Profiles</a></div>
 				
-				<div class="pad-down-5 panel-bullet">&bull; <a class="link" ng-click="panel.goToIndicator('Airports Funding', 'Airport Investment Program Total')">Airports Funding</a></div>
-				<div class="pad-down-5 panel-bullet">&bull; <a class="link" ng-click="panel.goToIndicator('Byrne (JAG) Program Awards', 'JAG Amount')">Byrne (JAG) Program Awards</a></div>
-				<div class="pad-down-5 panel-bullet">&bull; <a class="link" ng-click="panel.goToIndicator('U.S. Ex-Im Bank Financing', 'U.S. Ex-Im Bank County Profiles')">U.S. Ex-Im Bank County Profiles</a></div>
-				<div class="pad-down-5 panel-bullet">&bull; <a class="link" ng-click="panel.goToIndicator('Supplemental Nutrition Assistance Program (SNAP)', 'SNAP Benefits')">Supplemental Nutrition Assistance Program (SNAP)</a></div>
-				<div class="pad-down-5 panel-bullet">&bull; <a class="link" ng-click="panel.goToIndicator('State Criminal Alien Assistance Program (SCAAP)', 'SCAAP Amount')">State Criminal Alien Assistance Program (SCAAP)</a></div>
-				<div class="pad-down-5 panel-bullet">&bull; <a class="link" ng-click="panel.goToIndicator('Second Chance Act (SCA) Awards', 'SCA Total')">Second Chance Act (SCA) Awards</a></div>
+				<div class="pad-down-5 panel-bullet">2015 data on Housing and Urban Development funding to counties:</div>
+				<div class="pad-down-5 panel-bullet">Click on "Map an Indicator", select "Federal Funding" and select data from any of these datasets:</div>
+				<div class="pad-down-5 panel-bullet">&bull; <a class="link" ng-click="panel.goToIndicator('Housing & Urban Development Grants', 'Total HUD Amount')">2015 Housing and Urban Development (HUD) Funding</a></div>
+				<div class="pad-down-5 panel-bullet">&bull; <a class="link" ng-click="panel.goToIndicator('Community Development Block Grants (CDBG)', 'CDBG Amount')">2015 Community Development Block Grant (CDBG) Funding</a></div>
+				<div class="pad-down-5 panel-bullet">&bull; <a class="link" ng-click="panel.goToIndicator('Emergency Shelter Grants (ESG)', 'ESG Amount')">2015 Emergency Shelter Grants (ESG) Funding</a></div>
+				<div class="pad-down-5 panel-bullet">&bull; <a class="link" ng-click="panel.goToIndicator('HOME Investment Partnership Program', 'HOME Amount')">2015 HOME Investment Partnership (HOME) Funding</a></div>
+				<div class="pad-down-5 panel-bullet">&bull; <a class="link" ng-click="panel.goToIndicator('Housing Opportunities for Persons with AIDS (HOPWA)', 'HOPWA Amount')">2015 Housing Opportunities for Persons with AIDS (HOPWA) Funding</a></div>
 				
-				<div class="pad-down-5 panel-bullet">In addition, see:</div>
-				<div class="pad-down-5 panel-bullet">&bull; <a class="link" ng-click="panel.goToIndicator('Airports', 'County Airports')">County-Owned Airports</a></div>
-				<div class="pad-down-5 panel-bullet">&bull; <a class="link" ng-click="panel.goToIndicator('Local Health Departments', 'County Supported Local Health Departments (LHDs)')">County-Supported Local Health Departments</a></div>
+				<div class="pad-down-5 panel-bullet">New and updated data on housing in counties:</div>
+				<div class="pad-down-5 panel-bullet">Click on "Map an Indicator", select "Housing &amp; Community Development" and choose any of the indicators in the "Housing Units" dataset:</div>
+				<div class="pad-down-5 panel-bullet">&bull; <a class="link" ng-click="panel.goToIndicator('Housing Units', 'Median Home Value')">Median Home Value</a></div>
+				<div class="pad-down-5 panel-bullet">&bull; <a class="link" ng-click="panel.goToIndicator('Housing Units', 'Median Gross Rent')">Median Gross Rent</a></div>
+				<div class="pad-down-5 panel-bullet">&bull; <a class="link" ng-click="panel.goToIndicator('Housing Units', 'Percent In Same House as 1 Year Ago')">Percent In Same House as 1 Year Ago</a></div>
+				<div class="pad-down-5 panel-bullet">&bull; <a class="link" ng-click="panel.goToIndicator('Housing Units', 'Percent Moved Within Same County')">Percent Moved Within Same County</a></div>
+				<div class="pad-down-5 panel-bullet">&bull; <a class="link" ng-click="panel.goToIndicator('Housing Units', 'Percent Moved From Outside the County')">Percent Moved From Outside the County</a></div>
+				
 				
 				<div class="pad-5">Sign up for our monthly update <a class="link" ng-click="panel.toggleShowing('mailingList')">here</a>.</div>
 			</p>
