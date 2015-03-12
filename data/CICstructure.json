@@ -2497,7 +2497,7 @@
 				}, {
 					"name": "Community Development Block Grants (CDBG)",
 					"years": [2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015],
-					"source": "U.S. Department of Housing and Urban Development",
+					"source": "U.S. Department of Housing and Urban Development data",
 					"companions": [["Community Development Block Grants (CDBG)", "CDBG Amount"], ["Community Development Block Grants (CDBG)", "CDBG Annual Growth Rate (from previous year)"], ["Housing & Urban Development Grants", "Total HUD Amount"], ["Housing & Urban Development Grants", "HUD Annual Growth Rate (from previous year)"]
 					],
 					"children": [
@@ -2505,18 +2505,20 @@
 							"name": "CDBG Amount",
 							"unit": "dollars",
 							"dataType": "level",
-							"definition": "Funding received for the Community Development Block Grants program. Note that this funding reflects only the formula money going to entitlement counties directly from HUD. Other counties can receive funding from the small cities CDBG program through their states."
+							"thresholds": [1,1000000,5000000,10000000],
+							"supressMinMax": true,
+							"definition": "Formula Community Development Block Grants (CDBG) money going to entitlement counties directly from the U.S. Department of Housing and Urban Development.  Other counties can receive funding from the Small Cities CDBG program through their states. The Community Development Block Grant (CDBG) program funds counties and others communities to ensure affordable housing, to provide services to the most vulnerable in our communities and to create jobs through the expansion and retention of businesses."
 						}, {
 							"name": "CDBG Annual Growth Rate (from previous year)",
 							"dataType": "percent",
 							"thresholds": [-0.1, 0, 0.01, 0.1],
-							"definition": "Percent change in funding for the Community Development Block Grants program from the previous year"
+							"definition": "Percent change in formula CDBG funding for entitlement counties from the previous year."
 						}
 					]
 				}, {
 					"name": "Emergency Shelter Grants (ESG)",
 					"years": [2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015],
-					"source": "U.S. Department of Housing and Urban Development",
+					"source": "U.S. Department of Housing and Urban Development data",
 					"companions": [["Emergency Shelter Grants (ESG)", "ESG Amount"], ["Emergency Shelter Grants (ESG)", "ESG Annual Growth Rate (from previous year)"], ["Housing & Urban Development Grants", "Total HUD Amount"], ["Housing & Urban Development Grants", "HUD Annual Growth Rate (from previous year)"]
 					],
 					"children": [
@@ -2524,18 +2526,19 @@
 							"name": "ESG Amount",
 							"unit": "dollars",
 							"dataType": "level",
-							"definition": "Funding received for the Emergency Shelter Grants program"
+							"thresholds":[1,150000,250000,500000],
+							"definition": "Funding received by a county from the Emergency Shelter Grants program. Recipients use Emergency Shelter Grants Program funds to rehabilitate and operate emergency shelters and transitional shelters, provide essential social services and prevent homelessness."
 						}, {
 							"name": "ESG Annual Growth Rate (from previous year)",
 							"dataType": "percent",
 							"thresholds": [-0.1, 0, 0.01, 0.1],
-							"definition": "Percent change in funding for the Emergency Shelter Grants program from the previous year"
+							"definition": "Percent change in funding for the Emergency Shelter Grants program from the previous year."
 						}
 					]
 				}, {
 					"name": "HOME Investment Partnership Program",
 					"years": [2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015],
-					"source": "U.S. Department of Housing and Urban Development",
+					"source": "U.S. Department of Housing and Urban Development data",
 					"companions": [["HOME Investment Partnership Program", "HOME Amount"], ["HOME Investment Partnership Program", "HOME Annual Growth Rate (from previous year)"], ["Housing & Urban Development Grants", "Total HUD Amount"], ["Housing & Urban Development Grants", "HUD Annual Growth Rate (from previous year)"]
 					],
 					"children": [
@@ -2543,18 +2546,19 @@
 							"name": "HOME Amount",
 							"unit": "dollars",
 							"dataType": "level",
-							"definition": "Funding received for the HOME Investment Partnership Program"
+							"thresholds": [1,500000,1000000,3000000],
+							"definition": "Funding received by a county from the HOME Investment Partnership Program. The HOME Investment Partnerships Program (HOME) provides formula grants to States and localities to fund a wide range of activities including building, buying, and/or rehabilitating affordable housing for rent or homeownership or providing direct rental assistance to low-income people."
 						}, {
 							"name": "HOME Annual Growth Rate (from previous year)",
 							"dataType": "percent",
 							"thresholds": [-0.1, -0.05, 0, 0.01],
-							"definition": "Percent change in funding for the HOME Investment Partnership Program program from the previous year"
+							"definition": "Percent change in funding for the HOME Investment Partnership Program program from the previous year."
 						}
 					]
 				}, {
 					"name": "Housing & Urban Development Grants",
 					"years": [2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015],
-					"source": "U.S. Department of Housing and Urban Development",
+					"source": "U.S. Department of Housing and Urban Development data",
 					"companions": [["Housing & Urban Development Grants", "Total HUD Amount"], ["Housing & Urban Development Grants", "HUD Annual Growth Rate (from previous year)"], ["Community Development Block Grants (CDBG)", "CDBG Amount"], ["HOME Investment Partnership Program", "HOME Amount"]
 					],
 					"children": [
@@ -2562,18 +2566,19 @@
 							"name": "Total HUD Amount",
 							"unit": "dollars",
 							"dataType": "level",
-							"definition": "Funding received for the Housing & Urban Development Grants program. Includes funding from the Community Development Block Grants (CDBG), HOME Investment Partnerships Program (HOME), Housing Opportunities for Persons with AIDS (HOPWA), Emergency Shelter Grants (ESG) and the American Dream Downpayment Initiative (ADDI)."
+							"thresholds": [1,3000000,5000000,10000000],
+							"definition": "Funding received by a county from the Community Development Block Grants (CDBG) going to “entitlement communities” , HOME Investment Partnerships Program (HOME), Housing Opportunities for Persons with AIDS (HOPWA), Emergency Shelter Grants (ESG) and the American Dream Downpayment Initiative (ADDI)."
 						}, {
 							"name": "HUD Annual Growth Rate (from previous year)",
 							"dataType": "percent",
 							"thresholds": [0, 0.01, 0.05, 0.1],
-							"definition": "Percent change in funding for the Housing & Urban Development Grants program from the previous year. Includes funding from the Community Development Block Grants (CDBG), HOME Investment Partnerships Program (HOME), Housing Opportunities for Persons with AIDS (HOPWA), Emergency Shelter Grants (ESG) and the American Dream Downpayment Initiative (ADDI)."
+							"definition": "Percent change in funding received by a county from the Community Development Block Grants (CDBG) going to “entitlement communities” , HOME Investment Partnerships Program (HOME), Housing Opportunities for Persons with AIDS (HOPWA), Emergency Shelter Grants (ESG) and the American Dream Downpayment Initiative (ADDI) from the previous year."
 						}
 					]
 				}, {
 					"name": "Housing Opportunities for Persons with AIDS (HOPWA)",
 					"years": [2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015],
-					"source": "U.S. Department of Housing and Urban Development",
+					"source": "U.S. Department of Housing and Urban Development data",
 					"companions": [["Housing Opportunities for Persons with AIDS (HOPWA)", "HOPWA Amount"], ["Housing Opportunities for Persons with AIDS (HOPWA)", "HOPWA Annual Growth Rate (from previous year)"], ["Housing & Urban Development Grants", "Total HUD Amount"], ["Housing & Urban Development Grants", "HUD Annual Growth Rate (from previous year)"]
 					],
 					"children": [
@@ -2670,7 +2675,7 @@
 					"name": "Secure Rural Schools (SRS)",
 					"years": [2012, 2013],
 					"source": "data from the U.S. Department of Agriculture, U.S. Forest Service and Headwaters Economics analysis of U.S. Geological Survey, Protected Areas Database",
-					"companions": [["Secure Rural Schools (SRS)", "SRS Amount"]
+					"companions": [["Secure Rural Schools (SRS)", "SRS Amount, FY 2013 Receipts Year"]
 					],
 					"children": [
 						{
@@ -2678,24 +2683,26 @@
 							"unit": "dollars",
 							"dataType": "level",
 							"has_profile": true,
-							"companions": [["Secure Rural Schools (SRS)", "25% Payment, FY 2014"], ["Secure Rural Schools (SRS)", "25% Payment, FY 2014"]],
+							"companions": [["Secure Rural Schools (SRS)", "25% Payment, FY 2014 Receipts Year"], ["Secure Rural Schools (SRS)", "25% Payment, FY 2014 Receipts Year"]],
 							"definition": "Profiles showing that without the SRS Act reauthorization, states revert to the Payments to States Act of 1908 as amended, receiving a 25 percent payment from national forest receipts.  USFS estimates FY 2014 county 25 percent payments based on county shares of the national forest receipts.  These estimates do not reflect the application of a 7.3 percent sequester to the state payments.  Note: The receipts year reflects when U.S. Forest Service (USFS) collects revenues from national forest lands."
 						}, {
-							"name": "SRS Amount",
+							"name": "SRS Amount, FY 2013 Receipts Year",
 							"unit": "dollars",
 							"dataType": "level",
-							"definition": "Funding received by counties through the Secure Rural Schools program based on forest receipts.  Note: The receipts year reflects when U.S. Forest Service (USFS) collects revenues from national forest lands."
+							"thresholds": [1,30000,100000,300000],
+							"definition": "Funding received by counties through the Secure Rural Schools program based on forest receipts, FY 2013 receipts year.  Note: The receipts year reflects when U.S. Forest Service (USFS) collects revenues from national forest lands."
 						}, {
-							"name": "25% Payment, FY 2014",
+							"name": "25% Payment, FY 2014 Receipts Year",
 							"unit": "dollars",
 							"dataType": "level",
-							"definition": "Projected funding to counties under the 25% Fund Payment in FY 2014.  Without the SRS Act reauthorization, states revert to the Payments to States Act of 1908 as amended, receiving a 25 percent payment from national forest receipts.  USFS estimates FY 2014 county 25 percent payments based on county shares of the national forest receipts.  These estimates do not reflect the application of a 7.3 percent sequester to the state payments.  Note: The receipts year reflects when U.S. Forest Service (USFS) collects revenues from national forest lands."
+							"thresholds": [1,30000,100000,300000],
+							"definition": "Without the SRS Act reauthorization, states revert to the Payments to States Act of 1908 as amended, receiving a 25 percent payment from national forest receipts. USFS estimates FY 2014 county 25 percent payments based on county shares of the national forest receipts. These estimates do not reflect the application of a 7.3 percent sequester to the state payments. The receipts year reflects when U.S. Forest Service (USFS) collects revenues from national forest lands."
 						}, {
-							"name": "Payment Percent Change, FY 2013-2014",
+							"name": "Payment Percent Change, FY 2013-2014 Receipts Years",
 							"dataType": "percent",
-							"thresholds": [-0.75, -0.25, 0, 0.001 ],
+							"thresholds": [-0.75, -0.25, -0.1, 0],
 							"supressMinMax": true,
-							"definition": "Projected percentage change in funding to counties from the Secure Rural Schools program (SRS) in FY 2013 to the 25% Fund Payment in FY 2014.  Without the SRS Act reauthorization, states revert to the Payments to States Act of 1908 as amended, receiving a 25 percent payment from national forest receipts.  USFS estimates FY 2014 county 25 percent payments based on county shares of the national forest receipts.  These estimates do not reflect the application of a 7.3 percent sequester to the state payments.  Note: The receipts year reflects when U.S. Forest Service (USFS) collects revenues from national forest lands."
+							"definition": "Percentage change in funding to counties from the Secure Rural Schools program (SRS) in FY 2013 to the 25% Fund Payment in FY 2014.  Without the SRS Act reauthorization, states revert to the Payments to States Act of 1908 as amended, receiving a 25 percent payment from national forest receipts.  USFS estimates FY 2014 county 25 percent payments based on county shares of the national forest receipts.  These estimates do not reflect the application of a 7.3 percent sequester to the state payments.  The receipts year reflects when U.S. Forest Service (USFS) collects revenues from national forest lands."
 						}
 					]
 				}, {
@@ -3328,33 +3335,33 @@
 					],
 					"children": [
 						{
-							"name": "Householders",
+							"name": "Population in Households",
 							"dataType": "level",
-							"definition": "Total Population 1 year and over in households in a county."
+							"definition": "County residents one year or older part of households that are living in the county."
 						}, {
 							"name": "Same House as 1 Year Ago",
 							"dataType": "level",
-							"definition": "Total Population 1 year and over in households in a county living in same house as 1 year ago."
+							"definition": "County residents one year or older part of households that are living in the same house as one year ago."
 						}, {
 							"name": "Percent In Same House as 1 Year Ago",
 							"dataType": "percent",
-							"definition": "Percent Population 1 year and over in households in a county living in same house as 1 year ago."
+							"definition": "Share of county residents one year or older part of households that are living in the same house as one year ago."
 						}, {
 							"name": "Moved Within Same County",
 							"dataType": "level",
-							"definition": "Total Population 1 year and over in households in a county that moved within the same county in the past year."
+							"definition": "County residents one year or older part of households that moved within the same county in the past year."
 						}, {
 							"name": "Percent Moved Within Same County",
 							"dataType": "percent",
-							"definition": "Percent Population 1 year and over in households in a county that moved within the same county in the past year."
+							"definition": "Share of county residents one year or older part of households that moved within the same county in the past year."
 						}, {
 							"name": "Moved From Outside the County",
 							"dataType": "level",
-							"definition": "Total Population 1 year and over in households in a county that moved from outside the county in the past year."
+							"definition": "County residents one year or older part of households that moved from outside the county in the past year."
 						}, {
 							"name": "Percent Moved From Outside the County",
 							"dataType": "percent",
-							"definition": "Percent Population 1 year and over in households in a county that moved from outside the county in the past year."
+							"definition": "Share of county residents one year or older part of households that moved from outside the county in the past year."
 						}, {
 							"name": "Number of Housing Units",
 							"dataType": "level",
@@ -3363,37 +3370,43 @@
 							"name": "Average Household Size",
 							"dataType": "level",
 							"format_type": "dec2",
-							"definition": "The average number of people occupying a single housing unit in the county. This includes the householder, occupants related to the householder, lodgers, roomers, boarders, and so forth."
+							"definition": "The average number of people occupying a single housing unit in a county. This includes the householder, occupants related to the householder, lodgers, roomers, boarders."
 						}, {
 							"name": "Occupied Housing Units",
 							"dataType": "level",
+							"companions": [["Housing Units", "Number of Housing Units"], ["Housing Units", "Average Household Size"], ["Housing Units", "Percent of Renter-Occupied Housing Units"]
+							],
 							"definition": "The number of occupied housing units located in the county. A housing unit is classified as occupied if it is the current place of residence of the person or group of people living in it at the time of interview, or if the occupants are only temporarily absent from the residence for two months or less, that is, away on vacation or a business trip."
 						}, {
 							"name": "Owner-Occupied Housing Units",
 							"dataType": "level",
-							"definition": "The number of owner-occupied housing units located in the county. A housing unit is owner occupied if the owner or co-owner lives in the unit even if it is mortgaged or not fully paid for."
+							"definition": "The number of owner-occupied housing units located in the county. A housing unit is owner-occupied if the owner or co-owner lives in the unit."
 						}, {
 							"name": "Percent of Owner-Occupied Housing Units",
 							"dataType": "percent",
-							"definition": "The percentage of owner-occupied housing units located in the county. A housing unit is owner occupied if the owner or co-owner lives in the unit even if it is mortgaged or not fully paid for."
+							"definition": "The share of owner-occupied housing units out of the all the housing units located in a county. A housing unit is owner-occupied if the owner or co-owner lives in the unit."
 						}, {
 							"name": "Renter-Occupied Housing Units",
 							"dataType": "level",
-							"definition": "The number of renter-occupied housing units located in the county. All occupied housing units which are not owner occupied, whether they are rented or occupied without payment of rent, are classified as renter occupied."
+							"definition": "The number of renter-occupied housing units located in the county. All occupied housing units which are not owner-occupied, whether they are rented or occupied without payment of rent."
 						}, {
 							"name": "Percent of Renter-Occupied Housing Units",
 							"dataType": "percent",
-							"definition": "The percentage of renter-occupied housing units located in the county. All occupied housing units which are not owner occupied, whether they are rented or occupied without payment of rent, are classified as renter occupied."
+							"definition": "The percentage of renter-occupied housing units located in the county. All occupied housing units which are not owner-occupied, whether they are rented or occupied without payment of rent."
 						}, {
 							"name": "Median Home Value",
 							"dataType": "level",
 							"unit": "dollars",
-							"definition": "."
+							"companions": [["Housing Units", "Median Home Value"], ["Housing Units", "Median Gross Rent"], ["Housing Units", "Percent of Owner-Occupied Housing Units"], ["Housing Units", "Average Household Size"]
+							],
+							"definition": "The median estimate of how much owner-occupied houses in a county would sell for if they were for sale.  These data exclude mobile homes, houses with a business or medical office, houses on 10 or more acres, and housing units in multi-unit structures."
 						}, {
 							"name": "Median Gross Rent",
 							"dataType": "level",
 							"unit": "dollars",
-							"definition": "."
+							"companions": [["Housing Units", "Median Gross Rent"], ["Housing Units", "Median Home Value"], ["Housing Units", "Percent of Renter-Occupied Housing Units"], ["Housing Units", "Average Household Size"]
+							],
+							"definition": "The median estimate of gross rent payments in a county.  Gross rent is the contract rent plus the estimated average monthly cost of utilities (electricity, gas, and water and sewer) and fuels (oil, coal, kerosene, wood, etc.) if these are paid by the renter (or paid for the renter by someone else)."
 						} 
 					]
 				}

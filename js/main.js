@@ -675,7 +675,12 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 						var countyName = parseCountyName(+FIPS, county.geography);
 						countyName = countyName.replace(/\s/g, '');
 						window.open('http://explorer.naco.org/profiles/exim/' + countyName + '.pdf');
+					} else if (currentDI === "Secure Rural Schools (SRS) - SRS Profiles") {
+						var countyName = parseCountyName(+FIPS, county.geography);
+						countyName = countyName.replace(/\s/g, '');
+						window.open('http://explorer.naco.org/profiles/SRSProfiles/' + countyName + '.pdf');
 					}
+					
 				}
 			});		
 			return zoomTransition;

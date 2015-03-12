@@ -298,10 +298,10 @@ Federal_Funding	Total_County_Area	Federal Funding	Payment in Lieu of Taxes (PILT
 Federal_Funding	Percentage_of_Federal_Land	Federal Funding	Payment in Lieu of Taxes (PILT)	Percent of Federal Land	The percentage of the county's total land area that consists of federal land.
 Federal_Funding	PILT_per_square_mile	Federal Funding	Payment in Lieu of Taxes (PILT)	PILT per Acre	The Payment in Lieu of Taxes annual funding per square mile of federal land
 Federal_Funding	PILT_Trend	Federal Funding	Payment in Lieu of Taxes (PILT)	PILT Annual Growth Rate (from previous year)	Percent change in Payment in Lieu of Taxes annual funding from the previous year
-Federal_Funding	SRS	Federal Funding	Secure Rural Schools (SRS)	SRS Amount	Funding received for the Secure Rural Schools program.
+Federal_Funding	SRS	Federal Funding	Secure Rural Schools (SRS)	"SRS Amount, FY 2013 Receipts Year"	Funding received for the Secure Rural Schools program.
 Federal_Funding	SRS_projected_2014	Federal Funding	Secure Rural Schools (SRS)	SRS Profiles	
-Federal_Funding	SRS_projected_2014	Federal Funding	Secure Rural Schools (SRS)	"25% Payment, FY 2014"	
-Federal_Funding	SRS_projected_growth_rate_2013_2014	Federal Funding	Secure Rural Schools (SRS)	"Payment Percent Change, FY 2013-2014"	
+Federal_Funding	SRS_projected_2014	Federal Funding	Secure Rural Schools (SRS)	"25% Payment, FY 2014 Receipts Year"	
+Federal_Funding	SRS_projected_growth_rate_2013_2014	Federal Funding	Secure Rural Schools (SRS)	"Payment Percent Change, FY 2013-2014 Receipts Years"	
 Federal_Funding	JAG_Amount	Federal Funding	Byrne (JAG) Program Awards	JAG Amount	
 Federal_Funding	SCA_Total_2009_2014	Federal Funding	Second Chance Act (SCA) Awards	SCA Total	
 Federal_Funding	SCA_County_Total	Federal Funding	Second Chance Act (SCA) Awards	County Total	
@@ -396,7 +396,7 @@ Housing_Community_Development	Owner_occupied_Housing_Units	Housing & Community D
 Housing_Community_Development	Percent_of_Owner_occupied	Housing & Community Development	Housing Units	Percent of Owner-Occupied Housing Units	The percentage of owner-occupied housing units located in the county. A housing unit is owner occupied if the owner or co-owner lives in the unit even if it is mortgaged or not fully paid for.
 Housing_Community_Development	Renter_Occupied_Housing_Units	Housing & Community Development	Housing Units	Renter-Occupied Housing Units	"The number of renter-occupied housing units located in the county. All occupied housing units which are not owner occupied, whether they are rented or occupied without payment of rent, are classified as renter occupied."
 Housing_Community_Development	Percent_of_Renter_Occupied	Housing & Community Development	Housing Units	Percent of Renter-Occupied Housing Units	"The percentage of renter-occupied housing units located in the county. All occupied housing units which are not owner occupied, whether they are rented or occupied without payment of rent, are classified as renter occupied."
-Housing_Community_Development	Tot_Hholder_Living_in Housing_Unit	Housing & Community Development	Housing Units	Householders	
+Housing_Community_Development	Tot_Hholder_Living_in_Housing_Unit	Housing & Community Development	Housing Units	Population in Households	
 Housing_Community_Development	Tot_Hholder_Living_Same_House_1_Yr_Ago	Housing & Community Development	Housing Units	Same House as 1 Year Ago	
 Housing_Community_Development	Percent_Hholder_Living_Same_House_1_Yr_Ago	Housing & Community Development	Housing Units	Percent In Same House as 1 Year Ago	
 Housing_Community_Development	Tot_Hholder_Moved_Within_County_Past_Yr	Housing & Community Development	Housing Units	Moved Within Same County	
