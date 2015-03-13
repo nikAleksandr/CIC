@@ -649,7 +649,7 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 							var countyName = parseCountyName(+FIPS, county.geography);
 							window.open('http://www.uscounties.org/MuniBondInteractive/CountyProfiles/muni_bonds_profile_' + countyName + '.pdf');
 						}
-					} else if (currentDI === 'Municipal Bonds - State Muni Bonds Profiles') {
+					} else if (currentDI === 'Municipal Bonds - Statewide Muni Bonds Profiles') {
 						var state = countyObjectById[+FIPS].STATE;
 						window.open('http://www.uscounties.org/MuniBondInteractive/StateProfiles/state_bonds_profiles' + state + '.pdf', '_blank');
 					} else if (currentDI === 'Payment in Lieu of Taxes (PILT) - PILT Profiles') {
@@ -783,6 +783,7 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 					for (var i = 0; i < indObjs.length; i++) {
 						qbis[i][d.id] = isNumFun(indObjs[i].dataType) ? parseFloat(d[indObjs[i].DI]) : d[indObjs[i].DI];
 						if (indObjs[i].hasOwnProperty('unit') && indObjs[i].unit.indexOf('thousand') !== -1) qbis[i][d.id] *= 1000; // will remove this eventually
+						if (indObjs[i].hasOwnProperty('unit') && indObjs[i].unit.indexOf('million') !== -1) qbis[i][d.id] *= 1000000; // will remove this eventually
 					}
 		
 					idByName[d.geography] = d.id;
@@ -874,6 +875,7 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 							var value = data[fips][indObjs[i].db_indicator.toUpperCase()];
 							qbis[i][fips] = isNumFun(indObjs[i].dataType) ? parseFloat(value) : value;
 							if (indObjs[i].hasOwnProperty('unit') && indObjs[i].unit.indexOf('thousand') !== -1) qbis[i][fips] *= 1000; // will remove this eventually
+							if (indObjs[i].hasOwnProperty('unit') && indObjs[i].unit.indexOf('million') !== -1) qbis[i][fips] *= 1000000; // will remove this eventually
 						}
 			
 						idByName[data[fips].geography] = fips;

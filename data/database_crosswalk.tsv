@@ -131,13 +131,13 @@ XCounty_Finance	County_Tax_State_Tax	County Finance	County Tax Rates	State Sales
 XCounty_Finance	County_Tax_County_Tax_Year_Collected	County Finance	County Tax Rates	Sales Tax Year Collected	
 XCounty_Finance	County_Tax_State_Tax_Year_Collected	County Finance	County Tax Rates	State Sales Tax Year Collected	
 County_Finance	Muni_Bonds_Interest	County Finance	Municipal Bonds	County Muni Bonds Profiles	
-County_Finance	Muni_Bonds_Interest	County Finance	Municipal Bonds	Interest on Muni Bonds	
+County_Finance	Muni_Bonds_Interest	County Finance	Municipal Bonds	Interest Payment on Muni Bonds	
 County_Finance	Muni_Bonds_County_Cap_Cost	County Finance	Municipal Bonds	Cost of 28% Cap	
 County_Finance	Muni_Bonds_County_Repeal_Cost	County Finance	Municipal Bonds	Cost of Full Repeal	
-Transportation	RO_County_Highway_Agency_Road_Miles	County Finance	Municipal Bonds	State Muni Bonds Profiles	
-County_Finance	Muni_Bonds_state_value	County Finance	Municipal Bonds	State Issuance Value	
-County_Finance	Muni_Bonds_state_cap_cost	County Finance	Municipal Bonds	State Cost of 28% Cap	
-County_Finance	Muni_Bonds_state_repeal_cost	County Finance	Municipal Bonds	State Cost of Full Repeal	
+County_Finance	Muni_Bonds_State_Value_M	County Finance	Municipal Bonds	Statewide Muni Bonds Profiles	
+County_Finance	Muni_Bonds_State_Value_M	County Finance	Municipal Bonds	Statewide Tax Exempt Muni Bonds	
+County_Finance	Muni_Bonds_State_Cap_Cost_M	County Finance	Municipal Bonds	Statewide Cost of 28% Cap	
+County_Finance	Muni_bonds_State_Repeal_Cost_M	County Finance	Municipal Bonds	Statewide Cost of Full Repeal	
 Demographics	KEYID				
 Demographics	FIPS				
 Demographics	DATA_YEAR				
@@ -299,7 +299,7 @@ Federal_Funding	Percentage_of_Federal_Land	Federal Funding	Payment in Lieu of Ta
 Federal_Funding	PILT_per_square_mile	Federal Funding	Payment in Lieu of Taxes (PILT)	PILT per Acre	The Payment in Lieu of Taxes annual funding per square mile of federal land
 Federal_Funding	PILT_Trend	Federal Funding	Payment in Lieu of Taxes (PILT)	PILT Annual Growth Rate (from previous year)	Percent change in Payment in Lieu of Taxes annual funding from the previous year
 Federal_Funding	SRS	Federal Funding	Secure Rural Schools (SRS)	"SRS Amount, FY 2013 Receipts Year"	Funding received for the Secure Rural Schools program.
-Federal_Funding	SRS_projected_2014	Federal Funding	Secure Rural Schools (SRS)	SRS Profiles	
+Federal_Funding	SRS_projected_growth_rate_2013_2014	Federal Funding	Secure Rural Schools (SRS)	SRS Profiles	
 Federal_Funding	SRS_projected_2014	Federal Funding	Secure Rural Schools (SRS)	"25% Payment, FY 2014 Receipts Year"	
 Federal_Funding	SRS_projected_growth_rate_2013_2014	Federal Funding	Secure Rural Schools (SRS)	"Payment Percent Change, FY 2013-2014 Receipts Years"	
 Federal_Funding	JAG_Amount	Federal Funding	Byrne (JAG) Program Awards	JAG Amount	
@@ -326,7 +326,7 @@ County_Finance	CE_Health__Hospitals_Intergovernmental_to_Local	Health & Hospital
 Health_Hospitals	county_lhd	Health & Hospitals	Local Health Departments	County LHD	
 Health_Hospitals	multicounty_lhd	Health & Hospitals	Local Health Departments	Multi-county LHD	
 Health_Hospitals	citycounty_lhd	Health & Hospitals	Local Health Departments	City-county LHD	
-Health_Hospitals	total_lhd	Health & Hospitals	Local Health Departments	Total LHDs	
+Health_Hospitals	total_lhd	Health & Hospitals	Local Health Departments	Total Local Health Departments (LHDs)	
 Health_Hospitals	County_Supported_LHD	Health & Hospitals	Local Health Departments	County Supported Local Health Departments (LHDs)	
 Health_Hospitals	LHDname_list	Health & Hospitals	Local Health Departments	County Supported LHD Names	
 Health_Hospitals	city_lhd	Local Health Departments	Local Health Departments	City LHD	
