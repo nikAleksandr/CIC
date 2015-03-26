@@ -2,7 +2,7 @@
 	"name": "CIC",
 	"children": [
 		{
-			"name": "Administration",
+			"name": "County Administration",
 			"children": [
 				{
 					"name": "Administration Expenditures",
@@ -1488,7 +1488,7 @@
 							"has_profile": true,
 							"legend_title_footer": ", collected over 2007-2014",
 							"companions": [["Municipal Bonds", "Statewide Tax Exempt Muni Bonds"], ["Municipal Bonds", "Statewide Cost of 28% Cap"], ["Municipal Bonds", "Statewide Cost of Full Repeal"], ["Municipal Bonds", "Statewide Tax Exempt Muni Bonds"]],
-							"source": "Federal Highway Administration - Highway Performance Monitoring System",
+							"source": "Thompson Reuters February 2013 data",
 							"definition": "Profiles showing the impact of changing the tax-exempt status of municipal bond interest on state and local governments and authorities."
 						}, {
 							"name": "Interest Payment on Muni Bonds",
@@ -3264,6 +3264,21 @@
 							"definition": "The percentage of people living in the county over (and including) the ages of 65 years that are covered by a public health insurance program or by private health insurance."
 						}
 					]
+				}, {
+					"name": "County Health Rankings: Health Outcomes",
+					"source": "University of Wisconsin Population Health Institute and the Robert Wood Johnson Foundation",
+					"years": [2015],
+					"companions": [["Health Outcomes", "Premature Death Rate"]
+					],
+					"children": [
+						{
+							"name": "Premature Death Rate",
+							"dataType": "level",
+							"source": "<a href='http://www.countyhealthrankings.org/'>University of Wisconsin Population Health Institute</a> analysis of National Center for Health Statistics 2010-2012 data",
+							"unit": "years of potential life lost before age 75 per 100,000 people",
+							"definition": "Years of potential life lost before age 75 per 100,000 population (age-adjusted).  For more on methodology, click <a href='http://www.countyhealthrankings.org/ranking-methods'>here</a>"
+						}
+					]
 				}
 			]
 		}, {
@@ -4979,7 +4994,7 @@
 			"name": "County Profiles",
 			"children": [
 				{
-					"name": "MITFA Profiles",
+					"name": "MFA Profiles",
 					"source": "NACo Research",
 					"years": [2014],
 					"legend_title_footer": ", collected over 2007-2014",
@@ -4987,7 +5002,7 @@
 					],
 					"children": [
 						{
-							"name": "MITFA Profiles",
+							"name": "MFA Profiles",
 							"dataType": "percent",
 							"thresholds": [0.001, 0.01, 0.03, 0.05],
 							"definition": "The county sales tax rate.  Some rates may be median estimates calculated from a range of sales tax rates.",

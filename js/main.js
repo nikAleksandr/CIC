@@ -658,12 +658,12 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 						} else {
 							window.open('http://explorer.naco.org/profiles/PILT/' + county.geography + '.pdf', '_blank');
 						}
-					} else if (currentDI === 'MITFA Profiles - MITFA Profiles') {
+					} else if (currentDI === 'MFA Profiles - MFA Profiles') {
 						var state = countyObjectById[+FIPS].STATE;
 						if(state=="MT" | state=="OR" | state=="NH" | state=="DE"){
 							noty({text: '<strong>No Profile Available</strong></br>This state does not have a sales tax.'});
 						} else {
-							window.open('http://explorer.naco.org/profiles/MITFA/MITFA_' + state + '.pdf', '_blank');
+							window.open('http://explorer.naco.org/profiles/MFA/MITFA_' + state + '.pdf', '_blank');
 						}
 					}  else if (currentDI === 'Transportation Funding Profiles - Transportation Funding Profiles') {
 						var state = countyObjectById[+FIPS].STATE;
@@ -676,9 +676,13 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 						countyName = countyName.replace(/\s/g, '');
 						window.open('http://explorer.naco.org/profiles/exim/' + countyName + '.pdf');
 					} else if (currentDI === "Secure Rural Schools (SRS) - SRS Profiles") {
-						var countyName = parseCountyName(+FIPS, county.geography);
-						countyName = countyName.replace(/\s/g, '');
-						window.open('http://explorer.naco.org/profiles/SRSProfiles/' + countyName + '.pdf');
+						if (quantByIds[0][+FIPS] === 0) {
+							window.open('http://explorer.naco.org/profiles/SRSProfiles/National.pdf');
+						} else {
+							var countyName = parseCountyName(+FIPS, county.geography);
+							countyName = countyName.replace(/\s/g, '');
+							window.open('http://explorer.naco.org/profiles/SRSProfiles/' + countyName + '.pdf');
+						}
 					}
 					
 				}
@@ -1059,7 +1063,7 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 		// if showing a "county profile" indicator, show a mini help dialog
 		if (indObjects[0].has_profile) {
 			var text = 'Click once on a county to see their county profile.';
-			if (indObjects[0].name === 'MITFA Profiles' || indObjects[0].name === 'Transportation Funding Profiles') text = 'Click once on a county to see their state profile.';
+			if (indObjects[0].name === 'MFA Profiles' || indObjects[0].name === 'Transportation Funding Profiles') text = 'Click once on a county to see their state profile.';
 			noty({
 				type: 'alert',
 				text: '<strong>' + text + '</strong></br></br>Please make sure to enable popups.',
@@ -1318,7 +1322,7 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 		if (primeIndObj.hasOwnProperty('unit') && primeIndObj.unit.indexOf('per ') !== -1 && subtitle.indexOf('per ') === -1) {
 			subtitle += ' (' + primeIndObj.unit + ')';
 		}
-		
+		//shouldn't be if and else, these properties should be able to be stacked
 		if (primeIndObj.hasOwnProperty('legend_title_footer')) {
 			var legendTitle = primeIndObj.dataset + primeIndObj.legend_title_footer;
 		} else if(primeIndObj.hasOwnProperty('yearSpan')){
@@ -1326,7 +1330,7 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 		} else {
 			var legendTitle = primeIndObj.year + ' ' + primeIndObj.dataset;		
 		}
-		if (primeIndObj.name === 'MITFA Profiles') legendTitle = 'Sales Tax' + primeIndObj.legend_title_footer;
+		if (primeIndObj.name === 'MFA Profiles') legendTitle = 'Sales Tax' + primeIndObj.legend_title_footer;
 		
 		// special titles for profiles
 		if (primeIndObj.has_profile === true) subtitle = primeIndObj.companions[0][1];
@@ -1819,7 +1823,7 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 		var type = '';
 		if (unit && unit !== '') {
 			if (unit.indexOf("dollar") != -1) type = 'currency';
-			else if (unit.indexOf('year') != -1) type = 'year';
+			else if (unit.indexOf('year') != -1 && unit!="years of potential life lost before age 75 per 100,000 people") type = 'year';
 			else if (unit.indexOf('person') != -1 || unit.indexOf('employee') != -1) type = 'person';
 		}
 		return type;
