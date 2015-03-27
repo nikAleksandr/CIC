@@ -1471,8 +1471,8 @@
 				}, {
 					"name": "Municipal Bonds",
 					"source": "2012 county interest payments for tax-exempt municipal bonds",
-					"years": [2012],
-					"companions": [["Municipal Bonds", "Interest Payment on Muni Bonds"], ["Municipal Bonds", "Cost of 28% Cap"], ["Municipal Bonds", "Cost of Full Repeal"]
+					"years": [2013],
+					"companions": [["Municipal Bonds", "Interest Payment on Tax Exempt Muni Bonds"], ["Municipal Bonds", "Interest Payment on Tax Exempt Muni Bonds"], ["Municipal Bonds", "Cost of 28% Cap"], ["Municipal Bonds", "Cost of Full Repeal"]
 					],
 					"children": [
 						{
@@ -1486,12 +1486,12 @@
 							"unit": "millions of dollars",
 							"dataType": "level",
 							"has_profile": true,
-							"legend_title_footer": ", collected over 2007-2014",
-							"companions": [["Municipal Bonds", "Statewide Tax Exempt Muni Bonds"], ["Municipal Bonds", "Statewide Cost of 28% Cap"], ["Municipal Bonds", "Statewide Cost of Full Repeal"], ["Municipal Bonds", "Statewide Tax Exempt Muni Bonds"]],
+							"legend_title_footer": ", 2003-2012",
+							"companions": [["Municipal Bonds", "Statewide Tax Exempt Muni Bonds Value"], ["Municipal Bonds", "Statewide Cost of 28% Cap"], ["Municipal Bonds", "Statewide Cost of Full Repeal"], ["Municipal Bonds", "Statewide Tax Exempt Muni Bonds Value"]],
 							"source": "Thompson Reuters February 2013 data",
 							"definition": "Profiles showing the impact of changing the tax-exempt status of municipal bond interest on state and local governments and authorities."
 						}, {
-							"name": "Interest Payment on Muni Bonds",
+							"name": "Interest Payment on Tax Exempt Muni Bonds",
 							"unit": "dollars",
 							"dataType": "level",
 							"thresholds": [500000,1000000,10000000,100000000],
@@ -1507,21 +1507,21 @@
 							"dataType": "level",
 							"definition": "The estimated cost of the repeal of the tax-exempt status for a county government is how much the county government would have had to pay additionally in interest for municipal bonds in the fiscal year 2012 if it were fully taxable over the last 15 years. "
 						}, {
-							"name": "Statewide Tax Exempt Muni Bonds",
+							"name": "Statewide Tax Exempt Muni Bonds Value",
 							"unit": "millions of dollars",
-							"companions": [["Municipal Bonds", "Statewide Tax Exempt Muni Bonds"], ["Municipal Bonds", "Statewide Cost of 28% Cap"], ["Municipal Bonds", "Statewide Cost of Full Repeal"]],
+							"companions": [["Municipal Bonds", "Statewide Tax Exempt Muni Bonds Value"], ["Municipal Bonds", "Statewide Cost of 28% Cap"], ["Municipal Bonds", "Statewide Cost of Full Repeal"]],
 							"dataType": "level",
 							"definition": "The value of state and local governments and authorities municipal bonds for 21 infrastructure purposes, 2003-2012"
 						}, {
 							"name": "Statewide Cost of 28% Cap",
 							"unit": "millions of dollars",
-							"companions": [["Municipal Bonds", "Statewide Tax Exempt Muni Bonds"], ["Municipal Bonds", "Statewide Cost of 28% Cap"], ["Municipal Bonds", "Statewide Cost of Full Repeal"]],
+							"companions": [["Municipal Bonds", "Statewide Tax Exempt Muni Bonds Value"], ["Municipal Bonds", "Statewide Cost of 28% Cap"], ["Municipal Bonds", "Statewide Cost of Full Repeal"]],
 							"dataType": "level",
 							"definition": "The estimated cost of a 28 percent cap proposal that state and local governments would have to pay in interest for tax-exempt municipal bonds in the fiscal year if a 28 percent cap were in place over the last 15 years."
 						}, {
 							"name": "Statewide Cost of Full Repeal",
 							"unit": "millions of dollars",
-							"companions": [["Municipal Bonds", "Statewide Tax Exempt Muni Bonds"], ["Municipal Bonds", "Statewide Cost of 28% Cap"], ["Municipal Bonds", "Statewide Cost of Full Repeal"]],
+							"companions": [["Municipal Bonds", "Statewide Tax Exempt Muni Bonds Value"], ["Municipal Bonds", "Statewide Cost of 28% Cap"], ["Municipal Bonds", "Statewide Cost of Full Repeal"]],
 							"dataType": "level",
 							"definition": "The estimated cost of the repeal of the tax-exempt status of municipal bond interest for state and local governments is how much the state and local governments would have had to pay additionally in interest for municipal bonds in the fiscal year if it were fully taxable over the last 15 years."
 						}

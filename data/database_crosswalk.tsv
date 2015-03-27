@@ -131,11 +131,11 @@ XCounty_Finance	County_Tax_State_Tax	County Finance	County Tax Rates	State Sales
 XCounty_Finance	County_Tax_County_Tax_Year_Collected	County Finance	County Tax Rates	Sales Tax Year Collected	
 XCounty_Finance	County_Tax_State_Tax_Year_Collected	County Finance	County Tax Rates	State Sales Tax Year Collected	
 County_Finance	Muni_Bonds_Interest	County Finance	Municipal Bonds	County Muni Bonds Profiles	
-County_Finance	Muni_Bonds_Interest	County Finance	Municipal Bonds	Interest Payment on Muni Bonds	
+County_Finance	Muni_Bonds_Interest	County Finance	Municipal Bonds	Interest Payment on Tax Exempt Muni Bonds	
 County_Finance	Muni_Bonds_County_Cap_Cost	County Finance	Municipal Bonds	Cost of 28% Cap	
 County_Finance	Muni_Bonds_County_Repeal_Cost	County Finance	Municipal Bonds	Cost of Full Repeal	
 County_Finance	Muni_Bonds_State_Value_M	County Finance	Municipal Bonds	Statewide Muni Bonds Profiles	
-County_Finance	Muni_Bonds_State_Value_M	County Finance	Municipal Bonds	Statewide Tax Exempt Muni Bonds	
+County_Finance	Muni_Bonds_State_Value_M	County Finance	Municipal Bonds	Statewide Tax Exempt Muni Bonds Value	
 County_Finance	Muni_Bonds_State_Cap_Cost_M	County Finance	Municipal Bonds	Statewide Cost of 28% Cap	
 County_Finance	Muni_bonds_State_Repeal_Cost_M	County Finance	Municipal Bonds	Statewide Cost of Full Repeal	
 Demographics	KEYID				
