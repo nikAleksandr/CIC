@@ -647,11 +647,11 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 							noty({text: '<strong>No Profile Available</strong>'});
 						} else {
 							var countyName = parseCountyName(+FIPS, county.geography);
-							window.open('http://www.uscounties.org/MuniBondInteractive/CountyProfiles/muni_bonds_profile_' + countyName + '.pdf');
+							window.open('http://explorer.naco.org/profiles/county_muniBonds/muni_bonds_profile_' + countyName + '.pdf');
 						}
 					} else if (currentDI === 'Municipal Bonds - Statewide Muni Bonds Profiles') {
 						var state = countyObjectById[+FIPS].STATE;
-						window.open('http://www.uscounties.org/MuniBondInteractive/StateProfiles/state_bonds_profiles' + state + '.pdf', '_blank');
+						window.open('http://explorer.naco.org/profiles/state_muniBonds/state_bonds_profiles' + state + '.pdf', '_blank');
 					} else if (currentDI === 'Payment in Lieu of Taxes (PILT) - PILT Profiles') {
 						if (quantByIds[0][+FIPS] === 0) {
 							noty({text: '<strong>No Profile Available</strong></br>This county did not receive PILT in 2014!'});
@@ -666,15 +666,27 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 							window.open('http://explorer.naco.org/profiles/MFA/MITFA_' + state + '.pdf', '_blank');
 						}
 					}  else if (currentDI === 'Transportation Funding Profiles - Transportation Funding Profiles') {
-						var state = countyObjectById[+FIPS].STATE;
-						window.open('http://explorer.naco.org/profiles/stateTransportation/state_summary_' + state + '.pdf', '_blank');
+						if (quantByIds[0][+FIPS] === NaN) {
+							noty({text: '<strong>No Profile Available</strong>'});
+						} else {
+							var state = countyObjectById[+FIPS].STATE;
+							window.open('http://explorer.naco.org/profiles/stateTransportation/state_summary_' + state + '.pdf', '_blank');
+						}
 					}  else if (currentDI === 'Transportation Funding Profiles - MAP-21 Profiles') {
-						var state = countyObjectById[+FIPS].STATE;
-						window.open('http://explorer.naco.org/profiles/MAP-21/' + state + '.pdf', '_blank');
+						if (quantByIds[0][+FIPS] === NaN) {
+							noty({text: '<strong>No Profile Available</strong>'});
+						} else {
+							var state = countyObjectById[+FIPS].STATE;
+							window.open('http://explorer.naco.org/profiles/MAP-21/' + state + '.pdf', '_blank');
+						}
 					}  else if (currentDI === "U.S. Ex-Im Bank Financing - U.S. Ex-Im Bank County Profiles") {
-						var countyName = parseCountyName(+FIPS, county.geography);
-						countyName = countyName.replace(/\s/g, '');
-						window.open('http://explorer.naco.org/profiles/exim/' + countyName + '.pdf');
+						if (quantByIds[0][+FIPS] === 0) {
+							noty({text: '<strong>No Profile Available</strong></br>This county did not receive direct Ex-Im Support.'});
+						} else {
+							var countyName = parseCountyName(+FIPS, county.geography);
+							countyName = countyName.replace(/\s/g, '');
+							window.open('http://explorer.naco.org/profiles/exim/' + countyName + '.pdf');
+						}
 					} else if (currentDI === "Secure Rural Schools (SRS) - SRS Profiles") {
 						if (quantByIds[0][+FIPS] === 0) {
 							window.open('http://explorer.naco.org/profiles/SRSProfiles/National.pdf');
@@ -1057,7 +1069,7 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 		// list source
 		d3.select("#sourceContainer").selectAll("p").remove();
 		d3.select('#sourceContainer').append('p').attr("id", "sourceText")
-			.html('<span style="font-weight:400;">Source:</span> NACo Analysis of ' + indObjects[0].source + ((indObjects[0].supressYear) ? '.' : ', ' + indObjects[0].year));
+			.html('<span style="font-weight:400;">Source:</span>' + indObjects[0].source + ((indObjects[0].supressYear) ? '.' : ', ' + indObjects[0].year));
 		
 				
 		// if showing a "county profile" indicator, show a mini help dialog

@@ -7,7 +7,7 @@
 				{
 					"name": "Administration Expenditures",
 					"years": [2007],
-					"source": "U.S. Census Bureau - Census of Individual Governments: Finance",
+					"source": "NACo Analysis of U.S. Census Bureau - Census of Individual Governments: Finance",
 					"companions": [["Administration Expenditures", "Total Administration"], ["Administration Expenditures", "Financial Administration"], ["Administration Expenditures", "Other Governmental Administration"], ["Administration Expenditures", "Current Operations"]
 					],
 					"children": [
@@ -70,7 +70,7 @@
 					]
 				}, {
 					"name": "Administration Employment",
-					"source": "U.S. Census Bureau - Census of Individual Governments: Employment",
+					"source": "NACo Analysis of U.S. Census Bureau - Census of Individual Governments: Employment",
 					"years": [2007, 2008, 2009, 2010, 2011, 2012],
 					"companions": [["Administration Employment", "Total Administration"], ["Administration Employment", "Financial Administration"], ["Administration Employment", "Other Governmental Administration"]
 					],
@@ -104,7 +104,7 @@
 					]
 				}, {
 					"name": "Administration Revenue",
-					"source": "U.S. Census Bureau - Census of Individual Governments: Finance",
+					"source": "NACo Analysis of U.S. Census Bureau - Census of Individual Governments: Finance",
 					"years": [2007],
 					"companions": [["Administration Revenue", "Total Administration"], ["Administration Revenue", "Charges"], ["Administration Revenue", "Public Employee Retirement Systems"], ["Administration Revenue", "Unemployment Compensation Systems"]
 					],
@@ -153,7 +153,7 @@
 			"children": [
 				{
 					"name": "Administration Employment",
-					"source": "U.S. Census Bureau - Census of Individual Governments: Employment",
+					"source": "NACo Analysis of U.S. Census Bureau - Census of Individual Governments: Employment",
 					"years": [2007, 2008, 2009, 2010, 2011, 2012],
 					"companions": [["Administration Employment", "Total Administration"], ["Administration Employment", "Financial Administration"], ["Administration Employment", "Other Governmental Administration"]
 					],
@@ -187,7 +187,7 @@
 					]
 				}, {
 					"name": "Public Amenity Employment",
-					"source": "U.S. Census Bureau - Census of Individual Governments: Employment",
+					"source": "NACo Analysis of U.S. Census Bureau - Census of Individual Governments: Employment",
 					"years": [2007, 2008, 2009, 2010, 2011, 2012],
 					"companions": [["Public Amenity Employment", "Total Public Amenity"], ["Public Amenity Employment", "Natural Resources"], ["Public Amenity Employment", "Parks & Recreation"], ["Public Amenity Employment", "Libraries"]
 					],
@@ -221,7 +221,7 @@
 					]
 				}, {
 					"name": "Education Employment",
-					"source": "U.S. Census Bureau - Census of Individual Governments: Employment",
+					"source": "NACo Analysis of U.S. Census Bureau - Census of Individual Governments: Employment",
 					"years": [2007, 2008, 2009, 2010, 2011, 2012],
 					"companions": [["Education Expenditures", "Total Education"], ["Education Employment", "Total Education"], ["Education Employment", "Elementary & Secondary Education"], ["Education Employment", "Higher Education"]
 					],
@@ -250,7 +250,7 @@
 					]
 				}, {
 					"name": "Housing & Community Development Employment",
-					"source": "U.S. Census Bureau - Census of Individual Governments: Employment",
+					"source": "NACo Analysis of U.S. Census Bureau - Census of Individual Governments: Employment",
 					"years": [2007, 2008, 2009, 2010, 2011, 2012],
 					"companions": [["Housing & Community Development Expenditures", "Total Housing & Community Development"], ["Housing & Community Development Employment", "Housing & Community Development"], ["Housing & Community Development Employment", "Total County"], ["Housing & Community Development Expenditures", "Current Operations"]
 					],
@@ -269,7 +269,7 @@
 					]
 				}, {
 					"name": "Health & Hospitals Employment",
-					"source": "U.S. Census Bureau - Census of Individual Governments: Employment",
+					"source": "NACo Analysis of U.S. Census Bureau - Census of Individual Governments: Employment",
 					"years": [2007, 2008, 2009, 2010, 2011, 2012],
 					"companions": [["Health & Hospitals Employment", "Total Health & Hospitals"], ["Health & Hospitals Employment", "Health"], ["Health & Hospitals Employment", "Hospitals"], ["Hospitals", "Number of Hospitals"]
 					],
@@ -298,7 +298,7 @@
 					]
 				}, {
 					"name": "Justice & Public Safety Employment",
-					"source": "U.S. Census Bureau - Census of Individual Governments: Employment",
+					"source": "NACo Analysis of U.S. Census Bureau - Census of Individual Governments: Employment",
 					"years": [2007, 2008, 2009, 2010, 2011, 2012],
 					"companions": [["Justice & Public Safety Employment", "Total Justice & Public Safety"], ["Justice & Public Safety Employment", "Correction"], ["Justice & Public Safety Employment", "Judicial & Legal Services"], ["Justice & Public Safety Employment", "Police Protection"]
 					],
@@ -337,7 +337,7 @@
 					]
 				}, {
 					"name": "Public Welfare Employment",
-					"source": "U.S. Census Bureau - Census of Individual Governments: Employment",
+					"source": "NACo Analysis of U.S. Census Bureau - Census of Individual Governments: Employment",
 					"years": [2007, 2008, 2009, 2010, 2011, 2012],
 					"companions": [["Public Welfare Expenditures", "Total Public Welfare"], ["Public Welfare Employment", "Public Welfare"], ["Public Welfare Expenditures", "Current Operations"], ["Public Welfare Expenditures", "Other Public Welfare"]
 					],
@@ -356,7 +356,7 @@
 					]
 				}, {
 					"name": "Transportation Employment",
-					"source": "U.S. Census Bureau - Census of Individual Governments: Employment",
+					"source": "NACo Analysis of U.S. Census Bureau - Census of Individual Governments: Employment",
 					"years": [2007, 2008, 2009, 2010, 2011, 2012],
 					"companions": [["Transportation Employment", "Total Transportation"], ["Transportation Employment", "Transit"], ["Transportation Employment", "Highways"], ["Transportation Employment", "Air Transportation"]
 					],
@@ -395,7 +395,7 @@
 					]
 				}, {
 					"name": "Utility Employment",
-					"source": "U.S. Census Bureau - Census of Individual Governments: Employment",
+					"source": "NACo Analysis of U.S. Census Bureau - Census of Individual Governments: Employment",
 					"years": [2007, 2008, 2009, 2010, 2011, 2012],
 					"companions": [["Utility Employment", "Total Utility"], ["Utility Employment", "Electric Utilities"], ["Utility Employment", "Gas Utilities"], ["Utility Expenditures", "Total Utility"]
 					],
@@ -424,7 +424,7 @@
 					]
 				}, {
 					"name": "Water, Sewerage & Solid Waste Employment",
-					"source": "U.S. Census Bureau - Census of Individual Governments: Employment",
+					"source": "NACo Analysis of U.S. Census Bureau - Census of Individual Governments: Employment",
 					"years": [2007, 2008, 2009, 2010, 2011, 2012],
 					"companions": [["Water, Sewerage & Solid Waste Employment", "Total Water, Sewerage & Solid Waste"], ["Water, Sewerage & Solid Waste Employment", "Sewerage"], ["Water, Sewerage & Solid Waste Employment", "Solid Waste"], ["Water, Sewerage & Solid Waste Employment", "Water Utilities"]
 					],
@@ -458,7 +458,7 @@
 					]
 				}, {
 					"name": "Other Employment",
-					"source": "U.S. Census Bureau - Census of Individual Governments: Employment",
+					"source": "NACo Analysis of U.S. Census Bureau - Census of Individual Governments: Employment",
 					"companions": [["Other Employment", "Other & Unallocable"], ["Other Employment", "Total County"], ["Administration Employment", "Total Administration"], ["Public Amenity Employment", "Total Public Amenity"]
 					],
 					"years": [2007, 2008, 2009, 2010, 2011, 2012],
@@ -482,7 +482,7 @@
 			"children": [
 				{
 					"name": "Administration Revenue",
-					"source": "U.S. Census Bureau - Census of Individual Governments: Finance",
+					"source": "NACo Analysis of U.S. Census Bureau - Census of Individual Governments: Finance",
 					"years": [2007],
 					"companions": [["Administration Revenue", "Total Administration"], ["Administration Revenue", "Charges"], ["Administration Revenue", "Public Employee Retirement Systems"], ["Administration Revenue", "Unemployment Compensation Systems"]
 					],
@@ -526,7 +526,7 @@
 					]
 				}, {
 					"name": "Intergovernmental Revenue",
-					"source": "U.S. Census Bureau - Census of Individual Governments: Finance",
+					"source": "NACo Analysis of U.S. Census Bureau - Census of Individual Governments: Finance",
 					"years": [2007],
 					"companions": [["Intergovernmental Revenue", "Total Intergovernmental"], ["Intergovernmental Revenue", "From Federal Government"], ["Intergovernmental Revenue", "From State Government"], ["Intergovernmental Revenue", "From Local Government"]
 					],
@@ -560,7 +560,7 @@
 					]
 				}, {
 					"name": "Tax Revenue",
-					"source": "U.S. Census Bureau - Census of Individual Governments: Finance",
+					"source": "NACo Analysis of U.S. Census Bureau - Census of Individual Governments: Finance",
 					"years": [2007],
 					"companions": [["Tax Revenue", "Total Taxes"], ["Tax Revenue", "Income Taxes"], ["Tax Revenue", "Property Taxes"], ["Tax Revenue", "License Taxes"]
 					],
@@ -604,7 +604,7 @@
 					]
 				}, {
 					"name": "Utility Revenue",
-					"source": "U.S. Census Bureau - Census of Individual Governments: Finance",
+					"source": "NACo Analysis of U.S. Census Bureau - Census of Individual Governments: Finance",
 					"years": [2007],
 					"companions": [["Utility Revenue", "Total Utility"], ["Utility Revenue", "Electric Power Systems"], ["Utility Revenue", "Gas Supply Systems"], ["Utility Revenue", "Water Supply Systems"]
 					],
@@ -643,7 +643,7 @@
 					]
 				}, {
 					"name": "Administration Expenditures",
-					"source": "U.S. Census Bureau - Census of Individual Governments: Finance",
+					"source": "NACo Analysis of U.S. Census Bureau - Census of Individual Governments: Finance",
 					"years": [2007],
 					"companions": [["Administration Expenditures", "Total Administration"], ["Administration Expenditures", "Financial Administration"], ["Administration Expenditures", "Other Governmental Administration"], ["Administration Expenditures", "Current Operations"]
 					],
@@ -707,7 +707,7 @@
 					]
 				}, {
 					"name": "Public Amenity Expenditures",
-					"source": "U.S. Census Bureau - Census of Individual Governments: Finance",
+					"source": "NACo Analysis of U.S. Census Bureau - Census of Individual Governments: Finance",
 					"years": [2007],
 					"companions": [["Public Amenity Expenditures", "Total Public Amenity"], ["Public Amenity Expenditures", "Natural Resources"], ["Public Amenity Expenditures", "Parks & Recreation"], ["Public Amenity Expenditures", "Libraries"]
 					],
@@ -766,7 +766,7 @@
 					]
 				}, {
 					"name": "Education Expenditures",
-					"source": "U.S. Census Bureau - Census of Individual Governments: Finance",
+					"source": "NACo Analysis of U.S. Census Bureau - Census of Individual Governments: Finance",
 					"years": [2007],
 					"companions": [["Education Expenditures", "Total Education"], ["Education Employment", "Total Education"], ["Education Expenditures", "Elementary & Secondary Education"], ["Education Expenditures", "Higher Education"]
 					],
@@ -820,7 +820,7 @@
 					]
 				}, {
 					"name": "Housing & Community Development Expenditures",
-					"source": "U.S. Census Bureau - Census of Individual Governments: Finance",
+					"source": "NACo Analysis of U.S. Census Bureau - Census of Individual Governments: Finance",
 					"years": [2007],
 					"companions": [["Housing & Community Development Expenditures", "Total Housing & Community Development"], ["Housing & Community Development Employment", "Housing & Community Development"], ["Housing & Community Development Expenditures", "Current Operations"], ["Housing & Community Development Expenditures", "Total County"]
 					],
@@ -864,7 +864,7 @@
 					]
 				}, {
 					"name": "Health & Hospitals Expenditures",
-					"source": "U.S. Census Bureau - Census of Individual Governments: Finance",
+					"source": "NACo Analysis of U.S. Census Bureau - Census of Individual Governments: Finance",
 					"years": [2007],
 					"companions": [["Health & Hospitals Expenditures", "Total Health & Hospitals"], ["Health & Hospitals Expenditures", "Health"], ["Health & Hospitals Expenditures", "Hospitals"], ["Hospitals", "Number of Hospitals"]
 					],
@@ -918,7 +918,7 @@
 					]
 				}, {
 					"name": "Financial Expenditures",
-					"source": "U.S. Census Bureau - Census of Individual Governments: Finance",
+					"source": "NACo Analysis of U.S. Census Bureau - Census of Individual Governments: Finance",
 					"years": [2007],
 					"companions": [["Financial Expenditures", "Total Financial"], ["Financial Expenditures", "Interest on General Debt"], ["Financial Expenditures", "Insurance Trust - Employee Retirement"], ["Financial Expenditures", "Insurance Trust - Unemployment"]
 					],
@@ -952,7 +952,7 @@
 					]
 				}, {
 					"name": "Justice & Public Safety Expenditures",
-					"source": "U.S. Census Bureau - Census of Individual Governments: Finance",
+					"source": "NACo Analysis of U.S. Census Bureau - Census of Individual Governments: Finance",
 					"years": [2007],
 					"companions": [["Justice & Public Safety Expenditures", "Total Justice & Public Safety"], ["Justice & Public Safety Expenditures", "Correction"], ["Justice & Public Safety Expenditures", "Judicial & Legal Services"], ["Justice & Public Safety Expenditures", "Police Protection"]
 					],
@@ -1021,7 +1021,7 @@
 					]
 				}, {
 					"name": "Public Welfare Expenditures",
-					"source": "U.S. Census Bureau - Census of Individual Governments: Finance",
+					"source": "NACo Analysis of U.S. Census Bureau - Census of Individual Governments: Finance",
 					"years": [2007],
 					"companions": [["Public Welfare Expenditures", "Total Public Welfare"], ["Public Welfare Employment", "Public Welfare"], ["Public Welfare Expenditures", "Current Operations"], ["Public Welfare Expenditures", "Other Public Welfare"]
 					],
@@ -1090,7 +1090,7 @@
 					]
 				}, {
 					"name": "Transportation Expenditures",
-					"source": "U.S. Census Bureau - Census of Individual Governments: Finance",
+					"source": "NACo Analysis of U.S. Census Bureau - Census of Individual Governments: Finance",
 					"years": [2007],
 					"companions": [["Transportation Expenditures", "Total Transportation"], ["Transportation Expenditures", "Transit Utilities"], ["Transportation Expenditures", "Highways"], ["Transportation Expenditures", "Current Operations"]
 					],
@@ -1164,7 +1164,7 @@
 					]
 				}, {
 					"name": "Utility Expenditures",
-					"source": "U.S. Census Bureau - Census of Individual Governments: Finance",
+					"source": "NACo Analysis of U.S. Census Bureau - Census of Individual Governments: Finance",
 					"years": [2007],
 					"companions": [["Utility Expenditures", "Total Utility"], ["Utility Expenditures", "Electric Utilities"], ["Utility Expenditures", "Gas Utilities"], ["Utility Expenditures", "Construction"]
 					],
@@ -1223,7 +1223,7 @@
 					]
 				}, {
 					"name": "Water, Sewerage & Solid Waste Expenditures",
-					"source": "U.S. Census Bureau - Census of Individual Governments: Finance",
+					"source": "NACo Analysis of U.S. Census Bureau - Census of Individual Governments: Finance",
 					"years": [2007],
 					"companions": [["Water, Sewerage & Solid Waste Expenditures", "Total Water, Sewerage & Solid Waste Management"], ["Water, Sewerage & Solid Waste Expenditures", "Sewerage"], ["Water, Sewerage & Solid Waste Expenditures", "Solid Waste"], ["Water, Sewerage & Solid Waste Expenditures", "Water Utilities"]
 					],
@@ -1287,7 +1287,7 @@
 					]
 				}, {
 					"name": "Other Expenditures",
-					"source": "U.S. Census Bureau - Census of Individual Governments: Finance",
+					"source": "NACo Analysis of U.S. Census Bureau - Census of Individual Governments: Finance",
 					"years": [2007],
 					"companions": [["Other Expenditures", "Total Other"], ["Other Expenditures", "Misc. Commercial Activities"], ["Other Expenditures", "Other & Unallocable"], ["Other Expenditures", "General Public Buildings"]
 					],
@@ -1470,7 +1470,7 @@
 					]
 				}, {
 					"name": "Municipal Bonds",
-					"source": "2012 county interest payments for tax-exempt municipal bonds",
+					"source": "NACo Analysis of 2012 county interest payments for tax-exempt municipal bonds",
 					"years": [2013],
 					"companions": [["Municipal Bonds", "Interest Payment on Tax Exempt Muni Bonds"], ["Municipal Bonds", "Interest Payment on Tax Exempt Muni Bonds"], ["Municipal Bonds", "Cost of 28% Cap"], ["Municipal Bonds", "Cost of Full Repeal"]
 					],
@@ -1484,11 +1484,12 @@
 						}, {
 							"name": "Statewide Muni Bonds Profiles",
 							"unit": "millions of dollars",
+							"statewide": true,
 							"dataType": "level",
 							"has_profile": true,
 							"legend_title_footer": ", 2003-2012",
 							"companions": [["Municipal Bonds", "Statewide Tax Exempt Muni Bonds Value"], ["Municipal Bonds", "Statewide Cost of 28% Cap"], ["Municipal Bonds", "Statewide Cost of Full Repeal"], ["Municipal Bonds", "Statewide Tax Exempt Muni Bonds Value"]],
-							"source": "Thompson Reuters February 2013 data",
+							"source": "NACo Analysis of Thompson Reuters February 2013 data",
 							"definition": "Profiles showing the impact of changing the tax-exempt status of municipal bond interest on state and local governments and authorities."
 						}, {
 							"name": "Interest Payment on Tax Exempt Muni Bonds",
@@ -1596,7 +1597,7 @@
 			"children": [
 				{
 					"name": "Population Levels and Trends",
-					"source": "U.S. Census Bureau - Population Estimates Program (PEP)",
+					"source": "NACo Analysis of U.S. Census Bureau - Population Estimates Program (PEP)",
 					"years": [2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013],
 					"companions": [["Population Levels and Trends", "Population Level"], ["Population Levels and Trends", "Population Annual Growth Rate (from previous year)"], ["Population Density", "Population Density"], ["Population by Age/Gender", "Percent 65 years and older"]
 					],
@@ -1615,7 +1616,7 @@
 					]
 				}, {
 					"name": "Population Change Components",
-					"source": "U.S. Census Bureau - Population Estimates Program (PEP)",
+					"source": "NACo Analysis of U.S. Census Bureau - Population Estimates Program (PEP)",
 					"years": [2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013],
 					"companions": [["Population Levels and Trends", "Population Level"], ["Population Levels and Trends", "Population Annual Growth Rate (from previous year)"], ["Population Change Components", "Birth Rate"], ["Population Change Components", "Net Migration Rate"]
 					],
@@ -1693,7 +1694,7 @@
 					]
 				}, {
 					"name": "Population Density",
-					"source": "U.S. Census Bureau - Population Estimates Program (PEP)",
+					"source": "NACo Analysis of U.S. Census Bureau - Population Estimates Program (PEP)",
 					"years": [2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013],
 					"companions": [["Population Levels and Trends", "Population Level"], ["Population Levels and Trends", "Population Annual Growth Rate (from previous year)"], ["Population Density", "Population Density"], ["Population by Age/Gender", "Percent 65 years and older"]
 					],
@@ -1724,7 +1725,7 @@
 					"years": [2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013],
 					"companions": [["Population Density", "Population Level"], ["Population by Age/Gender", "Percent 15-24 years old"], ["Population by Age/Gender", "Percent 25-64 years old"], ["Population Density", "Population Density"]
 					],
-					"source": "U.S. Census Bureau - Population Estimates Program (PEP)",
+					"source": "NACo Analysis of U.S. Census Bureau - Population Estimates Program (PEP)",
 					"vintage": 2012,
 					"children": [
 						{
@@ -1794,7 +1795,7 @@
 					"years": [2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013],
 					"companions": [["Population Density", "Population Level"], ["Population Density", "Population Density"], ["Population Density", "Population Density Growth Rate (from previous year)"]
 					],
-					"source": "U.S. Census Bureau - Population Estimates Program (PEP)",
+					"source": "NACo Analysis of U.S. Census Bureau - Population Estimates Program (PEP)",
 					"vintage": 2012,
 					"children": [
 						{
@@ -1838,7 +1839,7 @@
 			"children": [
 				{
 					"name": "Household Income",
-					"source": "U.S. Census Bureau - American Community Survey (ACS)",
+					"source": "NACo Analysis of U.S. Census Bureau - American Community Survey (ACS)",
 					"years": [2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012],
 					"companions": [["Household Income", "Median Household Income"], ["Household Income", "Percent of Households with Income Less than $10,000"], ["Household Income", "Percent of Households with Income Between $50,000 - $99,999"], ["Household Income", "Percent of Households with Income of $200,000 or more"]
 					],
@@ -1909,7 +1910,7 @@
 					]
 				}, {
 					"name": "Labor Force",
-					"source": "Bureau of Labor Statistics - Local Area Unemployment Statistics (LAUS)",
+					"source": "NACo Analysis of Bureau of Labor Statistics - Local Area Unemployment Statistics (LAUS)",
 					"years": [2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013],
 					"companions": [["Labor Force", "Civilian Labor Force Population"], ["Labor Force", "Unemployment Rate"], ["Labor Force", "Number Employed"], ["Labor Force", "Number Unemployed"]
 					],
@@ -1934,7 +1935,7 @@
 					]
 				}, {
 					"name": "County Economic Tracker",
-					"source": "Moody's Analytics, U.S. Bureau of Labor Statistics, U.S. Bureau of Economic Analysis and U.S. Census Bureau",
+					"source": "NACo Analysis of Moody's Analytics, U.S. Bureau of Labor Statistics, U.S. Bureau of Economic Analysis and U.S. Census Bureau",
 					"years": [2014],
 					"supressYear": true,
 					"companions": [["County Economic Tracker", "Recovered on # Indicators"], ["County Economic Tracker", "Jobs Recovered"], ["County Economic Tracker", "Unemployment Rate Recovered"], ["County Economic Tracker", "GDP Recovered"], ["County Economic Tracker", "Home Prices Recovered"], ["County Economic Tracker", "Unemployment Rate Change, 2013-2014"]
@@ -2104,7 +2105,7 @@
 					]
 				}, {
 					"name": "U.S. Ex-Im Bank Financing",
-					"source": "Export Import Bank of the United States data covering 2007-2014.  Data is current as of October 6th",
+					"source": "NACo Analysis of Export Import Bank of the United States data covering 2007-2014.  Data is current as of October 6th",
 					"years": [2014],
 					"yearSpan": "2007-2014",
 					"companions": [["U.S. Ex-Im Bank Financing", "Supported Exporters"], ["U.S. Ex-Im Bank Financing", "Share of Small Business Supported Exporters"], ["U.S. Ex-Im Bank Financing", "Supported Exports"], ["U.S. Ex-Im Bank Financing", "U.S. Ex-Im Bank Export Financing"]
@@ -2140,7 +2141,7 @@
 					]
 				}, {
 					"name": "Economic Conditions",
-					"source": "Moody's Analytics data",
+					"source": "NACo Analysis of Moody's Analytics data",
 					"years": [2013],
 					"companions": [["Labor Force", "Unemployment Rate"], ["Labor Force", "Number Employed"], ["Labor Force", "Number Unemployed"]
 					],
@@ -2154,7 +2155,7 @@
 					]
 				}, {
 					"name": "County Job Skills",
-					"source": "Organization for Economic Co-operation and Development (OECD)",
+					"source": "NACo Analysis of Organization for Economic Co-operation and Development (OECD) data",
 					"years": [2012],
 					"companions": [["County Job Skills", "Level"]
 					],
@@ -2173,7 +2174,7 @@
 			"children": [
 				{
 					"name": "Education Employment",
-					"source": "U.S. Census Bureau - Census of Individual Governments: Employment",
+					"source": "NACo Analysis of U.S. Census Bureau - Census of Individual Governments: Employment",
 					"years": [2007, 2008, 2009, 2010, 2011, 2012],
 					"companions": [["Education Employment", "Total County"], ["Education Employment", "Total Education"], ["Education Employment", "Elementary & Secondary Education"], ["Education Employment", "Higher Education"]
 					],
@@ -2202,7 +2203,7 @@
 					]
 				}, {
 					"name": "Education Expenditures",
-					"source": "U.S. Census Bureau - Census of Individual Governments: Finance",
+					"source": "NACo Analysis of U.S. Census Bureau - Census of Individual Governments: Finance",
 					"years": [2007],
 					"companions": [["Education Expenditures", "Total County"], ["Education Expenditures", "Total Education"], ["Education Expenditures", "Elementary & Secondary Education"], ["Education Expenditures", "Higher Education"]
 					],
@@ -2256,7 +2257,7 @@
 					]
 				}, {
 					"name": "Public Elementary & Secondary Schools",
-					"source": "National Center for Economic Statistics (NCES) - Common Core Data (CCD), Elementary and Secondary Information System (ELSi)",
+					"source": "NACo Analysis of National Center for Economic Statistics (NCES) - Common Core Data (CCD), Elementary and Secondary Information System (ELSi)",
 					"years": [2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012],
 					"companions": [["Public Elementary & Secondary Schools", "Number of Local School Districts"], ["Public Elementary & Secondary Schools", "Pupil/Teacher Ratio"], ["Public Elementary & Secondary Schools", "Number of Charter School Agencies"], ["Public Elementary & Secondary Schools", "Total Students"]
 					],
@@ -2305,7 +2306,7 @@
 					]
 				}, {
 					"name": "Colleges & Universities",
-					"source": "National Center for Economic Statistics (NCES) - Integrated Postsecondary Education Data System (IPEDS)",
+					"source": "NACo Analysis of National Center for Economic Statistics (NCES) - Integrated Postsecondary Education Data System (IPEDS)",
 					"years": [2009, 2010, 2011, 2012],
 					"companions": [["Colleges & Universities", "Number of Institutions"], ["Colleges & Universities", "Average In-State Tuition"], ["Colleges & Universities", "Average Out-of-State Tuition"], ["Colleges & Universities", "Total Enrollment"]
 					],
@@ -2352,7 +2353,7 @@
 					]
 				}, {
 					"name": "Educational Attainment",
-					"source": "U.S. Census Bureau",
+					"source": "NACo Analysis of U.S. Census Bureau",
 					"years": [2009, 2010, 2011, 2012],
 					"companions": [["Educational Attainment", "High School Graduate"], ["Educational Attainment", "Bachelor's Degree"], ["Educational Attainment", "Graduate or Professional Degree"], ["Educational Attainment", "Associate's Degree"]
 					],
@@ -2399,7 +2400,7 @@
 				{
 					"name": "Ozone Concentration",
 					"years": [2013],
-					"source": "Environmental Protection Agency",
+					"source": "NACo Analysis of Environmental Protection Agency data",
 					"companions": [ ["Ozone Concentration", "2011-2013 Level"], ["Ozone Concentration", "2011-2013 Count"], ["Ozone Concentration", "Projected 2025 Level"], ["Ozone Concentration", "Projected 2025 Count"]
 					],
 					"children": [
@@ -2434,7 +2435,7 @@
 			"children": [
 				 {
 					"name": "Airports Funding",
-					"source": "Federal Aviation Administration and Office of Aviation Analysis, U.S. Department of Transportation",
+					"source": "Federal Aviation Administration and Office of Aviation Analysis, U.S. Department of Transportation data",
 					"years": [2014],
 					"companions": [["Airports Funding", "Airport Investment Program Total"], ["Airports Funding", "Airport Investment Program Entitlement"], ["Airports Funding", "Airport Investment Program Discretionary"], ["Airports Funding", "Essential Air Service Annual Subsidy"]
 					],
@@ -2468,7 +2469,7 @@
 				}, {
 					"name": "American Dream Downpayment Initiative (ADDI)",
 					"years": [2003, 2004, 2005, 2006, 2007, 2008],
-					"source": "U.S. Department of Housing and Urban Development",
+					"source": "NACo Analysis of U.S. Department of Housing and Urban Development",
 					"companions": [["American Dream Downpayment Initiative (ADDI)", "ADDI Amount"], ["American Dream Downpayment Initiative (ADDI)", "ADDI Annual Growth Rate (from previous year)"], ["Housing & Urban Development Grants", "Total HUD Amount"], ["Housing & Urban Development Grants", "HUD Annual Growth Rate (from previous year)"]
 					],
 					"children": [
@@ -2486,7 +2487,7 @@
 				}, {
 					"name": "Byrne (JAG) Program Awards",
 					"years": [2014],
-					"source": "U.S. Department of Justice, Office of Justice Programs, Bureau of Justice Assistance data",
+					"source": "NACo Analysis of U.S. Department of Justice, Office of Justice Programs, Bureau of Justice Assistance data",
 					"companions": [["Byrne (JAG) Program Awards", "JAG Amount"]
 					],
 					"children": [
@@ -2501,7 +2502,7 @@
 				}, {
 					"name": "Community Development Block Grants (CDBG)",
 					"years": [2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015],
-					"source": "U.S. Department of Housing and Urban Development data",
+					"source": "NACo Analysis of U.S. Department of Housing and Urban Development data",
 					"companions": [["Community Development Block Grants (CDBG)", "CDBG Amount"], ["Community Development Block Grants (CDBG)", "CDBG Annual Growth Rate (from previous year)"], ["Housing & Urban Development Grants", "Total HUD Amount"], ["Housing & Urban Development Grants", "HUD Annual Growth Rate (from previous year)"]
 					],
 					"children": [
@@ -2522,7 +2523,7 @@
 				}, {
 					"name": "Emergency Shelter Grants (ESG)",
 					"years": [2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015],
-					"source": "U.S. Department of Housing and Urban Development data",
+					"source": "NACo Analysis of U.S. Department of Housing and Urban Development data",
 					"companions": [["Emergency Shelter Grants (ESG)", "ESG Amount"], ["Emergency Shelter Grants (ESG)", "ESG Annual Growth Rate (from previous year)"], ["Housing & Urban Development Grants", "Total HUD Amount"], ["Housing & Urban Development Grants", "HUD Annual Growth Rate (from previous year)"]
 					],
 					"children": [
@@ -2542,7 +2543,7 @@
 				}, {
 					"name": "HOME Investment Partnership Program",
 					"years": [2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015],
-					"source": "U.S. Department of Housing and Urban Development data",
+					"source": "NACo Analysis of U.S. Department of Housing and Urban Development data",
 					"companions": [["HOME Investment Partnership Program", "HOME Amount"], ["HOME Investment Partnership Program", "HOME Annual Growth Rate (from previous year)"], ["Housing & Urban Development Grants", "Total HUD Amount"], ["Housing & Urban Development Grants", "HUD Annual Growth Rate (from previous year)"]
 					],
 					"children": [
@@ -2562,7 +2563,7 @@
 				}, {
 					"name": "Housing & Urban Development Grants",
 					"years": [2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015],
-					"source": "U.S. Department of Housing and Urban Development data",
+					"source": "NACo Analysis of U.S. Department of Housing and Urban Development data",
 					"companions": [["Housing & Urban Development Grants", "Total HUD Amount"], ["Housing & Urban Development Grants", "HUD Annual Growth Rate (from previous year)"], ["Community Development Block Grants (CDBG)", "CDBG Amount"], ["HOME Investment Partnership Program", "HOME Amount"]
 					],
 					"children": [
@@ -2582,7 +2583,7 @@
 				}, {
 					"name": "Housing Opportunities for Persons with AIDS (HOPWA)",
 					"years": [2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015],
-					"source": "U.S. Department of Housing and Urban Development data",
+					"source": "NACo Analysis of U.S. Department of Housing and Urban Development data",
 					"companions": [["Housing Opportunities for Persons with AIDS (HOPWA)", "HOPWA Amount"], ["Housing Opportunities for Persons with AIDS (HOPWA)", "HOPWA Annual Growth Rate (from previous year)"], ["Housing & Urban Development Grants", "Total HUD Amount"], ["Housing & Urban Development Grants", "HUD Annual Growth Rate (from previous year)"]
 					],
 					"children": [
@@ -2601,7 +2602,7 @@
 				}, {
 					"name": "Payment in Lieu of Taxes (PILT)",
 					"years": [2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014],
-					"source": "U.S. Department of the Interior",
+					"source": "NACo Analysis of U.S. Department of the Interior",
 					"companions": [["Payment in Lieu of Taxes (PILT)", "PILT Amount"], ["Payment in Lieu of Taxes (PILT)", "PILT per Acre"], ["Payment in Lieu of Taxes (PILT)", "Percent of Federal Land"], ["Payment in Lieu of Taxes (PILT)", "PILT Annual Growth Rate (from previous year)"]
 					],
 					"children": [
@@ -2648,7 +2649,7 @@
 				}, {
 					"name": "Second Chance Act (SCA) Awards",
 					"years": [2014],
-					"source": "U.S. Department of Justice, Office of Justice Programs, Bureau of Justice Assistance and Office of Juvenile Justice and Delinquency data",
+					"source": "NACo Analysis of U.S. Department of Justice, Office of Justice Programs, Bureau of Justice Assistance and Office of Juvenile Justice and Delinquency data",
 					"companions": [["Second Chance Act (SCA) Awards", "SCA Total"]
 					],
 					"children": [
@@ -2678,7 +2679,7 @@
 				}, {
 					"name": "Secure Rural Schools (SRS)",
 					"years": [2012, 2013],
-					"source": "data from the U.S. Department of Agriculture, U.S. Forest Service and Headwaters Economics analysis of U.S. Geological Survey, Protected Areas Database",
+					"source": "NACo Analysis of data from the U.S. Department of Agriculture, U.S. Forest Service and Headwaters Economics analysis of U.S. Geological Survey, Protected Areas Database",
 					"companions": [["Secure Rural Schools (SRS)", "SRS Amount, FY 2013 Receipts Year"]
 					],
 					"children": [
@@ -2713,7 +2714,7 @@
 				}, {
 					"name": "State Criminal Alien Assistance Program (SCAAP)",
 					"years": [2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014],
-					"source": "U.S. Department of Justice, Office of Justice Programs, Bureau of Justice Assistance data",
+					"source": "NACo Analysis of U.S. Department of Justice, Office of Justice Programs, Bureau of Justice Assistance data",
 					"companions": [["State Criminal Alien Assistance Program (SCAAP)", "SCAAP Amount"], ["State Criminal Alien Assistance Program (SCAAP)", "SCAAP Annual Growth Rate (from previous year)"]
 					],
 					"children": [
@@ -2734,7 +2735,7 @@
 				}, {
 					"name": "USDA Rural Development",
 					"years": [2009, 2010, 2011, 2012, 2013],
-					"source": "U.S. Department of Agriculture - Rural Development",
+					"source": "NACo Analysis of U.S. Department of Agriculture - Rural Development",
 					"companions": [["USDA Rural Development", "USDA Total Amount"], ["USDA Rural Development", "USDA Grant Amount"], ["USDA Rural Development", "USDA Loan Amount"], ["USDA Rural Development", "USDA Total Annual Growth Rate (from previous year)"]
 					],
 					"children": [
@@ -2774,7 +2775,7 @@
 			"children": [
 				{
 					"name": "County Profile",
-					"source": "U.S. Census Bureau, NACo Research",
+					"source": "NACo Analysis of U.S. Census Bureau, NACo Research",
 					"years": [2013],
 					"companions": [["County Profile", "Census Region"], ["County Profile", "Year Founded"], ["County Profile", "County Square Mileage"], ["County Profile", "Board Size"]
 					],
@@ -2826,7 +2827,7 @@
 					]
 				}, {
 					"name": "Land & Water Area",
-					"source": "U.S. Census Bureau - Gazetteer, NACo Research - Counties with NOAA Trust Resources",
+					"source": "NACo Analysis of U.S. Census Bureau - Gazetteer, NACo Research - Counties with NOAA Trust Resources",
 					"years": [2010],
 					"companions": [["County Profile", "Census Region"], ["County Profile", "Year Founded"], ["County Profile", "County Square Mileage"], ["County Profile", "Board Size"]
 					],
@@ -2855,7 +2856,7 @@
 					]
 				}, {
 					"name": "Metro-Micro Areas (MSA)",
-					"source": "U.S. Census Bureau",
+					"source": "NACo Analysis of U.S. Census Bureau",
 					"years": [2013],
 					"companions": [["County Profile", "Census Region"], ["Metro-Micro Areas (MSA)", "CBSA Title"], ["Metro-Micro Areas (MSA)", "CSA Title"], ["Metro-Micro Areas (MSA)", "County Status"]
 					],
@@ -2893,7 +2894,7 @@
 			"children": [
 				{
 					"name": "Health & Hospitals Employment",
-					"source": "U.S. Census Bureau - Census of Individual Governments: Employment",
+					"source": "NACo Analysis of U.S. Census Bureau - Census of Individual Governments: Employment",
 					"years": [2007, 2008, 2009, 2010, 2011, 2012],
 					"companions": [["Health & Hospitals Employment", "Total Health & Hospitals"], ["Health & Hospitals Employment", "Health"], ["Health & Hospitals Employment", "Hospitals"], ["Hospitals", "Number of Hospitals"]
 					],
@@ -2922,7 +2923,7 @@
 					]
 				}, {
 					"name": "Health & Hospitals Expenditures",
-					"source": "U.S. Census Bureau - Census of Individual Governments: Finance",
+					"source": "NACo Analysis of U.S. Census Bureau - Census of Individual Governments: Finance",
 					"years": [2007],
 					"companions": [["Health & Hospitals Expenditures", "Total Health & Hospitals"], ["Health & Hospitals Expenditures", "Health"], ["Health & Hospitals Expenditures", "Hospitals"], ["Hospitals", "Number of Hospitals"]
 					],
@@ -2976,7 +2977,7 @@
 					]
 				}, {
 					"name": "Hospitals",
-					"source": "American Hospital Directory",
+					"source": "NACo Analysis of American Hospital Directory",
 					"years": [2011],
 					"companions": [["Hospitals", "Number of Hospitals"], ["Hospitals", "Number of County Facilities"], ["Hospitals", "Number of Beds"], ["Hospitals", "Revenue per Patient Day"]
 					],
@@ -3058,7 +3059,7 @@
 					]
 				}, {
 					"name": "Local Health Departments",
-					"source": "NACCHO (National Association of County and City Health Officials) data",
+					"source": "NACo Analysis of NACCHO (National Association of County and City Health Officials) data",
 					"years": [2015],
 					"companions": [["Local Health Departments", "County Supported Local Health Departments (LHDs)"], ["Local Health Departments", "County Supported LHD Names"], ["Local Health Departments", "County LHD"], ["Local Health Departments", "Multi-county LHD"], ["Local Health Departments", "City-county LHD"]
 					],
@@ -3104,7 +3105,7 @@
 					]
 				}, {
 					"name": "Nursing Homes",
-					"source": "Department of Health & Human Services",
+					"source": "NACo Analysis of Department of Health & Human Services",
 					"years": [2014],
 					"companions": [["Nursing Homes", "Number of Nursing Homes"], ["Nursing Homes", "Number of County Facilities"], ["Nursing Homes", "Percent of Occupied Beds"], ["Nursing Homes", "Number of Residents"]
 					],
@@ -3169,7 +3170,7 @@
 					]
 				}, {
 					"name": "Health Insurance",
-					"source": "U.S. Census Bureau - American Community Survey (ACS)",
+					"source": "NACo Analysis of U.S. Census Bureau - American Community Survey (ACS)",
 					"years": [2009, 2010, 2011, 2012],
 					"companions": [["Health Insurance", "Percent Insured"], ["Health Insurance", "Population with Private Health Insurance"], ["Health Insurance", "Population with Public Health Insurance"], ["Health Insurance", "Percent 6-24 Insured"]
 					],
@@ -3286,7 +3287,7 @@
 			"children": [
 				{
 					"name": "Housing & Community Development Employment",
-					"source": "U.S. Census Bureau - Census of Individual Governments: Employment",
+					"source": "NACo Analysis of U.S. Census Bureau - Census of Individual Governments: Employment",
 					"years": [2007, 2008, 2009, 2010, 2011, 2012],
 					"companions": [["Housing & Community Development Expenditures", "Total Housing & Community Development"], ["Housing & Community Development Employment", "Housing & Community Development"], ["Housing & Community Development Employment", "Total County"], ["Housing & Community Development Expenditures", "Current Operations"]
 					],
@@ -3305,7 +3306,7 @@
 					]
 				}, {
 					"name": "Housing & Community Development Expenditures",
-					"source": "U.S. Census Bureau - Census of Individual Governments: Finance",
+					"source": "NACo Analysis of U.S. Census Bureau - Census of Individual Governments: Finance",
 					"years": [2007],
 					"companions": [["Housing & Community Development Expenditures", "Total Housing & Community Development"], ["Housing & Community Development Employment", "Housing & Community Development"], ["Housing & Community Development Expenditures", "Current Operations"], ["Housing & Community Development Expenditures", "Total County"]
 					],
@@ -3349,7 +3350,7 @@
 					]
 				}, {
 					"name": "Housing Units",
-					"source": "U.S. Census Bureau - American Community Survey (ACS) 5 year estimates",
+					"source": "NACo Analysis of U.S. Census Bureau - American Community Survey (ACS) 5 year estimates",
 					"years": [2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013],
 					"companions": [["Housing Units", "Number of Housing Units"], ["Housing Units", "Average Household Size"], ["Housing Units", "Percent of Owner-Occupied Housing Units"], ["Housing Units", "Percent of Renter-Occupied Housing Units"]
 					],
@@ -3436,7 +3437,7 @@
 			"children": [
 				{
 					"name": "Justice & Public Safety Employment",
-					"source": "U.S. Census Bureau - Census of Individual Governments: Employment",
+					"source": "NACo Analysis of U.S. Census Bureau - Census of Individual Governments: Employment",
 					"years": [2007, 2008, 2009, 2010, 2011, 2012],
 					"companions": [["Justice & Public Safety Employment", "Total Justice & Public Safety"], ["Justice & Public Safety Employment", "Correction"], ["Justice & Public Safety Employment", "Judicial & Legal Services"], ["Justice & Public Safety Employment", "Police Protection"]
 					],
@@ -3475,7 +3476,7 @@
 					]
 				}, {
 					"name": "Justice & Public Safety Expenditures",
-					"source": "U.S. Census Bureau - Census of Individual Governments: Finance",
+					"source": "NACo Analysis of U.S. Census Bureau - Census of Individual Governments: Finance",
 					"years": [2007],
 					"companions": [["Justice & Public Safety Expenditures", "Total Justice & Public Safety"], ["Justice & Public Safety Expenditures", "Correction"], ["Justice & Public Safety Expenditures", "Judicial & Legal Services"], ["Justice & Public Safety Expenditures", "Police Protection"]
 					],
@@ -3544,7 +3545,7 @@
 					]
 				}, {
 					"name": "Jails - Supervised Population",
-					"source": "Bureau of Justice Statistics - Annual Survey of Jails",
+					"source": "NACo Analysis of Bureau of Justice Statistics - Annual Survey of Jails",
 					"years": [2008, 2009, 2010, 2011, 2012],
 					"companions": [["Jails - Supervised Population", "Total Jail Population"], ["Jails - Supervised Population", "Confined Persons"], ["Jails - Supervised Population", "Nonconfined Persons"], ["Jails - Supervised Population", "Average Daily Population"]
 					],
@@ -3586,7 +3587,7 @@
 					]
 				}, {
 					"name": "Jails - Supervised Population by Agency",
-					"source": "Bureau of Justice Statistics - Annual Survey of Jails",
+					"source": "NACo Analysis of Bureau of Justice Statistics - Annual Survey of Jails",
 					"years": [2008, 2009, 2010, 2011, 2012],
 					"companions": [["Jails - Supervised Population by Agency", "Total Jail Population"], ["Jails - Supervised Population by Agency", "Held for Own State"], ["Jails - Supervised Population by Agency", "Held for Local Jurisdiction in State"], ["Jails - Supervised Population by Agency", "Held for Federal Bureau of Prisons"]
 					],
@@ -3650,7 +3651,7 @@
 					]
 				}, {
 					"name": "Jails - Inmate Demographics",
-					"source": "Bureau of Justice Statistics - Annual Survey of Jails",
+					"source": "NACo Analysis of Bureau of Justice Statistics - Annual Survey of Jails",
 					"years": [2008, 2009, 2010, 2011, 2012],
 					"companions": [["Jails - Inmate Demographics", "Total Jail Population"], ["Jails - Inmate Demographics", "Total Juveniles"], ["Jails - Inmate Demographics", "Total Unconvicted"], ["Jails - Inmate Demographics", "White"]
 					],
@@ -3734,7 +3735,7 @@
 					]
 				}, {
 					"name": "Jails - Community Supervision",
-					"source": "Bureau of Justice Statistics - Annual Survey of Jails",
+					"source": "NACo Analysis of Bureau of Justice Statistics - Annual Survey of Jails",
 					"years": [2008, 2009, 2010, 2011, 2012],
 					"companions": [["Jails - Community Supervision", "Total Jail Population"], ["Jails - Community Supervision", "Alcohol/Drug Treatment Programs"], ["Jails - Community Supervision", "Electronic Monitoring Program"], ["Jails - Community Supervision", "Community Service"]
 					],
@@ -3877,7 +3878,7 @@
 			"children": [
 				{
 					"name": "Public Amenity Employment",
-					"source": "U.S. Census Bureau - Census of Individual Governments: Employment",
+					"source": "NACo Analysis of U.S. Census Bureau - Census of Individual Governments: Employment",
 					"years": [2007, 2008, 2009, 2010, 2011, 2012],
 					"companions": [["Public Amenity Employment", "Total Public Amenity"], ["Public Amenity Employment", "Natural Resources"], ["Public Amenity Employment", "Parks & Recreation"], ["Public Amenity Employment", "Libraries"]
 					],
@@ -3911,7 +3912,7 @@
 					]
 				}, {
 					"name": "Public Amenity Expenditures",
-					"source": "U.S. Census Bureau - Census of Individual Governments: Finance",
+					"source": "NACo Analysis of U.S. Census Bureau - Census of Individual Governments: Finance",
 					"years": [2007],
 					"companions": [["Public Amenity Expenditures", "Total Public Amenity"], ["Public Amenity Expenditures", "Natural Resources"], ["Public Amenity Expenditures", "Parks & Recreation"], ["Public Amenity Expenditures", "Libraries"]
 					],
@@ -3970,7 +3971,7 @@
 					]
 				}, {
 					"name": "Libraries",
-					"source": "Institute of Museum and Library Services - Public Libraries Survey (PLS)",
+					"source": "NACo Analysis of Institute of Museum and Library Services - Public Libraries Survey (PLS)",
 					"years": [2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011],
 					"companions": [["Libraries", "Number of Central Service Outlets"], ["Libraries", "Full Time Librarians"], ["Libraries", "Library Collections - Number of Print Materials"], ["Libraries", "Registered Borrowers"]
 					],
@@ -4140,7 +4141,7 @@
 			"children": [
 				{
 					"name": "Supplemental Nutrition Assistance Program (SNAP)",
-					"source": "U.S. Census Bureau,  2009-2013 American Community Survey 5-Year Estimates; U.S. Bureau of Economic Analysis Personal Current Transfer Receipts Data",
+					"source": "NACo Analysis of U.S. Census Bureau,  2009-2013 American Community Survey 5-Year Estimates; U.S. Bureau of Economic Analysis Personal Current Transfer Receipts Data",
 					"years": [2009, 2010, 2011, 2012, 2013],
 					"companions": [["Supplemental Nutrition Assistance Program (SNAP)", "SNAP Benefits"], ["Supplemental Nutrition Assistance Program (SNAP)", "SNAP Recipient Households"], ["Supplemental Nutrition Assistance Program (SNAP)", "SNAP Benefits per Household"]
 					],
@@ -4176,7 +4177,7 @@
 					]
 				}, {
 					"name": "Public Welfare Employment",
-					"source": "U.S. Census Bureau - Census of Individual Governments: Employment",
+					"source": "NACo Analysis of U.S. Census Bureau - Census of Individual Governments: Employment",
 					"years": [2007, 2008, 2009, 2010, 2011, 2012],
 					"companions": [["Public Welfare Expenditures", "Total Public Welfare"], ["Public Welfare Employment", "Public Welfare"], ["Public Welfare Expenditures", "Current Operations"], ["Public Welfare Expenditures", "Other Public Welfare"]
 					],
@@ -4195,7 +4196,7 @@
 					]
 				}, {
 					"name": "Public Welfare Expenditures",
-					"source": "U.S. Census Bureau - Census of Individual Governments: Finance",
+					"source": "NACo Analysis of U.S. Census Bureau - Census of Individual Governments: Finance",
 					"years": [2007],
 					"companions": [["Public Welfare Expenditures", "Total Public Welfare"], ["Public Welfare Employment", "Public Welfare"], ["Public Welfare Expenditures", "Current Operations"], ["Public Welfare Expenditures", "Other Public Welfare"]
 					],
@@ -4269,7 +4270,7 @@
 			"children": [
 				{
 					"name": "Transportation Employment",
-					"source": "U.S. Census Bureau - Census of Individual Governments: Employment",
+					"source": "NACo Analysis of U.S. Census Bureau - Census of Individual Governments: Employment",
 					"years": [2007, 2008, 2009, 2010, 2011, 2012],
 					"companions": [["Transportation Employment", "Total Transportation"], ["Transportation Employment", "Transit"], ["Transportation Employment", "Highways"], ["Transportation Employment", "Air Transportation"]
 					],
@@ -4308,7 +4309,7 @@
 					]
 				}, {
 					"name": "Transportation Expenditures",
-					"source": "U.S. Census Bureau - Census of Individual Governments: Finance",
+					"source": "NACo Analysis of U.S. Census Bureau - Census of Individual Governments: Finance",
 					"years": [2007],
 					"companions": [["Transportation Expenditures", "Total Transportation"], ["Transportation Expenditures", "Transit Utilities"], ["Transportation Expenditures", "Highways"], ["Transportation Expenditures", "Current Operations"]
 					],
@@ -4382,7 +4383,7 @@
 					]
 				}, {
 					"name": "Airports",
-					"source": "Federal Aviation Administration and Office of Aviation Analysis, U.S. Department of Transportation",
+					"source": "NACo Analysis of Federal Aviation Administration and Office of Aviation Analysis, U.S. Department of Transportation",
 					"years": [2013, 2014, 2015],
 					"companions": [["Airports", "County Airports"], ["Airports", "Commercial Aviation County Airports"], ["Airports", "Publicly Owned Airports"], ["Airports", "Privately Owned Airports"], ["Airports", "Number of Aircraft at County Airports"]
 					],
@@ -4438,7 +4439,7 @@
 					]
 				}, {
 					"name": "Bridges",
-					"source": "Federal Highway Administration - National Bridge Inventory",
+					"source": "NACo Analysis of Federal Highway Administration - National Bridge Inventory",
 					"years": [2007, 2008, 2009, 2010, 2011, 2012, 2013],
 					"companions": [["Bridges", "All Bridges - Total Bridges"], ["Bridges", "All Bridges - County Owned"], ["Bridges", "Structurally Deficient Bridges - County Owned"], ["Bridges", "Functionally Obsolete Bridges - County Owned"]
 					],
@@ -4543,7 +4544,7 @@
 					]
 				}, {
 					"name": "Road Classification",
-					"source": "Federal Highway Administration - Highway Performance Monitoring System",
+					"source": "NACo Analysis of Federal Highway Administration - Highway Performance Monitoring System",
 					"years": [2011],
 					"companions": [["Road Classification", "Total Public Road Miles"], ["Road Classification", "Share Interstate"], ["Road Classification", "Share Local"], ["Road Classification", "Share Other Freeway/Expressway"]
 					],
@@ -4612,9 +4613,8 @@
 					]
 				}, {
 					"name": "Road Ownership",
-					"source": "Federal Highway Administration - Highway Performance Monitoring System",
 					"years": [2008, 2011],
-					"source": "U.S. Department of Transportation – Federal Highway Administration, Highway Performance Monitoring System",
+					"source": "NACo Analysis of U.S. Department of Transportation – Federal Highway Administration, Highway Performance Monitoring System",
 					"vintage": 2011,
 					"companions": [["Road Ownership", "Total Public Road Miles"], ["Road Ownership", "Share County Highway Agency"], ["Road Ownership", "Share State Highway Agency"], ["Road Ownership", "Share Other Local Agencies"]
 					],
@@ -4728,6 +4728,47 @@
 							"definition": "Percentage public road miles under the control of any other agency out of all public roads."
 						}
 					]
+				}, {
+					"name": "Transportation Funding",
+					"years": [2014],
+					"source": "NACo Analysis of U.S. Department of Transportation – Federal Highway Administration, Highway Performance Monitoring System",
+					"companions": [["Transportation Funding", "Statewide Share of County Owned Roads"]
+					],
+					"children": [
+						{
+							"name": "Statewide Share of County Owned Roads",
+							"dataType": "percent",
+							"definition": "The Share of county-owned road miles out of publicly-owned roads statewide."
+						}, {
+							"name": "Statewide Share of County Owned Bridges",
+							"dataType": "percent",
+							"definition": "The share of county owned bridges out of public bridges statewide."
+						}, {
+							"name": "Statewide Structurally Deficient Share of County Bridges",
+							"dataType": "percent",
+							"definition": "The Share of structurally deficient bridges owned by counties out of total county bridges statewide."
+						}, {
+							"name": "Statewide Local Gov Share of Federal-aid Highway Miles",
+							"dataType": "percent",
+							"definition": "The Share of structurally deficient bridges owned by counties out of total county bridges statewide."
+						}, {
+							"name": "Statewide Local Gov Share of Roads",
+							"dataType": "percent",
+							"definition": "The Share of structurally deficient bridges owned by counties out of total county bridges statewide."
+						}, {
+							"name": "Statewide Local Gov Share of Bridges",
+							"dataType": "percent",
+							"definition": "The Share of structurally deficient bridges owned by counties out of total county bridges statewide."
+						}, {
+							"name": "Statewide Local Gov Share of Structurally Deficient Bridges",
+							"dataType": "percent",
+							"definition": "The Share of structurally deficient bridges owned by counties out of total county bridges statewide."
+						}, {
+							"name": "Statewide Local Gov Map-21 Transportation Funding",
+							"dataType": "percent",
+							"definition": "The Share of structurally deficient bridges owned by counties out of total county bridges statewide."
+						}
+					]
 				}
 			]
 		}, {
@@ -4735,7 +4776,7 @@
 			"children": [
 				{
 					"name": "Utility Employment",
-					"source": "U.S. Census Bureau - Census of Individual Governments: Employment",
+					"source": "NACo Analysis of U.S. Census Bureau - Census of Individual Governments: Employment",
 					"years": [2007, 2008, 2009, 2010, 2011, 2012],
 					"companions": [["Utility Employment", "Total Utility"], ["Utility Employment", "Electric Utilities"], ["Utility Employment", "Gas Utilities"], ["Utility Expenditures", "Total Utility"]
 					],
@@ -4764,7 +4805,7 @@
 					]
 				}, {
 					"name": "Utility Revenue",
-					"source": "U.S. Census Bureau - Census of Individual Governments: Finance",
+					"source": "NACo Analysis of U.S. Census Bureau - Census of Individual Governments: Finance",
 					"years": [2007],
 					"companions": [["Utility Revenue", "Total Utility"], ["Utility Revenue", "Electric Power Systems"], ["Utility Revenue", "Gas Supply Systems"], ["Utility Revenue", "Water Supply Systems"]
 					],
@@ -4803,7 +4844,7 @@
 					]
 				}, {
 					"name": "Utility Expenditures",
-					"source": "U.S. Census Bureau - Census of Individual Governments: Finance",
+					"source": "NACo Analysis of U.S. Census Bureau - Census of Individual Governments: Finance",
 					"years": [2007],
 					"vintage": 2014,
 					"companions": [["Utility Expenditures", "Total Utility"], ["Utility Expenditures", "Electric Utilities"], ["Utility Expenditures", "Gas Utilities"], ["Utility Expenditures", "Construction"]
@@ -4863,7 +4904,7 @@
 					]
 				}, {
 					"name": "Broadband Connections",
-					"source": "Federal Communications Commission",
+					"source": "NACo Analysis of Federal Communications Commission",
 					"years": [2011, 2012, 2013],
 					"companions": [["Broadband Connections", "Fixed Internet Connections"], ["Broadband Connections", "Fixed Internet Providers"], ["Broadband Connections", "Mobile Internet Providers"] 
 					],
@@ -4896,7 +4937,7 @@
 				{
 					"name": "Water, Sewerage & Solid Waste Employment",
 					"years": [2007, 2008, 2009, 2010, 2011, 2012],
-					"source": "U.S. Census Bureau - Census of Individual Governments: Employment",
+					"source": "NACo Analysis of U.S. Census Bureau - Census of Individual Governments: Employment",
 					"vintage": 2014,
 					"companions": [["Water, Sewerage & Solid Waste Employment", "Total Water, Sewerage & Solid Waste"], ["Water, Sewerage & Solid Waste Employment", "Sewerage"], ["Water, Sewerage & Solid Waste Employment", "Solid Waste"], ["Water, Sewerage & Solid Waste Employment", "Water Utilities"]
 					],
@@ -4926,7 +4967,7 @@
 				}, {
 					"name": "Water, Sewerage & Solid Waste Expenditures",
 					"years": [2007],
-					"source": "U.S. Census Bureau - Census of Individual Governments: Finance",
+					"source": "NACo Analysis of U.S. Census Bureau - Census of Individual Governments: Finance",
 					"vintage": 2014,
 					"companions": [["Water, Sewerage & Solid Waste Expenditures", "Total Water, Sewerage & Solid Waste Management"], ["Water, Sewerage & Solid Waste Expenditures", "Sewerage"], ["Water, Sewerage & Solid Waste Expenditures", "Solid Waste"], ["Water, Sewerage & Solid Waste Expenditures", "Water Utilities"]
 					],
@@ -4996,9 +5037,8 @@
 				{
 					"name": "MFA Profiles",
 					"source": "NACo Research",
-					"years": [2014],
-					"legend_title_footer": ", collected over 2007-2014",
-					"companions": [["County Tax Rates", "Sales Tax"], ["County Tax Rates", "State Sales Tax"]
+					"years": [2013],
+					"companions": [["MFA Profiles", "MFA Uncollected Revenue"], ["MFA Profiles", "MFA Uncollected Revenue"]
 					],
 					"children": [
 						{
@@ -5007,26 +5047,51 @@
 							"thresholds": [0.001, 0.01, 0.03, 0.05],
 							"definition": "The county sales tax rate.  Some rates may be median estimates calculated from a range of sales tax rates.",
 							"has_profile": true
+						}, {
+							"name": "MFA Uncollected Revenue",
+							"dataType": "level",
+							"unit": "dollars",
+							"definition": "The estimated revenue that would have been collected, had current local sales tax rates applied to online sales."
+						}, {
+							"name": "MFA Uncollected Revenue Growth Rate",
+							"yearSpan": "2011-2013",
+							"dataType": "level",
+							"unit": "dollars",
+							"definition": "The growth rate from 2011 to 2013 in the estimated revenue that would have been collected, had current local sales tax rates applied to online sales."
+						}, {
+							"name": "ITFA Forgone Revenue",
+							"dataType": "level",
+							"unit": "dollars",
+							"definition": "The estimated revenue that would have been collected, had the Internet Tax Freedom Act's provision preventing the taxation of broadband access not been in place."
+						}, {
+							"name": "ITFA Foregone Revenue Growth Rate",
+							"yearSpan": "2011-2013",
+							"dataType": "level",
+							"unit": "dollars",
+							"definition": "The growth rate from 2011 to 2013 in the estimated revenue that would have been collected, had the Internet Tax Freedom Act's provision preventing the taxation of broadband access not been in place."
 						}
 					]
 				}, {
 					"name": "Transportation Funding Profiles",
-					"source": "Federal Highway Administration, Highway Performance Monitoring System, 2011",
+					"source": "NACo Analysis of Federal Highway Administration, Highway Performance Monitoring System, 2011",
 					"years": [2014],
 					"companions": [["Bridges", "Structurally Deficient Bridges - County Owned"], ["Bridges", "Structurally Deficient Bridges - County Owned"]
 					],
 					"children": [
 						{
 							"name": "Transportation Funding Profiles",
-							"dataType": "level",
+							"dataType": "percent",
+							"companions": [["Transportation Funding", "Statewide Share of County Owned Roads"], ["Transportation Funding", "Statewide Share of County Owned Roads"]
+							],
 							"definition": "Profiles on state level transportation funding and financing for counties.",
 							"has_profile": true
 						}, {
 							"name": "MAP-21 Profiles",
-							"dataType": "level",
-							"source": "National Bridge Inventory, 2013",
+							"dataType": "percent",
+							"source": "NACo Analysis of National Bridge Inventory 2013 data",
 							"has_profile": true,
-							"companions": [["Bridges", "All Bridges - Local Government Owned"], ["Bridges", "All Bridges - Local Government Owned"]],
+							"companions": [["Transportation Funding", "Statewide Structurally Deficient Share of County Bridges"], ["Transportation Funding", "Statewide Structurally Deficient Share of County Bridges"]
+							],
 							"definition": "State level profiles of the MAP-21 decreases for locally-owned bridges & federal aid highways."
 						}
 					]
