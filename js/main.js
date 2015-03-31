@@ -224,7 +224,11 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 		setZoomIconBehavior();
 		setDataButtonBehavior();
 	};
-
+	//for statewide maps
+	var statewideInd = function() {
+		console.log("hi!");
+		//to-do
+	};
 	//Functions for Icons
 	var setIconBehavior = function() {		
 		$('#backToMapIcon, #backToMapIconText').on('click', function(e) {
@@ -371,6 +375,7 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 			//d3.select('#secondIndText').html('Secondary Indicator' + '<span class="sub-arrow"></span>');
 		}
 	};
+	
 	
 	var disableIndicators = function(type, name, indicator) {
 		// type is either category, dataset, or indicator (e.g. disableIndicators('category', 'Administration') or disableIndicators('dataset', 'County Profile') or disableIndicators('indicator', 'County Profile', 'Census Region'))
@@ -747,6 +752,9 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 		$('#perCapitaButton').removeClass('active');
 		if (isNumFun(currentDataType)) $('#perCapitaButton').removeClass('disabled');
 		else $('#perCapitaButton').addClass('disabled');
+		
+		//reset from statewide to statewide to county map
+		//TO-DO
 		
 		$(document.body).off('dataReceived'); // shady, should only be setting event observe once, instead of re-defining it every time
 		$(document.body).on('dataReceived', function(event, qbis, data) {

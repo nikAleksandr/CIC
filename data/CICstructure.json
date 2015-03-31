@@ -4137,7 +4137,7 @@
 				}
 			]
 		}, {
-			"name": "Public Welfare",
+			"name": "Social Services",
 			"children": [
 				{
 					"name": "Supplemental Nutrition Assistance Program (SNAP)",
@@ -4438,106 +4438,124 @@
 						}
 					]
 				}, {
-					"name": "Bridges",
+					"name": "All Bridges",
 					"source": "NACo Analysis of Federal Highway Administration - National Bridge Inventory",
 					"years": [2007, 2008, 2009, 2010, 2011, 2012, 2013],
-					"companions": [["Bridges", "All Bridges - Total Bridges"], ["Bridges", "All Bridges - County Owned"], ["Bridges", "Structurally Deficient Bridges - County Owned"], ["Bridges", "Functionally Obsolete Bridges - County Owned"]
+					"companions": [["All Bridges", "Total"], ["Functionally Obsolete Bridges", "Total"], ["Structurally Deficient Bridges", "Total"], ["All Bridges", "County Owned"], ["All Bridges", "Total"]
 					],
 					"children": [
 						{
-							"name": "All Bridges - Total Bridges",
+							"name": "Total",
 							"dataType": "level",
 							"definition": "Total number of bridges located in the county."
 						}, {
-							"name": "All Bridges - City/Town Owned",
+							"name": "City/Town Owned",
 							"dataType": "level",
 							"definition": "Total number of bridges owned by a Town or Township Highway Agency or a City or Municipal Highway Agency."
 						}, {
-							"name": "All Bridges - County Owned",
+							"name": "County Owned",
 							"dataType": "level",
 							"definition": "Total number of bridges owned by a County Highway Agency."
 						}, {
-							"name": "All Bridges - Local Government Owned",
+							"name": "Local Government Owned",
 							"dataType": "level",
 							"definition": "Total number of bridges owned by a town or township highway agency, a city or municipal highwya agency, or a county highway agency."
 						}, {
-							"name": "All Bridges - Federal Owned",
+							"name": "Federal Owned",
 							"dataType": "level",
 							"definition": "Total number of bridges owned by a Federal Agency. Includes the Indian Tribal Government, Bureau of Indian Affairs, Bureau of Fish and Wildlife, U.S. Forest Service, National Park Service, Tennessee Valley Authority, Bureau of Land Management, Bureau of Reclamation, Corps of Engineers, Air Force, Navy/Marines, Army, NASA, or the Metropolitan Washington Airports Service."
 						}, {
-							"name": "All Bridges - Privately Owned",
+							"name": "Privately Owned",
 							"dataType": "level",
 							"definition": "Total number of bridges owned by a Private agency."
 						}, {
-							"name": "All Bridges - State Owned",
+							"name": "State Owned",
 							"dataType": "level",
 							"definition": "Total number of bridges owned by a State Highway Agency, a State Park, Forest, or Reservation Agency, or Other State Agencies."
 						}, {
-							"name": "All Bridges - Local Owned",
+							"name": "Local Owned",
 							"dataType": "level",
 							"definition": "Total number of bridges owned by a Local Park, Forest, or Reservation Agency or Local Toll Authority, or Other Local Agencies."
-						}, {
-							"name": "Structurally Deficient Bridges - Total Bridges",
+						}
+					]
+				}, {
+					"name": "Structurally Deficient Bridges",
+					"source": "NACo Analysis of Federal Highway Administration - National Bridge Inventory",
+					"years": [2007, 2008, 2009, 2010, 2011, 2012, 2013],
+					"companions": [["All Bridges", "Total"], ["Functionally Obsolete Bridges", "Total"], ["Structurally Deficient Bridges", "Total"], ["Structurally Deficient Bridges", "County Owned"], ["All Bridges", "Total"]
+					],
+					"children": [ 
+						{
+							"name": "Total",
 							"dataType": "level",
 							"definition": "Total number of structurally deficient bridges; A highway bridge is classified as structurally deficient if the deck, superstructure, substructure, or culvert is rated in 'poor' condition (0 to 4 on the NBI rating scale). A bridge can also be classified as structurally deficient if its load carrying capacity is significantly below current design standards or if a waterway below frequently overtops the bridge during floods."
 						}, {
-							"name": "Structurally Deficient Bridges - City/Town Owned",
+							"name": "City/Town Owned",
 							"dataType": "level",
 							"definition": "Total number of structurally deficient bridges owned by a Town or Township Highway Agency or a City or Municipal Highway Agency."
 						}, {
-							"name": "Structurally Deficient Bridges - County Owned",
+							"name": "County Owned",
 							"dataType": "level",
 							"definition": "Total number of structurally deficient bridges owned by a County Highway Agency."
 						}, {
-							"name": "Structurally Deficient Bridges - Local Government Owned",
+							"name": "Local Government Owned",
 							"dataType": "level",
 							"definition": "Total number of structurally deficient bridges owned by a town or township highway agency, a city or municipal highwya agency, or a county highway agency."
 						}, {
-							"name": "Structurally Deficient Bridges - Federal Owned",
+							"name": "Federal Owned",
 							"dataType": "level",
 							"definition": "Total number of structurally deficient bridges owned by a Federal Agency. Includes the Indian Tribal Government, Bureau of Indian Affairs, Bureau of Fish and Wildlife, U.S. Forest Service, National Park Service, Tennessee Valley Authority, Bureau of Land Management, Bureau of Reclamation, Corps of Engineers, Air Force, Navy/Marines, Army, NASA, or the Metropolitan Washington Airports Service."
 						}, {
-							"name": "Structurally Deficient Bridges - Privately Owned",
+							"name": "Privately Owned",
 							"dataType": "level",
 							"definition": "Total number of structurally deficient bridges owned by a Private agency."
 						}, {
-							"name": "Structurally Deficient Bridges - State Owned",
+							"name": "State Owned",
 							"dataType": "level",
 							"definition": "Total number of structurally deficient bridges owned by a State Highway Agency, a State Park, Forest, or Reservation Agency, or Other State Agencies."
 						}, {
-							"name": "Structurally Deficient Bridges - Local Owned",
+							"name": "Local Owned",
 							"dataType": "level",
 							"definition": "Total number of structurally deficient bridges owned by a Local Park, Forest, or Reservation Agency or Local Toll Authority, or Other Local Agencies."
-						}, {
-							"name": "Functionally Obsolete Bridges - Total Bridges",
+						}
+					]
+				}, {
+					"name": "Functionally Obsolete Bridges",
+					"source": "NACo Analysis of Federal Highway Administration - National Bridge Inventory",
+					"years": [2007, 2008, 2009, 2010, 2011, 2012, 2013],
+					"companions": [["All Bridges", "Total"], ["Functionally Obsolete Bridges", "Total"], ["Structurally Deficient Bridges", "Total"], ["Functionally Obsolete Bridges", "County Owned"], ["All Bridges", "Total"]
+					],
+					"children": [
+						{
+							"name": "Total",
 							"dataType": "level",
 							"definition": "Total number of functionally obsolete bridges; 'Functionally obsolete' means that the design of a bridge is not suitable for its current use, such as lack of safety shoulders or the inability to handle current traffic volume, speed, size, or weight."
 						}, {
-							"name": "Functionally Obsolete Bridges - City/Town Owned",
+							"name": "City/Town Owned",
 							"dataType": "level",
 							"definition": "Total number of functionally obsolete bridges owned by a Town or Township Highway Agency or a City or Municipal Highway Agency."
 						}, {
-							"name": "Functionally Obsolete Bridges - County Owned",
+							"name": "County Owned",
 							"dataType": "level",
 							"definition": "Total number of functionally obsolete bridges owned by a County Highway Agency."
 						}, {
-							"name": "Functionally Obsolete Bridges - Local Government Owned",
+							"name": "Local Government Owned",
 							"dataType": "level",
 							"definition": "Total number of functionally obsolete bridges owned by a town or township highway agency, a city or municipal highwya agency, or a county highway agency."
 						}, {
-							"name": "Functionally Obsolete Bridges - Federal Owned",
+							"name": "Federal Owned",
 							"dataType": "level",
 							"definition": "Total number of functionally obsolete bridges owned by a Federal Agency. Includes the Indian Tribal Government, Bureau of Indian Affairs, Bureau of Fish and Wildlife, U.S. Forest Service, National Park Service, Tennessee Valley Authority, Bureau of Land Management, Bureau of Reclamation, Corps of Engineers, Air Force, Navy/Marines, Army, NASA, or the Metropolitan Washington Airports Service."
 						}, {
-							"name": "Functionally Obsolete Bridges - Privately Owned",
+							"name": "Privately Owned",
 							"dataType": "level",
 							"definition": "Total number of functionally obsolete bridges owned by a Private agency."
 						}, {
-							"name": "Functionally Obsolete Bridges - State Owned",
+							"name": "State Owned",
 							"dataType": "level",
 							"definition": "Total number of functionally obsolete bridges owned by a State Highway Agency, a State Park, Forest, or Reservation Agency, or Other State Agencies."
 						}, {
-							"name": "Functionally Obsolete Bridges - Local Owned",
+							"name": "Local Owned",
 							"dataType": "level",
 							"definition": "Total number of functionally obsolete bridges owned by a Local Park, Forest, or Reservation Agency or Local Toll Authority, or Other Local Agencies."
 						}
@@ -4732,7 +4750,7 @@
 					"name": "Transportation Funding",
 					"years": [2014],
 					"source": "NACo Analysis of U.S. Department of Transportation – Federal Highway Administration, Highway Performance Monitoring System",
-					"companions": [["Transportation Funding", "Statewide Share of County Owned Roads"]
+					"companions": [["Transportation Funding", "Statewide Local Gov Share of Federal-aid Highway Miles"], ["Transportation Funding", "Statewide Local Gov Share of Roads"], ["Transportation Funding", "Statewide Local Gov Share of Bridges"], ["Transportation Funding", "Statewide Structurally Deficient Share of Local Gov Bridges"], ["Transportation Funding", "Statewide Local Gov Map-21 Transportation Funding"]
 					],
 					"children": [
 						{
@@ -5037,34 +5055,33 @@
 				{
 					"name": "MFA Profiles",
 					"source": "NACo Research",
-					"years": [2014],
-					"companions": [["County Tax Rates", "Sales Tax"], ["County Tax Rates", "State Sales Tax"]
+					"years": [2013],
+					"companions": [["MFA Profiles", "Statewide MFA Uncollected Revenue"], ["MFA Profiles", "Statewide MFA Uncollected Revenue"], ["MFA Profiles", "Statewide MFA Uncollected Revenue Growth Rate"], ["MFA Profiles", "Statewide ITFA Forgone Revenue"], ["MFA Profiles", "Statewide ITFA Forgone Revenue Growth Rate"]
 					],
 					"children": [
 						{
 							"name": "MFA Profiles",
-							"dataType": "percent",
-							"thresholds": [0.001, 0.01, 0.03, 0.05],
+							"dataType": "level",
 							"definition": "The county sales tax rate.  Some rates may be median estimates calculated from a range of sales tax rates.",
 							"has_profile": true
 						}, {
-							"name": "MFA Uncollected Revenue",
+							"name": "Statewide MFA Uncollected Revenue",
 							"dataType": "level",
 							"unit": "dollars",
 							"definition": "The estimated revenue that would have been collected, had current local sales tax rates applied to online sales."
 						}, {
-							"name": "MFA Uncollected Revenue Growth Rate",
+							"name": "Statewide MFA Uncollected Revenue Growth Rate",
 							"yearSpan": "2011-2013",
 							"dataType": "level",
 							"unit": "dollars",
 							"definition": "The growth rate from 2011 to 2013 in the estimated revenue that would have been collected, had current local sales tax rates applied to online sales."
 						}, {
-							"name": "ITFA Forgone Revenue",
+							"name": "Statewide ITFA Forgone Revenue",
 							"dataType": "level",
 							"unit": "dollars",
 							"definition": "The estimated revenue that would have been collected, had the Internet Tax Freedom Act's provision preventing the taxation of broadband access not been in place."
 						}, {
-							"name": "ITFA Foregone Revenue Growth Rate",
+							"name": "Statewide ITFA Forgone Revenue Growth Rate",
 							"yearSpan": "2011-2013",
 							"dataType": "level",
 							"unit": "dollars",
@@ -5081,7 +5098,7 @@
 						{
 							"name": "Transportation Funding Profiles",
 							"dataType": "percent",
-							"companions": [["Transportation Funding", "Statewide Share of County Owned Roads"], ["Transportation Funding", "Statewide Share of County Owned Roads"]
+							"companions": [["Transportation Funding", "Statewide Share of County Owned Roads"], ["Transportation Funding", "Statewide Share of County Owned Roads"], ["Transportation Funding", "Statewide Share of County Owned Bridges"], ["Transportation Funding", "Statewide Structurally Deficient Share of County Bridges"]
 							],
 							"definition": "Profiles on state level transportation funding and financing for counties.",
 							"has_profile": true
@@ -5090,7 +5107,7 @@
 							"dataType": "percent",
 							"source": "NACo Analysis of National Bridge Inventory 2013 data",
 							"has_profile": true,
-							"companions": [["Transportation Funding", "Statewide Structurally Deficient Share of County Bridges"], ["Transportation Funding", "Statewide Structurally Deficient Share of County Bridges"]
+							"companions": [["Transportation Funding", "Statewide Structurally Deficient Share of Local Gov Bridges"], ["Transportation Funding", "Statewide Local Gov Share of Federal-aid Highway Miles"], ["Transportation Funding", "Statewide Local Gov Share of Roads"], ["Transportation Funding", "Statewide Local Gov Share of Bridges"], ["Transportation Funding", "Statewide Local Gov Map-21 Transportation Funding"], ["Transportation Funding", "Statewide Structurally Deficient Share of Local Gov Bridges"]
 							],
 							"definition": "State level profiles of the MAP-21 decreases for locally-owned bridges & federal aid highways."
 						}
