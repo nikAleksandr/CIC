@@ -29,11 +29,11 @@ COUNTY_DATA	County_Name	Geography
 COUNTY_DATA	State	Geography			
 COUNTY_DATA	Population_2010	Geography			
 COUNTY_DATA	Population_Size	Geography			
-COUNTY_DATA	County_Seat	Geography	County Profile	County Seat	"Administrative center for the county.  Most counties have only one county seat. However, some counties in Alabama, Arkansas, Iowa, Kentucky, Massachusetts, Mississippi, Missouri, New Hampshire, New York, North Carolina, and Vermont have two or more county seats, usually located on opposite sides of the county."
-COUNTY_DATA	Founded	Geography	County Profile	Year Founded	Year the county was recognized by the state
-COUNTY_DATA	Year_Consolidated	Geography	County Profile	Year Consolidated	
+COUNTY_DATA	County_Seat	Geography	County Basics	County Seat	"Administrative center for the county.  Most counties have only one county seat. However, some counties in Alabama, Arkansas, Iowa, Kentucky, Massachusetts, Mississippi, Missouri, New Hampshire, New York, North Carolina, and Vermont have two or more county seats, usually located on opposite sides of the county."
+COUNTY_DATA	Founded	Geography	County Basics	Year Founded	Year the county was recognized by the state
+COUNTY_DATA	Year_Consolidated	Geography	County Basics	Year Consolidated	
 COUNTY_DATA	Year_Consolidated	County Structure	City-County Consolidations	Year Consolidated	
-COUNTY_DATA	Board_Size	Geography	County Profile	Board Size	Nubmer of representatives elected to the county board
+COUNTY_DATA	Board_Size	Geography	County Basics	Board Size	Nubmer of representatives elected to the county board
 COUNTY_DATA	Board_Size	Geography	Government Structure	Size of Board	The size of the elected governing body of the county (number of board members).
 COUNTY_DATA	Gov_Type	County Structure	City-County Consolidations	Government Type	The type of government of the county.
 COUNTY_DATA	consolidation	County Structure	City-County Consolidations	Consolidation	
@@ -54,11 +54,11 @@ COUNTY_DATA	Total_Land_Square_Miles	Geography	Land & Water Area	Total Land Squar
 COUNTY_DATA	Total_Water_Square_Miles	Geography	Land & Water Area	Total Water Square Miles	Total square miles within the county's geographical boundaries made up of waterways.
 COUNTY_DATA	Coastal_Status	Geography	Land & Water Area	Coastal Status	Indicates whether a county is considered coastal. A county is considered coastal if it meets one of the following two criteria: 1) least 15 percent of its total land area is located within the nation's coastal watershed or 2) a portion of the entire county accounts for at least 15 percent of a coastal cataloging unit (an individual drainage basin).
 COUNTY_DATA	Coastal_Body_of_Water	Geography	Land & Water Area	Body of Water	The body of water in the county into which tributaries feed (e.g. a river leads into the Atlantic Ocean so the Atlantic Ocean is listed)
-COUNTY_DATA	Total_Square_Miles_GEODATA	Geography	County Profile	County Square Mileage	Total land square miles within the county's geographical boundaries
-COUNTY_DATA	Census_Region	Geography	County Profile	Census Region	"Groupings of states and the District of Columbia that subdivide the United States for the presentation of census data. There are four census regions - Northeast, Midwest, South and West."
-COUNTY_DATA	State_Capital	Geography	County Profile	State Capitol	The city within the county where the state capital is located.  This field is left blank for counties that do not include the state capital.
-COUNTY_DATA	CBSA_Code	Geography	County Profile	CBSA Code	The Core Based Statistical Area code for the county. A 5 digit numeric code that is assigned alphabetically based on title and is unique within the nation.
-COUNTY_DATA	CBSA_Title	Geography	County Profile	CBSA Title	The title of the Core Based Statistical Area the county is located in.
+COUNTY_DATA	Total_Square_Miles_GEODATA	Geography	County Basics	County Square Mileage	Total land square miles within the county's geographical boundaries
+COUNTY_DATA	Census_Region	Geography	County Basics	Census Region	"Groupings of states and the District of Columbia that subdivide the United States for the presentation of census data. There are four census regions - Northeast, Midwest, South and West."
+COUNTY_DATA	State_Capital	Geography	County Basics	State Capitol	The city within the county where the state capital is located.  This field is left blank for counties that do not include the state capital.
+COUNTY_DATA	CBSA_Code	Geography	County Basics	CBSA Code	The Core Based Statistical Area code for the county. A 5 digit numeric code that is assigned alphabetically based on title and is unique within the nation.
+COUNTY_DATA	CBSA_Title	Geography	County Basics	CBSA Title	The title of the Core Based Statistical Area the county is located in.
 COUNTY_DATA	CBSA_Name				
 COUNTY_DATA	CBSA_Code	Geography	Metro-Micro Areas (MSA)	CBSA Code	The Core Based Statistical Area code for the county. A 5 digit numeric code that is assigned alphabetically based on title and is unique within the nation.
 COUNTY_DATA	CBSA_Title	Geography	Metro-Micro Areas (MSA)	CBSA Title	The title of the Core Based Statistical Area the county is located in.
@@ -125,7 +125,11 @@ County_Finance	CR_Tax_Rev_License_Taxes	County Finance	Tax Revenue	License Taxes
 County_Finance	CR_Tax_Rev_Other_Taxes	County Finance	Tax Revenue	Other Taxes	"Selective sales and gross receipts taxes relating to specific commodities, businesses, or services not separately enumerated (lubrication oil, fuel other than motor fuel, meals, margarine, cement, etc.)."
 County_Finance	CR_Tax_Rev_Property_Taxes	County Finance	Tax Revenue	Property Taxes	"Total amount of taxes conditioned on ownership of property and measured by its value. Includes general property taxes related to property as a whole, real and personal, tangible or intangible, whether taxed at a single rate or at classified rates, and taxes on selected types of property, such as motor vehicles, or on certain or all intangibles."
 County_Finance	CR_Tax_Rev_Sales_and_Gross_Receipts_Taxes	County Finance	Tax Revenue	Sales & Gross Receipts Taxes	"Taxes on goods and services, measured on the basis of the volume or value of their transfer, upon gross receipts or gross income therefrom, or as an amount per unit sold (gallon, package, etc.); and related taxes based upon use, storage, production, importation, or consumption of goods and services. Includes licenses levied at more than minor rates. Excludes dealer discounts or “commissions” allowed to merchants for collecting taxes; taxes on the severance of natural resources, measured by value or quantity severed (report at Severance Taxes, code T53), except when imposed as a part of and at the same rate as general sales or gross receipts taxes."
-XCounty_Finance	County_Tax_Sales_Use_Tax	County Profiles	MFA Profiles	MFA Profiles	
+UTILITY	MFA_uncollected_revenue_2013	County Profiles	MFA Profiles	MFA Profiles	
+UTILITY	MFA_uncollected_revenue_2013	County Profiles	MFA Profiles	MFA Uncollected Revenue	
+UTILITY	MFA_Uncollected_revenue_2011_2013_Growth	County Profiles	MFA Profiles	MFA Uncollected Revenue Growth Rate	
+UTILITY	ITFA _Forgone_Revenue_2013	County Profiles	MFA Profiles	ITFA Forgone Revenue	
+UTILITY	ITFA_Forgone_Revenue_2011_2013	County Profiles	MFA Profiles	ITFA Forgone Revenue Growth Rate	
 XCounty_Finance	County_Tax_Sales_Use_Tax	County Finance	County Tax Rates	Sales Tax	
 XCounty_Finance	County_Tax_State_Tax	County Finance	County Tax Rates	State Sales Tax	
 XCounty_Finance	County_Tax_County_Tax_Year_Collected	County Finance	County Tax Rates	Sales Tax Year Collected	
@@ -626,10 +630,15 @@ Transportation	Structurally_Deficient_Bridges_City_Town_Owned	Transportation	Bri
 Transportation	Structurally_Deficient_Bridges_County_Owned	Transportation	Bridges	Structurally Deficient Bridges - County Owned	Total number of structurally deficient bridges owned by a County Highway Agency.
 Transportation	Structurally_Deficient_Bridges_Local_Govt_Owned	Transportation	Bridges	Structurally Deficient Bridges - Local Government Owned	
 Transportation	SRS_Statewide_Share_County_Owned_Road_Miles	Transportation	Transportation Funding Profiles	Transportation Funding Profiles	
-Transportation	SRS_Statewide_Share_Structurally_Deficient_County_Bridges	Transportation	Transportation Funding Profiles	MAP-21 Profiles	
+Transportation	M21_Statewide_Local_Gov_Share_Structurally_Deficient_Bridges	Transportation	Transportation Funding Profiles	MAP-21 Profiles	
 Transportation	SRS_Statewide_Share_County_Owned_Road_Miles	Transportation	Transportation Funding	Statewide Share of County Owned Roads	
 Transportation	SRS_Statewide_Share_County_Owned_Bridges	Transportation	Transportation Funding	Statewide Share of County Owned Bridges	
 Transportation	SRS_Statewide_Share_Structurally_Deficient_County_Bridges	Transportation	Transportation Funding	Statewide Structurally Deficient Share of County Bridges	
+Transportation	M21_Statewide_Local_Gov_Share_Fed_Aid_Highway_Miles	Transportation	Transportation Funding	Statewide Local Gov Share of Federal-aid Highway Miles	
+Transportation	M21_Statewide_Local_Gov_Share_Roads	Transportation	Transportation Funding	Statewide Local Gov Share of Roads	
+Transportation	M21_Statewide_Local_Gov_Share_Bridges	Transportation	Transportation Funding	Statewide Local Gov Share of Bridges	
+Transportation	M21_Statewide_Local_Gov_Share_Structurally_Deficient_Bridges	Transportation	Transportation Funding	Statewide Structurally Deficient Share of Local Gov Bridges	
+Transportation	M21_Statewide_Local_Gov_MAP21_Trans_Funding	Transportation	Transportation Funding	Statewide Local Gov Map-21 Transportation Funding	
 Transportation	Structurally_Deficient_Bridges_Federal_Owned	Transportation	Bridges	Structurally Deficient Bridges - Federal Owned	"Total number of structurally deficient bridges owned by a Federal Agency. Includes the Indian Tribal Government, Bureau of Indian Affairs, Bureau of Fish and Wildlife, U.S. Forest Service, National Park Service, Tennessee Valley Authority, Bureau of Land Management, Bureau of Reclamation, Corps of Engineers, Air Force, Navy/Marines, Army, NASA, or the Metropolitan Washington Airports Service."
 Transportation	Structurally_Deficient_Bridges_Local_Owned	Transportation	Bridges	Structurally Deficient Bridges - Local Owned	"Total number of structurally deficient bridges owned by a Local Park, Forest, or Reservation Agency or Local Toll Authority, or Other Local Agencies."
 Transportation	Structurally_Deficient_Bridges_Privately_Owned	Transportation	Bridges	Structurally Deficient Bridges - Privately Owned	Total number of structurally deficient bridges owned by a Private agency.

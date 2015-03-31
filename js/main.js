@@ -654,7 +654,7 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 						window.open('http://explorer.naco.org/profiles/state_muniBonds/state_bonds_profiles' + state + '.pdf', '_blank');
 					} else if (currentDI === 'Payment in Lieu of Taxes (PILT) - PILT Profiles') {
 						if (quantByIds[0][+FIPS] === 0) {
-							noty({text: '<strong>No Profile Available</strong></br>This county did not receive PILT in 2014!'});
+							window.open('http://explorer.naco.org/profiles/PILT/National_PILT.pdf', '_blank');
 						} else {
 							window.open('http://explorer.naco.org/profiles/PILT/' + county.geography + '.pdf', '_blank');
 						}
@@ -681,7 +681,7 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 						}
 					}  else if (currentDI === "U.S. Ex-Im Bank Financing - U.S. Ex-Im Bank County Profiles") {
 						if (quantByIds[0][+FIPS] === 0) {
-							noty({text: '<strong>No Profile Available</strong></br>This county did not receive direct Ex-Im Support.'});
+							noty({text: '<strong>No Profile Available</strong></br>Businesses located in this county have not received export financing support from the U.S. Ex-Im Bank between 2007 and 2014.'});
 						} else {
 							var countyName = parseCountyName(+FIPS, county.geography);
 							countyName = countyName.replace(/\s/g, '');

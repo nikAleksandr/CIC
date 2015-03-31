@@ -2774,10 +2774,10 @@
 			"name": "Geography",
 			"children": [
 				{
-					"name": "County Profile",
+					"name": "County Basics",
 					"source": "NACo Analysis of U.S. Census Bureau, NACo Research",
 					"years": [2013],
-					"companions": [["County Profile", "Census Region"], ["County Profile", "Year Founded"], ["County Profile", "County Square Mileage"], ["County Profile", "Board Size"]
+					"companions": [["County Basics", "Census Region"], ["County Basics", "Year Founded"], ["County Basics", "County Square Mileage"], ["County Basics", "Board Size"]
 					],
 					"children": [
 						{
@@ -2829,7 +2829,7 @@
 					"name": "Land & Water Area",
 					"source": "NACo Analysis of U.S. Census Bureau - Gazetteer, NACo Research - Counties with NOAA Trust Resources",
 					"years": [2010],
-					"companions": [["County Profile", "Census Region"], ["County Profile", "Year Founded"], ["County Profile", "County Square Mileage"], ["County Profile", "Board Size"]
+					"companions": [["County Basics", "Census Region"], ["County Basics", "Year Founded"], ["County Basics", "County Square Mileage"], ["County Basics", "Board Size"]
 					],
 					"children": [
 						{
@@ -2858,7 +2858,7 @@
 					"name": "Metro-Micro Areas (MSA)",
 					"source": "NACo Analysis of U.S. Census Bureau",
 					"years": [2013],
-					"companions": [["County Profile", "Census Region"], ["Metro-Micro Areas (MSA)", "CBSA Title"], ["Metro-Micro Areas (MSA)", "CSA Title"], ["Metro-Micro Areas (MSA)", "County Status"]
+					"companions": [["County Basics", "Census Region"], ["Metro-Micro Areas (MSA)", "CBSA Title"], ["Metro-Micro Areas (MSA)", "CSA Title"], ["Metro-Micro Areas (MSA)", "County Status"]
 					],
 					"children": [
 						{
@@ -4760,7 +4760,7 @@
 							"dataType": "percent",
 							"definition": "The Share of structurally deficient bridges owned by counties out of total county bridges statewide."
 						}, {
-							"name": "Statewide Local Gov Share of Structurally Deficient Bridges",
+							"name": "Statewide Structurally Deficient Share of Local Gov Bridges",
 							"dataType": "percent",
 							"definition": "The Share of structurally deficient bridges owned by counties out of total county bridges statewide."
 						}, {
@@ -5037,8 +5037,8 @@
 				{
 					"name": "MFA Profiles",
 					"source": "NACo Research",
-					"years": [2013],
-					"companions": [["MFA Profiles", "MFA Uncollected Revenue"], ["MFA Profiles", "MFA Uncollected Revenue"]
+					"years": [2014],
+					"companions": [["County Tax Rates", "Sales Tax"], ["County Tax Rates", "State Sales Tax"]
 					],
 					"children": [
 						{
@@ -5073,7 +5073,7 @@
 					]
 				}, {
 					"name": "Transportation Funding Profiles",
-					"source": "NACo Analysis of Federal Highway Administration, Highway Performance Monitoring System, 2011",
+					"source": "NACo Analysis of Federal Highway Administration, Highway Performance Monitoring System 2011 data",
 					"years": [2014],
 					"companions": [["Bridges", "Structurally Deficient Bridges - County Owned"], ["Bridges", "Structurally Deficient Bridges - County Owned"]
 					],
