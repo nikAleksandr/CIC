@@ -275,6 +275,7 @@ Transportation	Discretionary_AIP_Amount	Federal Funding	Airports Funding	Airport
 Transportation	Annual_EAS_Subsidy_Rates	Federal Funding	Airports Funding	Essential Air Service Annual Subsidy	
 Federal_Funding	ADDI	Federal Funding	American Dream Downpayment Initiative (ADDI)	ADDI Amount	Funding received for the American Dream Downpayment Initiative program
 Federal_Funding	ADDI_Trend	Federal Funding	American Dream Downpayment Initiative (ADDI)	ADDI Annual Growth Rate (from previous year)	Percent change in funding for the American Dream Downpayment Initiative program from the previous year
+Federal_Funding	CDBG	Federal Funding	Community Development Block Grants (CDBG)	CDBG Profiles	
 Federal_Funding	CDBG	Federal Funding	Community Development Block Grants (CDBG)	CDBG Amount	Funding received for the Community Development Block Grants program
 Federal_Funding	CDBG_Trend	Federal Funding	Community Development Block Grants (CDBG)	CDBG Annual Growth Rate (from previous year)	Percent change in funding for the Community Development Block Grants program from the previous year
 Federal_Funding	ESG_2011_Stage1	Federal Funding	Emergency Shelter Grants (ESG)		
@@ -388,10 +389,47 @@ Health_Hospitals	Nursing_Home_Number_of_Residents	Health & Hospitals	Nursing Hom
 Health_Hospitals	Nursing_Home_Percent_of_Occupied_Beds	Health & Hospitals	Nursing Homes	Percent of Occupied Beds	The percentage of occupied beds in all the nursing homes facilities in the county. Also the ratio of number of residents to number of certified beds.
 Health_Hospitals	Nursing_Home_Number_of_Continuing_Care_Retirement_Facilities	Health & Hospitals	Nursing Homes	Number of Continuing Care Retirement Facilities	The number of facilities designated as a 'Continuing Care Facility' that has flexible accomodations that are designed to meet residents changing needs over time
 Health_Hospitals	Nursing_Home_Number_of_Special_Focus_Facilities	Health & Hospitals	Nursing Homes	Number of Special Focus Facilities	The number of facilities designated as having a specific focus.
-Housing_Community_Development	KEYID	Housing & Community Development			
-Housing_Community_Development	FIPS	Housing & Community Development			
-Housing_Community_Development	DATA_YEAR	Housing & Community Development			
-Housing_Community_Development	Population_Size	Housing & Community Development			
+Health_Hospitals	CHR_potential_yearslost	Health & Hospitals	County Health Rankings: Health Outcomes	Premature Death Rate	
+Health_Hospitals	CHR_pct_fairpoor_health	Health & Hospitals	County Health Rankings: Health Outcomes	Poor or Fair Health	
+Health_Hospitals	CHR_physically_unhealthydays	Health & Hospitals	County Health Rankings: Health Outcomes	Physically Unhealthy Days	
+Health_Hospitals	CHR_mentally_unhealthydays	Health & Hospitals	County Health Rankings: Health Outcomes	Mentally Unhealthy Days	
+Health_Hospitals	CHR_pct_low_birth_weight	Health & Hospitals	County Health Rankings: Health Outcomes	Low Birthweight Rate	
+Health_Hospitals	CHR_pct_smoking	Health & Hospitals	County Health Rankings: Health Behaviors	Smoking Rate	
+Health_Hospitals	CHR_pct_obesity	Health & Hospitals	County Health Rankings: Health Behaviors	Obesity Rate	
+Health_Hospitals	CHR_food_environment_index	Health & Hospitals	County Health Rankings: Health Behaviors	Food Environment Index	
+Health_Hospitals	CHR_pct_physically_inactive	Health & Hospitals	County Health Rankings: Health Behaviors	Percent Physically Inactive	
+Health_Hospitals	CHR_pct_access_exercise	Health & Hospitals	County Health Rankings: Health Behaviors	Percent with Access to Exercise	
+Health_Hospitals	CHR_pct_excessive_drinking	Health & Hospitals	County Health Rankings: Health Behaviors	Excessive Drinking Rate	
+Health_Hospitals	CHR_pct_drivingdeaths_alcohol	Health & Hospitals	County Health Rankings: Health Behaviors	Alcohol-related Share of Driving Deaths	
+Health_Hospitals	CHR_chlamydia_rate	Health & Hospitals	County Health Rankings: Health Behaviors	Chlamydia Rate	
+Health_Hospitals	CHR_teenbirth_rate	Health & Hospitals	County Health Rankings: Health Behaviors	Teen Birth Rate	
+Health_Hospitals	CHR_pct_uninsured	Health & Hospitals	County Health Rankings: Clinical Care	Percent Uninsured	
+Health_Hospitals	CHR_primary_care_physicians_ratio	Health & Hospitals	County Health Rankings: Clinical Care	Primary Care Physician Ratio	
+Health_Hospitals	CHR_dentist_ratio	Health & Hospitals	County Health Rankings: Clinical Care	Dentist Ratio	
+Health_Hospitals	CHR_mental_health_provider_ratio	Health & Hospitals	County Health Rankings: Clinical Care	Mental Health Provider Ratio	
+Health_Hospitals	CHR_preventable_hospital_stays_rate	Health & Hospitals	County Health Rankings: Clinical Care	Preventable Hospital Stays Rate	
+Health_Hospitals	CHR_pct_receiving_hba1c	Health & Hospitals	County Health Rankings: Clinical Care	Diabetic Monitoring Rate	
+Health_Hospitals	CHR_pct_mammography	Health & Hospitals	County Health Rankings: Clinical Care	Mammography Rate	
+Health_Hospitals	CHR_high_school_grad_rate		County Health Rankings: Social & Economic Environment	High School Graduation Rate	
+Health_Hospitals	CHR_pct_some_college		County Health Rankings: Social & Economic Environment	Percent with Some College	
+Health_Hospitals	CHR_pct_unemployed		County Health Rankings: Social & Economic Environment	Percent Unemployed	
+Health_Hospitals	CHR_pct_child_poverty		County Health Rankings: Social & Economic Environment	Child Poverty Rate	
+Health_Hospitals	CHR_income_ratio		County Health Rankings: Social & Economic Environment	Income Inequality Ratio	
+Health_Hospitals	CHR_pct_single_parent_hh		County Health Rankings: Social & Economic Environment	Percent Single Parent Household	
+Health_Hospitals	CHR_social_association_rate		County Health Rankings: Social & Economic Environment	Social Association Rate	
+Health_Hospitals	CHR_violent_crime_rate		County Health Rankings: Social & Economic Environment	Violent Crime Rate	
+Health_Hospitals	CHR_injury_death_rate		County Health Rankings: Social & Economic Environment	Injury Death Rate	
+Health_Hospitals	CHR_avg_daily_pm25		County Health Rankings: Physical Environment	Air Pollution	
+Health_Hospitals	CHR_pct_water_violations		County Health Rankings: Physical Environment	Drinking Water Violations	
+Health_Hospitals	CHR_pct_housing_severe_problems		County Health Rankings: Physical Environment	Percent with Severe Housing Problems	
+Health_Hospitals	CHR_pct_drive_alone		County Health Rankings: Physical Environment	Percent Driving Alone to Work	
+Health_Hospitals	CHR_pct_longcommute_drivealone		County Health Rankings: Physical Environment	Percent with Long Commutes Alone to Work	
+Health_Hospitals	CHR_health_outcomes_rank_in_state		County Health Rankings: Ranks	Health Outcomes Rank in State	
+Health_Hospitals	CHR_health_factors_rank_in_state		County Health Rankings: Ranks	Health Factors Rank in State	
+Housing_Community_Development	KEYID				
+Housing_Community_Development	FIPS				
+Housing_Community_Development	DATA_YEAR				
+Housing_Community_Development	Population_Size				
 Administration	Admin_Empl_Total_County_FTE	Housing & Community Development	Housing & Community Development Employment	Total County	The number of Full-time equivalent (FTE) employees for each county is a computed statistic representing the number of full-time employees that could have been employed if the reported number of hours worked by part-time employees had been worked by full-time employees.
 Housing_Community_Development	Housing_Units	Housing & Community Development	Housing Units	Number of Housing Units	"The number of housing units located in the county. A housing unit may be a house, an apartment, a mobile home, a group of rooms or a single room that is occupied (or, if vacant, intended for occupancy) as separate living quarters."
 Housing_Community_Development	Average_Household_Size	Housing & Community Development	Housing Units	Average Household Size	"The average number of people occupying a single housing unit in the county. This includes the householder, occupants related to the householder, lodgers, roomers, boarders, and so forth."
@@ -417,10 +455,10 @@ County_Finance	CE_Housing__Community_Development_Construction	Housing & Communit
 County_Finance	CE_Housing__Community_Development_Other_Capital_Outlay	Housing & Community Development	Housing & Community Development Expenditures	Other Capital Outlay	"Direct expenditure for contract or force account construction of buildings, grounds, and other improvements, and purchase of equipment, land, and existing structures. Includes amounts for additions, replacements, and major alterations to fixed works and structures. However, expenditure for repairs to such works and structures is classified as current operation expenditure."
 County_Finance	CE_Housing__Community_Development_Intergovernmental_to_State	Housing & Community Development	Housing & Community Development Expenditures	Intergovernmental to State	"Amounts paid to the state government for performance of specific functions or for general financial support. Includes grants, shared taxes, contingent loans and advances, and any significant and identifiable amounts or reimbursement paid to other governments for performance of general government services or activities. By definition, it excludes amounts paid to other governments for purchase of commodities, property, or utility services and for any tax levied as such on facilities of the government."
 County_Finance	CE_Housing__Community_Development_Intergovernmental_to_Local	Housing & Community Development	Housing & Community Development Expenditures	Intergovernmental to Local	"Amounts paid to other local governments government for performance of specific functions or for general financial support. Includes grants, shared taxes, contingent loans and advances, and any significant and identifiable amounts or reimbursement paid to other governments for performance of general government services or activities. By definition, it excludes amounts paid to other governments for purchase of commodities, property, or utility services and for any tax levied as such on facilities of the government."
-Justice_Public_Safety	KEYID	Justice & Public Safety			
-Justice_Public_Safety	FIPS	Justice & Public Safety			
-Justice_Public_Safety	DATA_YEAR	Justice & Public Safety			
-Administration	Admin_Empl_Total_County_FTE	Justice & Public Safety	Justice & Public Safety Employment	Total County	The number of Full-time equivalent (FTE) employees for each county is a computed statistic representing the number of full-time employees that could have been employed if the reported number of hours worked by part-time employees had been worked by full-time employees.
+Justice_Public_Safety	KEYID	Housing & Community Development			
+Justice_Public_Safety	FIPS	Housing & Community Development			
+Justice_Public_Safety	DATA_YEAR	Housing & Community Development			
+Administration	Admin_Empl_Total_County_FTE	Housing & Community Development	Justice & Public Safety Employment	Total County	The number of Full-time equivalent (FTE) employees for each county is a computed statistic representing the number of full-time employees that could have been employed if the reported number of hours worked by part-time employees had been worked by full-time employees.
 Justice_Public_Safety	Employment_Total_Justice_and_Public_Safety	Justice & Public Safety	Justice & Public Safety Employment	Total Justice & Public Safety	"Number of FTEs working on correction, judicial and legal services, and police protection. Correctional Institutions: Residential institutions or facilities for the confinement, correction, and rehabilitation of convicted adults, or juveniles adjudicated, delinquent or in need of supervision, and for the detention of adults and juveniles charged with a crime and awaiting trial. Judicial and Legal : Courts (criminal and civil) and activities associated with courts, legal services, and legal counseling of indigent or other needy persons. Police protection: sheriff, state police, and other governmental departments that preserve law and order, protect persons and property from illegal acts, and work to prevent, control, investigate, and reduce crime."
 Justice_Public_Safety	Employment_Corrections	Justice & Public Safety	Justice & Public Safety Employment	Correction	"Number of FTEs working on Correctional Institutions: Residential institutions or facilities for the confinement, correction, and rehabilitation of convicted adults, or juveniles adjudicated, delinquent or in need of supervision, and for the detention of adults and juveniles charged with a crime and awaiting trial.      Other Corrections: Correctional activities other than Federal, state and local residential institutions or facilities."
 Justice_Public_Safety	Employment_Judicial_and_Legal	Justice & Public Safety	Justice & Public Safety Employment	Judicial & Legal Services	"Number of FTEs working on Courts (criminal and civil) and activities associated with courts, legal services, and legal counseling of indigent or other needy persons."
@@ -500,10 +538,10 @@ Justice_Public_Safety	PBS_County_Operated_Courts	Justice & Public Safety	Public 
 Justice_Public_Safety	PBS_Elected_Judges	Justice & Public Safety	Public Safety Structure	Elected Judges	Indicates whether the trial court judges for the county level court(s) is elected in an election by county constituents.  Elected judges are often elected to serve a specific term; this does not include the selection process to fill vacancies of judges who do not serve their full term.  Judges can also be appointed by a governing board or authority including a merit committee or judicial nominating commission.
 Justice_Public_Safety	PBS_Elected_Clerks_of_Court	Justice & Public Safety	Public Safety Structure	Elected Clerks of Court	"Indicates whether the clerk of court, who primarily serves as the official record keeper for the courts, is elected as a county position. The responsibilities of the clerk of court vary by state or county statute, but can include maintaining and archiving the records of the court such as marriage licenses, mortgage records and birth certificates. The clerk of court is also be responsible for caseflow management, administering oaths, collecting fines and fees, and jury selection."
 Justice_Public_Safety	PBS_Elected_District_Attorney	Justice & Public Safety	Public Safety Structure	Elected District Attorney	"Indicates whether the official charged with representing the county government in the prosecution of criminal offenses is elected by county constituents. The position can be called many things, including district attorney, county attorney, and county prosecutor. In some states, this responsibility is taken care of on the state level, so there is no such county position."
-Public_Amenity	KEYID	Public Amenity			
-Public_Amenity	FIPS	Public Amenity			
-Public_Amenity	DATA_YEAR	Public Amenity			
-Public_Amenity	Number_of_Libraries	Public Amenity	Libraries		
+Public_Amenity	KEYID	Justice & Public Safety			
+Public_Amenity	FIPS	Justice & Public Safety			
+Public_Amenity	DATA_YEAR	Justice & Public Safety			
+Public_Amenity	Number_of_Libraries	Justice & Public Safety	Libraries		
 Public_Amenity	Library_Number_of_Central_Service_Outlets	Public Amenity	Libraries	Number of Central Service Outlets	"Number of central libraries, which are one type of single outlet library (SO) or the library, which is the operational center of a multiple-outlet library (MO or MA). Usually all processing is centralized here and the principal collections are housed here. Synonymous with main library."
 Public_Amenity	Library_Number_of_Branches	Public Amenity	Libraries	Number of Branches	Number of branch libraries which are an auxiliary unit of an administrative entity which has at least all of the following:  Separate quarters; An organized collection of library materials; Paid staff; and Regularly scheduled hours for being open to the public.
 Public_Amenity	Library_Number_of_Bookmobiles	Public Amenity	Libraries	Number of Bookmobiles	Number of bookmobiles in the county. A bookmobile is a traveling branch library. It consists of at least one of the following: A truck or van that carries an organized collection of library materials; paid staff; and regularly scheduled hours (bookmobile stops) for being open to the public.
@@ -552,10 +590,10 @@ Public_Amenity	Art_Est_Arts_businesses	Public Amenity	Arts Establishments	Arts B
 Public_Amenity	Art_est_Arts_employees	Public Amenity	Arts Establishments	Arts Employees	
 Public_Amenity	Art_Est_Arts_businesses_per_10000	Public Amenity	Arts Establishments	"Arts Businesses per 10,000 people"	
 Public_Amenity	Art_Est_Arts_Employees_per_10000	Public Amenity	Arts Establishments	"Arts Employees per 10,000 people"	
-Public_Welfare	KEYID	Public Welfare			
-Public_Welfare	FIPS	Public Welfare			
-Public_Welfare	DATA_YEAR	Public Welfare			
-Public_Welfare	SNAP_HH	Public Welfare	Supplemental Nutrition Assistance Program (SNAP)	SNAP Recipient Households	
+Public_Welfare	KEYID	Public Amenity			
+Public_Welfare	FIPS	Public Amenity			
+Public_Welfare	DATA_YEAR	Public Amenity			
+Public_Welfare	SNAP_HH	Public Amenity	Supplemental Nutrition Assistance Program (SNAP)	SNAP Recipient Households	
 Public_Welfare	SNAP_bens	Public Welfare	Supplemental Nutrition Assistance Program (SNAP)	SNAP Benefits	
 Public_Welfare	SNAP_bens_per_HH	Public Welfare	Supplemental Nutrition Assistance Program (SNAP)	SNAP Benefits per Household	
 Public_Welfare	gr_SNAP_HH	Public Welfare	Supplemental Nutrition Assistance Program (SNAP)	SNAP Recipient Growth Rate	
@@ -576,10 +614,10 @@ County_Finance	CE_Public_Welfare_Intergovernmental_to_State	Public Welfare	Publi
 County_Finance	CE_Public_Welfare_Intergovernmental_to_Local	Public Welfare	Public Welfare Expenditures	Intergovernmental to Local	"Amounts paid to other local governments government for performance of specific functions or for general financial support. Includes grants, shared taxes, contingent loans and advances, and any significant and identifiable amounts or reimbursement paid to other governments for performance of general government services or activities. By definition, it excludes amounts paid to other governments for purchase of commodities, property, or utility services and for any tax levied as such on facilities of the government."
 County_Finance	CE_Public_Welfare_Intergovernmental_to_Federal_Governments_State	Public Welfare	Public Welfare Expenditures	Intergovernmental to Federal Governments (States or DC)	Not in map
 County_Finance	CE_Public_Welfare_Expenditure_Payments_to_Medicare_Trust_Fund	Public Welfare	Public Welfare Expenditures	Payments to Medicare Trust Fund	
-Transportation	FIPS	Transportation			
-Transportation	DATA_YEAR	Transportation			
-Transportation	Total_Airports	Transportation	Airports	Total Airports	"The number of airports located in the county. The definition for airports in the law refers to any area of land or water used or inteded for landing or takeoff of aircraft. This includes, within the five categories of airports listed below, special types of facilities including seaplane bases, heliports, and facilities to accommodate tilt rotor aircraft. An airport includes an appurtenant area used or intended for airport buildings, facilities, as well as rights of way together with the buildings and facilities."
-Transportation	Public_Airports	Transportation	Airports	Publicly Owned Airports	The number of airports designated for public use that are located in the county.
+Transportation	FIPS	Public Welfare			
+Transportation	DATA_YEAR	Public Welfare			
+Transportation	Total_Airports	Public Welfare	Airports	Total Airports	"The number of airports located in the county. The definition for airports in the law refers to any area of land or water used or inteded for landing or takeoff of aircraft. This includes, within the five categories of airports listed below, special types of facilities including seaplane bases, heliports, and facilities to accommodate tilt rotor aircraft. An airport includes an appurtenant area used or intended for airport buildings, facilities, as well as rights of way together with the buildings and facilities."
+Transportation	Public_Airports	Public Welfare	Airports	Publicly Owned Airports	The number of airports designated for public use that are located in the county.
 Transportation	Private_Airports	Transportation	Airports	Privately Owned Airports	The number of airports designated for private use that are located in the county.
 Transportation	Military_Airports	Transportation	Airports	Military Owned Airports	The number of airports designated for military use that are located in the county.
 Transportation	CountyAirports	Transportation	Airports	County Airports	
@@ -625,6 +663,29 @@ Transportation	All_Bridges_Federal_Owned	Transportation	All Bridges	Federal Owne
 Transportation	All_Bridges_Local_Owned	Transportation	All Bridges	Local Owned	"Total number of bridges owned by a Local Park, Forest, or Reservation Agency or Local Toll Authority, or Other Local Agencies."
 Transportation	All_Bridges_Privately_Owned	Transportation	All Bridges	Privately Owned	Total number of bridges owned by a Private agency.
 Transportation	All_Bridges_State_Owned	Transportation	All Bridges	State Owned	"Total number of bridges owned by a State Highway Agency, a State Park, Forest, or Reservation Agency, or Other State Agencies."
+Transportation	Share_All_Bridges_City_Town_Owned	Transportation	All Bridges	Share City/Town Owned	
+Transportation	Share_All_Bridges_County_Owned	Transportation	All Bridges	Share County Owned	
+Transportation		Transportation	All Bridges	Share Local Government Owned	
+Transportation	Share_All_Bridges_Federal_Owned	Transportation	All Bridges	ShareFederal Owned	
+Transportation	Share_All_Bridges_Locally_Owned	Transportation	All Bridges	Share Local Owned	
+Transportation	Share_All_Bridges_Privately_Owned	Transportation	All Bridges	Share Privately Owned	
+Transportation	Share_All_Bridges_State_Owned	Transportation	All Bridges	Share State Owned	
+Transportation	Share_All_Bridges_Bridges_Structurally_Deficient	Transportation	Structurally Deficient Bridges	Share Structurally Deficient	
+Transportation	Share_City_Town_Owned_Bridges_Structurally_Deficient	Transportation	Structurally Deficient Bridges	Share of City/Town Owned	
+Transportation	Share_County_Owned_Bridges_Structurally_Deficient	Transportation	Structurally Deficient Bridges	Share of County Owned	
+Transportation		Transportation	Structurally Deficient Bridges	Share of Local Government Owned	
+Transportation	Share_Federal_Owned_Bridges_Structurally_Deficient	Transportation	Structurally Deficient Bridges	Share of Federal Owned	
+Transportation	Share_Locally_Owned_Bridges_Structurally_Deficient	Transportation	Structurally Deficient Bridges	Share of Local Owned	
+Transportation	Share_Privately_Owned_Bridges_Structurally_Deficient	Transportation	Structurally Deficient Bridges	Share of Privately Owned	
+Transportation	Share_State_Owned_Bridges_Structurally_Deficient	Transportation	Structurally Deficient Bridges	Share of State Owned	
+Transportation	Share_All_Bridges_Bridges_Functionally_Obsolete	Transportation	Functionally Obsolete Bridges	Share Functionally Obsolete	
+Transportation	Share_City_Town_Owned_Bridges_Functionally_Obsolete	Transportation	Functionally Obsolete Bridges	Share of City/Town Owned	
+Transportation	Share_County_Owned_Bridges_Functionally_Obsolete	Transportation	Functionally Obsolete Bridges	Share of County Owned	
+Transportation		Transportation	Functionally Obsolete Bridges	Share of Local Government Owned	
+Transportation	Share_Federal_Owned_Bridges_Functionally_Obsolete	Transportation	Functionally Obsolete Bridges	Share of Federal Owned	
+Transportation	Share_Locally_Owned_Bridges_Functionally_Obsolete	Transportation	Functionally Obsolete Bridges	Share of Local Owned	
+Transportation	Share_Privately_Owned_Bridges_Functionally_Obsolete	Transportation	Functionally Obsolete Bridges	Share of Privately Owned	
+Transportation	Share_State_Owned_Bridges_Functionally_Obsolete	Transportation	Functionally Obsolete Bridges	Share of State Owned	
 Transportation	Structurally_Deficient_Bridges_Total_Bridges	Transportation	Structurally Deficient Bridges	Total	"Total number of structurally deficient bridges; A highway bridge is classified as structurally deficient if the deck, superstructure, substructure, or culvert is rated in 'poor' condition (0 to 4 on the NBI rating scale). A bridge can also be classified as structurally deficient if its load carrying capacity is significantly below current design standards or if a waterway below frequently overtops the bridge during floods."
 Transportation	Structurally_Deficient_Bridges_City_Town_Owned	Transportation	Structurally Deficient Bridges	City/Town Owned	Total number of structurally deficient bridges owned by a Town or Township Highway Agency or a City or Municipal Highway Agency.
 Transportation	Structurally_Deficient_Bridges_County_Owned	Transportation	Structurally Deficient Bridges	County Owned	Total number of structurally deficient bridges owned by a County Highway Agency.
@@ -643,7 +704,7 @@ Transportation	Structurally_Deficient_Bridges_Federal_Owned	Transportation	Struc
 Transportation	Structurally_Deficient_Bridges_Local_Owned	Transportation	Structurally Deficient Bridges	Local Owned	"Total number of structurally deficient bridges owned by a Local Park, Forest, or Reservation Agency or Local Toll Authority, or Other Local Agencies."
 Transportation	Structurally_Deficient_Bridges_Privately_Owned	Transportation	Structurally Deficient Bridges	Privately Owned	Total number of structurally deficient bridges owned by a Private agency.
 Transportation	Structurally_Deficient_Bridges_State_Owned	Transportation	Structurally Deficient Bridges	State Owned	"Total number of structurally deficient bridges owned by a State Highway Agency, a State Park, Forest, or Reservation Agency, or Other State Agencies."
-Transportation	Functionally_Obsolete_Bridges_Total_Bridges	Transportation	Functionally Obsolete Bridges	Total Bridges	"Total number of functionally obsolete bridges; 'Functionally obsolete' means that the design of a bridge is not suitable for its current use, such as lack of safety shoulders or the inability to handle current traffic volume, speed, size, or weight."
+Transportation	Functionally_Obsolete_Bridges_Total_Bridges	Transportation	Functionally Obsolete Bridges	Total	"Total number of functionally obsolete bridges; 'Functionally obsolete' means that the design of a bridge is not suitable for its current use, such as lack of safety shoulders or the inability to handle current traffic volume, speed, size, or weight."
 Transportation	Functionally_Obsolete_Bridges_City_Town_Owned	Transportation	Functionally Obsolete Bridges	City/Town Owned	Total number of functionally obsolete bridges owned by a Town or Township Highway Agency or a City or Municipal Highway Agency.
 Transportation	Functionally_Obsolete_Bridges_County_Owned	Transportation	Functionally Obsolete Bridges	County Owned	Total number of functionally obsolete bridges owned by a County Highway Agency.
 Transportation	Functionally_Obsolete_Bridges_Local_Govt_Owned	Transportation	Functionally Obsolete Bridges	Local Government Owned	
@@ -666,10 +727,10 @@ Transportation	RC_Share_Minor_Arterial	Transportation	Road Classification	Share 
 Transportation	RC_Share_Major_Collector	Transportation	Road Classification	Share Major Collector	Percentage of major collector road miles out of total public road miles.
 Transportation	RC_Share_Urban_Minor_Collector	Transportation	Road Classification	Share Urban Minor Collector	Percentage of urban minor collector road miles out of total public road miles.
 Transportation	RC_Share_Local	Transportation	Road Classification	Share Local	Percentage of local road miles out of total public road miles.
-Transportation	NHS_Total_Road_Miles				
-Transportation	NHS_State_Highway_Agency_Road_Miles				
-Transportation	NHS_County_Highway_Agency_Road_Miles				
-Transportation	NHS_Other_State_Agency_Road_Miles				
+Transportation	NHS_Total_Road_Miles	Transportation			
+Transportation	NHS_State_Highway_Agency_Road_Miles	Transportation			
+Transportation	NHS_County_Highway_Agency_Road_Miles	Transportation			
+Transportation	NHS_Other_State_Agency_Road_Miles	Transportation			
 Transportation	NHS_Other_Local_Agency_Road_Miles				
 Transportation	NHS_Privately_Owned_Road_Miles				
 Transportation	NHS_Town_Township_Highway_Agency_Road_Miles				
@@ -687,10 +748,10 @@ Transportation	NHS_Share_City_Municipal_Highway_Agency
 Transportation	NHS_Share_Federal_Agency				
 Transportation	NHS_Share_Other_Public_Instrumentality				
 Transportation	NHS_Share_Unknown				
-Administration	Admin_Empl_Total_County_FTE	Transportation	Transportation Employment	Total County	The number of Full-time equivalent (FTE) employees for each county is a computed statistic representing the number of full-time employees that could have been employed if the reported number of hours worked by part-time employees had been worked by full-time employees.
-Transportation	Trans_Empl_Total_Transportation_FTE	Transportation	Transportation Employment	Total Transportation	"Number of FTEs working on Air Transportation, Highways, Sea and Inland Port and Transit Utilities."
-Transportation	Trans_Empl_Air_Transportation	Transportation	Transportation Employment	Air Transportation	"Number of FTEs working on Provision, operation, construction, and support of airport facilities serving the public at-large on a scheduled or unscheduled basis."
-Transportation	Trans_Empl_Highways	Transportation	Transportation Employment	Highways	"Number of FTEs working on Regular Highway: Maintenance, operation, repair, and construction of highways, streets, roads, alleys, sidewalks, bridges, tunnels, ferry boats, viaducts, and related non-toll structures.Toll Highway: Maintenance, operation, repair, and construction of highways, roads, bridges, ferries, and tunnels operated on a fee or toll basis. Includes: Turnpikes; toll roads, toll bridges, toll ferries (including docks and related terminals), toll tunnels, and all related activities and facilities such as snow and ice removal, highway police and fire protection units IF administered by the toll authority, lighting and light fixtures, design and engineering, garages and administrative buildings of toll authorities, operation of toll booths, drawspans, rest stops, and service areas by the toll authority itself."
+Administration	Admin_Empl_Total_County_FTE		Transportation Employment	Total County	The number of Full-time equivalent (FTE) employees for each county is a computed statistic representing the number of full-time employees that could have been employed if the reported number of hours worked by part-time employees had been worked by full-time employees.
+Transportation	Trans_Empl_Total_Transportation_FTE		Transportation Employment	Total Transportation	"Number of FTEs working on Air Transportation, Highways, Sea and Inland Port and Transit Utilities."
+Transportation	Trans_Empl_Air_Transportation		Transportation Employment	Air Transportation	"Number of FTEs working on Provision, operation, construction, and support of airport facilities serving the public at-large on a scheduled or unscheduled basis."
+Transportation	Trans_Empl_Highways		Transportation Employment	Highways	"Number of FTEs working on Regular Highway: Maintenance, operation, repair, and construction of highways, streets, roads, alleys, sidewalks, bridges, tunnels, ferry boats, viaducts, and related non-toll structures.Toll Highway: Maintenance, operation, repair, and construction of highways, roads, bridges, ferries, and tunnels operated on a fee or toll basis. Includes: Turnpikes; toll roads, toll bridges, toll ferries (including docks and related terminals), toll tunnels, and all related activities and facilities such as snow and ice removal, highway police and fire protection units IF administered by the toll authority, lighting and light fixtures, design and engineering, garages and administrative buildings of toll authorities, operation of toll booths, drawspans, rest stops, and service areas by the toll authority itself."
 Transportation	Trans_Empl_Water_Transport_and_Terminals	Transportation	Transportation Employment	Water Transport & Terminals	"Number of FTEs working on Construction, maintenance, operation, and support of canals and other waterways, harbors, docks, wharves, and related marine terminal facilities."
 Transportation	Trans_Empl_Transit	Transportation	Transportation Employment	Transit	"Number of FTEs working on Construction, maintenance, and operation of public mass transit systems--bus, commuter rail, light rail, or subway systems. Excludes systems established solely to transport elementary and secondary school pupils. Ferry systems are classified under Highways."
 County_Finance	CE_County_Expenditure_Total	Transportation	Transportation Expenditures	Total County	"All amounts of money paid out by a government--net of recoveries and other correcting transactions--other than for retirement of debt, investment in securities, extension of credit, or as agency transactions. Note that expenditure includes only external transactions of a government and excludes non-cash transactions such as the provision of perquisites or other payments in kind."
@@ -706,10 +767,10 @@ County_Finance	CE_Transportation_Other_Capital_Outlay	Transportation	Transportat
 County_Finance	CE_Transportation_Interest_on_Debt	Transportation	Transportation Expenditures	Interest on Debt	Amounts paid for the use of borrowed money.
 County_Finance	CE_Transportation_Intergovernmental_to_State	Transportation	Transportation Expenditures	Intergovernmental to State	"Amounts paid to the state government for performance of specific functions or for general financial support. Includes grants, shared taxes, contingent loans and advances, and any significant and identifiable amounts or reimbursement paid to other governments for performance of general government services or activities. By definition, it excludes amounts paid to other governments for purchase of commodities, property, or utility services and for any tax levied as such on facilities of the government."
 County_Finance	CE_Transportation_Intergovernmental_to_Local	Transportation	Transportation Expenditures	Intergovernmental to Local	"Amounts paid to other local governments government for performance of specific functions or for general financial support. Includes grants, shared taxes, contingent loans and advances, and any significant and identifiable amounts or reimbursement paid to other governments for performance of general government services or activities. By definition, it excludes amounts paid to other governments for purchase of commodities, property, or utility services and for any tax levied as such on facilities of the government."
-Utility	KEYID	Utility			
-Utility	FIPS	Utility			
-Utility	DATA_YEAR	Utility			
-Administration	Admin_Empl_Total_County_FTE	Utility	Utility Employment	Total County	The number of Full-time equivalent (FTE) employees for each county is a computed statistic representing the number of full-time employees that could have been employed if the reported number of hours worked by part-time employees had been worked by full-time employees.
+Utility	KEYID	Transportation			
+Utility	FIPS	Transportation			
+Utility	DATA_YEAR	Transportation			
+Administration	Admin_Empl_Total_County_FTE	Transportation	Utility Employment	Total County	The number of Full-time equivalent (FTE) employees for each county is a computed statistic representing the number of full-time employees that could have been employed if the reported number of hours worked by part-time employees had been worked by full-time employees.
 Utility	Utility_Empl_Total_Utility_FTE	Utility	Utility Employment	Total Utility	Number of FTEs working on Electricity Utilities and Gas Utilities.
 Utility	Utility_Empl_Electric_Power	Utility	Utility Employment	Electric Utilities	"Number of FTEs working on Operation, maintenance, and construction of public electric power systems, including production, acquisition, and distribution of electricity to general public or to other public or private utilities."
 Utility	Utility_Empl_Gas_Supply	Utility	Utility Employment	Gas Utilities	"Number of FTEs working on Operation, maintenance, and construction of public natural gas supply systems, including production, acquisition, and distribution of gas to general public or to other public or private utilities. This function covers government gas supply activities for residential, commercial, and industrial gas usage."
@@ -732,10 +793,10 @@ County_Finance	CR_Utility_Revenue_Water_Supply_Systems	Utility	Utility Revenue	W
 Utility	BC_Rfc_P_1000	Utility	Broadband Connections	Fixed Internet Connections	Number of residential fixed connections over 200 kbps in at least one direction in the county per 1000 households
 Utility	BC_Rfc_Providers	Utility	Broadband Connections	Fixed Internet Providers	Number of providers of residential fixed connections over 200 kbps in at least one direction available in the county
 Utility	BC_Mob_Providers	Utility	Broadband Connections	Mobile Internet Providers	Number of providers of mobile connections available in the county
-W_S_SW	KEYID	"Water, Sewerage & Solid Waste"			
-W_S_SW	FIPS	"Water, Sewerage & Solid Waste"			
-W_S_SW	DATA_YEAR	"Water, Sewerage & Solid Waste"			
-Administration	Admin_Empl_Total_County_FTE	"Water, Sewerage & Solid Waste"	"Water, Sewerage & Solid Waste Employment"	Total County	The number of Full-time equivalent (FTE) employees for each county is a computed statistic representing the number of full-time employees that could have been employed if the reported number of hours worked by part-time employees had been worked by full-time employees.
+W_S_SW	KEYID	Utility			
+W_S_SW	FIPS	Utility			
+W_S_SW	DATA_YEAR	Utility			
+Administration	Admin_Empl_Total_County_FTE	Utility	"Water, Sewerage & Solid Waste Employment"	Total County	The number of Full-time equivalent (FTE) employees for each county is a computed statistic representing the number of full-time employees that could have been employed if the reported number of hours worked by part-time employees had been worked by full-time employees.
 W_S_SW	WSSW_Empl_Total_Water_Sewerage_Solid_Waste_FTE	"Water, Sewerage & Solid Waste"	"Water, Sewerage & Solid Waste Employment"	"Total Water, Sewerage & Solid Waste"	"Includes FTEs working on on Sewerage, Solid Waste Management and Water Utitlies services."
 W_S_SW	WSSW_Empl_Sewerage_FTE	"Water, Sewerage & Solid Waste"	"Water, Sewerage & Solid Waste Employment"	Sewerage	"Number of FTEs working on Provision, maintenance, and operation of sanitary and storm sewer systems and sewage disposal and treatment facilities, as well as all intergovernmental payments for such activities."
 W_S_SW	WSSW_Empl_Solid_Waste_Management_FTE	"Water, Sewerage & Solid Waste"	"Water, Sewerage & Solid Waste Employment"	Solid Waste	"Number of FTEs working on Collection, removal, and disposal of garbage, refuse, hazardous, and other solid wastes and the cleaning of streets, alleys, and sidewalks."
@@ -751,10 +812,10 @@ County_Finance	CE_Water_Sewerage_and_Solid_Waste_Other_Capital_Outlay	"Water, Se
 County_Finance	CE_Water_Sewerage_and_Solid_Waste_Interest_on_Debt	"Water, Sewerage & Solid Waste"	"Water, Sewerage & Solid Waste Expenditures"	Interest on Debt	Amounts paid for the use of borrowed money.
 County_Finance	CE_Water_Sewerage_and_Solid_Waste_Intergovernmental_to_State	"Water, Sewerage & Solid Waste"	"Water, Sewerage & Solid Waste Expenditures"	Intergovernmental to State	"Amounts paid to the state government for performance of specific functions or for general financial support. Includes grants, shared taxes, contingent loans and advances, and any significant and identifiable amounts or reimbursement paid to other governments for performance of general government services or activities. By definition, it excludes amounts paid to other governments for purchase of commodities, property, or utility services and for any tax levied as such on facilities of the government."
 County_Finance	CE_Water_Sewerage_and_Solid_Waste_Intergovernmental_to_Local	"Water, Sewerage & Solid Waste"	"Water, Sewerage & Solid Waste Expenditures"	Intergovernmental to Local	"Amounts paid to other local governments government for performance of specific functions or for general financial support. Includes grants, shared taxes, contingent loans and advances, and any significant and identifiable amounts or reimbursement paid to other governments for performance of general government services or activities. By definition, it excludes amounts paid to other governments for purchase of commodities, property, or utility services and for any tax levied as such on facilities of the government. "
-Economy	IE_Exports_value	Economy	International Exports	Exports	
-Economy	IE_State_Exports_Value	Economy	International Exports	State Exports	
-Economy	IE_Export_Growth_Long_Term	Economy	International Exports	Long-term Export Growth Rate	
-Economy	IE_Export_Growth_Before_Recession	Economy	International Exports	Pre-recession Export Growth Rate	
+Economy	IE_Exports_value	"Water, Sewerage & Solid Waste"	International Exports	Exports	
+Economy	IE_State_Exports_Value	"Water, Sewerage & Solid Waste"	International Exports	State Exports	
+Economy	IE_Export_Growth_Long_Term	"Water, Sewerage & Solid Waste"	International Exports	Long-term Export Growth Rate	
+Economy	IE_Export_Growth_Before_Recession	"Water, Sewerage & Solid Waste"	International Exports	Pre-recession Export Growth Rate	
 Economy	IE_Export_Growth_After_Recession	Economy	International Exports	Post-recession Export Growth Rate	
 Economy	IE_Export_Share_GDP	Economy	International Exports	Export Share of County Economic Output (GDP)	
 Economy	IE_Export_Service_Share	Economy	International Exports	Service Exports Share of Total	
@@ -793,3 +854,7 @@ Economy	CET_RPP_adj_sub_Growth_13	Economy	County Economic Tracker	"Adjusted Aver
 Economy	CET_unemGainedPR	Economy	County Economic Tracker	"Unemployment Rate Change, Recovery"	
 Economy	CET_unemLostDR	Economy	County Economic Tracker	"Unemployment Rate Change, Recession"	
 Economy	CET_recoveredNum	Economy	County Economic Tracker	County Economic Profile	
+		Economy			
+		Economy			
+		Economy			
+		Economy			

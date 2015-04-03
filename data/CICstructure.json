@@ -1598,19 +1598,21 @@
 				{
 					"name": "Population Levels and Trends",
 					"source": "NACo Analysis of U.S. Census Bureau - Population Estimates Program (PEP)",
-					"years": [2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013],
-					"companions": [["Population Levels and Trends", "Population Level"], ["Population Levels and Trends", "Population Annual Growth Rate (from previous year)"], ["Population Density", "Population Density"], ["Population by Age/Gender", "Percent 65 years and older"]
+					"years": [2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014],
+					"companions": [["Population Levels and Trends", "Population Level"], ["Population Levels and Trends", "Population Annual Growth Rate (from previous year)"], ["Population Density", "Population Density"]
 					],
-					"vintage": 2013,
+					"vintage": 2014,
 					"children": [
 						{
 							"name": "Population Level",
 							"dataType": "level",
+							"supressMinMax": true,
 							"thresholds": [50000, 150000, 250000, 500000],
 							"definition": "The calculated number of people living in an area as of a specified point in time, usually July 1st."
 						}, {
 							"name": "Population Annual Growth Rate (from previous year)",
 							"dataType": "percent",
+							"supressMinMax": true,
 							"definition": "The difference between the population of an area at the beginning and end of a time period, expressed as a percentage of the beginning population."
 						}
 					]
@@ -1695,28 +1697,32 @@
 				}, {
 					"name": "Population Density",
 					"source": "NACo Analysis of U.S. Census Bureau - Population Estimates Program (PEP)",
-					"years": [2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013],
+					"years": [2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014],
 					"companions": [["Population Levels and Trends", "Population Level"], ["Population Levels and Trends", "Population Annual Growth Rate (from previous year)"], ["Population Density", "Population Density"], ["Population by Age/Gender", "Percent 65 years and older"]
 					],
-					"vintage": 2013,
+					"vintage": 2014,
 					"children": [
 						{
 							"name": "Population Level",
 							"dataType": "level",
+							"supressMinMax": true,
 							"definition": "The calculated number of people living in an area as of a specified point in time, usually July 1st. The estimated population is calculated using a component of change model that incorporates information on natural increase (births, deaths) and net migration (net domestic migration, net international migration) that has occurred in an area since the latest decennial census."
 						}, {
 							"name": "Population Density",
 							"unit": "persons per square mile",
 							"format_type": "dec1",
 							"dataType": "level",
+							"supressMinMax": true,
 							"definition": "Number of people per square mile according to the population estimates from the Census Bureau."
 						}, {
 							"name": "Population Density Growth Rate (from previous year)",
 							"dataType": "percent",
+							"supressMinMax": true,
 							"definition": "The difference between the population density of an area at the beginning and end of a time period, expressed as a percentage of the beginning population density."
 						}, {
 							"name": "Total Land Area",
 							"dataType": "level",
+							"supressMinMax": true,
 							"definition": "Total land area of the county in square miles."
 						}
 					]
@@ -2507,6 +2513,14 @@
 					],
 					"children": [
 						{
+							"name": "CDBG Profiles",
+							"unit": "dollars",
+							"dataType": "level",
+							"thresholds": [1,1000000,5000000,10000000],
+							"supressMinMax": true,
+							"has_profile": true,
+							"definition": "Formula Community Development Block Grants (CDBG) money going to entitlement counties directly from the U.S. Department of Housing and Urban Development.  Other counties can receive funding from the Small Cities CDBG program through their states. The Community Development Block Grant (CDBG) program funds counties and others communities to ensure affordable housing, to provide services to the most vulnerable in our communities and to create jobs through the expansion and retention of businesses."
+						}, {
 							"name": "CDBG Amount",
 							"unit": "dollars",
 							"dataType": "level",
@@ -3266,18 +3280,291 @@
 						}
 					]
 				}, {
+					"name": "County Health Rankings: Ranks",
+					"source": "University of Wisconsin Population Health Institute and the Robert Wood Johnson Foundation",
+					"years": [2015],
+					"companions": [["County Health Rankings: Ranks", "Health Outcomes Rank in State"], ["County Health Rankings: Ranks", "Health Factors Rank in State"], ["County Health Rankings: Ranks", "Health Outcomes Rank in State"]
+					],
+					"children": [
+						{
+							"name": "Health Outcomes Rank in State",
+							"dataType": "level",
+							"source": "<a href='http://www.countyhealthrankings.org/'>University of Wisconsin Population Health Institute</a>",
+							"definition": "County ranking within a state across several weighted measures of health outcomes by the <a href='http://www.countyhealthrankings.org/'>University of Wisconsin Population Health Institute</a>."
+						}, {
+							"name": "Health Factors Rank in State",
+							"dataType": "level",
+							"source": "<a href='http://www.countyhealthrankings.org/'>University of Wisconsin Population Health Institute</a>",
+							"definition": "County ranking within a state across several weighted measures of health factors by the <a href='http://www.countyhealthrankings.org/'>University of Wisconsin Population Health Institute</a>."
+						}
+					]
+				}, {
 					"name": "County Health Rankings: Health Outcomes",
 					"source": "University of Wisconsin Population Health Institute and the Robert Wood Johnson Foundation",
 					"years": [2015],
-					"companions": [["Health Outcomes", "Premature Death Rate"]
+					"companions": [["County Health Rankings: Ranks", "Health Outcomes Rank in State"], ["County Health Rankings: Ranks", "Health Factors Rank in State"], ["County Health Rankings: Ranks", "Health Outcomes Rank in State"]
 					],
 					"children": [
 						{
 							"name": "Premature Death Rate",
 							"dataType": "level",
-							"source": "<a href='http://www.countyhealthrankings.org/'>University of Wisconsin Population Health Institute</a> analysis of National Center for Health Statistics 2010-2012 data",
+							"supressMinMax": true,
+							"source": "<a href='http://www.countyhealthrankings.org/'>University of Wisconsin Population Health Institute</a> analysis of National Center for Health Statistics - Mortality files 2010-2012 data",
 							"unit": "years of potential life lost before age 75 per 100,000 people",
-							"definition": "Years of potential life lost before age 75 per 100,000 population (age-adjusted).  For more on methodology, click <a href='http://www.countyhealthrankings.org/ranking-methods'>here</a>"
+							"definition": "Years of potential life lost before age 75 per 100,000 population (age-adjusted).  For more on methodology, click <a href='http://www.countyhealthrankings.org/ranking-methods'>here</a>."
+						}, {
+							"name": "Poor or Fair Health",
+							"dataType": "percent",
+							"supressMinMax": true,
+							"source": "<a href='http://www.countyhealthrankings.org/'>University of Wisconsin Population Health Institute</a> analysis of Behavioral Risk Factor Surveillance System 2006-2012 data",
+							"unit": " of adults reporting fair or poor health",
+							"definition": "Percentage of adults reporting fair or poor health (age-adjusted).  For more on methodology, click <a href='http://www.countyhealthrankings.org/ranking-methods'>here</a>."
+						}, {
+							"name": "Physically Unhealthy Days",
+							"dataType": "level",
+							"supressMinMax": true,
+							"source": "<a href='http://www.countyhealthrankings.org/'>University of Wisconsin Population Health Institute</a> analysis of Behavioral Risk Factor Surveillance System 2006-2012 data",
+							"unit": " days reported on avg. in the past 30 days",
+							"definition": "Average number of physically unhealthy days reported in past 30 days (age-adjusted).  For more on methodology, click <a href='http://www.countyhealthrankings.org/ranking-methods'>here</a>."
+						}, {
+							"name": "Mentally Unhealthy Days",
+							"dataType": "level",
+							"supressMinMax": true,
+							"source": "<a href='http://www.countyhealthrankings.org/'>University of Wisconsin Population Health Institute</a> analysis of Behavioral Risk Factor Surveillance System 2006-2012 data",
+							"unit": " days reported on avg. in the past 30 days",
+							"definition": "Average number of mentally unhealthy days reported in past 30 days (age-adjusted).  For more on methodology, click <a href='http://www.countyhealthrankings.org/ranking-methods'>here</a>."
+						}, {
+							"name": "Low Birthweight Rate",
+							"dataType": "percent",
+							"supressMinMax": true,
+							"source": "<a href='http://www.countyhealthrankings.org/'>University of Wisconsin Population Health Institute</a> analysis of National Center for Health Statistics - Natality files 2006-2012 data",
+							"definition": "Percentage of live births with low birthweight (< 2500 grams).  For more on methodology, click <a href='http://www.countyhealthrankings.org/ranking-methods'>here</a>."
+						}
+					]
+				}, {
+					"name": "County Health Rankings: Health Behaviors",
+					"source": "University of Wisconsin Population Health Institute and the Robert Wood Johnson Foundation",
+					"years": [2015],
+					"companions": [["County Health Rankings: Ranks", "Health Outcomes Rank in State"], ["County Health Rankings: Ranks", "Health Factors Rank in State"], ["County Health Rankings: Ranks", "Health Outcomes Rank in State"]
+					],
+					"children": [
+						{
+							"name": "Smoking Rate",
+							"dataType": "percent",
+							"supressMinMax": true,
+							"source": "<a href='http://www.countyhealthrankings.org/'>University of Wisconsin Population Health Institute</a> analysis of Behavioral Risk Factor Surveillance System 2006-2012 data",
+							"definition": "Percentage of adults who are current smokers.  For more on methodology, click <a href='http://www.countyhealthrankings.org/ranking-methods'>here</a>."
+						}, {
+							"name": "Obesity Rate",
+							"dataType": "percent",
+							"supressMinMax": true,
+							"source": "<a href='http://www.countyhealthrankings.org/'>University of Wisconsin Population Health Institute</a> analysis of CDC Diabetes Interactive Atlas 2011 data",
+							"definition": "Percentage of adults that report a BMI of 30 or more.  For more on methodology, click <a href='http://www.countyhealthrankings.org/ranking-methods'>here</a>."
+						}, {
+							"name": "Food Environment Index",
+							"dataType": "level",
+							"supressMinMax": true,
+							"source": "<a href='http://www.countyhealthrankings.org/'>University of Wisconsin Population Health Institute</a> analysis of USDA Food Environment Atlas, Map the Meal Gap 2012 data",
+							"definition": "Index of factors that contribute to a healthy food environment, 0 (worst) to 10 (best).  For more on methodology, click <a href='http://www.countyhealthrankings.org/ranking-methods'>here</a>."
+						}, {
+							"name": "Percent Physically Inactive",
+							"dataType": "percent",
+							"source": "<a href='http://www.countyhealthrankings.org/'>University of Wisconsin Population Health Institute</a> analysis of CDC Diabetes Interactive Atlas 2011 data",
+							"definition": "Percentage of adults aged 20 and over reporting no leisure-time physical activity.  For more on methodology, click <a href='http://www.countyhealthrankings.org/ranking-methods'>here</a>."
+						}, {
+							"name": "Percent with Access to Exercise",
+							"dataType": "percent",
+							"supressMinMax": true,
+							"source": "<a href='http://www.countyhealthrankings.org/'>University of Wisconsin Population Health Institute</a> analysis of Business Analyst, Delorme map data, ESRI, & US Census Tigerline Files 2010 & 2013 data",
+							"definition": "Percentage of population with adequate access to locations for physical activity.  For more on methodology, click <a href='http://www.countyhealthrankings.org/ranking-methods'>here</a>."
+						}, {
+							"name": "Excessive Drinking Rate",
+							"dataType": "percent",
+							"supressMinMax": true,
+							"source": "<a href='http://www.countyhealthrankings.org/'>University of Wisconsin Population Health Institute</a> analysis of Behavioral Risk Factor Surveillance System 2006-2012 data",
+							"definition": "Percentage of adults reporting binge or heavy drinking.  For more on methodology, click <a href='http://www.countyhealthrankings.org/ranking-methods'>here</a>."
+						}, {
+							"name": "Alcohol-related Share of Driving Deaths",
+							"dataType": "percent",
+							"supressMinMax": true,
+							"source": "<a href='http://www.countyhealthrankings.org/'>University of Wisconsin Population Health Institute</a> analysis of Fatality Analysis Reporting System 2009-2013 data",
+							"definition": "Percentage of driving deaths with alcohol involvement.  For more on methodology, click <a href='http://www.countyhealthrankings.org/ranking-methods'>here</a>."
+						}, {
+							"name": "Chlamydia Rate",
+							"dataType": "level",
+							"supressMinMax": true,
+							"source": "<a href='http://www.countyhealthrankings.org/'>University of Wisconsin Population Health Institute</a> analysis of National Center for HIV/AIDS, Viral Hepatitis, STD, and TB Prevention 2012 data",
+							"unit": " cases per 100,000 population",
+							"definition": "Number of newly diagnosed chlamydia cases per 100,000 population.  For more on methodology, click <a href='http://www.countyhealthrankings.org/ranking-methods'>here</a>."
+						}, {
+							"name": "Teen Birth Rate",
+							"dataType": "level",
+							"supressMinMax": true,
+							"source": "<a href='http://www.countyhealthrankings.org/'>University of Wisconsin Population Health Institute</a> analysis of National Center for Health Statistics - Natality files 2006-2012 data",
+							"unit": " births per 1,000 teen females",
+							"definition": "Teen birth rate per 1,000 female population, ages 15-19.  For more on methodology, click <a href='http://www.countyhealthrankings.org/ranking-methods'>here</a>."
+						}
+					]
+				}, {
+					"name": "County Health Rankings: Clinical Care",
+					"source": "University of Wisconsin Population Health Institute and the Robert Wood Johnson Foundation",
+					"years": [2015],
+					"companions": [["County Health Rankings: Ranks", "Health Outcomes Rank in State"], ["County Health Rankings: Ranks", "Health Factors Rank in State"], ["County Health Rankings: Ranks", "Health Outcomes Rank in State"]
+					],
+					"children": [
+						{
+							"name": "Percent Uninsured",
+							"dataType": "percent",
+							"supressMinMax": true,
+							"source": "<a href='http://www.countyhealthrankings.org/'>University of Wisconsin Population Health Institute</a> analysis of Small Area Health Insurance Estimates 2012 data",
+							"definition": "Percentage of population under age 65 without health insurance.  For more on methodology, click <a href='http://www.countyhealthrankings.org/ranking-methods'>here</a>"
+						}, {
+							"name": "Primary Care Physician Ratio",
+							"dataType": "level",
+							"supressMinMax": true,
+							"source": "<a href='http://www.countyhealthrankings.org/'>University of Wisconsin Population Health Institute</a> analysis of Area Health Resource File/American Medical Association 2012 data",
+							"unit": " population per physician",
+							"definition": "Ratio of population to primary care physicians.  For more on methodology, click <a href='http://www.countyhealthrankings.org/ranking-methods'>here</a>."
+						}, {
+							"name": "Dentist Ratio",
+							"dataType": "level",
+							"supressMinMax": true,
+							"source": "<a href='http://www.countyhealthrankings.org/'>University of Wisconsin Population Health Institute</a> analysis of Area Health Resource File/National Provider Identification file 2013 data",
+							"unit": " population per dentist",
+							"definition": "Ratio of population to dentists.  For more on methodology, click <a href='http://www.countyhealthrankings.org/ranking-methods'>here</a>."
+						}, {
+							"name": "Mental Health Provider Ratio",
+							"dataType": "level",
+							"supressMinMax": true,
+							"source": "<a href='http://www.countyhealthrankings.org/'>University of Wisconsin Population Health Institute</a> analysis of CMS, National Provider Identification file 2014 data",
+							"unit": " population per provider",
+							"definition": "Ratio of population to mental health providers.  For more on methodology, click <a href='http://www.countyhealthrankings.org/ranking-methods'>here</a>."
+						}, {
+							"name": "Preventable Hospital Stays Rate",
+							"dataType": "level",
+							"supressMinMax": true,
+							"source": "<a href='http://www.countyhealthrankings.org/'>University of Wisconsin Population Health Institute</a> analysis of Dartmouth Atlas of Health Care 2012 data",
+							"unit": " preventable stays per 1,000 Medicare enrollees",
+							"definition": "Number of hospital stays for ambulatory-care sensitive conditions per 1,000 Medicare enrollees.  For more on methodology, click <a href='http://www.countyhealthrankings.org/ranking-methods'>here</a>."
+						}, {
+							"name": "Diabetic Monitoring Rate",
+							"dataType": "percent",
+							"supressMinMax": true,
+							"source": "<a href='http://www.countyhealthrankings.org/'>University of Wisconsin Population Health Institute</a> analysis of Dartmouth Atlas of Health Care 2012 data",
+							"definition": "Percentage of diabetic Medicare enrollees ages 65-75 that receive HbA1c monitoring.  For more on methodology, click <a href='http://www.countyhealthrankings.org/ranking-methods'>here</a>."
+						}, {
+							"name": "Mammography Rate",
+							"dataType": "percent",
+							"supressMinMax": true,
+							"source": "<a href='http://www.countyhealthrankings.org/'>University of Wisconsin Population Health Institute</a> analysis of Dartmouth Atlas of Health Care 2012 data",
+							"definition": "Percentage of female Medicare enrollees ages 67-69 that receive mammography screening.  For more on methodology, click <a href='http://www.countyhealthrankings.org/ranking-methods'>here</a>."
+						}
+					]
+				}, {
+					"name": "County Health Rankings: Social & Economic Environment",
+					"source": "University of Wisconsin Population Health Institute and the Robert Wood Johnson Foundation",
+					"years": [2015],
+					"companions": [["County Health Rankings: Ranks", "Health Outcomes Rank in State"], ["County Health Rankings: Ranks", "Health Factors Rank in State"], ["County Health Rankings: Ranks", "Health Outcomes Rank in State"]
+					],
+					"children": [
+						{
+							"name": "High School Graduation Rate",
+							"dataType": "percent",
+							"supressMinMax": true,
+							"source": "<a href='http://www.countyhealthrankings.org/'>University of Wisconsin Population Health Institute</a> analysis of data.gov, supplemented w/ National Center for Education Statistics 2011-2012 data",
+							"definition": "Percentage of ninth-grade cohort that graduates in four years.  For more on methodology, click <a href='http://www.countyhealthrankings.org/ranking-methods'>here</a>."
+						}, {
+							"name": "Percent with Some College",
+							"dataType": "percent",
+							"supressMinMax": true,
+							"source": "<a href='http://www.countyhealthrankings.org/'>University of Wisconsin Population Health Institute</a> analysis of American Community Survey 2009-2013 data",
+							"definition": "Percentage of adults ages 25-44 years with some post-secondary education.  For more on methodology, click <a href='http://www.countyhealthrankings.org/ranking-methods'>here</a>."
+						}, {
+							"name": "Percent Unemployed",
+							"dataType": "percent",
+							"supressMinMax": true,
+							"source": "<a href='http://www.countyhealthrankings.org/'>University of Wisconsin Population Health Institute</a> analysis of Bureau of Labor Statistics 2013 data",
+							"definition": "Percentage of population ages 16 and older unemployed but seeking work.  For more on methodology, click <a href='http://www.countyhealthrankings.org/ranking-methods'>here</a>."
+						}, {
+							"name": "Child Poverty Rate",
+							"dataType": "percent",
+							"supressMinMax": true,
+							"source": "<a href='http://www.countyhealthrankings.org/'>University of Wisconsin Population Health Institute</a> analysis of Small Area Income and Poverty Estimates 2013 data",
+							"definition": "Percentage of children under age 18 in poverty.  For more on methodology, click <a href='http://www.countyhealthrankings.org/ranking-methods'>here</a>."
+						}, {
+							"name": "Income Inequality Ratio",
+							"dataType": "level",
+							"supressMinMax": true,
+							"source": "<a href='http://www.countyhealthrankings.org/'>University of Wisconsin Population Health Institute</a> analysis of American Community Survey 2009-2013 data",
+							"definition": "Ratio of household income at the 80th percentile to income at the 20th percentile.  For more on methodology, click <a href='http://www.countyhealthrankings.org/ranking-methods'>here</a>."
+						}, {
+							"name": "Percent Single Parent Household",
+							"dataType": "percent",
+							"supressMinMax": true,
+							"source": "<a href='http://www.countyhealthrankings.org/'>University of Wisconsin Population Health Institute</a> analysis of American Community Survey 2009-2013 data",
+							"definition": "Percentage of children that live in a household headed by single parent.  For more on methodology, click <a href='http://www.countyhealthrankings.org/ranking-methods'>here</a>."
+						}, {
+							"name": "Social Association Rate",
+							"dataType": "level",
+							"supressMinMax": true,
+							"source": "<a href='http://www.countyhealthrankings.org/'>University of Wisconsin Population Health Institute</a> analysis of County Business Patterns 2012 data",
+							"unit": " associations per 10,000 population",
+							"definition": "Number of membership associations per 10,000 population.  For more on methodology, click <a href='http://www.countyhealthrankings.org/ranking-methods'>here</a>."
+						}, {
+							"name": "Violent Crime Rate",
+							"dataType": "level",
+							"supressMinMax": true,
+							"source": "<a href='http://www.countyhealthrankings.org/'>University of Wisconsin Population Health Institute</a> analysis of Uniform Crime Reporting - FBI 2010-2012 data",
+							"unit": " offenses per 100,000 population",
+							"definition": "Number of reported violent crime offenses per 100,000 population.  For more on methodology, click <a href='http://www.countyhealthrankings.org/ranking-methods'>here</a>."
+						}, {
+							"name": "Injury Death Rate",
+							"dataType": "level",
+							"supressMinMax": true,
+							"source": "<a href='http://www.countyhealthrankings.org/'>University of Wisconsin Population Health Institute</a> analysis of CDC WONDER mortality 2008-2012 data",
+							"unit": " deaths per 100,000 population",
+							"definition": "Number of deaths due to injury per 100,000 population.  For more on methodology, click <a href='http://www.countyhealthrankings.org/ranking-methods'>here</a>."
+						}
+					]
+				}, {
+					"name": "County Health Rankings: Physical Environment",
+					"source": "University of Wisconsin Population Health Institute and the Robert Wood Johnson Foundation",
+					"years": [2015],
+					"companions": [["County Health Rankings: Ranks", "Health Outcomes Rank in State"], ["County Health Rankings: Ranks", "Health Factors Rank in State"], ["County Health Rankings: Ranks", "Health Outcomes Rank in State"]
+					],
+					"children": [
+						{
+							"name": "Air Pollution",
+							"dataType": "level",
+							"supressMinMax": true,
+							"source": "<a href='http://www.countyhealthrankings.org/'>University of Wisconsin Population Health Institute</a> analysis of CDC WONDER Environmental 2011 data",
+							"unit": " micrograms per cubic meter",
+							"definition": "Average daily density of fine particulate matter in micrograms per cubic meter (PM2.5).  For more on methodology, click <a href='http://www.countyhealthrankings.org/ranking-methods'>here</a>. The 2015 County Health Rankings provide data for the Wrangell-Petersburg Census Area and Skagway-Hoonah-Angoon Census Area that have incorporated into the Petersburg Borough, City and Borough of Wrangell and Skagway Municipality. The County Explorer reports the Wrangell-Petersburg Census Area data for both Petersburg Borough and the City and Borough of Wrangell and the  Skagway-Hoonah-Angoon Census Area data for Skagway Municipality.  The County Health Rankings provides data at the New York City borough level. The county explorer shows the New York City value for an indicator as the average of the borough-level data."
+						}, {
+							"name": "Drinking Water Violations",
+							"dataType": "percent",
+							"supressMinMax": true,
+							"source": "<a href='http://www.countyhealthrankings.org/'>University of Wisconsin Population Health Institute</a> analysis of Safe Drinking Water Information System FY2013-14 data",
+							"unit": " of population affected",
+							"definition": "Percentage of population potentially exposed to water exceeding a violation limit during the past year.  For more on methodology, click <a href='http://www.countyhealthrankings.org/ranking-methods'>here</a>. The 2015 County Health Rankings provide data for the Wrangell-Petersburg Census Area and Skagway-Hoonah-Angoon Census Area that have incorporated into the Petersburg Borough, City and Borough of Wrangell and Skagway Municipality. The County Explorer reports the Wrangell-Petersburg Census Area data for both Petersburg Borough and the City and Borough of Wrangell and the  Skagway-Hoonah-Angoon Census Area data for Skagway Municipality.  The County Health Rankings provides data at the New York City borough level. The county explorer shows the New York City value for an indicator as the average of the borough-level data."
+						}, {
+							"name": "Percent with Severe Housing Problems",
+							"dataType": "percent",
+							"supressMinMax": true,
+							"source": "<a href='http://www.countyhealthrankings.org/'>University of Wisconsin Population Health Institute</a> analysis of Comprehensive Housing Affordability Strategy (CHAS) data 2007-2011 data",
+							"definition": "Percentage of households with at least 1 of 4 housing problems: overcrowding, high housing costs, or lack of kitchen or plumbing facilities.  For more on methodology, click <a href='http://www.countyhealthrankings.org/ranking-methods'>here</a>. The 2015 County Health Rankings provide data for the Wrangell-Petersburg Census Area and Skagway-Hoonah-Angoon Census Area that have incorporated into the Petersburg Borough, City and Borough of Wrangell and Skagway Municipality. The County Explorer reports the Wrangell-Petersburg Census Area data for both Petersburg Borough and the City and Borough of Wrangell and the  Skagway-Hoonah-Angoon Census Area data for Skagway Municipality.  The County Health Rankings provides data at the New York City borough level. The county explorer shows the New York City value for an indicator as the average of the borough-level data."
+						}, {
+							"name": "Percent Driving Alone to Work",
+							"dataType": "percent",
+							"supressMinMax": true,
+							"source": "<a href='http://www.countyhealthrankings.org/'>University of Wisconsin Population Health Institute</a> analysis of American Community Survey 2009-2013 data",
+							"definition": "Percentage of the workforce that drives alone to work.  For more on methodology, click <a href='http://www.countyhealthrankings.org/ranking-methods'>here</a>. The 2015 County Health Rankings provide data for the Wrangell-Petersburg Census Area and Skagway-Hoonah-Angoon Census Area that have incorporated into the Petersburg Borough, City and Borough of Wrangell and Skagway Municipality. The County Explorer reports the Wrangell-Petersburg Census Area data for both Petersburg Borough and the City and Borough of Wrangell and the  Skagway-Hoonah-Angoon Census Area data for Skagway Municipality.  The County Health Rankings provides data at the New York City borough level. The county explorer shows the New York City value for an indicator as the average of the borough-level data."
+						}, {
+							"name": "Percent with Long Commutes Alone to Work",
+							"dataType": "percent",
+							"supressMinMax": true,
+							"source": "<a href='http://www.countyhealthrankings.org/'>University of Wisconsin Population Health Institute</a> analysis of American Community Survey 2009-2013 data",
+							"definition": "Among workers who commute in their car alone, the percentage that commute more than 30 minutes.  For more on methodology, click <a href='http://www.countyhealthrankings.org/ranking-methods'>here</a>. The 2015 County Health Rankings provide data for the Wrangell-Petersburg Census Area and Skagway-Hoonah-Angoon Census Area that have incorporated into the Petersburg Borough, City and Borough of Wrangell and Skagway Municipality. The County Explorer reports the Wrangell-Petersburg Census Area data for both Petersburg Borough and the City and Borough of Wrangell and the  Skagway-Hoonah-Angoon Census Area data for Skagway Municipality.  The County Health Rankings provides data at the New York City borough level. The county explorer shows the New York City value for an indicator as the average of the borough-level data."
 						}
 					]
 				}
@@ -4476,6 +4763,34 @@
 							"name": "Local Owned",
 							"dataType": "level",
 							"definition": "Total number of bridges owned by a Local Park, Forest, or Reservation Agency or Local Toll Authority, or Other Local Agencies."
+						}, {
+							"name": "Share City/Town Owned",
+							"dataType": "level",
+							"definition": "Share of bridges owned by a Town or Township Highway Agency or a City or Municipal Highway Agency out of the total bridges in a county."
+						}, {
+							"name": "Share County Owned",
+							"dataType": "level",
+							"definition": "Share of bridges owned by a County Highway Agency out of the total bridges in a county."
+						}, {
+							"name": "Share Local Government Owned",
+							"dataType": "level",
+							"definition": "Share of bridges owned by a town or township highway agency, a city or municipal highwya agency, or a county highway agency out of the total bridges in a county."
+						}, {
+							"name": "Share Federal Owned",
+							"dataType": "level",
+							"definition": "Share of bridges owned by a Federal Agency. Includes the Indian Tribal Government, Bureau of Indian Affairs, Bureau of Fish and Wildlife, U.S. Forest Service, National Park Service, Tennessee Valley Authority, Bureau of Land Management, Bureau of Reclamation, Corps of Engineers, Air Force, Navy/Marines, Army, NASA, or the Metropolitan Washington Airports Service out of the total bridges in a county."
+						}, {
+							"name": "Share Privately Owned",
+							"dataType": "level",
+							"definition": "Share of bridges owned by a Private agency out of the total bridges in a county."
+						}, {
+							"name": "Share State Owned",
+							"dataType": "level",
+							"definition": "Share of bridges owned by a State Highway Agency, a State Park, Forest, or Reservation Agency, or Other State Agencies out of the total bridges in a county."
+						}, {
+							"name": "Share Local Owned",
+							"dataType": "level",
+							"definition": "Share of bridges owned by a Local Park, Forest, or Reservation Agency or Local Toll Authority, or Other Local Agencies out of the total bridges in a county."
 						}
 					]
 				}, {
@@ -4517,6 +4832,38 @@
 							"name": "Local Owned",
 							"dataType": "level",
 							"definition": "Total number of structurally deficient bridges owned by a Local Park, Forest, or Reservation Agency or Local Toll Authority, or Other Local Agencies."
+						}, {
+							"name": "Share Structurally Deficient",
+							"dataType": "level",
+							"definition": "Share of structurally deficient bridges out of the all bridges in a county; A highway bridge is classified as structurally deficient if the deck, superstructure, substructure, or culvert is rated in 'poor' condition (0 to 4 on the NBI rating scale). A bridge can also be classified as structurally deficient if its load carrying capacity is significantly below current design standards or if a waterway below frequently overtops the bridge during floods."
+						}, {
+							"name": "Share of City/Town Owned",
+							"dataType": "level",
+							"definition": "Share of structurally deficient bridges out of all those owned by a Town or Township Highway Agency or a City or Municipal Highway Agency."
+						}, {
+							"name": "Share of County Owned",
+							"dataType": "level",
+							"definition": "Share of structurally deficient bridges out of all those owned by a County Highway Agency."
+						}, {
+							"name": "Share of Local Government Owned",
+							"dataType": "level",
+							"definition": "Share of structurally deficient bridges out of all those owned by a town or township highway agency, a city or municipal highwya agency, or a county highway agency."
+						}, {
+							"name": "Share of Federal Owned",
+							"dataType": "level",
+							"definition": "Share of structurally deficient bridges out of all those owned by a Federal Agency. Includes the Indian Tribal Government, Bureau of Indian Affairs, Bureau of Fish and Wildlife, U.S. Forest Service, National Park Service, Tennessee Valley Authority, Bureau of Land Management, Bureau of Reclamation, Corps of Engineers, Air Force, Navy/Marines, Army, NASA, or the Metropolitan Washington Airports Service."
+						}, {
+							"name": "Share of Privately Owned",
+							"dataType": "level",
+							"definition": "Share of structurally deficient bridges out of all those owned by a Private agency."
+						}, {
+							"name": "Share of State Owned",
+							"dataType": "level",
+							"definition": "Share of structurally deficient bridges out of all those owned by a State Highway Agency, a State Park, Forest, or Reservation Agency, or Other State Agencies."
+						}, {
+							"name": "Share of Local Owned",
+							"dataType": "level",
+							"definition": "Share of structurally deficient bridges out of all those owned by a Local Park, Forest, or Reservation Agency or Local Toll Authority, or Other Local Agencies."
 						}
 					]
 				}, {
@@ -4558,6 +4905,38 @@
 							"name": "Local Owned",
 							"dataType": "level",
 							"definition": "Total number of functionally obsolete bridges owned by a Local Park, Forest, or Reservation Agency or Local Toll Authority, or Other Local Agencies."
+						}, {
+							"name": "Share Functionally Obsolete",
+							"dataType": "level",
+							"definition": "Share of functionally obsolete bridges out of all bridges in a county; 'Functionally obsolete' means that the design of a bridge is not suitable for its current use, such as lack of safety shoulders or the inability to handle current traffic volume, speed, size, or weight."
+						}, {
+							"name": "Share of City/Town Owned",
+							"dataType": "level",
+							"definition": "Share of functionally obsolete bridges out of all those owned by a Town or Township Highway Agency or a City or Municipal Highway Agency."
+						}, {
+							"name": "Share of County Owned",
+							"dataType": "level",
+							"definition": "Share of functionally obsolete bridges out of all those owned by a County Highway Agency."
+						}, {
+							"name": "Share of Local Government Owned",
+							"dataType": "level",
+							"definition": "Share of functionally obsolete bridges out of all those owned by a town or township highway agency, a city or municipal highwya agency, or a county highway agency."
+						}, {
+							"name": "Share of Federal Owned",
+							"dataType": "level",
+							"definition": "Share of functionally obsolete bridges out of all those owned by a Federal Agency. Includes the Indian Tribal Government, Bureau of Indian Affairs, Bureau of Fish and Wildlife, U.S. Forest Service, National Park Service, Tennessee Valley Authority, Bureau of Land Management, Bureau of Reclamation, Corps of Engineers, Air Force, Navy/Marines, Army, NASA, or the Metropolitan Washington Airports Service."
+						}, {
+							"name": "Share of Privately Owned",
+							"dataType": "level",
+							"definition": "Share of functionally obsolete bridges out of all those owned by a Private agency."
+						}, {
+							"name": "Share of State Owned",
+							"dataType": "level",
+							"definition": "Share of functionally obsolete bridges out of all those owned by a State Highway Agency, a State Park, Forest, or Reservation Agency, or Other State Agencies."
+						}, {
+							"name": "Share of Local Owned",
+							"dataType": "level",
+							"definition": "Share of functionally obsolete bridges out of all those owned by a Local Park, Forest, or Reservation Agency or Local Toll Authority, or Other Local Agencies."
 						}
 					]
 				}, {
@@ -4749,6 +5128,7 @@
 				}, {
 					"name": "Transportation Funding",
 					"years": [2014],
+					"yearSpan": "2011-2014",
 					"source": "NACo Analysis of U.S. Department of Transportation – Federal Highway Administration, Highway Performance Monitoring System",
 					"companions": [["Transportation Funding", "Statewide Local Gov Share of Federal-aid Highway Miles"], ["Transportation Funding", "Statewide Local Gov Share of Roads"], ["Transportation Funding", "Statewide Local Gov Share of Bridges"], ["Transportation Funding", "Statewide Structurally Deficient Share of Local Gov Bridges"], ["Transportation Funding", "Statewide Local Gov Map-21 Transportation Funding"]
 					],

@@ -654,6 +654,14 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 							var countyName = parseCountyName(+FIPS, county.geography);
 							window.open('http://explorer.naco.org/profiles/county_muniBonds/muni_bonds_profile_' + countyName + '.pdf');
 						}
+					} else if (currentDI === 'Community Development Block Grants (CDBG) - CDBG Profiles') {
+						console.log("working");
+						if (isNaN(quantByIds[0][+FIPS])) {
+							noty({text: '<strong>No Profile Available</strong>'});
+						} else {
+							var countyName = parseCountyName(+FIPS, county.geography);
+							window.open('http://explorer.naco.org/profiles/CDBG/' + countyName + '.pdf');
+						}
 					} else if (currentDI === 'Municipal Bonds - Statewide Muni Bonds Profiles') {
 						var state = countyObjectById[+FIPS].STATE;
 						window.open('http://explorer.naco.org/profiles/state_muniBonds/state_bonds_profiles' + state + '.pdf', '_blank');
@@ -1077,7 +1085,7 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 		// list source
 		d3.select("#sourceContainer").selectAll("p").remove();
 		d3.select('#sourceContainer').append('p').attr("id", "sourceText")
-			.html('<span style="font-weight:400;">Source:</span>' + indObjects[0].source + ((indObjects[0].supressYear) ? '.' : ', ' + indObjects[0].year));
+			.html('<span style="font-weight:400;">Source: </span>' + indObjects[0].source + ((indObjects[0].supressYear) ? '.' : ', ' + indObjects[0].year));
 		
 				
 		// if showing a "county profile" indicator, show a mini help dialog
@@ -1823,11 +1831,14 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 	// for matching county name with county name used in url for profiles
 	var parseCountyName = function(fips, name) {
 		var countyName = name.replace(/,| /g, ''); // rmeove commas and spaces
-		if (fips === 6075) countyName = 'SanFranciscoCountyCA';
-		else if (fips === 21111) countyName = 'JeffersonCountyKY';
+		//if (fips === 6075) countyName = 'SanFranciscoCity&CountyCA';
+		if (fips === 21111) countyName = 'Louisville/JeffersonCountyKY';
 		else if (fips === 24033) countyName = 'PrinceGeorgesCountyMD';
-		else if (fips === 25025) countyName = 'SuffolkCountyMA';
+		//else if (fips === 25025) countyName = 'SuffolkCountyCityofBostonMA';
 		else if (fips === 2020) countyName = 'AnchorageBoroughAK';
+		else if (fips === 20209) countyName = 'WyandotteCounty/KansasCityKS';
+		else if (fips === 22109) countyName = 'TerrebonneParishLA';
+		else if (fips === 47037) countyName = 'Nashville/DavidsonCountyTN';
 		return countyName;		
 	};
 	
