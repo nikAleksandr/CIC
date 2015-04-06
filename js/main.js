@@ -1676,7 +1676,7 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 	//update url for copy-paste direct linking
 	$('.share-toggle').click(function(){
 		var baseState = { base : "index"};
-		var directLink = encodeURI("index.html?dset=" + indObjects[0].dataset + "&ind=" + indObjects[0].name);
+		var directLink = "index.html?dset=" + encodeURIComponent(indObjects[0].dataset) + "&ind=" + encodeURIComponent(indObjects[0].name);
 		history.pushState(baseState, "directLink", directLink);
 	});
 	
