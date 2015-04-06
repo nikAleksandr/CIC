@@ -685,7 +685,7 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 							var state = countyObjectById[+FIPS].STATE;
 							window.open('http://explorer.naco.org/profiles/stateTransportation/state_summary_' + state + '.pdf', '_blank');
 						}
-					}  else if (currentDI === 'Transportation Funding Profiles - MAP-21 Profiles') {
+					}  else if (currentDI === 'MAP-21 Profiles - MAP-21 Profiles') {
 						if (quantByIds[0][+FIPS] === NaN) {
 							noty({text: '<strong>No Profile Available</strong>'});
 						} else {
@@ -1346,10 +1346,10 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 	};
 	var changeLegendTitle = function() {
 		var primeIndObj = indObjects[0];
-		var subtitle = primeIndObj.name;
-		if (primeIndObj.hasOwnProperty('unit') && primeIndObj.unit.indexOf('per ') !== -1 && subtitle.indexOf('per ') === -1) {
-			subtitle += ' (' + primeIndObj.unit + ')';
-		}
+		var indicatorYear = "";
+		if (primeIndObj.hasOwnProperty('indicatorYear')) indicatorYear = primeIndObj.indicatorYear.toString() + " ";
+		var subtitle = indicatorYear + primeIndObj.name;
+		
 		//shouldn't be if and else, these properties should be able to be stacked
 		if (primeIndObj.hasOwnProperty('legend_title_footer')) {
 			var legendTitle = primeIndObj.dataset + primeIndObj.legend_title_footer;
@@ -1358,10 +1358,13 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 		} else {
 			var legendTitle = primeIndObj.year + ' ' + primeIndObj.dataset;		
 		}
-		if (primeIndObj.name === 'MFA Profiles') legendTitle = 'Sales Tax' + primeIndObj.legend_title_footer;
 		
 		// special titles for profiles
-		if (primeIndObj.has_profile === true) subtitle = primeIndObj.companions[0][1];
+		if (primeIndObj.has_profile === true) subtitle = indicatorYear + primeIndObj.companions[0][1];
+		//adding unit when the property exists
+		if (primeIndObj.hasOwnProperty('unit') && primeIndObj.unit.indexOf('per ') !== -1 && subtitle.indexOf('per ') === -1) {
+			subtitle += ' (' + primeIndObj.unit + ')';
+		}
 		
 		d3.select('#legendTitle').text(legendTitle);
 		d3.select('#legendSubtitle').text(subtitle);
@@ -1670,6 +1673,14 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 	};
 	
 	//---------------  Easter-Eggs, and other back-end functions -----------------------------------
+	//update url for copy-paste direct linking
+	$('.share-toggle').click(function(){
+		var baseState = { base : "index"};
+		var directLink = encodeURI("index.html?dset=" + indObjects[0].dataset + "&ind=" + indObjects[0].name);
+		history.pushState(baseState, "directLink", directLink);
+	});
+	
+	
 	var exportSVG = function(){
 		d3.selectAll('path').attr({'stroke': '#fff', 'stroke-width': '.2px'});
 		d3.select('#state-borders').attr({'fill': 'none', 'stroke': '#fff', 'stroke-linecap': 'round', 'stroke-linejoin': 'round', 'stroke-width': '1.5px'});

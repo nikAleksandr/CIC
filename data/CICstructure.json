@@ -5167,6 +5167,22 @@
 							"definition": "The Share of structurally deficient bridges owned by counties out of total county bridges statewide."
 						}
 					]
+				}, {
+					"name": "MAP-21 Profiles",
+					"years": [2014],
+					"source": "NACo Analysis of U.S. Department of Transportation – Federal Highway Administration, Highway Performance Monitoring System",
+					"companions": [["Transportation Funding", "Statewide Structurally Deficient Share of Local Gov Bridges"], ["Transportation Funding", "Statewide Local Gov Share of Federal-aid Highway Miles"], ["Transportation Funding", "Statewide Local Gov Share of Roads"], ["Transportation Funding", "Statewide Local Gov Share of Bridges"], ["Transportation Funding", "Statewide Local Gov Map-21 Transportation Funding"], ["Transportation Funding", "Statewide Structurally Deficient Share of Local Gov Bridges"]
+					],
+					"children": [
+						{
+							"name": "MAP-21 Profiles",
+							"dataType": "percent",
+							"source": "NACo Analysis of National Bridge Inventory 2013 data",
+							"has_profile": true,
+							"indicatorYear": 2011,
+							"definition": "State level profiles of the MAP-21 decreases for locally-owned bridges & federal aid highways."
+						}
+					]
 				}
 			]
 		}, {
@@ -5480,16 +5496,9 @@
 							"dataType": "percent",
 							"companions": [["Transportation Funding", "Statewide Share of County Owned Roads"], ["Transportation Funding", "Statewide Share of County Owned Roads"], ["Transportation Funding", "Statewide Share of County Owned Bridges"], ["Transportation Funding", "Statewide Structurally Deficient Share of County Bridges"]
 							],
+							"indicatorYear": 2011,
 							"definition": "Profiles on state level transportation funding and financing for counties.",
 							"has_profile": true
-						}, {
-							"name": "MAP-21 Profiles",
-							"dataType": "percent",
-							"source": "NACo Analysis of National Bridge Inventory 2013 data",
-							"has_profile": true,
-							"companions": [["Transportation Funding", "Statewide Structurally Deficient Share of Local Gov Bridges"], ["Transportation Funding", "Statewide Local Gov Share of Federal-aid Highway Miles"], ["Transportation Funding", "Statewide Local Gov Share of Roads"], ["Transportation Funding", "Statewide Local Gov Share of Bridges"], ["Transportation Funding", "Statewide Local Gov Map-21 Transportation Funding"], ["Transportation Funding", "Statewide Structurally Deficient Share of Local Gov Bridges"]
-							],
-							"definition": "State level profiles of the MAP-21 decreases for locally-owned bridges & federal aid highways."
 						}
 					]
 				}
