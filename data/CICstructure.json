@@ -1471,7 +1471,7 @@
 				}, {
 					"name": "Municipal Bonds",
 					"source": "NACo Analysis of 2012 county interest payments for tax-exempt municipal bonds",
-					"years": [2013],
+					"years": [2012],
 					"companions": [["Municipal Bonds", "Interest Payment on Tax Exempt Muni Bonds"], ["Municipal Bonds", "Interest Payment on Tax Exempt Muni Bonds"], ["Municipal Bonds", "Cost of 28% Cap"], ["Municipal Bonds", "Cost of Full Repeal"]
 					],
 					"children": [
@@ -1479,6 +1479,7 @@
 							"name": "County Muni Bonds Profiles",
 							"unit": "dollars",
 							"dataType": "level",
+							"vintageYear": "2013",
 							"has_profile": true,
 							"definition": "Profiles on the county-level impact of changing the tax-exempt status of municipal bond interest."
 						}, {
@@ -1486,8 +1487,9 @@
 							"unit": "millions of dollars",
 							"statewide": true,
 							"dataType": "level",
+							"vintageYear": "2013",
 							"has_profile": true,
-							"legend_title_footer": ", 2003-2012",
+							"yearSpan": "2003-2012",
 							"companions": [["Municipal Bonds", "Statewide Tax Exempt Muni Bonds Value"], ["Municipal Bonds", "Statewide Cost of 28% Cap"], ["Municipal Bonds", "Statewide Cost of Full Repeal"], ["Municipal Bonds", "Statewide Tax Exempt Muni Bonds Value"]],
 							"source": "NACo Analysis of Thompson Reuters February 2013 data",
 							"definition": "Profiles showing the impact of changing the tax-exempt status of municipal bond interest on state and local governments and authorities."
@@ -2693,7 +2695,7 @@
 				}, {
 					"name": "Secure Rural Schools (SRS)",
 					"years": [2012, 2013],
-					"source": "NACo Analysis of data from the U.S. Department of Agriculture, U.S. Forest Service and Headwaters Economics analysis of U.S. Geological Survey, Protected Areas Database",
+					"source": "NACo Analysis of U.S. Department of Agriculture, U.S. Forest Service data and Headwaters Economics analysis of U.S. Geological Survey, Protected Areas Database",
 					"companions": [["Secure Rural Schools (SRS)", "SRS Amount, FY 2013 Receipts Year"]
 					],
 					"children": [
@@ -2703,6 +2705,7 @@
 							"has_profile": true,
 							"thresholds": [-0.75, -0.25, -0.1, 0],
 							"supressMinMax": true,
+							"vintageYear": "2015",
 							"companions": [["Secure Rural Schools (SRS)", "Payment Percent Change, FY 2013-2014 Receipts Years"], ["Secure Rural Schools (SRS)", "Payment Percent Change, FY 2013-2014 Receipts Years"]],
 							"definition": "Profiles showing that without the SRS Act reauthorization, states revert to the Payments to States Act of 1908 as amended, receiving a 25 percent payment from national forest receipts.  USFS estimates FY 2014 county 25 percent payments based on county shares of the national forest receipts.  These estimates do not reflect the application of a 7.3 percent sequester to the state payments.  Note: The receipts year reflects when U.S. Forest Service (USFS) collects revenues from national forest lands."
 						}, {
@@ -3290,12 +3293,12 @@
 							"name": "Health Outcomes Rank in State",
 							"dataType": "level",
 							"source": "<a href='http://www.countyhealthrankings.org/'>University of Wisconsin Population Health Institute</a>",
-							"definition": "County ranking within a state across several weighted measures of health outcomes by the <a href='http://www.countyhealthrankings.org/'>University of Wisconsin Population Health Institute</a>."
+							"definition": "County ranking within a state based on several weighted measures of health outcomes by the <a href='http://www.countyhealthrankings.org/'>University of Wisconsin Population Health Institute</a>."
 						}, {
 							"name": "Health Factors Rank in State",
 							"dataType": "level",
 							"source": "<a href='http://www.countyhealthrankings.org/'>University of Wisconsin Population Health Institute</a>",
-							"definition": "County ranking within a state across several weighted measures of health factors by the <a href='http://www.countyhealthrankings.org/'>University of Wisconsin Population Health Institute</a>."
+							"definition": "County ranking within a state based on several weighted measures of health factors by the <a href='http://www.countyhealthrankings.org/'>University of Wisconsin Population Health Institute</a>."
 						}
 					]
 				}, {
@@ -3364,6 +3367,7 @@
 							"name": "Food Environment Index",
 							"dataType": "level",
 							"supressMinMax": true,
+							"thresholds": [5,6,7,8],
 							"source": "<a href='http://www.countyhealthrankings.org/'>University of Wisconsin Population Health Institute</a> analysis of USDA Food Environment Atlas, Map the Meal Gap 2012 data",
 							"definition": "Index of factors that contribute to a healthy food environment, 0 (worst) to 10 (best).  For more on methodology, click <a href='http://www.countyhealthrankings.org/ranking-methods'>here</a>."
 						}, {
@@ -3539,32 +3543,32 @@
 							"supressMinMax": true,
 							"source": "<a href='http://www.countyhealthrankings.org/'>University of Wisconsin Population Health Institute</a> analysis of CDC WONDER Environmental 2011 data",
 							"unit": " micrograms per cubic meter",
-							"definition": "Average daily density of fine particulate matter in micrograms per cubic meter (PM2.5).  For more on methodology, click <a href='http://www.countyhealthrankings.org/ranking-methods'>here</a>. The 2015 County Health Rankings provide data for the Wrangell-Petersburg Census Area and Skagway-Hoonah-Angoon Census Area that have incorporated into the Petersburg Borough, City and Borough of Wrangell and Skagway Municipality. The County Explorer reports the Wrangell-Petersburg Census Area data for both Petersburg Borough and the City and Borough of Wrangell and the  Skagway-Hoonah-Angoon Census Area data for Skagway Municipality.  The County Health Rankings provides data at the New York City borough level. The county explorer shows the New York City value for an indicator as the average of the borough-level data."
+							"definition": "Average daily density of fine particulate matter in micrograms per cubic meter (PM2.5).  For more on methodology, click <a href='http://www.countyhealthrankings.org/ranking-methods'>here</a>."
 						}, {
 							"name": "Drinking Water Violations",
 							"dataType": "percent",
 							"supressMinMax": true,
 							"source": "<a href='http://www.countyhealthrankings.org/'>University of Wisconsin Population Health Institute</a> analysis of Safe Drinking Water Information System FY2013-14 data",
 							"unit": " of population affected",
-							"definition": "Percentage of population potentially exposed to water exceeding a violation limit during the past year.  For more on methodology, click <a href='http://www.countyhealthrankings.org/ranking-methods'>here</a>. The 2015 County Health Rankings provide data for the Wrangell-Petersburg Census Area and Skagway-Hoonah-Angoon Census Area that have incorporated into the Petersburg Borough, City and Borough of Wrangell and Skagway Municipality. The County Explorer reports the Wrangell-Petersburg Census Area data for both Petersburg Borough and the City and Borough of Wrangell and the  Skagway-Hoonah-Angoon Census Area data for Skagway Municipality.  The County Health Rankings provides data at the New York City borough level. The county explorer shows the New York City value for an indicator as the average of the borough-level data."
+							"definition": "Percentage of population potentially exposed to water exceeding a violation limit during the past year.  For more on methodology, click <a href='http://www.countyhealthrankings.org/ranking-methods'>here</a>."
 						}, {
 							"name": "Percent with Severe Housing Problems",
 							"dataType": "percent",
 							"supressMinMax": true,
 							"source": "<a href='http://www.countyhealthrankings.org/'>University of Wisconsin Population Health Institute</a> analysis of Comprehensive Housing Affordability Strategy (CHAS) data 2007-2011 data",
-							"definition": "Percentage of households with at least 1 of 4 housing problems: overcrowding, high housing costs, or lack of kitchen or plumbing facilities.  For more on methodology, click <a href='http://www.countyhealthrankings.org/ranking-methods'>here</a>. The 2015 County Health Rankings provide data for the Wrangell-Petersburg Census Area and Skagway-Hoonah-Angoon Census Area that have incorporated into the Petersburg Borough, City and Borough of Wrangell and Skagway Municipality. The County Explorer reports the Wrangell-Petersburg Census Area data for both Petersburg Borough and the City and Borough of Wrangell and the  Skagway-Hoonah-Angoon Census Area data for Skagway Municipality.  The County Health Rankings provides data at the New York City borough level. The county explorer shows the New York City value for an indicator as the average of the borough-level data."
+							"definition": "Percentage of households with at least 1 of 4 housing problems: overcrowding, high housing costs, or lack of kitchen or plumbing facilities.  For more on methodology, click <a href='http://www.countyhealthrankings.org/ranking-methods'>here</a>."
 						}, {
 							"name": "Percent Driving Alone to Work",
 							"dataType": "percent",
 							"supressMinMax": true,
 							"source": "<a href='http://www.countyhealthrankings.org/'>University of Wisconsin Population Health Institute</a> analysis of American Community Survey 2009-2013 data",
-							"definition": "Percentage of the workforce that drives alone to work.  For more on methodology, click <a href='http://www.countyhealthrankings.org/ranking-methods'>here</a>. The 2015 County Health Rankings provide data for the Wrangell-Petersburg Census Area and Skagway-Hoonah-Angoon Census Area that have incorporated into the Petersburg Borough, City and Borough of Wrangell and Skagway Municipality. The County Explorer reports the Wrangell-Petersburg Census Area data for both Petersburg Borough and the City and Borough of Wrangell and the  Skagway-Hoonah-Angoon Census Area data for Skagway Municipality.  The County Health Rankings provides data at the New York City borough level. The county explorer shows the New York City value for an indicator as the average of the borough-level data."
+							"definition": "Percentage of the workforce that drives alone to work.  For more on methodology, click <a href='http://www.countyhealthrankings.org/ranking-methods'>here</a>."
 						}, {
 							"name": "Percent with Long Commutes Alone to Work",
 							"dataType": "percent",
 							"supressMinMax": true,
 							"source": "<a href='http://www.countyhealthrankings.org/'>University of Wisconsin Population Health Institute</a> analysis of American Community Survey 2009-2013 data",
-							"definition": "Among workers who commute in their car alone, the percentage that commute more than 30 minutes.  For more on methodology, click <a href='http://www.countyhealthrankings.org/ranking-methods'>here</a>. The 2015 County Health Rankings provide data for the Wrangell-Petersburg Census Area and Skagway-Hoonah-Angoon Census Area that have incorporated into the Petersburg Borough, City and Borough of Wrangell and Skagway Municipality. The County Explorer reports the Wrangell-Petersburg Census Area data for both Petersburg Borough and the City and Borough of Wrangell and the  Skagway-Hoonah-Angoon Census Area data for Skagway Municipality.  The County Health Rankings provides data at the New York City borough level. The county explorer shows the New York City value for an indicator as the average of the borough-level data."
+							"definition": "Among workers who commute in their car alone, the percentage that commute more than 30 minutes.  For more on methodology, click <a href='http://www.countyhealthrankings.org/ranking-methods'>here</a>."
 						}
 					]
 				}
@@ -5125,64 +5129,6 @@
 							"definition": "Percentage public road miles under the control of any other agency out of all public roads."
 						}
 					]
-				}, {
-					"name": "Transportation Funding",
-					"years": [2014],
-					"yearSpan": "2011-2014",
-					"source": "NACo Analysis of U.S. Department of Transportation – Federal Highway Administration, Highway Performance Monitoring System",
-					"companions": [["Transportation Funding", "Statewide Local Gov Share of Federal-aid Highway Miles"], ["Transportation Funding", "Statewide Local Gov Share of Roads"], ["Transportation Funding", "Statewide Local Gov Share of Bridges"], ["Transportation Funding", "Statewide Structurally Deficient Share of Local Gov Bridges"], ["Transportation Funding", "Statewide Local Gov Map-21 Transportation Funding"]
-					],
-					"children": [
-						{
-							"name": "Statewide Share of County Owned Roads",
-							"dataType": "percent",
-							"definition": "The Share of county-owned road miles out of publicly-owned roads statewide."
-						}, {
-							"name": "Statewide Share of County Owned Bridges",
-							"dataType": "percent",
-							"definition": "The share of county owned bridges out of public bridges statewide."
-						}, {
-							"name": "Statewide Structurally Deficient Share of County Bridges",
-							"dataType": "percent",
-							"definition": "The Share of structurally deficient bridges owned by counties out of total county bridges statewide."
-						}, {
-							"name": "Statewide Local Gov Share of Federal-aid Highway Miles",
-							"dataType": "percent",
-							"definition": "The Share of structurally deficient bridges owned by counties out of total county bridges statewide."
-						}, {
-							"name": "Statewide Local Gov Share of Roads",
-							"dataType": "percent",
-							"definition": "The Share of structurally deficient bridges owned by counties out of total county bridges statewide."
-						}, {
-							"name": "Statewide Local Gov Share of Bridges",
-							"dataType": "percent",
-							"definition": "The Share of structurally deficient bridges owned by counties out of total county bridges statewide."
-						}, {
-							"name": "Statewide Structurally Deficient Share of Local Gov Bridges",
-							"dataType": "percent",
-							"definition": "The Share of structurally deficient bridges owned by counties out of total county bridges statewide."
-						}, {
-							"name": "Statewide Local Gov Map-21 Transportation Funding",
-							"dataType": "percent",
-							"definition": "The Share of structurally deficient bridges owned by counties out of total county bridges statewide."
-						}
-					]
-				}, {
-					"name": "MAP-21 Profiles",
-					"years": [2014],
-					"source": "NACo Analysis of U.S. Department of Transportation – Federal Highway Administration, Highway Performance Monitoring System",
-					"companions": [["Transportation Funding", "Statewide Structurally Deficient Share of Local Gov Bridges"], ["Transportation Funding", "Statewide Local Gov Share of Federal-aid Highway Miles"], ["Transportation Funding", "Statewide Local Gov Share of Roads"], ["Transportation Funding", "Statewide Local Gov Share of Bridges"], ["Transportation Funding", "Statewide Local Gov Map-21 Transportation Funding"], ["Transportation Funding", "Statewide Structurally Deficient Share of Local Gov Bridges"]
-					],
-					"children": [
-						{
-							"name": "MAP-21 Profiles",
-							"dataType": "percent",
-							"source": "NACo Analysis of National Bridge Inventory 2013 data",
-							"has_profile": true,
-							"indicatorYear": 2011,
-							"definition": "State level profiles of the MAP-21 decreases for locally-owned bridges & federal aid highways."
-						}
-					]
 				}
 			]
 		}, {
@@ -5450,27 +5396,28 @@
 			"children": [
 				{
 					"name": "MFA Profiles",
-					"source": "NACo Research",
+					"source": "NACo Analysis of U.S. Census Bureau, U.S. Bureau of Economic Analysis, Federal Communications Commission, University of Tennessee data",
 					"years": [2013],
-					"companions": [["MFA Profiles", "Statewide MFA Uncollected Revenue"], ["MFA Profiles", "Statewide MFA Uncollected Revenue"], ["MFA Profiles", "Statewide MFA Uncollected Revenue Growth Rate"], ["MFA Profiles", "Statewide ITFA Forgone Revenue"], ["MFA Profiles", "Statewide ITFA Forgone Revenue Growth Rate"]
+					"companions": [["MFA Profiles", "Statewide MFA Uncollected Revenue"], ["MFA Profiles", "Statewide MFA Uncollected Revenue Growth Rate"], ["MFA Profiles", "Statewide MFA Uncollected Revenue"]
 					],
 					"children": [
 						{
 							"name": "MFA Profiles",
 							"dataType": "level",
-							"definition": "The county sales tax rate.  Some rates may be median estimates calculated from a range of sales tax rates.",
+							"vintageYear": "2014",
+							"definition": "Profiles showing the uncollected MFA revenue and forgone ITFA revenue by state and local governments.",
 							"has_profile": true
 						}, {
 							"name": "Statewide MFA Uncollected Revenue",
 							"dataType": "level",
 							"unit": "dollars",
-							"definition": "The estimated revenue that would have been collected, had current local sales tax rates applied to online sales."
+							"definition": "2013 Statewide MFA Uncollected Revenue: The estimated uncollected revenue by states and local governments of existing sales and use taxes on remote sales."
 						}, {
 							"name": "Statewide MFA Uncollected Revenue Growth Rate",
 							"yearSpan": "2011-2013",
-							"dataType": "level",
+							"dataType": "percent",
 							"unit": "dollars",
-							"definition": "The growth rate from 2011 to 2013 in the estimated revenue that would have been collected, had current local sales tax rates applied to online sales."
+							"definition": "2011-2013 Statewide MFA uncollected revenue growth rate: Percent change in the estimated uncollected revenue by states and local governments of existing sales and use taxes on remote sales between 2011 and 2013."
 						}, {
 							"name": "Statewide ITFA Forgone Revenue",
 							"dataType": "level",
@@ -5479,26 +5426,74 @@
 						}, {
 							"name": "Statewide ITFA Forgone Revenue Growth Rate",
 							"yearSpan": "2011-2013",
-							"dataType": "level",
+							"dataType": "percent",
 							"unit": "dollars",
 							"definition": "The growth rate from 2011 to 2013 in the estimated revenue that would have been collected, had the Internet Tax Freedom Act's provision preventing the taxation of broadband access not been in place."
 						}
 					]
 				}, {
 					"name": "Transportation Funding Profiles",
-					"source": "NACo Analysis of Federal Highway Administration, Highway Performance Monitoring System 2011 data",
-					"years": [2014],
+					"source": "NACo Analysis of U.S. Department of Transportation – Federal Highway Administration, Highway Performance Monitoring System data",
+					"years": [2011],
 					"companions": [["Bridges", "Structurally Deficient Bridges - County Owned"], ["Bridges", "Structurally Deficient Bridges - County Owned"]
 					],
 					"children": [
 						{
 							"name": "Transportation Funding Profiles",
 							"dataType": "percent",
-							"companions": [["Transportation Funding", "Statewide Share of County Owned Roads"], ["Transportation Funding", "Statewide Share of County Owned Roads"], ["Transportation Funding", "Statewide Share of County Owned Bridges"], ["Transportation Funding", "Statewide Structurally Deficient Share of County Bridges"]
+							"companions": [["Transportation Funding Profiles", "Statewide Share of County Owned Roads"], ["Transportation Funding Profiles", "Statewide Share of County Owned Roads"], ["Transportation Funding Profiles", "Statewide Share of County Owned Bridges"], ["Transportation Funding Profiles", "Statewide Structurally Deficient Share of County Bridges"]
 							],
-							"indicatorYear": 2011,
+							"vintageYear": "2014",
 							"definition": "Profiles on state level transportation funding and financing for counties.",
 							"has_profile": true
+						}, {
+							"name": "Statewide Share of County Owned Roads",
+							"dataType": "percent",
+							"definition": "The Share of county-owned road miles out of publicly-owned roads statewide."
+						}, {
+							"name": "Statewide Share of County Owned Bridges",
+							"dataType": "percent",
+							"definition": "The share of county owned bridges out of public bridges statewide."
+						}, {
+							"name": "Statewide Structurally Deficient Share of County Bridges",
+							"dataType": "percent",
+							"definition": "The Share of structurally deficient bridges owned by counties out of total county bridges statewide."
+						}
+					]
+				}, {
+					"name": "MAP-21 Profiles",
+					"years": [2013],
+					"source": "NACo Analysis of U.S. Department of Transportation – Federal Highway Administration, Highway Performance Monitoring System",
+					"companions": [["MAP-21 Profiles", "Statewide Structurally Deficient Share of Local Gov Bridges"], ["MAP-21 Profiles", "Statewide Local Gov Share of Federal-aid Highway Miles"], ["MAP-21 Profiles", "Statewide Local Gov Share of Roads"], ["MAP-21 Profiles", "Statewide Local Gov Share of Bridges"], ["MAP-21 Profiles", "Statewide Local Gov Map-21 Transportation Funding"], ["MAP-21 Profiles", "Statewide Structurally Deficient Share of Local Gov Bridges"]
+					],
+					"children": [
+						{
+							"name": "MAP-21 Profiles",
+							"dataType": "percent",
+							"source": "NACo Analysis of National Bridge Inventory 2013 data",
+							"has_profile": true,
+							"vintageYear": "2014",
+							"definition": "State level profiles of the MAP-21 decreases for locally-owned bridges & federal aid highways."
+						}, {
+							"name": "Statewide Local Gov Share of Federal-aid Highway Miles",
+							"dataType": "percent",
+							"definition": "The Share of structurally deficient bridges owned by counties out of total county bridges statewide."
+						}, {
+							"name": "Statewide Local Gov Share of Roads",
+							"dataType": "percent",
+							"definition": "The Share of structurally deficient bridges owned by counties out of total county bridges statewide."
+						}, {
+							"name": "Statewide Local Gov Share of Bridges",
+							"dataType": "percent",
+							"definition": "The Share of structurally deficient bridges owned by counties out of total county bridges statewide."
+						}, {
+							"name": "Statewide Structurally Deficient Share of Local Gov Bridges",
+							"dataType": "percent",
+							"definition": "The Share of structurally deficient bridges owned by counties out of total county bridges statewide."
+						}, {
+							"name": "Statewide Local Gov Map-21 Transportation Funding",
+							"dataType": "percent",
+							"definition": "The Share of structurally deficient bridges owned by counties out of total county bridges statewide."
 						}
 					]
 				}

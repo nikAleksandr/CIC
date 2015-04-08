@@ -1085,7 +1085,7 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 		// list source
 		d3.select("#sourceContainer").selectAll("p").remove();
 		d3.select('#sourceContainer').append('p').attr("id", "sourceText")
-			.html('<span style="font-weight:400;">Source: </span>' + indObjects[0].source + ((indObjects[0].supressYear) ? '.' : ', ' + indObjects[0].year));
+			.html('<span style="font-weight:400;">Source: </span>' + indObjects[0].source + ((indObjects[0].supressYear) ? '.' : (indObjects[0].vintageYear) ? ', ' + indObjects[0].vintageYear : ', ' + indObjects[0].year));
 		
 				
 		// if showing a "county profile" indicator, show a mini help dialog
@@ -1346,25 +1346,46 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 	};
 	var changeLegendTitle = function() {
 		var primeIndObj = indObjects[0];
-		var indicatorYear = "";
-		if (primeIndObj.hasOwnProperty('indicatorYear')) indicatorYear = primeIndObj.indicatorYear.toString() + " ";
-		var subtitle = indicatorYear + primeIndObj.name;
+		//components of legend titles with default components
+		//spaces should be added to the end of Pre and the beginning of Post
+		var subtitlePre = '',
+			subtitleMain = primeIndObj.name,
+			subtitlePost = '',
+			legendTitlePre = primeIndObj.year + ' ',
+			legendTitleMain = primeIndObj.dataset,
+			legendTitlePost = '';
 		
-		//shouldn't be if and else, these properties should be able to be stacked
-		if (primeIndObj.hasOwnProperty('legend_title_footer')) {
-			var legendTitle = primeIndObj.dataset + primeIndObj.legend_title_footer;
-		} else if(primeIndObj.hasOwnProperty('yearSpan')){
-			var legendTitle = primeIndObj.yearSpan + ' ' + primeIndObj.dataset;
-		} else {
-			var legendTitle = primeIndObj.year + ' ' + primeIndObj.dataset;		
+		if(primeIndObj.hasOwnProperty('yearSpan') & !primeIndObj.hasOwnProperty('vintageYear')){
+			legendTitlePre = primeIndObj.yearSpan + ' ';
+		}
+		//vintageYear
+		if(primeIndObj.hasOwnProperty('vintageYear')){
+			if(primeIndObj.hasOwnProperty('yearSpan')){
+				//pull the yearSpan down to the indicator level
+				subtitlePre = primeIndObj.yearSpan + ' ';
+			} else {
+				//pull the dataset year down to the indicator level
+				subtitlePre = primeIndObj.year + ' ';
+				
+			}
+			//push the vintageYear to the legendTitle
+			legendTitlePre = primeIndObj.vintageYear + ' ';
+		}
+		//profiles
+		if (primeIndObj.has_profile === true){
+			//subtitle override for all profiles, indicator name is found in the first companion
+			subtitleMain = primeIndObj.companions[0][1];
 		}
 		
-		// special titles for profiles
-		if (primeIndObj.has_profile === true) subtitle = indicatorYear + primeIndObj.companions[0][1];
+		if (primeIndObj.hasOwnProperty('legend_title_footer')) legendTitlePost = primeIndObj.legend_title_footer;
+		
 		//adding unit when the property exists
-		if (primeIndObj.hasOwnProperty('unit') && primeIndObj.unit.indexOf('per ') !== -1 && subtitle.indexOf('per ') === -1) {
-			subtitle += ' (' + primeIndObj.unit + ')';
+		if (primeIndObj.hasOwnProperty('unit') && primeIndObj.unit.indexOf('per ') !== -1 && subtitleMain.indexOf('per ') === -1) {
+			subtitlePost = ' (' + primeIndObj.unit + ')';
 		}
+		
+		var subtitle = subtitlePre + subtitleMain + subtitlePost;
+		var legendTitle = legendTitlePre + legendTitleMain + legendTitlePost;
 		
 		d3.select('#legendTitle').text(legendTitle);
 		d3.select('#legendSubtitle').text(subtitle);
