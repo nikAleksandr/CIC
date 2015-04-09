@@ -655,8 +655,7 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 							window.open('http://explorer.naco.org/profiles/county_muniBonds/muni_bonds_profile_' + countyName + '.pdf');
 						}
 					} else if (currentDI === 'Community Development Block Grants (CDBG) - CDBG Profiles') {
-						console.log("working");
-						if (isNaN(quantByIds[0][+FIPS])) {
+						if (quantByIds[0][+FIPS] === 0 || isNaN(quantByIds[0][+FIPS])) {
 							noty({text: '<strong>No Profile Available</strong>'});
 						} else {
 							var countyName = parseCountyName(+FIPS, county.geography);
@@ -1098,6 +1097,10 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 				timeout: false
 			});
 		}
+		
+		//special notes for certain datasets
+		//if this gets larger, may want to make note options an array in the JSON file
+		(indObjects[0].dataset.indexOf('County Health Rankings')!=-1) ? $('.chr-note').show() : $('.chr-note').hide();
 	};
 	
 	var switchToThreshold = function(domain, range) {

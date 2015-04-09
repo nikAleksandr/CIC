@@ -655,63 +655,63 @@ Transportation	RO_Share_Indian_Tribe_Nation	Transportation	Road Ownership	Share 
 Transportation	RO_Share_Unknown	Transportation	Road Ownership	Share Unknown	Percentage public road miles under the control of any other agency out of all public roads.
 Transportation	RO_Share_Other_Public_Instrumentality	Transportation	Road Ownership	Share Other Public Instrumentality	Percentage public road miles under the control of other public instrumentality out of all public roads.
 Transportation	RO_Share_Indian_Tribe_Nation	Transportation	Road Ownership	Share Indian Tribe/Nation	Percentage public road miles under the control of Indian Tribe/Nation/Government out of all public roads.
-Transportation	All_Bridges_Total_Bridges	Transportation	All Bridges	Total	Total number of bridges located in the county.
-Transportation	All_Bridges_City_Town_wned	Transportation	All Bridges	City/Town Owned	Total number of bridges owned by a Town or Township Highway Agency or a City or Municipal Highway Agency.
-Transportation	All_Bridges_County_Owned	Transportation	All Bridges	County Owned	Total number of bridges owned by a County Highway Agency.
-Transportation	All_Bridges_Local_Govt_Owned	Transportation	All Bridges	Local Government Owned	
-Transportation	All_Bridges_Federal_Owned	Transportation	All Bridges	Federal Owned	"Total number of bridges owned by a Federal Agency. Includes the Indian Tribal Government, Bureau of Indian Affairs, Bureau of Fish and Wildlife, U.S. Forest Service, National Park Service, Tennessee Valley Authority, Bureau of Land Management, Bureau of Reclamation, Corps of Engineers, Air Force, Navy/Marines, Army, NASA, or the Metropolitan Washington Airports Service."
-Transportation	All_Bridges_Local_Owned	Transportation	All Bridges	Local Owned	"Total number of bridges owned by a Local Park, Forest, or Reservation Agency or Local Toll Authority, or Other Local Agencies."
-Transportation	All_Bridges_Privately_Owned	Transportation	All Bridges	Privately Owned	Total number of bridges owned by a Private agency.
-Transportation	All_Bridges_State_Owned	Transportation	All Bridges	State Owned	"Total number of bridges owned by a State Highway Agency, a State Park, Forest, or Reservation Agency, or Other State Agencies."
-Transportation	Share_All_Bridges_City_Town_Owned	Transportation	All Bridges	Share City/Town Owned	
-Transportation	Share_All_Bridges_County_Owned	Transportation	All Bridges	Share County Owned	
-Transportation		Transportation	All Bridges	Share Local Government Owned	
-Transportation	Share_All_Bridges_Federal_Owned	Transportation	All Bridges	ShareFederal Owned	
-Transportation	Share_All_Bridges_Locally_Owned	Transportation	All Bridges	Share Local Owned	
-Transportation	Share_All_Bridges_Privately_Owned	Transportation	All Bridges	Share Privately Owned	
-Transportation	Share_All_Bridges_State_Owned	Transportation	All Bridges	Share State Owned	
+Transportation	All_Bridges_Total_Bridges	Transportation	All Bridges	All Bridges - Total	Total number of bridges located in the county.
+Transportation	All_Bridges_City_Town_wned	Transportation	All Bridges	All Bridges - City/Town Owned	Total number of bridges owned by a Town or Township Highway Agency or a City or Municipal Highway Agency.
+Transportation	All_Bridges_County_Owned	Transportation	All Bridges	All Bridges - County Owned	Total number of bridges owned by a County Highway Agency.
+Transportation	All_Bridges_Local_Govt_Owned	Transportation	All Bridges	All Bridges - Local Government Owned	
+Transportation	All_Bridges_Federal_Owned	Transportation	All Bridges	All Bridges - Federal Owned	"Total number of bridges owned by a Federal Agency. Includes the Indian Tribal Government, Bureau of Indian Affairs, Bureau of Fish and Wildlife, U.S. Forest Service, National Park Service, Tennessee Valley Authority, Bureau of Land Management, Bureau of Reclamation, Corps of Engineers, Air Force, Navy/Marines, Army, NASA, or the Metropolitan Washington Airports Service."
+Transportation	All_Bridges_Local_Owned	Transportation	All Bridges	All Bridges - Local Owned	"Total number of bridges owned by a Local Park, Forest, or Reservation Agency or Local Toll Authority, or Other Local Agencies."
+Transportation	All_Bridges_Privately_Owned	Transportation	All Bridges	All Bridges - Privately Owned	Total number of bridges owned by a Private agency.
+Transportation	All_Bridges_State_Owned	Transportation	All Bridges	All Bridges - State Owned	"Total number of bridges owned by a State Highway Agency, a State Park, Forest, or Reservation Agency, or Other State Agencies."
+Transportation	Share_All_Bridges_City_Town_Owned	Transportation	All Bridges	All Bridges - Share City/Town Owned	
+Transportation	Share_All_Bridges_County_Owned	Transportation	All Bridges	All Bridges - Share County Owned	
+Transportation		Transportation	All Bridges	All Bridges - Share Local Government Owned	
+Transportation	Share_All_Bridges_Federal_Owned	Transportation	All Bridges	All Bridges - Share Federal Owned	
+Transportation	Share_All_Bridges_Locally_Owned	Transportation	All Bridges	All Bridges - Share Local Owned	
+Transportation	Share_All_Bridges_Privately_Owned	Transportation	All Bridges	All Bridges - Share Privately Owned	
+Transportation	Share_All_Bridges_State_Owned	Transportation	All Bridges	All Bridges - Share State Owned	
 Transportation	Share_All_Bridges_Bridges_Structurally_Deficient	Transportation	Structurally Deficient Bridges	Share Structurally Deficient	
-Transportation	Share_City_Town_Owned_Bridges_Structurally_Deficient	Transportation	Structurally Deficient Bridges	Share of City/Town Owned	
-Transportation	Share_County_Owned_Bridges_Structurally_Deficient	Transportation	Structurally Deficient Bridges	Share of County Owned	
-Transportation		Transportation	Structurally Deficient Bridges	Share of Local Government Owned	
-Transportation	Share_Federal_Owned_Bridges_Structurally_Deficient	Transportation	Structurally Deficient Bridges	Share of Federal Owned	
-Transportation	Share_Locally_Owned_Bridges_Structurally_Deficient	Transportation	Structurally Deficient Bridges	Share of Local Owned	
-Transportation	Share_Privately_Owned_Bridges_Structurally_Deficient	Transportation	Structurally Deficient Bridges	Share of Privately Owned	
-Transportation	Share_State_Owned_Bridges_Structurally_Deficient	Transportation	Structurally Deficient Bridges	Share of State Owned	
+Transportation	Share_City_Town_Owned_Bridges_Structurally_Deficient	Transportation	Structurally Deficient Bridges	Structurally Deficient - Share of City/Town Owned	
+Transportation	Share_County_Owned_Bridges_Structurally_Deficient	Transportation	Structurally Deficient Bridges	Structurally Deficient - Share of County Owned	
+Transportation		Transportation	Structurally Deficient Bridges	Structurally Deficient - Share of Local Government Owned	
+Transportation	Share_Federal_Owned_Bridges_Structurally_Deficient	Transportation	Structurally Deficient Bridges	Structurally Deficient - Share of Federal Owned	
+Transportation	Share_Locally_Owned_Bridges_Structurally_Deficient	Transportation	Structurally Deficient Bridges	Structurally Deficient - Share of Local Owned	
+Transportation	Share_Privately_Owned_Bridges_Structurally_Deficient	Transportation	Structurally Deficient Bridges	Structurally Deficient - Share of Privately Owned	
+Transportation	Share_State_Owned_Bridges_Structurally_Deficient	Transportation	Structurally Deficient Bridges	Structurally Deficient - Share of State Owned	
 Transportation	Share_All_Bridges_Bridges_Functionally_Obsolete	Transportation	Functionally Obsolete Bridges	Share Functionally Obsolete	
-Transportation	Share_City_Town_Owned_Bridges_Functionally_Obsolete	Transportation	Functionally Obsolete Bridges	Share of City/Town Owned	
-Transportation	Share_County_Owned_Bridges_Functionally_Obsolete	Transportation	Functionally Obsolete Bridges	Share of County Owned	
-Transportation		Transportation	Functionally Obsolete Bridges	Share of Local Government Owned	
-Transportation	Share_Federal_Owned_Bridges_Functionally_Obsolete	Transportation	Functionally Obsolete Bridges	Share of Federal Owned	
-Transportation	Share_Locally_Owned_Bridges_Functionally_Obsolete	Transportation	Functionally Obsolete Bridges	Share of Local Owned	
-Transportation	Share_Privately_Owned_Bridges_Functionally_Obsolete	Transportation	Functionally Obsolete Bridges	Share of Privately Owned	
-Transportation	Share_State_Owned_Bridges_Functionally_Obsolete	Transportation	Functionally Obsolete Bridges	Share of State Owned	
-Transportation	Structurally_Deficient_Bridges_Total_Bridges	Transportation	Structurally Deficient Bridges	Total	"Total number of structurally deficient bridges; A highway bridge is classified as structurally deficient if the deck, superstructure, substructure, or culvert is rated in 'poor' condition (0 to 4 on the NBI rating scale). A bridge can also be classified as structurally deficient if its load carrying capacity is significantly below current design standards or if a waterway below frequently overtops the bridge during floods."
-Transportation	Structurally_Deficient_Bridges_City_Town_Owned	Transportation	Structurally Deficient Bridges	City/Town Owned	Total number of structurally deficient bridges owned by a Town or Township Highway Agency or a City or Municipal Highway Agency.
-Transportation	Structurally_Deficient_Bridges_County_Owned	Transportation	Structurally Deficient Bridges	County Owned	Total number of structurally deficient bridges owned by a County Highway Agency.
-Transportation	Structurally_Deficient_Bridges_Local_Govt_Owned	Transportation	Structurally Deficient Bridges	Local Government Owned	
+Transportation	Share_City_Town_Owned_Bridges_Functionally_Obsolete	Transportation	Functionally Obsolete Bridges	Functionally Obsolete - Share of City/Town Owned	
+Transportation	Share_County_Owned_Bridges_Functionally_Obsolete	Transportation	Functionally Obsolete Bridges	Functionally Obsolete - Share of County Owned	
+Transportation		Transportation	Functionally Obsolete Bridges	Functionally Obsolete - Share of Local Government Owned	
+Transportation	Share_Federal_Owned_Bridges_Functionally_Obsolete	Transportation	Functionally Obsolete Bridges	Functionally Obsolete - Share of Federal Owned	
+Transportation	Share_Locally_Owned_Bridges_Functionally_Obsolete	Transportation	Functionally Obsolete Bridges	Functionally Obsolete - Share of Local Owned	
+Transportation	Share_Privately_Owned_Bridges_Functionally_Obsolete	Transportation	Functionally Obsolete Bridges	Functionally Obsolete - Share of Privately Owned	
+Transportation	Share_State_Owned_Bridges_Functionally_Obsolete	Transportation	Functionally Obsolete Bridges	Functionally Obsolete - Share of State Owned	
+Transportation	Structurally_Deficient_Bridges_Total_Bridges	Transportation	Structurally Deficient Bridges	Structurally Deficient - Total	"Total number of structurally deficient bridges; A highway bridge is classified as structurally deficient if the deck, superstructure, substructure, or culvert is rated in 'poor' condition (0 to 4 on the NBI rating scale). A bridge can also be classified as structurally deficient if its load carrying capacity is significantly below current design standards or if a waterway below frequently overtops the bridge during floods."
+Transportation	Structurally_Deficient_Bridges_City_Town_Owned	Transportation	Structurally Deficient Bridges	Structurally Deficient - City/Town Owned	Total number of structurally deficient bridges owned by a Town or Township Highway Agency or a City or Municipal Highway Agency.
+Transportation	Structurally_Deficient_Bridges_County_Owned	Transportation	Structurally Deficient Bridges	Structurally Deficient - County Owned	Total number of structurally deficient bridges owned by a County Highway Agency.
+Transportation	Structurally_Deficient_Bridges_Local_Govt_Owned	Transportation	Structurally Deficient Bridges	Structurally Deficient - Local Government Owned	
 Transportation	SRS_Statewide_Share_County_Owned_Road_Miles	Transportation	Transportation Funding Profiles	Transportation Funding Profiles	
 Transportation	M21_Statewide_Local_Gov_Share_Structurally_Deficient_Bridges	Transportation	MAP-21 Profiles	MAP-21 Profiles	
 Transportation	SRS_Statewide_Share_County_Owned_Road_Miles	Transportation	Transportation Funding Profiles	Statewide Share of County Owned Roads	
 Transportation	SRS_Statewide_Share_County_Owned_Bridges	Transportation	Transportation Funding Profiles	Statewide Share of County Owned Bridges	
 Transportation	SRS_Statewide_Share_Structurally_Deficient_County_Bridges	Transportation	Transportation Funding Profiles	Statewide Structurally Deficient Share of County Bridges	
-Transportation	M21_Statewide_Local_Gov_Share_Fed_Aid_Highway_Miles	Transportation	MAP-21 Profiles	Statewide Local Gov Share of Federal-aid Highway Miles	
-Transportation	M21_Statewide_Local_Gov_Share_Roads	Transportation	MAP-21 Profiles	Statewide Local Gov Share of Roads	
-Transportation	M21_Statewide_Local_Gov_Share_Bridges	Transportation	MAP-21 Profiles	Statewide Local Gov Share of Bridges	
-Transportation	M21_Statewide_Local_Gov_Share_Structurally_Deficient_Bridges	Transportation	MAP-21 Profiles	Statewide Structurally Deficient Share of Local Gov Bridges	
-Transportation	M21_Statewide_Local_Gov_MAP21_Trans_Funding	Transportation	MAP-21 Profiles	Statewide Local Gov Map-21 Transportation Funding	
+Transportation	M21_Statewide_Local_Gov_Share_Fed_Aid_Highway_Miles	Transportation	MAP-21 Profiles	Statewide Share of Locally Owned Federal-Aid Highway Miles	
+Transportation	M21_Statewide_Local_Gov_Share_Roads	Transportation	MAP-21 Profiles	Statewide Share of Locally Owned Road Miles	
+Transportation	M21_Statewide_Local_Gov_Share_Bridges	Transportation	MAP-21 Profiles	Statewide Share of Locally Owned Bridges	
+Transportation	M21_Statewide_Local_Gov_Share_Structurally_Deficient_Bridges	Transportation	MAP-21 Profiles	Statewide Share of Locally Owned Structurally Deficient Bridges	
+Transportation	M21_Statewide_Local_Gov_MAP21_Trans_Funding	Transportation	MAP-21 Profiles	Funding Percent Change  for Local Gov Under MAP-21	
 Transportation	Structurally_Deficient_Bridges_Federal_Owned	Transportation	Structurally Deficient Bridges	Federal Owned	"Total number of structurally deficient bridges owned by a Federal Agency. Includes the Indian Tribal Government, Bureau of Indian Affairs, Bureau of Fish and Wildlife, U.S. Forest Service, National Park Service, Tennessee Valley Authority, Bureau of Land Management, Bureau of Reclamation, Corps of Engineers, Air Force, Navy/Marines, Army, NASA, or the Metropolitan Washington Airports Service."
 Transportation	Structurally_Deficient_Bridges_Local_Owned	Transportation	Structurally Deficient Bridges	Local Owned	"Total number of structurally deficient bridges owned by a Local Park, Forest, or Reservation Agency or Local Toll Authority, or Other Local Agencies."
 Transportation	Structurally_Deficient_Bridges_Privately_Owned	Transportation	Structurally Deficient Bridges	Privately Owned	Total number of structurally deficient bridges owned by a Private agency.
 Transportation	Structurally_Deficient_Bridges_State_Owned	Transportation	Structurally Deficient Bridges	State Owned	"Total number of structurally deficient bridges owned by a State Highway Agency, a State Park, Forest, or Reservation Agency, or Other State Agencies."
 Transportation	Functionally_Obsolete_Bridges_Total_Bridges	Transportation	Functionally Obsolete Bridges	Total	"Total number of functionally obsolete bridges; 'Functionally obsolete' means that the design of a bridge is not suitable for its current use, such as lack of safety shoulders or the inability to handle current traffic volume, speed, size, or weight."
-Transportation	Functionally_Obsolete_Bridges_City_Town_Owned	Transportation	Functionally Obsolete Bridges	City/Town Owned	Total number of functionally obsolete bridges owned by a Town or Township Highway Agency or a City or Municipal Highway Agency.
-Transportation	Functionally_Obsolete_Bridges_County_Owned	Transportation	Functionally Obsolete Bridges	County Owned	Total number of functionally obsolete bridges owned by a County Highway Agency.
-Transportation	Functionally_Obsolete_Bridges_Local_Govt_Owned	Transportation	Functionally Obsolete Bridges	Local Government Owned	
-Transportation	Functionally_Obsolete_Bridges_Federal_Owned	Transportation	Functionally Obsolete Bridges	Federal Owned	"Total number of functionally obsolete bridges owned by a Federal Agency. Includes the Indian Tribal Government, Bureau of Indian Affairs, Bureau of Fish and Wildlife, U.S. Forest Service, National Park Service, Tennessee Valley Authority, Bureau of Land Management, Bureau of Reclamation, Corps of Engineers, Air Force, Navy/Marines, Army, NASA, or the Metropolitan Washington Airports Service."
-Transportation	Functionally_Obsolete_Bridges_Local_Owned	Transportation	Functionally Obsolete Bridges	Local Owned	"Total number of functionally obsolete bridges owned by a Local Park, Forest, or Reservation Agency or Local Toll Authority, or Other Local Agencies."
-Transportation	Functionally_Obsolete_Bridges_Privately_Owned	Transportation	Functionally Obsolete Bridges	Privately Owned	Total number of functionally obsolete bridges owned by a Private agency.
-Transportation	Functionally_Obsolete_Bridges_State_Owned	Transportation	Functionally Obsolete Bridges	State Owned	"Total number of functionally obsolete bridges owned by a State Highway Agency, a State Park, Forest, or Reservation Agency, or Other State Agencies."
+Transportation	Functionally_Obsolete_Bridges_City_Town_Owned	Transportation	Functionally Obsolete Bridges	Functionally Obsolete - City/Town Owned	Total number of functionally obsolete bridges owned by a Town or Township Highway Agency or a City or Municipal Highway Agency.
+Transportation	Functionally_Obsolete_Bridges_County_Owned	Transportation	Functionally Obsolete Bridges	Functionally Obsolete - County Owned	Total number of functionally obsolete bridges owned by a County Highway Agency.
+Transportation	Functionally_Obsolete_Bridges_Local_Govt_Owned	Transportation	Functionally Obsolete Bridges	Functionally Obsolete - Local Government Owned	
+Transportation	Functionally_Obsolete_Bridges_Federal_Owned	Transportation	Functionally Obsolete Bridges	Functionally Obsolete - Federal Owned	"Total number of functionally obsolete bridges owned by a Federal Agency. Includes the Indian Tribal Government, Bureau of Indian Affairs, Bureau of Fish and Wildlife, U.S. Forest Service, National Park Service, Tennessee Valley Authority, Bureau of Land Management, Bureau of Reclamation, Corps of Engineers, Air Force, Navy/Marines, Army, NASA, or the Metropolitan Washington Airports Service."
+Transportation	Functionally_Obsolete_Bridges_Local_Owned	Transportation	Functionally Obsolete Bridges	Functionally Obsolete - Local Owned	"Total number of functionally obsolete bridges owned by a Local Park, Forest, or Reservation Agency or Local Toll Authority, or Other Local Agencies."
+Transportation	Functionally_Obsolete_Bridges_Privately_Owned	Transportation	Functionally Obsolete Bridges	Functionally Obsolete - Privately Owned	Total number of functionally obsolete bridges owned by a Private agency.
+Transportation	Functionally_Obsolete_Bridges_State_Owned	Transportation	Functionally Obsolete Bridges	Functionally Obsolete - State Owned	"Total number of functionally obsolete bridges owned by a State Highway Agency, a State Park, Forest, or Reservation Agency, or Other State Agencies."
 Transportation	RC_Total_Public_Road_Miles	Transportation	Road Classification	Total Public Road Miles	"Total miles of public roads, which are any roads or streets owned and maintained by a public authority and open to public travel."
 Transportation	RC_Interstate_Road_Miles	Transportation	Road Classification	Interstate Road Miles	"Total miles of interstate highway, defined as a divided arterial highway for through traffic with full or partial control of access and grade separations at major intersections"
 Transportation	RC_Other_Freeway_Expressway_Road_Miles	Transportation	Road Classification	Other Freeway/Expressway Road Miles	"Total miles of other freeway and expressway, defined as all urban principal arterials with limited access but not part of the Interstate system."

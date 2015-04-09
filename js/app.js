@@ -119,5 +119,8 @@
 		})
 		.directive('socialButtons', function() {
 			return {restrict: 'A', templateUrl: 'assets/socialButtons.html'};
+		})
+		.directive('notes', function() {
+			return {restrict: 'A', templateUrl: 'assets/notes.html'};
 		});	
 })();
