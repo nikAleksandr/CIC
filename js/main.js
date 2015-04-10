@@ -646,51 +646,59 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 					if (currentDI === 'County Economic Tracker - County Economic Profile') {
 						var countyName = parseCountyName(+FIPS, county.geography);
 						countyName = countyName.replace(/\s/g, '');
-						$.colorbox({iframe: true, width:'500px', height:'500px', href:'../profiles/countytracker/' + countyName + '.pdf'});
+						$.colorbox({iframe:true, width:'792px', height:'632px', maxHeight:'90%', maxWidth:'90%', closeButton:false, href:'../profiles/countytracker/' + countyName + '.pdf'});
 						//window.open('http://explorer.naco.org/profiles/countytracker/' + countyName + '.pdf');
 					} else if (currentDI === 'Municipal Bonds - County Muni Bonds Profiles') {
 						if (isNaN(quantByIds[0][+FIPS])) {
 							noty({text: '<strong>No Profile Available</strong>'});
 						} else {
 							var countyName = parseCountyName(+FIPS, county.geography);
-							window.open('http://explorer.naco.org/profiles/county_muniBonds/muni_bonds_profile_' + countyName + '.pdf');
+							$.colorbox({iframe:true, width:'792px', height:'632px', maxHeight:'90%', maxWidth:'90%', closeButton:false, href:'../profiles/county_muniBonds/muni_bonds_profile_' + countyName + '.pdf'});
+							//window.open('http://explorer.naco.org/profiles/county_muniBonds/muni_bonds_profile_' + countyName + '.pdf');
 						}
 					} else if (currentDI === 'Community Development Block Grants (CDBG) - CDBG Profiles') {
 						if (quantByIds[0][+FIPS] === 0 || isNaN(quantByIds[0][+FIPS])) {
 							noty({text: '<strong>No Profile Available</strong>'});
 						} else {
 							var countyName = parseCountyName(+FIPS, county.geography);
-							window.open('http://explorer.naco.org/profiles/CDBG/' + countyName + '.pdf');
+							$.colorbox({iframe:true, width:'612px', height:'802px', maxHeight:'90%', maxWidth:'90%', closeButton:false, href:'../profiles/CDBG/' + countyName + '.pdf'});
+							//window.open('../profiles/CDBG/' + countyName + '.pdf');
 						}
 					} else if (currentDI === 'Municipal Bonds - Statewide Muni Bonds Profiles') {
 						var state = countyObjectById[+FIPS].STATE;
-						window.open('http://explorer.naco.org/profiles/state_muniBonds/state_bonds_profiles' + state + '.pdf', '_blank');
+						$.colorbox({iframe:true, width:'792px', height:'632px', maxHeight:'90%', maxWidth:'90%', closeButton:false, href:'../profiles/state_muniBonds/state_bonds_profiles' + state + '.pdf'});
+						//window.open('http://explorer.naco.org/profiles/state_muniBonds/state_bonds_profiles' + state + '.pdf', '_blank');
 					} else if (currentDI === 'Payment in Lieu of Taxes (PILT) - PILT Profiles') {
 						if (quantByIds[0][+FIPS] === 0) {
-							window.open('http://explorer.naco.org/profiles/PILT/National_PILT.pdf', '_blank');
+							$.colorbox({iframe:true, width:'612px', height:'802px', maxHeight:'90%', maxWidth:'90%', closeButton:false, href:'../profiles/PILT/National_PILT.pdf'});
+							//window.open('http://explorer.naco.org/profiles/PILT/National_PILT.pdf', '_blank');
 						} else {
-							window.open('http://explorer.naco.org/profiles/PILT/' + county.geography + '.pdf', '_blank');
+							$.colorbox({iframe:true, width:'612px', height:'802px', maxHeight:'90%', maxWidth:'90%', closeButton:false, href:'../profiles/PILT/' + county.geography + '.pdf'});
+							//window.open('http://explorer.naco.org/profiles/PILT/' + county.geography + '.pdf', '_blank');
 						}
 					} else if (currentDI === 'MFA Profiles - MFA Profiles') {
 						var state = countyObjectById[+FIPS].STATE;
 						if(state=="MT" | state=="OR" | state=="NH" | state=="DE"){
 							noty({text: '<strong>No Profile Available</strong></br>This state does not have a sales tax.'});
 						} else {
-							window.open('http://explorer.naco.org/profiles/MFA/MITFA_' + state + '.pdf', '_blank');
+							$.colorbox({iframe:true, width:'612px', height:'802px', maxHeight:'90%', maxWidth:'90%', closeButton:false, href:'../profiles/MFA/MITFA_' + state + '.pdf'});
+							//window.open('http://explorer.naco.org/profiles/MFA/MITFA_' + state + '.pdf', '_blank');
 						}
 					}  else if (currentDI === 'Transportation Funding Profiles - Transportation Funding Profiles') {
 						if (quantByIds[0][+FIPS] === NaN) {
 							noty({text: '<strong>No Profile Available</strong>'});
 						} else {
 							var state = countyObjectById[+FIPS].STATE;
-							window.open('http://explorer.naco.org/profiles/stateTransportation/state_summary_' + state + '.pdf', '_blank');
+							$.colorbox({iframe:true, width:'792px', height:'632px', maxHeight:'90%', maxWidth:'90%', closeButton:false, href:'../profiles/stateTransportation/state_summary_' + state + '.pdf'});
+							//window.open('http://explorer.naco.org/profiles/stateTransportation/state_summary_' + state + '.pdf', '_blank');
 						}
 					}  else if (currentDI === 'MAP-21 Profiles - MAP-21 Profiles') {
 						if (quantByIds[0][+FIPS] === NaN) {
 							noty({text: '<strong>No Profile Available</strong>'});
 						} else {
 							var state = countyObjectById[+FIPS].STATE;
-							window.open('http://explorer.naco.org/profiles/MAP-21/' + state + '.pdf', '_blank');
+							$.colorbox({iframe:true, width:'792px', height:'632px', maxHeight:'90%', maxWidth:'90%', closeButton:false, href:'../profiles/MAP-21/' + state + '.pdf'});
+							//window.open('http://explorer.naco.org/profiles/MAP-21/' + state + '.pdf', '_blank');
 						}
 					}  else if (currentDI === "U.S. Ex-Im Bank Financing - U.S. Ex-Im Bank County Profiles") {
 						if (quantByIds[0][+FIPS] === 0) {
@@ -698,15 +706,18 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 						} else {
 							var countyName = parseCountyName(+FIPS, county.geography);
 							countyName = countyName.replace(/\s/g, '');
-							window.open('http://explorer.naco.org/profiles/exim/' + countyName + '.pdf');
+							$.colorbox({iframe:true, width:'612px', height:'802px', maxHeight:'90%', maxWidth:'90%', closeButton:false, href:'../profiles/exim/' + countyName + '.pdf'});
+							//window.open('http://explorer.naco.org/profiles/exim/' + countyName + '.pdf');
 						}
 					} else if (currentDI === "Secure Rural Schools (SRS) - SRS Profiles") {
 						if (quantByIds[0][+FIPS] === 0) {
-							window.open('http://explorer.naco.org/profiles/SRSProfiles/National.pdf');
+							$.colorbox({iframe:true, width:'612px', height:'802px', maxHeight:'90%', maxWidth:'90%', closeButton:false, href:'../profiles/SRSProfiles/National.pdf'});
+							//window.open('http://explorer.naco.org/profiles/SRSProfiles/National.pdf');
 						} else {
 							var countyName = parseCountyName(+FIPS, county.geography);
 							countyName = countyName.replace(/\s/g, '');
-							window.open('http://explorer.naco.org/profiles/SRSProfiles/' + countyName + '.pdf');
+							$.colorbox({iframe:true, width:'612px', height:'802px', maxHeight:'90%', maxWidth:'90%', closeButton:false, href:'../profiles/SRSProfiles/' + countyName + '.pdf'});
+							//window.open('http://explorer.naco.org/profiles/SRSProfiles/' + countyName + '.pdf');
 						}
 					}
 					
@@ -1638,6 +1649,7 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 		
 		if (typeof legend !== 'undefined' && legend !== false) legend.reposition();
 		fillMapColors();
+		$.colorbox.resize({innerWidth:'80%', innerHeight:'80%'});
 	};
 		
 	var zoomMap = function(t, s, smooth) {

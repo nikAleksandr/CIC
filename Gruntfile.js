@@ -16,7 +16,8 @@ module.exports = function(grunt) {
 						'js/vendor/jquery.smartmenus.bootstrap.min.js',
 						'js/vendor/rrssb.min.js',
 						'js/vendor/nprogress.js',
-						'js/vendor/svgenie/*.js'					
+						'js/vendor/svgenie/*.js',
+						'js/vendor/jquery.colobox.js'					
 					],
 					'build/CIC.js': [
 						'js/*.js',
