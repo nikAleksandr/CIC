@@ -691,7 +691,7 @@ Transportation	Structurally_Deficient_Bridges_City_Town_Owned	Transportation	Str
 Transportation	Structurally_Deficient_Bridges_County_Owned	Transportation	Structurally Deficient Bridges	Structurally Deficient - County Owned	Total number of structurally deficient bridges owned by a County Highway Agency.
 Transportation	Structurally_Deficient_Bridges_Local_Govt_Owned	Transportation	Structurally Deficient Bridges	Structurally Deficient - Local Government Owned	
 Transportation	SRS_Statewide_Share_County_Owned_Road_Miles	Transportation	Transportation Funding Profiles	Transportation Funding Profiles	
-Transportation	M21_Statewide_Local_Gov_Share_Structurally_Deficient_Bridges	Transportation	MAP-21 Profiles	MAP-21 Profiles	
+Transportation	M21_Statewide_Local_Gov_MAP21_Trans_Funding	Transportation	MAP-21 Profiles	MAP-21 Profiles	
 Transportation	SRS_Statewide_Share_County_Owned_Road_Miles	Transportation	Transportation Funding Profiles	Statewide Share of County Owned Roads	
 Transportation	SRS_Statewide_Share_County_Owned_Bridges	Transportation	Transportation Funding Profiles	Statewide Share of County Owned Bridges	
 Transportation	SRS_Statewide_Share_Structurally_Deficient_County_Bridges	Transportation	Transportation Funding Profiles	Statewide Structurally Deficient Share of County Bridges	

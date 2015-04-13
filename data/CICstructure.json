@@ -5476,7 +5476,7 @@
 				}, {
 					"name": "MAP-21 Profiles",
 					"years": [2013],
-					"source": "NACo 2014 Analysis of Federal Highway Administration - Highway Performance Monitoring System 2011 data and National Bridge Inventory data",
+					"source": "NACo 2014 Analysis of MAP-21 funding, Federal Highway Administration - Highway Performance Monitoring System 2011 data and National Bridge Inventory data",
 					"companions": [["MAP-21 Profiles", "Funding Percent Change for Local Gov Under MAP-21"], ["MAP-21 Profiles", "Statewide Share of Locally Owned Structurally Deficient Bridges"], ["MAP-21 Profiles", "Statewide Share of Locally Owned Federal-Aid Highway Miles"], ["MAP-21 Profiles", "Statewide Share of Locally Owned Road Miles"], ["MAP-21 Profiles", "Statewide Share of Locally Owned Bridges"], ["MAP-21 Profiles", "Statewide Share of Locally Owned Structurally Deficient Bridges"]
 					],
 					"children": [
@@ -5486,6 +5486,7 @@
 							"source": "NACo Analysis of National Bridge Inventory 2013 data",
 							"has_profile": true,
 							"vintageYear": "2014",
+							"yearSpan": "",
 							"definition": "State level profiles showing the funding decrease under MAP-21 for locally owned federal-aid highways and bridges and the role of local government ownership in the state bridge inventory and federal-aid highway system."
 						}, {
 							"name": "Statewide Share of Locally Owned Federal-Aid Highway Miles",
