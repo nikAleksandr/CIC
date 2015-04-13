@@ -1860,59 +1860,73 @@
 							"name": "Per Capita Income",
 							"dataType": "level",
 							"unit": "dollars",
+							"supressMinMax": true,
 							"definition": "The average income computed for every man, woman, and child in a particular group. The Census Bureau derived per capita income by dividing the total income of a particular group by the total population in that group (excluding patients or inmates in institutional quarters)."
 						}, {
 							"name": "Median Household Income",
 							"dataType": "level",
 							"unit": "dollars",
+							"supressMinMax": true,
 							"definition": "The amount which divides the income distribution into two equal groups, half having incomes above the median, half having incomes below the median. The medians for households, families, and unrelated individuals are based on all households, families, and unrelated individuals, respectively. The medians for people are based on people 15 years old and over with income."
 						}, {
 							"name": "Number of Households with Income Less than $10,000",
 							"dataType": "level",
+							"supressMinMax": true,
 							"definition": "The number of households located in the county with a household income of less than $10,000. This includes the income of the householder and all other individuals 15 years old and over in the household, whether they are related to the householder or not."
 						}, {
 							"name": "Percent of Households with Income Less than $10,000",
 							"dataType": "percent",
+							"supressMinMax": true,
 							"definition": "The percentage of households located in the county with a household income of less than $10,000. This includes the income of the householder and all other individuals 15 years old and over in the household, whether they are related to the householder or not."
 						}, {
 							"name": "Number of Households with Income Between $10,000 - $24,999",
 							"dataType": "level",
+							"supressMinMax": true,
 							"definition": "The number of households located in the county with a household income of between $10,000 and $24,999. This includes the income of the householder and all other individuals 15 years old and over in the household, whether they are related to the householder or not."
 						}, {
 							"name": "Percent of Households with Income Between $10,000 - $24,999",
 							"dataType": "percent",
+							"supressMinMax": true,
 							"definition": "The percentage of households located in the county with a household income of between $10,000 and $24,999. This includes the income of the householder and all other individuals 15 years old and over in the household, whether they are related to the householder or not."
 						}, {
 							"name": "Number of Households with Income Between $25,000 - $49,999",
 							"dataType": "level",
+							"supressMinMax": true,
 							"definition": "The number of households located in the county with a household income of between $25,000 and $49,999. This includes the income of the householder and all other individuals 15 years old and over in the household, whether they are related to the householder or not."
 						}, {
 							"name": "Percent of Households with Income Between $25,000 - $49,999",
 							"dataType": "percent",
+							"supressMinMax": true,
 							"definition": "The percentage of households located in the county with a household income of between $25,000 and $49,999. This includes the income of the householder and all other individuals 15 years old and over in the household, whether they are related to the householder or not."
 						}, {
 							"name": "Number of Households with Income Between $50,000 - $99,999",
 							"dataType": "level",
+							"supressMinMax": true,
 							"definition": "The number of households located in the county with a household income of between $50,000 and $99,999. This includes the income of the householder and all other individuals 15 years old and over in the household, whether they are related to the householder or not."
 						}, {
 							"name": "Percent of Households with Income Between $50,000 - $99,999",
 							"dataType": "percent",
+							"supressMinMax": true,
 							"definition": "The percentage of households located in the county with a household income of between $50,000 and $99,999. This includes the income of the householder and all other individuals 15 years old and over in the household, whether they are related to the householder or not."
 						}, {
 							"name": "Number of Households with Income Between $100,000 - $199,999",
 							"dataType": "level",
+							"supressMinMax": true,
 							"definition": "The number of households located in the county with a household income of between $100,000 and $199,999. This includes the income of the householder and all other individuals 15 years old and over in the household, whether they are related to the householder or not."
 						}, {
 							"name": "Percent of Households with Income Between $100,000 - $199,999",
 							"dataType": "percent",
+							"supressMinMax": true,
 							"definition": "The percentage of households located in the county with a household income of between $100,000 and $199,999. This includes the income of the householder and all other individuals 15 years old and over in the household, whether they are related to the householder or not."
 						}, {
 							"name": "Number of Households with Income of $200,000 or more",
 							"dataType": "level",
+							"supressMinMax": true,
 							"definition": "The number of households located in the county with a household income of $200,000 or more. This includes the income of the householder and all other individuals 15 years old and over in the household, whether they are related to the householder or not."
 						}, {
 							"name": "Percent of Households with Income of $200,000 or more",
 							"dataType": "percent",
+							"supressMinMax": true,
 							"definition": "The percentage of households located in the county with a household income of $200,000 or more. This includes the income of the householder and all other individuals 15 years old and over in the household, whether they are related to the householder or not."
 						}
 					]
