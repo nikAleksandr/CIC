@@ -5483,7 +5483,7 @@
 						{
 							"name": "MAP-21 Profiles",
 							"dataType": "percent",
-							"source": "NACo Analysis of National Bridge Inventory 2013 data",
+							"source": "NACo Analysis of MAP-21 funding, Federal Highway Administration - Highway Performance Monitoring System 2011 data and National Bridge Inventory data 2013",
 							"has_profile": true,
 							"vintageYear": "2014",
 							"yearSpan": "",
