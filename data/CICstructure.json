@@ -5487,6 +5487,8 @@
 							"has_profile": true,
 							"vintageYear": "2014",
 							"yearSpan": "",
+							"thresholds": [-0.3, -0.2, -0.1, 0],
+							"supressMinMax": true,
 							"definition": "State level profiles showing the funding decrease under MAP-21 for locally owned federal-aid highways and bridges and the role of local government ownership in the state bridge inventory and federal-aid highway system."
 						}, {
 							"name": "Statewide Share of Locally Owned Federal-Aid Highway Miles",
