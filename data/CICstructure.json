@@ -2420,6 +2420,45 @@
 			"name": "Energy & Environment",
 			"children": [
 				{
+					"name": "Endangered Species",
+					"years": [2015],
+					"notes": ".endangered-note",
+					"source": "NACo Analysis of U.S. Fish and Wildlife Services data, as of May 2015",
+					"companions": [ ["Endangered Species", "Listed Stock"]
+					],
+					"children": [
+						{
+							"name": "Number of Endangered and Threatened Species",
+							"dataType": "level",
+							"supressYear": true,
+							"thresholds": [1,2,6,12],
+							"definition": ""
+						}, {
+							"name": "Number of Endangered Species",
+							"dataType": "level",
+							"supressYear": true,
+							"definition": ""
+						}, {
+							"name": "Number of Threatened Species",
+							"dataType": "level",
+							"supressYear": true,
+							"definition": ""
+						}, {
+							"name": "Number of Newly Listed Endangered and Threatened Species",
+							"dataType": "level",
+							"supressYear": true,
+							"yearSpan": "2004-2015",
+							"definition": ""
+						}, {
+							"name": "Number of Newly Delisted Species",
+							"dataType": "level",
+							"supressYear": true,
+							"yearSpan": "2004-2015",
+							"definition": ""
+						}
+					]
+				},
+				{
 					"name": "Ozone Concentration",
 					"years": [2013],
 					"source": "NACo Analysis of Environmental Protection Agency data",
@@ -3299,6 +3338,7 @@
 					"name": "County Health Rankings: Ranks",
 					"source": "University of Wisconsin Population Health Institute and the Robert Wood Johnson Foundation",
 					"years": [2015],
+					"notes": ".chr-note",
 					"companions": [["County Health Rankings: Ranks", "Health Outcomes Rank in State"], ["County Health Rankings: Ranks", "Health Factors Rank in State"], ["County Health Rankings: Ranks", "Health Outcomes Rank in State"]
 					],
 					"children": [
@@ -3318,6 +3358,7 @@
 					"name": "County Health Rankings: Health Outcomes",
 					"source": "University of Wisconsin Population Health Institute and the Robert Wood Johnson Foundation",
 					"years": [2015],
+					"notes": ".chr-note",
 					"companions": [["County Health Rankings: Ranks", "Health Outcomes Rank in State"], ["County Health Rankings: Ranks", "Health Factors Rank in State"], ["County Health Rankings: Ranks", "Health Outcomes Rank in State"]
 					],
 					"children": [
@@ -3361,6 +3402,7 @@
 					"name": "County Health Rankings: Health Behaviors",
 					"source": "University of Wisconsin Population Health Institute and the Robert Wood Johnson Foundation",
 					"years": [2015],
+					"notes": ".chr-note",
 					"companions": [["County Health Rankings: Ranks", "Health Outcomes Rank in State"], ["County Health Rankings: Ranks", "Health Factors Rank in State"], ["County Health Rankings: Ranks", "Health Outcomes Rank in State"]
 					],
 					"children": [
@@ -3426,6 +3468,7 @@
 					"name": "County Health Rankings: Clinical Care",
 					"source": "University of Wisconsin Population Health Institute and the Robert Wood Johnson Foundation",
 					"years": [2015],
+					"notes": ".chr-note",
 					"companions": [["County Health Rankings: Ranks", "Health Outcomes Rank in State"], ["County Health Rankings: Ranks", "Health Factors Rank in State"], ["County Health Rankings: Ranks", "Health Outcomes Rank in State"]
 					],
 					"children": [
@@ -3481,6 +3524,7 @@
 					"name": "County Health Rankings: Social & Economic Environment",
 					"source": "University of Wisconsin Population Health Institute and the Robert Wood Johnson Foundation",
 					"years": [2015],
+					"notes": ".chr-note",
 					"companions": [["County Health Rankings: Ranks", "Health Outcomes Rank in State"], ["County Health Rankings: Ranks", "Health Factors Rank in State"], ["County Health Rankings: Ranks", "Health Outcomes Rank in State"]
 					],
 					"children": [
@@ -3547,6 +3591,7 @@
 					"name": "County Health Rankings: Physical Environment",
 					"source": "University of Wisconsin Population Health Institute and the Robert Wood Johnson Foundation",
 					"years": [2015],
+					"notes": ".chr-note",
 					"companions": [["County Health Rankings: Ranks", "Health Outcomes Rank in State"], ["County Health Rankings: Ranks", "Health Factors Rank in State"], ["County Health Rankings: Ranks", "Health Outcomes Rank in State"]
 					],
 					"children": [

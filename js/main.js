@@ -427,7 +427,7 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 				
 		var setDropdownClick = function(menuId, endFunction) {
 			d3.select(menuId).selectAll('.dataset').each(function() {
-				var dataset = d3.select(this);		
+				var dataset = d3.select(this);
 				var datasetName = dataset.attr('name');
 				
 				// when clicking on dataset, update to first companion; but only for non-touch screens
@@ -1111,8 +1111,10 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 		}
 		
 		//special notes for certain datasets
-		//if this gets larger, may want to make note options an array in the JSON file
-		(indObjects[0].dataset.indexOf('County Health Rankings')!=-1) ? $('.chr-note').show() : $('.chr-note').hide();
+		$('.idio-note').hide();
+		if(indObjects[0].hasOwnProperty('notes')) $(indObjects[0].notes).show();
+		
+		//(indObjects[0].dataset.indexOf('County Health Rankings')!=-1) ? $('.chr-note').show() : $('.chr-note').hide();
 	};
 	
 	var switchToThreshold = function(domain, range) {
@@ -1251,6 +1253,7 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 					if (Jdataset.hasOwnProperty('vintage')) selectedInd.vintage = Jdataset.vintage;
 					if (Jdataset.hasOwnProperty('legend_title_footer')) selectedInd.legend_title_footer = Jdataset.legend_title_footer;
 					if (Jdataset.hasOwnProperty('supressYear')) selectedInd.supressYear = Jdataset.supressYear;
+					if (Jdataset.hasOwnProperty('notes')) selectedInd.notes = Jdataset.notes;
 					
 					if (typeof indicator !== 'undefined') {
 						for (var h = 0; h < Jdataset.children.length; h++) {
