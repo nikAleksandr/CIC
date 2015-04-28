@@ -2423,42 +2423,41 @@
 					"name": "Endangered Species",
 					"years": [2015],
 					"notes": ".endangered-note",
-					"source": "NACo Analysis of U.S. Fish and Wildlife Services data, as of May 2015",
-					"companions": [ ["Endangered Species", "Listed Stock"]
+					"source": "NACo Analysis of U.S. Fish and Wildlife Service data, as of May 2015",
+					"companions": [ ["Endangered Species", "Number of Endangered and Threatened Species Listings"], ["Endangered Species", "Number of Endangered Species Listings"], ["Endangered Species", "Number of Threatened Species Listings"]
 					],
 					"children": [
 						{
-							"name": "Number of Endangered and Threatened Species",
+							"name": "Number of Endangered and Threatened Species Listings",
 							"dataType": "level",
 							"supressYear": true,
 							"thresholds": [1,2,6,12],
-							"definition": ""
+							"definition": "An endangered species is a species in danger of extinction throughout all or a significant portion of its range.  A threatened species is a species likely to become endangered within the foreseeable future throughout all or a significant portion of its range."
 						}, {
-							"name": "Number of Endangered Species",
+							"name": "Number of Endangered Species Listings",
 							"dataType": "level",
 							"supressYear": true,
-							"definition": ""
+							"definition": "An endangered species is a species in danger of extinction throughout all or a significant portion of its range."
 						}, {
-							"name": "Number of Threatened Species",
+							"name": "Number of Threatened Species Listings",
 							"dataType": "level",
 							"supressYear": true,
-							"definition": ""
+							"definition": "A threatened species is a species likely to become endangered within the foreseeable future throughout all or a significant portion of its range."
 						}, {
-							"name": "Number of Newly Listed Endangered and Threatened Species",
-							"dataType": "level",
-							"supressYear": true,
-							"yearSpan": "2004-2015",
-							"definition": ""
-						}, {
-							"name": "Number of Newly Delisted Species",
+							"name": "Number of New Listings of Endangered and Threatened Species",
 							"dataType": "level",
 							"supressYear": true,
 							"yearSpan": "2004-2015",
-							"definition": ""
+							"definition": "An endangered species is a species in danger of extinction throughout all or a significant portion of its range.  A threatened species is a species likely to become endangered within the foreseeable future throughout all or a significant portion of its range."
+						}, {
+							"name": "Number of Delistings of Endangered and Threatened Species",
+							"dataType": "level",
+							"supressYear": true,
+							"yearSpan": "2004-2015",
+							"definition": "An endangered species is a species in danger of extinction throughout all or a significant portion of its range.  A threatened species is a species likely to become endangered within the foreseeable future throughout all or a significant portion of its range."
 						}
 					]
-				},
-				{
+				}, {
 					"name": "Ozone Concentration",
 					"years": [2013],
 					"source": "NACo Analysis of Environmental Protection Agency data",

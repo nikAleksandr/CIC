@@ -266,11 +266,11 @@ COUNTY_DATA 	Ozone_Class	Energy & Environment	Ozone Concentration	2011-2013 Leve
 COUNTY_DATA 	Projected_Ozone_Class	Energy & Environment	Ozone Concentration	Projected 2025 Level	Model projections for 2025 of projected 3-year conecntration levels of ground-level ozone as measured by county monitors
 COUNTY_DATA 	Ozone_Level	Energy & Environment	Ozone Concentration	2011-2013 Count	
 COUNTY_DATA 	Projected_Ozone_Level	Energy & Environment	Ozone Concentration	Projected 2025 Count	
-Public_Land	ESP_Listed_Stock_2015	Energy & Environment	Endangered Species	Number of Endangered and Threatened Species	
-Public_Land	ESP_Endangered_Species_Stock_2015	Energy & Environment	Endangered Species	Number of Endangered Species	
-Public_Land	ESP_Threatened_Species_Stock_2015	Energy & Environment	Endangered Species	Number of Threatened Species	
-Public_Land	ESP_Newly_Listed_Endangered_Threatened_2004_2015	Energy & Environment	Endangered Species	Number of Newly Listed Endangered and Threatened Species	
-Public_Land	ESP_Newly_Delisted_Species_2004_2015	Energy & Environment	Endangered Species	Number of Newly Delisted Species	
+Public_Land	ESP_Listed_Stock_2015	Energy & Environment	Endangered Species	Number of Endangered and Threatened Species Listings	
+Public_Land	ESP_Endangered_Species_Stock_2015	Energy & Environment	Endangered Species	Number of Endangered Species Listings	
+Public_Land	ESP_Threatened_Species_Stock_2015	Energy & Environment	Endangered Species	Number of Threatened Species Listings	
+Public_Land	ESP_Newly_Listed_Endangered_Threatened_2004_2015	Energy & Environment	Endangered Species	Number of New Listings of Endangered and Threatened Species	
+Public_Land	ESP_Newly_Delisted_Species_2004_2015	Energy & Environment	Endangered Species	Number of Delistings of Endangered and Threatened Species	
 Education	Jobs_Skills_Classification	Economy	County Job Skills	Level	
 Federal_Funding	FIPS	Federal Funding			
 Federal_Funding	DATA_YEAR				
