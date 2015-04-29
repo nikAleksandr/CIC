@@ -26,6 +26,8 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 	var default_dset = 'Population Levels and Trends';
 	var default_ind = 'Population Level';
 	
+	CIC.findACounty = true;
+	
 	var zoom = d3.behavior.zoom()
 	    .scaleExtent([1, 10]);
 	    	
@@ -440,6 +442,7 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 				}
 		
 				dataset.selectAll('li').on('click', function() {
+					CIC.findACounty = false;
 					if (!d3.select(this).classed('disabled')) {
 						var indicatorName = d3.select(this).select('.indicator').attr('name');
 						endFunction(datasetName, indicatorName, this.innerHTML);
@@ -496,13 +499,15 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 		var search_str = d3.select('#search-field').property('value');
 		var results_container = d3.select('#container');
 	
+		ga('send', 'event', 'search', searchType, search_str);
+	
 		if (searchType === 'stateSearch') {
 			// only state; return results of all counties within state
 			if (searchState === 'MA' || searchState === 'RI' || searchState === 'CT') {
 				noty({text: 'No county data available for this state.'});
 			} else {
 				state_search_str = 'state.cfm?statecode=' + searchState;
-				displayResults(state_search_str);
+				CIC.displayResults(state_search_str);
 			}
 								
 		} else if (searchType === 'countySearch') {
@@ -572,7 +577,8 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 					}
 				}
 				if (numExactCountyMatch === 1) {
-					CIC.executeSearchMatch(cMatchFIPS);
+					//findACounty switch here  - county.cfm requires a five digit string
+					(CIC.findACounty) ?  CIC.displayResults('county.cfm?id=' + CIC.fipsConversion('string',cMatchFIPS)) : CIC.executeSearchMatch(cMatchFIPS);
 					return;
 				}
 							
@@ -604,14 +610,19 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 						.text(nameArr[1]);
 	
 					(function(cell, fips) {
-						cell.on('click', function() { CIC.executeSearchMatch(fips); });
+						cell.on('click', function() { 
+							//findACounty Switch here  - county.cfm requires a five digit string
+							(CIC.findACounty) ? CIC.displayResults('county.cfm?id=' + CIC.fipsConversion('string',fips)) : CIC.executeSearchMatch(fips); 
+						});
 					})(name_cell, pMatchArray[i].fips);
 				}
 				
 				showInstructions();
 									
 			} else if (pMatchArray.length == 1) {
-				CIC.executeSearchMatch(pMatchArray[0].fips); // if only one match, display county
+				// if only one match, display county
+				//findACounty switch here - county.cfm requires a five digit string
+				(CIC.findACounty) ? CIC.displayResults('county.cfm?id=' + CIC.fipsConversion('string', pMatchArray[0].fips)) : CIC.executeSearchMatch(pMatchArray[0].fips); 
 			} else {
 				noty({text: 'Your search did not match any counties.'});
 				document.getElementById('search_form').reset();	
@@ -625,7 +636,7 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 			if (city_str_index !== -1) search_str = search_str.substr(0, city_str_index);
 			if (comma_index !== -1 && comma_index <= search_str.length) search_str = search_str.substr(0, comma_index);
 			
-			displayResults('city_res.cfm?city=' + search_str);
+			CIC.displayResults('city_res.cfm?city=' + search_str);
 		}
 	};
 	
@@ -731,7 +742,7 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 		}    
 	};
 	
-	var displayResults = function(url) {
+	CIC.displayResults = function(url) {
 		showResults();
 		$('#print').css('display', 'inline');
 		
@@ -1587,7 +1598,7 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 		zoomTo(parseInt(fips));
 		var countyID = fips.toString();
 		if (countyID.length == 4) countyID = "0" + countyID;
-		displayResults('county.cfm?id=' + countyID);
+		CIC.displayResults('county.cfm?id=' + countyID);
 	};
 	
 	var zoomTo = function(fips) {
@@ -1879,6 +1890,16 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 	var exceptionCounties = {};	// converting array of exception counties to object for faster lookup
 	for (var i = 0; i < exceptionList.length; i++) exceptionCounties[exceptionList[i]] = true;
 
+	//for converting fips codes between string and numeric versions
+	CIC.fipsConversion = function(convertTo, fips){
+		if(convertTo=="number") return +fips;
+		else if(convertTo=="string"){
+			var fipsStr = fips.toString();
+			if(fipsStr.length==4) fipsStr = '0' + fipsStr;
+			return fipsStr;
+		}
+	};
+	
 	// for matching county name with county name used in url for profiles
 	var parseCountyName = function(fips, name) {
 		var countyName = name.replace(/,| /g, ''); // rmeove commas and spaces
