@@ -1467,6 +1467,7 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 			// if all indicators displayed in tooltip are not from same year, add year before name
 			if (!attr.allSameYear && !obj.hasOwnProperty('year_ind')) name = obj.year + ' ' + name;
 			
+			row.append('td').attr('class', 'dataName').text(name + ':');
 			row.append('td').attr('class', 'dataNum').html(value + " " + unit);
 		};
 
