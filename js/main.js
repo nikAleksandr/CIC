@@ -48,7 +48,6 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 		selected, // county path that has been selected
 		currentDataType = '', // current datatype showing
 		currentDI = '', // current dataset/indicator showing
-		currentSecondDI = '', // current secondary dataset/indicator showing; empty string if not showing,
 		isPerCapita = false,
 		pop_db = {}, // object to store population numbers for "per capita" data
 		searchType = 'countySearch',
@@ -57,8 +56,8 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 			
 	var corrDomain = [], // only used for categorical data; a crosswalk for the range between text and numbers
 		range = [], // array of colors used for coloring the map
-		quantByIds = [], s_quantByIds = [], // for primary and secondary indicators, array of 2-4 objects (primary and companions) with data values indexed by FIPS 
-		indObjects = [], s_indObjects = [], // for primary and secondary indicators, array of 2-4 objects (primary and companions) with indicator properties (category, dataset, definition, year, etc.)
+		quantByIds = [], // for primary indicators, array of 2-4 objects (primary and companions) with data values indexed by FIPS 
+		indObjects = [], // for primary  indicators, array of 2-4 objects (primary and companions) with indicator properties (category, dataset, definition, year, etc.)
 		idByName = {}, // object of FIPS values indexed by "County, State"
 		countyObjectById = {}, // object of data values and name indexed by FIPS
 		countyPathById = {}; // svg of county on the map indexed by FIPS
@@ -107,10 +106,9 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 		});
 	
 		if (windowWidth <= 768) {
-			$('#secondIndLi').hide();
-			resetSecondInd();
+			$('#profileIndLi').hide();
 		} else {
-			$('#secondIndLi').show();
+			$('#profileIndLi').show();
 		}
 		
 		positionZoomIcons();	
@@ -224,7 +222,7 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 		setSearchBehavior();
 		setIconBehavior();
 		setZoomIconBehavior();
-		setDataButtonBehavior();
+		//setDataButtonBehavior();
 	};
 	//for statewide maps
 	var statewideInd = function() {
@@ -238,11 +236,6 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 			tooltip.classed('hidden', true);
 			unhighlight();
 			zoomMap([0, 0], 1);
-		});
-		
-		$('#resetAllIcon, #resetAllIconText').on('click', function(e) {
-			e.stopPropagation();
-			resetSecondInd();
 		});
 	
 		$('.share-toggle').on('click', function(e) {
@@ -367,16 +360,6 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 			NProgress.done();
 		});
 	};
-	var resetSecondInd = function() {
-		if (currentSecondDI !== '') {
-			currentSecondDI = '';
-			if (d3.select('.county.active').empty() !== true) {
-				populateTooltip(selected);
-				positionTooltip(d3.select('.county.active')[0][0]);
-			}
-			//d3.select('#secondIndText').html('Secondary Indicator' + '<span class="sub-arrow"></span>');
-		}
-	};
 	
 	
 	var disableIndicators = function(type, name, indicator) {
@@ -417,10 +400,10 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 			$.SmartMenus.hideAll();
 			hideInstructions();
 			if (currentDI === dataset + ' - ' + indicator) {
-			//	noty({text: 'Already showing "' + indicator + '" as a secondary indicator'});
+			//	noty({text: 'Already showing "' + indicator + '"'});
 			} else {
 				CIC.update(dataset, indicator);
-				//d3.select('#secondIndText').html(html + '<span class="sub-arrow"></span>');
+				//d3.select('#profileIndText').html(html + '<span class="sub-arrow"></span>');
 
 				// send event tracking to google analytics
 				ga('send', 'event', 'County Profiles', dataset, indicator);
@@ -802,28 +785,6 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 		});
 		
 		getData(indObjects); // when data is received, it will fire an event on document.body
-	};
-	
-	var appendSecondInd = function(dataset, indicator) {
-		NProgress.start();
-		currentSecondDI = dataset + ' - ' + indicator;
-		s_indObjects = allInfo(dataset, indicator);
-		
-		$(document.body).off('dataReceived'); // shady, should only be setting event observe once, instead of re-defining it every time
-		$(document.body).on('dataReceived', function(event, qbis) {
-			NProgress.set(0.8);
-			s_quantByIds = qbis;
-			s_quantByIds = manipulateData(s_quantByIds, s_indObjects);
-			if (d3.select('.county.active').empty() !== true) {
-				populateTooltip(d3.select('.county.active')[0][0]);
-				positionTooltip(d3.select('.county.active')[0][0]);
-			}
-			
-			updateDefinitions();
-			NProgress.done(true);
-		});
-		
-		getData(s_indObjects);
 	};
 	
 	var getData = function(indObjs) {
@@ -1342,11 +1303,6 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 		for (var i = 0; i < indObjects.length; i++) {
 			defContainer.append('div').html('<b>' + indObjects[i].name + '</b>: ' + indObjects[i].definition);
 		}
-		if (currentSecondDI !== '') {
-			for (var i = 0; i < s_indObjects.length; i++) {
-				defContainer.append('div').html('<b>' + s_indObjects[i].name + '</b>: ' + s_indObjects[i].definition);
-			}	 
-		}	
 	};
 	
 	var createLegend = function(measure_type, keyArray, dataVals) {
@@ -1450,7 +1406,7 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 				}else return (attr.allSameYear) ? titleText + ', ' + objs[0].year : titleText;
 			});			
 		};
-		var writeIndicators = function(row, obj, quant, attr, isSecondary) {
+		var writeIndicators = function(row, obj, quant, attr) {
 			// set up unit and formatted value
 			var unit = (obj.hasOwnProperty('unit')) ? obj.unit : '';		
 			if (obj.hasOwnProperty('format_type')) {
@@ -1511,13 +1467,10 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 			// if all indicators displayed in tooltip are not from same year, add year before name
 			if (!attr.allSameYear && !obj.hasOwnProperty('year_ind')) name = obj.year + ' ' + name;
 			
-			row.append('td').attr('class', 'dataName').classed('leftborder', isSecondary).text(name + ':');
 			row.append('td').attr('class', 'dataNum').html(value + " " + unit);
 		};
-		
-		var includeSecondary = (currentSecondDI !== '');
+
 		var attrib = getAttributes(indObjects);
-		if (includeSecondary) var s_attrib = getAttributes(s_indObjects);
 
 
 		// empty out tooltip
@@ -1537,15 +1490,13 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 		
 		// write header			
 		var row = tipTable.append('tr').attr('class', 'tipKey');
-		writeHeader(indObjects, attrib);
-		if (includeSecondary) writeHeader(s_indObjects, s_attrib);		
+		writeHeader(indObjects, attrib);		
 
 		// write each indicator row
 		for (var i = 0; i < indObjects.length; i++) {
 			if (indObjects[i].has_profile === true) continue;
 			var row = tipTable.append('tr').attr('class', 'tipKey');	
-			writeIndicators(row, indObjects[i], quantByIds[i], attrib, false);
-			if (includeSecondary && i < s_indObjects.length) writeIndicators(row, s_indObjects[i], s_quantByIds[i], s_attrib, true);
+			writeIndicators(row, indObjects[i], quantByIds[i], attrib);
 		}			
 	};
 	
@@ -1561,13 +1512,8 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 			var countyCoord = county.getBoundingClientRect(); // county position relative to document.body
 			var top = countyCoord.top - ttHeight - containerOffset.top + scroll_top - 10; // top relative to map
 			
-			if (currentSecondDI === '') {
-				var left = countyCoord.left + countyCoord.width - ttWidth - containerOffset.left + scroll_left + 20; // left relative to map
-				var arrow_left = -20 + countyCoord.width/2;
-			} else {
-				var left = countyCoord.left + countyCoord.width/2 - ttWidth/2 - containerOffset.left + scroll_left + 5;
-				var arrow_left = -35 + ttWidth/2;
-			}
+			var left = countyCoord.left + countyCoord.width - ttWidth - containerOffset.left + scroll_left + 20; // left relative to map
+			var arrow_left = -20 + countyCoord.width/2;
 			
 			// checks if tooltip goes past window and adjust if it does
 			var dx = windowWidth - (left + ttWidth); // amount to tweak
