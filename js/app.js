@@ -108,6 +108,21 @@
 				}
 			};
 		})
+		.directive('profileList', function() {		
+			return {
+				restrict: 'A',
+				templateUrl: 'assets/profileList.html',
+				link: function(scope, elem) {
+					// initialize smartmenus
+					var menu = $(elem).closest('.nav');
+					menu.smartmenus({
+						subMenusSubOffsetX: 1,
+						subMenusSubOffsetY: -8
+					});
+					menu.find('.sub-arrow').first().hide();
+				}
+			};
+		})
 		.directive('overlay', function() {
 			return {restrict: 'E', templateUrl: 'assets/overlay.html'};
 		})

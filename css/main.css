@@ -93,7 +93,7 @@ body {
 	cursor: pointer;
 }
 #primeInd a,
-#secondInd a:not(#resetSecondInd) {
+#profileInd a:not(#resetProfileInd) {
 	cursor: default;
 }
 
@@ -113,7 +113,7 @@ body {
 }
 #primeIndList { margin-left: 15px; }
 .dropdown-menu { text-align: left; }
-#primeIndText, #secondIndText {
+#primeIndText, #profileIndText {
 	font-size: 18px;
 	font-weight: 400;	
 }
@@ -440,7 +440,7 @@ body {
 	#more-data-button span { display: none; }
 }
 @media (max-width: 910px) {
-	#secondIndList { display: none; }
+	#profileIndList { display: none; }
 }
 @media (min-width: 640px) {
 	.navbar-brand { display: none; }

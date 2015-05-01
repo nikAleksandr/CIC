@@ -413,17 +413,17 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 				ga('send', 'event', 'map an indicator', dataset, indicator);
 			}
 		};
-		var pickedSecondaryIndicator = function(dataset, indicator, html) {
+		var pickedCountyProfile = function(dataset, indicator, html) {
 			$.SmartMenus.hideAll();
 			hideInstructions();
-			if (currentSecondDI === dataset + ' - ' + indicator) {
+			if (currentDI === dataset + ' - ' + indicator) {
 			//	noty({text: 'Already showing "' + indicator + '" as a secondary indicator'});
 			} else {
-				appendSecondInd(dataset, indicator);
+				CIC.update(dataset, indicator);
 				//d3.select('#secondIndText').html(html + '<span class="sub-arrow"></span>');
 
 				// send event tracking to google analytics
-				ga('send', 'event', 'compare an indicator', dataset, indicator);
+				ga('send', 'event', 'County Profiles', dataset, indicator);
 			}
 		};
 				
@@ -455,7 +455,7 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 		};
 	
 		setDropdownClick('#primeInd', pickedIndicator);
-		setDropdownClick('#secondInd', pickedSecondaryIndicator);
+		setDropdownClick('#profileInd', pickedCountyProfile);
 		
 		// set a pointer cursor for all menu items
 		d3.selectAll('.dataset a').style('cursor', 'pointer');
