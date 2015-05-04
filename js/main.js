@@ -23,8 +23,8 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 	// -------------------------- Variable Definitions ---------------------------
 	var localVersion = false;
 	
-	var default_dset = 'Population Levels and Trends';
-	var default_ind = 'Population Level';
+	var default_dset = 'Endangered Species';
+	var default_ind = 'Number of Endangered and Threatened Species Listings';
 	
 	CIC.findACounty = true;
 	
