@@ -1969,7 +1969,7 @@
 							"has_profile": true,
 							"unit": "indicator(s)",
 							"order": {"None": 0, "1": 1, "2": 2, "3": 3, "4": 4},
-							"definition": "A comprehensive printable report, individualized for each county economy.  Enable popups and click on any county to view or print a profile."
+							"definition": "A comprehensive printable report, individualized for each county economy.  "
 						},{
 							"name": "Adjusted Average County Wage, 2012",
 							"dataType": "level",
@@ -2138,7 +2138,7 @@
 							"dataType": "level",
 							"has_profile": true,
 							"thresholds": [1,5,25,50],
-							"definition": "A report on the Ex-Im support given to businesses in a particular county over the course of 2007-2014.  Enable popups and click on any county to view or print a profile."
+							"definition": "A report on the Ex-Im support given to businesses in a particular county over the course of 2007-2014."
 						},{
 							"name": "Supported Exporters",
 							"dataType": "level",
@@ -2428,6 +2428,14 @@
 					],
 					"children": [
 						{
+							"name": "Endangered Species Profiles",
+							"has_profile": true,
+							"dataType": "level",
+							"supressYear": true,
+							"yearSpan": "May 2015",
+							"thresholds": [1,2,6,12],
+							"definition": "An endangered species is a species in danger of extinction throughout all or a significant portion of its range.  A threatened species is a species likely to become endangered within the foreseeable future throughout all or a significant portion of its range.  A species may be treated as endangered or threatened if it resembles in appearance a species which has been listed under section 4 and enforcement personnel would have difficulty distinguishing between the listed and the unlisted species; if the effect of this difficulty is an additional threat to the listed species; and if such treatment of the unlisted species would improve protection for the listed species. A similarity of appearance listing must be promulgated or formalized by rule.  Such species are not biologically endangered or threatened and are not subject to Section 7 consultation.  In some counties threatened species includes experimental non-essential populations.  Experimental, nonessential populations of endangered species (e.g., red wolf) are treated as threatened species on public land, for consultation purposes, and as species proposed for listing on private land."
+						}, {
 							"name": "Number of Endangered and Threatened Species Listings",
 							"dataType": "level",
 							"supressYear": true,

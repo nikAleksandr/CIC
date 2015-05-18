@@ -267,6 +267,7 @@ COUNTY_DATA 	Projected_Ozone_Class	Energy & Environment	Ozone Concentration	Proj
 COUNTY_DATA 	Ozone_Level	Energy & Environment	Ozone Concentration	2011-2013 Count	
 COUNTY_DATA 	Projected_Ozone_Level	Energy & Environment	Ozone Concentration	Projected 2025 Count	
 Public_Land	ESP_Listed_Stock_2015	Energy & Environment	Endangered Species	Number of Endangered and Threatened Species Listings	
+Public_Land	ESP_Listed_Stock_2015	Energy & Environment	Endangered Species	Endangered Species Profiles	
 Public_Land	ESP_Endangered_Species_Stock_2015	Energy & Environment	Endangered Species	Number of Endangered Species Listings	
 Public_Land	ESP_Threatened_Species_Stock_2015	Energy & Environment	Endangered Species	Number of Threatened Species Listings	
 Public_Land	ESP_Newly_Listed_Endangered_Threatened_2004_2015	Energy & Environment	Endangered Species	Number of New Listings of Endangered and Threatened Species	

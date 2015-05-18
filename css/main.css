@@ -265,7 +265,19 @@ body {
 	width: 200px;
 	z-index: 6;
 }
-
+.newWindow {
+    background-image:url(../img/colorbox/newWindow.png);
+    background-position:top;
+    display:block;
+    height:28px;
+    width:65px;
+    position:absolute; 
+    top:0px;
+    text-indent:-9999px;
+}
+.newWindow:hover {
+    background-position:bottom;
+}
 
 /* Tooltip Styling */
 .tooltip {

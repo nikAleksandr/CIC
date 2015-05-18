@@ -24,7 +24,7 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 	var localVersion = false;
 	
 	var default_dset = 'Endangered Species';
-	var default_ind = 'Number of Endangered and Threatened Species Listings';
+	var default_ind = 'Endangered Species Profiles';
 	
 	CIC.findACounty = true;
 	
@@ -640,7 +640,8 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 					if (currentDI === 'County Economic Tracker - County Economic Profile') {
 						var countyName = parseCountyName(+FIPS, county.geography);
 						countyName = countyName.replace(/\s/g, '');
-						$.colorbox({iframe:true, width:'792px', height:'632px', maxHeight:'90%', maxWidth:'90%', href:'../profiles/countytracker/' + countyName + '.pdf'});
+						var profileURL = '../profiles/countytracker/' + countyName + '.pdf';
+						$.colorbox({iframe:true, width:'792px', height:'632px', maxHeight:'90%', maxWidth:'90%', title:'<a class="newWindow" href="' + profileURL + '" target=_blank">Open In New Window</a>', href: profileURL});
 						//window.open('http://explorer.naco.org/profiles/countytracker/' + countyName + '.pdf');
 					} else if (currentDI === 'Municipal Bonds - County Muni Bonds Profiles') {
 						if (isNaN(quantByIds[0][+FIPS])) {
@@ -713,6 +714,12 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 							$.colorbox({iframe:true, width:'612px', height:'802px', maxHeight:'90%', maxWidth:'90%', href:'../profiles/SRSProfiles/' + countyName + '.pdf'});
 							//window.open('http://explorer.naco.org/profiles/SRSProfiles/' + countyName + '.pdf');
 						}
+					} else if (currentDI === 'Endangered Species - Endangered Species Profiles') {
+						var countyName = parseCountyName(+FIPS, county.geography);
+						countyName = countyName.replace(/\s/g, '');
+						var profileURL = '../profiles/endangeredSpecies/' + countyName + '.pdf';
+						$.colorbox({iframe:true, width:'792px', height:'632px', maxHeight:'90%', maxWidth:'90%', title:'<a class="newWindow" href="' + profileURL + '" target=_blank">Open In New Window</a>', href: profileURL});
+						//window.open('http://explorer.naco.org/profiles/countytracker/' + countyName + '.pdf');
 					}
 					
 				}
