@@ -24,7 +24,7 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 	var localVersion = false;
 	
 	var default_dset = 'Endangered Species';
-	var default_ind = 'Endangered Species Profiles';
+	var default_ind = 'Number of Endangered and Threatened Species Listings';
 	
 	CIC.findACounty = true;
 	
