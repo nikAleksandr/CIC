@@ -1840,6 +1840,83 @@
 							"definition": "Population estimate of people identifying as a person of Cuban, Mexican, Puerto Rican, South or Central American, or other Spanish culture or origin regardless of race."
 						}
 					]
+				}, {
+					"name": "Immigration Ancestry",
+					"source": "U.S. Census, American Community Survey",
+					"years": [2013],
+					"companions": [["Immigration Ancestry","Foreign Born, Not U.S. Citizens"], ["Immigration Ancestry","Foreign Born, U.S. Citizens"], ["Immigration Ancestry","Percent of Foreign-Born Residents"], ["Immigration Ancestry","Foreign Born Total"]
+					],
+					"children": [
+						{
+							"name": "Foreign Born, Not U.S. Citizens",
+							"dataType": "level",
+							"definition": "Foreign-born residents in a county that are not U.S. citizens. "
+						}, {
+							"name": "Foreign Born, U.S. Citizens",
+							"dataType": "level",
+							"definition": "Foreign-born residents in a county that are naturalized U.S. citizens."
+						}, {
+							"name": "Foreign Born Total",
+							"dataType": "level",
+							"definition": "Foreign-born population includes anyone who is not a U.S. citizen at birth, and excludes population born at sea."
+						}, {
+							"name": "Percent of Foreign-Born Residents",
+							"dataType": "percent",
+							"thresholds": [0.01, 0.019, 0.033, 0.1],
+							"definition": "The percentage of a county's population that is foreign-born."
+						}, {
+							"name": "Percent of Residents with European Ancestry",
+							"dataType": "percent",
+							"definition": "The percentage of a county's population with European first reported ancestry."
+						}, {
+							"name": "Percent of Residents with Middle Eastern or North African Ancestry",
+							"dataType": "percent",
+							"definition": "The percentage of a county's population with Middle Eastern or North African first reported ancestry."
+						}, {
+							"name": "Percent of Residents with Sub-Saharan African Ancestry",
+							"dataType": "percent",
+							"definition": "The percentage of a county's population with Sub-Saharan African first reported ancestry."
+						}, {
+							"name": "Percent of Residents with Australian or New Zealand Ancestry",
+							"dataType": "percent",
+							"definition": "The percentage of a county's population with Australian or New Zealand first reported ancestry."
+						}, {
+							"name": "Percent of Residents with North American Ancestry",
+							"dataType": "percent",
+							"definition": "The percentage of a county's population with North American first reported ancestry."
+						}, {
+							"name": "Percent of Residents with West Indian or Brazilian Ancestry",
+							"dataType": "percent",
+							"definition": "The percentage of a county's population with West Indian or Brazilian first reported ancestry."
+						}
+					]
+				}, {
+					"name": "Refugee Arrivals",
+					"source": "Office of Refugee Resettlement, Administration for Children and Families, U.S. Department of Health and Human Services",
+					"years": [2014],
+					"companions": [["Refugee Arrivals", "Refugee Arrivals"]
+					],
+					"children": [
+						{
+							"name": "Refugee Arrivals",
+							"dataType": "level",
+							"definition": "The number of refugees arriving in a county in FY 2014"
+						}
+					]
+				}, {
+					"name": "Unaccompanied Children",
+					"source": "Office of Refugee Resettlement, Administration for Children and Families, U.S. Department of Health and Human Services",
+					"years": [2014],
+					"notes": "unaccompaniedChildren-note",
+					"companions": [["Unaccompanied Children", "Unaccompanied Children"]
+					],
+					"children": [
+						{
+							"name": "Unaccompanied Children",
+							"dataType": "level",
+							"definition": "Total Number of Unaccompanied Children Released to Sponsors in FY 2014, by the counties where the sponsors live."
+						}
+					]
 				}
 			]
 		}, {

@@ -14,6 +14,7 @@
 			panel.NUM_HELP_TABS = 6;
 			panel.visible = true;
 			panel.showOnMapVisible = false;
+			panel.stateSearchToggleVisible = false;
 			panel.printVisible = false;
 			panel.currentText = 'update';
 			panel.currentHelpTab = 1;

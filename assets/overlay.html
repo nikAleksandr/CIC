@@ -1,4 +1,5 @@
 <div id="showOnMap" class="icon-text" ng-show="panel.showOnMapVisible"><img class="svgCircle" src="img/showOnMap.svg" />show on map</div>
+<div id="stateSeachToggle" class="icon-text" ng-show="panel.stateSearchToggleVisible"><img class="" src="" /><span id="mapView">Map View</span> | <span id ="listView">List View</span></div>
 <div id="print" class="icon-text" ng-show="panel.printVisible"><img class="svgCircle" src="img/print.svg" />print</div>
 <div id="close" class="icon-text" ng-click="panel.setVisible(false)">close<img class="svgCircle" src="img/Close.svg"/></div>
 <!--Should replace "close" with this action again later "panel.setVisible(false)" -->
@@ -15,7 +16,7 @@
 			<p>
 				<div class="pad-down-5">Endangered Species Data Added!</div>
 				<div class="pad-5">Sign up for our monthly update <a class="link" ng-click="panel.toggleShowing('mailingList')">here</a>.</div>
-				<div class="pad-down-5 panel-bullet">Click on “County Profiles” and select “Endangered Species” to see individualized county profiles with the number of endangered and threatened species by county.</div>
+				<div class="pad-down-5 panel-bullet">Click on “County Profiles” and select <a class="link" ng-click="panel.goToIndicator('Endangered Species', 'Endangered Species Profiles')">“Endangered Species”</a> to see individualized county profiles with the number of endangered and threatened species by county.</div>
 				<div class="pad-down-5 panel-bullet">Click on "Map an Indicator", select "Public Lands" and choose any of the following five Endangered Species indicators:</div>
 				<div class="pad-down-5 panel-bullet">&bull; <a class="link" ng-click="panel.goToIndicator('Endangered Species', 'Number of Endangered and Threatened Species Listings')">Number of Endangered and Threatened Species Listings, 2015</a></div>
 				<div class="pad-down-5 panel-bullet">&bull; <a class="link" ng-click="panel.goToIndicator('Endangered Species', 'Number of Endangered Species Listings')">Number of Endangered Species Listings, 2015</a></div>

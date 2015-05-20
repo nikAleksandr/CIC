@@ -476,6 +476,16 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 		});
 	};
 	
+	var stateSearchResults = function(searchState){
+		stateMap = '<iframe width="100%" height="100%" src="http://www.uscounties.org/cffiles_web/counties/statemap_blue.cfm?state=' + searchState + '"></iframe>';
+		
+		
+		
+		//on toggle, do this
+		state_search_str = 'state.cfm?statecode=' + searchState;
+		CIC.displayResults(state_search_str);
+	};
+	
 	var submitSearch = function() {
 		d3.event.preventDefault();
 			
@@ -489,8 +499,7 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 			if (searchState === 'MA' || searchState === 'RI' || searchState === 'CT') {
 				noty({text: 'No county data available for this state.'});
 			} else {
-				state_search_str = 'state.cfm?statecode=' + searchState;
-				CIC.displayResults(state_search_str);
+				stateSearchResults(searchState);
 			}
 								
 		} else if (searchType === 'countySearch') {
@@ -749,6 +758,7 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 					
 				frame.html(response);
 				
+				(url.indexOf('state') != -1) ? $('#stateSearchToggle').show() : $('#stateSearchToggle').hide();
 				(url.indexOf('county') != -1) ? $('#showOnMap').show() : $('#showOnMap').hide();
 				showInstructions();
 			} else {
@@ -1092,8 +1102,6 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 		//special notes for certain datasets
 		$('.idio-note').hide();
 		if(indObjects[0].hasOwnProperty('notes')) $(indObjects[0].notes).show();
-		
-		//(indObjects[0].dataset.indexOf('County Health Rankings')!=-1) ? $('.chr-note').show() : $('.chr-note').hide();
 	};
 	
 	var switchToThreshold = function(domain, range) {

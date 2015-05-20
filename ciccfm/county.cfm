@@ -42,19 +42,15 @@
 <CFOUTPUT query="getcountydata">
 
 <div id="countyResponse-title" class="row">
-    <div class="col-md-12">
+    <div class="col-md-9">
     	<H3>#county_name#, #state#</H3>
 	</div>
+	<CFIF #Member_Status# EQ "Active">
+	<div class="col-md-3" id="countyResponse-memberBadge">   
+			<h4>NACo Member</h4>
+	</div>
+	</CFIF>
 </div>
-
-
-<CFIF #Member_Status# EQ "Active">   
-<!--<div id="countyResponse-memberRow" class="row">
-		<div id="countyResponse-nacoMember" class="col-md-12">
-			<h4>NACo Member County</h4>
-		</div>
-	</div> -->
-</CFIF>
 
 
 <div id="countyResponse-basicInfoRow" class="row">
