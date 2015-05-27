@@ -190,18 +190,18 @@ Demographics	Pop_Eth_Two_or_More_Races	Demographics	Population by Ethnicity	Two 
 Demographics	Pop_Eth_Hispanic	Demographics	Population by Ethnicity	Hispanic or Latino Origin Population	"Population estimate of people identifying as a person of Cuban, Mexican, Puerto Rican, South or Central American, or other Spanish culture or origin regardless of race."
 Demographics	Pop_LT_Population	Demographics	Population Levels and Trends	Population Level	"The calculated number of people living in an area as of a specified point in time, usually July 1st. The estimated population is calculated using a component of change model that incorporates information on natural increase (births, deaths) and net migration (net domestic migration, net international migration) that has occurred in an area since the latest decennial census."
 Demographics	Pop_LT_PopulationPopulation_Growth_Rate_from_previous_year	Demographics	Population Levels and Trends	Population Annual Growth Rate (from previous year)	"The difference between the population of an area at the beginning and end of a time period, expressed as a percentage of the beginning population."
-Demographics	Immi_Not_US_Citizen	Demographics	Immigration Ancestry	"Foreign Born, Not U.S. Citizens"	
-Demographics	Immi_Naturalized_US_Citizen	Demographics	Immigration Ancestry	"Foreign Born, U.S. Citizens"	
-Demographics	Immi_Total_Foreign_Born	Demographics	Immigration Ancestry	Foreign Born Total	
-Demographics	Immi_Share_Foreign_Born	Demographics	Immigration Ancestry	Percent of Foreign-Born Residents	
-Demographics	Immi_Share_Europe_First_Ancestry	Demographics	Immigration Ancestry	Percent of Residents with European Ancestry	
-Demographics	Immi_Share_Middle_East_and_North_Africa_First_Ancestry	Demographics	Immigration Ancestry	Percent of Residents with Middle Eastern or North African Ancestry	
-Demographics	Immi_Share_Sub_Saharan_Africa_First_Ancestry	Demographics	Immigration Ancestry	Percent of Residents with Sub-Saharan African Ancestry	
-Demographics	Immi_Share_Australia_and_New_Zealand_First_Ancestry	Demographics	Immigration Ancestry	Percent of Residents with Australian or New Zealand Ancestry	
-Demographics	Immi_Share_North_America_First_Ancestry	Demographics	Immigration Ancestry	Percent of Residents with North American Ancestry	
-Demographics	Immi_Share_West_Indies_and_Brazil_First_Ancestry	Demographics	Immigration Ancestry	Percent of Residents with West Indian or Brazilian Ancestry	
-Demographics	Immi_Unaccompanied_Children_Released	Demographics	Unaccompanied Children	Unaccompanied Children	
-Demographics	Immi_Refugee_Arrivals	Demographics	Refugee Arrivals	Refugee Arrivals	
+Demographics	Immi_Not_US_Citizen	Demographics	Immigration and Ancestry	"Foreign Born, Not U.S. Citizens"	
+Demographics	Immi_Naturalized_US_Citizen	Demographics	Immigration and Ancestry	"Foreign Born, U.S. Citizens"	
+Demographics	Immi_Total_Foreign_Born	Demographics	Immigration and Ancestry	Foreign Born Total	
+Demographics	Immi_Share_Foreign_Born	Demographics	Immigration and Ancestry	Percent of Foreign-Born Residents	
+Demographics	Immi_Share_Europe_First_Ancestry	Demographics	Immigration and Ancestry	Percent of Residents with European Ancestry	
+Demographics	Immi_Share_Middle_East_and_North_Africa_First_Ancestry	Demographics	Immigration and Ancestry	Percent of Residents with Middle Eastern or North African Ancestry	
+Demographics	Immi_Share_Sub_Saharan_Africa_First_Ancestry	Demographics	Immigration and Ancestry	Percent of Residents with Sub-Saharan African Ancestry	
+Demographics	Immi_Share_Australia_and_New_Zealand_First_Ancestry	Demographics	Immigration and Ancestry	Percent of Residents with Australian or New Zealand Ancestry	
+Demographics	Immi_Share_North_America_First_Ancestry	Demographics	Immigration and Ancestry	Percent of Residents with North American Ancestry	
+Demographics	Immi_Share_West_Indies_and_Brazil_First_Ancestry	Demographics	Immigration and Ancestry	Percent of Residents with West Indian or Brazilian Ancestry	
+Demographics	Immi_Unaccompanied_Children_Released	Demographics	Immigration and Ancestry	Unaccompanied Children	
+Demographics	Immi_Refugee_Arrivals	Demographics	Immigration and Ancestry	Refugee Arrivals	
 Economy	KEYID	Economy			
 Economy	FIPS	Economy			
 Economy	DATA_YEAR	Economy			

@@ -23,8 +23,8 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 	// -------------------------- Variable Definitions ---------------------------
 	var localVersion = false;
 	
-	var default_dset = 'Endangered Species';
-	var default_ind = 'Number of Endangered and Threatened Species Listings';
+	var default_dset = 'Immigration and Ancestry';
+	var default_ind = 'Percent of Foreign-Born Residents';
 	
 	CIC.findACounty = true;
 	
@@ -476,14 +476,19 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 		});
 	};
 	
+	var stateImgHeight;
 	var stateSearchResults = function(searchState){
 		stateMap = '<iframe width="100%" height="100%" src="http://www.uscounties.org/cffiles_web/counties/statemap_blue.cfm?state=' + searchState + '"></iframe>';
 		
-		
-		
 		//on toggle, do this
-		state_search_str = 'state.cfm?statecode=' + searchState;
+		state_search_str = 'state_test.cfm?statecode=' + searchState;
 		CIC.displayResults(state_search_str);
+		
+		var stateImg = new Image();
+		stateImg.onload = function() {
+		  stateImgHeight =  this.height;
+		};
+		stateImg.src = 'http://www.uscounties.org/cffiles_web/counties/images/'+ searchState +'.gif';
 	};
 	
 	var submitSearch = function() {
@@ -758,7 +763,10 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 					
 				frame.html(response);
 				
-				(url.indexOf('state') != -1) ? $('#stateSearchToggle').show() : $('#stateSearchToggle').hide();
+				if(url.indexOf('state') != -1){
+					CIC.mapToggle('map');
+					$('#state-map-iframe').css('height', stateImgHeight +'px');
+				}
 				(url.indexOf('county') != -1) ? $('#showOnMap').show() : $('#showOnMap').hide();
 				showInstructions();
 			} else {
@@ -1085,7 +1093,7 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 		// list source
 		d3.select("#sourceContainer").selectAll("p").remove();
 		d3.select('#sourceContainer').append('p').attr("id", "sourceText")
-			.html('<span style="font-weight:400;">Source: </span>' + indObjects[0].source + ((indObjects[0].supressYear) ? '.' : (indObjects[0].vintageYear) ? ', ' + indObjects[0].vintageYear : ', ' + indObjects[0].year));
+			.html('<span style="font-weight:400;">Source: </span>' + indObjects[0].source + ((indObjects[0].suppressYear) ? '.' : (indObjects[0].vintageYear) ? ', ' + indObjects[0].vintageYear : ', ' + indObjects[0].year));
 		
 				
 		// if showing a "county profile" indicator, show a mini help dialog
@@ -1239,7 +1247,7 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 					if (Jdataset.hasOwnProperty('yearSpan')) selectedInd.yearSpan = Jdataset.yearSpan;
 					if (Jdataset.hasOwnProperty('vintage')) selectedInd.vintage = Jdataset.vintage;
 					if (Jdataset.hasOwnProperty('legend_title_footer')) selectedInd.legend_title_footer = Jdataset.legend_title_footer;
-					if (Jdataset.hasOwnProperty('supressYear')) selectedInd.supressYear = Jdataset.supressYear;
+					if (Jdataset.hasOwnProperty('suppressYear')) selectedInd.suppressYear = Jdataset.suppressYear;
 					if (Jdataset.hasOwnProperty('notes')) selectedInd.notes = Jdataset.notes;
 					
 					if (typeof indicator !== 'undefined') {
@@ -1337,7 +1345,7 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 			if (dataVals) options.small_large = dataVals;
 			if (primeIndObj.name === 'Body of Water' || primeIndObj.name === 'County Supported Local Health Departments (LHDs)') options.boxWidth = 68;
 			if (primeIndObj.hasOwnProperty('format_type')) options.format_type = primeIndObj.format_type;
-			if (primeIndObj.hasOwnProperty('supressMinMax')) options.supressMinMax = primeIndObj.supressMinMax;
+			if (primeIndObj.hasOwnProperty('suppressMinMax')) options.suppressMinMax = primeIndObj.suppressMinMax;
 			if (primeIndObj.hasOwnProperty('longLegendNames')) options.longLegendNames = primeIndObj.longLegendNames;
 	
 			changeLegendTitle();
@@ -1825,6 +1833,17 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 
 	// ----------------------------------- App Helper Functions -------------------------------------
 
+	CIC.mapToggle = function(showIt) {
+		 console.log('running mapToggle ' + showIt);
+		 if(showIt=='map'){
+			$('#state-map-iframe').show();
+			$('#stateResponse-table').hide();
+		} else{ 
+			$('#stateResponse-table').show();
+			$('#state-map-iframe').hide();
+		}
+	};
+	
 	var showInstructions = function() {
 		var scope = angular.element($('#container')).scope();
 		scope.$apply(function() {

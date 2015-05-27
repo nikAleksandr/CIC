@@ -1608,13 +1608,13 @@
 						{
 							"name": "Population Level",
 							"dataType": "level",
-							"supressMinMax": true,
+							"suppressMinMax": true,
 							"thresholds": [50000, 150000, 250000, 500000],
 							"definition": "The calculated number of people living in an area as of a specified point in time, usually July 1st."
 						}, {
 							"name": "Population Annual Growth Rate (from previous year)",
 							"dataType": "percent",
-							"supressMinMax": true,
+							"suppressMinMax": true,
 							"definition": "The difference between the population of an area at the beginning and end of a time period, expressed as a percentage of the beginning population."
 						}
 					]
@@ -1707,24 +1707,24 @@
 						{
 							"name": "Population Level",
 							"dataType": "level",
-							"supressMinMax": true,
+							"suppressMinMax": true,
 							"definition": "The calculated number of people living in an area as of a specified point in time, usually July 1st. The estimated population is calculated using a component of change model that incorporates information on natural increase (births, deaths) and net migration (net domestic migration, net international migration) that has occurred in an area since the latest decennial census."
 						}, {
 							"name": "Population Density",
 							"unit": "persons per square mile",
 							"format_type": "dec1",
 							"dataType": "level",
-							"supressMinMax": true,
+							"suppressMinMax": true,
 							"definition": "Number of people per square mile according to the population estimates from the Census Bureau."
 						}, {
 							"name": "Population Density Growth Rate (from previous year)",
 							"dataType": "percent",
-							"supressMinMax": true,
+							"suppressMinMax": true,
 							"definition": "The difference between the population density of an area at the beginning and end of a time period, expressed as a percentage of the beginning population density."
 						}, {
 							"name": "Total Land Area",
 							"dataType": "level",
-							"supressMinMax": true,
+							"suppressMinMax": true,
 							"definition": "Total land area of the county in square miles."
 						}
 					]
@@ -1841,10 +1841,10 @@
 						}
 					]
 				}, {
-					"name": "Immigration Ancestry",
-					"source": "U.S. Census, American Community Survey",
+					"name": "Immigration and Ancestry",
+					"source": "NACo Analysis of U.S. Census Bureau - American Community Survey (ACS) 5 year estimates",
 					"years": [2013],
-					"companions": [["Immigration Ancestry","Foreign Born, Not U.S. Citizens"], ["Immigration Ancestry","Foreign Born, U.S. Citizens"], ["Immigration Ancestry","Percent of Foreign-Born Residents"], ["Immigration Ancestry","Foreign Born Total"]
+					"companions": [["Immigration and Ancestry","Foreign Born, Not U.S. Citizens"], ["Immigration and Ancestry","Foreign Born, U.S. Citizens"], ["Immigration and Ancestry","Percent of Foreign-Born Residents"], ["Immigration and Ancestry","Foreign Born Total"]
 					],
 					"children": [
 						{
@@ -1862,7 +1862,8 @@
 						}, {
 							"name": "Percent of Foreign-Born Residents",
 							"dataType": "percent",
-							"thresholds": [0.01, 0.019, 0.033, 0.1],
+							"thresholds": [0.01, 0.02, 0.03, 0.1],
+							"suppressMinMax": true,
 							"definition": "The percentage of a county's population that is foreign-born."
 						}, {
 							"name": "Percent of Residents with European Ancestry",
@@ -1883,38 +1884,28 @@
 						}, {
 							"name": "Percent of Residents with North American Ancestry",
 							"dataType": "percent",
-							"definition": "The percentage of a county's population with North American first reported ancestry."
+							"definition": "The percentage of a county's population with North American first reported ancestry.  U.S. Census Bureau includes in the North American ancestry individuals who identify themselves as American, Cajun, French Canadian, Pennsylvania German, and Canadian."
 						}, {
 							"name": "Percent of Residents with West Indian or Brazilian Ancestry",
 							"dataType": "percent",
 							"definition": "The percentage of a county's population with West Indian or Brazilian first reported ancestry."
-						}
-					]
-				}, {
-					"name": "Refugee Arrivals",
-					"source": "Office of Refugee Resettlement, Administration for Children and Families, U.S. Department of Health and Human Services",
-					"years": [2014],
-					"companions": [["Refugee Arrivals", "Refugee Arrivals"]
-					],
-					"children": [
-						{
+						}, {
 							"name": "Refugee Arrivals",
+							"source": "NACo Analysis of Office of Refugee Resettlement, Administration for Children and Families, U.S. Department of Health and Human Services",
+							"year": 2014,
+							"companions": [["Immigration and Ancestry", "Refugee Arrivals"]
+							],
 							"dataType": "level",
-							"definition": "The number of refugees arriving in a county in FY 2014"
-						}
-					]
-				}, {
-					"name": "Unaccompanied Children",
-					"source": "Office of Refugee Resettlement, Administration for Children and Families, U.S. Department of Health and Human Services",
-					"years": [2014],
-					"notes": "unaccompaniedChildren-note",
-					"companions": [["Unaccompanied Children", "Unaccompanied Children"]
-					],
-					"children": [
-						{
+							"definition": "The number of refugees arriving in a county in FY 2014.  A refugee is any person who is outside any country of such person's nationality or, in the case of a person having no nationality, is outside any country in which such person last habitually resided, and who is unable or unwilling to return to, and is unable or unwilling to avail himself or herself of the protection of, that country because of persecution or a well-founded fear of persecution on account of race, religion, nationality, membership in a particular social group, or political opinion."
+						}, {
 							"name": "Unaccompanied Children",
 							"dataType": "level",
-							"definition": "Total Number of Unaccompanied Children Released to Sponsors in FY 2014, by the counties where the sponsors live."
+							"source": "NACo Analysis of Office of Refugee Resettlement, Administration for Children and Families, U.S. Department of Health and Human Services",
+							"year": 2014,
+							"notes": ".unaccompaniedChildren-note",
+							"companions": [["Immigration and Ancestry", "Unaccompanied Children"]
+							],
+							"definition": "Total Number of Unaccompanied Children Released to Sponsors in FY 2014, by the counties where the sponsors live.  An unaccompanied child is one who enters the country without their parent or legal guardian.  When apprehended by immigration authorities, the child is transferred to the care and custody of the Office of Refugee Resettlement (ORR).  Federal law requires that ORR feed, shelter, and provide medical care for unaccompanied children until it is able to release them to safe settings with sponsors (usually family members), while they await immigration proceedings. Sponsors are adults who are suitable to provide for the child’s physical and mental well-being and have not engaged in any activity that would indicate a potential risk to the child."
 						}
 					]
 				}
@@ -1937,73 +1928,73 @@
 							"name": "Per Capita Income",
 							"dataType": "level",
 							"unit": "dollars",
-							"supressMinMax": true,
+							"suppressMinMax": true,
 							"definition": "The average income computed for every man, woman, and child in a particular group. The Census Bureau derived per capita income by dividing the total income of a particular group by the total population in that group (excluding patients or inmates in institutional quarters)."
 						}, {
 							"name": "Median Household Income",
 							"dataType": "level",
 							"unit": "dollars",
-							"supressMinMax": true,
+							"suppressMinMax": true,
 							"definition": "The amount which divides the income distribution into two equal groups, half having incomes above the median, half having incomes below the median. The medians for households, families, and unrelated individuals are based on all households, families, and unrelated individuals, respectively. The medians for people are based on people 15 years old and over with income."
 						}, {
 							"name": "Number of Households with Income Less than $10,000",
 							"dataType": "level",
-							"supressMinMax": true,
+							"suppressMinMax": true,
 							"definition": "The number of households located in the county with a household income of less than $10,000. This includes the income of the householder and all other individuals 15 years old and over in the household, whether they are related to the householder or not."
 						}, {
 							"name": "Percent of Households with Income Less than $10,000",
 							"dataType": "percent",
-							"supressMinMax": true,
+							"suppressMinMax": true,
 							"definition": "The percentage of households located in the county with a household income of less than $10,000. This includes the income of the householder and all other individuals 15 years old and over in the household, whether they are related to the householder or not."
 						}, {
 							"name": "Number of Households with Income Between $10,000 - $24,999",
 							"dataType": "level",
-							"supressMinMax": true,
+							"suppressMinMax": true,
 							"definition": "The number of households located in the county with a household income of between $10,000 and $24,999. This includes the income of the householder and all other individuals 15 years old and over in the household, whether they are related to the householder or not."
 						}, {
 							"name": "Percent of Households with Income Between $10,000 - $24,999",
 							"dataType": "percent",
-							"supressMinMax": true,
+							"suppressMinMax": true,
 							"definition": "The percentage of households located in the county with a household income of between $10,000 and $24,999. This includes the income of the householder and all other individuals 15 years old and over in the household, whether they are related to the householder or not."
 						}, {
 							"name": "Number of Households with Income Between $25,000 - $49,999",
 							"dataType": "level",
-							"supressMinMax": true,
+							"suppressMinMax": true,
 							"definition": "The number of households located in the county with a household income of between $25,000 and $49,999. This includes the income of the householder and all other individuals 15 years old and over in the household, whether they are related to the householder or not."
 						}, {
 							"name": "Percent of Households with Income Between $25,000 - $49,999",
 							"dataType": "percent",
-							"supressMinMax": true,
+							"suppressMinMax": true,
 							"definition": "The percentage of households located in the county with a household income of between $25,000 and $49,999. This includes the income of the householder and all other individuals 15 years old and over in the household, whether they are related to the householder or not."
 						}, {
 							"name": "Number of Households with Income Between $50,000 - $99,999",
 							"dataType": "level",
-							"supressMinMax": true,
+							"suppressMinMax": true,
 							"definition": "The number of households located in the county with a household income of between $50,000 and $99,999. This includes the income of the householder and all other individuals 15 years old and over in the household, whether they are related to the householder or not."
 						}, {
 							"name": "Percent of Households with Income Between $50,000 - $99,999",
 							"dataType": "percent",
-							"supressMinMax": true,
+							"suppressMinMax": true,
 							"definition": "The percentage of households located in the county with a household income of between $50,000 and $99,999. This includes the income of the householder and all other individuals 15 years old and over in the household, whether they are related to the householder or not."
 						}, {
 							"name": "Number of Households with Income Between $100,000 - $199,999",
 							"dataType": "level",
-							"supressMinMax": true,
+							"suppressMinMax": true,
 							"definition": "The number of households located in the county with a household income of between $100,000 and $199,999. This includes the income of the householder and all other individuals 15 years old and over in the household, whether they are related to the householder or not."
 						}, {
 							"name": "Percent of Households with Income Between $100,000 - $199,999",
 							"dataType": "percent",
-							"supressMinMax": true,
+							"suppressMinMax": true,
 							"definition": "The percentage of households located in the county with a household income of between $100,000 and $199,999. This includes the income of the householder and all other individuals 15 years old and over in the household, whether they are related to the householder or not."
 						}, {
 							"name": "Number of Households with Income of $200,000 or more",
 							"dataType": "level",
-							"supressMinMax": true,
+							"suppressMinMax": true,
 							"definition": "The number of households located in the county with a household income of $200,000 or more. This includes the income of the householder and all other individuals 15 years old and over in the household, whether they are related to the householder or not."
 						}, {
 							"name": "Percent of Households with Income of $200,000 or more",
 							"dataType": "percent",
-							"supressMinMax": true,
+							"suppressMinMax": true,
 							"definition": "The percentage of households located in the county with a household income of $200,000 or more. This includes the income of the householder and all other individuals 15 years old and over in the household, whether they are related to the householder or not."
 						}
 					]
@@ -2036,7 +2027,7 @@
 					"name": "County Economic Tracker",
 					"source": "NACo Analysis of Moody's Analytics, U.S. Bureau of Labor Statistics, U.S. Bureau of Economic Analysis and U.S. Census Bureau",
 					"years": [2014],
-					"supressYear": true,
+					"suppressYear": true,
 					"companions": [["County Economic Tracker", "Recovered on # Indicators"], ["County Economic Tracker", "Jobs Recovered"], ["County Economic Tracker", "Unemployment Rate Recovered"], ["County Economic Tracker", "GDP Recovered"], ["County Economic Tracker", "Home Prices Recovered"], ["County Economic Tracker", "Unemployment Rate Change, 2013-2014"]
 					],
 					"children": [
@@ -2051,21 +2042,21 @@
 							"name": "Adjusted Average County Wage, 2012",
 							"dataType": "level",
 							"unit": "dollars",
-							"supressMinMax": true,
+							"suppressMinMax": true,
 							"companions": [["County Economic Tracker", "Adjusted Average County Wage Growth Rate, 2012-2013"], ["County Economic Tracker", "Unemployment Rate Change, 2013-2014"], ["County Economic Tracker", "Jobs Growth Rate, 2013-2014"], ["County Economic Tracker", "Recovered on # Indicators"]
 							],
 							"definition": "Cost-of-living adjusted pay for the county economy reflecting price differences between county economies."
 						},{
 							"name": "Adjusted Average County Wage Growth Rate, 2012-2013",
 							"dataType": "percent",
-							"supressMinMax": true,
+							"suppressMinMax": true,
 							"companions": [["County Economic Tracker", "Adjusted Average County Wage Growth Rate, 2012-2013"], ["County Economic Tracker", "Adjusted Average County Wage, 2012"], ["County Economic Tracker", "Jobs Growth Rate, 2013-2014"], ["County Economic Tracker", "Recovered on # Indicators"]
 							],
 							"definition": "Growth rate in cost-of-living adjusted pay for the county economy reflecting price differences between county economies."
 						},{
 							"name": "Unemployment Rate Change, 2013-2014",
 							"dataType": "level_np",
-							"supressMinMax": true,
+							"suppressMinMax": true,
 							"unit": "PPT",
 							"companions": [["County Economic Tracker", "Unemployment Rate Recovered"], ["County Economic Tracker", "Adjusted Average County Wage, 2012"], ["County Economic Tracker", "Jobs Growth Rate, 2013-2014"], ["County Economic Tracker", "Recovered on # Indicators"]
 							],
@@ -2073,49 +2064,49 @@
 						},{
 							"name": "Jobs Growth Rate, 2013-2014",
 							"dataType": "percent",
-							"supressMinMax": true,
+							"suppressMinMax": true,
 							"companions": [["County Economic Tracker", "Jobs Recovered"], ["County Economic Tracker", "Adjusted Average County Wage, 2012"], ["County Economic Tracker", "Unemployment Rate Change, 2013-2014"], ["County Economic Tracker", "Recovered on # Indicators"]
 							],
 							"definition": "Year-over-year total jobs growth rate. Total Jobs represent the total wage and salary jobs, whether full or part-time, temporary or permanent in a county economy. It counts the number of jobs, not employed people, for all employers in a county economy, not only for the county government."
 						},{
 							"name": "GDP Growth Rate, 2013-2014",
 							"dataType": "percent",
-							"supressMinMax": true,
+							"suppressMinMax": true,
 							"companions": [["County Economic Tracker", "GDP Recovered"], ["County Economic Tracker", "GDP Growth Rate, Recovery"], ["County Economic Tracker", "Jobs Growth Rate, 2013-2014"], ["County Economic Tracker", "Recovered on # Indicators"]
 							],
 							"definition": "Year-over-year inflation-adjusted GDP growth rate.  County economic output is the total value of goods and services produced by a county economy, also known as GDP."
 						},{
 							"name": "Home Price Growth Rate, 2013-2014",
 							"dataType": "percent",
-							"supressMinMax": true,
+							"suppressMinMax": true,
 							"companions": [["County Economic Tracker", "Home Prices Recovered"], ["County Economic Tracker", "Home Price Growth Rate, Recovery"], ["County Economic Tracker", "Home Price Growth Rate, Recession"], ["County Economic Tracker", "Recovered on # Indicators"]
 							],
 							"definition": "Year-over-year Median Home Sales Prices growth rate. Median Home Sales Prices are median sales prices of existing single-family homes."
 						},{
 							"name": "Jobs Growth Rate, Long-term",
 							"dataType": "percent",
-							"supressMinMax": true,
+							"suppressMinMax": true,
 							"companions": [["County Economic Tracker", "Jobs Recovered"], ["County Economic Tracker", "Adjusted Average County Wage, 2012"], ["County Economic Tracker", "Unemployment Rate Change, 2013-2014"], ["County Economic Tracker", "Recovered on # Indicators"]
 							],
 							"definition": "The annualized growth rate of jobs (showing how much an indicator would have grown annually, if it increased at a steady rate) from 1990-2014.  Total Jobs represent the total wage and salary jobs, whether full or part-time, temporary or permanent in a county economy. It counts the number of jobs, not employed people, for all employers in a county economy, not only for the county government."
 						},{
 							"name": "GDP Growth Rate, Long-term",
 							"dataType": "percent",
-							"supressMinMax": true,
+							"suppressMinMax": true,
 							"companions": [["County Economic Tracker", "GDP Recovered"], ["County Economic Tracker", "GDP Growth Rate, Recovery"], ["County Economic Tracker", "Jobs Growth Rate, 2013-2014"], ["County Economic Tracker", "Recovered on # Indicators"]
 							],
 							"definition": "The inflation-adjusted annualized growth rate of GDP (showing how much an indicator would have grown annually, if it increased at a steady rate) from 1990-2014.  County economic output is the total value of goods and services produced by a county economy, also known as GDP."
 						},{
 							"name": "Home Price Growth Rate, Long-term",
 							"dataType": "percent",
-							"supressMinMax": true,
+							"suppressMinMax": true,
 							"companions": [["County Economic Tracker", "Home Prices Recovered"], ["County Economic Tracker", "Home Price Growth Rate, Recovery"], ["County Economic Tracker", "Home Price Growth Rate, Recession"], ["County Economic Tracker", "Recovered on # Indicators"]
 							],
 							"definition": "The annualized growth rate of Median Home Sales Prices(showing how much an indicator would have grown annually, if it increased at a steady rate) from 1990-2014.  Median Home Sales Prices are median sales prices of existing single-family homes."
 						},{
 							"name": "Unemployment Rate Change, Recession",
 							"dataType": "level_np",
-							"supressMinMax": true,
+							"suppressMinMax": true,
 							"CETNulls": "recession",
 							"unit": "PPT",
 							"companions": [["County Economic Tracker", "Unemployment Rate Recovered"], ["County Economic Tracker", "Adjusted Average County Wage, 2012"], ["County Economic Tracker", "Jobs Growth Rate, 2013-2014"], ["County Economic Tracker", "Recovered on # Indicators"]
@@ -2124,7 +2115,7 @@
 						},{
 							"name": "Jobs Growth Rate, Recession",
 							"dataType": "percent",
-							"supressMinMax": true,
+							"suppressMinMax": true,
 							"CETNulls": "recession",
 							"companions": [["County Economic Tracker", "Jobs Recovered"], ["County Economic Tracker", "Adjusted Average County Wage, 2012"], ["County Economic Tracker", "Unemployment Rate Change, 2013-2014"], ["County Economic Tracker", "Recovered on # Indicators"]
 							],
@@ -2132,7 +2123,7 @@
 						},{
 							"name": "GDP Growth Rate, Recession",
 							"dataType": "percent",
-							"supressMinMax": true,
+							"suppressMinMax": true,
 							"CETNulls": "recession",
 							"companions": [["County Economic Tracker", "GDP Recovered"], ["County Economic Tracker", "GDP Growth Rate, Recovery"], ["County Economic Tracker", "Jobs Growth Rate, 2013-2014"], ["County Economic Tracker", "Recovered on # Indicators"]
 							],
@@ -2140,7 +2131,7 @@
 						},{
 							"name": "Home Price Growth Rate, Recession",
 							"dataType": "percent",
-							"supressMinMax": true,
+							"suppressMinMax": true,
 							"CETNulls": "recession",
 							"companions": [["County Economic Tracker", "Home Prices Recovered"], ["County Economic Tracker", "Home Price Growth Rate, Recovery"], ["County Economic Tracker", "Home Price Growth Rate, Recession"], ["County Economic Tracker", "Recovered on # Indicators"]
 							],
@@ -2148,7 +2139,7 @@
 						},{
 							"name": "Unemployment Rate Change, Recovery",
 							"dataType": "level_np",
-							"supressMinMax": true,
+							"suppressMinMax": true,
 							"CETNulls": "recovery",
 							"unit": "PPT",
 							"companions": [["County Economic Tracker", "Unemployment Rate Recovered"], ["County Economic Tracker", "Adjusted Average County Wage, 2012"], ["County Economic Tracker", "Jobs Growth Rate, 2013-2014"], ["County Economic Tracker", "Recovered on # Indicators"]
@@ -2157,7 +2148,7 @@
 						},{
 							"name": "Jobs Growth Rate, Recovery",
 							"dataType": "percent",
-							"supressMinMax": true,
+							"suppressMinMax": true,
 							"CETNulls":  "recovery",
 							"companions": [["County Economic Tracker", "Jobs Recovered"], ["County Economic Tracker", "Jobs Growth Rate, Long-term"], ["County Economic Tracker", "Unemployment Rate Change, 2013-2014"], ["County Economic Tracker", "Recovered on # Indicators"]
 							],
@@ -2165,7 +2156,7 @@
 						},{
 							"name": "GDP Growth Rate, Recovery",
 							"dataType": "percent",
-							"supressMinMax": true,
+							"suppressMinMax": true,
 							"CETNulls":  "recovery",
 							"companions": [["County Economic Tracker", "GDP Recovered"], ["County Economic Tracker", "GDP Growth Rate, Long-term"], ["County Economic Tracker", "Jobs Growth Rate, 2013-2014"], ["County Economic Tracker", "Recovered on # Indicators"]
 							],
@@ -2173,7 +2164,7 @@
 						},{
 							"name": "Home Price Growth Rate, Recovery",
 							"dataType": "percent",
-							"supressMinMax": true,
+							"suppressMinMax": true,
 							"CETNulls":  "recovery",
 							"companions": [["County Economic Tracker", "Home Prices Recovered"], ["County Economic Tracker", "Home Price Growth Rate, Long-term"], ["County Economic Tracker", "Home Price Growth Rate, Recession"], ["County Economic Tracker", "Recovered on # Indicators"]
 							],
@@ -2508,39 +2499,39 @@
 							"name": "Endangered Species Profiles",
 							"has_profile": true,
 							"dataType": "level",
-							"supressYear": true,
+							"suppressYear": true,
 							"yearSpan": "May 2015",
 							"thresholds": [1,2,6,12],
 							"definition": "An endangered species is a species in danger of extinction throughout all or a significant portion of its range.  A threatened species is a species likely to become endangered within the foreseeable future throughout all or a significant portion of its range.  A species may be treated as endangered or threatened if it resembles in appearance a species which has been listed under section 4 and enforcement personnel would have difficulty distinguishing between the listed and the unlisted species; if the effect of this difficulty is an additional threat to the listed species; and if such treatment of the unlisted species would improve protection for the listed species. A similarity of appearance listing must be promulgated or formalized by rule.  Such species are not biologically endangered or threatened and are not subject to Section 7 consultation.  In some counties threatened species includes experimental non-essential populations.  Experimental, nonessential populations of endangered species (e.g., red wolf) are treated as threatened species on public land, for consultation purposes, and as species proposed for listing on private land."
 						}, {
 							"name": "Number of Endangered and Threatened Species Listings",
 							"dataType": "level",
-							"supressYear": true,
+							"suppressYear": true,
 							"yearSpan": "May 2015",
 							"thresholds": [1,2,6,12],
 							"definition": "An endangered species is a species in danger of extinction throughout all or a significant portion of its range.  A threatened species is a species likely to become endangered within the foreseeable future throughout all or a significant portion of its range.  A species may be treated as endangered or threatened if it resembles in appearance a species which has been listed under section 4 and enforcement personnel would have difficulty distinguishing between the listed and the unlisted species; if the effect of this difficulty is an additional threat to the listed species; and if such treatment of the unlisted species would improve protection for the listed species. A similarity of appearance listing must be promulgated or formalized by rule.  Such species are not biologically endangered or threatened and are not subject to Section 7 consultation.  In some counties threatened species includes experimental non-essential populations.  Experimental, nonessential populations of endangered species (e.g., red wolf) are treated as threatened species on public land, for consultation purposes, and as species proposed for listing on private land."
 						}, {
 							"name": "Number of Endangered Species Listings",
 							"dataType": "level",
-							"supressYear": true,
+							"suppressYear": true,
 							"yearSpan": "May 2015",
 							"definition": "An endangered species is a species in danger of extinction throughout all or a significant portion of its range."
 						}, {
 							"name": "Number of Threatened Species Listings",
 							"dataType": "level",
-							"supressYear": true,
+							"suppressYear": true,
 							"yearSpan": "May 2015",
 							"definition": "A threatened species is a species likely to become endangered within the foreseeable future throughout all or a significant portion of its range.  In some counties threatened species includes experimental non-essential populations.  Experimental, nonessential populations of endangered species (e.g., red wolf) are treated as threatened species on public land, for consultation purposes, and as species proposed for listing on private land."
 						}, {
 							"name": "Number of New Listings of Endangered and Threatened Species",
 							"dataType": "level",
-							"supressYear": true,
+							"suppressYear": true,
 							"yearSpan": "2004-May 2015",
 							"definition": "The number of species added to endangered or threatened status from 2004-May 2015."
 						}, {
 							"name": "Number of Delistings of Endangered and Threatened Species",
 							"dataType": "level",
-							"supressYear": true,
+							"suppressYear": true,
 							"yearSpan": "2004-May 2015",
 							"definition": "The number of species removed from endangered or threatened status."
 						}
@@ -2659,7 +2650,7 @@
 							"unit": "dollars",
 							"dataType": "level",
 							"thresholds": [1,1000000,5000000,10000000],
-							"supressMinMax": true,
+							"suppressMinMax": true,
 							"has_profile": true,
 							"definition": "Formula Community Development Block Grants (CDBG) money going to entitlement counties directly from the U.S. Department of Housing and Urban Development.  Other counties can receive funding from the Small Cities CDBG program through their states. The Community Development Block Grant (CDBG) program funds counties and others communities to ensure affordable housing, to provide services to the most vulnerable in our communities and to create jobs through the expansion and retention of businesses."
 						}, {
@@ -2667,7 +2658,7 @@
 							"unit": "dollars",
 							"dataType": "level",
 							"thresholds": [1,1000000,5000000,10000000],
-							"supressMinMax": true,
+							"suppressMinMax": true,
 							"definition": "Formula Community Development Block Grants (CDBG) money going to entitlement counties directly from the U.S. Department of Housing and Urban Development.  Other counties can receive funding from the Small Cities CDBG program through their states. The Community Development Block Grant (CDBG) program funds counties and others communities to ensure affordable housing, to provide services to the most vulnerable in our communities and to create jobs through the expansion and retention of businesses."
 						}, {
 							"name": "CDBG Annual Growth Rate (from previous year)",
@@ -2778,7 +2769,7 @@
 							"name": "PILT Annual Growth Rate (from previous year)",
 							"dataType": "percent",
 							"thresholds": [-0.1, 0, 0.05, 0.50],
-							"supressMinMax": true,
+							"suppressMinMax": true,
 							"definition": "Percent change in Payment in Lieu of Taxes annual funding from the previous year"
 						}, {
 							"name": "Total Federal Land Area",
@@ -2844,7 +2835,7 @@
 							"dataType": "percent",
 							"has_profile": true,
 							"thresholds": [-0.75, -0.25, -0.1, 0],
-							"supressMinMax": true,
+							"suppressMinMax": true,
 							"companions": [["Secure Rural Schools (SRS)", "Payment Percent Change, FY 2013-2014 Receipts Years"], ["Secure Rural Schools (SRS)", "Payment Percent Change, FY 2013-2014 Receipts Years"]],
 							"definition": "Profiles showing that without the SRS Act reauthorization, states revert to the Payments to States Act of 1908 as amended, receiving a 25 percent payment from national forest receipts.  USFS estimates FY 2014 county 25 percent payments based on county shares of the national forest receipts.  These estimates do not reflect the application of a 7.3 percent sequester to the state payments.  Note: The receipts year reflects when U.S. Forest Service (USFS) collects revenues from national forest lands."
 						}, {
@@ -2863,7 +2854,7 @@
 							"name": "Payment Percent Change, FY 2013-2014 Receipts Years",
 							"dataType": "percent",
 							"thresholds": [-0.75, -0.25, -0.1, 0],
-							"supressMinMax": true,
+							"suppressMinMax": true,
 							"definition": "Percentage change in funding to counties from the Secure Rural Schools program (SRS) in FY 2013 to the 25% Fund Payment in FY 2014.  Without the SRS Act reauthorization, states revert to the Payments to States Act of 1908 as amended, receiving a 25 percent payment from national forest receipts.  USFS estimates FY 2014 county 25 percent payments based on county shares of the national forest receipts.  These estimates do not reflect the application of a 7.3 percent sequester to the state payments.  The receipts year reflects when U.S. Forest Service (USFS) collects revenues from national forest lands."
 						}
 					]
@@ -2884,7 +2875,7 @@
 							"name": "SCAAP Annual Growth Rate (from previous year)",
 							"dataType": "percent",
 							"thresholds": [-0.25, 0, 0.01, 0.25],
-							"supressMinMax": true,
+							"suppressMinMax": true,
 							"definition": "Percent change in funding for the State Criminal Alien Assistance program from the previous year. SCAAP provides federal payments to states and localities that incurred correctional officer salary costs for incarcerating undocumented criminal aliens with at least one felony or two misdemeanor convictions for violations of state or local law, and incarcerated for at least 4 consecutive days during the reporting period."
 						}
 					]
@@ -3452,35 +3443,35 @@
 						{
 							"name": "Premature Death Rate",
 							"dataType": "level",
-							"supressMinMax": true,
+							"suppressMinMax": true,
 							"source": "<a href='http://www.countyhealthrankings.org/'>University of Wisconsin Population Health Institute</a> analysis of National Center for Health Statistics - Mortality files 2010-2012 data",
 							"unit": "years of potential life lost before age 75 per 100,000 people",
 							"definition": "Years of potential life lost before age 75 per 100,000 population (age-adjusted).  For more on methodology, click <a href='http://www.countyhealthrankings.org/ranking-methods'>here</a>."
 						}, {
 							"name": "Poor or Fair Health",
 							"dataType": "percent",
-							"supressMinMax": true,
+							"suppressMinMax": true,
 							"source": "<a href='http://www.countyhealthrankings.org/'>University of Wisconsin Population Health Institute</a> analysis of Behavioral Risk Factor Surveillance System 2006-2012 data",
 							"unit": " of adults reporting fair or poor health",
 							"definition": "Percentage of adults reporting fair or poor health (age-adjusted).  For more on methodology, click <a href='http://www.countyhealthrankings.org/ranking-methods'>here</a>."
 						}, {
 							"name": "Physically Unhealthy Days",
 							"dataType": "level",
-							"supressMinMax": true,
+							"suppressMinMax": true,
 							"source": "<a href='http://www.countyhealthrankings.org/'>University of Wisconsin Population Health Institute</a> analysis of Behavioral Risk Factor Surveillance System 2006-2012 data",
 							"unit": " days reported on avg. in the past 30 days",
 							"definition": "Average number of physically unhealthy days reported in past 30 days (age-adjusted).  For more on methodology, click <a href='http://www.countyhealthrankings.org/ranking-methods'>here</a>."
 						}, {
 							"name": "Mentally Unhealthy Days",
 							"dataType": "level",
-							"supressMinMax": true,
+							"suppressMinMax": true,
 							"source": "<a href='http://www.countyhealthrankings.org/'>University of Wisconsin Population Health Institute</a> analysis of Behavioral Risk Factor Surveillance System 2006-2012 data",
 							"unit": " days reported on avg. in the past 30 days",
 							"definition": "Average number of mentally unhealthy days reported in past 30 days (age-adjusted).  For more on methodology, click <a href='http://www.countyhealthrankings.org/ranking-methods'>here</a>."
 						}, {
 							"name": "Low Birthweight Rate",
 							"dataType": "percent",
-							"supressMinMax": true,
+							"suppressMinMax": true,
 							"source": "<a href='http://www.countyhealthrankings.org/'>University of Wisconsin Population Health Institute</a> analysis of National Center for Health Statistics - Natality files 2006-2012 data",
 							"definition": "Percentage of live births with low birthweight (< 2500 grams).  For more on methodology, click <a href='http://www.countyhealthrankings.org/ranking-methods'>here</a>."
 						}
@@ -3496,19 +3487,19 @@
 						{
 							"name": "Smoking Rate",
 							"dataType": "percent",
-							"supressMinMax": true,
+							"suppressMinMax": true,
 							"source": "<a href='http://www.countyhealthrankings.org/'>University of Wisconsin Population Health Institute</a> analysis of Behavioral Risk Factor Surveillance System 2006-2012 data",
 							"definition": "Percentage of adults who are current smokers.  For more on methodology, click <a href='http://www.countyhealthrankings.org/ranking-methods'>here</a>."
 						}, {
 							"name": "Obesity Rate",
 							"dataType": "percent",
-							"supressMinMax": true,
+							"suppressMinMax": true,
 							"source": "<a href='http://www.countyhealthrankings.org/'>University of Wisconsin Population Health Institute</a> analysis of CDC Diabetes Interactive Atlas 2011 data",
 							"definition": "Percentage of adults that report a BMI of 30 or more.  For more on methodology, click <a href='http://www.countyhealthrankings.org/ranking-methods'>here</a>."
 						}, {
 							"name": "Food Environment Index",
 							"dataType": "level",
-							"supressMinMax": true,
+							"suppressMinMax": true,
 							"thresholds": [5,6,7,8],
 							"source": "<a href='http://www.countyhealthrankings.org/'>University of Wisconsin Population Health Institute</a> analysis of USDA Food Environment Atlas, Map the Meal Gap 2012 data",
 							"definition": "Index of factors that contribute to a healthy food environment, 0 (worst) to 10 (best).  For more on methodology, click <a href='http://www.countyhealthrankings.org/ranking-methods'>here</a>."
@@ -3520,32 +3511,32 @@
 						}, {
 							"name": "Percent with Access to Exercise",
 							"dataType": "percent",
-							"supressMinMax": true,
+							"suppressMinMax": true,
 							"source": "<a href='http://www.countyhealthrankings.org/'>University of Wisconsin Population Health Institute</a> analysis of Business Analyst, Delorme map data, ESRI, & US Census Tigerline Files 2010 & 2013 data",
 							"definition": "Percentage of population with adequate access to locations for physical activity.  For more on methodology, click <a href='http://www.countyhealthrankings.org/ranking-methods'>here</a>."
 						}, {
 							"name": "Excessive Drinking Rate",
 							"dataType": "percent",
-							"supressMinMax": true,
+							"suppressMinMax": true,
 							"source": "<a href='http://www.countyhealthrankings.org/'>University of Wisconsin Population Health Institute</a> analysis of Behavioral Risk Factor Surveillance System 2006-2012 data",
 							"definition": "Percentage of adults reporting binge or heavy drinking.  For more on methodology, click <a href='http://www.countyhealthrankings.org/ranking-methods'>here</a>."
 						}, {
 							"name": "Alcohol-related Share of Driving Deaths",
 							"dataType": "percent",
-							"supressMinMax": true,
+							"suppressMinMax": true,
 							"source": "<a href='http://www.countyhealthrankings.org/'>University of Wisconsin Population Health Institute</a> analysis of Fatality Analysis Reporting System 2009-2013 data",
 							"definition": "Percentage of driving deaths with alcohol involvement.  For more on methodology, click <a href='http://www.countyhealthrankings.org/ranking-methods'>here</a>."
 						}, {
 							"name": "Chlamydia Rate",
 							"dataType": "level",
-							"supressMinMax": true,
+							"suppressMinMax": true,
 							"source": "<a href='http://www.countyhealthrankings.org/'>University of Wisconsin Population Health Institute</a> analysis of National Center for HIV/AIDS, Viral Hepatitis, STD, and TB Prevention 2012 data",
 							"unit": " cases per 100,000 population",
 							"definition": "Number of newly diagnosed chlamydia cases per 100,000 population.  For more on methodology, click <a href='http://www.countyhealthrankings.org/ranking-methods'>here</a>."
 						}, {
 							"name": "Teen Birth Rate",
 							"dataType": "level",
-							"supressMinMax": true,
+							"suppressMinMax": true,
 							"source": "<a href='http://www.countyhealthrankings.org/'>University of Wisconsin Population Health Institute</a> analysis of National Center for Health Statistics - Natality files 2006-2012 data",
 							"unit": " births per 1,000 teen females",
 							"definition": "Teen birth rate per 1,000 female population, ages 15-19.  For more on methodology, click <a href='http://www.countyhealthrankings.org/ranking-methods'>here</a>."
@@ -3562,47 +3553,47 @@
 						{
 							"name": "Percent Uninsured",
 							"dataType": "percent",
-							"supressMinMax": true,
+							"suppressMinMax": true,
 							"source": "<a href='http://www.countyhealthrankings.org/'>University of Wisconsin Population Health Institute</a> analysis of Small Area Health Insurance Estimates 2012 data",
 							"definition": "Percentage of population under age 65 without health insurance.  For more on methodology, click <a href='http://www.countyhealthrankings.org/ranking-methods'>here</a>"
 						}, {
 							"name": "Primary Care Physician Ratio",
 							"dataType": "level",
-							"supressMinMax": true,
+							"suppressMinMax": true,
 							"source": "<a href='http://www.countyhealthrankings.org/'>University of Wisconsin Population Health Institute</a> analysis of Area Health Resource File/American Medical Association 2012 data",
 							"unit": " population per physician",
 							"definition": "Ratio of population to primary care physicians.  For more on methodology, click <a href='http://www.countyhealthrankings.org/ranking-methods'>here</a>."
 						}, {
 							"name": "Dentist Ratio",
 							"dataType": "level",
-							"supressMinMax": true,
+							"suppressMinMax": true,
 							"source": "<a href='http://www.countyhealthrankings.org/'>University of Wisconsin Population Health Institute</a> analysis of Area Health Resource File/National Provider Identification file 2013 data",
 							"unit": " population per dentist",
 							"definition": "Ratio of population to dentists.  For more on methodology, click <a href='http://www.countyhealthrankings.org/ranking-methods'>here</a>."
 						}, {
 							"name": "Mental Health Provider Ratio",
 							"dataType": "level",
-							"supressMinMax": true,
+							"suppressMinMax": true,
 							"source": "<a href='http://www.countyhealthrankings.org/'>University of Wisconsin Population Health Institute</a> analysis of CMS, National Provider Identification file 2014 data",
 							"unit": " population per provider",
 							"definition": "Ratio of population to mental health providers.  For more on methodology, click <a href='http://www.countyhealthrankings.org/ranking-methods'>here</a>."
 						}, {
 							"name": "Preventable Hospital Stays Rate",
 							"dataType": "level",
-							"supressMinMax": true,
+							"suppressMinMax": true,
 							"source": "<a href='http://www.countyhealthrankings.org/'>University of Wisconsin Population Health Institute</a> analysis of Dartmouth Atlas of Health Care 2012 data",
 							"unit": " preventable stays per 1,000 Medicare enrollees",
 							"definition": "Number of hospital stays for ambulatory-care sensitive conditions per 1,000 Medicare enrollees.  For more on methodology, click <a href='http://www.countyhealthrankings.org/ranking-methods'>here</a>."
 						}, {
 							"name": "Diabetic Monitoring Rate",
 							"dataType": "percent",
-							"supressMinMax": true,
+							"suppressMinMax": true,
 							"source": "<a href='http://www.countyhealthrankings.org/'>University of Wisconsin Population Health Institute</a> analysis of Dartmouth Atlas of Health Care 2012 data",
 							"definition": "Percentage of diabetic Medicare enrollees ages 65-75 that receive HbA1c monitoring.  For more on methodology, click <a href='http://www.countyhealthrankings.org/ranking-methods'>here</a>."
 						}, {
 							"name": "Mammography Rate",
 							"dataType": "percent",
-							"supressMinMax": true,
+							"suppressMinMax": true,
 							"source": "<a href='http://www.countyhealthrankings.org/'>University of Wisconsin Population Health Institute</a> analysis of Dartmouth Atlas of Health Care 2012 data",
 							"definition": "Percentage of female Medicare enrollees ages 67-69 that receive mammography screening.  For more on methodology, click <a href='http://www.countyhealthrankings.org/ranking-methods'>here</a>."
 						}
@@ -3618,57 +3609,57 @@
 						{
 							"name": "High School Graduation Rate",
 							"dataType": "percent",
-							"supressMinMax": true,
+							"suppressMinMax": true,
 							"source": "<a href='http://www.countyhealthrankings.org/'>University of Wisconsin Population Health Institute</a> analysis of data.gov, supplemented w/ National Center for Education Statistics 2011-2012 data",
 							"definition": "Percentage of ninth-grade cohort that graduates in four years.  For more on methodology, click <a href='http://www.countyhealthrankings.org/ranking-methods'>here</a>."
 						}, {
 							"name": "Percent with Some College",
 							"dataType": "percent",
-							"supressMinMax": true,
+							"suppressMinMax": true,
 							"source": "<a href='http://www.countyhealthrankings.org/'>University of Wisconsin Population Health Institute</a> analysis of American Community Survey 2009-2013 data",
 							"definition": "Percentage of adults ages 25-44 years with some post-secondary education.  For more on methodology, click <a href='http://www.countyhealthrankings.org/ranking-methods'>here</a>."
 						}, {
 							"name": "Percent Unemployed",
 							"dataType": "percent",
-							"supressMinMax": true,
+							"suppressMinMax": true,
 							"source": "<a href='http://www.countyhealthrankings.org/'>University of Wisconsin Population Health Institute</a> analysis of Bureau of Labor Statistics 2013 data",
 							"definition": "Percentage of population ages 16 and older unemployed but seeking work.  For more on methodology, click <a href='http://www.countyhealthrankings.org/ranking-methods'>here</a>."
 						}, {
 							"name": "Child Poverty Rate",
 							"dataType": "percent",
-							"supressMinMax": true,
+							"suppressMinMax": true,
 							"source": "<a href='http://www.countyhealthrankings.org/'>University of Wisconsin Population Health Institute</a> analysis of Small Area Income and Poverty Estimates 2013 data",
 							"definition": "Percentage of children under age 18 in poverty.  For more on methodology, click <a href='http://www.countyhealthrankings.org/ranking-methods'>here</a>."
 						}, {
 							"name": "Income Inequality Ratio",
 							"dataType": "level",
-							"supressMinMax": true,
+							"suppressMinMax": true,
 							"source": "<a href='http://www.countyhealthrankings.org/'>University of Wisconsin Population Health Institute</a> analysis of American Community Survey 2009-2013 data",
 							"definition": "Ratio of household income at the 80th percentile to income at the 20th percentile.  For more on methodology, click <a href='http://www.countyhealthrankings.org/ranking-methods'>here</a>."
 						}, {
 							"name": "Percent Single Parent Household",
 							"dataType": "percent",
-							"supressMinMax": true,
+							"suppressMinMax": true,
 							"source": "<a href='http://www.countyhealthrankings.org/'>University of Wisconsin Population Health Institute</a> analysis of American Community Survey 2009-2013 data",
 							"definition": "Percentage of children that live in a household headed by single parent.  For more on methodology, click <a href='http://www.countyhealthrankings.org/ranking-methods'>here</a>."
 						}, {
 							"name": "Social Association Rate",
 							"dataType": "level",
-							"supressMinMax": true,
+							"suppressMinMax": true,
 							"source": "<a href='http://www.countyhealthrankings.org/'>University of Wisconsin Population Health Institute</a> analysis of County Business Patterns 2012 data",
 							"unit": " associations per 10,000 population",
 							"definition": "Number of membership associations per 10,000 population.  For more on methodology, click <a href='http://www.countyhealthrankings.org/ranking-methods'>here</a>."
 						}, {
 							"name": "Violent Crime Rate",
 							"dataType": "level",
-							"supressMinMax": true,
+							"suppressMinMax": true,
 							"source": "<a href='http://www.countyhealthrankings.org/'>University of Wisconsin Population Health Institute</a> analysis of Uniform Crime Reporting - FBI 2010-2012 data",
 							"unit": " offenses per 100,000 population",
 							"definition": "Number of reported violent crime offenses per 100,000 population.  For more on methodology, click <a href='http://www.countyhealthrankings.org/ranking-methods'>here</a>."
 						}, {
 							"name": "Injury Death Rate",
 							"dataType": "level",
-							"supressMinMax": true,
+							"suppressMinMax": true,
 							"source": "<a href='http://www.countyhealthrankings.org/'>University of Wisconsin Population Health Institute</a> analysis of CDC WONDER mortality 2008-2012 data",
 							"unit": " deaths per 100,000 population",
 							"definition": "Number of deaths due to injury per 100,000 population.  For more on methodology, click <a href='http://www.countyhealthrankings.org/ranking-methods'>here</a>."
@@ -3685,33 +3676,33 @@
 						{
 							"name": "Air Pollution",
 							"dataType": "level",
-							"supressMinMax": true,
+							"suppressMinMax": true,
 							"source": "<a href='http://www.countyhealthrankings.org/'>University of Wisconsin Population Health Institute</a> analysis of CDC WONDER Environmental 2011 data",
 							"unit": " micrograms per cubic meter",
 							"definition": "Average daily density of fine particulate matter in micrograms per cubic meter (PM2.5).  For more on methodology, click <a href='http://www.countyhealthrankings.org/ranking-methods'>here</a>."
 						}, {
 							"name": "Drinking Water Violations",
 							"dataType": "percent",
-							"supressMinMax": true,
+							"suppressMinMax": true,
 							"source": "<a href='http://www.countyhealthrankings.org/'>University of Wisconsin Population Health Institute</a> analysis of Safe Drinking Water Information System FY2013-14 data",
 							"unit": " of population affected",
 							"definition": "Percentage of population potentially exposed to water exceeding a violation limit during the past year.  For more on methodology, click <a href='http://www.countyhealthrankings.org/ranking-methods'>here</a>."
 						}, {
 							"name": "Percent with Severe Housing Problems",
 							"dataType": "percent",
-							"supressMinMax": true,
+							"suppressMinMax": true,
 							"source": "<a href='http://www.countyhealthrankings.org/'>University of Wisconsin Population Health Institute</a> analysis of Comprehensive Housing Affordability Strategy (CHAS) data 2007-2011 data",
 							"definition": "Percentage of households with at least 1 of 4 housing problems: overcrowding, high housing costs, or lack of kitchen or plumbing facilities.  For more on methodology, click <a href='http://www.countyhealthrankings.org/ranking-methods'>here</a>."
 						}, {
 							"name": "Percent Driving Alone to Work",
 							"dataType": "percent",
-							"supressMinMax": true,
+							"suppressMinMax": true,
 							"source": "<a href='http://www.countyhealthrankings.org/'>University of Wisconsin Population Health Institute</a> analysis of American Community Survey 2009-2013 data",
 							"definition": "Percentage of the workforce that drives alone to work.  For more on methodology, click <a href='http://www.countyhealthrankings.org/ranking-methods'>here</a>."
 						}, {
 							"name": "Percent with Long Commutes Alone to Work",
 							"dataType": "percent",
-							"supressMinMax": true,
+							"suppressMinMax": true,
 							"source": "<a href='http://www.countyhealthrankings.org/'>University of Wisconsin Population Health Institute</a> analysis of American Community Survey 2009-2013 data",
 							"definition": "Among workers who commute in their car alone, the percentage that commute more than 30 minutes.  For more on methodology, click <a href='http://www.countyhealthrankings.org/ranking-methods'>here</a>."
 						}
@@ -5620,7 +5611,7 @@
 							"vintageYear": "2014",
 							"yearSpan": "",
 							"thresholds": [-0.3, -0.2, -0.1, 0],
-							"supressMinMax": true,
+							"suppressMinMax": true,
 							"definition": "State level profiles showing the funding decrease under MAP-21 for locally owned federal-aid highways and bridges and the role of local government ownership in the state bridge inventory and federal-aid highway system."
 						}, {
 							"name": "Statewide Share of Locally Owned Federal-Aid Highway Miles",
