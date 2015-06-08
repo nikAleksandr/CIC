@@ -1567,7 +1567,7 @@
 					]
 				}, {
 					"name": "City-County Consolidations",
-					"source": "NACo Research, as of August, 2014.",
+					"source": "NACo Research",
 					"years": [2014],
 					"legend_title_footer": ", as of Aug 2014",
 					"companions": [["City-County Consolidations", "Consolidation"], ["City-County Consolidations", "Government Type"], ["City-County Consolidations", "Merging Entities"], ["City-County Consolidations", "Year Consolidated"]
@@ -1590,6 +1590,22 @@
 							"unit": "year",
 							"dataType": "level_np",
 							"definition": "Year a city and a county that have been merged into one unified jurisdiction. A consolidated government has the powers and responibilities of both types of entities."
+						}
+					]
+				}, {
+					"name": "County Administrator",
+					"source": "NACo analysis",
+					"years": [2015],
+					"legend_title_footer": ", as of May, 2015",
+					"companions": [["County Administrator", "County Administrator Type"]
+					],
+					"children": [
+						{
+							"name": "County Administrator Type",
+							"dataType": "categorical",
+							"definition": "Appointed County Administrators in the 3,069 Counties",
+							"order": {"No Administrator or Elected Exec": 0, "Elected Exec, No Administrator": 1, "Administrator Appt by Elected Exec": 2, "Administrator and Elected Exec": 3, "Administrator, No Elected Exec": 4},
+							"longLegendNames": true
 						}
 					]
 				}
@@ -2491,7 +2507,7 @@
 					"name": "Endangered Species",
 					"years": [2015],
 					"notes": ".endangered-note",
-					"source": "NACo Analysis of U.S. Fish and Wildlife Service data, as of May 2015",
+					"source": "NACo Analysis of U.S. Fish and Wildlife Service data",
 					"companions": [ ["Endangered Species", "Number of Endangered and Threatened Species Listings"], ["Endangered Species", "Number of Endangered Species Listings"], ["Endangered Species", "Number of Threatened Species Listings"]
 					],
 					"children": [
@@ -4260,6 +4276,10 @@
 							"name": "County Operated Police Department",
 							"dataType": "binary",
 							"definition": "Indicates whether the general operations, functions and responsibilities of the police department is controlled by the county"
+						}, {
+							"name": "Jail Ownership",
+							"dataType": "binary",
+							"definition": "test indicator for Natalie."
 						}, {
 							"name": "County Funded Jails",
 							"dataType": "binary",
