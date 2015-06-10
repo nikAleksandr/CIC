@@ -1880,30 +1880,37 @@
 							"dataType": "percent",
 							"thresholds": [0.01, 0.02, 0.03, 0.1],
 							"suppressMinMax": true,
+							"notes": ".ancestry-note",
 							"definition": "The percentage of a county's population that is foreign-born."
 						}, {
 							"name": "Percent of Residents with European Ancestry",
 							"dataType": "percent",
+							"notes": ".ancestry-note",
 							"definition": "The percentage of a county's population with European first reported ancestry."
 						}, {
 							"name": "Percent of Residents with Middle Eastern or North African Ancestry",
 							"dataType": "percent",
+							"notes": ".ancestry-note",
 							"definition": "The percentage of a county's population with Middle Eastern or North African first reported ancestry."
 						}, {
 							"name": "Percent of Residents with Sub-Saharan African Ancestry",
 							"dataType": "percent",
+							"notes": ".ancestry-note",
 							"definition": "The percentage of a county's population with Sub-Saharan African first reported ancestry."
 						}, {
 							"name": "Percent of Residents with Australian or New Zealand Ancestry",
 							"dataType": "percent",
+							"notes": ".ancestry-note",
 							"definition": "The percentage of a county's population with Australian or New Zealand first reported ancestry."
 						}, {
 							"name": "Percent of Residents with North American Ancestry",
 							"dataType": "percent",
+							"notes": ".ancestry-note",
 							"definition": "The percentage of a county's population with North American first reported ancestry.  U.S. Census Bureau includes in the North American ancestry individuals who identify themselves as American, Cajun, French Canadian, Pennsylvania German, and Canadian."
 						}, {
 							"name": "Percent of Residents with West Indian or Brazilian Ancestry",
 							"dataType": "percent",
+							"notes": ".ancestry-note",
 							"definition": "The percentage of a county's population with West Indian or Brazilian first reported ancestry."
 						}, {
 							"name": "Refugee Arrivals",
