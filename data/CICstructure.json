@@ -1597,15 +1597,37 @@
 					"source": "NACo analysis",
 					"years": [2015],
 					"legend_title_footer": ", as of May, 2015",
-					"companions": [["County Administrator", "County Administrator Type"]
+					"companions": [["County Administrator", "Appointed County Administrator"], ["County Administrator", "Statewide Number of Administrator Titles"], , ["County Administrator", "Enabled By State Statute or County Ordinance"], , ["County Administrator", "Decade of State Statute"], , ["County Administrator", "Statewide Total Administrators"]
 					],
 					"children": [
 						{
-							"name": "County Administrator Type",
+							"name": "Appointed County Administrator",
 							"dataType": "categorical",
 							"definition": "Appointed County Administrators in the 3,069 Counties",
 							"order": {"No Administrator or Elected Exec": 0, "Elected Exec, No Administrator": 1, "Administrator Appt by Elected Exec": 2, "Administrator and Elected Exec": 3, "Administrator, No Elected Exec": 4},
 							"longLegendNames": true
+						}, {
+							"name": "Statewide Number of Administrator Titles",
+							"dataType": "level",
+							"definition": "Appointed County Administrators in the 3,069 Counties",
+							"thresholds": [2,3,5,7]
+						}, {
+							"name": "Enabled by State Statute or County Ordinance",
+							"dataType": "categorical",
+							"definition": "Appointed County Administrators in the 3,069 Counties",
+							"order": {"No County Administrators": 0, "No State Statute, but County Ordinance": 1, "Only Statutory Appointments": 2, "State Statutes, but only County Ordinance": 3, "Statutory and County Ordinance": 4},
+							"longLegendNames": true
+						}, {
+							"name": "Decade of State Statute",
+							"unit": "year",
+							"dataType": "level",
+							"definition": "Appointed County Administrators in the 3,069 Counties",
+							"thresholds": [1940, 1960, 1980, 2000],
+							"supressMinMax": true
+						}, {
+							"name": "Statewide Total Administrators",
+							"dataType": "level",
+							"definition": "Appointed County Administrators in the 3,069 Counties"
 						}
 					]
 				}
