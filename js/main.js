@@ -1347,6 +1347,7 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 			if (primeIndObj.hasOwnProperty('format_type')) options.format_type = primeIndObj.format_type;
 			if (primeIndObj.hasOwnProperty('suppressMinMax')) options.suppressMinMax = primeIndObj.suppressMinMax;
 			if (primeIndObj.hasOwnProperty('longLegendNames')) options.longLegendNames = primeIndObj.longLegendNames;
+			if (primeIndObj.hasOwnProperty('overrideLegendMax')) options.overrideLegendMax = primeIndObj.overrideLegendMax;
 	
 			changeLegendTitle();
 			return colorlegend("#quantileLegend", color, "quantile", options);
@@ -1385,7 +1386,10 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 			subtitleMain = primeIndObj.companions[0][1];
 		}
 		
-		if (primeIndObj.hasOwnProperty('legend_title_footer')) legendTitlePost = primeIndObj.legend_title_footer;
+		if (primeIndObj.hasOwnProperty('legend_title_footer')){
+			legendTitlePost = primeIndObj.legend_title_footer;
+			if(primeIndObj.hasOwnProperty('vintageYear')) legendTitlePre = '';
+		} 
 		
 		//adding unit when the property exists
 		if (primeIndObj.hasOwnProperty('unit') && primeIndObj.unit.indexOf('per ') !== -1 && subtitleMain.indexOf('per ') === -1) {
@@ -1397,6 +1401,10 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 		
 		d3.select('#legendTitle').text(legendTitle);
 		d3.select('#legendSubtitle').text(subtitle);
+
+		//asterisk note change when "greyData" prperty exists
+		if(primeIndObj.hasOwnProperty('greyData')) $('.unavailable-text').html('*' + primeIndObj.greyData);
+		else $('.unavailable-text').html('*' + 'county data is unavailable if the county is colored grey')
 	};
 	
 	var populateTooltip = function(d) {

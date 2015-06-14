@@ -31,6 +31,7 @@ var colorlegend = function (target, scale, type, options) {
     	, unit = opts.unit || ''
     	, longLegendNames = opts.longLegendNames || false
     	, suppressMinMax = opts.suppressMinMax || false
+    	, overrideLegendMax = opts.overrideLegendMax || null
     	, htmlElement = document.getElementById(target.substring(0, 1) === '#' ? target.substring(1, target.length) : target) // target container element - strip the prefix #
     	, w = htmlElement.offsetWidth // width of container element
     	, h = htmlElement.offsetHeight // height of container element
@@ -57,7 +58,7 @@ var colorlegend = function (target, scale, type, options) {
 
   	
   	// make rectangles wider for categorical
-  	if (dataType === 'categorical') boxWidth += 20;
+  	if (dataType === 'categorical') boxWidth += 24;
   	
   	// setup the colors to use
  	for (var i = 0; i < range.length; i++) colors[i] = range[i];
@@ -217,6 +218,7 @@ var colorlegend = function (target, scale, type, options) {
     	    else {
     	    	//suppress max and minimum values for those with JSON property "suppressMinMax" == true
     	    	if (suppressMinMax & i==0 || suppressMinMax & i==5) return ' ';
+    	    	else if (overrideLegendMax!==null & i==5) return overrideLegendMax;
     	    	else if (format_type === false) return format[dataType](dataValues[i], unit); // format is defined based on dataType
     	    	else return format[format_type](dataValues[i], unit);
     	    }

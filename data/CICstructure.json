@@ -1593,41 +1593,50 @@
 						}
 					]
 				}, {
-					"name": "County Administrator",
+					"name": "County Administrators",
 					"source": "NACo analysis",
 					"years": [2015],
-					"legend_title_footer": ", as of May, 2015",
-					"companions": [["County Administrator", "Appointed County Administrator"], ["County Administrator", "Statewide Number of Administrator Titles"], , ["County Administrator", "Enabled By State Statute or County Ordinance"], , ["County Administrator", "Decade of State Statute"], , ["County Administrator", "Statewide Total Administrators"]
+					"legend_title_footer": ", as of May 2015",
+					"companions": [["County Administrators", "Appointed County Administrators"], ["County Administrators", "Statewide Total Administrators"], ["County Administrators", "Statewide Number of County Administrator Titles"], ["County Administrators", "Enabled by State Statute or County Ordinance"], ["County Administrators", "Decade of Enabling State Statute"]
 					],
 					"children": [
 						{
-							"name": "Appointed County Administrator",
+							"name": "Appointed County Administrators",
 							"dataType": "categorical",
-							"definition": "Appointed County Administrators in the 3,069 Counties",
+							"vintageYear": "as of May 2015",
+							"definition": "This indicator explains whether the county has an appointed county administrator, an elected county executive or neither.",
 							"order": {"No Administrator or Elected Exec": 0, "Elected Exec, No Administrator": 1, "Administrator Appt by Elected Exec": 2, "Administrator and Elected Exec": 3, "Administrator, No Elected Exec": 4},
-							"longLegendNames": true
+							"longLegendNames": true,
+							"greyData": "Parts of Alaska and Massachusetts colored in grey do not have county governments."
 						}, {
-							"name": "Statewide Number of Administrator Titles",
+							"name": "Statewide Number of County Administrator Titles",
 							"dataType": "level",
+							"vintageYear": "as of May 2015",
 							"definition": "Appointed County Administrators in the 3,069 Counties",
-							"thresholds": [2,3,5,7]
+							"thresholds": [1,3,5,7],
+							"greyData": "Parts of Alaska and Massachusetts colored in grey do not have county governments."
 						}, {
 							"name": "Enabled by State Statute or County Ordinance",
 							"dataType": "categorical",
-							"definition": "Appointed County Administrators in the 3,069 Counties",
-							"order": {"No County Administrators": 0, "No State Statute, but County Ordinance": 1, "Only Statutory Appointments": 2, "State Statutes, but only County Ordinance": 3, "Statutory and County Ordinance": 4},
-							"longLegendNames": true
+							"vintageYear": "as of May 2015",
+							"definition": "It indicates whether the county administrators in that state are appointed based on an enabling state statute and/or county ordinance. The “county ordinance” reflects the wider county board’s decision: county ordinance,  resolution and/or position description.",
+							"order": {"No County Administrator": 0, "Only County Ordinance": 1, "Only Statutory Appointment": 2, "State Statute, County Ord Only": 3, "Statutory and County Ord": 4},
+							"longLegendNames": true,
+							"greyData": "Parts of Alaska and Massachusetts colored in grey do not have county governments."
 						}, {
-							"name": "Decade of State Statute",
+							"name": "Decade of Enabling State Statute",
 							"unit": "year",
-							"dataType": "level",
-							"definition": "Appointed County Administrators in the 3,069 Counties",
+							"dataType": "level_np",
+							"vintageYear": "as of May 2015",
+							"definition": "Decade of the state law regarding the appointment of county administrators in that state.",
 							"thresholds": [1940, 1960, 1980, 2000],
-							"supressMinMax": true
+							"overrideLegendMax": "2010",
+							"greyData": "States colored in grey do not have enabling state statutes. Parts of Alaska and Massachusetts colored in grey do not have county governments."
 						}, {
 							"name": "Statewide Total Administrators",
 							"dataType": "level",
-							"definition": "Appointed County Administrators in the 3,069 Counties"
+							"vintageYear": "as of May 2015",
+							"definition": "The total number of appointed administrators in a state."
 						}
 					]
 				}
