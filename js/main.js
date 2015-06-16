@@ -734,6 +734,9 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 						var profileURL = '../profiles/endangeredSpecies/' + countyName + '.pdf';
 						$.colorbox({iframe:true, width:'792px', height:'632px', maxHeight:'90%', maxWidth:'90%', title:'<a class="newWindow" href="' + profileURL + '" target=_blank">Open In New Window</a>', href: profileURL});
 						//window.open('http://explorer.naco.org/profiles/countytracker/' + countyName + '.pdf');
+					} else if (currentDI === 'County Administrators - County Administrator Profiles') {
+						var state = countyObjectById[+FIPS].STATE;
+						$.colorbox({iframe:true, width:'792px', height:'632px', maxHeight:'90%', maxWidth:'90%', href:'../profiles/countyAdminProfiles/administratorProfile_' + state + '.pdf'});
 					}
 					
 				}
