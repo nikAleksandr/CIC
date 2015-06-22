@@ -651,63 +651,84 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 				positionTooltip($('.county.active')[0]);
 				
 				if (indObjects[0].has_profile) {
+					//set colorbox options, vertical and horizontal versions.  Title and Href need to be specified
+					cbOptsVert = {iframe:true, width:'792px', height:'632px', maxHeight:'90%', maxWidth:'90%', title:'', href: ''};
+					cbOptsHoriz = {iframe:true, width:'792px', height:'632px', maxHeight:'90%', maxWidth:'90%', title:'', href: ''};
+
 					if (currentDI === 'County Economic Tracker - County Economic Profile') {
 						var countyName = parseCountyName(+FIPS, county.geography);
 						countyName = countyName.replace(/\s/g, '');
 						var profileURL = '../profiles/countytracker/' + countyName + '.pdf';
-						$.colorbox({iframe:true, width:'792px', height:'632px', maxHeight:'90%', maxWidth:'90%', title:'<a class="newWindow" href="' + profileURL + '" target=_blank">Open In New Window</a>', href: profileURL});
-						//window.open('http://explorer.naco.org/profiles/countytracker/' + countyName + '.pdf');
+						cbOptsHoriz.title = '<a class="newWindow" href="' + profileURL + '" target=_blank">Open In New Window</a>';
+						cbOptsHoriz.href = profileURL;
+						$.colorbox(cbOptsHoriz);
 					} else if (currentDI === 'Municipal Bonds - County Muni Bonds Profiles') {
 						if (isNaN(quantByIds[0][+FIPS])) {
 							noty({text: '<strong>No Profile Available</strong>'});
 						} else {
 							var countyName = parseCountyName(+FIPS, county.geography);
-							$.colorbox({iframe:true, width:'792px', height:'632px', maxHeight:'90%', maxWidth:'90%', href:'../profiles/county_muniBonds/muni_bonds_profile_' + countyName + '.pdf'});
-							//window.open('http://explorer.naco.org/profiles/county_muniBonds/muni_bonds_profile_' + countyName + '.pdf');
+							var profileURL = '../profiles/county_muniBonds/muni_bonds_profile_' + countyName + '.pdf';
+							cbOptsHoriz.title = '<a class="newWindow" href="' + profileURL + '" target=_blank">Open In New Window</a>';
+							cbOptsHoriz.href = profileURL;
+							$.colorbox(cbOptsHoriz);
 						}
 					} else if (currentDI === 'Community Development Block Grants (CDBG) - CDBG Profiles') {
 						if (quantByIds[0][+FIPS] === 0 || isNaN(quantByIds[0][+FIPS])) {
 							noty({text: '<strong>No Profile Available</strong>'});
 						} else {
 							var countyName = parseCountyName(+FIPS, county.geography);
-							$.colorbox({iframe:true, width:'612px', height:'802px', maxHeight:'90%', maxWidth:'90%', href:'../profiles/CDBG/' + countyName + '.pdf'});
-							//window.open('../profiles/CDBG/' + countyName + '.pdf');
+							var profileURL = '../profiles/CDBG/' + countyName + '.pdf';
+							cbOptsVert.title = '<a class="newWindow" href="' + profileURL + '" target=_blank">Open In New Window</a>';
+							cbOptsVert.href = profileURL;
+							$.colorbox(cbOptsVert);
 						}
 					} else if (currentDI === 'Municipal Bonds - Statewide Muni Bonds Profiles') {
 						var state = countyObjectById[+FIPS].STATE;
-						$.colorbox({iframe:true, width:'792px', height:'632px', maxHeight:'90%', maxWidth:'90%', href:'../profiles/state_muniBonds/state_bonds_profiles' + state + '.pdf'});
-						//window.open('http://explorer.naco.org/profiles/state_muniBonds/state_bonds_profiles' + state + '.pdf', '_blank');
+						var profileURL = '../profiles/state_muniBonds/state_bonds_profiles' + state + '.pdf';
+						cbOptsHoriz.title = '<a class="newWindow" href="' + profileURL + '" target=_blank">Open In New Window</a>';
+						cbOptsHoriz.href = profileURL;
+						$.colorbox(cbOptsHoriz);
 					} else if (currentDI === 'Payment in Lieu of Taxes (PILT) - PILT Profiles') {
 						if (quantByIds[0][+FIPS] === 0) {
-							$.colorbox({iframe:true, width:'612px', height:'802px', maxHeight:'90%', maxWidth:'90%', href:'../profiles/PILT/National_PILT.pdf'});
-							//window.open('http://explorer.naco.org/profiles/PILT/National_PILT.pdf', '_blank');
+							var profileURL = '../profiles/PILT/National_PILT.pdf';
+							cbOptsVert.title = '<a class="newWindow" href="' + profileURL + '" target=_blank">Open In New Window</a>';
+							cbOptsVert.href = profileURL;
+							$.colorbox(cbOptsVert);
 						} else {
-							$.colorbox({iframe:true, width:'612px', height:'802px', maxHeight:'90%', maxWidth:'90%', href:'../profiles/PILT/' + county.geography + '.pdf'});
-							//window.open('http://explorer.naco.org/profiles/PILT/' + county.geography + '.pdf', '_blank');
+							var profileURL = '../profiles/PILT/' + county.geography + '.pdf';
+							cbOptsVert.title = '<a class="newWindow" href="' + profileURL + '" target=_blank">Open In New Window</a>';
+							cbOptsVert.href = profileURL;
+							$.colorbox(cbOptsVert);
 						}
 					} else if (currentDI === 'MFA Profiles - MFA Profiles') {
 						var state = countyObjectById[+FIPS].STATE;
 						if(state=="MT" | state=="OR" | state=="NH" | state=="DE"){
 							noty({text: '<strong>No Profile Available</strong></br>This state does not have a sales tax.'});
 						} else {
-							$.colorbox({iframe:true, width:'612px', height:'802px', maxHeight:'90%', maxWidth:'90%', href:'../profiles/MFA/MITFA_' + state + '.pdf'});
-							//window.open('http://explorer.naco.org/profiles/MFA/MITFA_' + state + '.pdf', '_blank');
+							var profileURL = '../profiles/MFA/MITFA_' + state + '.pdf';
+							cbOptsVert.title = '<a class="newWindow" href="' + profileURL + '" target=_blank">Open In New Window</a>';
+							cbOptsVert.href = profileURL;
+							$.colorbox(cbOptsVert);
 						}
 					}  else if (currentDI === 'Transportation Funding Profiles - Transportation Funding Profiles') {
 						if (quantByIds[0][+FIPS] === NaN) {
 							noty({text: '<strong>No Profile Available</strong>'});
 						} else {
 							var state = countyObjectById[+FIPS].STATE;
-							$.colorbox({iframe:true, width:'792px', height:'632px', maxHeight:'90%', maxWidth:'90%', href:'../profiles/stateTransportation/state_summary_' + state + '.pdf'});
-							//window.open('http://explorer.naco.org/profiles/stateTransportation/state_summary_' + state + '.pdf', '_blank');
+							var profileURL = '../profiles/stateTransportation/state_summary_' + state + '.pdf';
+							cbOptsHoriz.title = '<a class="newWindow" href="' + profileURL + '" target=_blank">Open In New Window</a>';
+							cbOptsHoriz.href = profileURL;
+							$.colorbox(cbOptsHoriz);
 						}
 					}  else if (currentDI === 'MAP-21 Profiles - MAP-21 Profiles') {
 						if (quantByIds[0][+FIPS] === NaN) {
 							noty({text: '<strong>No Profile Available</strong>'});
 						} else {
 							var state = countyObjectById[+FIPS].STATE;
-							$.colorbox({iframe:true, width:'792px', height:'632px', maxHeight:'90%', maxWidth:'90%', href:'../profiles/MAP-21/' + state + '.pdf'});
-							//window.open('http://explorer.naco.org/profiles/MAP-21/' + state + '.pdf', '_blank');
+							var profileURL = '../profiles/MAP-21/' + state + '.pdf';
+							cbOptsHoriz.title = '<a class="newWindow" href="' + profileURL + '" target=_blank">Open In New Window</a>';
+							cbOptsHoriz.href = profileURL;
+							$.colorbox(cbOptsHoriz);
 						}
 					}  else if (currentDI === "U.S. Ex-Im Bank Financing - U.S. Ex-Im Bank County Profiles") {
 						if (quantByIds[0][+FIPS] === 0) {
@@ -715,28 +736,39 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 						} else {
 							var countyName = parseCountyName(+FIPS, county.geography);
 							countyName = countyName.replace(/\s/g, '');
-							$.colorbox({iframe:true, width:'612px', height:'802px', maxHeight:'90%', maxWidth:'90%', href:'../profiles/exim/' + countyName + '.pdf'});
-							//window.open('http://explorer.naco.org/profiles/exim/' + countyName + '.pdf');
+							var profileURL = '../profiles/exim/' + countyName + '.pdf';
+							cbOptsVert.title = '<a class="newWindow" href="' + profileURL + '" target=_blank">Open In New Window</a>';
+							cbOptsVert.href = profileURL;
+							$.colorbox(cbOptsVert);
 						}
 					} else if (currentDI === "Secure Rural Schools (SRS) - SRS Profiles") {
 						if (quantByIds[0][+FIPS] === 0) {
-							$.colorbox({iframe:true, width:'612px', height:'802px', maxHeight:'90%', maxWidth:'90%', href:'../profiles/SRSProfiles/National.pdf'});
-							//window.open('http://explorer.naco.org/profiles/SRSProfiles/National.pdf');
+							var profileURL = '../profiles/SRSProfiles/National.pdf';
+							cbOptsVert.title = '<a class="newWindow" href="' + profileURL + '" target=_blank">Open In New Window</a>';
+							cbOptsVert.href = profileURL;
+							$.colorbox(cbOptsVert);
 						} else {
 							var countyName = parseCountyName(+FIPS, county.geography);
 							countyName = countyName.replace(/\s/g, '');
-							$.colorbox({iframe:true, width:'612px', height:'802px', maxHeight:'90%', maxWidth:'90%', href:'../profiles/SRSProfiles/' + countyName + '.pdf'});
-							//window.open('http://explorer.naco.org/profiles/SRSProfiles/' + countyName + '.pdf');
+							var profileURL = '../profiles/SRSProfiles/' + countyName + '.pdf';
+							cbOptsVert.title = '<a class="newWindow" href="' + profileURL + '" target=_blank">Open In New Window</a>';
+							cbOptsVert.href = profileURL;
+							$.colorbox(cbOptsVert);
 						}
 					} else if (currentDI === 'Endangered Species - Endangered Species Profiles') {
 						var countyName = parseCountyName(+FIPS, county.geography);
 						countyName = countyName.replace(/\s/g, '');
 						var profileURL = '../profiles/endangeredSpecies/' + countyName + '.pdf';
-						$.colorbox({iframe:true, width:'792px', height:'632px', maxHeight:'90%', maxWidth:'90%', title:'<a class="newWindow" href="' + profileURL + '" target=_blank">Open In New Window</a>', href: profileURL});
+						cbOptsHoriz.title = '<a class="newWindow" href="' + profileURL + '" target=_blank">Open In New Window</a>';
+						cbOptsHoriz.href = profileURL;
+						$.colorbox(cbOptsHoriz);
 						//window.open('http://explorer.naco.org/profiles/countytracker/' + countyName + '.pdf');
 					} else if (currentDI === 'County Administrators - County Administrator Profiles') {
 						var state = countyObjectById[+FIPS].STATE;
-						$.colorbox({iframe:true, width:'792px', height:'632px', maxHeight:'90%', maxWidth:'90%', href:'../profiles/countyAdminProfiles/administratorProfile_' + state + '.pdf'});
+						var profileURL = '../profiles/countyAdminProfiles/administratorProfile_' + state + '.pdf';
+						cbOptsHoriz.title = '<a class="newWindow" href="' + profileURL + '" target=_blank">Open In New Window</a>';
+						cbOptsHoriz.href = profileURL;
+						$.colorbox(cbOptsHoriz);
 					}
 					
 				}

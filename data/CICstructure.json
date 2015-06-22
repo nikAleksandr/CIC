@@ -2612,13 +2612,13 @@
 							"unit": "parts per billion",
 							"dataType": "categorical",
 							"order": {"Under 60": 0, "60-64": 1, "65-69": 2, "70 and Above": 3},
-							"definition": "2011-2013 3-year concentration levels of ground-level ozone as measured by county monitors"
+							"definition": "Category indicating whether the county's 2011-2013 3-year concentration level of ground-level ozone as measured by county monitors is under 60 parts per billion, 60-64 parts per billion, 65-69 parts per billion or 70 and above parts per billion."
 						}, {
 							"name": "Projected 2025 Level",
 							"unit": "parts per billion",
 							"dataType": "categorical",
 							"order": {"Under 60": 0, "60-64": 1, "65-69": 2, "70 and Above": 3},
-							"definition": "Model projections for 2025 of projected 3-year conecntration levels of ground-level ozone as measured by county monitors."
+							"definition": "Category indicating whether the model projections for 2025 of the county's projected 3-year concentration levels of ground-level ozone as measured by county monitors is under 60 parts per billion, 60-64 parts per billion, 65-69 parts per billion or 70 and above parts per billion."
 						}, {
 							"name": "2011-2013 Count",
 							"unit": "parts per billion",
@@ -4326,7 +4326,8 @@
 							"definition": "Indicates whether the general operations, functions and responsibilities of the police department is controlled by the county"
 						}, {
 							"name": "Jail Ownership",
-							"dataType": "binary",
+							"dataType": "categorical",
+							"order": {"Single County": 0, "Multiple County": 1, "Info. Not Available": 2},
 							"definition": "test indicator for Natalie."
 						}, {
 							"name": "County Funded Jails",
