@@ -4325,17 +4325,15 @@
 							"dataType": "binary",
 							"definition": "Indicates whether the general operations, functions and responsibilities of the police department is controlled by the county"
 						}, {
-							"name": "Jail Ownership",
-							"dataType": "categorical",
-							"order": {"Single County": 0, "Multiple County": 1, "Info. Not Available": 2},
-							"definition": "test indicator for Natalie."
-						}, {
 							"name": "County Funded Jails",
 							"dataType": "binary",
 							"definition": "Indicates whether the funding for construction, operation and maintenance of the facility serving the county comes from that county’s budget. The county’s funds may come from taxes collected, fees incurred for various services, including the housing of state, federal or other county’s inmates, commissary sales, and any number of other fees for services."
 						}, {
 							"name": "County Operated Jails",
-							"dataType": "binary",
+							"year": 2015,
+							"dataType": "categorical",
+							"customRange": ["rgb(255,153,51)", "rgb(49,130,189)", "rgb(7,81,156)"],
+							"order": {"Single County": 0, "Multiple County": 1, "Info Not Available": 2},
 							"definition": "Indicates whether the county government or one of its offices oversees the daily operations of the jail facility. A county official is responsible for overseeing the operating budget, jail services, records, inmate programs, materials and supplies for the jail facility."
 						}, {
 							"name": "County Funded Courts - Salaries",

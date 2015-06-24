@@ -49,7 +49,7 @@ body {
 	width: 100%;
 	background-color: white;
 	text-align: center;
-	font-family: 'Roboto Condensed', sans-serif;
+	font-family: 'museo-sans-condensed', sans-serif;
 	font-size: 1em;
 	overflow-x: hidden;
 }
@@ -69,17 +69,19 @@ body {
 	text-align: left;
 }
 #header h1 {
-	font-family: 'Oswald', serif;
+	font-family: 'alternate-gothic-no-3-d', serif;
 	color: #000;
 	font-weight: 700;
 	width:auto;
-	margin: 1em 0 0.5em 29px;
-	font-size: 2em;
-	line-height: 0.9em;
+	margin: 0.5em 0 0.5em 29px;
+	font-size: 3em;
+	line-height: 0.7em;
 	word-spacing: 0.08em;
 }
 #header small {
-	font-size: 0.6em;
+	font-family: 'museo-sans-condensed', sans-serif;
+	font-size: .6em;
+	font-weight: 100;
 }
 #nacoLogo {
 	margin: 1.2em 2.2em 0 0;
@@ -115,14 +117,14 @@ body {
 .dropdown-menu { text-align: left; }
 #primeIndText, #profileIndText {
 	font-size: 18px;
-	font-weight: 400;	
+	font-weight: 500;	
 }
 .badge {
 	margin-left: 5px;
-	font-weight: 500;
+	font-weight: 700;
 }
 .dropdown-menu > li .dropdown-header{
-	font-weight:800;
+	font-weight:300;
 }
 
 /* Search */
@@ -143,7 +145,10 @@ body {
 
 
 /* Access More Data Button */
-#more-data-button { background-color: rgb(0, 173, 220); }
+#more-data-button { 
+	background-color: rgb(255, 153, 51); 
+	border-bottom: 2px solid rgb(204, 51, 0);
+}
 #more-data-button a {
 	font-size: 1.2em;
 	color: #FFF;
@@ -153,9 +158,13 @@ body {
 	color: rgb(255, 204, 102);
 	background-color: transparent;
 }
+#more-data-icon {
+	display:inline-block;
+	width:50px;
+}
 #more-data-button img {
 	margin-left:5px;
-	margin-right: 2em;
+	background-color:rgb(255, 102, 0);
 }
 
 
@@ -317,7 +326,7 @@ body {
 #tipLocation {
 	color: #fff;
 	padding: 0.3em;
-	font-family: 'Oswald', serif;
+	font-family: 'alternate-gothic-no-3-d', serif;
 	font-size: 1.8em;
 	background-color: rgb(253,156,2);
 	position: relative;
@@ -334,7 +343,7 @@ body {
 	white-space: nowrap;
 	text-align:center;
 }
-.tipKey .datasetName { font-weight: 400; }
+.tipKey .datasetName { font-weight: 500; }
 .tipKey .dataName {
 	text-align: right;
 	padding-right: 1em;
@@ -360,7 +369,7 @@ body {
 
 #legend-container { margin-top: 1em; }
 #quantileLegend{
-	font-weight:400;
+	font-weight:500;
 	border: 0;
   	height:60px;
   	width: 100%;
@@ -373,15 +382,18 @@ body {
   font-size: 1em;
   text-align: center;
 }
-#legendTitleContainer { text-align: center; }
+#legendTitleContainer { 
+	text-align: center;
+	line-height: 1.2em;
+}
 #legendTitle {
-	font-weight:400;
+	font-weight:500;
 	font-size: 1em;
 	white-space: nowrap;
 }
 #legendSubtitle {
-	font-weight: 400;
-	font-size: 0.8em;
+	font-weight: 300;
+	font-size: 1em;
 }
 
 .unavailable-text {

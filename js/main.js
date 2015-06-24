@@ -11,7 +11,8 @@ var na_color = 'rgb(204,204,204)', // color for counties with no data
 	binary_colors = ['rgb(28,53,99)', 'rgb(255,153,51)'],
 	categorical_colors = ['rgb(255,204,102)', 'rgb(255,153,51)', 'rgb(49,130,189)', 'rgb(7,81,156)', 'rgb(28,53,99)'],
 	level_colors = ['rgb(255,204,102)', 'rgb(255,153,51)', 'rgb(49,130,189)', 'rgb(7,81,156)', 'rgb(28,53,99)'],
-	neighbor_colors = d3.scale.category10();
+	neighbor_colors = d3.scale.category10(),
+	customColors = null;
 	//percent_colors = ['rgb(189, 215, 231)','rgb(107, 174, 214)','rgb(49, 130, 189)','rgb(7, 81, 156)','rgb(28, 53, 99)']
 	//categorical_colors = ['rgb(253,156,2)', 'rgb(0,153,209)', 'rgb(70,200,245)', 'rgb(254,207,47)', 'rgb(102,204,204)', 'rgb(69,178,157)']
 	//level_colors = ['rgb(189, 215, 231)','rgb(107, 174, 214)','rgb(49, 130, 189)','rgb(7, 81, 156)','rgb(28, 53, 99)'];
@@ -820,6 +821,9 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 		// update global variables
 		indObjects = allInfo(dataset, indicator);
 		currentDataType = indObjects[0].dataType;
+		if(indObjects[0].hasOwnProperty('customRange')){
+			customColors = indObjects[0].customRange;
+		} else customColors = null;
 		
 		// reset per capita button
 		$('#perCapitaButton').removeClass('active');
@@ -1016,6 +1020,9 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 			case "categorical":
 				// max is 5 categories
 				if (numCorrVals === 2) range = binary_colors;
+				else if (customColors!=null){
+					range = customColors;
+				}
 				else {
 					range = [];
 					var availColors = categorical_colors;
@@ -1228,13 +1235,6 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 					} else if (indObjs[i].dataType === 'level') {
 						if (indObjs[i].category === 'Federal Funding') {
 							if (isNaN(qbis[i][ind])) qbis[i][ind] = 0; // assume if county is unavailable in database, the county gets 0 funding 
-							
-							// for pilt, change land areas from square miles to acres
-							if (indObjs[i].DI === 'Payment in Lieu of Taxes (PILT) - PILT per Acre') {
-								qbis[i][ind] /= 640;
-							} else if (indObjs[i].DI === 'Payment in Lieu of Taxes (PILT) - Total Federal Land Area' || indObjs[i].DI === 'Payment in Lieu of Taxes (PILT) - Total County Area') {
-								qbis[i][ind] *= 640;
-							}
 						} else if (indObjs[i].name === 'Fixed Internet Connections') {
 							if (qbis[i][ind] === 5) qbis[i][ind] = 1000;
 							else if (qbis[i][ind] >= 1) qbis[i][ind] = qbis[i][ind] * 200 - 100;

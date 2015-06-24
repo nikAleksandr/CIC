@@ -24,3 +24,33 @@ Data is recieved in JSON format from an SQL server by running requests through a
 
 - Ctrl + shift + E will export the current map SVG as a .png image
 
+=========
+##data.json Options
+- years
+- source
+- companions
+- legend_title_footer
+
+- vintageYear
+- year_ind
+
+- suppressYear
+- yearSpan
+
+- name
+- dataType
+- year: Used to override the dataset level "years" property at the indicator level.
+- definition
+- unit
+- thresholds
+- has_profile
+- order
+- longLegendNames
+- greyData
+- overrideLegendMax
+- suppressMinMax
+- format_type
+- notes
+- CETNulls
+- customColors
+
