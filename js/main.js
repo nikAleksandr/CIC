@@ -1488,7 +1488,7 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 			} else {
 				if (typeof value === 'string') value = value.charAt(0).toUpperCase() + value.substr(1);
 	
-				if (unit.indexOf('dollar') !== -1 || unit.indexOf('year') !== -1) unit = '';
+				if (unit.indexOf('dollar') !== -1 || unit.indexOf('year') !== -1 && unit.indexOf('years') === -1) unit = '';
 				else if (unit !== '') {				
 					// change unit from plural to singular if necessary
 					if (parseFloat(value.toString().replace(/[^\d\.\-]/g, '')) === 1) {
@@ -1503,7 +1503,7 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 			}
 			
 			// manual manipulation of tooltip values shown T_T
-			//CETNulls finds coded values of 999 and -999 that indicate "No Recession" and "No REcoverey", respectively
+			//CETNulls finds coded values of 999 and -999 that indicate "No Recession" and "No Recoverey", respectively
 			if (obj.name === 'Fixed Internet Connections') {
 				if (value === '1,000') value = '800-1000';
 				else value = (parseInt(value) - 100) + '-' + (parseInt(value) + 100);
@@ -1976,7 +1976,7 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 	    	} else if (num == 0) {
 	    		return (type === 'currency') ? '$0' : 0;
 	    	} else {
-	    		if (type === 'currency') return d3.format('$0f')(num);
+	    		if (type === 'currency') return d3.format('$.2f')(num);
 	    		else if (type === 'person') return d3.format('0f')(num);
 	    		else if (isPerCapita) return d3.format('.2f')(num); // kind of a hack for right now
 	    		else return d3.format('0f')(num);
@@ -2020,7 +2020,7 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 		} else if (num == 0) {
 			return (type === 'currency') ? '$0' : 0;
 		} else {
-			if (type === 'currency') return d3.format('$0f')(num);
+			if (type === 'currency') return d3.format('$.2f')(num);
 			else if (type === 'person') return d3.format('0f')(num);
 			else return d3.format('0f')(num);
 		}
