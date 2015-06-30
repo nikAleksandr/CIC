@@ -1696,18 +1696,27 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 	
 	var positionInstruction = function() {
 		var instructionLeft = (windowWidth * .2) / 2;
-		if (windowWidth > 1125) instructionLeft = (windowWidth - 900) / 2;
+		if (windowWidth > 1024) instructionLeft = (windowWidth - 900) / 2;
 		d3.select('#instructions').style({
 			"left": instructionLeft - containerOffset.left + "px",
 			"height": height + "px"
 		});
 	};
 	var positionZoomIcons = function() {
-		var coords = map.offsetWidth;
-		d3.select("#side-icon-container").style('left', (coords + 20) + 'px');
-		d3.selectAll('.side-icon-text').style('display', function() {
-			return ((windowWidth - coords) / 2 < 150) ? 'none' : 'table-cell';
-		});	
+		var openTrayCoords = ($(window).width() - $('#container').width()-30)/2;
+		var closedTrayCoords = openTrayCoords + 110;
+		d3.select("#side-icon-container").style('right', (-openTrayCoords) + 'px');
+		d3.selectAll('.icon-right-panel').style('margin-left', '110px')
+			.on('mouseover', function(){
+				d3.select(this).transition().duration(300).style('margin-left', '0px');
+			})
+			.on('mouseout', function(){
+				d3.select(this).transition().duration(300).style('margin-left', '110px');
+			});
+		//var moveTransition = d3.select('#rrssbContainer').transition().duration(500).style('right', '-200px');
+		/*d3.selectAll('.side-icon-text').style('display', function() {
+			return ((windowWidth - coords) < 140) ? 'none' : 'inline-block';
+		});	*/
 	};
 	var setZoomIconBehavior = function() {
 		d3.select('#zoomPlusIcon').on('click', function() {

@@ -267,17 +267,37 @@ body {
 
 #side-icon-container {
 	position: absolute;
-	width: 100px;
+	width: 140px;
 	white-space: nowrap;
 	top: 15px;
+	right:0px;
 }
-.side-icon { margin: 15px; }
+.icon-right-panel {
+	padding-top: 1.5em;
+	margin:0;
+	width:100%;
+	border-bottom:2px solid rgb(0,51,102);
+}
+.icon-right-panel>.col-xs-3 {
+	padding:0;
+	margin:0;
+	width:30px;
+	background-color:rgb(0,153,204);
+}
+.side-icon svg{ color: white; fill:currentColor; }
+.icon-text-box {
+	height:30px;
+	width:110px;
+	background-color:rgb(51,204,255);
+	padding:0;
+	line-height: 28px;
+}
 .side-icon-text {
-	font-size: 0.8em;
-	color: #555;
+	color: #FFF;
+	font-size:.8em;
 	vertical-align: middle;
 	text-overflow: nowrap;
-	text-align: left;
+	text-align: center;
 	cursor: pointer;
 }
 #rrssbContainer {
