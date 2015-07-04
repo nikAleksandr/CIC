@@ -50,7 +50,7 @@ Data is recieved in JSON format from an SQL server by running requests through a
 - overrideLegendMax
 - suppressMinMax
 - format_type
-- notes
+- notes - [".exports-note"]
 - CETNulls
 - customColors
 

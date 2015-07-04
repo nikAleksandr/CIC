@@ -184,7 +184,7 @@ var colorlegend = function (target, scale, type, options) {
 					dataValues[index] = tempValue[0] + " " + tempValue[1];
 					
 					dataValuesWrap[index] = tempValue[2];
-					if(dataValues.length>3){
+					if(tempValue.length>3){
 						for(j=3; j<tempValue.length; j++){
 							dataValuesWrap[index] = dataValuesWrap[index] + " " + tempValue[j];
 						}

@@ -6,11 +6,11 @@ $.noty.defaults.closeWith = ['click', 'button'];
 $.noty.defaults.template = '<div class="noty_message"><div class="noty_text"></div><div class="noty_close"></div></div>';
 
 var na_color = 'rgb(204,204,204)', // color for counties with no data
-	highlight_color = 'rgb(225,0,0)', // highlight color for counties
-	percent_colors = ['rgb(255,204,102)', 'rgb(255,153,51)', 'rgb(49,130,189)', 'rgb(7,81,156)', 'rgb(28,53,99)'],
-	binary_colors = ['rgb(28,53,99)', 'rgb(255,153,51)'],
-	categorical_colors = ['rgb(255,204,102)', 'rgb(255,153,51)', 'rgb(49,130,189)', 'rgb(7,81,156)', 'rgb(28,53,99)'],
-	level_colors = ['rgb(255,204,102)', 'rgb(255,153,51)', 'rgb(49,130,189)', 'rgb(7,81,156)', 'rgb(28,53,99)'],
+	highlight_color = 'rgb(204,51,0)', // highlight color for counties
+	percent_colors = ['rgb(255,204,102)', 'rgb(255,153,51)', 'rgb(0,153,204)', 'rgb(0,102,153)', 'rgb(0,51,102)'],
+	binary_colors = ['rgb(0,51,102)', 'rgb(255,153,51)'],
+	categorical_colors = ['rgb(255,204,102)', 'rgb(255,153,51)', 'rgb(0,153,204)', 'rgb(0,102,153)', 'rgb(0,51,102)'],
+	level_colors = ['rgb(255,204,102)', 'rgb(255,153,51)', 'rgb(0,153,204)', 'rgb(0,102,153)', 'rgb(0,51,102)'],
 	neighbor_colors = d3.scale.category10(),
 	customColors = null;
 	//percent_colors = ['rgb(189, 215, 231)','rgb(107, 174, 214)','rgb(49, 130, 189)','rgb(7, 81, 156)','rgb(28, 53, 99)']

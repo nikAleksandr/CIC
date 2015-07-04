@@ -2259,32 +2259,29 @@
 					]
 				}, {
 					"name": "International Exports",
-					"source": "NACo analysis of Brookings Institution Export Monitor data",
+					"source": "Brookings Institution <a target='_blank' href='http://www.brookings.edu/research/interactives/2015/export-monitor#10420'>Export Monitor 2015</a>. For more on the methodology, see <a target='_blank' href='http://www.brookings.edu/~/media/research/files/interactives/2015/export-monitor/brookings-export-series-methodology-nm-5715.pdf'>here</a>",
 					"years": [2014],
-					"companions": [["International Exports", "Total Exports"], ["International Exports", "Export Share of GDP"], ["International Exports", "County Export Supported Jobs, Direct and Indirect"], ["International Exports", "County Export Growth Rate"]
+					"notes": ".exports-note",
+					"companions": [["International Exports", "Total Exports"], ["International Exports", "Export Share of GDP"], ["International Exports", "Total Export-Supported Jobs"], ["International Exports", "Export Growth Rate"]
 					],
 					"children": [
 						{
 							"name": "Total Exports",
 							"dataType": "level",
-							"notes": ".exports-note",
-							"definition": "Total exports in a county, based on the origin of production."
+							"definition": "sales of goods and services by U.S. resident firms located in the county to foreign entities (people or companies).  These estimates reflect the value of exports by location of production and not by origin-of-movement, as is the norm with all the other available export databases.  The foreign entities include foreign firms located abroad (but no affiliates of foreign companies located in the United States), subsidiaries of American firms located abroad, foreign tourists and students in the United States and foreign passengers on U.S. air carriers."
 						}, {
 							"name": "Export Share of GDP",
 							"dataType": "percent",
-							"notes": ".exports-note",
-							"definition": "Total exports in a county as a share of county GDP. Since the largest exporters tend to be the largest locations in terms of output, this indicator captures the extent to which a county's industries are participating in global trade, regardless of the size of it's economy."
+							"definition": "or export intensity shows the importance of exports to the economy."
 						}, {
-							"name": "County Export Supported Jobs, Direct and Indirect",
+							"name": "Total Export-Supported Jobs",
 							"dataType": "level",
-							"notes": ".exports-note",
-							"definition": "Total number of jobs in a county supported by exports. Total export-supported jobs reflect the broader employment impact of exports including direct export-production jobs; jobs with the suppliers of intermediate inputs to exporting industries; and, in the case of goods exports, associated jobs in the transportation and wholesale trade industries across the U.S. Some of the direct and indirect jobs may lie outside of the metro area that produces the exported good or service."
+							"definition": "includes direct export-production jobs as well as jobs supported by exports in the suppliers to the exporting industry, and in the case of goods exports, in the transportation and wholesale trade industries.  Some portion of these jobs lies outside the county producing the export and in other parts of the United States."
 						}, {
-							"name": "County Export Growth Rate",
+							"name": "Export Growth Rate",
 							"dataType": "percent",
 							"yearSpan": " 2013-2014",
-							"notes": ".exports-note",
-							"definition": "The difference between county exports at the beginning and end of a time period, expressed as a percentage of the beginning exports."
+							"definition": "is the real growth rate of exports value between 2013 and 2014, inflation-adjusted by industry."
 						}
 					]
 				}, {
@@ -4324,6 +4321,22 @@
 						}
 					]
 				}, {
+					"name": "County Jails",
+					"years": [2015],
+					"source": "NACo analysis of National Public Safety Information Bureau data",
+					"notes": ".county-jails-note",
+					"companions": [["County Jails", "County Operated Jails"]],
+					"children": [
+						 {
+							"name": "County Operated Jails",
+							"dataType": "categorical",
+							"customRange": ["rgb(255,153,51)", "rgb(49,130,189)", "rgb(7,81,156)"],
+							"order": {"Single County": 0, "Info Not Available": 1, "Multiple County": 2},
+							"definition": "Jail ownership is classified into two groups: (1) Counties that have a jail and (0) counties that do not.  Counties that have a jail include counties that own their county jail and counties that are the physical location of the jail in a regional jail system.  Counties that do not have a jail include counties that do not have a jail located in their geographic boundaries, counties that are part of a regional jail system, and counties that partner with other counties for jail services."
+						}
+					]
+
+				}, {
 					"name": "Public Safety Structure",
 					"years": [2012],
 					"source": "NACo Research",
@@ -4358,13 +4371,6 @@
 							"name": "County Funded Jails",
 							"dataType": "binary",
 							"definition": "Indicates whether the funding for construction, operation and maintenance of the facility serving the county comes from that county’s budget. The county’s funds may come from taxes collected, fees incurred for various services, including the housing of state, federal or other county’s inmates, commissary sales, and any number of other fees for services."
-						}, {
-							"name": "County Operated Jails",
-							"year": 2015,
-							"dataType": "categorical",
-							"customRange": ["rgb(255,153,51)", "rgb(49,130,189)", "rgb(7,81,156)"],
-							"order": {"Single County": 0, "Info Not Available": 1, "Multiple County": 2},
-							"definition": "Indicates whether the county government or one of its offices oversees the daily operations of the jail facility. A county official is responsible for overseeing the operating budget, jail services, records, inmate programs, materials and supplies for the jail facility."
 						}, {
 							"name": "County Funded Courts - Salaries",
 							"dataType": "binary",
@@ -4907,9 +4913,10 @@
 					]
 				}, {
 					"name": "State Level Transportation",
-					"source": "",
+					"source": "June, 2015 NACo analysis of various sources",
 					"years": [2014],
-					"companions": [
+					"notes": ".state-trans-note",
+					"companions": [["State Level Transportation","State Limits on Property Tax"], ["State Level Transportation","State Authorized Local Gas Tax"], ["State Level Transportation","Local Option Sales Tax"], ["State Level Transportation","Statewide Share of County-Owned Roads"]
 					],
 					"children": [
 						{
@@ -4917,22 +4924,22 @@
 							"dataType": "percent",
 							"year": 2011,
 							"source": "NACo analysis of U.S. Department of Transportation (DOT), FHWA, Highway Performance Monitoring System data",
-							"definition": "Share of county-owned roads out of all statewide public roads."
+							"definition": "The percentage of county owned roads out of the public roads located in the state."
 						}, {
 							"name": "Statewide Share of County-Owned Bridges",
 							"dataType": "percent",
 							"source": "NACo analysis of U.S. DOT, FHWA, National Bridge Inventory data",
-							"definition": "Share of county-owned bridges out of all statewide bridges."
+							"definition": "The percentage of county owned bridges out of the public roads located in the state."
 						}, {
 							"name": "Statewide County-Owned Share of Structurally-Deficient Bridges",
 							"dataType": "percent",
 							"source": "NACo analysis of U.S. DOT, FHWA, National Bridge Inventory data",
 							"definition": "Share of county-owned bridges out of all structurally deficient bridges in the state."
 						}, {
-							"name": "Statewide Share of Off System Bridges",
+							"name": "Statewide Share of County-Owned Off-System Bridges",
 							"dataType": "percent",
 							"source": "NACo analysis of U.S. DOT, FHWA, National Bridge Inventory data",
-							"definition": "Share of off-system bridges out of all statewide bridges.  Off-system bridges are located on a public road that is not part of the federal-aid highway system."
+							"definition": "Share of county-owned bridges out of all statewide off system bridges.  Off-system bridges are located on a public road that is not part of the federal-aid highway system.  "
 						}, {
 							"name": "State Gas Tax Type",
 							"dataType": "categorical",
@@ -4940,7 +4947,7 @@
 							"order": {"Fixed rate": 0, "Variable rate": 1, "Fixed and variable rate": 2},
 							"legend_title_footer": ", as of May 2015",
 							"source": "NACo analysis and update of 2011 Institute for Taxation and Economic Policy (ITEP) data",
-							"definition": "State Gas Tax Rates (Fixed or Variable), as of May 2015. Gas taxes can be imposed at a fixed rate per gallon (cents per gallon) or as a variable rate tax that is tied to inflation, often as a percentage of the price of gasoline.  Fixed rate gas taxes are not tied to inflation and are only  changed when lawmakers vote to change them."
+							"definition": "State gas tax rates (fixed or variable), as of May 2015. Gas taxes can be imposed at a fixed rate per gallon (cents per gallon) or as a variable rate tax that is tied to inflation, often as a percentage of the price of gasoline.  Fixed rate gas taxes are not tied to inflation and are only  changed when lawmakers vote to change them."
 						}, {
 							"name": "State Gas Tax Rate",
 							"unit": "dollars per gallon",
@@ -4948,36 +4955,36 @@
 							"dataType": "level",
 							"legend_title_footer": ", as of April 2015",
 							"source": "NACo Analysis of American Petroleum Institute",
-							"definition": "State Excise Tax on Gasoline, as of April 2015. This is a tax imposed on the sale of gasoline."
+							"definition": "State excise tax on gasoline, as of April 2015. This is a tax imposed on the sale of gasoline."
 						}, {
-							"name": "Last State Gas Tax Increase",
-							"unit": "years ago",
+							"name": "Years Since Last State Gas Tax Increase",
+							"unit": "years",
 							"year": 2015,
 							"dataType": "level",
 							"legend_title_footer": ", as of June 2015",
 							"source": "NACo Analysis of: 'Sweet Sixteen: States Continue to Take On Gas Tax Reform,' Tax Justice Blog (2015), available at http://www.taxjusticeblog.org/archive/2015/05/sweet_sixteen_states_continue.php#.VYl03flVhBc (May 20, 2015); 'The tax hike states are agreeing on,' Washington Post (2015), available at http://www.washingtonpost.com/blogs/govbeat/wp/2015/03/13/the-tax-hike-states-are-agreeing-on/ (March 13, 2015); 'States Raising Gas Taxes for Road Revenues,' The Bond Buyer (2015), available at http://www.bondbuyer.com/news/washington-infrastructure/states-raising-gas-taxes-for-road-revenues-1071179-1.html (March 9, 2015)",
-							"definition": "Number of Years Since the Last Increase of the State Gas Tax, as of June 2015."
+							"definition": "Number of years since the last increase of the state gas tax, as of June 2015."
 						}, {
 							"name": "State Limits on Property Tax",
 							"dataType": "categorical",
 							"order": {"Prop Tax and Assessment Limit": 0, "Only Assessment Limit": 1, "Only Prop Tax Limit": 2, "Neither Limit": 3, "No County Prop Tax Authority": 4},
 							"longLegendNames": true,
-							"source": "NACo update of National Conference of State Legislatures, A Guide to Property Taxes: Property Tax Relief, 2009; Personal Communication with Association County Commissioners of Georgia, January 14, 2014; Personal Communication with Wisconsin County Association, January 10, 2014; Personal communication with Police Jury Association of Louisiana, February 11, 2014",
-							"definition": "State Imposed Limitations on County Property Tax Rates and Property Assessment, as of February 2014.  These limitations include Property Tax Rate Limits, Assessment Limits, Limits on Property Tax Revenue (Levy) Increases, Expenditure Limits, Property Tax Freezes."
+							"source": "NACo update of National Conference of State Legislatures, A Guide to Property Taxes: Property Tax Relief, 2009; February 2014",
+							"definition": "State imposed limitations on county property tax rates and property assessment, as of February 2014.  These limitations include property tax rate limits, assessment limits, limits on property tax revenue (levy) increases, expenditure limits, property tax freezes."
 						}, {
 							"name": "State Authorized Local Gas Tax",
 							"dataType": "categorical",
 							"order": {"Not Authorized": 0, "Authorized but not adopted": 1, "Adopted": 2},
 							"longLegendNames": true,
-							"source": "NACo Analysis of Goldman and Wachs, 2003; American Petroleum Institute (API), State Motor Fuel Taxes, October 2013; Goldman, Todd; Corbett, Sam; Wachs, Martin. Institute of Transportation Studies University of Berkeley. Local Option Transportation Taxes in the United States, Part One: Issues and Trends. March 2001.",
-							"definition": "States Allowing Counties to Collect Local Option Gas Taxes, as of February 2014. Local option gas tax is a tax collected by a local government on the sale of gasoline within their jurisdiction, if the local government is granted the authority by the state. The revenues from this tax are used for transportation purposes. Besides state authority, often the local government needs a local law or voter approval to implement the local option gas tax. To be considered a local option gas tax for these data, the state authority to collect the tax must be granted to counties; statewide and state collected gas taxes that do not require local approval are not considered local gas taxes."
+							"source": "NACo analysis of various sources, February 2014",
+							"definition": "States allowing counties to collect local option gas taxes, as of February 2014. Local option gas tax is a tax collected by a local government on the sale of gasoline within their jurisdiction, if the local government is granted the authority by the state. The revenues from this tax are used for transportation purposes. Besides state authority, often the local government needs a local law or voter approval to implement the local option gas tax. To be considered a local option gas tax for these data, the state authority to collect the tax must be granted to counties; statewide and state collected gas taxes that do not require local approval are not considered local gas taxes."
 						}, {
 							"name": "Local Option Sales Tax",
 							"dataType": "categorical",
 							"order": {"Not Authorized": 0, "Authorized but not adopted": 1, "Adopted": 2},
 							"longLegendNames": true,
 							"source": "NACo analysis of 2001 Goldman, Corbett and Wachs data",
-							"definition": "County Local Option Sales Taxes for Transportation, as of February 2014. Local option sales tax is a tax collected by a local government on the sale of any taxable goods within its jurisdiction, if the local government is granted the authority by the state. Besides state authority, often the local government needs a local law or voter approval to implement the local option sales tax. To be considered a local option sales tax for these data, the state authority to collect the tax must be granted to counties and the tax revenue used for transportation or for general purposes, including transportation. A local option sales tax differs from a local option gas tax through the tax base; the local gas tax only applies to the sale of gasoline, whereas a local option sales tax applies to the sale of any taxable goods within the county."
+							"definition": "County local option sales taxes for transportation, as of February 2014. Local option sales tax is a tax collected by a local government on the sale of any taxable goods within its jurisdiction, if the local government is granted the authority by the state. Besides state authority, often the local government needs a local law or voter approval to implement the local option sales tax. To be considered a local option sales tax for these data, the state authority to collect the tax must be granted to counties and the tax revenue used for transportation or for general purposes, including transportation. A local option sales tax differs from a local option gas tax through the tax base; the local gas tax only applies to the sale of gasoline, whereas a local option sales tax applies to the sale of any taxable goods within the county."
 						}
 					]
 				},	{
@@ -5041,7 +5048,7 @@
 					"source": "NACo Analysis of Federal Highway Administration - National Bridge Inventory",
 					"years": [2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014],
 					"notes": ".bridges-note",
-					"companions": [["All Bridges", "All Bridges - Total"], ["Functionally Obsolete Bridges", "Functionally Obsolete - Total"], ["Structurally Deficient Bridges", "Structurally Deficient - Total"], ["All Bridges", "All Bridges - County Owned"], ["All Bridges", "All Bridges - Total"]
+					"companions": [["All Bridges", "All Bridges - Total"], ["Functionally Obsolete Bridges", "Functionally Obsolete - Total"], ["Structurally Deficient Bridges", "Structurally Deficient - Total"], ["Off System Bridges", "Off System - Total"], ["All Bridges", "All Bridges - Total"]
 					],
 					"children": [
 						{
@@ -5111,7 +5118,7 @@
 					"source": "NACo Analysis of Federal Highway Administration - National Bridge Inventory",
 					"years": [2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014],
 					"notes": ".bridges-note",
-					"companions": [["All Bridges", "All Bridges - Total"], ["Functionally Obsolete Bridges", "Functionally Obsolete - Total"], ["Structurally Deficient Bridges", "Structurally Deficient - Total"], ["All Bridges", "All Bridges - County Owned"], ["All Bridges", "All Bridges - Total"]
+					"companions": [["All Bridges", "All Bridges - Total"], ["Functionally Obsolete Bridges", "Functionally Obsolete - Total"], ["Structurally Deficient Bridges", "Structurally Deficient - Total"], ["Off System Bridges", "Off System - Total"], ["All Bridges", "All Bridges - Total"]
 					],
 					"children": [ 
 						{
@@ -5185,7 +5192,7 @@
 					"source": "NACo Analysis of Federal Highway Administration - National Bridge Inventory",
 					"years": [2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014],
 					"notes": ".bridges-note",
-					"companions": [["All Bridges", "All Bridges - Total"], ["Functionally Obsolete Bridges", "Functionally Obsolete - Total"], ["Structurally Deficient Bridges", "Structurally Deficient - Total"], ["All Bridges", "All Bridges - County Owned"], ["All Bridges", "All Bridges - Total"]
+					"companions": [["All Bridges", "All Bridges - Total"], ["Functionally Obsolete Bridges", "Functionally Obsolete - Total"], ["Structurally Deficient Bridges", "Structurally Deficient - Total"], ["Off System Bridges", "Off System - Total"], ["All Bridges", "All Bridges - Total"]
 					],
 					"children": [
 						{
@@ -5259,7 +5266,7 @@
 					"source": "NACo Analysis of Federal Highway Administration - National Bridge Inventory",
 					"years": [2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014],
 					"notes": ".bridges-note",
-					"companions": [["All Bridges", "All Bridges - Total"], ["Functionally Obsolete Bridges", "Functionally Obsolete - Total"], ["Structurally Deficient Bridges", "Structurally Deficient - Total"], ["All Bridges", "All Bridges - County Owned"], ["All Bridges", "All Bridges - Total"]
+					"companions": [["All Bridges", "All Bridges - Total"], ["Functionally Obsolete Bridges", "Functionally Obsolete - Total"], ["Structurally Deficient Bridges", "Structurally Deficient - Total"], ["Off System Bridges", "Off System - Total"], ["All Bridges", "All Bridges - Total"]
 					],
 					"children": [ 
 						{
@@ -5269,51 +5276,51 @@
 						}, {
 							"name": "Off System - City/Town Owned",
 							"dataType": "level",
-							"definition": "Total number of Off System bridges owned by a Town or Township Highway Agency or a City or Municipal Highway Agency."
+							"definition": "Total number of Off System bridges owned by a Town or Township Highway Agency or a City or Municipal Highway Agency.  Off-system bridges are located on a public road that is not part of the federal-aid highway system."
 						}, {
 							"name": "Off System - County Owned",
 							"dataType": "level",
-							"definition": "Total number of Off System bridges owned by a County Highway Agency."
+							"definition": "Total number of Off System bridges owned by a County Highway Agency.  Off-system bridges are located on a public road that is not part of the federal-aid highway system."
 						}, {
 							"name": "Off System - Local Government Owned",
 							"dataType": "level",
-							"definition": "Total number of Off System bridges owned by a town or township highway agency, a city or municipal highwya agency, or a county highway agency."
+							"definition": "Total number of Off System bridges owned by a town or township highway agency, a city or municipal highwya agency, or a county highway agency.  Off-system bridges are located on a public road that is not part of the federal-aid highway system."
 						}, {
 							"name": "Off System - Federal Owned",
 							"dataType": "level",
-							"definition": "Total number of off-system bridges owned by a Federal Agency. Includes the Indian Tribal Government, Bureau of Indian Affairs, Bureau of Fish and Wildlife, U.S. Forest Service, National Park Service, Tennessee Valley Authority, Bureau of Land Management, Bureau of Reclamation, Corps of Engineers (Civil), Corps of Engineers (Military), Air Force, Navy/Marines, Army, NASA, Metropolitan Washington Airports Service, GSA, Zoo/Smithsonian, NSA, Pentagon, USDA/ARS, DOE and Other Federal Agencies."
+							"definition": "Total number of off-system bridges owned by a Federal Agency. Includes the Indian Tribal Government, Bureau of Indian Affairs, Bureau of Fish and Wildlife, U.S. Forest Service, National Park Service, Tennessee Valley Authority, Bureau of Land Management, Bureau of Reclamation, Corps of Engineers (Civil), Corps of Engineers (Military), Air Force, Navy/Marines, Army, NASA, Metropolitan Washington Airports Service, GSA, Zoo/Smithsonian, NSA, Pentagon, USDA/ARS, DOE and Other Federal Agencies.  Off-system bridges are located on a public road that is not part of the federal-aid highway system."
 						}, {
 							"name": "Off System - Privately Owned",
 							"dataType": "level",
-							"definition": "Total number of Off System bridges owned by a Private agency."
+							"definition": "Total number of Off System bridges owned by a Private agency.  Off-system bridges are located on a public road that is not part of the federal-aid highway system."
 						}, {
 							"name": "Off System - State Owned",
 							"dataType": "level",
-							"definition": "Total number of off-system bridges owned by a State Highway Agency, a State Park, Forest, or Reservation Agency, Other State Agencies, or State Toll Authority."
+							"definition": "Total number of off-system bridges owned by a State Highway Agency, a State Park, Forest, or Reservation Agency, Other State Agencies, or State Toll Authority.  Off-system bridges are located on a public road that is not part of the federal-aid highway system."
 						}, {
 							"name": "Off System - Local Owned",
 							"dataType": "level",
-							"definition": "Total number of Off System bridges owned by a Local Park, Forest, or Reservation Agency or Local Toll Authority, or Other Local Agencies."
+							"definition": "Total number of Off System bridges owned by a Local Park, Forest, or Reservation Agency or Local Toll Authority, or Other Local Agencies.  Off-system bridges are located on a public road that is not part of the federal-aid highway system."
 						}, {
 							"name": "Share Off System",
 							"dataType": "percent",
-							"definition": "Share of off-system bridges out of the total bridges in a county."
+							"definition": "Share of off-system bridges out of the total bridges in a county.  Off-system bridges are located on a public road that is not part of the federal-aid highway system."
 						}, {
 							"name": "Off System - Share of City/Town Owned",
 							"dataType": "percent",
-							"definition": "Share of off-system bridges out of all those owned by a Town or Township Highway Agency or a City or Municipal Highway Agency."
+							"definition": "Share of off-system bridges out of all those owned by a Town or Township Highway Agency or a City or Municipal Highway Agency.  Off-system bridges are located on a public road that is not part of the federal-aid highway system."
 						}, {
 							"name": "Off System - Share of County Owned",
 							"dataType": "percent",
-							"definition": "Share of off-system bridges out of all those owned by a County Highway Agency."
+							"definition": "Share of off-system bridges out of all those owned by a County Highway Agency.  Off-system bridges are located on a public road that is not part of the federal-aid highway system."
 						}, {
 							"name": "Off System - Share of Local Government Owned",
 							"dataType": "percent",
-							"definition": "Share of Off System bridges out of all those owned by a town or township highway agency, a city or municipal highwya agency, or a county highway agency."
+							"definition": "Share of Off System bridges out of all those owned by a town or township highway agency, a city or municipal highwya agency, or a county highway agency.  Off-system bridges are located on a public road that is not part of the federal-aid highway system."
 						}, {
 							"name": "Off System - Share of Federal Owned",
 							"dataType": "percent",
-							"definition": "Share of off-system bridges out of all those owned by a Federal Agency. Includes the Indian Tribal Government, Bureau of Indian Affairs, Bureau of Fish and Wildlife, U.S. Forest Service, National Park Service, Tennessee Valley Authority, Bureau of Land Management, Bureau of Reclamation, Corps of Engineers (Civil), Corps of Engineers (Military), Air Force, Navy/Marines, Army, NASA, Metropolitan Washington Airports Service, GSA, Zoo/Smithsonian, NSA, Pentagon, USDA/ARS, DOE and Other Federal Agencies."
+							"definition": "Share of off-system bridges out of all those owned by a Federal Agency. Includes the Indian Tribal Government, Bureau of Indian Affairs, Bureau of Fish and Wildlife, U.S. Forest Service, National Park Service, Tennessee Valley Authority, Bureau of Land Management, Bureau of Reclamation, Corps of Engineers (Civil), Corps of Engineers (Military), Air Force, Navy/Marines, Army, NASA, Metropolitan Washington Airports Service, GSA, Zoo/Smithsonian, NSA, Pentagon, USDA/ARS, DOE and Other Federal Agencies.  Off-system bridges are located on a public road that is not part of the federal-aid highway system."
 						}, {
 							"name": "Off System - Share of Privately Owned",
 							"dataType": "percent",
@@ -5321,11 +5328,11 @@
 						}, {
 							"name": "Off System - Share of State Owned",
 							"dataType": "percent",
-							"definition": "Share of off-system bridges out of all those owned by a State Highway Agency, a State Park, Forest, or Reservation Agency, Other State Agencies, or State Toll Authority."
+							"definition": "Share of off-system bridges out of all those owned by a State Highway Agency, a State Park, Forest, or Reservation Agency, Other State Agencies, or State Toll Authority.  Off-system bridges are located on a public road that is not part of the federal-aid highway system."
 						}, {
 							"name": "Off System - Share of Local Owned",
 							"dataType": "percent",
-							"definition": "Share of Off System bridges out of all those owned by a Local Park, Forest, or Reservation Agency or Local Toll Authority, or Other Local Agencies."
+							"definition": "Share of Off System bridges out of all those owned by a Local Park, Forest, or Reservation Agency or Local Toll Authority, or Other Local Agencies.  Off-system bridges are located on a public road that is not part of the federal-aid highway system."
 						}
 					]
 				}, {
