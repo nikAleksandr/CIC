@@ -120,7 +120,7 @@ mailing-form .ss-item { margin-top: 20px; }
 	z-index: 5;
 }
 
-#showOnMap, #print {
+#showOnMap, #print, #stateSearchToggle{
 	position: relative;
 	color: rgb(0, 64, 112);
 	font-size: .9em;

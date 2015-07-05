@@ -29,6 +29,11 @@
 <div id="stateResponse-title" class="row">
 	<h3>#getstate.StateName#</h3>
 </div>
+
+<iframe title="Find a County" frameborder="0" id="state-map-iframe" width="100%" src="http://www.uscounties.org/cffiles_web/counties/statemap_blue.cfm?state=#statecode#">
+					&lt;div class="UserGeneric"&gt;The current browser does not support Web pages that contain the IFRAME element. To use this Web Part, you must use a browser that supports this element, such as Internet Explorer 7.0 or later.&lt;/div&gt;
+</iframe>
+
  </CFOUTPUT>
 
 

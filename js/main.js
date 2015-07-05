@@ -231,7 +231,9 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 		//to-do
 	};
 	//Functions for Icons
-	var setIconBehavior = function() {		
+	var setIconBehavior = function() {
+		$('#stateSearchToggle').hide();
+
 		$('#backToMapIcon, #backToMapIconText').on('click', function(e) {
 			e.stopPropagation();
 			tooltip.classed('hidden', true);
@@ -473,7 +475,7 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 				searchState = this.name;		
 				d3.select('#stateDropText').html(searchState  + '<span class="sub-arrow"></span>');			
 			}
-			if (searchType === 'stateSearch' && searchState !== 'State') submitSearch();	
+			if (searchType === 'stateSearch' && searchState !== 'State') submitSearch();
 		});
 	};
 	
@@ -482,9 +484,9 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 		stateMap = '<iframe width="100%" height="100%" src="http://www.uscounties.org/cffiles_web/counties/statemap_blue.cfm?state=' + searchState + '"></iframe>';
 		
 		//on toggle, do this
-		state_search_str = 'state_test.cfm?statecode=' + searchState;
+		state_search_str = 'state.cfm?statecode=' + searchState;
 		CIC.displayResults(state_search_str);
-		
+
 		var stateImg = new Image();
 		stateImg.onload = function() {
 		  stateImgHeight =  this.height;
@@ -634,7 +636,10 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 			if (city_str_index !== -1) search_str = search_str.substr(0, city_str_index);
 			if (comma_index !== -1 && comma_index <= search_str.length) search_str = search_str.substr(0, comma_index);
 			
-			CIC.displayResults('city_res.cfm?city=' + search_str);
+			if(!isNaN(+search_str)){
+				window.alert('Please pardon the interruption as we migrate this resource into its new home.  The zip-code search will be available again soon.');
+				//CIC.displayResults('zip_res.cfm?zip=' + (+search_str));
+			} else CIC.displayResults('city_res.cfm?city=' + search_str);
 		}
 	};
 	
@@ -784,7 +789,7 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 	
 	CIC.displayResults = function(url) {
 		showResults();
-		$('#print').css('display', 'inline');
+		$('#print').css('display', 'inline'); //currently overridden by app.js
 		
 		d3.xhr('/ciccfm/'+ url, function(error, request){
 			if (!error) {
@@ -801,6 +806,7 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 				
 				if(url.indexOf('state') != -1){
 					CIC.mapToggle('map');
+					$('#stateSearchToggle').show();
 					$('#state-map-iframe').css('height', stateImgHeight +'px');
 				}
 				(url.indexOf('county') != -1) ? $('#showOnMap').show() : $('#showOnMap').hide();
@@ -1685,6 +1691,10 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 		zoom.scale(s);
 		frmrS = s;
 		frmrT = t;
+
+		var sb = d3.select('#state-borders');
+		(s > 7) ? sb.style('stroke-width', '0.7px') : sb.style('stroke-width', '1.5px');
+
 		if (smooth) {
 			var transition = g.transition().attr('transform', 'translate(' + t + ')scale(' + s + ')');
 			return transition;
@@ -1886,7 +1896,6 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 	// ----------------------------------- App Helper Functions -------------------------------------
 
 	CIC.mapToggle = function(showIt) {
-		 console.log('running mapToggle ' + showIt);
 		 if(showIt=='map'){
 			$('#state-map-iframe').show();
 			$('#stateResponse-table').hide();
