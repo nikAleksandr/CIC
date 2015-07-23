@@ -1727,8 +1727,8 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 	};
 	
 	var positionInstruction = function() {
-		var instructionLeft = (windowWidth * .2) / 2;
-		if (windowWidth > 1024) instructionLeft = (windowWidth - 900) / 2;
+		var instructionLeft = (windowWidth * .1) / 2;
+		if (windowWidth > 1024) instructionLeft = (windowWidth - 960) / 2;
 		d3.select('#instructions').style({
 			"left": instructionLeft - containerOffset.left + "px",
 			"height": height + "px"

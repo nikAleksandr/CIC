@@ -14,8 +14,9 @@
 	
 	<div ng-show="panel.isShowing('update')">
 		<!--<div id="watermark">Embargoed until <br/> 01/12/2015 12:01AM</div>-->
-		<div class="panel-title"><h3><a class="link" id="updateLink" href="#">July 2015 Update</a></h3></div>
-		<div class="panel-content">
+		<div class="col-sm-9">
+			<div class="panel-title"><h3><a class="link" id="updateLink" href="#">July 2015 Update</a></h3></div>
+			<div class="panel-content">
 			<p>
 				<div class="pad-down-5">See data accompanying two new NACo research reports:</div>
  					<div class="pad-down-5 panel-bullet"><a class="link" ng-click="panel.goToIndicator('County Jails', 'County Operated Jails')">County Jails</a> - <a class="link" target="_blank" href="http://www.naco.org/countyJails">County Jails at a Crossroads: An Examination of the Pretrial Population and Pretrial Release</a></div>
@@ -39,11 +40,20 @@
 				
 			</p>
 		</div>
-		<div class="center update-help-button-container">
-			<div class="pad-down-10 update-help-button-text">How to Use Our Updated Search Functions</div>
-			<div>
-				<button type="button" class="btn btn-lg btn-primary update-help-button" ng-click="panel.toggleShowing('help'); panel.selectHelpTab(4);">City-County Search</button>
-				<button type="button" class="btn btn-lg btn-primary update-help-button" ng-click="panel.toggleShowing('help'); panel.selectHelpTab(6);">County Officials</button>
+
+		</div>
+		<div class="col-sm-3">
+			<div class="center update-help-button-container">
+				<div id="update-sign-up">
+					<div id="more-data-icon"><img width="70" height="70" src="img/more_data.svg"/></div>
+					<p class="update-beta">Get the Latest!</p>
+					<p>Sign up for our monthly update here</p>
+				</div>
+				<div class="pad-down-10 update-help-button-text">Here's how to use our updated search functions:</div>
+				<div>
+					<button type="button" class="btn btn-nd btn-primary update-help-button" ng-click="panel.toggleShowing('help'); panel.selectHelpTab(4);">City-County Search</button>
+					<button type="button" class="btn btn-md btn-primary update-help-button" ng-click="panel.toggleShowing('help'); panel.selectHelpTab(6);">County Officials</button>
+				</div>
 			</div>
 		</div>
 	</div>
