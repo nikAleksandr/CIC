@@ -4973,7 +4973,7 @@
 							"legend_title_footer": ", as of June 2015",
 							"companions": [["State Level Transportation","State Gas Tax Type"], ["State Level Transportation","State Gas Tax Rate"], ["State Level Transportation","State Authorized Local Gas Tax"]],
 							"source": "NACo Analysis of various sources, June 2015",
-							"definition": "Number of years since the last increase of the state gas tax, as of June 2015."
+							"definition": "Number of years since passage of legislation increasing the state gas tax, as of June 2015"
 						}, {
 							"name": "State Limits on Property Tax",
 							"dataType": "categorical",
