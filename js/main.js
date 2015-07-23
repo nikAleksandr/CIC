@@ -24,8 +24,8 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 	// -------------------------- Variable Definitions ---------------------------
 	var localVersion = false;
 	
-	var default_dset = 'Immigration and Ancestry';
-	var default_ind = 'Percent of Foreign-Born Residents';
+	var default_dset = 'Off System Bridges';
+	var default_ind = 'Off System - Share of County Owned';
 	
 	CIC.findACounty = true;
 	
@@ -481,7 +481,7 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 	
 	var stateImgHeight;
 	var stateSearchResults = function(searchState){
-		stateMap = '<iframe width="100%" height="100%" src="http://www.uscounties.org/cffiles_web/counties/statemap_blue.cfm?state=' + searchState + '"></iframe>';
+		//stateMap = '<iframe width="100%" height="100%" src="http://www.uscounties.org/cffiles_web/counties/statemap_blue.cfm?state=' + searchState + '"></iframe>';
 		
 		//on toggle, do this
 		state_search_str = 'state.cfm?statecode=' + searchState;
@@ -504,7 +504,7 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 	
 		if (searchType === 'stateSearch') {
 			// only state; return results of all counties within state
-			if (searchState === 'MA' || searchState === 'RI' || searchState === 'CT') {
+			if (searchState === 'RI' || searchState === 'CT' || searchState === 'DC') {
 				noty({text: 'No county data available for this state.'});
 			} else {
 				stateSearchResults(searchState);
@@ -630,16 +630,38 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 			
 		} else if (searchType === 'citySearch') {
 			// city search: use city-county lookup
-			// first strip out city or anything after commas
-			var city_str_index = search_str.toLowerCase().indexOf('city');
-			var comma_index = search_str.toLowerCase().indexOf(',');
-			if (city_str_index !== -1) search_str = search_str.substr(0, city_str_index);
-			if (comma_index !== -1 && comma_index <= search_str.length) search_str = search_str.substr(0, comma_index);
-			
+			// check if they entered a state abbreviation (2 letters)
+				
 			if(!isNaN(+search_str)){
-				window.alert('Please pardon the interruption as we migrate this resource into its new home.  The zip-code search will be available again soon.');
+				var zipFormat = d3.format("05d");
+				var zipSearch = 'zip_res.cfm?zip=' + (zipFormat(search_str)) + '&websource=naco';
+				
+				CIC.displayResults(zipSearch)
+				/*showResults();
+				d3.select("#results-container").append('div')
+					.attr('class', 'container-fluid temp')
+					.html('<iframe width="100%" height="100%" src="' + zipSearch + '"></iframe>');*/
+
+				//window.alert('Please pardon the interruption as we migrate this resource into its new home.  The zip-code search will be available again soon.');
 				//CIC.displayResults('zip_res.cfm?zip=' + (+search_str));
-			} else CIC.displayResults('city_res.cfm?city=' + search_str);
+			} else if(search_str.length === 2){
+				citiesStateSearch = 'citiesstateall.cfm?STATECODE=' + search_str + '&websource=naco';
+				
+				CIC.displayResults(citiesStateSearch);
+				/*showResults();
+				d3.select("#results-container").append('div')
+					.attr('class', 'container-fluid temp')
+					.html('<iframe width="100%" height="' + $('#instructions').height() + 'px" src="' + citiesStateSearch + '"></iframe>');*/
+				
+			} else {
+				// first strip out city or anything after commas
+				var city_str_index = search_str.toLowerCase().indexOf('city');
+				var comma_index = search_str.toLowerCase().indexOf(',');
+				if (city_str_index !== -1) search_str = search_str.substr(0, city_str_index);
+				if (comma_index !== -1 && comma_index <= search_str.length) search_str = search_str.substr(0, comma_index);
+
+				CIC.displayResults('city_res.cfm?city=' + search_str);
+			}
 		}
 	};
 	
@@ -1879,6 +1901,9 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 		    			scope.panel.toggleShowing('help');
 		    			scope.panel.selectHelpTab(parseInt(urlParams.showhelp));
 		    		});    		
+			    } else if (urlParams.hasOwnProperty('zipSearch')) {
+		    		$("#citySearch").trigger("click");
+		    		$("#search-field").focus();	
 			    }
 			}
 	  	});

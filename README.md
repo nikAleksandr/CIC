@@ -34,7 +34,7 @@ Data is recieved in JSON format from an SQL server by running requests through a
 - vintageYear
 - year_ind
 
-- suppressYear
+- suppressYear - supresses the year in the source information.
 - yearSpan
 
 - name

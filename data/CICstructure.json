@@ -2261,6 +2261,7 @@
 					"name": "International Exports",
 					"source": "Brookings Institution <a target='_blank' href='http://www.brookings.edu/research/interactives/2015/export-monitor#10420'>Export Monitor 2015</a>. For more on the methodology, see <a target='_blank' href='http://www.brookings.edu/~/media/research/files/interactives/2015/export-monitor/brookings-export-series-methodology-nm-5715.pdf'>here</a>",
 					"years": [2014],
+					"suppressYear": true,
 					"notes": ".exports-note",
 					"companions": [["International Exports", "Total Exports"], ["International Exports", "Export Share of GDP"], ["International Exports", "Total Export-Supported Jobs"], ["International Exports", "Export Growth Rate"]
 					],
@@ -2582,7 +2583,8 @@
 					"name": "Endangered Species",
 					"years": [2015],
 					"notes": ".endangered-note",
-					"source": "NACo Analysis of U.S. Fish and Wildlife Service data",
+					"suppressYear": true,
+					"source": "NACo Analysis of U.S. Fish and Wildlife Service data, as of May 2015",
 					"companions": [ ["Endangered Species", "Number of Endangered and Threatened Species Listings"], ["Endangered Species", "Number of Endangered Species Listings"], ["Endangered Species", "Number of Threatened Species Listings"]
 					],
 					"children": [
@@ -4332,7 +4334,7 @@
 							"dataType": "categorical",
 							"customRange": ["rgb(255,153,51)", "rgb(49,130,189)", "rgb(7,81,156)"],
 							"order": {"Single County": 0, "Info Not Available": 1, "Multiple County": 2},
-							"definition": "Jail ownership is classified into two groups: (1) Counties that have a jail and (0) counties that do not.  Counties that have a jail include counties that own their county jail and counties that are the physical location of the jail in a regional jail system.  Counties that do not have a jail include counties that do not have a jail located in their geographic boundaries, counties that are part of a regional jail system, and counties that partner with other counties for jail services."
+							"definition": "The county and its relationship to jail operations is classified into the following categories: Single county and multiple county. A county jail is defined as a confinement facility that does not operate solely as a short-term holding or lockup facility (less than 72 hours). Multiple county operated jails includes counties that are part of a regional jail system and counties that contract with another county for jail services as there is no specific information available to separate the two categories."
 						}
 					]
 
@@ -4916,28 +4918,32 @@
 					"source": "June, 2015 NACo analysis of various sources",
 					"years": [2014],
 					"notes": ".state-trans-note",
-					"companions": [["State Level Transportation","State Limits on Property Tax"], ["State Level Transportation","State Authorized Local Gas Tax"], ["State Level Transportation","Local Option Sales Tax"], ["State Level Transportation","Statewide Share of County-Owned Roads"]
+					"companions": [["State Level Transportation","State Gas Tax Type"], ["State Level Transportation","State Gas Tax Rate"], ["State Level Transportation","State Authorized Local Gas Tax"]
 					],
 					"children": [
 						{
 							"name": "Statewide Share of County-Owned Roads",
 							"dataType": "percent",
 							"year": 2011,
+							"companions": [["State Level Transportation", "Statewide Share of County-Owned Roads"], ["State Level Transportation", "Statewide Share of County-Owned Bridges"], ["State Level Transportation", "Statewide County Owned Share of Structurally-Deficient Bridges"], ["State Level Transportation", "Statewide Share of County-Owned Off-System Bridges"]],
 							"source": "NACo analysis of U.S. Department of Transportation (DOT), FHWA, Highway Performance Monitoring System data",
 							"definition": "The percentage of county owned roads out of the public roads located in the state."
 						}, {
 							"name": "Statewide Share of County-Owned Bridges",
 							"dataType": "percent",
+							"companions": [["State Level Transportation", "Statewide Share of County-Owned Roads"], ["State Level Transportation", "Statewide Share of County-Owned Bridges"], ["State Level Transportation", "Statewide County Owned Share of Structurally-Deficient Bridges"], ["State Level Transportation", "Statewide Share of County-Owned Off-System Bridges"]],
 							"source": "NACo analysis of U.S. DOT, FHWA, National Bridge Inventory data",
-							"definition": "The percentage of county owned bridges out of the public roads located in the state."
+							"definition": "The percentage of county owned bridges out of all bridges located in the state."
 						}, {
-							"name": "Statewide County-Owned Share of Structurally-Deficient Bridges",
+							"name": "Statewide County Owned Share of Structurally-Deficient Bridges",
 							"dataType": "percent",
+							"companions": [["State Level Transportation", "Statewide Share of County-Owned Roads"], ["State Level Transportation", "Statewide Share of County-Owned Bridges"], ["State Level Transportation", "Statewide County Owned Share of Structurally-Deficient Bridges"], ["State Level Transportation", "Statewide Share of County-Owned Off-System Bridges"]],
 							"source": "NACo analysis of U.S. DOT, FHWA, National Bridge Inventory data",
 							"definition": "Share of county-owned bridges out of all structurally deficient bridges in the state."
 						}, {
 							"name": "Statewide Share of County-Owned Off-System Bridges",
 							"dataType": "percent",
+							"companions": [["State Level Transportation", "Statewide Share of County-Owned Roads"], ["State Level Transportation", "Statewide Share of County-Owned Bridges"], ["State Level Transportation", "Statewide County Owned Share of Structurally-Deficient Bridges"], ["State Level Transportation", "Statewide Share of County-Owned Off-System Bridges"]],
 							"source": "NACo analysis of U.S. DOT, FHWA, National Bridge Inventory data",
 							"definition": "Share of county-owned bridges out of all statewide off system bridges.  Off-system bridges are located on a public road that is not part of the federal-aid highway system.  "
 						}, {
@@ -4946,6 +4952,7 @@
 							"year": 2015,
 							"order": {"Fixed rate": 0, "Variable rate": 1, "Fixed and variable rate": 2},
 							"legend_title_footer": ", as of May 2015",
+							"companions": [["State Level Transportation","State Gas Tax Type"], ["State Level Transportation","State Gas Tax Rate"], ["State Level Transportation","State Authorized Local Gas Tax"]],
 							"source": "NACo analysis and update of 2011 Institute for Taxation and Economic Policy (ITEP) data",
 							"definition": "State gas tax rates (fixed or variable), as of May 2015. Gas taxes can be imposed at a fixed rate per gallon (cents per gallon) or as a variable rate tax that is tied to inflation, often as a percentage of the price of gasoline.  Fixed rate gas taxes are not tied to inflation and are only  changed when lawmakers vote to change them."
 						}, {
@@ -4954,6 +4961,7 @@
 							"year": 2015,
 							"dataType": "level",
 							"legend_title_footer": ", as of April 2015",
+							"companions": [["State Level Transportation","State Gas Tax Type"], ["State Level Transportation","State Gas Tax Rate"], ["State Level Transportation","State Authorized Local Gas Tax"]],
 							"source": "NACo Analysis of American Petroleum Institute",
 							"definition": "State excise tax on gasoline, as of April 2015. This is a tax imposed on the sale of gasoline."
 						}, {
@@ -4961,8 +4969,10 @@
 							"unit": "years",
 							"year": 2015,
 							"dataType": "level",
+							"suppressYear": true,
 							"legend_title_footer": ", as of June 2015",
-							"source": "NACo Analysis of: 'Sweet Sixteen: States Continue to Take On Gas Tax Reform,' Tax Justice Blog (2015), available at http://www.taxjusticeblog.org/archive/2015/05/sweet_sixteen_states_continue.php#.VYl03flVhBc (May 20, 2015); 'The tax hike states are agreeing on,' Washington Post (2015), available at http://www.washingtonpost.com/blogs/govbeat/wp/2015/03/13/the-tax-hike-states-are-agreeing-on/ (March 13, 2015); 'States Raising Gas Taxes for Road Revenues,' The Bond Buyer (2015), available at http://www.bondbuyer.com/news/washington-infrastructure/states-raising-gas-taxes-for-road-revenues-1071179-1.html (March 9, 2015)",
+							"companions": [["State Level Transportation","State Gas Tax Type"], ["State Level Transportation","State Gas Tax Rate"], ["State Level Transportation","State Authorized Local Gas Tax"]],
+							"source": "NACo Analysis of various sources, June 2015",
 							"definition": "Number of years since the last increase of the state gas tax, as of June 2015."
 						}, {
 							"name": "State Limits on Property Tax",
@@ -4976,6 +4986,7 @@
 							"dataType": "categorical",
 							"order": {"Not Authorized": 0, "Authorized but not adopted": 1, "Adopted": 2},
 							"longLegendNames": true,
+							"companions": [["State Level Transportation","State Gas Tax Type"], ["State Level Transportation","State Gas Tax Rate"], ["State Level Transportation","State Authorized Local Gas Tax"]],
 							"source": "NACo analysis of various sources, February 2014",
 							"definition": "States allowing counties to collect local option gas taxes, as of February 2014. Local option gas tax is a tax collected by a local government on the sale of gasoline within their jurisdiction, if the local government is granted the authority by the state. The revenues from this tax are used for transportation purposes. Besides state authority, often the local government needs a local law or voter approval to implement the local option gas tax. To be considered a local option gas tax for these data, the state authority to collect the tax must be granted to counties; statewide and state collected gas taxes that do not require local approval are not considered local gas taxes."
 						}, {
@@ -5324,7 +5335,7 @@
 						}, {
 							"name": "Off System - Share of Privately Owned",
 							"dataType": "percent",
-							"definition": "Share of off-system bridges out of all those owned by a Private Agency."
+							"definition": "Share of off-system bridges out of all those owned by a Private Agency.  Off-system bridges are located on a public road that is not part of the federal-aid highway system."
 						}, {
 							"name": "Off System - Share of State Owned",
 							"dataType": "percent",
