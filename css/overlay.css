@@ -58,8 +58,12 @@
 	font-size: 2.5em;
 	margin-top: 0px;
 }
+.panel-headline h2 {
+	text-transform: uppercase;
+	margin:0 0 .5em 0;
+}
 .panel-content {
-	padding: 5px 0px 0px 50px;
+	padding: 5px 0px 0px 35px;
 	max-width: 800px;
 }
 
@@ -74,7 +78,7 @@
 	padding: 1em 0 1em 0;
 }
 #overlay-mail-icon {
-	margin: 1em 0 1em 0;
+	margin: 1em 0 .5em 0;
 }
 #update-sign-up-container h2, #update-help-button-container h2 {
 	font-family: 'alternate-gothic-no-3-d', serif;
@@ -82,14 +86,16 @@
 	margin-bottom: 0;
 }
 #update-help-button-container {
-	margin-top: 40px;
-	padding: 10px 10px 20px 10px;
-	background-color: #EEE;
-	border-top: 1px solid #DDD;
-	border-bottom: 1px solid #DDD;
+	color: rgb(0,153,204);
+	background-color: #FFF;
 }
-.update-help-button-text { font-weight: 500; }
-.update-help-button:first-child { }
+.update-help-button {
+	background-color: rgb(0,153,204);
+	border: none;
+}
+.updated-help-button:hover {
+	background-color: rgb(255,153,51);
+}
 
 
 /* Content for Extraction Tool (Access More Data) */
@@ -120,6 +126,7 @@
 }
 .help-link:hover { color: #2a6496; }
 .panel-bullet { margin-left: 20px; }
+.panel-bullt li { color:tgb(255,153,51); }
 
 
 /* Google Form */
@@ -141,7 +148,7 @@ mailing-form .ss-item { margin-top: 20px; }
 	cursor: pointer;
 	text-align: right;
 	clear: right;
-	margin: 1em 1em 0px 0px;
+	margin: 0.5em 1em 0px 0.5px;
 	z-index: 5;
 }
 

@@ -9,7 +9,7 @@
 		</CFQUERY> 
 			
 		<CFQUERY NAME="getcounties" datasource="naco_cic">
-		SELECT FIPS,   County_Name, State, county_seat, Member_Status,  Org_Type,
+		SELECT FIPS, County_Name, State, county_seat, Member_Status,  Org_Type,
 		Population_2010, Population_2013, Total_Square_Miles, founded,  board_size, Gov_Type
 		FROM  County_Data  (NOLOCK)
 		WHERE State='#statecode#' and Org_Type in ('County', 'Independent City', 'County W/o Govt Structure', 'Geographical Census Area') 
@@ -30,9 +30,26 @@
 	<h3>#getstate.StateName#</h3>
 </div>
 
-<iframe title="Find a County" frameborder="0" id="state-map-iframe" width="100%" src="http://www.uscounties.org/cffiles_web/counties/statemap_blue.cfm?state=#statecode#">
+<div id="state-map-iframe">
+		
+		<CFLOOP QUERY="getstate">
+		 <CFINCLUDE template="maps/#statecode#.cfm">
+		</CFLOOP> 
+		
+		
+		<CENTER>
+		
+		<CFOUTPUT>
+		<img src="../ciccfm/images/#getstate.statecode#.gif" usemap="##map" ismap border="0" align="top">
+		</CFOUTPUT>
+</CENTER>
+		<P>
+
+<A HREF="../ciccfm/usamap_blue.cfm?websource=naco" >USA Map</A>
+</div>
+<!--<iframe title="Find a County" frameborder="0" id="state-map-iframe" width="100%" src="http://www.uscounties.org/cffiles_web/counties/statemap_blue.cfm?state=#statecode#">
 					&lt;div class="UserGeneric"&gt;The current browser does not support Web pages that contain the IFRAME element. To use this Web Part, you must use a browser that supports this element, such as Internet Explorer 7.0 or later.&lt;/div&gt;
-</iframe>
+</iframe>-->
 
  </CFOUTPUT>
 
@@ -69,7 +86,7 @@
 				</TR>
             </CFOUTPUT>
          </TABLE>
-       
+       <br/>
          <DIV><em>* consolidated city-county government</em></DIV> 
        
           <CFELSE>

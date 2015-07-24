@@ -4,7 +4,7 @@
 	<a id="showTableView" class="link" title="Table View" ng-click="panel.isShowing('results')" onclick="CIC.mapToggle('table')"><img class="svgCircle" width="30" height="30" alt="Table View" src="img/table-view.svg"/></a>
 </div>
 <div id="print" class="icon-text" ng-show="panel.printVisible"><img class="svgCircle" src="img/print.svg" />print</div>
-<div id="close" class="icon-text" ng-click="panel.setVisible(false)">close<img class="svgCircle" src="img/Close.svg"/></div>
+<div id="close" class="icon-text" ng-click="panel.setVisible(false)"><img class="icon" width="15" height="15" alt="close" src="img/Close.svg"/></div>
 <!--Should replace "close" with this action again later "panel.setVisible(false)" -->
 <!-- All Popup Content -->
 <div id="instruction-content">
@@ -17,8 +17,7 @@
 		<div class="col-sm-9 update-column">
 			<div class="panel-title"><h1>July 2015 Update</h1></div>
 			<div class="panel-content">
-			<p>
-				<div class="pad-down-5">See data accompanying two new NACo research reports:</div>
+				<div class="panel-headline"><h2>Two new NACo research reports!</h2></div>
  					<div class="pad-down-5 panel-bullet"><a class="link" ng-click="panel.goToIndicator('County Jails', 'County Operated Jails')">County Jails</a> - <a class="link" target="_blank" href="http://www.naco.org/countyJails">County Jails at a Crossroads: An Examination of the Pretrial Population and Pretrial Release</a></div>
  					<div class="pad-down-5 panel-bullet"><a class="link" ng-click="panel.goToIndicator('County Administrators', 'Appointed County Administrators')">Appointed County Administrators</a> - <a class="link" target="_blank" href="http://www.naco.org/countyadministrators">An Overview of County Administration: Appointed County Administrators</a></div>
  				<div class="pad-down-5">See 2015 updates of the Road Ahead state transportation data,including:</div>
@@ -37,8 +36,6 @@
 					<div class="pad-down-5 panel-bullet">&bull; <a class="link" ng-click="panel.goToIndicator('International Exports', 'Export Share of GDP')">County Exports as a Share of County Economic Output (GDP)</a></div>
 					<div class="pad-down-5 panel-bullet">&bull; <a class="link" ng-click="panel.goToIndicator('International Exports', 'Total Export Supported Jobs')">Total Export Supported Jobs, Direct and Indirect</a></div>
 					<div class="pad-down-5 panel-bullet">&bull; <a class="link" ng-click="panel.goToIndicator('International Exports', 'Export Growth Rate')">Export Growth Rate, 2013-2014</a></div>
-				
-			</p>
 		</div>
 
 		</div>
@@ -52,8 +49,8 @@
 				<h2>Need help?</h2>
 				<p class="update-help-button-text">Here's how to use our updated search functions:</p>
 				<div>
-					<button type="button" class="btn btn-nd btn-primary update-help-button" ng-click="panel.toggleShowing('help'); panel.selectHelpTab(4);">City-County Search</button>
-					<button type="button" class="btn btn-md btn-primary update-help-button" ng-click="panel.toggleShowing('help'); panel.selectHelpTab(6);">County Officials</button>
+					<button type="button" class="btn btn-sm btn-primary update-help-button" ng-click="panel.toggleShowing('help'); panel.selectHelpTab(3);">City-County Search</button>
+					<button type="button" class="btn btn-sm btn-primary update-help-button" ng-click="panel.toggleShowing('help'); panel.selectHelpTab(5);">County Officials</button>
 				</div>
 			</div>
 		</div>
@@ -84,7 +81,7 @@
 	</div>
 	
 	<div class="helpText" ng-show="panel.isShowing('help') && panel.isHelpSelected(1)">
-		<div class="panel-title"><h3>Help</h3></div>
+		<div class="panel-title"><h1>Help</h1></div>
 		<div class="panel-content">
 			<p>
 				<div class="help-link-container">&bull; <span class="help-link" ng-click="panel.selectHelpTab(2);">View a new indicator on the map</span></div>
@@ -99,7 +96,7 @@
 	</div>
 	
 	<div class="helpText" ng-show="panel.isShowing('help') && panel.isHelpSelected(2)">
-		<div class="panel-title"><h3>Getting Started</h3></div>
+		<div class="panel-title"><h1>Getting Started</h1></div>
 		<div class="panel-content">
 			<p>
 				<!-- <div class="pad-down-5">&bull; The map always displays the latest year of data in the CIC database for the &quot;Primary Indicator&quot;.</div> -->
@@ -117,17 +114,7 @@
 	</div>
 	
 	<div class="helpText" ng-show="panel.isShowing('help') && panel.isHelpSelected(3)">
-		<div class="panel-title"><h3>Comparing Two Indicators</h3></div>
-		<div class="panel-content">
-			<p>To show additional statistics or compare indicators within a county, click on &quot;Secondary Indicator&quot; on the top left of the screen and choose another indicator.</p>
-			<p>Clicking on a county will now compare statistics for both selected indicators</p>
-			<br/>
-			<p><img src="img/Reset_indicators.svg"> - Click this to no longer see the secondary indicator</p>
-		</div>
-	</div>
-	
-	<div class="helpText" ng-show="panel.isShowing('help') && panel.isHelpSelected(4)">
-		<div class="panel-title"><h3>Finding A County</h3></div>
+		<div class="panel-title"><h1>Finding A County</h1></div>
 		<div class="panel-content">
 			<p>
 				<div class="pad-down-5">&bull; To find out which county a <b>city</b> is in, click on "City Search" and type in the name of the city.</div>
@@ -138,8 +125,8 @@
 		</div>
 	</div>
 	
-	<div class="helpText" ng-show="panel.isShowing('help') && panel.isHelpSelected(5)">
-		<div class="panel-title"><h3>Using the Map</h3></div>
+	<div class="helpText" ng-show="panel.isShowing('help') && panel.isHelpSelected(4)">
+		<div class="panel-title"><h1>Using the Map</h1></div>
 		<div class="panel-content">
 			<p>
 				<div class="pad-down-5">&bull; Pick a new statistic by clicking on &quot;Primary Indicator&quot; on the top left of the screen and choosing an indicator.</div>
@@ -152,8 +139,8 @@
 		</div>
 	</div>
 	
-	<div class="helpText" ng-show="panel.isShowing('help') && panel.isHelpSelected(6)">
-		<div class="panel-title"><h3>County Information and Details</h3></div>
+	<div class="helpText" ng-show="panel.isShowing('help') && panel.isHelpSelected(5)">
+		<div class="panel-title"><h1>County Information and Details</h1></div>
 		<div class="panel-content">
 			<div class="pad-down-5">Double-click on any county on the map to view more information about the county.</div><br/>
 			<div class="pad-down-5">Available information includes:</div>
@@ -190,9 +177,6 @@
 			</li>
 			<li name="5" ng-class="{active: panel.isHelpSelected(5)}">
 				<a class="link" ng-click="panel.selectHelpTab(5)">5</a>
-			</li>
-			<li name="6" ng-class="{active: panel.isHelpSelected(6)}">
-				<a class="link" ng-click="panel.selectHelpTab(6)">6</a>
 			</li>
 			<li>
 				<a class="link" ng-click="panel.incrementHelpTab(1)">&raquo;</a>

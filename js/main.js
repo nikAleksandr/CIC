@@ -634,8 +634,8 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 				
 			if(!isNaN(+search_str)){
 				var zipFormat = d3.format("05d");
-				var zipSearch = 'zip_res.cfm?zip=' + (zipFormat(search_str)) + '&websource=naco';
-				
+				var zipSearch = 'zip_res.cfm?zip=' + (zipFormat(search_str));
+				console.log();
 				CIC.displayResults(zipSearch)
 				/*showResults();
 				d3.select("#results-container").append('div')

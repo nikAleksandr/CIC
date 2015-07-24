@@ -20,8 +20,9 @@ table th {
  */
 
 .link {
-	color: rgb(0,64,112);
-	cursor: pointer;	
+	color: rgb(0,153,204);
+	cursor: pointer;
+	font-weight: bold;
 }
 .link:hover { text-decoration: underline; }
 .icon-text:hover { text-decoration: underline; }
