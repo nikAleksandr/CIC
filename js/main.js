@@ -504,8 +504,10 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 	
 		if (searchType === 'stateSearch') {
 			// only state; return results of all counties within state
-			if (searchState === 'RI' || searchState === 'CT' || searchState === 'DC') {
+			if (searchState === 'RI' || searchState === 'CT') {
 				noty({text: 'No county data available for this state.'});
+			} else if (searchState === 'DC'){
+				CIC.displayResults('county.cfm?id=11001');
 			} else {
 				stateSearchResults(searchState);
 			}
@@ -545,7 +547,9 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 				}
 				
 				// special case
-				if (countyName.toLowerCase() === 'washington' && stateName === 'DC') { CIC.executeSearchMatch(11001); return; }
+				if (countyName.toLowerCase() === 'washington' && stateName === 'DC') { 
+					(CIC.findACounty) ? CIC.displayResults('county.cfm?id=11001') : CIC.executeSearchMatch(11001);
+				}
 			}
 			
 			// check for partial word matches
