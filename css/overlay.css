@@ -158,7 +158,7 @@ mailing-form .ss-item { margin-top: 20px; }
 	font-size: .9em;
 	cursor: pointer;
 	padding-left: 1em;
-	display: inline;
+	display: inline-block;
 }
 #print { margin-left: 10px; }
 

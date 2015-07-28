@@ -189,7 +189,8 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 	
 	var setBehaviors = function() { 		
 		d3.select('#map').on('click', unhighlight);
-		d3.select('#showOnMap').on('click', function() {
+		//Currently inactive as it is equivalent to just hitting close */
+		/* d3.select('#showOnMap').on('click', function() {
 	  		hideInstructions();
 	  		if (d3.select('.county.active').empty() !== true) {
 	  			var active_county = document.getElementsByClassName('county active')[0];
@@ -200,7 +201,8 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 		  			tooltip.classed('hidden', false);
 	  			});
 	  		}
-		});
+		});*/
+
 		d3.select('#print').on('click', function() {
 			var window_title = '';
 			if (selected !== null) {
@@ -835,7 +837,7 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 					$('#stateSearchToggle').show();
 					$('#state-map-iframe').css('height', stateImgHeight +'px');
 				}
-				(url.indexOf('county') != -1) ? $('#showOnMap').show() : $('#showOnMap').hide();
+				(url.indexOf('county') != -1) $('#showOnMap').show() : else $('#showOnMap').hide();
 				showInstructions();
 			} else {
 				console.log('Error retrieving data from : ' + '/ciccfm/' + url);
@@ -912,7 +914,7 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 			  	
 			  	// for debugging
 		  		if (!indObjs[i].hasOwnProperty('name')) console.log('Indicator #' + i + ' not matched in CIC structure');
-			  	if (!crosswalk.hasOwnProperty(DI)) console.log('Indicator #' + i + ' not matched in crosswalk');
+			  	if (!crosswalk.hasOwnProperty(DI)) console.log('Indicator #' + i + ' not matched in tsv crosswalk');
 			  	
 			  	var crossObject = crosswalk[DI];
 			  	var year = indObjs[i].year;
@@ -921,12 +923,6 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 				var dataset_obj = indicatorList[crossObject.db_dataset];
 				if (!dataset_obj.hasOwnProperty(year)) dataset_obj[year] = [];
 				dataset_obj[year].push(crossObject.db_indicator);
-				
-				// if an indicator has a "comapnion" year indicator, query that indicator as well
-				if (indObjs[i].hasOwnProperty('year_ind')) {
-					var year_ind_obj = crosswalk[indObjs[i].dataset+' - '+indObjs[i].year_ind];
-					dataset_obj[year].push(year_ind_obj.db_indicator);
-				}
 		  	}
 	
 			// configure query string for each dataset

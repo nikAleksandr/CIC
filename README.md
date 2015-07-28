@@ -26,13 +26,12 @@ Data is recieved in JSON format from an SQL server by running requests through a
 
 =========
 ##data.json Options
-- years
+- years - applies specifically to the year the data is supposed to reflect, or the year the data was collected.
 - source
 - companions
 - legend_title_footer
 
 - vintageYear
-- year_ind
 
 - suppressYear - supresses the year in the source information.
 - yearSpan

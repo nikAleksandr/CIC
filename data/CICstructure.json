@@ -1458,13 +1458,11 @@
 						{
 							"name": "Sales Tax",
 							"dataType": "percent",
-							"year_ind": "Sales Tax Year Collected",
 							"thresholds": [0.001, 0.01, 0.03, 0.05],
 							"definition": "The county sales tax rate.  Some rates may be median estimates calculated from a range of sales tax rates."
 						}, {
 							"name": "State Sales Tax",
 							"dataType": "percent",
-							"year_ind": "State Sales Tax Year Collected",
 							"definition": "The sales tax of a county's state"
 						}
 					]
@@ -2065,26 +2063,26 @@
 				}, {
 					"name": "Labor Force",
 					"source": "NACo Analysis of Bureau of Labor Statistics - Local Area Unemployment Statistics (LAUS)",
-					"years": [2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013],
+					"years": [2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014],
 					"companions": [["Labor Force", "Civilian Labor Force Population"], ["Labor Force", "Unemployment Rate"], ["Labor Force", "Number Employed"], ["Labor Force", "Number Unemployed"]
 					],
 					"children": [
 						{
 							"name": "Civilian Labor Force Population",
 							"dataType": "level",
-							"definition": "All private industry and state and local government workers.  Federal government, military and agricultural workers are excluded."
+							"definition": "All persons in the civilian noninstitutional population classified as either employed or unemployed."
 						}, {
 							"name": "Number Employed",
 							"dataType": "level",
-							"definition": "All Persons 16 years and over in the civilian non-institutional population who, during the reference week, (a) did any work at all (at least 1 hour) as paid employees; worked in their own business, profession, or on their own farm, or worked 15 hours or more as unpaid workers in an enterprise operated by a member of the family; and (b) all those who were not working but who had jobs or businesses from which they were temporarily absent because of vacation, illness, bad weather, childcare problems, maternity or paternity leave, labor-management dispute, job training, or other family or personal reasons, whether or not they were paid for the time off or were seeking other jobs. Each employed person is counted only once, even if he or she holds more than one job. Excluded are persons whose only activity consisted of work around their own house (painting, repairing, or own home housework) or volunteer work for religious, charitable, and other organizations."
+							"definition": "These are all persons who, during the reference week (the week including the 12th day of the month), (a) did any work as paid employees, worked in their own business or profession or on their own farm, or worked 15 hours or more as unpaid workers in an enterprise operated by a member of their family, or (b) were not working but who had jobs from which they were temporarily absent because of vacation, illness, bad weather, childcare problems, maternity or paternity leave, labor-management dispute job training, or other family or personal reasons, whether or not they were paid for the time off or were seeking other jobs. Each employed person is counted only once, even if he or she holds more than one job."
 						}, {
 							"name": "Number Unemployed",
 							"dataType": "level",
-							"definition": "Persons aged 16 years and older who had no employment during the reference week, were available for work, except for temporary illness, and had made specific efforts to find employment sometime during the 4-week period ending with the reference week. Persons who were waiting to be recalled to a job from which they had been laid off need not have been looking for work to be classified as unemployed."
+							"definition": "Included are all persons who had no employment during the reference week, were available for work, except for temporary illness, and had made specific efforts to find employment some time during the 4 week-period ending with the reference week. Persons who were waiting to be recalled to a job from which they had been laid off need not have been looking for work to be classified as unemployed."
 						}, {
 							"name": "Unemployment Rate",
 							"dataType": "percent",
-							"definition": "Number of persons unemployed as a percent of the labor force."
+							"definition": "Number of persons unemployed as a percent of the labor force.ß"
 						}
 					]
 				}, {
@@ -2580,6 +2578,28 @@
 			"name": "Energy & Environment",
 			"children": [
 				{
+					"name": "Coal Production and Use",
+					"years": [2013],
+					"notes": ".coal-note",
+					"source": "NACo Analysis of U.S. Energy Information Adminstration Data",
+					"companions": [
+					],
+					"children": [
+						{
+							"name": "Coal-fueled Power Plants",
+							"dataType": "level",
+							"definition": "The number of power plants in a county for which coal is the energy source for at least one generator."
+						}, {
+							"name": "Number of Coal Mines",
+							"dataType": "level",
+							"definition": "Total number of coal mines in a county.  The total includes both underground and surface mines."
+						}, {
+							"name": "Coal Production",
+							"dataType": "level",
+							"definition": "Total number of short tons of coal produced in a county."
+						}
+					]
+				}, {
 					"name": "Endangered Species",
 					"years": [2015],
 					"notes": ".endangered-note",
@@ -4065,8 +4085,9 @@
 					]
 				}, {
 					"name": "Jails - Supervised Population",
-					"source": "NACo Analysis of Bureau of Justice Statistics - Annual Survey of Jails",
+					"source": "2015 NACo Analysis of Bureau of Justice Statistics - Annual Survey of Jails",
 					"years": [2008, 2009, 2010, 2011, 2012],
+					"notes": ".suvery-of-jails-note",
 					"companions": [["Jails - Supervised Population", "Total Jail Population"], ["Jails - Supervised Population", "Confined Persons"], ["Jails - Supervised Population", "Nonconfined Persons"], ["Jails - Supervised Population", "Average Daily Population"]
 					],
 					"children": [
@@ -4074,35 +4095,35 @@
 							"name": "Total Jail Population",
 							"unit": "persons",
 							"dataType": "level",
-							"definition": "Total inmate population incarcerated or all persons in community-based programs run by jails in the county (e.g., electronic monitoring, house arrest, community service, day reporting, and work programs)."
+							"definition": "Total number of persons supervised by the county, including persons confined in a jail facility and not confined (e.g., persons in community based supervision programs run by the jail)."
 						}, {
 							"name": "Jail Capacity",
 							"unit": "persons",
 							"dataType": "level",
-							"definition": "Maximum number of beds or inmates allocated to all jail facilities in the county"
+							"definition": "The number of beds or inmates assigned by a rating official to a facility, excluding separate temporary holding areas."
 						}, {
 							"name": "Confined Persons",
 							"dataType": "level",
-							"definition": "Total number of persons housed in jail or persons in community-based programs in the county (e.g. work release, day release, drug/alcohol treatment) who return to jail at night."
+							"definition": "Number of persons  confined in the county’s jail facilities, including halfway houses, work farms, and other facilities in which individuals are in custody overnight."
 						}, {
 							"name": "Nonconfined Persons",
 							"dataType": "level",
-							"definition": "All persons in community-based programs run by jails in the county (e.g., electronic monitoring, house arrest, community service, day reporting, and work programs) but are not housed in the jail."
+							"definition": "Number of persons supervised outside of the county’s jail facilities, including in community based supervision programs such as electronic monitoring, house arrest, community service programs, day reporting and work programs."
 						}, {
 							"name": "Non US Citizens",
 							"unit": "persons",
 							"dataType": "level",
-							"definition": "Number of inmates in all jails in the county who are not citizens of the United States."
+							"definition": "The number of confined persons in the county’s jail facilities that do not hold U.S. citizenship."
 						}, {
 							"name": "Weekenders",
 							"unit": "persons",
 							"dataType": "level",
-							"definition": "Number of inmates in the county in programs that allow offenders to serve their sentences of confinement only on weekends."
+							"definition": "The number of convicted persons that are released from confinement on weekdays and return to the jail on the weekend to serve their sentence."
 						}, {
 							"name": "Average Daily Population",
 							"unit": "persons",
 							"dataType": "level",
-							"definition": "Average daily jail population in the county."
+							"definition": "The average daily population of the county's jail facilities for July 1, 2012 to June 30, 2013."
 						}
 					]
 				}, {
