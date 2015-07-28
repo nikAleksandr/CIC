@@ -837,7 +837,6 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 					$('#stateSearchToggle').show();
 					$('#state-map-iframe').css('height', stateImgHeight +'px');
 				}
-				(url.indexOf('county') != -1) $('#showOnMap').show() : else $('#showOnMap').hide();
 				showInstructions();
 			} else {
 				console.log('Error retrieving data from : ' + '/ciccfm/' + url);
@@ -1163,7 +1162,7 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 		// list source
 		d3.select("#sourceContainer").selectAll("p").remove();
 		d3.select('#sourceContainer').append('p').attr("id", "sourceText")
-			.html('<span style="font-weight:400;">Source: </span>' + indObjects[0].source + ((indObjects[0].suppressYear) ? '.' : (indObjects[0].vintageYear) ? ', ' + indObjects[0].vintageYear : ', ' + indObjects[0].year));
+			.html('<span style="font-weight:400;">Source: </span>' + indObjects[0].source + ((indObjects[0].suppressYear) ? '.' : (indObjects[0].legendTitlePre) ? ', ' + indObjects[0].legendTitlePre : ', ' + indObjects[0].year));
 		
 				
 		// if showing a "county profile" indicator, show a mini help dialog
@@ -1307,9 +1306,13 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 					selectedInd.year = d3.max(Jdataset.years);
 					selectedInd.source = Jdataset.source;
 					selectedInd.companions = Jdataset.companions;
-					if (Jdataset.hasOwnProperty('yearSpan')) selectedInd.yearSpan = Jdataset.yearSpan;
+					if (Jdataset.hasOwnProperty('legendTitlePre')) selectedInd.legendTitlePre = Jdataset.legendTitlePre;
+					if (Jdataset.hasOwnProperty('legendTitleMain')) selectedInd.legendTitleMain = Jdataset.legendTitleMain;
+					if (Jdataset.hasOwnProperty('legendTitlePost')) selectedInd.legendTitlePost = Jdataset.legendTitlePost;
+					if (Jdataset.hasOwnProperty('subtitlePre')) selectedInd.subtitlePre = Jdataset.subtitlePre;
+					if (Jdataset.hasOwnProperty('subtitleMain')) selectedInd.subtitleMain = Jdataset.subtitleMain;
+					if (Jdataset.hasOwnProperty('subtitlePost')) selectedInd.subtitlePost = Jdataset.subtitlePost;
 					if (Jdataset.hasOwnProperty('vintage')) selectedInd.vintage = Jdataset.vintage;
-					if (Jdataset.hasOwnProperty('legend_title_footer')) selectedInd.legend_title_footer = Jdataset.legend_title_footer;
 					if (Jdataset.hasOwnProperty('suppressYear')) selectedInd.suppressYear = Jdataset.suppressYear;
 					if (Jdataset.hasOwnProperty('notes')) selectedInd.notes = Jdataset.notes;
 					
@@ -1418,15 +1421,23 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 	};
 	var changeLegendTitle = function() {
 		var primeIndObj = indObjects[0];
-		//components of legend titles with default components
-		//spaces should be added to the end of Pre and the beginning of Post
-		var subtitlePre = '',
-			subtitleMain = primeIndObj.name,
-			subtitlePost = '',
-			legendTitlePre = primeIndObj.year + ' ',
-			legendTitleMain = primeIndObj.dataset,
-			legendTitlePost = '';
+		//components of legend titles with default components if no overriding indicator object property exists
+		//spaces are added to the end of Pre and the beginning of Post
+		var subtitlePre = (primeIndObj.hasOwnProperty('subtitlePre')) ? primeIndObj.subtitlePre + ' ' : '',
+			subtitleMain = (primeIndObj.hasOwnProperty('subtitleMain')) ? primeIndObj.subtitleMain : primeIndObj.name,
+			subtitlePost = (primeIndObj.hasOwnProperty('subtitlePost')) ? ' ' + primeIndObj.subtitlePost : (primeIndObj.hasOwnProperty('unit') && primeIndObj.unit.indexOf('per ') !== -1 && subtitleMain.indexOf('per ') === -1) ? ' (' + primeIndObj.unit + ')' : '',
+			legendTitlePre = (primeIndObj.hasOwnProperty('legendTitlePre')) ? primeIndObj.legendTitlePre + ' ' : primeIndObj.year + ' ',
+			legendTitleMain = (primeIndObj.hasOwnProperty('legendTitleMain')) ? primeIndObj.legendTitleMain : primeIndObj.dataset,
+			legendTitlePost = (primeIndObj.hasOwnProperty('legendTitlePost')) ? ' ' + primeIndObj.legendTitlePost : '';
 		
+		//profiles
+		if (primeIndObj.has_profile === true){
+			//subtitle override for all profiles, indicator name is found in the first companion
+			//all other properties of the profile indicator besides the name and definition should reflect this first companion
+			subtitleMain = primeIndObj.companions[0][1];
+		}
+
+		/*
 		if(primeIndObj.hasOwnProperty('yearSpan') & !primeIndObj.hasOwnProperty('vintageYear')){
 			legendTitlePre = primeIndObj.yearSpan + ' ';
 		}
@@ -1458,7 +1469,7 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 		if (primeIndObj.hasOwnProperty('unit') && primeIndObj.unit.indexOf('per ') !== -1 && subtitleMain.indexOf('per ') === -1) {
 			subtitlePost = ' (' + primeIndObj.unit + ')';
 		}
-		
+		*/
 		var subtitle = subtitlePre + subtitleMain + subtitlePost;
 		var legendTitle = legendTitlePre + legendTitleMain + legendTitlePost;
 		

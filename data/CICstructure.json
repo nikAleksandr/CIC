@@ -1451,7 +1451,7 @@
 					"name": "County Tax Rates",
 					"source": "NACo Research",
 					"years": [2014],
-					"legend_title_footer": ", collected over 2007-2014",
+					"legendTitlePost": ", collected over 2007-2014",
 					"companions": [["County Tax Rates", "Sales Tax"], ["County Tax Rates", "State Sales Tax"]
 					],
 					"children": [
@@ -1477,7 +1477,7 @@
 							"name": "County Muni Bonds Profiles",
 							"unit": "dollars",
 							"dataType": "level",
-							"vintageYear": "2013",
+							"legendTitlePre": "2013",
 							"has_profile": true,
 							"definition": "Profiles on the county-level impact of changing the tax-exempt status of municipal bond interest."
 						}, {
@@ -1485,9 +1485,9 @@
 							"unit": "millions of dollars",
 							"statewide": true,
 							"dataType": "level",
-							"vintageYear": "2013",
+							"legendTitlePre": "2013",
 							"has_profile": true,
-							"yearSpan": "2003-2012",
+							"subtitlePre": "2003-2012",
 							"companions": [["Municipal Bonds", "Statewide Tax Exempt Muni Bonds Value"], ["Municipal Bonds", "Statewide Cost of 28% Cap"], ["Municipal Bonds", "Statewide Cost of Full Repeal"], ["Municipal Bonds", "Statewide Tax Exempt Muni Bonds Value"]],
 							"source": "NACo Analysis of Thompson Reuters February 2013 data",
 							"definition": "Profiles showing the impact of changing the tax-exempt status of municipal bond interest on state and local governments and authorities."
@@ -1567,7 +1567,7 @@
 					"name": "City-County Consolidations",
 					"source": "NACo Research",
 					"years": [2014],
-					"legend_title_footer": ", as of Aug 2014",
+					"legendTitlePost": ", as of Aug 2014",
 					"companions": [["City-County Consolidations", "Consolidation"], ["City-County Consolidations", "Government Type"], ["City-County Consolidations", "Merging Entities"], ["City-County Consolidations", "Year Consolidated"]
 					],
 					"children": [
@@ -1594,14 +1594,14 @@
 					"name": "County Administrators",
 					"source": "NACo analysis",
 					"years": [2015],
-					"legend_title_footer": ", as of May 2015",
+					"legendTitlePost": ", as of May 2015",
 					"companions": [["County Administrators", "Appointed County Administrators"], ["County Administrators", "Statewide Total Administrators"], ["County Administrators", "Statewide Number of County Administrator Titles"], ["County Administrators", "Enabled by State Statute or County Ordinance"], ["County Administrators", "Decade of Enabling State Statute"]
 					],
 					"children": [
 						{
 							"name": "Appointed County Administrators",
 							"dataType": "categorical",
-							"vintageYear": "as of May 2015",
+							"legendTitlePre": "as of May 2015",
 							"definition": "This indicator explains whether the county has an appointed county administrator, an elected county executive or neither.",
 							"order": {"No Administrator or Elected Exec": 0, "Elected Exec, No Administrator": 1, "Administrator Appt by Elected Exec": 2, "Administrator and Elected Exec": 3, "Administrator, No Elected Exec": 4},
 							"longLegendNames": true,
@@ -1609,14 +1609,14 @@
 						}, {
 							"name": "Statewide Number of County Administrator Titles",
 							"dataType": "level",
-							"vintageYear": "as of May 2015",
+							"legendTitlePre": "as of May 2015",
 							"definition": "The total number of titles for all the county administrators in a state.",
 							"thresholds": [1,3,5,7],
 							"greyData": "Parts of Alaska and Massachusetts colored in grey do not have county governments."
 						}, {
 							"name": "Enabled by State Statute or County Ordinance",
 							"dataType": "categorical",
-							"vintageYear": "as of May 2015",
+							"legendTitlePre": "as of May 2015",
 							"definition": "It indicates whether the county administrators in that state are appointed based on an enabling state statute and/or county ordinance. The “county ordinance” reflects the wider county board’s decision: county ordinance,  resolution and/or position description.",
 							"order": {"No County Administrator": 0, "Only County Ordinance": 1, "Only Statutory Appointment": 2, "State Statute, County Ord Only": 3, "Statutory and County Ord": 4},
 							"longLegendNames": true,
@@ -1625,7 +1625,7 @@
 							"name": "Decade of Enabling State Statute",
 							"unit": "year",
 							"dataType": "level_np",
-							"vintageYear": "as of May 2015",
+							"legendTitlePre": "as of May 2015",
 							"definition": "Decade of the state law regarding the appointment of county administrators in that state.",
 							"thresholds": [1940, 1960, 1980, 2000],
 							"overrideLegendMax": "2010",
@@ -1633,7 +1633,7 @@
 						}, {
 							"name": "Statewide Total Administrators",
 							"dataType": "level",
-							"vintageYear": "as of May 2015",
+							"legendTitlePre": "as of May 2015",
 							"definition": "The total number of appointed administrators in a state."
 						}, {
 							"name": "County Administrator Profiles",
@@ -1641,7 +1641,7 @@
 							"companions": [["County Administrators", "Statewide Number of County Administrator Titles"], ["County Administrators", "Appointed County Administrators"], ["County Administrators", "Statewide Total Administrators"], ["County Administrators", "Enabled by State Statute or County Ordinance"], ["County Administrators", "Decade of Enabling State Statute"]
 							],
 							"dataType": "level",
-							"vintageYear": "as of May 2015",
+							"legendTitlePre": "as of May 2015",
 							"definition": "The total number of titles for all the county administrators in a state.",
 							"thresholds": [1,3,5,7],
 							"greyData": "Parts of Alaska and Massachusetts colored in grey do not have county governments."
@@ -2279,7 +2279,7 @@
 						}, {
 							"name": "Export Growth Rate",
 							"dataType": "percent",
-							"yearSpan": " 2013-2014",
+							"legendTitlePre": " 2013-2014",
 							"definition": "is the real growth rate of exports value between 2013 and 2014, inflation-adjusted by industry."
 						}
 					]
@@ -2287,7 +2287,7 @@
 					"name": "U.S. Ex-Im Bank Financing",
 					"source": "NACo Analysis of Export Import Bank of the United States data covering 2007-2014.  Data is current as of October 6th",
 					"years": [2014],
-					"yearSpan": "2007-2014",
+					"legendTitlePre": "2007-2014",
 					"companions": [["U.S. Ex-Im Bank Financing", "Supported Exporters"], ["U.S. Ex-Im Bank Financing", "Share of Small Business Supported Exporters"], ["U.S. Ex-Im Bank Financing", "Supported Exports"], ["U.S. Ex-Im Bank Financing", "U.S. Ex-Im Bank Export Financing"]
 					],
 					"children": [
@@ -2613,39 +2613,39 @@
 							"has_profile": true,
 							"dataType": "level",
 							"suppressYear": true,
-							"yearSpan": "May 2015",
+							"legendTitlePre": "May 2015",
 							"thresholds": [1,2,6,12],
 							"definition": "An endangered species is a species in danger of extinction throughout all or a significant portion of its range.  A threatened species is a species likely to become endangered within the foreseeable future throughout all or a significant portion of its range.  A species may be treated as endangered or threatened if it resembles in appearance a species which has been listed under section 4 and enforcement personnel would have difficulty distinguishing between the listed and the unlisted species; if the effect of this difficulty is an additional threat to the listed species; and if such treatment of the unlisted species would improve protection for the listed species. A similarity of appearance listing must be promulgated or formalized by rule.  Such species are not biologically endangered or threatened and are not subject to Section 7 consultation.  In some counties threatened species includes experimental non-essential populations.  Experimental, nonessential populations of endangered species (e.g., red wolf) are treated as threatened species on public land, for consultation purposes, and as species proposed for listing on private land."
 						}, {
 							"name": "Number of Endangered and Threatened Species Listings",
 							"dataType": "level",
 							"suppressYear": true,
-							"yearSpan": "May 2015",
+							"legendTitlePre": "May 2015",
 							"thresholds": [1,2,6,12],
 							"definition": "An endangered species is a species in danger of extinction throughout all or a significant portion of its range.  A threatened species is a species likely to become endangered within the foreseeable future throughout all or a significant portion of its range.  A species may be treated as endangered or threatened if it resembles in appearance a species which has been listed under section 4 and enforcement personnel would have difficulty distinguishing between the listed and the unlisted species; if the effect of this difficulty is an additional threat to the listed species; and if such treatment of the unlisted species would improve protection for the listed species. A similarity of appearance listing must be promulgated or formalized by rule.  Such species are not biologically endangered or threatened and are not subject to Section 7 consultation.  In some counties threatened species includes experimental non-essential populations.  Experimental, nonessential populations of endangered species (e.g., red wolf) are treated as threatened species on public land, for consultation purposes, and as species proposed for listing on private land."
 						}, {
 							"name": "Number of Endangered Species Listings",
 							"dataType": "level",
 							"suppressYear": true,
-							"yearSpan": "May 2015",
+							"legendTitlePre": "May 2015",
 							"definition": "An endangered species is a species in danger of extinction throughout all or a significant portion of its range."
 						}, {
 							"name": "Number of Threatened Species Listings",
 							"dataType": "level",
 							"suppressYear": true,
-							"yearSpan": "May 2015",
+							"legendTitlePre": "May 2015",
 							"definition": "A threatened species is a species likely to become endangered within the foreseeable future throughout all or a significant portion of its range.  In some counties threatened species includes experimental non-essential populations.  Experimental, nonessential populations of endangered species (e.g., red wolf) are treated as threatened species on public land, for consultation purposes, and as species proposed for listing on private land."
 						}, {
 							"name": "Number of New Listings of Endangered and Threatened Species",
 							"dataType": "level",
 							"suppressYear": true,
-							"yearSpan": "2004-May 2015",
+							"legendTitlePre": "2004-May 2015",
 							"definition": "The number of species added to endangered or threatened status from 2004-May 2015."
 						}, {
 							"name": "Number of Delistings of Endangered and Threatened Species",
 							"dataType": "level",
 							"suppressYear": true,
-							"yearSpan": "2004-May 2015",
+							"legendTitlePre": "2004-May 2015",
 							"definition": "The number of species removed from endangered or threatened status."
 						}
 					]
@@ -2917,7 +2917,7 @@
 							"name": "SCA Total",
 							"unit": "dollars",
 							"dataType": "level",
-							"yearSpan": "2009-2014",
+							"legendTitlePre": "2009-2014",
 							"definition": "Total amount of SCA grant money awarded to any of the following within a county: unit(s) of county government, unit(s) of city government and/or nonprofit organization(s). SCA total does not include grant money awarded to state governments or any funds to counties, cities or nonprofits that pass through state government."
 						}, {
 							"name": "County Total",
@@ -4972,7 +4972,7 @@
 							"dataType": "categorical",
 							"year": 2015,
 							"order": {"Fixed rate": 0, "Variable rate": 1, "Fixed and variable rate": 2},
-							"legend_title_footer": ", as of May 2015",
+							"legendTitlePost": ", as of May 2015",
 							"companions": [["State Level Transportation","State Gas Tax Type"], ["State Level Transportation","State Gas Tax Rate"], ["State Level Transportation","State Authorized Local Gas Tax"]],
 							"source": "NACo analysis and update of 2011 Institute for Taxation and Economic Policy (ITEP) data",
 							"definition": "State gas tax rates (fixed or variable), as of May 2015. Gas taxes can be imposed at a fixed rate per gallon (cents per gallon) or as a variable rate tax that is tied to inflation, often as a percentage of the price of gasoline.  Fixed rate gas taxes are not tied to inflation and are only  changed when lawmakers vote to change them."
@@ -4981,7 +4981,7 @@
 							"unit": "dollars per gallon",
 							"year": 2015,
 							"dataType": "level",
-							"legend_title_footer": ", as of April 2015",
+							"legendTitlePost": ", as of April 2015",
 							"companions": [["State Level Transportation","State Gas Tax Type"], ["State Level Transportation","State Gas Tax Rate"], ["State Level Transportation","State Authorized Local Gas Tax"]],
 							"source": "NACo Analysis of American Petroleum Institute",
 							"definition": "State excise tax on gasoline, as of April 2015. This is a tax imposed on the sale of gasoline."
@@ -4991,7 +4991,7 @@
 							"year": 2015,
 							"dataType": "level",
 							"suppressYear": true,
-							"legend_title_footer": ", as of June 2015",
+							"legendTitlePost": ", as of June 2015",
 							"companions": [["State Level Transportation","State Gas Tax Type"], ["State Level Transportation","State Gas Tax Rate"], ["State Level Transportation","State Authorized Local Gas Tax"]],
 							"source": "NACo Analysis of various sources, June 2015",
 							"definition": "Number of years since passage of legislation increasing the state gas tax, as of June 2015"
@@ -5828,7 +5828,7 @@
 						{
 							"name": "MFA Profiles",
 							"dataType": "level",
-							"vintageYear": "2014",
+							"legendTitlePre": "2014",
 							"definition": "Profiles showing the uncollected MFA revenue and forgone ITFA revenue by state and local governments.",
 							"has_profile": true
 						}, {
@@ -5838,7 +5838,7 @@
 							"definition": "The estimated 2013 uncollected revenue by states and local governments of existing sales and use taxes on remote sales."
 						}, {
 							"name": "Statewide MFA Uncollected Revenue Growth Rate",
-							"yearSpan": "2011-2013",
+							"legendTitlePre": "2011-2013",
 							"dataType": "percent",
 							"unit": "dollars",
 							"definition": "2011-2013 Percent change in the estimated uncollected revenue by states and local governments of existing sales and use taxes on remote sales between 2011 and 2013"
@@ -5849,7 +5849,7 @@
 							"definition": "The estimated revenue that would have been collected, had the Internet Tax Freedom Act's provision preventing the taxation of broadband access not been in place."
 						}, {
 							"name": "Statewide ITFA Forgone Revenue Growth Rate",
-							"yearSpan": "2011-2013",
+							"legendTitlePre": "2011-2013",
 							"dataType": "percent",
 							"unit": "dollars",
 							"definition": "The growth rate from 2011 to 2013 in the estimated revenue that would have been collected, had the Internet Tax Freedom Act's provision preventing the taxation of broadband access not been in place."
@@ -5867,7 +5867,7 @@
 							"dataType": "percent",
 							"companions": [["Transportation Funding Profiles", "Statewide Share of County Owned Roads"], ["Transportation Funding Profiles", "Statewide Share of County Owned Roads"], ["Transportation Funding Profiles", "Statewide Share of County Owned Bridges"], ["Transportation Funding Profiles", "Statewide Structurally Deficient Share of County Bridges"]
 							],
-							"vintageYear": "2014",
+							"legendTitlePre": "2014",
 							"definition": "Profiles on state level transportation funding and financing for counties.",
 							"has_profile": true
 						}, {
@@ -5896,8 +5896,7 @@
 							"dataType": "percent",
 							"source": "NACo Analysis of MAP-21 funding, Federal Highway Administration - Highway Performance Monitoring System 2011 data and National Bridge Inventory data 2013",
 							"has_profile": true,
-							"vintageYear": "2014",
-							"yearSpan": "",
+							"subtitlePre": "2014",
 							"thresholds": [-0.3, -0.2, -0.1, 0],
 							"suppressMinMax": true,
 							"definition": "State level profiles showing the funding decrease under MAP-21 for locally owned federal-aid highways and bridges and the role of local government ownership in the state bridge inventory and federal-aid highway system."

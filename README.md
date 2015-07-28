@@ -29,12 +29,23 @@ Data is recieved in JSON format from an SQL server by running requests through a
 - years - applies specifically to the year the data is supposed to reflect, or the year the data was collected.
 - source
 - companions
-- legend_title_footer
-
-- vintageYear
-
 - suppressYear - supresses the year in the source information.
-- yearSpan
+
+- legend_title_footer - replace with legendTitlePost
+- vintageYear - replace with legendTitlePre
+- yearSpan - replace with legendTitlePre except when there is also a vintage year, in which case the yearSpan goes to subtitlePre
+
+
+- vintage - remove? maybe add a "month of last update" in the format of a Date object with year and month inputs
+
+###Legend Properties
+Indicator level properties that apply to the legend will override Dataset-level properties
+- legendTitlePre - defaults to dataset year or the year the data is supposed to reflect. When overridden, may contain a span of years, or a vintage year for the dataset.  Should always be a year value.  Will also appear on the source when the source year is not suppressed.
+- legendTitleMain - defaults to dataset name.
+- legendTitlePost - default off.  Override may contain an addendum to the dataset, such as ",as of May, 2015".
+- subtitlePre - default off.  Override if there is a specific year for an indicator separate from the dataset.  Will turn off legendTitlePre.
+- subtitleMain - defaults to indicator name.  If the indicator is a profile, this will default to the first companion.
+- subtitlePost - default off. If a "unit" property is present, will take this value unless subtitlePost is present and overrides.
 
 - name
 - dataType
@@ -45,7 +56,7 @@ Data is recieved in JSON format from an SQL server by running requests through a
 - has_profile
 - order
 - longLegendNames
-- greyData
+- greyData - changes the labeling of the grey legend color from N/A to the string value associated with this indicator object's greyData.
 - overrideLegendMax
 - suppressMinMax
 - format_type
