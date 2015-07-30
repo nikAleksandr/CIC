@@ -31,10 +31,6 @@ Data is recieved in JSON format from an SQL server by running requests through a
 - companions
 - suppressYear - supresses the year in the source information.
 
-- legend_title_footer - replace with legendTitlePost
-- vintageYear - replace with legendTitlePre
-- yearSpan - replace with legendTitlePre except when there is also a vintage year, in which case the yearSpan goes to subtitlePre
-
 
 - vintage - remove? maybe add a "month of last update" in the format of a Date object with year and month inputs
 

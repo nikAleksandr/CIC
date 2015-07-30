@@ -2578,7 +2578,7 @@
 			"name": "Energy & Environment",
 			"children": [
 				{
-					"name": "Coal Production and Use",
+					"name": "Coal Use & Production",
 					"years": [2013],
 					"notes": ".coal-note",
 					"source": "NACo Analysis of U.S. Energy Information Adminstration Data",
