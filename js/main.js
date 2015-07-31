@@ -24,8 +24,8 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 	// -------------------------- Variable Definitions ---------------------------
 	var localVersion = false;
 	
-	var default_dset = 'Off System Bridges';
-	var default_ind = 'Off System - Share of County Owned';
+	var default_dset = 'Coal Use & Production';
+	var default_ind = 'Coal Production';
 	
 	CIC.findACounty = true;
 	
