@@ -2596,7 +2596,7 @@
 						}, {
 							"name": "Coal Production",
 							"dataType": "level",
-							"thresholds": [1, 250000, 1700000, 4700000],
+							"thresholds": [1, 250000, 2000000, 5000000],
 							"definition": "Total number of short tons of coal produced in a county."
 						}
 					]
