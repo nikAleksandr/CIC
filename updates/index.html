@@ -51,7 +51,7 @@
 					  	If this is an update of an old dataset, please only add the required fields and any fields that changed.
 					  	<h1>Dataset Properties</h1>
 					  	<form id="CEForm" name="form" class="form-horizontal" novalidate action="MAILTO:nlyell@naco.org" method="post" enctype="text/plain" >
-					    <input id="finalInfo" type="textarea" name="New Data Added" ng-hide="true" value="{{ master }}">
+					    <textarea id="finalInfo" class="form-control" rows="5" type="textarea" name="New Data Added" ng-show="edit" value="{{ master }}">{{ master }}</textarea>
 					    <input type="hidden" name="subject" value="County Explorer Update Data"/>
 					    <div class="form-group">
 						    <label class="col-sm-2 control-label required">Dataset Name:</label>
@@ -130,11 +130,11 @@
 					   <hr>
 					   <div id="dataset-preview">
 						    <h2>Source Preview:</h2>
-						    <p id="source-preview">Source: {{ dataset.source }}, <span ng-hide="dataset.supressYear || dataset.legendTitlePre">{{ dataset.years[0] }}</span><span ng-show="dataset.legendTitlePre > 1000">{{ dataset.legendTitlePre }}</span></p>
+						    <p id="source-preview">Source: {{ dataset.source }}, <span ng-hide="dataset.supressYear || dataset.legendTitlePre">{{ dataset.years[0] }}</span><span ng-show="dataset.legendTitlePre > 1000 && !dataset.supressYear">{{ dataset.legendTitlePre }}</span></p>
 
 						    <h2>Legend Preview:</h2>
-						    <p id="legend-preview-dataset"><span ng-show="dataset.legendTitlePre">{{ dataset.legendTitlePre }} </span>{{ dataset.name }}<span ng-show="dataset.legendTitlePost"> {{ dataset.legendTitlePost }}</span></p>
-						    <p id="legend-preveiw-indicator">{{ indicator.name }}<span ng-show="indicator.unit"> ({{ indicator.unit }})</span></p>
+						    <p id="legend-preview-dataset"><span ng-show="dataset.legendTitlePre">{{ dataset.legendTitlePre }} </span><span ng-hide="dataset.legendTitlePre || indicator.year">{{ dataset.years[0] }} </span><span ng-show="indicator.year && !legendTitlePre">{{indicator.year}} </span>{{ dataset.name }}<span ng-show="dataset.legendTitlePost"> {{ dataset.legendTitlePost }}</span></p>
+						    <p id="legend-preveiw-indicator">{{ indicator.name }}<span ng-show="indicator.unit && indicator.unit!='dollars'"> ({{ indicator.unit }})</span></p>
 						    <p id="legend-preview-values"><span ng-hide="indicator.thresholds.length > 0">Quintile values (or quartiles + "0" if there are too many 0 values)</span><span ng-show="indicator.thresholds.length > 0">{{ indicator.thresholds }}</span></p>
 					   </div>
 					   <hr>
@@ -225,22 +225,22 @@
 						   	<p class="form-note">Leave blank for default quantiles (or quartiles with a "0").  Leave last value blank for default maximum value.</p>
 					   </div>
 
-					   <div ng-show="indicator.dataType=='percent'">
+					   <div class="form-inline form-group" ng-show="indicator.dataType=='percent' || indicator.dataType=='percent_np'">
 						   	<div class="form-group">
 						   		<label class="col-sm-3">Rounding Procedure:</label>
 							   	<div class="radio">
 							   		<label>
-							   			<input class="form-control" type="radio" ng-model="indicator.dataType" value="integer"/>Integer
+							   			<input class="form-control" type="radio" value="integer"/>Integer
 							   		</label>
 							   	</div>
 							   	<div class="radio">
 							   		<label>
-							   			<input class="form-control" type="radio" ng-model="indicator.dataType" value="dec1" />One Decimal
+							   			<input class="form-control" type="radio" ng-model="indicator.format_type" value="dec1" />One Decimal
 							   		</label>
 							   	</div>
 							   	<div class="radio">
 							   		<label>
-							   			<input class="form-control" type="radio" ng-model="indicator.dataType" value="dec2" />Two Decimal
+							   			<input class="form-control" type="radio" ng-model="indicator.format_type" value="dec2" />Two Decimal
 							   		</label>
 							   	</div>
 							</div>
@@ -298,10 +298,16 @@
 						   	<button class="form-control btn btn-default" type="button" ng-click="addIndicator(indicator)" value="Save and Start Another Indicator">Save and Start Another Indicator</button>
 						    <button class="form-control btn btn-default" type="button" ng-click="addDataset(dataset, indicator)" value="Save this Dataset (and it's indicators) and begin a new dataset">Save this Dataset (and it's indicators) and begin a new dataset</button>
 						    <br/>
-						    <input class="form-control btn btn-default" type="submit" value="Send" />
+						    <input class="form-control btn btn-success" type="submit" value="Send" />
 					   </div>
 					
 					  </form>
+					  <div id="data-preview">
+					  	<!--<pre>Working indicator = {{indicator | json}}</pre>
+						<pre>Working dataset = {{dataset | json}}</pre>-->
+						<pre>All saved work = {{master | json}}</pre>
+						<!--<button class="btn btn-danger" ng-click="edit = !edit">Edit</button>-->
+					  </div>
 				</div>
 				  <div class="col-md-4" style="position:fixed; right:0; top:5em;">
 						<h2>How to Use this Form</h2>
@@ -313,11 +319,6 @@
 							<li>If there is another dataset, return to step 1, otherwise, hit "Submit" and send the email as it is</li>
 
 						</ol>
-				  </div>
-				  <div id="data-preview">
-				  	<!--<pre>Working indicator = {{indicator | json}}</pre>
-					<pre>Working dataset = {{dataset | json}}</pre>-->
-					<pre>All saved work = {{master | json}}</pre>
 				  </div>
 				</div>				
         	</div>

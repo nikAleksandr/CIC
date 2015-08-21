@@ -8,6 +8,7 @@ angular.module('CEUpdateForm', [])
   };
   $scope.datasets = [];
   $scope.indicators = [];
+  $scope.edit = false;
 
   $scope.addIndicator = function(indicator){
     //reformat thresholds from object to a simple array
@@ -33,8 +34,9 @@ angular.module('CEUpdateForm', [])
     var newDataset = dataset;
     newDataset.children = $scope.indicators;
     //reformat year into an array
-    var tempYears = [ newDataset.years[0].value ];
-    newDataset.years = tempYears;
+    var tempYears = newDataset.years;
+    newDataset.years = [];
+    newDataset.years.push(tempYears[0]);
     //reformat the companions property appropriately
     if(newDataset.hasOwnProperty('companions')){
       var numCompanions = Object.keys(newDataset.companions).length
@@ -51,10 +53,6 @@ angular.module('CEUpdateForm', [])
     //reset objects
     $scope.children = [];
     $scope.init();
-  };
-
-  $scope.additionalIndicator = function() {
-    $scope.indicator = {};
   };
 
   $scope.init = function() {
@@ -91,27 +89,6 @@ angular.module('CEUpdateForm', [])
             break;
         }
     }
-  };
-
-  $scope.formSubmit = function(){
-    $http({
-    method  : 'POST',
-    url     : 'process.php',
-    data    : $.param($scope.formData),  // pass in data as strings
-    headers : { 'Content-Type': 'application/x-www-form-urlencoded' }  // set the headers so angular passing info as form data (not request payload)
-   })
-    .success(function(data) {
-      console.log(data);
-
-      if (!data.success) {
-        // if not successful, bind errors to error variables
-        $scope.errorName = data.errors.name;
-        $scope.errorSuperhero = data.errors.superheroAlias;
-      } else {
-        // if successful, bind success message to message
-        $scope.message = data.message;
-      }
-    });
   };
 
   $scope.init();
