@@ -2862,9 +2862,9 @@
 					]
 				}, {
 					"name": "Payment in Lieu of Taxes (PILT)",
-					"years": [2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014],
+					"years": [2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015],
 					"source": "NACo Analysis of U.S. Department of the Interior",
-					"companions": [["Payment in Lieu of Taxes (PILT)", "PILT Amount"], ["Payment in Lieu of Taxes (PILT)", "PILT per Acre"], ["Payment in Lieu of Taxes (PILT)", "Percent of Federal Land"], ["Payment in Lieu of Taxes (PILT)", "PILT Annual Growth Rate (from previous year)"]
+					"companions": [["Payment in Lieu of Taxes (PILT)", "PILT Amount"], ["Payment in Lieu of Taxes (PILT)", "PILT per Acre"], ["Payment in Lieu of Taxes (PILT)", "Percent of PILT Entitlement Land"], ["Payment in Lieu of Taxes (PILT)", "PILT Annual Growth Rate"]
 					],
 					"children": [
 						{
@@ -2878,25 +2878,20 @@
 							"unit": "dollars",
 							"dataType": "level",
 							"thresholds": [1, 10000, 100000, 1000000],
-							"definition": "Payment in Lieu of Taxes annual funding"
+							"definition": "Payment in Lieu of Taxes (PILT) funding to county governments based on presence of certain federal lands within their boundaries."
 						}, {
-							"name": "PILT Annual Growth Rate (from previous year)",
+							"name": "PILT Annual Growth Rate",
 							"dataType": "percent",
 							"thresholds": [-0.1, 0, 0.05, 0.50],
 							"suppressMinMax": true,
 							"definition": "Percent change in Payment in Lieu of Taxes annual funding from the previous year"
 						}, {
-							"name": "Total Federal Land Area",
+							"name": "Total PILT Entitlement Land",
 							"unit": "acres",
 							"dataType": "level",
 							"definition": "The area of total federal land in the county (in acres)"
 						}, {
-							"name": "Total County Area",
-							"unit": "acres",
-							"dataType": "level",
-							"definition": "The area of total land in the county (in acres)"
-						}, {
-							"name": "Percent of Federal Land",
+							"name": "Percent of PILT Entitlement Land",
 							"dataType": "percent",
 							"definition": "The percentage of the county's total land area that consists of federal land."
 						}, {
@@ -2939,10 +2934,11 @@
 					]
 				}, {
 					"name": "Secure Rural Schools (SRS)",
-					"years": [2012, 2013],
+					"years": [2012, 2013, 2014],
 					"source": "NACo Analysis of U.S. Department of Agriculture, U.S. Forest Service data and Headwaters Economics analysis of U.S. Geological Survey, Protected Areas Database",
-					"companions": [["Secure Rural Schools (SRS)", "SRS Amount, FY 2013 Receipts Year"]
+					"companions": [["Secure Rural Schools (SRS)", "SRS Payment"], ["Secure Rural Schools (SRS)", "Projected 25% Payment"], ["Secure Rural Schools (SRS)", "Payment Percent Change"]
 					],
+					"notes": ".srs-note",
 					"children": [
 						{
 							"name": "SRS Profiles",
@@ -2950,26 +2946,28 @@
 							"has_profile": true,
 							"thresholds": [-0.75, -0.25, -0.1, 0],
 							"suppressMinMax": true,
-							"companions": [["Secure Rural Schools (SRS)", "Payment Percent Change, FY 2013-2014 Receipts Years"], ["Secure Rural Schools (SRS)", "Payment Percent Change, FY 2013-2014 Receipts Years"]],
+							"companions": [["Secure Rural Schools (SRS)", "SRS Payment"], ["Secure Rural Schools (SRS)", "Projected 25% Payment"], ["Secure Rural Schools (SRS)", "Payment Percent Change"]],
 							"definition": "Profiles showing that without the SRS Act reauthorization, states revert to the Payments to States Act of 1908 as amended, receiving a 25 percent payment from national forest receipts.  USFS estimates FY 2014 county 25 percent payments based on county shares of the national forest receipts.  These estimates do not reflect the application of a 7.3 percent sequester to the state payments.  Note: The receipts year reflects when U.S. Forest Service (USFS) collects revenues from national forest lands."
-						}, {
-							"name": "SRS Amount, FY 2013 Receipts Year",
+							}, {
+							"name": "SRS Payment",
+							"legendTitlePost": ", FY 2014 Receipts Year",
 							"unit": "dollars",
 							"dataType": "level",
 							"thresholds": [1,30000,100000,300000],
-							"definition": "Funding received by counties through the Secure Rural Schools program based on forest receipts, FY 2013 receipts year.  Note: The receipts year reflects when U.S. Forest Service (USFS) collects revenues from national forest lands."
-						}, {
-							"name": "25% Payment, FY 2014 Receipts Year",
+							"definition": "Funding received by counties through the Secure Rural Schools program based on forest receipts, FY 2014 receipts year."
+							}, {
+							"name": "Projected 25% Payment",
+							"legendTitlePost": ", FY 2014 Receipts Year",
 							"unit": "dollars",
 							"dataType": "level",
 							"thresholds": [1,30000,100000,300000],
-							"definition": "Without the SRS Act reauthorization, states revert to the Payments to States Act of 1908 as amended, receiving a 25 percent payment from national forest receipts. USFS estimates FY 2014 county 25 percent payments based on county shares of the national forest receipts. These estimates do not reflect the application of a 7.3 percent sequester to the state payments. The receipts year reflects when U.S. Forest Service (USFS) collects revenues from national forest lands."
-						}, {
-							"name": "Payment Percent Change, FY 2013-2014 Receipts Years",
+							"definition": "Without the SRS Act reauthorization, states would have reverted to the Payments to States Act of 1908 as amended, receiving a 25 percent payment from the national forest receipts. U.S.F.S. estimated  FY 2014  25 percent payments based on county shares of the national forest receipts.  These estimates did not reflect the application of a 7.3 percent sequester to the payments to the states."
+							}, {
+							"name": "Payment Percent Change",
 							"dataType": "percent",
 							"thresholds": [-0.75, -0.25, -0.1, 0],
 							"suppressMinMax": true,
-							"definition": "Percentage change in funding to counties from the Secure Rural Schools program (SRS) in FY 2013 to the 25% Fund Payment in FY 2014.  Without the SRS Act reauthorization, states revert to the Payments to States Act of 1908 as amended, receiving a 25 percent payment from national forest receipts.  USFS estimates FY 2014 county 25 percent payments based on county shares of the national forest receipts.  These estimates do not reflect the application of a 7.3 percent sequester to the state payments.  The receipts year reflects when U.S. Forest Service (USFS) collects revenues from national forest lands."
+							"definition": "Percentage change in funding from the 25% Fund Payment in FY 2014 to the Secure Rural Schools program in FY 2014."
 						}
 					]
 				}, {
@@ -4130,9 +4128,10 @@
 				}, {
 					"name": "Jails - Supervised Population by Agency",
 					"source": "NACo Analysis of Bureau of Justice Statistics - Annual Survey of Jails",
-					"years": [2008, 2009, 2010, 2011, 2012],
-					"companions": [["Jails - Supervised Population by Agency", "Total Jail Population"], ["Jails - Supervised Population by Agency", "Held for Own State"], ["Jails - Supervised Population by Agency", "Held for Local Jurisdiction in State"], ["Jails - Supervised Population by Agency", "Held for Federal Bureau of Prisons"]
+					"years": [2008, 2009, 2010, 2011, 2012, 2013],
+					"companions": [["Jails - Supervised Population", "Total Jail Population"], ["Jails - Supervised Population by Agency", "Held for Own State"], ["Jails - Supervised Population by Agency", "Held for Other State"], ["Jails - Supervised Population by Agency", "Held for Local Jurisdiction in State"], ["Jails - Supervised Population by Agency", "Held for Local Jurisdiction outside the State"]
 					],
+					"notes": ".jails-agency-note",
 					"children": [
 						{
 							"name": "Total Jail Population",
@@ -4148,47 +4147,47 @@
 							"name": "Held for US Marshals Service",
 							"unit": "persons",
 							"dataType": "level",
-							"definition": "Number of inmates in the county held in county jail for the US Marshal's Service"
+							"definition": "Number of inmates held in county jail facilities for the U.S. Marshals Service."
 						}, {
 							"name": "Held for Federal Bureau of Prisons",
 							"unit": "persons",
 							"dataType": "level",
-							"definition": "Number of inmates in the county held in county jail for the Federal Bureau of Prisons"
+							"definition": "Number of inmates held in county jail facilities for the Federal Bureau of Prisons."
 						}, {
 							"name": "Held for Immigration & Customs",
 							"unit": "persons",
 							"dataType": "level",
-							"definition": "Number of inmates in the county held in county jail for the Immigration and Customs"
+							"definition": "Number of inmates held in county jail facilities for U.S. Immigration and Customs Enforcement."
 						}, {
 							"name": "Held for Bureau of Indian Affairs",
 							"unit": "persons",
 							"dataType": "level",
-							"definition": "Number of inmates in the county held in county jail for the Bureau of Indian Affairs"
+							"definition": "Number of inmates held in county jail facilities for the Bureau of Indian Affairs."
 						}, {
 							"name": "Held for Other Federal Authorities",
 							"unit": "persons",
 							"dataType": "level",
-							"definition": "Number of inmates in the county held in county jail for other federal authorities"
+							"definition": "Number of inmates held in the county's jail facilities for other federal authorities not listed."
 						}, {
 							"name": "Held for Own State",
 							"unit": "persons",
 							"dataType": "level",
-							"definition": "Number of inmates in the county held in county jail for the state in which the county is located"
+							"definition": "Number of inmates held in county jail facilities for the state in which the county is located."
 						}, {
 							"name": "Held for Other State",
 							"unit": "persons",
 							"dataType": "level",
-							"definition": "Number of inmates in the county held in county jail for another state"
+							"definition": "Number of inmates held in the county jail facilities for a state other than the one in which the county is located."
 						}, {
 							"name": "Held for Local Jurisdiction in State",
 							"unit": "persons",
 							"dataType": "level",
-							"definition": "Number of inmates in the county held in county jail for another local jurisdiction within the state in which the county is located"
+							"definition": "Number of inmates held in county jail facilities for another local jurisdiction in the state in which the county is located."
 						}, {
 							"name": "Held for Local Jurisdiction outside the State",
 							"unit": "persons",
 							"dataType": "level",
-							"definition": "Number of inmates in the county held in county jail for another local jurisdiction outside of the state"
+							"definition": "Number of inmates held in the county jail facilities for a local jail jurisdictions in a state other than the one in which the county is located."
 						}
 					]
 				}, {

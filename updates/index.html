@@ -1,0 +1,330 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <!-- Place favicon.ico in the root directory -->
+
+        <script src="//use.typekit.net/rot2uup.js"></script>
+		<script>try{Typekit.load();}catch(e){}</script>
+
+        <link rel="stylesheet" href="../css/normalize.css">
+		<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" media="all">
+        <link rel='stylesheet' href='../css/colorbox.css' />
+        <link rel="stylesheet" href="../css/main.css">
+        <script src="../js/vendor/modernizr-2.8.3.min.js"></script>
+ 		<script src="../js/vendor/angular.min.js"></script>
+
+ 		<style>
+ 			body{
+ 				background-color:#FFFFF5;
+ 			}
+ 			.form-note {
+ 				line-height:1em;
+ 				font-size: .8em;
+ 				margin:0;
+ 				color:#aaa;
+ 			}
+ 			.required {
+ 				color:red;
+ 				font-style:bold;
+ 			}
+ 			#dataset-preview{
+ 				background-color:#FFF;
+ 			}
+ 		</style>
+    </head>
+    <body ng-app="CEUpdateForm">
+        <!--[if lt IE 8]>
+            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+
+        <!-- Add your site or application content here -->
+        <div class="container">
+        	<div class="form-container">
+        		<div ng-controller="FormController">
+					<div class="col-md-8">
+					  	If this is an update of an old dataset, please only add the required fields and any fields that changed.
+					  	<h1>Dataset Properties</h1>
+					  	<form id="CEForm" name="form" class="form-horizontal" novalidate action="MAILTO:nlyell@naco.org" method="post" enctype="text/plain" >
+					    <input id="finalInfo" type="textarea" name="New Data Added" ng-hide="true" value="{{ master }}">
+					    <input type="hidden" name="subject" value="County Explorer Update Data"/>
+					    <div class="form-group">
+						    <label class="col-sm-2 control-label required">Dataset Name:</label>
+						    <div class="col-sm-10">
+						    	<input class="form-control" type="text" ng-model="dataset.name" required="" />
+						    </div>
+						 </div>
+
+					    <div class="form-group">
+					    	<label class="col-sm-2 control-label required">Source:</label>
+					    	<div class="col-sm-10">
+					    		<input class="form-control" type="text" ng-model="dataset.source" required="" />
+					    	</div>
+					    </div>
+
+					    <div class="form-group">
+					    	<label class="col-sm-2 required">Year of the data:</label>
+					    	<div class="col-sm-10">
+					    		<input class="form-control" type="number" ng-model="dataset.years[0]" required="" size="4" />
+					    	</div>
+					    	<p class="form-note">The year reflected in the data, NOT the vintage.  This must be a single number and match the year in the SQL dataset.  See below to override how it appears.</p>
+					    </div>
+
+					    <div class="form-group">
+					    	<label class="col-sm-2 control-label">Year Override:</label>
+					    	<div class="col-sm-10">
+					    		<input class="form-control" type="text" ng-model="dataset.legendTitlePre" />
+					    	</div>
+					    	<p class="form-note">This will apply to the whole dataset and effects legend and source APPEARANCE only.  See below for indicator-specific overrides</p>
+					    </div>
+
+					    <div class="form-group">
+					    	<label class="col-sm-2 control-label">Legend Addendum:</label>
+					    	<div class="col-sm-10">
+					    		<input class="form-control" type="text" ng-model="dataset.legendTitlePost" placeholder=", as of May 2015" />
+					    	</div>
+					    </div>
+
+					    <div class="form-group">
+					    	<label class="col-sm-2 control-label">Aggregate Stat:</label>
+					    	<div class="col-sm-10">
+					    		<input class="form-control" type="text" ng-model="dataset.aggregateStat" placeholder="Counties own 45% of roads" />
+					    	</div>
+					    </div>
+
+					    <div class="form-group">
+					    	<label class="col-sm-3 control-label">Dataset-wide notes:</label>
+					    	<div class="col-sm-12">
+					    		<input class="form-control" type="text" ng-model="dataset.notes[0]" />
+					    	</div>
+					    	<div class="col-sm-12">
+					    		<input class="form-control" type="text" ng-model="dataset.notes[1]" />
+					    	</div>
+					    	<div class="col-sm-12">
+					    		<input class="form-control" type="text" ng-model="dataset.notes[2]" />
+					    	</div>
+					    </div>
+
+					    <div class="form-inline form-group" >
+					    	<div class="checkbox">
+					    		<label>
+							    	<input type="checkbox" ng-model="dataset.supressYear" ng-value="true" /> Drop the automatic tailing year in the source
+								</label>
+							</div>
+						</div>
+						<div class="form-inline form-group" >
+						   <label class="col-sm-10 control-label">What are the indicators you would like to appear in the tooltip (popup) box for indicators in this dataset?</label>
+						   <input class="col-sm-3 form-control" type="text" ng-model="dataset.companions[0]" />
+						   <input class="col-sm-3 form-control" type="text" ng-model="dataset.companions[1]" />
+						   <input class="col-sm-3 form-control" type="text" ng-model="dataset.companions[2]" />
+						   <input class="col-sm-3 form-control" type="text" ng-model="dataset.companions[3]" />
+					   </div>
+						<p class="form-note">Indicator names should EXACTLY MATCH those enetered in the indicator name field below.  The final companion is only used when a companion and current indicator are duplicates.</p>
+					   <br/>
+
+					   <hr>
+					   <div id="dataset-preview">
+						    <h2>Source Preview:</h2>
+						    <p id="source-preview">Source: {{ dataset.source }}, <span ng-hide="dataset.supressYear || dataset.legendTitlePre">{{ dataset.years[0] }}</span><span ng-show="dataset.legendTitlePre > 1000">{{ dataset.legendTitlePre }}</span></p>
+
+						    <h2>Legend Preview:</h2>
+						    <p id="legend-preview-dataset"><span ng-show="dataset.legendTitlePre">{{ dataset.legendTitlePre }} </span>{{ dataset.name }}<span ng-show="dataset.legendTitlePost"> {{ dataset.legendTitlePost }}</span></p>
+						    <p id="legend-preveiw-indicator">{{ indicator.name }}<span ng-show="indicator.unit"> ({{ indicator.unit }})</span></p>
+						    <p id="legend-preview-values"><span ng-hide="indicator.thresholds.length > 0">Quintile values (or quartiles + "0" if there are too many 0 values)</span><span ng-show="indicator.thresholds.length > 0">{{ indicator.thresholds }}</span></p>
+					   </div>
+					   <hr>
+					   <br/>
+
+					   <h1>Indicator Properties</h1>
+					   <div class="form-group">
+					   	<label class="col-sm-2 required">Indicator Name:</label>
+					   	<div class="col-sm-10">
+					   		<input class="form-control" type="text" ng-model="indicator.name" />
+					   	</div>
+					   </div>
+
+					   <div class="form-inline form-group">
+						   <label class="col-sm-2 required">Data Type:</label>
+							<div class="radio">
+								<label>
+							   		<input name="data-type" type="radio" name="dataTypeRadio" ng-model="indicator.dataType" value="level" /> Level
+							   </label>
+							</div>
+							<div class="radio">
+								<label>
+							   		<input name="data-type" type="radio" name="dataTypeRadio" ng-model="indicator.dataType" value="level_np" /> Level (incl. negatives)
+							   </label>
+							</div>
+							<div class="radio">
+								<label>
+							   		<input name="data-type" type="radio" name="dataTypeRadio" ng-model="indicator.dataType" value="percent" /> Percent
+							   </label>
+							</div>
+							<div class="radio">
+								<label>
+							   		<input name="data-type" type="radio" name="dataTypeRadio" ng-model="indicator.dataType" value="percent_np" /> Percent (incl. negatives)
+							   </label>
+							</div>
+							<div class="radio">
+								<label>
+							   		<input name="data-type" type="radio" name="dataTypeRadio" ng-model="indicator.dataType" value="binary" /> Binary
+							   </label>
+							</div>
+							<div class="radio">
+								<label>
+							   		<input name="data-type" type="radio" name="dataTypeRadio" ng-model="indicator.dataType" value="categorical" /> Categorical
+							   </label>
+							</div>
+					   </div>
+
+					   <div class="form-group">
+					   	<label class="col-sm-2 required">Definition:</label>
+					   	<input class="col-sm-10form-control" type="text" ng-model="indicator.definition" size="100" />
+					   </div>
+					   
+					   <div class="form-group">
+					   	<label class="col-sm-2">Unit:</label>
+					   	<div class="col-sm-10">
+					   		<input class="form-control" type="text" ng-model="indicator.unit" />
+					   	</div>
+					   </div>
+
+					   <p class="form-note">IE: dollars, thousands of dollars, FTE Employees, etc.  Usually left blank.</p>
+					   <br/>
+					   <div class="form-group">
+					   	<label class="col-sm-2">Indicator-specific notes:</label>
+					   	<div class="col-sm-10">
+					   		<input class="form-control" type="text" ng-model="indicator.notes" size="100" />
+					   	</div>
+					   </div>
+
+					   <br/>
+					   <div class="form-group">
+					   	<label class="col-sm-2">Year:</label>
+					   	<div class="col-sm-10">
+					   		<input class="form-control" type="number" ng-model="indicator.year" size="4" />
+					   		<p class="form-note">This will override the dataset year for this indicator.  This must match the dataset year in the SQL dataset.</p>
+					   	</div>
+					   </div>
+						
+					   <div ng-show="indicator.dataType!='categorical' || indicator.dataType!='binary'">
+					   		<div class="form-inline form-group">
+					   			<label class="col-sm-12">Are there specified legend thresholds?</label>
+						   		<input class="col-sm-2 form-control" type="number" placeholder="Min" disabled />
+						   		<input class="col-sm-2 form-control" type="number" ng-model="indicator.thresholds[0]" size="9" />
+						   		<input class="col-sm-2 form-control" type="number" ng-model="indicator.thresholds[1]"  size="9" />
+						   		<input class="col-sm-2 form-control" type="number" ng-model="indicator.thresholds[2]"  size="9" />
+						   		<input class="col-sm-2 form-control" type="number" ng-model="indicator.thresholds[3]"  size="9" />
+						   		<input class="col-sm-2 form-control" type="number" ng-model="overrideLegendMax" placeholder="Max" size="9" />
+						   	</div>
+						   	<p class="form-note">Leave blank for default quantiles (or quartiles with a "0").  Leave last value blank for default maximum value.</p>
+					   </div>
+
+					   <div ng-show="indicator.dataType=='percent'">
+						   	<div class="form-group">
+						   		<label class="col-sm-3">Rounding Procedure:</label>
+							   	<div class="radio">
+							   		<label>
+							   			<input class="form-control" type="radio" ng-model="indicator.dataType" value="integer"/>Integer
+							   		</label>
+							   	</div>
+							   	<div class="radio">
+							   		<label>
+							   			<input class="form-control" type="radio" ng-model="indicator.dataType" value="dec1" />One Decimal
+							   		</label>
+							   	</div>
+							   	<div class="radio">
+							   		<label>
+							   			<input class="form-control" type="radio" ng-model="indicator.dataType" value="dec2" />Two Decimal
+							   		</label>
+							   	</div>
+							</div>
+					   </div>
+
+					   <div ng-show="indicator.dataType=='categorical'">
+					   		<div class="form-inline form-group">
+					   			<label class="col-sm-6">Is there a specific order for these indicators?</label>
+					   			<p class="form-note">These must match case and spelling of the classifications in the indicator as in the SQL database exactly. Leave extra's blank.</p>
+						   		<input class="col-sm-2 form-control" type="text" ng-model="indicator.order[0]" placeholder="1" />
+						   		<input class="col-sm-2 form-control" type="text" ng-model="indicator.order[1]" placeholder="2" />
+						   		<input class="col-sm-2 form-control" type="text" ng-model="indicator.order[2]" placeholder="3" />
+						   		<input class="col-sm-2 form-control" type="text" ng-model="indicator.order[3]" placeholder="4" />
+						   		<input class="col-sm-2 form-control" type="text" ng-model="indicator.order[4]" placeholder="5" />
+						   		<input class="col-sm-2 form-control" type="text" ng-model="indicator.order[5]" placeholder="6" />
+						   		<input class="col-sm-2 form-control" type="text" ng-model="indicator.order[6]" placeholder="7" />
+					   		</div>
+
+					   		<div class="form-group">
+					   			<div class="checkbox">
+						   			<input type="checkbox" ng-model="indicator.longLegendNames" ng-value="true" /> Expend the legend to acommodate long indicator names?
+						   		</div>
+						   	</div>
+
+					   </div>
+					   
+					   <div class="form-group">
+					   	<label>If you would like to change the meaning of the grey color for this indicator, enter the new meaning here:</label>
+					   	<input class="form-control" type="text" ng-model="indicator.greyData" ng-value="true" placeholder="county data is unavailable if the county is colored grey" size="100" />
+						<p class="form-note">Leave this blank for the default classification of: "county data is unavailable if the county is colored grey".</p>
+					   </div>
+					   
+					   <div class="checkbox">
+					   	<label>
+					   		<input type="checkbox" ng-model="indicator.supressMinMax" ng-value="true" /> Would you like to supress the minimum and maximum legend Values?
+					   	</label>
+					   </div>
+
+					   <div class="checkbox">
+					   	<label>
+					   		<input type="checkbox" ng-model="indicator.has_profile" ng-value="true" /> Is this a profile indicator?
+					   	</label>
+					   </div>
+					   <br/><br/>
+					   <div ng-show="indicator.has_profile">
+					   		<div class="form-inline form-group">
+					   			<label class="col-sm-6">What is the name of the indicator that you would like to display on the map?</label>
+					   			<div class="col-sm-6">
+					   				<input class="form-control" type="text" ng-model="indicator.companions[0]" />
+					   			</div>
+					   		</div>
+					   </div>
+
+					   <div class="form-inline form-group">
+						   	<button class="form-control btn btn-default" type="button" ng-click="addIndicator(indicator)" value="Save and Start Another Indicator">Save and Start Another Indicator</button>
+						    <button class="form-control btn btn-default" type="button" ng-click="addDataset(dataset, indicator)" value="Save this Dataset (and it's indicators) and begin a new dataset">Save this Dataset (and it's indicators) and begin a new dataset</button>
+						    <br/>
+						    <input class="form-control btn btn-default" type="submit" value="Send" />
+					   </div>
+					
+					  </form>
+				</div>
+				  <div class="col-md-4" style="position:fixed; right:0; top:5em;">
+						<h2>How to Use this Form</h2>
+						<ol>
+							<li>Fill out dataset information</li>
+							<li>Fill out one indicator's information</li>
+							<li>If there is another indicator: Click "Save and Start Another Indicator" button and return to step 2.</li>
+							<li>If there are no more indicators: click "Save this Dataset"</li>
+							<li>If there is another dataset, return to step 1, otherwise, hit "Submit" and send the email as it is</li>
+
+						</ol>
+				  </div>
+				  <div id="data-preview">
+				  	<!--<pre>Working indicator = {{indicator | json}}</pre>
+					<pre>Working dataset = {{dataset | json}}</pre>-->
+					<pre>All saved work = {{master | json}}</pre>
+				  </div>
+				</div>				
+        	</div>
+		</div> 
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+        <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.3.min.js"><\/script>')</script>
+		<script src="../js/vendor/jquery.colorbox.js"></script>
+        <script src="script.js"></script>
+    </body>
+</html>
