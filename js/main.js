@@ -1736,7 +1736,7 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 	};
 	
 	var positionInstruction = function() {
-		var instructionLeft = (windowWidth * .1) / 2;
+		var instructionLeft = (windowWidth *.05) / 2;
 		if (windowWidth > 1024) instructionLeft = (windowWidth - 960) / 2;
 		d3.select('#instructions').style({
 			"left": instructionLeft - containerOffset.left + "px",
@@ -1959,7 +1959,13 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 		});		
 	};
 	
+	// ---------------------------- Mobile Specific JS ----------------------------------------------
+	if(windowWidth<768){
+		console.log("Mobile Device");
+		hideInstructions();
 
+
+	}
 	// ---------------------------- Miscellaneous Helper Functions ----------------------------------
 	
 	var exceptionList = [9001, 9003, 9005, 9007, 9009, 9011, 9013, 9015, 25003, 25009, 25011, 25013, 25015, 25017, 25027, 44001, 44003, 44005, 44007, 44009, 51510, 51520, 51530, 51540, 51550, 51570, 51580, 51590, 51595, 51600, 51610, 51620, 51630, 51640, 51650, 51660, 51670, 51678, 51680, 51683, 51685, 51690, 51700, 51710, 51720, 51730, 51735, 51740, 51750, 51760, 51770, 51775, 51790, 51800, 51810, 51820, 51830, 51840];
