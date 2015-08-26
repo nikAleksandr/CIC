@@ -241,6 +241,7 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 			tooltip.classed('hidden', true);
 			unhighlight();
 			zoomMap([0, 0], 1);
+			CIC.findACounty = true;
 		});
 	
 		$('.share-toggle').on('click', function(e) {
