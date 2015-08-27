@@ -55,7 +55,7 @@
 
 <div id="countyResponse-basicInfoRow" class="row">
     
-    <div id="countyResponse-populations" class="col-md-9">
+    <div id="countyResponse-populations" class="col-md-9 hidden-xs">
         <div >
         	<h4><img class="svgCircle" src="/img/population.svg"/>COUNTY POPULATION</h4>
 	        <table class="table">
@@ -77,7 +77,7 @@
 	        </table>
 		</div>
     </div> 
-    <div id="countyResponse-quickLinks" class="col-md-3">
+    <div id="countyResponse-quickLinks" class="col-md-3 hidden-xs">
     	<div id="hidden-print">
 	        <h4 style="margin-bottom:8px;"><img class="svgCircle" src="/img/quickLinks.svg"/>QUICK LINKS</h4>
 	        <ul>

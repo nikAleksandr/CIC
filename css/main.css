@@ -500,10 +500,17 @@ body {
 @media (max-width: 910px) {
 	#profileIndList { display: none; }
 }
-@media (min-width: 640px) {
+@media (min-width: 768px) {
 	.navbar-brand { display: none; }
 }
-
+@media (max-width: 768px) {
+	#search-container { 
+		background-color: white;
+		margin-top: -1em;
+		padding-top: 1em;
+		padding-left:1em;
+	}
+}
 
 
 /* ==========================================================================

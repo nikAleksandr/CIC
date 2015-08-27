@@ -453,7 +453,7 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 	};
 	
 	var setSearchBehavior = function() {
-		var searchField = d3.select('#search-field');
+		var searchField = d3.select('#searchBox');
 		var stateDrop = d3.select('#state-drop-container');	
 		d3.select('#search-submit').on('click', submitSearch);
 		
@@ -726,15 +726,12 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 					} else if (currentDI === 'Payment in Lieu of Taxes (PILT) - PILT Profiles') {
 						if (quantByIds[0][+FIPS] === 0) {
 							var profileURL = '../profiles/PILT/National_PILT.pdf';
-							cbOptsVert.title = '<a class="newWindow" href="' + profileURL + '" target=_blank">Open In New Window</a>';
-							cbOptsVert.href = profileURL;
-							$.colorbox(cbOptsVert);
 						} else {
-							var profileURL = '../profiles/PILT/' + county.geography + '.pdf';
-							cbOptsVert.title = '<a class="newWindow" href="' + profileURL + '" target=_blank">Open In New Window</a>';
-							cbOptsVert.href = profileURL;
-							$.colorbox(cbOptsVert);
+							var profileURL = '../profiles/PILT/' + county.geography + '.pdf';	
 						}
+						cbOptsVert.title = '<a class="newWindow" href="' + profileURL + '" target=_blank">Open In New Window</a>';
+						cbOptsVert.href = profileURL;
+						$.colorbox(cbOptsVert);
 					} else if (currentDI === 'MFA Profiles - MFA Profiles') {
 						var state = countyObjectById[+FIPS].STATE;
 						if(state=="MT" | state=="OR" | state=="NH" | state=="DE"){
@@ -1738,9 +1735,13 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 	var positionInstruction = function() {
 		var instructionLeft = (windowWidth *.05) / 2;
 		if (windowWidth > 1024) instructionLeft = (windowWidth - 960) / 2;
+		var minHeight = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
+			minHeight -= 50;
+		if(minHeight > 450) minHeight = 450;
 		d3.select('#instructions').style({
 			"left": instructionLeft - containerOffset.left + "px",
-			"height": height + "px"
+			"height": height + "px",
+			"min-height": minHeight + "px"
 		});
 	};
 	var positionZoomIcons = function() {
@@ -1961,8 +1962,11 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 	
 	// ---------------------------- Mobile Specific JS ----------------------------------------------
 	if(windowWidth<768){
-		console.log("Mobile Device");
-		hideInstructions();
+		noty({
+				text: 'Please enjoy the find-a-county features on your mobile devices. <br/><br/> For the full County Explorer experience, please visit the site on a full-sized screen.',
+				timeout: false
+
+			});
 
 
 	}
