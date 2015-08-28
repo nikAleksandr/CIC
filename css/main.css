@@ -197,7 +197,10 @@ body {
 	height: 100%;
 	padding-bottom: 20px;
 }
-
+#mobile-text {
+	font-size:2em;
+	padding:1em;
+}
 
 /* Map Styling */
 #map {
@@ -506,9 +509,13 @@ body {
 @media (max-width: 768px) {
 	#search-container { 
 		background-color: white;
+		border-bottom: 2px solid #ccc;
 		margin-top: -1em;
 		padding-top: 1em;
 		padding-left:1em;
+	}
+	#container {
+		padding-top:3em;
 	}
 }
 

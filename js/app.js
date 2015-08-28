@@ -15,8 +15,8 @@
 			panel.visible = true;
 			panel.showOnMapVisible = false;
 			panel.printVisible = false;
-			panel.currentText = 'update';
-			panel.currentHelpTab = 1;
+			panel.currentText = $(window).width()>768 ? 'update' : 'help';
+			panel.currentHelpTab = $(window).width()>768 ? 1 : 3;
 			
 			panel.setVisible = function(vis) {
 				panel.visible = vis;

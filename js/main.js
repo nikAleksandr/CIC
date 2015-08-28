@@ -462,14 +462,14 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 			$('#' + searchType).button('toggle');
 			searchType = $(this).attr('id');
 			$(this).button('toggle');
-			
+
 			if (searchType === 'stateSearch') {
 				stateDrop.classed('hidden', false);
 				searchField.classed('hidden', true);
 			} else {
 				stateDrop.classed('hidden', true);
 				searchField.classed('hidden', false);
-				searchField.attr('placeholder', $(this).attr('name'));
+				searchField.select('#search-field').attr('placeholder', $(this).attr('name'));
 			}
 		});
 	
@@ -499,6 +499,9 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 	
 	var submitSearch = function() {
 		d3.event.preventDefault();
+
+		//close menu on mobile
+		if(windowWidth<768) $('.navbar-toggle').trigger('click');
 			
 		var search_str = d3.select('#search-field').property('value');
 		var results_container = d3.select('#container');
@@ -727,7 +730,8 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 						if (quantByIds[0][+FIPS] === 0) {
 							var profileURL = '../profiles/PILT/National_PILT.pdf';
 						} else {
-							var profileURL = '../profiles/PILT/' + county.geography + '.pdf';	
+							var countyName = parseCountyName(+FIPS, county.geography);
+							var profileURL = '../profiles/PILT/' + countyName + '.pdf';	
 						}
 						cbOptsVert.title = '<a class="newWindow" href="' + profileURL + '" target=_blank">Open In New Window</a>';
 						cbOptsVert.href = profileURL;
@@ -1856,7 +1860,6 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 		    	custom_ind = urlParams.ind;
 		    }
 
-
 		    if (localVersion) {
 		    	CIC.update(default_dset, default_ind); // fill in map colors for default indicator now that everything is loaded 	
 		    } else {  
@@ -1962,13 +1965,9 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 	
 	// ---------------------------- Mobile Specific JS ----------------------------------------------
 	if(windowWidth<768){
-		noty({
-				text: 'Please enjoy the find-a-county features on your mobile devices. <br/><br/> For the full County Explorer experience, please visit the site on a full-sized screen.',
-				timeout: false
+		CIC.findACounty = true;
 
-			});
-
-
+		$('.navbar-toggle').trigger('click');
 	}
 	// ---------------------------- Miscellaneous Helper Functions ----------------------------------
 	
