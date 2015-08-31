@@ -472,10 +472,10 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 				searchField.select('#search-field').attr('placeholder', $(this).attr('name'));
 			}
 		});
-	
+		
 		d3.select('#stateDrop').selectAll('a').on('click', function() {
 			if (searchState !== this.name) {
-				searchState = this.name;		
+				searchState = this.name;	
 				d3.select('#stateDropText').html(searchState  + '<span class="sub-arrow"></span>');			
 			}
 			if (searchType === 'stateSearch' && searchState !== 'State') submitSearch();
@@ -1929,37 +1929,37 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 				idByName[d.geography] = d.id;
 				countyObjectById[d.id] = d;
 			});
+
+			//mobile-specific setup to decrease load and render time
+			setBehaviors();
+
+		    // check url for parameters; if there, decode into object
+		    var match,
+		    	urlParams = {}, 
+		    	pl = /\+/g, 
+		    	search = /([^&=]+)=?([^&]*)/g, 
+		    	decode = function(s) { return decodeURIComponent(s.replace(pl, ' ')); },
+		    	query = window.location.search.substring(1);
+		    while (match = search.exec(query)) urlParams[decode(match[1])] = decode(match[2]);
+		    	    
+		    
+		    // check to toggle certain overlay popup on page load
+		    if (urlParams.hasOwnProperty('signup')) {
+	    		var scope = angular.element($('#container')).scope();
+	    		scope.$apply(function() {
+	    			scope.panel.toggleShowing('mailingList');
+	    		});
+		    } else if (urlParams.hasOwnProperty('showhelp')) {
+	    		var scope = angular.element($('#container')).scope();
+	    		scope.$apply(function() {
+	    			scope.panel.toggleShowing('help');
+	    			scope.panel.selectHelpTab(parseInt(urlParams.showhelp));
+	    		});    		
+		    } else if (urlParams.hasOwnProperty('zipSearch')) {
+	    		$("#citySearch").trigger("click");
+	    		$("#search-field").focus();	
+		    }
  		});
-
-		//mobile-specific setup to decrease load and render time
-		setBehaviors();
-
-	    // check url for parameters; if there, decode into object
-	    var match,
-	    	urlParams = {}, 
-	    	pl = /\+/g, 
-	    	search = /([^&=]+)=?([^&]*)/g, 
-	    	decode = function(s) { return decodeURIComponent(s.replace(pl, ' ')); },
-	    	query = window.location.search.substring(1);
-	    while (match = search.exec(query)) urlParams[decode(match[1])] = decode(match[2]);
-	    	    
-	    
-	    // check to toggle certain overlay popup on page load
-	    if (urlParams.hasOwnProperty('signup')) {
-    		var scope = angular.element($('#container')).scope();
-    		scope.$apply(function() {
-    			scope.panel.toggleShowing('mailingList');
-    		});
-	    } else if (urlParams.hasOwnProperty('showhelp')) {
-    		var scope = angular.element($('#container')).scope();
-    		scope.$apply(function() {
-    			scope.panel.toggleShowing('help');
-    			scope.panel.selectHelpTab(parseInt(urlParams.showhelp));
-    		});    		
-	    } else if (urlParams.hasOwnProperty('zipSearch')) {
-    		$("#citySearch").trigger("click");
-    		$("#search-field").focus();	
-	    }
 	}
 
 
