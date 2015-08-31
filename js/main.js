@@ -835,7 +835,8 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 				frame.html(response);
 				
 				if(url.indexOf('state') != -1){
-					CIC.mapToggle('map');
+					if(windowWidth < 768) CIC.mapToggle('table');
+					else CIC.mapToggle('map');
 					$('#stateSearchToggle').show();
 					$('#state-map-iframe').css('height', stateImgHeight +'px');
 				}
@@ -1824,103 +1825,142 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 		
 	setup(width, height);
 
-	d3.json("data/us.json", function(error, us) {
-	  	var counties = topojson.feature(us, us.objects.counties).features;
-	  	var states = topojson.mesh(us, us.objects.states, function(a, b) { return a !== b; });
+	if(windowWidth > 768){
+		d3.json("data/us.json", function(error, us) {
+		  	var counties = topojson.feature(us, us.objects.counties).features;
+		  	var states = topojson.mesh(us, us.objects.states, function(a, b) { return a !== b; });
+			
+		  	counties.forEach(function(d) { countyPathById[d.id] = d; });
 		
-	  	counties.forEach(function(d) { countyPathById[d.id] = d; });
-	
-	  	topo = counties;
-	  	neighbors = topojson.neighbors(us.objects.counties.geometries);
-	  	stateMesh = states;
-		  
-	  	draw(topo, stateMesh); 
-		  
-	  	// load cic structure
-	  	d3.json("data/CICstructure.json", function(error, CICStructure){
-		    CICstructure = CICStructure;
-			setBehaviors();
-	
-	
-		    // check url for parameters; if there, decode into object
-		    var match,
-		    	urlParams = {}, 
-		    	pl = /\+/g, 
-		    	search = /([^&=]+)=?([^&]*)/g, 
-		    	decode = function(s) { return decodeURIComponent(s.replace(pl, ' ')); },
-		    	query = window.location.search.substring(1);
-		    while (match = search.exec(query)) urlParams[decode(match[1])] = decode(match[2]);
+		  	topo = counties;
+		  	neighbors = topojson.neighbors(us.objects.counties.geometries);
+		  	stateMesh = states;
+			  
+		  	draw(topo, stateMesh); 
+			  
+		  	// load cic structure
+		  	d3.json("data/CICstructure.json", function(error, CICStructure){
+			    CICstructure = CICStructure;
+				setBehaviors();
+		
+		
+			    // check url for parameters; if there, decode into object
+			    var match,
+			    	urlParams = {}, 
+			    	pl = /\+/g, 
+			    	search = /([^&=]+)=?([^&]*)/g, 
+			    	decode = function(s) { return decodeURIComponent(s.replace(pl, ' ')); },
+			    	query = window.location.search.substring(1);
+			    while (match = search.exec(query)) urlParams[decode(match[1])] = decode(match[2]);
 
-		    // check to see if need to default to certain indicator
-		    var custom_dset = '',
-		    	custom_ind = '';
-		    if (urlParams.hasOwnProperty('dset') && urlParams.hasOwnProperty('ind')) {
-		    	// need to check crosswalk to make sure it exists
-		    	custom_dset = urlParams.dset;
-		    	custom_ind = urlParams.ind;
-		    }
-
-		    if (localVersion) {
-		    	CIC.update(default_dset, default_ind); // fill in map colors for default indicator now that everything is loaded 	
-		    } else {  
-		    	// load crosswalk
-		    	d3.tsv('data/database_crosswalk.tsv', function(error, data_array) {
-		    		// set up crosswalk object; indexed by front-end "Dataset - Indicator" field names, filled with database names
-			      	crosswalk = {};
-		      		for (var i = 0; i < data_array.length; i++) {
-				        if (data_array[i].indicator !== '') {
-		          			var di = data_array[i].dataset + ' - ' + data_array[i].indicator;
-		          			crosswalk[di] = data_array[i];
-		        		}
-		      		}
-		      		
-		      		// fill in map colors now that everything is loaded
-		      		if (custom_dset !== '' && crosswalk.hasOwnProperty(custom_dset + ' - ' + custom_ind)) {
-		      			CIC.update(custom_dset, custom_ind);
-		      		} else {
-		      			CIC.update(default_dset, default_ind);
-		      		}
-
-
-					// for testing
-					/*
-					$.getScript('js/util.js', function(){
-						//countIndicators();
-						//areAllIndicatorsInDatabase();
-						//areAllCompanionsValid();
-						//checkDropdownNames();
-						//testDatabaseResponses(); // will only work if on nacocic.naco.org and localVersion disabled (note: 700+ requests being sent! will take more than a minute!)
-					}); */
-		    	});
-		    }
-		    	    
-		    
-		    // check to toggle certain overlay popup on page load
-		    if (custom_dset !== '') {
-		    	// close overlay if there is a custom indicator
-	    		var scope = angular.element($('#container')).scope();
-	    		scope.$apply(function() {
-	    			scope.panel.setVisible(false);
-	    		});		    	
-		    } else {
-			    if (urlParams.hasOwnProperty('signup')) {
-		    		var scope = angular.element($('#container')).scope();
-		    		scope.$apply(function() {
-		    			scope.panel.toggleShowing('mailingList');
-		    		});
-			    } else if (urlParams.hasOwnProperty('showhelp')) {
-		    		var scope = angular.element($('#container')).scope();
-		    		scope.$apply(function() {
-		    			scope.panel.toggleShowing('help');
-		    			scope.panel.selectHelpTab(parseInt(urlParams.showhelp));
-		    		});    		
-			    } else if (urlParams.hasOwnProperty('zipSearch')) {
-		    		$("#citySearch").trigger("click");
-		    		$("#search-field").focus();	
+			    // check to see if need to default to certain indicator
+			    var custom_dset = '',
+			    	custom_ind = '';
+			    if (urlParams.hasOwnProperty('dset') && urlParams.hasOwnProperty('ind')) {
+			    	// need to check crosswalk to make sure it exists
+			    	custom_dset = urlParams.dset;
+			    	custom_ind = urlParams.ind;
 			    }
-			}
-	  	});
-	});
+
+			    if (localVersion) {
+			    	CIC.update(default_dset, default_ind); // fill in map colors for default indicator now that everything is loaded 	
+			    } else {  
+			    	// load crosswalk
+			    	d3.tsv('data/database_crosswalk.tsv', function(error, data_array) {
+			    		// set up crosswalk object; indexed by front-end "Dataset - Indicator" field names, filled with database names
+				      	crosswalk = {};
+			      		for (var i = 0; i < data_array.length; i++) {
+					        if (data_array[i].indicator !== '') {
+			          			var di = data_array[i].dataset + ' - ' + data_array[i].indicator;
+			          			crosswalk[di] = data_array[i];
+			        		}
+			      		}
+			      		
+			      		// fill in map colors now that everything is loaded
+			      		if (custom_dset !== '' && crosswalk.hasOwnProperty(custom_dset + ' - ' + custom_ind)) {
+			      			CIC.update(custom_dset, custom_ind);
+			      		} else {
+			      			CIC.update(default_dset, default_ind);
+			      		}
+
+
+						// for testing
+						/*
+						$.getScript('js/util.js', function(){
+							//countIndicators();
+							//areAllIndicatorsInDatabase();
+							//areAllCompanionsValid();
+							//checkDropdownNames();
+							//testDatabaseResponses(); // will only work if on nacocic.naco.org and localVersion disabled (note: 700+ requests being sent! will take more than a minute!)
+						}); */
+			    	});
+			    }
+			    	    
+			    
+			    // check to toggle certain overlay popup on page load
+			    if (custom_dset !== '') {
+			    	// close overlay if there is a custom indicator
+		    		var scope = angular.element($('#container')).scope();
+		    		scope.$apply(function() {
+		    			scope.panel.setVisible(false);
+		    		});		    	
+			    } else {
+				    if (urlParams.hasOwnProperty('signup')) {
+			    		var scope = angular.element($('#container')).scope();
+			    		scope.$apply(function() {
+			    			scope.panel.toggleShowing('mailingList');
+			    		});
+				    } else if (urlParams.hasOwnProperty('showhelp')) {
+			    		var scope = angular.element($('#container')).scope();
+			    		scope.$apply(function() {
+			    			scope.panel.toggleShowing('help');
+			    			scope.panel.selectHelpTab(parseInt(urlParams.showhelp));
+			    		});    		
+				    } else if (urlParams.hasOwnProperty('zipSearch')) {
+			    		$("#citySearch").trigger("click");
+			    		$("#search-field").focus();	
+				    }
+				}
+		  	});
+		});
+	} else{
+		d3.tsv("data/fips_name_data.tsv", function(error, mobileData) {
+			mobileData.forEach(function(d) {			
+				idByName[d.geography] = d.id;
+				countyObjectById[d.id] = d;
+			});
+ 		});
+
+		//mobile-specific setup to decrease load and render time
+		setBehaviors();
+
+	    // check url for parameters; if there, decode into object
+	    var match,
+	    	urlParams = {}, 
+	    	pl = /\+/g, 
+	    	search = /([^&=]+)=?([^&]*)/g, 
+	    	decode = function(s) { return decodeURIComponent(s.replace(pl, ' ')); },
+	    	query = window.location.search.substring(1);
+	    while (match = search.exec(query)) urlParams[decode(match[1])] = decode(match[2]);
+	    	    
+	    
+	    // check to toggle certain overlay popup on page load
+	    if (urlParams.hasOwnProperty('signup')) {
+    		var scope = angular.element($('#container')).scope();
+    		scope.$apply(function() {
+    			scope.panel.toggleShowing('mailingList');
+    		});
+	    } else if (urlParams.hasOwnProperty('showhelp')) {
+    		var scope = angular.element($('#container')).scope();
+    		scope.$apply(function() {
+    			scope.panel.toggleShowing('help');
+    			scope.panel.selectHelpTab(parseInt(urlParams.showhelp));
+    		});    		
+	    } else if (urlParams.hasOwnProperty('zipSearch')) {
+    		$("#citySearch").trigger("click");
+    		$("#search-field").focus();	
+	    }
+	}
 
 
 	// Resize Handler
@@ -1968,6 +2008,7 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 		CIC.findACounty = true;
 
 		$('.navbar-toggle').trigger('click');
+		CIC.mapToggle('table');
 	}
 	// ---------------------------- Miscellaneous Helper Functions ----------------------------------
 	

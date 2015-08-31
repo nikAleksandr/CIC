@@ -517,6 +517,9 @@ body {
 	#container {
 		padding-top:3em;
 	}
+	#instructions {
+		top:20%;
+	}
 }
 
 
