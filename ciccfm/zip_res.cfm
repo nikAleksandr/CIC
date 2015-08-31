@@ -71,13 +71,13 @@ ORDER BY STATE, county
 			<th>County</th>
 	</tr>
 	<CFOUTPUT QUERY="cities">
-	<tr style="cursor:pointer" onClick="CIC.displayResults('county.cfm?id=' + CIC.fipsConversion('string', '#FIPS#'))">
+	<tr>
 		<td align="center">#State#</td>
 		<td>#CITY#
 		
 		<CFIF #incorporatedarea# EQ "YES"><em>(Incorporated Area)</em></CFIF>
 		</td>
-		<td>#county#  <CFIF #NYCBorough# NEQ "">(#NYCBorough#  Borough)</CFIF>
+		<td><a onClick="CIC.displayResults('county.cfm?id=' + CIC.fipsConversion('string', '#FIPS#'))">#county#  <CFIF #NYCBorough# NEQ "">(#NYCBorough#  Borough)</CFIF></a>
 		</td>
 	</tr>
 	</CFOUTPUT>

@@ -11,7 +11,6 @@
 
 
 <CFIF #websource# NEQ "naco">
-<cflocation url="http://www.naco.org/Counties/Pages/FindACounty.aspx" >
 <CFELSE>
 
 
