@@ -149,7 +149,7 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 			// for non-touch screens
 			county.each(function(d, i) {
 				d.clickCount = 0;
-			});
+			}); 
 					
 			county.on('click', function(d, i) {
 				if ($.now() - mdownTime < 300) {
