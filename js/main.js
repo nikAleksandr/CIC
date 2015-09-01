@@ -22,15 +22,28 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 (function() {
 	
 	// -------------------------- Variable Definitions ---------------------------
-	var localVersion = false;
+	var localVersion = true;
 	
 	var default_dset = 'Payment in Lieu of Taxes (PILT)';
 	var default_ind = 'PILT Amount';
 	
 	CIC.findACounty = true;
+
+	//state association specific variables
+	CIC.stateAssoc = $('#nacoLogo').attr('stateAssoc');
+	var scaleHigh, scaleLow, zoomStart = {};
+	switch(CIC.stateAssoc){
+		case 'FL':
+			zoomStart.t = [-800,-700];
+			zoomStart.s = 4; 
+			break;
+		default:
+			zoomStart.t = [0,0];
+			zoomStart.s = 1;
+	}
 	
 	var zoom = d3.behavior.zoom()
-	    .scaleExtent([1, 10]);
+	    .scaleExtent([zoomStart.s, 10]);
 	    	
 	var width = document.getElementById('container').offsetWidth-90,
 		height = width / 2,
@@ -86,8 +99,8 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 		$('#undermap').width(width);
 		
 		// reset scale and translate values
-	    frmrS = 1;
-	    frmrT = [0, 0];	
+	    frmrS = zoomStart.s;
+	    frmrT = zoomStart.t;	
 		zoom.scale(frmrS);
 		zoom.translate(frmrT);
 		zoom.on('zoom', function() {
@@ -111,7 +124,9 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 		} else {
 			$('#profileIndLi').show();
 		}
-		
+
+		zoomMap(zoomStart.t, zoomStart.s);
+
 		positionZoomIcons();	
 		positionInstruction();
 	};
