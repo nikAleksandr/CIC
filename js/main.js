@@ -1940,13 +1940,13 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 		});
 	} else{
 		d3.tsv("data/fips_name_data.tsv", function(error, mobileData) {
+			//mobile-specific setup to decrease load and render time
 			mobileData.forEach(function(d) {			
 				idByName[d.geography] = d.id;
 				countyObjectById[d.id] = d;
 			});
 
-			//mobile-specific setup to decrease load and render time
-			setBehaviors();
+			window.onload=function(){setBehaviors();};
 
 		    // check url for parameters; if there, decode into object
 		    var match,
@@ -2022,8 +2022,11 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 	if(windowWidth<768){
 		CIC.findACounty = true;
 
-		$('.navbar-toggle').trigger('click');
 		CIC.mapToggle('table');
+
+		window.setTimeout(function(){
+			$('.navbar-toggle').trigger('click')
+		}, 8000);
 	}
 	// ---------------------------- Miscellaneous Helper Functions ----------------------------------
 	
