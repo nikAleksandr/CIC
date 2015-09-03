@@ -1974,6 +1974,8 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 	    		$("#citySearch").trigger("click");
 	    		$("#search-field").focus();	
 		    }
+
+		    $('#stateSearchToggle').hide();
  		});
 	}
 
@@ -2022,10 +2024,10 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 	if(windowWidth<768){
 		CIC.findACounty = true;
 
-		CIC.mapToggle('table');
-
 		window.setTimeout(function(){
-			$('.navbar-toggle').trigger('click')
+			if($('.navbar-collapse').attr('aria-expanded')!=='true'){
+				$('.navbar-toggle').trigger('click')
+			}
 		}, 8000);
 	}
 	// ---------------------------- Miscellaneous Helper Functions ----------------------------------
