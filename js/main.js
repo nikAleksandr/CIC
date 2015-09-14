@@ -22,7 +22,7 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 (function() {
 	
 	// -------------------------- Variable Definitions ---------------------------
-	var localVersion = false;
+	var localVersion = true;
 	
 	var default_dset = 'Payment in Lieu of Taxes (PILT)';
 	var default_ind = 'PILT Amount';
@@ -30,22 +30,23 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 	CIC.findACounty = true;
 
 	//state association specific variables
-	CIC.stateAssoc = $('#nacoLogo').attr('stateAssoc');
-	var scaleHigh, scaleLow, stateMapStart = {};
+	CIC.stateAssoc = $('#stateAssociationLogo').attr('stateAssoc');
+	var scaleHigh, scaleLow, stateMap = {};
 	switch(CIC.stateAssoc){
 		case 'FL':
-			stateMapStart.translate = [-800,-700];
-			stateMapStart.scale = 4.0;
-			stateMapStart.zoomExtent = 4
+			//setting strating map variables
+			stateMap.translate = [-900,-800];
+			stateMap.scale = 4.5;
+			stateMap.zoomExtent = 3;
 			break;
 		default:
-			stateMapStart.translate = [0,0];
-			stateMapStart.scale = 1.0;
-			stateMapStart.zoomExtent = 10;
+			stateMap.translate = [0,0];
+			stateMap.scale = 1.0;
+			stateMap.zoomExtent = 10;
 	}
 	
 	var zoom = d3.behavior.zoom()
-	    .scaleExtent([1, stateMapStart.zoomExtent]);
+	    .scaleExtent([1, stateMap.zoomExtent]);
 	    	
 	var width = document.getElementById('container').offsetWidth-90,
 		height = width / 2,
@@ -85,7 +86,7 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 
 	
 	var setup = function(width, height) {
-		var projection = d3.geo.albersUsa().translate(stateMapStart.translate).scale(width * stateMapStart.scale);	    
+		var projection = d3.geo.albersUsa().translate(stateMap.translate).scale(width * stateMap.scale);	    
 		path = d3.geo.path().projection(projection);
 		svg = d3.select("#map").insert("svg", "div")
 	    	.attr("width", width)
