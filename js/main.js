@@ -31,19 +31,21 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 
 	//state association specific variables
 	CIC.stateAssoc = $('#nacoLogo').attr('stateAssoc');
-	var scaleHigh, scaleLow, zoomStart = {};
+	var scaleHigh, scaleLow, stateMapStart = {};
 	switch(CIC.stateAssoc){
 		case 'FL':
-			zoomStart.t = [-800,-700];
-			zoomStart.s = 4; 
+			stateMapStart.translate = [-800,-700];
+			stateMapStart.scale = 4.0;
+			stateMapStart.zoomExtent = 4
 			break;
 		default:
-			zoomStart.t = [0,0];
-			zoomStart.s = 1;
+			stateMapStart.translate = [0,0];
+			stateMapStart.scale = 1.0;
+			stateMapStart.zoomExtent = 10;
 	}
 	
 	var zoom = d3.behavior.zoom()
-	    .scaleExtent([zoomStart.s, 10]);
+	    .scaleExtent([1, stateMapStart.zoomExtent]);
 	    	
 	var width = document.getElementById('container').offsetWidth-90,
 		height = width / 2,
@@ -83,7 +85,7 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 
 	
 	var setup = function(width, height) {
-		var projection = d3.geo.albersUsa().translate([0, 0]).scale(width * 1.0);	    
+		var projection = d3.geo.albersUsa().translate(stateMapStart.translate).scale(width * stateMapStart.scale);	    
 		path = d3.geo.path().projection(projection);
 		svg = d3.select("#map").insert("svg", "div")
 	    	.attr("width", width)
@@ -99,8 +101,8 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 		$('#undermap').width(width);
 		
 		// reset scale and translate values
-	    frmrS = zoomStart.s;
-	    frmrT = zoomStart.t;	
+	    frmrS = 1;
+	    frmrT = [0,0];	
 		zoom.scale(frmrS);
 		zoom.translate(frmrT);
 		zoom.on('zoom', function() {
@@ -125,7 +127,7 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 			$('#profileIndLi').show();
 		}
 
-		zoomMap(zoomStart.t, zoomStart.s);
+		zoomMap([0,0], 1);
 
 		positionZoomIcons();	
 		positionInstruction();
