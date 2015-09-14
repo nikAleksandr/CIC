@@ -22,7 +22,7 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 (function() {
 	
 	// -------------------------- Variable Definitions ---------------------------
-	var localVersion = true;
+	var localVersion = false;
 	
 	var default_dset = 'Payment in Lieu of Taxes (PILT)';
 	var default_ind = 'PILT Amount';
@@ -138,7 +138,8 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 		county.enter().insert("path")
 			.attr("class", "county")
 			.attr("d", path)
-			.attr("id", function(d) { return d.id; });
+			.attr("id", function(d) { return d.id; })
+			.attr("state", function(d) {return stateFipsMatch(d.properties.state); });
 	
 		g.append("path").datum(stateMesh)
 			.attr("id", "state-borders")
@@ -243,11 +244,6 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 		setIconBehavior();
 		setZoomIconBehavior();
 		//setDataButtonBehavior();
-	};
-	//for statewide maps
-	var statewideInd = function() {
-		console.log("hi!");
-		//to-do
 	};
 	//Functions for Icons
 	var setIconBehavior = function() {
@@ -1361,45 +1357,56 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 	var fillMapColors = function() {
 		var getColor = function(type, d, i) {
 			switch(type) {
-				case 'binary':
-					return (corrDomain.hasOwnProperty(d.id)) ? range[corrDomain[d.id]] : na_color;
-				case 'categorical':
-					return isNaN(corrDomain[d.id]) ? na_color : range[corrDomain[d.id]];
-				case 'level':
-				case 'level_np':
-				case 'percent':
-					if (measureType === 'quartile' && +quantByIds[0][d.id] === 0) {
-						return level_colors[0];
+			case 'binary':
+				return (corrDomain.hasOwnProperty(d.id)) ? range[corrDomain[d.id]] : na_color;
+			case 'categorical':
+				return isNaN(corrDomain[d.id]) ? na_color : range[corrDomain[d.id]];
+			case 'level':
+			case 'level_np':
+			case 'percent':
+				if (measureType === 'quartile' && +quantByIds[0][d.id] === 0) {
+					return level_colors[0];
+				} else {
+					return isNaN(quantByIds[0][d.id]) ? na_color : color(quantByIds[0][d.id]);
+				}
+			default:
+				// for datatype: "none", colors it with category10 and neighbors with same value are same color
+				var val = quantByIds[0][d.id];
+				if (typeof val === 'undefined' || val === null || val === 0) return na_color;
+				else {	
+					if (!colorKeyArray.hasOwnProperty(val)) {
+						d.color = d3.max(neighbors[i], function(n) { return topo[n].color; }) + 1 | 0;
+						colorKeyArray[val] = d.color;
 					} else {
-						return isNaN(quantByIds[0][d.id]) ? na_color : color(quantByIds[0][d.id]);
+						d.color = colorKeyArray[val];
 					}
-				default:
-					// for datatype: "none", colors it with category10 and neighbors with same value are same color
-					var val = quantByIds[0][d.id];
-					if (typeof val === 'undefined' || val === null || val === 0) return na_color;
-					else {	
-						if (!colorKeyArray.hasOwnProperty(val)) {
-							d.color = d3.max(neighbors[i], function(n) { return topo[n].color; }) + 1 | 0;
-							colorKeyArray[val] = d.color;
-						} else {
-							d.color = colorKeyArray[val];
-						}
-						return neighbor_colors(d.color);	
-					}
+					return neighbor_colors(d.color);	
+				}
 			}
 		};
 		
 		var colorKeyArray = {}; // used for datatype: "none"
 		
-		g.selectAll('.counties .county:not(.active)').transition().duration(750).style('fill', function(d, i) {
-			return getColor(currentDataType, d, i);
-		});
-		
+		//for state association maps
+		if(CIC.stateAssoc!=''){
+			g.selectAll('.counties .county[state = ' + CIC.stateAssoc + ']:not(.active)').transition().duration(750).style('fill', function(d, i) {
+				return getColor(currentDataType, d, i);
+			});
+			g.selectAll('.counties .county:not([state = ' + CIC.stateAssoc + '])')
+				.style('fill', na_color)
+				.style('pointer-events', 'none');
+		} else{
+			g.selectAll('.counties .county:not(.active)').transition().duration(750).style('fill', function(d, i) {
+				return getColor(currentDataType, d, i);
+			});
+		}
+
 		// for selected county, keep highlighted color but still find map color and store it
 		g.selectAll('.counties .county.active').transition().duration(750).style('fill', function(d, i) {
 			frmrFill = getColor(currentDataType, d, i);
 			return highlight_color;
 		});
+
 	};
 	
 	var updateDefinitions = function() {
@@ -1620,7 +1627,7 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 			if (indObjects[i].has_profile === true) continue;
 			var row = tipTable.append('tr').attr('class', 'tipKey');	
 			writeIndicators(row, indObjects[i], quantByIds[i], attrib);
-		}			
+		}		
 	};
 	
 	var positionTooltip = function(county) {
@@ -1806,7 +1813,7 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 		d3.selectAll('.county').append('title').html(function(d) {
 			if (countyObjectById.hasOwnProperty(d.id) && countyObjectById[d.id].hasOwnProperty('geography')) return countyObjectById[d.id].geography;
 			else return false;
-		});		
+		});
 	};
 	
 	//---------------  Easter-Eggs, and other back-end functions -----------------------------------
@@ -2061,6 +2068,17 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 		else if (fips === 47037) countyName = 'Nashville/DavidsonCountyTN';
 		return countyName;		
 	};
+
+	//for matching a state Abbreviation to the stateFips
+	var stateFipsMatch = function(stateID) {
+		switch(stateID){
+			case 12:
+				return 'FL';
+				break;
+			default:
+				return 'na';
+		}
+	}
 	
 	var toTitleCase = function(str) {
 		return str.replace(/\w\S*/g, function(txt){
