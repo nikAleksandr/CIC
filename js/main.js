@@ -561,14 +561,20 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 				for (var j = 0; j < geoDesc.length; j++) {
 					var search_comb = toTitleCase(countyName) + geoDesc[j] + ', ' + stateName;
 					if (idByName[search_comb]) {
-						CIC.executeSearchMatch(parseInt(idByName[search_comb]));
-						return;
+						console.log("entire phrase match");
+						if(CIC.stateAssoc!='' & stateFipsMatch(Math.floor(CIC.fipsConversion('string',parseInt(idByName[search_comb]))/1000))==CIC.stateAssoc){
+							//findACounty switch here  - county.cfm requires a five digit string
+							(CIC.findACounty) ?  CIC.displayResults('county.cfm?id=' + CIC.fipsConversion('string',parseInt(idByName[search_comb]))) : CIC.executeSearchMatch(parseInt(idByName[search_comb]));
+							return;
+						} else noty({timeout:false, text: 'Your search was not a Florida county.  Please use the <a href="http://explorer.naco.org">full version of County Explorer</a>.'});
 					}
 				}
 				
 				// special case
-				if (countyName.toLowerCase() === 'washington' && stateName === 'DC') { 
-					(CIC.findACounty) ? CIC.displayResults('county.cfm?id=11001') : CIC.executeSearchMatch(11001);
+				if (countyName.toLowerCase() === 'washington' && stateName === 'DC') {
+					if(stateAssoc!=''){
+						noty({text: 'Your search was not a Florida county.  Please use the <a href="http://explorer.naco.org">full version of County Explorer</a>.'});
+					} else (CIC.findACounty) ? CIC.displayResults('county.cfm?id=11001') : CIC.executeSearchMatch(11001);
 				}
 			}
 			
@@ -601,12 +607,28 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 					}
 				}
 				if (numExactCountyMatch === 1) {
-					//findACounty switch here  - county.cfm requires a five digit string
-					(CIC.findACounty) ?  CIC.displayResults('county.cfm?id=' + CIC.fipsConversion('string',cMatchFIPS)) : CIC.executeSearchMatch(cMatchFIPS);
-					return;
+					console.log("exact match");
+					if(CIC.stateAssoc!='' & stateFipsMatch(Math.floor(CIC.fipsConversion('string',cMatchFIPS)/1000))==CIC.stateAssoc){
+						//findACounty switch here  - county.cfm requires a five digit string
+						(CIC.findACounty) ?  CIC.displayResults('county.cfm?id=' + CIC.fipsConversion('string',cMatchFIPS)) : CIC.executeSearchMatch(cMatchFIPS);
+						return;
+					} else noty({timeout:false, text: 'Your search was not a Florida county.  Please use the <a href="http://explorer.naco.org">full version of County Explorer</a>.'});
+					
 				}
 							
 				// display all matches if more than one match
+				if(CIC.stateAssoc!=''){
+					for (var i = pMatchArray.length -1 ; i >= 0; i--) {
+						if(pMatchArray[i].cs_array[1]!=CIC.stateAssoc){
+							console.log(pMatchArray[i].cs_array[1] + ' : ' + CIC.stateAssoc);
+							pMatchArray.splice(i, 1);
+						}
+					}
+					if(pMatchArray.length==0){
+						noty({timeout:false, text: 'Your search did not return any Florida counties.  Please use the <a href="http://explorer.naco.org">full version of County Explorer</a>.'});
+						return;
+					}
+				}
 				showResults();
 				var searchResults = d3.select('#results-container').append('div').attr('class', 'temp');
 				searchResults.append('p')
@@ -644,9 +666,15 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 				showInstructions();
 									
 			} else if (pMatchArray.length == 1) {
-				// if only one match, display county
-				//findACounty switch here - county.cfm requires a five digit string
-				(CIC.findACounty) ? CIC.displayResults('county.cfm?id=' + CIC.fipsConversion('string', pMatchArray[0].fips)) : CIC.executeSearchMatch(pMatchArray[0].fips); 
+				console.log("only one match");
+				if(CIC.stateAssoc!='' & stateFipsMatch(Math.floor(CIC.fipsConversion('string', pMatchArray[0].fips)/1000))==CIC.stateAssoc){
+					// if only one match, display county
+					//findACounty switch here - county.cfm requires a five digit string
+					(CIC.findACounty) ? CIC.displayResults('county.cfm?id=' + CIC.fipsConversion('string', pMatchArray[0].fips)) : CIC.executeSearchMatch(pMatchArray[0].fips); 
+				} else {
+					noty({timeout:false, text: 'Your search was not a Florida county.  Please use the <a href="http://explorer.naco.org">full version of County Explorer</a>.'});	
+					document.getElementById('search_form').reset();
+				}
 			} else {
 				noty({text: 'Your search did not match any counties.'});
 				document.getElementById('search_form').reset();	
@@ -2075,6 +2103,9 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 		switch(stateID){
 			case 12:
 				return 'FL';
+				break;
+			case 55:
+				return 'WI';
 				break;
 			default:
 				return 'na';

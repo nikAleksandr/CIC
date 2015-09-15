@@ -90,7 +90,10 @@ body {
 	margin: 1.2em 1.8em 0 0;
 	float: right;
 }
-
+#stateAssociationLogo {
+	float:right;
+	margin-top:.2em;
+}
 
 /* Indicator Dropdown Styling */
 .navbar a {
@@ -495,7 +498,7 @@ body {
    ========================================================================== */
 
 @media (max-width: 1025px) {
-	#nacoLogo { display: none; }
+	#nacoLogo #stateAssociationLogo{ display: none; }
 	.side-icon-text { display: none; }
 	#more-data-button a { padding: 10px 5px 7px 15px; }
 	#more-data-button span { display: none; }
