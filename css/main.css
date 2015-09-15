@@ -405,6 +405,7 @@ body {
 	text-align: left;
 	font-size: 0.9em;
 	font-weight: 300;
+	float:left;
 }
 
 #legend-container { margin-top: 1em; }
