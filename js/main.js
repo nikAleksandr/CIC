@@ -22,12 +22,13 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 (function() {
 	
 	// -------------------------- Variable Definitions ---------------------------
-	var localVersion = true;
+	var localVersion = false;
 	
 	var default_dset = 'Payment in Lieu of Taxes (PILT)';
 	var default_ind = 'PILT Amount';
 	
 	CIC.findACounty = true;
+	CIC.embed = false;
 
 	//state association specific variables
 	CIC.stateAssoc = $('#stateAssociationLogo').attr('stateAssoc');
@@ -273,7 +274,7 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 				$('.rrssb-buttons').show();
 				d3.select('#twitterContent').attr('href', twitterContentIntro + twitterContentDataset + twitterContentEnd);
 				//console.log(twitterContentIntro + twitterContentDataset + twitterContentEnd);
-				d3.select('#rrssbContainer').transition().duration(500).style('right', '80px');
+				d3.select('#rrssbContainer').transition().duration(500).style('right', '0px');
 			}		
 		});	
 	};
@@ -515,7 +516,7 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 		d3.event.preventDefault();
 
 		//close menu on mobile
-		if(windowWidth<768) $('.navbar-toggle').trigger('click');
+		if(windowWidth<768 & CIC.embed==false) $('.navbar-toggle').trigger('click');
 			
 		var search_str = d3.select('#search-field').property('value');
 		var results_container = d3.select('#container');
@@ -1863,6 +1864,15 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 		history.pushState(baseState, "directLink", directLink);
 	});
 	
+	$('#embed-copy').click(function(){
+		function copyToClipboard(text) {
+		  window.prompt("To embed this indicator, copy to clipboard: Ctrl+C, and paste into HTML", text);
+		}
+		var currentIndicatorUrl = "index.html?dset=" + encodeURIComponent(indObjects[0].dataset) + "&ind=" + encodeURIComponent(indObjects[0].name);
+		var embedCopyIframe = '<div style="width: 100%;  height: 0; padding-bottom: 72%; position: relative;"><iframe style="width: 100%; height: 100%; position: absolute;" src="http://explorer.naco.org/' + currentIndicatorUrl + '&embed=true" frameborder="0" scrolling="no">County Explorer</iFrame></div>';
+
+		copyToClipboard(embedCopyIframe);
+	});
 	
 	var exportSVG = function(){
 		d3.selectAll('path').attr({'stroke': '#fff', 'stroke-width': '.2px'});
@@ -1888,7 +1898,7 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 		
 	setup(width, height);
 
-	if(windowWidth > 768){
+	if(windowWidth > 768 || CIC.embed==true){
 		d3.json("data/us.json", function(error, us) {
 		  	var counties = topojson.feature(us, us.objects.counties).features;
 		  	var states = topojson.mesh(us, us.objects.states, function(a, b) { return a !== b; });
@@ -1969,7 +1979,9 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 			    	$('#byline').hide();
 			    	$('#side-icon-container').hide();
 			    	$('#container').removeClass('container').addClass('container-fluid');
-					window.setTimeout(redraw, 200);
+			    	stateMap.scale = 1.2;
+
+					window.setTimeout(redraw, 50);
 			    }
 			    // check to toggle certain overlay popup on page load
 			    if (custom_dset !== '') {
@@ -2080,10 +2092,15 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 	};
 	
 	// ---------------------------- Mobile Specific JS ----------------------------------------------
-	if(windowWidth<768){
+	if(windowWidth<768 & CIC.embed==false){
 		if(stateAssoc!='') window.location.replace("http://explorer.naco.org"); //redirect mobile users to the full site for find a county
 
 		CIC.findACounty = true;
+
+		$('#mobile-text').show();
+		$('#map').hide();
+		$('#zoomIcons').hide();
+		$('#undermap').hide();
 
 		window.setTimeout(function(){
 			if($('.navbar-collapse').attr('aria-expanded')!=='true'){

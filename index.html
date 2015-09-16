@@ -128,12 +128,12 @@
     	<div id="cc">	
     		<div class="container" id="container" ng-controller="PanelController as panel">	 
     			<overlay id="instructions" ng-show="panel.visible"></overlay>
-				<div id="mobile-text" class="visible-xs">
+				<div id="mobile-text" style="display:none;">
 					Please enjoy the find-a-county features on your mobile device. 
 					<br/><br/> 
 					Visit the site on a full-sized screen for the full County Explorer experience.
 				</div>
-				<div id="map" class="hidden-xs">
+				<div id="map">
 				</div>
 				<div id="side-icon-container" class="hidden-xs">
 					<div class="row icon-right-panel">
@@ -157,7 +157,7 @@
 						<div id="addToMailingListIconText" class="col-xs-9 icon-text-box" ng-click="panel.toggleShowing('mailingList')"><span class="icon-text side-icon-text">add to mailing list</span></div>
 					</div>
 				</div>
-				<div id="zoomIcons" class="hidden-xs">
+				<div id="zoomIcons">
 		        	<div id="zoomPlusIcon">+</div>
 		        	<div id="zoomMinusIcon">-</div>
 		        </div>
@@ -167,10 +167,10 @@
 		        </div>
 		        
 				<!--Under map area -->
-		        <div id="undermap"  class="hidden-xs">
+		        <div id="undermap">
 		        	<div class="container-fluid">
 			        	<div class="row">
-			        		<div class="col-md-6">
+			        		<div class="col-sm-6 col-md-6">
 					        	<div id="sourceContainer"></div>
 								<!-- <div id="perCapitaContainer">
 									<button type="button" class="btn btn-default" id="perCapitaButton">View As Per Capita</button>
@@ -200,7 +200,7 @@
 									</table>
 								</div> -->
 			        		</div>
-			        		<div id="legend-container" class="col-sm-12 col-md-6">
+			        		<div id="legend-container" class="col-sm-6 col-md-6">
 			        			<div id="legendTitleContainer">
 			        				<div id="legendTitle"></div>
 			        				<div id="legendSubtitle"></div>
@@ -292,6 +292,24 @@
 										</g>
 									</g>
 								</svg> </span> <span class="text">google+</span> </a>
+						</li>
+						<li class="embed">
+							<a id="embed-copy" href="#"> <span class="icon">
+								<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="512px" height="512px" viewBox="0 0 512 512" enable-background="new 0 0 512 512" xml:space="preserve">
+									<g>
+										<g>
+											<path d="M73.391,261.667l107.507-107.508c10.739-10.739,10.739-28.151,0-38.891c-10.739-10.74-28.151-10.739-38.891,0
+												L15.435,241.841c-5.469,5.468-8.146,12.667-8.045,19.833c-0.097,7.162,2.581,14.354,8.045,19.819l126.572,126.571
+												c10.738,10.739,28.151,10.739,38.891,0s10.739-28.151,0-38.891L73.391,261.667z"/>
+											<path d="M488.065,236.174L361.492,109.602c-10.739-10.739-28.151-10.74-38.891,0c-10.739,10.739-10.739,28.152,0,38.891L430.11,256
+												L322.602,363.508c-10.739,10.738-10.739,28.15,0,38.891c10.739,10.738,28.152,10.738,38.891,0l126.572-126.572
+												c5.467-5.467,8.144-12.662,8.045-19.826C496.208,248.836,493.531,241.64,488.065,236.174z"/>
+											<path d="M255.596,416.092c-2.687,16.35-18.119,27.426-34.468,24.739l0,0c-16.349-2.687-27.425-18.118-24.738-34.468l51.015-310.456
+												c2.687-16.349,18.118-27.425,34.468-24.739l0,0c16.349,2.687,27.425,18.119,24.738,34.468L255.596,416.092z"/>
+										</g>
+									</g>
+								</svg> </span> <span class="text">embed</span> 
+							</a>
 						</li>
 	            	</ul>
 	            </div>
