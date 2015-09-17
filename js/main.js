@@ -798,7 +798,7 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 						cbOptsVert.title = '<a class="newWindow" href="' + profileURL + '" target=_blank">Open In New Window</a>';
 						cbOptsVert.href = profileURL;
 						$.colorbox(cbOptsVert);
-					} else if (currentDI === 'Payment in Lieu of Taxes (PILT) - PILT Profiles') {
+					} else if (currentDI === 'Payment in Lieu of Taxes (PILT) - State PILT Profiles') {
 						var state = countyObjectById[+FIPS].STATE;
 						var profileURL = '../profiles/PILT_State/' + state + '.pdf';	
 
@@ -1240,7 +1240,9 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 		// if showing a "county profile" indicator, show a mini help dialog
 		if (indObjects[0].has_profile) {
 			var text = 'Click once on a county to see their county profile.';
-			if (indObjects[0].name === 'MFA Profiles' || indObjects[0].name === 'Transportation Funding Profiles' || indObjects[0].name === 'Statewide Muni Bonds Profiles' || indObjects[0].name === 'MAP-21 Profiles') text = 'Click once on a county to see their state profile.';
+			if (indObjects[0].name === 'MFA Profiles' || indObjects[0].name === 'Transportation Funding Profiles' || indObjects[0].name === 'Statewide Muni Bonds Profiles' || indObjects[0].name === 'MAP-21 Profiles' || indObjects[0].name === 'State PILT Profiles'){
+				text = 'Click once on a county to see their state profile.';
+			}
 			noty({
 				type: 'alert',
 				text: '<strong>' + text + '</strong>',
