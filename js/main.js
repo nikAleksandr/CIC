@@ -798,6 +798,13 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 						cbOptsVert.title = '<a class="newWindow" href="' + profileURL + '" target=_blank">Open In New Window</a>';
 						cbOptsVert.href = profileURL;
 						$.colorbox(cbOptsVert);
+					} else if (currentDI === 'Payment in Lieu of Taxes (PILT) - PILT Profiles') {
+						var state = countyObjectById[+FIPS].STATE;
+						var profileURL = '../profiles/PILT_State/' + state + '.pdf';	
+
+						cbOptsVert.title = '<a class="newWindow" href="' + profileURL + '" target=_blank">Open In New Window</a>';
+						cbOptsVert.href = profileURL;
+						$.colorbox(cbOptsVert);
 					} else if (currentDI === 'MFA Profiles - MFA Profiles') {
 						var state = countyObjectById[+FIPS].STATE;
 						if(state=="MT" | state=="OR" | state=="NH" | state=="DE"){

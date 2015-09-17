@@ -2868,6 +2868,13 @@
 					],
 					"children": [
 						{
+							"name": "State PILT Profiles",
+							"unit": "dollars",
+							"dataType": "level",
+							"has_profile": true,
+							"thresholds": [1, 10000, 100000, 1000000],
+							"definition": "Payment in Lieu of Taxes annual funding"
+						},{
 							"name": "PILT Profiles",
 							"unit": "dollars",
 							"dataType": "level",
