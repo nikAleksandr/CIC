@@ -42,15 +42,29 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 			break;
 		default:
 			stateMap.translate = [0,0];
-			stateMap.scale = 1.0;
+			stateMap.scale = 1.2;
 			stateMap.zoomExtent = 10;
 	}
 	
+	// check if embedded version
+    if (window.location.search.indexOf('embed=true') > -1){
+    	CIC.embed = true;
+    	$('#header').hide();
+    	$('#definitionsContainer').hide();
+    	$('#notesContainer').hide();
+    	$('#byline').hide();
+    	$('#side-icon-container').hide();
+    	$('#container').removeClass('container').addClass('container-fluid');
+    	stateMap.scale = 1.2;
+    	
+		//window.setTimeout(redraw, 50);
+    }
+
 	var zoom = d3.behavior.zoom()
 	    .scaleExtent([1, stateMap.zoomExtent]);
 	    	
 	var width = document.getElementById('container').offsetWidth-90,
-		height = width / 2,
+		height = width / 1.8,
 		windowWidth = $(window).width(),
 		windowHeight = $(window).height(),
 		containerOffset = $('#container').offset(); // position of container relative to document.body
@@ -516,7 +530,7 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 		d3.event.preventDefault();
 
 		//close menu on mobile
-		if(windowWidth<768 & CIC.embed==false) $('.navbar-toggle').trigger('click');
+		if(windowWidth<768 && CIC.embed==false) $('.navbar-toggle').trigger('click');
 			
 		var search_str = d3.select('#search-field').property('value');
 		var results_container = d3.select('#container');
@@ -1765,7 +1779,7 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 	  
 		windowWidth = $(window).width();
 		width = document.getElementById('container').offsetWidth-90;
-		height = width / 2;
+		height = width / 1.8;
 		containerOffset = $('#container').offset();
 		
 		if(CIC.embed){
@@ -1898,7 +1912,7 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 		
 	setup(width, height);
 
-	if(windowWidth > 768 || CIC.embed==true){
+	if(windowWidth >= 768 || CIC.embed==true){
 		d3.json("data/us.json", function(error, us) {
 		  	var counties = topojson.feature(us, us.objects.counties).features;
 		  	var states = topojson.mesh(us, us.objects.states, function(a, b) { return a !== b; });
@@ -1969,20 +1983,6 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 			    	});
 			    }
 			    	    
-			    
-			    // check if embedded version
-			    if (urlParams.hasOwnProperty('embed') && urlParams.embed==='true'){
-			    	CIC.embed=true;
-			    	$('#header').hide();
-			    	$('#definitionsContainer').hide();
-			    	$('#notesContainer').hide();
-			    	$('#byline').hide();
-			    	$('#side-icon-container').hide();
-			    	$('#container').removeClass('container').addClass('container-fluid');
-			    	stateMap.scale = 1.2;
-
-					window.setTimeout(redraw, 50);
-			    }
 			    // check to toggle certain overlay popup on page load
 			    if (custom_dset !== '') {
 			    	// close overlay if there is a custom indicator
@@ -2092,8 +2092,8 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 	};
 	
 	// ---------------------------- Mobile Specific JS ----------------------------------------------
-	if(windowWidth<768 & CIC.embed==false){
-		if(stateAssoc!='') window.location.replace("http://explorer.naco.org"); //redirect mobile users to the full site for find a county
+	if(windowWidth<768 && CIC.embed==false){
+		if(CIC.stateAssoc!='') window.location.replace("http://explorer.naco.org"); //redirect mobile users to the full site for find a county
 
 		CIC.findACounty = true;
 
