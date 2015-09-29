@@ -4,6 +4,13 @@
 		.factory('spanel', function() {
 			return {};
 		})
+		.factory('FeedService',['$http',function($http){
+			return {
+				parseFeed : function(url){
+					return $http.jsonp('//ajax.googleapis.com/ajax/services/feed/load?v=1.0&num=4&callback=JSON_CALLBACK&q=' + encodeURIComponent(url));
+				}
+			}
+		}])
 		.controller('MenuController', ['spanel', function(spanel) {
 			this.accessMoreData = function() {
 				spanel.toggleShowing('accessMoreData');
@@ -47,6 +54,8 @@
 			};
 			
 			panel.goToIndicator = function(dataset, indicator) {
+				CIC.findACounty = false;
+
 				indicator = indicator.replace("’", "'"); // replace apostrophes with single quotes
 				
 				panel.setVisible(false);
@@ -94,6 +103,23 @@
 				socialButtons.toggle();
 			});	*/
 		})
+		.controller("FeedCtrl", ['$scope','FeedService', function ($scope,Feed) {
+			$scope.feedSrc='http://www.naco.org/rss.xml';
+			$scope.loadFeed=function(f){        
+				Feed.parseFeed(f).then(function(res){
+					$scope.feeds=res.data.responseData.feed.entries;
+					
+					for(var i=0; i<$scope.feeds.length; i++){
+						var beginning = $scope.feeds[i].content.indexOf('src="')+5;
+						$scope.feeds[i].img = $scope.feeds[i].content.substr(beginning, $scope.feeds[i].content.indexOf('"', beginning) - beginning);
+						if($scope.feeds[i].img.indexOf('<') != -1) $scope.feeds[i].img = 'http://www.naco.org/sites/default/files/styles/medium/public/default_images/default-field-image_0.png?itok=2RfHkd95';
+						console.log($scope.feeds[i].img);
+					};
+
+				});
+			}
+			$scope.loadFeed($scope.feedSrc);
+		}])
 		.directive('indicatorList', function() {		
 			return {
 				restrict: 'A',

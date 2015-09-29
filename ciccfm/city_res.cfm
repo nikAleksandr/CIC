@@ -66,9 +66,7 @@ ORDER BY county_data.STATE, county_name
 		</CFOUTPUT> 
 		</TABLE>
 	</CFIF>	
-	<p style="color="#999999">
-	<strong>Incorporated Place:</strong> A type of governmental unit incorporated under state law as a 	city, town (except the New England states, New York, and Wisconsin), borough  (except in Alaska and New York), or village and having legally prescribed limits,  powers, and functions.
-	</p>
 	</div>
+	<div id="naco-website-feed-blank" class="container-fluid"></div>
 </div>
 </html>

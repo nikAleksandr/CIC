@@ -29,9 +29,22 @@ ORDER BY STATE, county
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
+
+	<script type="text/javascript">
+		var websiteFeed = angular.element($('angular-naco-feed')).scope().$apply()
+
+		window.onload = websiteFeed;
+
+	</script>
 <title>Find a County</title>
-<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
 <!--- <link href="../../naco_default.css" rel="stylesheet" type="text/css"> --->
+
+<script type="text/javascript">
+	//console.log();
+
+</script>
+
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -52,18 +65,18 @@ ORDER BY STATE, county
 		</CFIF>
 
 		<CFIF #cities.RecordCount# EQ 1>
-		<strong>One place by the name of "#zip#" was located.</strong>
+		<p>One place by the name of "#zip#" was located.</p>
 		</CFIF>
 
 		<CFIF #cities.RecordCount# GT 1> 
-		<H2>#cities.RecordCount# places with the zip code  "#zip#" were located.</H2>
+		<p>#cities.RecordCount# places with the zip code  "#zip#" were located.</p>
        
 		</CFIF>
 </CFOUTPUT>
 
 
 <CFIF #cities.RecordCount# GT 0>
-
+<div class="container-fluid">
 	<table class="table table-responsive table-hover">
 	<tr>
 		    <th align="center">State</th>
@@ -84,15 +97,11 @@ ORDER BY STATE, county
 	</table>
 </CFIF>	
 
-<p>
-<strong>Incorporated Place:</strong> A type of governmental unit incorporated under state law as a 
-		 city, town (except the New England states, New York, and Wisconsin), borough   (except in Alaska and New York), 
-		 or village and having legally prescribed limits,
-		  powers, and functions. -  <A HREF="http://factfinder.census.gov/home/en/epss/glossary_i.html#incorporated_place">US Census Bureau</A>
-		 <br/><br/>
+<p style="font-size:.8em;">
          Please consult the <A HREF="https://tools.usps.com/go/ZipLookupAction!input.action" target="_blank">USPS</A> for official address details.
 </p>
-
+</div>
+<div id="naco-website-feed-blank" class="container-fluid"></div>
 </body>
 </html>
 <!--- </CFIF> --->

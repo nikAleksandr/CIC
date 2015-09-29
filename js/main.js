@@ -24,8 +24,8 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 	// -------------------------- Variable Definitions ---------------------------
 	var localVersion = false;
 	
-	var default_dset = 'Payment in Lieu of Taxes (PILT)';
-	var default_ind = 'PILT Amount';
+	var default_dset = 'Early Childhood';
+	var default_ind = 'Child Poverty Rate';
 	
 	CIC.findACounty = true;
 	CIC.embed = false;
@@ -55,7 +55,8 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
     	$('#byline').hide();
     	$('#side-icon-container').hide();
     	$('#container').removeClass('container').addClass('container-fluid');
-    	stateMap.scale = 1.2;
+
+    	if (window.location.search.indexOf('external=true') > -1) $('#external-logo').show();
     	
 		//window.setTimeout(redraw, 50);
     }
@@ -63,7 +64,7 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 	var zoom = d3.behavior.zoom()
 	    .scaleExtent([1, stateMap.zoomExtent]);
 	    	
-	var width = document.getElementById('container').offsetWidth-90,
+	var width = document.getElementById('container').offsetWidth,
 		height = width / 1.8,
 		windowWidth = $(window).width(),
 		windowHeight = $(window).height(),
@@ -914,6 +915,9 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 				console.log('Error retrieving data from : ' + '/ciccfm/' + url);
 				console.log(error);
 			}
+			//after xhr request, put in the naco feed
+			var feed = $('#naco-website-feed').html();
+			$('#naco-website-feed-blank').html(feed);
 		});
 	};
 	
@@ -1240,7 +1244,7 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 		// if showing a "county profile" indicator, show a mini help dialog
 		if (indObjects[0].has_profile) {
 			var text = 'Click once on a county to see their county profile.';
-			if (indObjects[0].name === 'MFA Profiles' || indObjects[0].name === 'Transportation Funding Profiles' || indObjects[0].name === 'Statewide Muni Bonds Profiles' || indObjects[0].name === 'MAP-21 Profiles' || indObjects[0].name === 'State PILT Profiles'){
+			if (indObjects[0].name === 'MFA Profiles' || indObjects[0].name === 'Transportation Funding Profiles' || indObjects[0].name === 'Statewide Muni Bonds Profiles' || indObjects[0].name === 'MAP-21 Profiles' || indObjects[0].name === 'State PILT Profilestt'){
 				text = 'Click once on a county to see their state profile.';
 			}
 			noty({
@@ -1787,14 +1791,10 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 		tooltip.classed("hidden", true);
 	  
 		windowWidth = $(window).width();
-		width = document.getElementById('container').offsetWidth-90;
+		if(windowWidth > 2000) $('#container').removeClass('container').addClass('container-fluid'); //at 2000 px, allow the map to move to full screen width
+		width = document.getElementById('container').offsetWidth;
 		height = width / 1.8;
 		containerOffset = $('#container').offset();
-		
-		if(CIC.embed){
-			width = document.getElementById('container').offsetWidth;
-			height = width / 1.8;
-		}
 
 		d3.select('svg').remove();
 		setup(width, height);
@@ -1892,7 +1892,7 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 		  window.prompt("To embed this indicator, copy to clipboard: Ctrl+C, and paste into HTML", text);
 		}
 		var currentIndicatorUrl = "index.html?dset=" + encodeURIComponent(indObjects[0].dataset) + "&ind=" + encodeURIComponent(indObjects[0].name);
-		var embedCopyIframe = '<div style="width: 100%;  height: 0; padding-bottom: 72%; position: relative;"><iframe style="width: 100%; height: 100%; position: absolute;" src="http://explorer.naco.org/' + currentIndicatorUrl + '&embed=true" frameborder="0" scrolling="no">County Explorer</iFrame></div>';
+		var embedCopyIframe = '<div style="width: 100%;  height: 0; padding-bottom: 72%; position: relative;"><iframe style="width: 100%; height: 100%; position: absolute;" src="http://explorer.naco.org/' + currentIndicatorUrl + '&external=true&embed=true" frameborder="0" scrolling="no">County Explorer</iFrame></div>';
 
 		copyToClipboard(embedCopyIframe);
 	});
@@ -1994,6 +1994,7 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 			    	    
 			    // check to toggle certain overlay popup on page load
 			    if (custom_dset !== '') {
+			    	CIC.findACounty = false;
 			    	// close overlay if there is a custom indicator
 		    		var scope = angular.element($('#container')).scope();
 		    		scope.$apply(function() {
@@ -2110,6 +2111,7 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 		$('#map').hide();
 		$('#zoomIcons').hide();
 		$('#undermap').hide();
+		$('#external-logo').hide();
 
 		window.setTimeout(function(){
 			if($('.navbar-collapse').attr('aria-expanded')!=='true'){

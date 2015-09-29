@@ -60,7 +60,7 @@
     	
 		
         <CFIF org_type EQ 'County'>
-       
+      	<div class="container-fluid">
         <TABLE id="stateResponse-table" class="table table-striped">
         <TR style="padding:10px 0; border-bottom:2px solid rgb(255,153,51);">
                 <TH>
@@ -87,11 +87,13 @@
             </CFOUTPUT>
          </TABLE>
        <br/>
-         <DIV><em>* consolidated city-county government</em></DIV> 
+         <DIV><em>* consolidated city-county government</em></DIV>
+         </div>
+         <div id="naco-website-feed-blank" class="container-fluid"></div>
        
           <CFELSE>
           
-          <P>
+          		<div class="container-fluid">
 				<TABLE class="table table-striped table-condensed">
                 <TR><Th>#org_type#</TH>
                 <TH align="right">2013 Population</TH>
@@ -103,6 +105,8 @@
                     <TD align="right"><CFIF #Total_Square_Miles# GT 0>#NumberFormat(Total_Square_Miles)#</CFIF></TD></TR>
                     </CFOUTPUT>
                 </TABLE>
+                </div>
+                <div id="naco-website-feed-blank" class="container-fluid"></div>
 
 		</cfif>
 

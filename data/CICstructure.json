@@ -317,7 +317,7 @@
 							"name": "Correction",
 							"unit": "FTE employees",
 							"dataType": "level",
-							"definition": "Number of FTEs working on Correctional Institutions: Residential institutions or facilities for the confinement, correction, and rehabilitation of convicted adults, or juveniles adjudicated, delinquent or in need of supervision, and for the detention of adults and juveniles charged with a crime and awaiting trial.      Other Corrections: Correctional activities other than Federal, state and local residential institutions or facilities."
+							"definition": "Number of FTEs working on Correctional Institutions-Residential institutions or facilities for the confinement, correction, and rehabilitation of convicted adults, or juveniles adjudicated, delinquent or in need of supervision, and for the detention of adults and juveniles charged with a crime and awaiting trial.  Other Correctionss - Correctional activities other than Federal, state and local residential institutions or facilities."
 						}, {
 							"name": "Judicial & Legal Services",
 							"unit": "FTE employees",
@@ -971,7 +971,7 @@
 							"name": "Correction",
 							"unit": "dollars",
 							"dataType": "level",
-							"definition": "Correctional Institutions: Residential institutions or facilities for the confinement, correction, and rehabilitation of convicted adults, or juveniles adjudicated, delinquent or in need of supervision, and for the detention of adults and juveniles charged with a crime and awaiting trial. Includes: Facilities generally referred to as prisons, reformatories, jails, enitentiaries, correctional farms, workhouses, reception centers, industrial schools, training schools, and detention centers. Includes hospitals for the criminally insane IF operated by a corrections agency. Includes expenditure on education, training, and health care programs devoted to inmates. Includes residential work release units, and residential halfway houses, and community corrections centers. For prison industries include only amounts involved in the manufacture, sale, and distribution of articles or services for resale or use outside the government involved.             Other Corrections: Correctional activities other than Federal, state and local residential institutions or facilities. Includes: Probation offices (whether operated by courts or correctional agencies) boards of parole, boards of pardon, and the like; noninstitutional activities such as administration of a correctional agency, training of correctional employees, and nonresidential halfway houses and community corrections centers."
+							"definition": "Correctional Institutions - Residential institutions or facilities for the confinement, correction, and rehabilitation of convicted adults, or juveniles adjudicated, delinquent or in need of supervision, and for the detention of adults and juveniles charged with a crime and awaiting trial. Includes: Facilities generally referred to as prisons, reformatories, jails, enitentiaries, correctional farms, workhouses, reception centers, industrial schools, training schools, and detention centers. Includes hospitals for the criminally insane IF operated by a corrections agency. Includes expenditure on education, training, and health care programs devoted to inmates. Includes residential work release units, and residential halfway houses, and community corrections centers. For prison industries include only amounts involved in the manufacture, sale, and distribution of articles or services for resale or use outside the government involved.  Other Corrections - Correctional activities other than Federal, state and local residential institutions or facilities. Includes: Probation offices (whether operated by courts or correctional agencies) boards of parole, boards of pardon, and the like; noninstitutional activities such as administration of a correctional agency, training of correctional employees, and nonresidential halfway houses and community corrections centers."
 						}, {
 							"name": "Judicial & Legal Services",
 							"unit": "dollars",
@@ -2687,6 +2687,39 @@
 			"name": "Federal Funding",
 			"children": [
 				 {
+				  "name": "Medical Benefits",
+				  "source": "NACo Analysis of U.S. Bureau of Economic Analysis, Local Area Personal Income and Employment Data",
+				  "years": [2013],
+				  "notes": ".medical-benefits-note",
+				  "companions": [["Medical Benefits","Medical Benefits"],["Medical Benefits","Medicare Benefits"],["Medical Benefits","Public Assistance Medical Care Benefits"],["Medical Benefits","Military Medical Insurance Benefits"]
+				  ],
+				  "children": [
+				    {
+				      "name": "Medical Benefits",
+				      "dataType": "level",
+				      "definition": "Federal government payments for medical care, including Medicare benefits, public assistance medical care benefits and military medical insurance benefits received by the residents of a county.",
+				      "unit": "dollars"
+				    },
+				    {
+				      "name": "Medicare Benefits",
+				      "dataType": "level",
+				      "definition": "Federal government payments made directly or through intermediaries to vendors for the care provided to individuals under the Medicare program.",
+				      "unit": "dollars"
+				    },
+				    {
+				      "name": "Public Assistance Medical Care Benefits",
+				      "dataType": "level",
+				      "definition": "Federal government medical benefits to low-income individuals, comprised of Medicaid and Children's Health Insurance Program (CHIP) benefits.",
+				      "unit": "dollars"
+				    },
+				    {
+				      "name": "Military Medical Insurance Benefits",
+				      "dataType": "level",
+				      "definition": "Vendor payments made under the TRICARE Management Program, formerly called the Civilian Health and Medical Plan of the Uniformed Services, for the medical care of dependents of active duty military personnel and of retired military personnel and their dependents at nonmilitary medical facilities.",
+				      "unit": "dollars"
+				    }
+				  ]
+			    }, {
 					"name": "Airports Funding",
 					"source": "Federal Aviation Administration and Office of Aviation Analysis, U.S. Department of Transportation data",
 					"years": [2014],
@@ -2872,8 +2905,16 @@
 							"unit": "dollars",
 							"dataType": "level",
 							"has_profile": true,
-							"thresholds": [1, 10000, 100000, 1000000],
-							"definition": "Payment in Lieu of Taxes annual funding"
+							"thresholds": [1000000,2000000,3500000,5000000],
+							"companions": [["Payment in Lieu of Taxes (PILT)", "State PILT Amount"], ["Payment in Lieu of Taxes (PILT)", "PILT per Acre"], ["Payment in Lieu of Taxes (PILT)", "Percent of PILT Entitlement Land"], ["Payment in Lieu of Taxes (PILT)", "PILT Annual Growth Rate"]
+							],
+							"definition": "Payment in Lieu of Taxes annual funding."
+						},{
+							"name": "State PILT Amount",
+							"unit": "dollars",
+							"dataType": "level",
+							"has_profile": true,
+							"definition": "Payment in Lieu of Taxes annual funding aggregated at the state level."
 						},{
 							"name": "PILT Profiles",
 							"unit": "dollars",
@@ -4008,7 +4049,7 @@
 							"name": "Correction",
 							"unit": "FTE employees",
 							"dataType": "level",
-							"definition": "Number of FTEs working on Correctional Institutions: Residential institutions or facilities for the confinement, correction, and rehabilitation of convicted adults, or juveniles adjudicated, delinquent or in need of supervision, and for the detention of adults and juveniles charged with a crime and awaiting trial.      Other Corrections: Correctional activities other than Federal, state and local residential institutions or facilities."
+							"definition": "Number of FTEs working on Correctional Institutions - Residential institutions or facilities for the confinement, correction, and rehabilitation of convicted adults, or juveniles adjudicated, delinquent or in need of supervision, and for the detention of adults and juveniles charged with a crime and awaiting trial.  Other Corrections - Correctional activities other than Federal, state and local residential institutions or facilities."
 						}, {
 							"name": "Judicial & Legal Services",
 							"unit": "FTE employees",
@@ -4047,7 +4088,7 @@
 							"name": "Correction",
 							"unit": "dollars",
 							"dataType": "level",
-							"definition": "Correctional Institutions: Residential institutions or facilities for the confinement, correction, and rehabilitation of convicted adults, or juveniles adjudicated, delinquent or in need of supervision, and for the detention of adults and juveniles charged with a crime and awaiting trial. Includes: Facilities generally referred to as prisons, reformatories, jails, enitentiaries, correctional farms, workhouses, reception centers, industrial schools, training schools, and detention centers. Includes hospitals for the criminally insane IF operated by a corrections agency. Includes expenditure on education, training, and health care programs devoted to inmates. Includes residential work release units, and residential halfway houses, and community corrections centers. For prison industries include only amounts involved in the manufacture, sale, and distribution of articles or services for resale or use outside the government involved.             Other Corrections: Correctional activities other than Federal, state and local residential institutions or facilities. Includes: Probation offices (whether operated by courts or correctional agencies) boards of parole, boards of pardon, and the like; noninstitutional activities such as administration of a correctional agency, training of correctional employees, and nonresidential halfway houses and community corrections centers."
+							"definition": "Correctional Institutions - Residential institutions or facilities for the confinement, correction, and rehabilitation of convicted adults, or juveniles adjudicated, delinquent or in need of supervision, and for the detention of adults and juveniles charged with a crime and awaiting trial. Includes: Facilities generally referred to as prisons, reformatories, jails, enitentiaries, correctional farms, workhouses, reception centers, industrial schools, training schools, and detention centers. Includes hospitals for the criminally insane IF operated by a corrections agency. Includes expenditure on education, training, and health care programs devoted to inmates. Includes residential work release units, and residential halfway houses, and community corrections centers. For prison industries include only amounts involved in the manufacture, sale, and distribution of articles or services for resale or use outside the government involved.  Other Corrections - Correctional activities other than Federal, state and local residential institutions or facilities. Includes: Probation offices (whether operated by courts or correctional agencies) boards of parole, boards of pardon, and the like; noninstitutional activities such as administration of a correctional agency, training of correctional employees, and nonresidential halfway houses and community corrections centers."
 						}, {
 							"name": "Judicial & Legal Services",
 							"unit": "dollars",
@@ -4206,85 +4247,81 @@
 				}, {
 					"name": "Jails - Inmate Demographics",
 					"source": "NACo Analysis of Bureau of Justice Statistics - Annual Survey of Jails",
-					"years": [2008, 2009, 2010, 2011, 2012],
-					"companions": [["Jails - Inmate Demographics", "Total Jail Population"], ["Jails - Inmate Demographics", "Total Juveniles"], ["Jails - Inmate Demographics", "Total Unconvicted"], ["Jails - Inmate Demographics", "White"]
+					"years": [2008, 2009, 2010, 2011, 2012, 2013],
+					"notes": ".jails-inmate-dem-note",
+					"companions": [["Jails - Inmate Demographics", "Total Juveniles"], ["Jails - Inmate Demographics", "Total Unconvicted"], ["Jails - Inmate Demographics", "White"], ["Jails - Inmate Demographics", "Adult Males"]
 					],
 					"children": [
 						{
-							"name": "Total Jail Population",
-							"unit": "persons",
-							"dataType": "level",
-							"definition": "Total inmate population incarcerated or all persons in community-based programs run by jails (e.g., electronic monitoring, house arrest, community service, day reporting, and work programs)."
-						}, {
 							"name": "Adult Males",
 							"unit": "persons",
 							"dataType": "level",
-							"definition": "Total confined jail population in the county over (and including) the age of 18 years"
+							"definition": "The number of males age 18 or older in the county's jail facilities."
 						}, {
 							"name": "Adult Females",
 							"unit": "persons",
 							"dataType": "level",
-							"definition": "Total confined jail population in the county over (and including) the age of 18 years"
+							"definition": "The number of females age 18 or older in the county's jail facilities."
 						}, {
 							"name": "Total Juveniles",
 							"unit": "persons",
 							"dataType": "level",
-							"definition": "Total confined jail population in the county under the age of 18 years"
+							"definition": "The number of persons, under the age of 18, in the county's jail facilities."
 						}, {
 							"name": "Total Convicted",
 							"unit": "persons",
 							"dataType": "level",
-							"definition": "Total number of confined convicted inmates including probation and parole violators with no new sentence."
+							"definition": "The number of inmates in the county's jail facilities that are convicted."
 						}, {
 							"name": "Total Unconvicted",
 							"unit": "persons",
 							"dataType": "level",
-							"definition": "Total number of confined inmates who had not been convicted or were awaiting trial."
+							"definition": "The number of inmates in the county's jail facilities that are unconvicted."
 						}, {
 							"name": "White",
 							"unit": "persons",
 							"dataType": "level",
-							"definition": "Total number of confined persons who are white, not of Hispanic orgin."
+							"definition": "The number of inmates in the county's jail facilities that are White and not of Hispanic origin."
 						}, {
 							"name": "Black or African American",
 							"unit": "persons",
 							"dataType": "level",
-							"definition": "Total number of confined persons who are Black or African American, not of Hispanic origin."
+							"definition": "The number of inmates in the county's jail facilities that are Black or African American and not of Hispanic origin."
 						}, {
 							"name": "Hispanic or Latino",
 							"unit": "persons",
 							"dataType": "level",
-							"definition": "Total number of confined persons who are Hispanic or Latino."
+							"definition": "The number of inmates in the county's jail facilities that are Hispanic or Latino."
 						}, {
 							"name": "Asian",
 							"unit": "persons",
 							"dataType": "level",
-							"definition": "Total number of confined persons who are Asian, not of Hispanic origin."
+							"definition": "The number of inmates in the county's jail facilities that are Asian and not of Hispanic origin."
 						}, {
 							"name": "American Indian or Alaskan Native",
 							"unit": "persons",
 							"dataType": "level",
-							"definition": "Total number of confined persons who are American Indian or an Alaskan Native, not of Hispanic origin."
+							"definition": "The number of inmates in the county's jail facilities that are American Indian or Alaskan Native and not of Hispanic origin."
 						}, {
 							"name": "Native Hawaiian or Other Pacific Islander",
 							"unit": "persons",
 							"dataType": "level",
-							"definition": "Total number of confined persons who are Native Hawaiian or other Pacific Island, not of Hispanic Origin."
+							"definition": "The number of inmates in the county's jail facilities that are Native Hawaiian or other Pacific Islander and not of Hispanic origin."
 						}, {
 							"name": "Two or More Races",
 							"unit": "persons",
 							"dataType": "level",
-							"definition": "Total number of confined inmates of two or more races, not of Hispanic origin."
+							"definition": "The number of inmates in the county's jail facilities that are two or more races and not of Hispanic origin."
 						}, {
 							"name": "Other Inmate Races",
 							"unit": "persons",
 							"dataType": "level",
-							"definition": "Total number of confined inmates of other races."
+							"definition": "The number of inmates in the county's jail facilities that are other races identified by the county jail's information system."
 						}, {
 							"name": "Race Not Known",
 							"unit": "persons",
 							"dataType": "level",
-							"definition": "Total number of confined inmates of unknown race."
+							"definition": "The number of inmates in the county's jail facilities where their race is not known."
 						}
 					]
 				}, {
@@ -4827,6 +4864,59 @@
 							"unit": "dollars",
 							"dataType": "level",
 							"definition": "Amounts paid to other local governments government for performance of specific functions or for general financial support. Includes grants, shared taxes, contingent loans and advances, and any significant and identifiable amounts or reimbursement paid to other governments for performance of general government services or activities. By definition, it excludes amounts paid to other governments for purchase of commodities, property, or utility services and for any tax levied as such on facilities of the government."
+						}
+					]
+				}, {
+					"name": "Early Childhood",
+					"years": [2013],
+					"suppressYear": true,
+					"source": "NACo Analysis of U.S. Census Bureau, American Community Survey 2009-2013 5-year Estimates; for the household income place effect- Raj Chetty and Nathaniel Hendren, <a href='http://www.equality-of-opportunity.org/'>The Equality of Opportunity</a>, 2015",
+					"companions": [["Early Childhood", "Child Poverty Rate"], ["Early Childhood","Number of Children in Poverty"], ["Early Childhood", "Percent of Children in High Poverty Areas"], ["Early Childhood","Household Income Place Effect"]
+					],
+					"children": [
+						{
+							"name": "Poverty Rate",
+							"dataType": "percent",
+							"suppressMinMax": true,
+							"definition": "The percentage of people in a county living in poverty.",
+							"notes": ".child-poverty-note"
+					    }, {
+					    	"name": "Number of People in Poverty",
+					    	"dataType": "level",
+					    	"suppressMinMax": true,
+					    	"definition": "The number of people in a county that are in poverty.",
+					    	"notes": ".child-poverty-note"
+						}, {
+							"name": "Child Poverty Rate",
+							"dataType": "percent",
+							"suppressMinMax": true,
+							"definition": "The percentage of children in a county that are in poverty.",
+							"notes": ".child-poverty-note"
+						}, {
+							"name": "Number of Children in Poverty",
+							"dataType": "level",
+							"suppressMinMax": true,
+							"thresholds": [500,1000,2000,5000],
+							"definition": "The number of children in a county that are in poverty.",
+							"notes": ".child-poverty-note"
+						}, {
+							"name": "Percent of Children in High Poverty Areas",
+							"dataType": "percent",
+							"definition": "The percentage of children in a county living in high poverty areas.  The U.S. Census Bureau designates a census tract with a poverty rate of 20 percent or more as a high poverty area.",
+							"notes": ".child-poverty-note"
+						}, {
+							"name": "Number of Children in High Poverty Areas",
+							"dataType": "level",
+							"suppressMinMax": true,
+							"thresholds": [1,1500,3000,6500],
+							"definition": "The number of children in a county living in high poverty areas.  The U.S. Census Bureau designates a census tract with a poverty rate of 20 percent or more as a high poverty area.",
+							"notes": ".child-poverty-note"
+						}, {
+							"name": "Household Income Place Effect",
+							"year": 2015,
+							"suppressMinMax": true,
+							"dataType": "percent",
+							"definition": "The estimated percentage gain (or loss) effect for all children of growing up in the county on the household income in adulthood (at age 26) for a child with parents at the 25th income percentile. This effect assumes that the individual spent 20 years of her first 26 years of life in that county and the effect is relative to the national average. For more on the the methodology, <a href='http://www.equality-of-opportunity.org/'>click here</a>."
 						}
 					]
 				}

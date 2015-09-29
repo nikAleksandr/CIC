@@ -113,7 +113,7 @@
 					    <div class="form-inline form-group" >
 					    	<div class="checkbox">
 					    		<label>
-							    	<input type="checkbox" ng-model="dataset.supressYear" ng-value="true" /> Drop the automatic tailing year in the source
+							    	<input type="checkbox" ng-model="dataset.suppressYear" ng-value="true" /> Drop the automatic tailing year in the source
 								</label>
 							</div>
 						</div>
@@ -130,7 +130,7 @@
 					   <hr>
 					   <div id="dataset-preview">
 						    <h2>Source Preview:</h2>
-						    <p id="source-preview">Source: {{ dataset.source }}, <span ng-hide="dataset.supressYear || dataset.legendTitlePre">{{ dataset.years[0] }}</span><span ng-show="dataset.legendTitlePre > 1000 && !dataset.supressYear">{{ dataset.legendTitlePre }}</span></p>
+						    <p id="source-preview">Source: {{ dataset.source }}, <span ng-hide="dataset.suppressYear || dataset.legendTitlePre">{{ dataset.years[0] }}</span><span ng-show="dataset.legendTitlePre > 1000 && !dataset.suppressYear">{{ dataset.legendTitlePre }}</span></p>
 
 						    <h2>Legend Preview:</h2>
 						    <p id="legend-preview-dataset"><span ng-show="dataset.legendTitlePre">{{ dataset.legendTitlePre }} </span><span ng-hide="dataset.legendTitlePre || indicator.year">{{ dataset.years[0] }} </span><span ng-show="indicator.year && !legendTitlePre">{{indicator.year}} </span>{{ dataset.name }}<span ng-show="dataset.legendTitlePost"> {{ dataset.legendTitlePost }}</span></p>
@@ -163,11 +163,6 @@
 							<div class="radio">
 								<label>
 							   		<input name="data-type" type="radio" name="dataTypeRadio" ng-model="indicator.dataType" value="percent" /> Percent
-							   </label>
-							</div>
-							<div class="radio">
-								<label>
-							   		<input name="data-type" type="radio" name="dataTypeRadio" ng-model="indicator.dataType" value="percent_np" /> Percent (incl. negatives)
 							   </label>
 							</div>
 							<div class="radio">
@@ -275,7 +270,7 @@
 					   
 					   <div class="checkbox">
 					   	<label>
-					   		<input type="checkbox" ng-model="indicator.supressMinMax" ng-value="true" /> Would you like to supress the minimum and maximum legend Values?
+					   		<input type="checkbox" ng-model="indicator.suppressMinMax" ng-value="true" /> Would you like to suppress the minimum and maximum legend Values?
 					   	</label>
 					   </div>
 

@@ -7,30 +7,30 @@
 <div id="close" class="icon-text" ng-click="panel.setVisible(false)"><img class="icon" width="15" height="15" alt="close" src="img/Close.svg"/></div>
 <!-- All Popup Content -->
 <div id="instruction-content">
-	<div id="results-container" ng-show="panel.isShowing('results')">
-		
-	</div>
+	<div id="results-container" ng-show="panel.isShowing('results')"></div>
 	
 	<div ng-show="panel.isShowing('update')">
 		<!--<div id="watermark">Embargoed until <br/> 01/12/2015 12:01AM</div>-->
 		<div class="col-sm-9 update-column">
-			<div class="panel-title"><h1>September 2015 Update</h1></div>
+			<div class="panel-title"><h1>October 2015 Update</h1></div>
 			<div class="panel-content">
-				<div class="panel-headline"><h2>2015 Payment in Lieu of Taxes (PILT) Data Added!</h2></div>
-				<div class="pad-down-5">Click on “Map an Indicator”, select “Public Lands” and choose from five indicators:</div>
-					<div class="pad-down-5 panel-bullet">&bull; <a class="link" ng-click="panel.goToIndicator('Payment in Lieu of Taxes (PILT)', 'PILT Amount')">PILT Amount</a></div>
-					<div class="pad-down-5 panel-bullet">&bull; <a class="link" ng-click="panel.goToIndicator('Payment in Lieu of Taxes (PILT)', 'Total PILT Entitlement Land')">Total PILT Entitlement Land</a></div>
-					<div class="pad-down-5 panel-bullet">&bull; <a class="link" ng-click="panel.goToIndicator('Payment in Lieu of Taxes (PILT)', 'PILT per Acre')">PILT per Acre</a></div>
-				<div class="pad-down-5">2014 Secure Rural Schools (SRS) Data Added!</div>
-				<div class="pad-down-5">Click on “Map an Indicator”, select “Public Lands” and choose from three indicators, including:</div>
-					<div class="pad-down-5 panel-bullet">&bull; <a class="link" ng-click="panel.goToIndicator('Secure Rural Schools (SRS)', 'SRS Amount')">SRS Amount, FY 2014 Receipts Year</a></div>
-					<div class="pad-down-5 panel-bullet">&bull; <a class="link" ng-click="panel.goToIndicator('Secure Rural Schools (SRS)', 'Projected 25% Payment')">Projected 25% Payment Change, FY 2014 Receipts Year</a></div>
-					<div class="pad-down-5 panel-bullet">&bull; <a class="link" ng-click="panel.goToIndicator('Secure Rural Schools (SRS)', 'Payment Percent Change')">Payment Percent Change</a></div>
-				<div class="pad-down-5">2013 Jails – Supervised Population by Agency Data Added!</div>
-				<div class="pad-down-5">Click on “Map an Indicator”, select “Justice and Public Safety” and choose from nine indicators, including:</div>
-					<div class="pad-down-5 panel-bullet">&bull; <a class="link" ng-click="panel.goToIndicator('Jails - Supervised Population by Agency', 'Held for Own State')">Held for Own State</a></div>
-					<div class="pad-down-5 panel-bullet">&bull; <a class="link" ng-click="panel.goToIndicator('Jails - Supervised Population by Agency', 'Held for Local Jurisdiction in State')">Held for Local Jurisdiction in State</a></div>
-					<div class="pad-down-5 panel-bullet">&bull; <a class="link" ng-click="panel.goToIndicator('Jails - Supervised Population by Agency', 'Held for Local Jurisdiction outside the State')">Held for Local Jurisdiction outside the State</a></div>
+				<div class="panel-headline"><h2>Early Childhood Data Added!</h2></div>
+				<div class="pad-down-5">Click on “Map an Indicator”, select “Social Services” and choose from seven indicators, including:</div>
+					<div class="pad-down-5 panel-bullet">&bull; <a class="link" ng-click="panel.goToIndicator('Early Childhood', 'Child Poverty Rate')">2013 Child Poverty Rate</a></div>
+					<div class="pad-down-5 panel-bullet">&bull; <a class="link" ng-click="panel.goToIndicator('Early Childhood', 'Percent of Children in High Poverty Areas')">2013 Percent of Children in High Poverty Areas</a></div>
+
+				<div class="pad-down-5">2013 Medical Benefits Data Added!</div>
+				<div class="pad-down-5">Click on “Map an Indicator”, select “Medical Benefits” and choose from four indicators:</div>
+					<div class="pad-down-5 panel-bullet">&bull; <a class="link" ng-click="panel.goToIndicator('Medical Benefits', 'Medical Benefits')">Medical Benefits</a></div>
+					<div class="pad-down-5 panel-bullet">&bull; <a class="link" ng-click="panel.goToIndicator('Medical Benefits', 'Medicare Benefits')">Medicare Benefits</a></div>
+					<div class="pad-down-5 panel-bullet">&bull; <a class="link" ng-click="panel.goToIndicator('Medical Benefits', 'Public Assistance Medical Care Benefits')">Public Assistance Medical Care Benefits</a></div>
+					<div class="pad-down-5 panel-bullet">&bull; <a class="link" ng-click="panel.goToIndicator('Medical Benefits', 'Military Medical Insurance Benefits')">Military Medical Insurance Benefits</a></div>
+
+				<div class="pad-down-5">2013 Update to Jails – Inmate Demographics Data Added!</div>
+				<div class="pad-down-5">Click on “Map an Indicator”, select “Justice and Public Safety” and choose from fourteen indicators, including:</div>
+					<div class="pad-down-5 panel-bullet">&bull; <a class="link" ng-click="panel.goToIndicator('Jails - Inmate Demographics', 'Adult Males')">Adult Males</a></div>
+					<div class="pad-down-5 panel-bullet">&bull; <a class="link" ng-click="panel.goToIndicator('Jails - Inmate Demographics', 'Total Juveniles')">Total Juveniles</a></div>
+					<div class="pad-down-5 panel-bullet">&bull; <a class="link" ng-click="panel.goToIndicator('Jails - Inmate Demographics', 'Total Convicted')">Total Convicted</a></div>
 		</div>
 
 		</div>
