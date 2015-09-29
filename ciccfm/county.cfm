@@ -43,7 +43,8 @@
 
 <div id="countyResponse-title" class="row">
     <div class="col-md-9">
-    	<H3>#county_name#, #state#</H3>
+    	<div class="col-sm-2" style="padding:0"><a onclick="CIC.executeSearchMatch(#FIPS#)"><img width="45px" height="45px" style="width:45px; height:45px; margin:7px;" src="img/showOnMap.svg" alt="data"></a></div>
+    	<div class="col-sm-10"><H3>#county_name#, #state#</H3></div>
 	</div>
 	<CFIF #Member_Status# EQ "Active">
 	<div class="col-md-3" id="countyResponse-memberBadge">   
