@@ -2906,15 +2906,36 @@
 							"dataType": "level",
 							"has_profile": true,
 							"thresholds": [1000000,2000000,3500000,5000000],
-							"companions": [["Payment in Lieu of Taxes (PILT)", "State PILT Amount"], ["Payment in Lieu of Taxes (PILT)", "PILT per Acre"], ["Payment in Lieu of Taxes (PILT)", "Percent of PILT Entitlement Land"], ["Payment in Lieu of Taxes (PILT)", "PILT Annual Growth Rate"]
+							"companions": [["Payment in Lieu of Taxes (PILT)", "State PILT Amount"], ["Payment in Lieu of Taxes (PILT)", "State PILT Entitlement Land"], ["Payment in Lieu of Taxes (PILT)", "State Percent PILT Acres"], ["Payment in Lieu of Taxes (PILT)", "State PILT per Acre"], ["Payment in Lieu of Taxes (PILT)", "State PILT Amount"]
 							],
 							"definition": "Payment in Lieu of Taxes annual funding."
 						},{
 							"name": "State PILT Amount",
 							"unit": "dollars",
 							"dataType": "level",
-							"has_profile": true,
+							"companions": [["Payment in Lieu of Taxes (PILT)", "State PILT Amount"], ["Payment in Lieu of Taxes (PILT)", "State PILT Entitlement Land"], ["Payment in Lieu of Taxes (PILT)", "State Percent PILT Acres"], ["Payment in Lieu of Taxes (PILT)", "State PILT per Acre"], ["Payment in Lieu of Taxes (PILT)", "State PILT Amount"]
+							],
 							"definition": "Payment in Lieu of Taxes annual funding aggregated at the state level."
+						},{
+							"name": "State PILT Entitlement Land",
+							"unit": "acres",
+							"dataType": "level",
+							"companions": [["Payment in Lieu of Taxes (PILT)", "State PILT Amount"], ["Payment in Lieu of Taxes (PILT)", "State PILT Entitlement Land"], ["Payment in Lieu of Taxes (PILT)", "State Percent PILT Acres"], ["Payment in Lieu of Taxes (PILT)", "State PILT per Acre"], ["Payment in Lieu of Taxes (PILT)", "State PILT Amount"]
+							],
+							"definition": "The area of Federal Lands in a county eligible for PILT funding (in acres) aggregated at the state level."
+						},{
+							"name": "State Percent PILT Acres",
+							"dataType": "percent",
+							"companions": [["Payment in Lieu of Taxes (PILT)", "State PILT Amount"], ["Payment in Lieu of Taxes (PILT)", "State PILT Entitlement Land"], ["Payment in Lieu of Taxes (PILT)", "State Percent PILT Acres"], ["Payment in Lieu of Taxes (PILT)", "State PILT per Acre"], ["Payment in Lieu of Taxes (PILT)", "State PILT Amount"]
+							],
+							"definition": "The percentage of the county's total land area that consists of land eligible for PILT funding aggregated at the state level."
+						},{
+							"name": "State PILT per Acre",
+							"unit": "dollars",
+							"dataType": "level",
+							"companions": [["Payment in Lieu of Taxes (PILT)", "State PILT Amount"], ["Payment in Lieu of Taxes (PILT)", "State PILT Entitlement Land"], ["Payment in Lieu of Taxes (PILT)", "State Percent PILT Acres"], ["Payment in Lieu of Taxes (PILT)", "State PILT per Acre"], ["Payment in Lieu of Taxes (PILT)", "State PILT Amount"]
+							],
+							"definition": "The Payment in Lieu of Taxes annual funding per acre of entitlement land aggregated at the state level."
 						},{
 							"name": "PILT Profiles",
 							"unit": "dollars",
