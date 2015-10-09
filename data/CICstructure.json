@@ -2150,21 +2150,21 @@
 							"suppressMinMax": true,
 							"companions": [["County Economic Tracker", "Jobs Recovered"], ["County Economic Tracker", "Adjusted Average County Wage, 2012"], ["County Economic Tracker", "Unemployment Rate Change, 2013-2014"], ["County Economic Tracker", "Recovered on # Indicators"]
 							],
-							"definition": "The annualized growth rate of jobs (showing how much an indicator would have grown annually, if it increased at a steady rate) from 1990-2014.  Total Jobs represent the total wage and salary jobs, whether full or part-time, temporary or permanent in a county economy. It counts the number of jobs, not employed people, for all employers in a county economy, not only for the county government."
+							"definition": "The annualized growth rate of jobs (showing how much an indicator would have grown annually, if it increased at a steady rate) from 1990 to the peak year.  Total Jobs represent the total wage and salary jobs, whether full or part-time, temporary or permanent in a county economy. It counts the number of jobs, not employed people, for all employers in a county economy, not only for the county government."
 						},{
 							"name": "GDP Growth Rate, Long-term",
 							"dataType": "percent",
 							"suppressMinMax": true,
 							"companions": [["County Economic Tracker", "GDP Recovered"], ["County Economic Tracker", "GDP Growth Rate, Recovery"], ["County Economic Tracker", "Jobs Growth Rate, 2013-2014"], ["County Economic Tracker", "Recovered on # Indicators"]
 							],
-							"definition": "The inflation-adjusted annualized growth rate of GDP (showing how much an indicator would have grown annually, if it increased at a steady rate) from 1990-2014.  County economic output is the total value of goods and services produced by a county economy, also known as GDP."
+							"definition": "The inflation-adjusted annualized growth rate of GDP (showing how much an indicator would have grown annually, if it increased at a steady rate) from 1990 to the peak year.  County economic output is the total value of goods and services produced by a county economy, also known as GDP."
 						},{
 							"name": "Home Price Growth Rate, Long-term",
 							"dataType": "percent",
 							"suppressMinMax": true,
 							"companions": [["County Economic Tracker", "Home Prices Recovered"], ["County Economic Tracker", "Home Price Growth Rate, Recovery"], ["County Economic Tracker", "Home Price Growth Rate, Recession"], ["County Economic Tracker", "Recovered on # Indicators"]
 							],
-							"definition": "The annualized growth rate of Median Home Sales Prices(showing how much an indicator would have grown annually, if it increased at a steady rate) from 1990-2014.  Median Home Sales Prices are median sales prices of existing single-family homes."
+							"definition": "The annualized growth rate of Median Home Sales Prices(showing how much an indicator would have grown annually, if it increased at a steady rate) from 1990 to the peak year.  Median Home Sales Prices are median sales prices of existing single-family homes."
 						},{
 							"name": "Unemployment Rate Change, Recession",
 							"dataType": "level_np",
