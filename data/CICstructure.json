@@ -2010,11 +2010,13 @@
 				        	"name": "Veterans Unemployment Rate",
 				        	"dataType": "percent",
 				        	"definition": "The unemployment rate for veterans aged 18-64 in the civilian labor force in the county.",
-				        	"notes": "Veterans Unemployment Rate is not available from the Census Bureau for Loving County, Texas. Either no sample observations or too few sample observations were available to compute an estimate."
+				        	"suppressMinMax": true,
+				        	"notes": ".veterans-unem-note"
 				        }, {
 				        	"name": "Veterans Poverty Rate",
 				        	"dataType": "percent",
-				        	"definition": "The percentage of veterans in a county that are in poverty"
+				        	"suppressMinMax": true,
+				        	"definition": "The percentage of veterans in a county that are in poverty."
 				        }
 					]
 				}
@@ -2743,26 +2745,31 @@
 				    	{
 				    		"name": "Total Veterans Expenditures",
 				    		"dataType": "level",
+				    		"thresholds": [5000000,10000000,20000000,50000000],
 				    		"definition": "U.S. Department of Veterans Affairs expenditures within the county jurisdiction, for items such as: compensation and pension; education and vocational rehabilitation and employment; insurance and indemnities; construction and related costs; general operating expenses and related costs; loan guaranty; and medical expenditures.",
 				    		"unit": "dollars"
 				    	}, {
 				    		"name": "Compensation and Pension",
 				    		"dataType": "level",
+				    		"thresholds": [2000000,5000000,10000000,25000000],
 				    		"definition": "Federal compensation and pension benefits to veterans resident in the county.  It includes: veterans' compensation for service-connected disabilities; dependency and indemnity compensation for service-connected deaths; veterans' pension for nonservice-connected disabilities; and burial and other benefits to veterans and their survivors.",
 				    		"unit": "dollars"
 				    	}, {
 				    		"name": "Education and Vocational Rehabilitation and Employment",
 				    		"dataType": "level",
+				    		"thresholds":[125000,350000,800000,3000000],
 				    		"definition": "U.S. Department of Veterans Affairs expenditures on education and vocational rehabilitation and employment.  These expenditures to veterans include automobile and adaptive equipment, specially adapted housing, survivors’ and dependents’ educational assistance (chapter 35), vocational rehabilitation for disabled veterans (chapter 31), post-Vietnam era veterans’ educational assistance (chapter 32), Montgomery G.I.  Bill for selected reserves (chapter 1606), reserve educational assistance program (chapter 1607), Montgomery G.I.  Bill (Chapter 30), and post-9/11 veterans educational assistance (chapter 33).",
 				    		"unit": "dollars"
 				    	}, {
 				    		"name": "Insurance and Indemnities",
 				    		"dataType": "level",
+				    		"thresholds":[25000,75000,170000,500000],
 				    		"definition": "U.S. Department of Veterans Affairs expenditures on insurance and indemnities.  These expenditures to veterans consist of VA expenditures for death claims, matured endowments, dividends, cash surrender payments, total disability income provision payments, and total and permanent disability benefits payments.",
 				    		"unit": "dollars"
 				    	}, {
 				    		"name": "Medical Care",
 				    		"dataType": "level",
+				    		"thresholds":[2000000,4000000,7500000,18000000],
 				    		"definition": "U.S. Department of Veterans Affairs expenditures on medical care, consisting of operating expenses incurred through the provision of healthcare services to veterans. These expenditures include dollars for medical services, medical administration, facility maintenance, educational support, research support, and other overhead items.  Medical care expenditures do not include dollars for construction or other non-medical support.  Medical care expenditures are based on where patients live instead of where care is delivered.",
 				    		"unit": "dollar"
 				    	}, {
