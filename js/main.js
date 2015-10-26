@@ -24,8 +24,8 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 	// -------------------------- Variable Definitions ---------------------------
 	var localVersion = false;
 	
-	var default_dset = 'Early Childhood';
-	var default_ind = 'Child Poverty Rate';
+	var default_dset = 'Veteran Demographics';
+	var default_ind = 'Percent Veterans';
 	
 	CIC.findACounty = true;
 	CIC.embed = false;

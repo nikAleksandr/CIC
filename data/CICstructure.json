@@ -1676,7 +1676,7 @@
 				}, {
 					"name": "Population Change Components",
 					"source": "NACo Analysis of U.S. Census Bureau - Population Estimates Program (PEP)",
-					"years": [2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013],
+					"years": [2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014],
 					"companions": [["Population Levels and Trends", "Population Level"], ["Population Levels and Trends", "Population Annual Growth Rate (from previous year)"], ["Population Change Components", "Birth Rate"], ["Population Change Components", "Net Migration Rate"]
 					],
 					"vintage": 2013,
@@ -1684,71 +1684,71 @@
 						{
 							"name": "Population Level",
 							"dataType": "level",
-							"definition": "The calculated number of people living in an area as of a specified point in time, usually July 1st. The estimated population is calculated using a component of change model that incorporates information on natural increase (births, deaths) and net migration (net domestic migration, net international migration) that has occurred in an area since the latest decennial census."
+							"definition": "The number of people living in both the incorporated and unincorporated areas of the county, as of July 1st of the current year."
 						}, {
 							"name": "Change in Population (from previous year)",
 							"dataType": "level_np",
-							"definition": "The difference between the population of an area at the beginning and end of a time period."
+							"definition": "The difference in the number of county residents between July 1 of the previous year and July 1 of the current year."
 						}, {
 							"name": "Births",
 							"dataType": "level",
-							"definition": "Total number of live births occurring to residents of an area as estimated using reports from the National Center for Health Statistics (NCHS) and the Federal-State Cooperative for Population Estimates (FSCPE)."
+							"definition": "Total number occurring to county residents from July 1st of the previous year to June 30 of the current year."
 						}, {
 							"name": "Deaths",
 							"dataType": "level",
-							"definition": "Total number of deaths occurring to residents of an area as estimated using reports from NCHS and FSCPE."
+							"definition": "Total number occurring to county residents from July 1st of the previous year to June 30 of the current year."
 						}, {
 							"name": "Natural Population Increase",
 							"dataType": "level_np",
-							"definition": "Births minus deaths."
+							"definition": "Births minus deaths in the county from July 1st of the previous year to June 30 of the current year."
 						}, {
 							"name": "International Migration",
 							"dataType": "level_np",
-							"definition": "Any change of residence across the borders of the United States (50 states and District of Columbia). The estimates of net international migration are made up of four sub-components: Net international migration of the foreign born; Net migration between the United States and Puerto Rico; Net migration of natives to and from the United States; and Net movement of the Armed Forces population between the United States and overseas."
+							"definition": "Any change of the number of county residents due to movement across the borders of the United States (50 states and District of Columbia), from July 1st of the previous year to June 30 of the current year."
 						}, {
 							"name": "Domestic Migration",
 							"dataType": "level_np",
-							"definition": "The difference between domestic in-migration to an area and domestic out-migration from the same area during a specified time period. Domestic in- and out-migration consist of moves where both the origin and the destination are within the United States (excluding Puerto Rico)."
+							"definition": "The difference between domestic in-migration to the county and domestic out-migration from the same county from July 1st of the previous year to June 30 of the current year. Domestic in- and out-migration consist of moves where both the origin and the destination are within the United States (excluding Puerto Rico)."
 						}, {
 							"name": "Net Migration",
 							"dataType": "level_np",
-							"definition": "Net domestic migration plus net international migration."
+							"definition": "Domestic migration plus international migration in the county, from July 1st of the previous year to June 30 of the current year."
 						}, {
 							"name": "Birth Rate",
 							"unit": "per 1000 residents",
 							"dataType": "level",
 							"format_type": "dec1",
-							"definition": "The birth rate expresses births during a specified time period as a proportion of an area's population at the midpoint of the time period. Rates are expressed per 1000 population."
+							"definition": "Births from July 1st of the previous year to June 30 of the current year as a proportion of the county's population. Rates are expressed per 1,000 population."
 						}, {
 							"name": "Death Rate",
 							"unit": "per 1000 residents",
 							"dataType": "level",
 							"format_type": "dec1",
-							"definition": "The death rate expresses deaths during a specified time period as a proportion of an area's population at the midpoint of the time period. Rates are expressed per 1000 population."
+							"definition": "Deaths from July 1st of the previous year to June 30 of the current year as a proportion of the county's population. Rates are expressed per 1,000 population."
 						}, {
 							"name": "Natural Population Increase Rate",
 							"unit": "per 1000 residents",
 							"format_type": "dec1",
 							"dataType": "level_np",
-							"definition": "The rate of natural increase expresses natural increase during a specified time period as a proportion of an area's population at the midpoint of the time period. Rates are expressed per 1000 population."
+							"definition": "Natural increase from July 1st of the previous year to June 30 of the current year as a proportion of the county's population. Rates are expressed per 1,000 population."
 						}, {
 							"name": "International Migration Rate",
 							"unit": "per 1000 residents",
 							"format_type": "dec1",
 							"dataType": "level_np",
-							"definition": "The international migration rate expresses net international migration during a specified time period as a proportion of an area's population at the midpoint of the time period. Rates are expressed per 1000 population."
+							"definition": "International migration from July 1st of the previous year to June 30 of the current year as a proportion of the county's population. Rates are expressed per 1,000 population."
 						}, {
 							"name": "Domestic Migration Rate",
 							"unit": "per 1000 residents",
 							"format_type": "dec1",
 							"dataType": "level_np",
-							"definition": "The net domestic migration rate expresses net domestic migration during a specified time period as a proportion of an area's population at the midpoint of the time period. Rates are expressed per 1000 population."
+							"definition": "Domestic migration from July 1st of the previous year to June 30 of the current year as a proportion of the county's population. Rates are expressed per 1,000 population."
 						}, {
 							"name": "Net Migration Rate",
 							"unit": "per 1000 residents",
 							"format_type": "dec1",
 							"dataType": "level_np",
-							"definition": "The net migration rate expresses net migration during a specified time period as a proportion of an area's population at the midpoint of the time period. Rates are expressed per 1000 population."
+							"definition": "Net migration from July 1st of the previous year to June 30 of the current year as a proportion of the county's population. Rates are expressed per 1,000 population."
 						}
 					]
 				}, {
@@ -1785,7 +1785,7 @@
 					]
 				}, {
 					"name": "Population by Age/Gender",
-					"years": [2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013],
+					"years": [2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014],
 					"companions": [["Population Density", "Population Level"], ["Population by Age/Gender", "Percent 15-24 years old"], ["Population by Age/Gender", "Percent 25-64 years old"], ["Population Density", "Population Density"]
 					],
 					"source": "NACo Analysis of U.S. Census Bureau - Population Estimates Program (PEP)",
@@ -1794,68 +1794,68 @@
 						{
 							"name": "Total Population Level",
 							"dataType": "level",
-							"definition": "The calculated number of people living in an area as of a specified point in time, usually July 1st. The estimated population is calculated using a component of change model that incorporates information on natural increase (births, deaths) and net migration (net domestic migration, net international migration) that has occurred in an area since the latest decennial census."
+							"definition": "The number of people living in both the incorporated and unincorporated areas of the county, as of July 1st of the current year."
 						}, {
 							"name": "Male Population",
 							"dataType": "level",
-							"definition": "Total male population as self identified according to population estimates from the Census Bureau."
+							"definition": "Total male population in the county as self-identified to the Census Bureau, as of July 1st of the current year."
 						}, {
 							"name": "Percent Male",
 							"dataType": "percent",
-							"definition": "Percent male population according to population estimates from the Census Bureau."
+							"definition": "Percent male population in the county, as of July 1st of the current year."
 						}, {
 							"name": "Female Population",
 							"dataType": "level",
-							"definition": "Total female population as self identified according to population estimates from the Census Bureau."
+							"definition": "Total female population in the county as self-identified to the Census Bureau, as of July 1st of the current year."
 						}, {
 							"name": "Percent Female",
 							"dataType": "percent",
-							"definition": "Percent female population according to population estimates from the Census Bureau."
+							"definition": "Percent female population in the county, as of July 1st of the current year."
 						}, {
 							"name": "Under 5 years old Population",
 							"dataType": "level",
-							"definition": "Population estimate of people under the age of 5 years as of April 1st of the data year."
+							"definition": "Population under the age of 5 years in the county, as of July 1st of the current year."
 						}, {
 							"name": "Percent Under 5 years old",
 							"dataType": "percent",
-							"definition": "Percentage of people under the age of 5 years as of April 1st of the data year over the total population."
+							"definition": "Percentage of people under the age of 5 years in the county, as of July 1st of the current year."
 						}, {
 							"name": "5-14 years old Population",
 							"dataType": "level",
-							"definition": "Population estimate of people between (and including) the ages of 5 and 14 years as of April 1st of the data year."
+							"definition": "Population between (and including) the ages of 5 and 14 years in the county, as of July 1st of the current year."
 						}, {
 							"name": "Percent 5-14 years old",
 							"dataType": "percent",
-							"definition": "Percentage of people between (and including) the ages of 5 and 14 years as of April 1st of the data year over the total population."
+							"definition": "Percentage of people between (and including) the ages of 5 and 14 years in the county, as of July 1st of the current year."
 						}, {
 							"name": "15-24 years old Population",
 							"dataType": "level",
-							"definition": "Population estimate of people between (and including) the ages of 15 and 24 years as of April 1st of the data year."
+							"definition": "Population between (and including) the ages of 15 and 24 years in the county, as of July 1st of the current year."
 						}, {
 							"name": "Percent 15-24 years old",
 							"dataType": "percent",
-							"definition": "Percentage of people between (and including) the ages of 15 and 24 years as of April 1st of the data year over the total population."
+							"definition": "Percentage of people between (and including) the ages of 15 and 24 years in the county, as of July 1st of the current year."
 						}, {
 							"name": "25-64 years old Population",
 							"dataType": "level",
-							"definition": "Population estimate of people between (and including) the ages of 25 and 64 years as of April 1st of the data year."
+							"definition": "Population between (and including) the ages of 25 and 64 years in the county, as of July 1st of the current year."
 						}, {
 							"name": "Percent 25-64 years old",
 							"dataType": "percent",
-							"definition": "Percentage of people between (and including) the ages of 25 and 64 years as of April 1st of the data year over the total population."
+							"definition": "Percentage of people between (and including) the ages of 25 and 64 years in the county, as of July 1st of the current year."
 						}, {
 							"name": "65 years and older Population",
 							"dataType": "level",
-							"definition": "Population estimate of people over (and including) the age of 65 years as of April 1st of the data year."
+							"definition": "Population over (and including) the age of 65 years in the county, as of July 1st of the current year."
 						}, {
 							"name": "Percent 65 years and older",
 							"dataType": "percent",
-							"definition": "Percentage of people over (and including) the age of 65 as of April 1st of the data year over the total population."
+							"definition": "Percentage of people over (and including) the age of 65 in the county, as of July 1st of the current year."
 						}
 					]
 				}, {
 					"name": "Population by Ethnicity",
-					"years": [2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013],
+					"years": [2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014],
 					"companions": [["Population Density", "Population Level"], ["Population Density", "Population Density"], ["Population Density", "Population Density Growth Rate (from previous year)"]
 					],
 					"source": "NACo Analysis of U.S. Census Bureau - Population Estimates Program (PEP)",
@@ -1864,35 +1864,35 @@
 						{
 							"name": "Total Population",
 							"dataType": "level",
-							"definition": "The calculated number of people living in an area as of a specified point in time, usually July 1st. The estimated population is calculated using a component of change model that incorporates information on natural increase (births, deaths) and net migration (net domestic migration, net international migration) that has occurred in an area since the latest decennial census."
+							"definition": "The number of people living in both the incorporated and unincorporated areas of the county, as of July 1st of the current year."
 						}, {
 							"name": "White Population",
 							"dataType": "level",
-							"definition": "Population estimate of people (not hispanic) identifying with origins in any of the original peoples of Europe, the Middle East, or North Africa."
+							"definition": "County residents (not Hispanic) identifying with origins in any of the original peoples of Europe, the Middle East, or North Africa, as of July 1st of the current year."
 						}, {
 							"name": "Black or African American Population",
 							"dataType": "level",
-							"definition": "Population estimate of people (not hispanic) identifying with origins in any of the Black racial groups of Africa."
+							"definition": "County residents (not Hispanic) identifying with origins in any of the Black racial groups of Africa, as of July 1st of the current year."
 						}, {
 							"name": "American Indian and Alaskan Native Population",
 							"dataType": "level",
-							"definition": "Population estimate of people (not hispanic) identifying with origins in any of the original peoples of North and South America (including Central America) and who maintains tribal affiliation or community attachment."
+							"definition": "County residents (not Hispanic) identifying with origins in any of the original peoples of North and South America (including Central America) and who maintains tribal affiliation or community attachment, as of July 1st of the current year."
 						}, {
 							"name": "Asian Population",
 							"dataType": "level",
-							"definition": "Population estimate of people (not hispanic) identifying with origins in any of the original peoples of the Far East, Southeast Asia, or the Indian subcontinent including, for example, Cambodia, China, India, Japan, Korea, Malaysia, Pakistan, the Philippine Islands, Thailand, and Vietnam."
+							"definition": "County residents (not Hispanic) identifying with origins in any of the original peoples of the Far East, Southeast Asia, or the Indian subcontinent including, for example, Cambodia, China, India, Japan, Korea, Malaysia, Pakistan, the Philippine Islands, Thailand, and Vietnam, as of July 1st of the current year."
 						}, {
 							"name": "Native Hawaiian and Other Pacific Islander Population",
 							"dataType": "level",
-							"definition": "Population estimate of people (not hispanic) identifying with origins in any of the original peoples of Hawaii, Guam, Samoa, or other Pacific Islands."
+							"definition": "County residents (not Hispanic) identifying with origins in any of the original peoples of Hawaii, Guam, Samoa, or other Pacific Islands, as of July 1st of the current year."
 						}, {
 							"name": "Two or More Races Population",
 							"dataType": "level",
-							"definition": "Population estimate of people (not hispanic) identifying with two or more races"
+							"definition": "County residents (not Hispanic) identifying with two or more races, as of July 1st of the current year."
 						}, {
 							"name": "Hispanic or Latino Origin Population",
 							"dataType": "level",
-							"definition": "Population estimate of people identifying as a person of Cuban, Mexican, Puerto Rican, South or Central American, or other Spanish culture or origin regardless of race."
+							"definition": "County residents identifying as a person of Cuban, Mexican, Puerto Rican, South or Central American, or other Spanish culture or origin regardless of race, as of July 1st of the current year."
 						}
 					]
 				}, {
@@ -1969,6 +1969,53 @@
 							],
 							"definition": "Total Number of Unaccompanied Children Released to Sponsors in FY 2014, by the counties where the sponsors live.  An unaccompanied child is one who enters the country without their parent or legal guardian.  When apprehended by immigration authorities, the child is transferred to the care and custody of the Office of Refugee Resettlement (ORR).  Federal law requires that ORR feed, shelter, and provide medical care for unaccompanied children until it is able to release them to safe settings with sponsors (usually family members), while they await immigration proceedings. Sponsors are adults who are suitable to provide for the child’s physical and mental well-being and have not engaged in any activity that would indicate a potential risk to the child."
 						}
+					]
+				}, {
+					"name": "Veteran Demographics",
+					"source": "NACo Analysis of U.S. Census Bureau - American Community Survey (ACS) 5 year estimates",
+					"years": [2013],
+					"companions": [["Veteran Demographics","Veterans"],["Veteran Demographics","Percent Veterans"],["Veteran Demographics","Veterans Median Income"],["Veteran Demographics","Veterans Unemployment Rate"]
+					],
+					"children": [
+						{
+				          	"name": "Veterans",
+				          	"dataType": "level",
+				          	"definition": "The number of county adult residents (over 18 years old) who are veterans. A 'civilian veteran' is a person 18 years old or over who has served (even for a short time), but is not now serving, on active duty in the U.S. Army, Navy, Air Force, Marine Corps, or the Coast Guard, or who served in the U.S. Merchant Marine during World War II. People who served in the National Guard or military reserves are classified as veterans only if they were ever called or ordered to active duty, not counting the 4-6 months for initial training or yearly summer camps. All other civilians 16 years old and over are classified as nonveterans."
+				        }, {
+							"name": "Percent Veterans",
+							"dataType": "percent",
+							"definition": "The proportion of county adult residents (over 18 years old) who are veterans."
+						}, {
+							"name": "Veterans Median Income",
+							"dataType": "level",
+							"definition": "Median income for veterans resident in the county, in 2013 inflation adjusted dollars.",
+							"notes": ".veterans-income-note"
+				        }, {
+				        	"name": "Veterans Less than High School Graduate",
+				        	"dataType": "percent",
+				        	"definition": "Veterans, as the proportion of county adult population (25 years and older) that have less than high school diploma as their highest degree of education."
+				        }, {
+				        	"name": "Veterans High School Graduate",
+				        	"dataType": "percent",
+				        	"definition": "Veterans, as the proportion of county adult population (25 years and older) that have high school graduate (including equivalency) as their highest degree of education."
+				        }, {
+				        	"name": "Veterans Some College or Associate's Degree",
+				        	"dataType": "percent",
+				        	"definition": "Veterans, as the proportion of county adult population (25 years and older) that have some college or associate's degree as their highest degree of education."
+				        }, {
+				        	"name": "Veterans Bachelor's Degree or Higher",
+				        	"dataType": "percent",
+				        	"definition": "Veterans, as the proportion of county adult population (25 years and older) that have bachelor's degree or higher as their highest degree of education."
+				        }, {
+				        	"name": "Veterans Unemployment Rate",
+				        	"dataType": "percent",
+				        	"definition": "The unemployment rate for veterans aged 18-64 in the civilian labor force in the county.",
+				        	"notes": "Veterans Unemployment Rate is not available from the Census Bureau for Loving County, Texas. Either no sample observations or too few sample observations were available to compute an estimate."
+				        }, {
+				        	"name": "Veterans Poverty Rate",
+				        	"dataType": "percent",
+				        	"definition": "The percentage of veterans in a county that are in poverty"
+				        }
 					]
 				}
 			]
@@ -2686,7 +2733,46 @@
 		}, {
 			"name": "Federal Funding",
 			"children": [
-				 {
+				{
+					"name": "Veteran Expenditures",
+					"source": "NACo Analysis of U.S. Department of Veterans Affairs Data",
+					"years": [2014],
+					"companions": [["Veteran Expenditures","Total Veterans Expenditures"],["Veteran Expenditures","Compensation and Pension"],["Veteran Expenditures","Medical Care"],["Veteran Expenditures","VA Healthcare Facility Patients"]
+				     ],
+				    "children": [
+				    	{
+				    		"name": "Total Veterans Expenditures",
+				    		"dataType": "level",
+				    		"definition": "U.S. Department of Veterans Affairs expenditures within the county jurisdiction, for items such as: compensation and pension; education and vocational rehabilitation and employment; insurance and indemnities; construction and related costs; general operating expenses and related costs; loan guaranty; and medical expenditures.",
+				    		"unit": "dollars"
+				    	}, {
+				    		"name": "Compensation and Pension",
+				    		"dataType": "level",
+				    		"definition": "Federal compensation and pension benefits to veterans resident in the county.  It includes: veterans' compensation for service-connected disabilities; dependency and indemnity compensation for service-connected deaths; veterans' pension for nonservice-connected disabilities; and burial and other benefits to veterans and their survivors.",
+				    		"unit": "dollars"
+				    	}, {
+				    		"name": "Education and Vocational Rehabilitation and Employment",
+				    		"dataType": "level",
+				    		"definition": "U.S. Department of Veterans Affairs expenditures on education and vocational rehabilitation and employment.  These expenditures to veterans include automobile and adaptive equipment, specially adapted housing, survivors’ and dependents’ educational assistance (chapter 35), vocational rehabilitation for disabled veterans (chapter 31), post-Vietnam era veterans’ educational assistance (chapter 32), Montgomery G.I.  Bill for selected reserves (chapter 1606), reserve educational assistance program (chapter 1607), Montgomery G.I.  Bill (Chapter 30), and post-9/11 veterans educational assistance (chapter 33).",
+				    		"unit": "dollars"
+				    	}, {
+				    		"name": "Insurance and Indemnities",
+				    		"dataType": "level",
+				    		"definition": "U.S. Department of Veterans Affairs expenditures on insurance and indemnities.  These expenditures to veterans consist of VA expenditures for death claims, matured endowments, dividends, cash surrender payments, total disability income provision payments, and total and permanent disability benefits payments.",
+				    		"unit": "dollars"
+				    	}, {
+				    		"name": "Medical Care",
+				    		"dataType": "level",
+				    		"definition": "U.S. Department of Veterans Affairs expenditures on medical care, consisting of operating expenses incurred through the provision of healthcare services to veterans. These expenditures include dollars for medical services, medical administration, facility maintenance, educational support, research support, and other overhead items.  Medical care expenditures do not include dollars for construction or other non-medical support.  Medical care expenditures are based on where patients live instead of where care is delivered.",
+				    		"unit": "dollar"
+				    	}, {
+				    		"name": "VA Healthcare Facility Patients",
+				    		"dataType": "level",
+				    		"definition": "Patients residing in the county who received treatment at a VA health care facility.",
+				    		"notes": ".veterans-vahealthcare-note"
+				    	}
+				      ]
+				}, {
 				  "name": "Medical Benefits",
 				  "source": "NACo Analysis of U.S. Bureau of Economic Analysis, Local Area Personal Income and Employment Data",
 				  "years": [2013],
@@ -4161,7 +4247,7 @@
 					"name": "Jails - Supervised Population",
 					"source": "2015 NACo Analysis of Bureau of Justice Statistics - Annual Survey of Jails",
 					"years": [2008, 2009, 2010, 2011, 2012, 2013],
-					"notes": ".survey-of-jails-note",
+					"notes": ".survey-of-jails-note .jails-pop-note",
 					"companions": [["Jails - Supervised Population", "Total Jail Population"], ["Jails - Supervised Population", "Confined Persons"], ["Jails - Supervised Population", "Nonconfined Persons"], ["Jails - Supervised Population", "Average Daily Population"]
 					],
 					"children": [
@@ -4204,6 +4290,7 @@
 					"name": "Jails - Supervised Population by Agency",
 					"source": "NACo Analysis of Bureau of Justice Statistics - Annual Survey of Jails",
 					"years": [2008, 2009, 2010, 2011, 2012, 2013],
+					"notes": ".jails-pop-note",
 					"companions": [["Jails - Supervised Population", "Total Jail Population"], ["Jails - Supervised Population by Agency", "Held for Own State"], ["Jails - Supervised Population by Agency", "Held for Other State"], ["Jails - Supervised Population by Agency", "Held for Local Jurisdiction in State"], ["Jails - Supervised Population by Agency", "Held for Local Jurisdiction outside the State"]
 					],
 					"notes": ".jails-agency-note",
@@ -4269,7 +4356,7 @@
 					"name": "Jails - Inmate Demographics",
 					"source": "NACo Analysis of Bureau of Justice Statistics - Annual Survey of Jails",
 					"years": [2008, 2009, 2010, 2011, 2012, 2013],
-					"notes": ".jails-inmate-dem-note",
+					"notes": ".jails-inmate-dem-note .jails-pop-note",
 					"companions": [["Jails - Inmate Demographics", "Total Juveniles"], ["Jails - Inmate Demographics", "Total Unconvicted"], ["Jails - Inmate Demographics", "White"], ["Jails - Inmate Demographics", "Adult Males"]
 					],
 					"children": [
