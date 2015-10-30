@@ -1665,7 +1665,7 @@
 							"dataType": "level",
 							"suppressMinMax": true,
 							"thresholds": [50000, 150000, 250000, 500000],
-							"definition": "The calculated number of people living in an area as of a specified point in time, usually July 1st."
+							"definition": "The number of people living in both the incorporated and unincorporated areas of the county, as of July 1st of the current year."
 						}, {
 							"name": "Population Annual Growth Rate (from previous year)",
 							"dataType": "percent",
@@ -1763,7 +1763,7 @@
 							"name": "Population Level",
 							"dataType": "level",
 							"suppressMinMax": true,
-							"definition": "The calculated number of people living in an area as of a specified point in time, usually July 1st. The estimated population is calculated using a component of change model that incorporates information on natural increase (births, deaths) and net migration (net domestic migration, net international migration) that has occurred in an area since the latest decennial census."
+							"definition": "The number of people living in both the incorporated and unincorporated areas of the county, as of July 1st of the current year."
 						}, {
 							"name": "Population Density",
 							"unit": "persons per square mile",
