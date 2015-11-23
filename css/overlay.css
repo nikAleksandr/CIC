@@ -136,6 +136,12 @@ mailing-form .ss-item { margin-top: 20px; }
 /* County Facts */
 #results-container { margin-top: 20px; }
 
+/* More Info */
+#more-info-container { padding:2em; }
+#more-info-header { 
+	font-weight:bold;
+	font-size:1.5em;
+}
 
 /* Overlay Components */
 #close {

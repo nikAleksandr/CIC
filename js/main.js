@@ -24,8 +24,8 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 	// -------------------------- Variable Definitions ---------------------------
 	var localVersion = false;
 	
-	var default_dset = 'Veteran Demographics';
-	var default_ind = 'Percent Veterans';
+	var default_dset = 'Nursing Homes';
+	var default_ind = 'Number of Nursing Homes';
 	
 	CIC.findACounty = true;
 	CIC.embed = false;
@@ -1566,7 +1566,7 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 		if(primeIndObj.hasOwnProperty('greyData')) $('.unavailable-text').html('*' + primeIndObj.greyData);
 		else $('.unavailable-text').html('*' + 'county data is unavailable if the county is colored grey')
 	};
-	
+	CIC.temp;
 	var populateTooltip = function(d) {
 		var getAttributes = function(objs) {
 			// find out if all indicators are in same dataset
@@ -1608,7 +1608,7 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 						
 			// adjust unit and value for display
 			if (value === '$NaN' || value === 'NaN' || value === 'NaN%' || value === null || value === '.' || (isNumFun(obj.dataType) && isNaN(quant[d.id])) ) {
-				value = 'Not Available';
+				value = 'Not Available<a class="more-info-link" href="#"><sup>more info</sup></a>';
 				unit = '';
 			} else {
 				if (typeof value === 'string') value = value.charAt(0).toUpperCase() + value.substr(1);
@@ -1689,7 +1689,41 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 			if (indObjects[i].has_profile === true) continue;
 			var row = tipTable.append('tr').attr('class', 'tipKey');	
 			writeIndicators(row, indObjects[i], quantByIds[i], attrib);
-		}		
+		}
+
+		//apply behavior to all "more info" links
+		d3.selectAll('.more-info-link').on('click', function(){
+			showResults();
+			//grab source
+			var moreInfoSource = indObjects[0].source;
+			//grab definitions
+			var moreInfoDefs = [];
+			for(i=0; i<indObjects.length; i++){
+				moreInfoDefs.push([indObjects[i].name, indObjects[i].definition]);
+			}
+			//grab notes
+			var moreInfoNotes = d3.selectAll('.idio-note').filter(function(d){ return d3.select(this).style('display') == 'inline' });
+
+
+
+			var moreInfo = d3.select('#results-container').append('div').attr('class', 'temp').attr('class', 'more-info-container');
+			moreInfo.append('p').text(function(){
+				var titleText = (attrib.sameDataset) ? indObjects[0].dataset : indObjects[0].category;
+				if(indObjects[0].hasOwnProperty('yearSpan')){
+					return (attrib.allSameYear) ? titleText + ', ' + indObjects[0].yearSpan : titleText;
+				}else return (attrib.allSameYear) ? titleText + ', ' + indObjects[0].year : titleText;
+			}).attr('id', 'more-info-header');
+			moreInfo.append('p').html('<b>Source:</b> ' + moreInfoSource);
+			for(i=0; i<moreInfoDefs.length; i++){
+				moreInfo.append('div').html('<b>'+moreInfoDefs[i][0]+':</b> '+moreInfoDefs[i][1]);
+			};
+			for(i=0; i<moreInfoNotes.length; i++){
+				moreInfo.append('div').html('<br/>*'+moreInfoNotes[i][0].innerText);
+			};
+
+
+			showInstructions();
+		})
 	};
 	
 	var positionTooltip = function(county) {

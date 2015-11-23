@@ -347,7 +347,7 @@ body {
   -webkit-box-shadow: 0px 0px 2px 0px #a6a6a6;   
   position: absolute;
   opacity: 0.95;
-  pointer-events: none;
+  /*pointer-events: none;*/
 }
 .arrow-box {
 	position: relative;
