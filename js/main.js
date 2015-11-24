@@ -1713,12 +1713,12 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 					return (attrib.allSameYear) ? titleText + ', ' + indObjects[0].yearSpan : titleText;
 				}else return (attrib.allSameYear) ? titleText + ', ' + indObjects[0].year : titleText;
 			}).attr('id', 'more-info-header');
+			for(i=0; i<moreInfoNotes.length; i++){
+				moreInfo.append('div').html('<br/>*'+moreInfoNotes[i][0].innerText);
+			};
 			moreInfo.append('p').html('<b>Source:</b> ' + moreInfoSource);
 			for(i=0; i<moreInfoDefs.length; i++){
 				moreInfo.append('div').html('<b>'+moreInfoDefs[i][0]+':</b> '+moreInfoDefs[i][1]);
-			};
-			for(i=0; i<moreInfoNotes.length; i++){
-				moreInfo.append('div').html('<br/>*'+moreInfoNotes[i][0].innerText);
 			};
 
 
