@@ -756,7 +756,7 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 					cbOptsVert = {iframe:true, width:'792px', height:'632px', maxHeight:'90%', maxWidth:'90%', title:'', href: ''};
 					cbOptsHoriz = {iframe:true, width:'792px', height:'632px', maxHeight:'90%', maxWidth:'90%', title:'', href: ''};
 
-					if (currentDI === 'County Economic Tracker - County Economic Profile') {
+					if (currentDI === 'County Economies - County Economic Profile') {
 						var countyName = parseCountyName(+FIPS, county.geography);
 						countyName = countyName.replace(/\s/g, '');
 						var profileURL = '../profiles/countytracker/' + countyName + '.pdf';

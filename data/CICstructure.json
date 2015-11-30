@@ -2137,9 +2137,9 @@
 				}, {
 					"name": "County Economies",
 					"source": "NACo Analysis of Moody's Analytics, U.S. Bureau of Labor Statistics, U.S. Bureau of Economic Analysis and U.S. Census Bureau",
-					"years": [2014],
+					"years": [2015],
 					"suppressYear": true,
-					"companions": [["County Economies", "Recovered on # Indicators"], ["County Economies", "Jobs Recovered"], ["County Economies", "Unemployment Rate Recovered"], ["County Economies", "GDP Recovered"], ["County Economies", "Home Prices Recovered"], ["County Economies", "Unemployment Rate Change, 2013-2014"]
+					"companions": [["County Economies", "Recovered on # Indicators"], ["County Economies", "Jobs Recovered"], ["County Economies", "Unemployment Rate Recovered"], ["County Economies", "GDP Recovered"], ["County Economies", "Home Prices Recovered"], ["County Economies", "Unemployment Rate Change, 2014-2015"]
 					],
 					"children": [
 						{
@@ -2154,40 +2154,42 @@
 							"dataType": "level",
 							"unit": "dollars",
 							"suppressMinMax": true,
-							"companions": [["County Economies", "Adjusted Average County Wage Growth Rate, 2012-2013"], ["County Economies", "Unemployment Rate Change, 2013-2014"], ["County Economies", "Jobs Growth Rate, 2013-2014"], ["County Economies", "Recovered on # Indicators"]
+							"companions": [["County Economies", "Adjusted Average County Wage Growth Rate, 2013-2014"], ["County Economies", "Unemployment Rate Change, 2014-2015"], ["County Economies", "Jobs Growth Rate, 2014-2015"], ["County Economies", "Recovered on # Indicators"]
 							],
 							"definition": "Cost-of-living adjusted pay for the county economy reflecting price differences between county economies."
 						},{
-							"name": "Adjusted Average County Wage Growth Rate, 2012-2013",
+							"name": "Adjusted Average County Wage Growth Rate, 2013-2014",
 							"dataType": "percent",
 							"suppressMinMax": true,
-							"companions": [["County Economies", "Adjusted Average County Wage Growth Rate, 2012-2013"], ["County Economies", "Adjusted Average County Wage, 2012"], ["County Economies", "Jobs Growth Rate, 2013-2014"], ["County Economies", "Recovered on # Indicators"]
+							"thresholds": [-0.05, 0, 0.05, 0.1],
+							"companions": [["County Economies", "Adjusted Average County Wage Growth Rate, 2013-2014"], ["County Economies", "Adjusted Average County Wage, 2012"], ["County Economies", "Jobs Growth Rate, 2014-2015"], ["County Economies", "Recovered on # Indicators"]
 							],
 							"definition": "Growth rate in cost-of-living adjusted pay for the county economy reflecting price differences between county economies."
 						},{
-							"name": "Unemployment Rate Change, 2013-2014",
+							"name": "Unemployment Rate Change, 2014-2015",
 							"dataType": "level_np",
 							"suppressMinMax": true,
 							"unit": "PPT",
-							"companions": [["County Economies", "Unemployment Rate Recovered"], ["County Economies", "Adjusted Average County Wage, 2012"], ["County Economies", "Jobs Growth Rate, 2013-2014"], ["County Economies", "Recovered on # Indicators"]
+							"companions": [["County Economies", "Unemployment Rate Recovered"], ["County Economies", "Adjusted Average County Wage, 2012"], ["County Economies", "Jobs Growth Rate, 2014-2015"], ["County Economies", "Recovered on # Indicators"]
 							],
 							"definition": "The difference between 2014 and 2013 unemployment rates. Shown in percentage points"
 						},{
-							"name": "Jobs Growth Rate, 2013-2014",
+							"name": "Jobs Growth Rate, 2014-2015",
 							"dataType": "percent",
 							"suppressMinMax": true,
-							"companions": [["County Economies", "Jobs Recovered"], ["County Economies", "Adjusted Average County Wage, 2012"], ["County Economies", "Unemployment Rate Change, 2013-2014"], ["County Economies", "Recovered on # Indicators"]
+							"companions": [["County Economies", "Jobs Recovered"], ["County Economies", "Adjusted Average County Wage, 2012"], ["County Economies", "Unemployment Rate Change, 2014-2015"], ["County Economies", "Recovered on # Indicators"]
 							],
 							"definition": "Year-over-year total jobs growth rate. Total Jobs represent the total wage and salary jobs, whether full or part-time, temporary or permanent in a county economy. It counts the number of jobs, not employed people, for all employers in a county economy, not only for the county government."
 						},{
-							"name": "GDP Growth Rate, 2013-2014",
+							"name": "GDP Growth Rate, 2014-2015",
 							"dataType": "percent",
 							"suppressMinMax": true,
-							"companions": [["County Economies", "GDP Recovered"], ["County Economies", "GDP Growth Rate, Recovery"], ["County Economies", "Jobs Growth Rate, 2013-2014"], ["County Economies", "Recovered on # Indicators"]
+							"thresholds": [-0.05, 0, 0.02, 0.04],
+							"companions": [["County Economies", "GDP Recovered"], ["County Economies", "GDP Growth Rate, Recovery"], ["County Economies", "Jobs Growth Rate, 2014-2015"], ["County Economies", "Recovered on # Indicators"]
 							],
 							"definition": "Year-over-year inflation-adjusted GDP growth rate.  County economic output is the total value of goods and services produced by a county economy, also known as GDP."
 						},{
-							"name": "Home Price Growth Rate, 2013-2014",
+							"name": "Home Price Growth Rate, 2014-2015",
 							"dataType": "percent",
 							"suppressMinMax": true,
 							"companions": [["County Economies", "Home Prices Recovered"], ["County Economies", "Home Price Growth Rate, Recovery"], ["County Economies", "Home Price Growth Rate, Recession"], ["County Economies", "Recovered on # Indicators"]
@@ -2197,14 +2199,14 @@
 							"name": "Jobs Growth Rate, Long-term",
 							"dataType": "percent",
 							"suppressMinMax": true,
-							"companions": [["County Economies", "Jobs Recovered"], ["County Economies", "Adjusted Average County Wage, 2012"], ["County Economies", "Unemployment Rate Change, 2013-2014"], ["County Economies", "Recovered on # Indicators"]
+							"companions": [["County Economies", "Jobs Recovered"], ["County Economies", "Adjusted Average County Wage, 2012"], ["County Economies", "Unemployment Rate Change, 2014-2015"], ["County Economies", "Recovered on # Indicators"]
 							],
 							"definition": "The annualized growth rate of jobs (showing how much an indicator would have grown annually, if it increased at a steady rate) from 1990 to the peak year.  Total Jobs represent the total wage and salary jobs, whether full or part-time, temporary or permanent in a county economy. It counts the number of jobs, not employed people, for all employers in a county economy, not only for the county government."
 						},{
 							"name": "GDP Growth Rate, Long-term",
 							"dataType": "percent",
 							"suppressMinMax": true,
-							"companions": [["County Economies", "GDP Recovered"], ["County Economies", "GDP Growth Rate, Recovery"], ["County Economies", "Jobs Growth Rate, 2013-2014"], ["County Economies", "Recovered on # Indicators"]
+							"companions": [["County Economies", "GDP Recovered"], ["County Economies", "GDP Growth Rate, Recovery"], ["County Economies", "Jobs Growth Rate, 2014-2015"], ["County Economies", "Recovered on # Indicators"]
 							],
 							"definition": "The inflation-adjusted annualized growth rate of GDP (showing how much an indicator would have grown annually, if it increased at a steady rate) from 1990 to the peak year.  County economic output is the total value of goods and services produced by a county economy, also known as GDP."
 						},{
@@ -2220,7 +2222,7 @@
 							"suppressMinMax": true,
 							"CETNulls": "recession",
 							"unit": "PPT",
-							"companions": [["County Economies", "Unemployment Rate Recovered"], ["County Economies", "Adjusted Average County Wage, 2012"], ["County Economies", "Jobs Growth Rate, 2013-2014"], ["County Economies", "Recovered on # Indicators"]
+							"companions": [["County Economies", "Unemployment Rate Recovered"], ["County Economies", "Adjusted Average County Wage, 2012"], ["County Economies", "Jobs Growth Rate, 2014-2015"], ["County Economies", "Recovered on # Indicators"]
 							],
 							"definition": "The difference in the Unemployment Rate from the pre-recession low to the highest point during the recession.  Shown in percentage points.  County Economies that experienced no recession on this indicator will appear with the highest quintile."
 						},{
@@ -2228,7 +2230,7 @@
 							"dataType": "percent",
 							"suppressMinMax": true,
 							"CETNulls": "recession",
-							"companions": [["County Economies", "Jobs Recovered"], ["County Economies", "Adjusted Average County Wage, 2012"], ["County Economies", "Unemployment Rate Change, 2013-2014"], ["County Economies", "Recovered on # Indicators"]
+							"companions": [["County Economies", "Jobs Recovered"], ["County Economies", "Adjusted Average County Wage, 2012"], ["County Economies", "Unemployment Rate Change, 2014-2015"], ["County Economies", "Recovered on # Indicators"]
 							],
 							"definition": "The annualized growth rate of jobs (showing how much an indicator would have grown annually, if it increased at a steady rate) from the pre-recession peak to the trough.  Total Jobs represent the total wage and salary jobs, whether full or part-time, temporary or permanent in a county economy. It counts the number of jobs, not employed people, for all employers in a county economy, not only for the county government.  County Economies that experienced no recession on this indicator will appear with the highest quintile."
 						},{
@@ -2236,7 +2238,7 @@
 							"dataType": "percent",
 							"suppressMinMax": true,
 							"CETNulls": "recession",
-							"companions": [["County Economies", "GDP Recovered"], ["County Economies", "GDP Growth Rate, Recovery"], ["County Economies", "Jobs Growth Rate, 2013-2014"], ["County Economies", "Recovered on # Indicators"]
+							"companions": [["County Economies", "GDP Recovered"], ["County Economies", "GDP Growth Rate, Recovery"], ["County Economies", "Jobs Growth Rate, 2014-2015"], ["County Economies", "Recovered on # Indicators"]
 							],
 							"definition": "The annualized growth rate of GDP (showing how much an indicator would have grown annually, if it increased at a steady rate) from the pre-recession peak to the trough.  County economic output is the total value of goods and services produced by a county economy, also known as GDP.  County Economies that experienced no recession on this indicator will appear with the highest quintile."
 						},{
@@ -2253,7 +2255,7 @@
 							"suppressMinMax": true,
 							"CETNulls": "recovery",
 							"unit": "PPT",
-							"companions": [["County Economies", "Unemployment Rate Recovered"], ["County Economies", "Adjusted Average County Wage, 2012"], ["County Economies", "Jobs Growth Rate, 2013-2014"], ["County Economies", "Recovered on # Indicators"]
+							"companions": [["County Economies", "Unemployment Rate Recovered"], ["County Economies", "Adjusted Average County Wage, 2012"], ["County Economies", "Jobs Growth Rate, 2014-2015"], ["County Economies", "Recovered on # Indicators"]
 							],
 							"definition": "The difference in the unemployment rate from the highest point to the 2014 value.  A county economy that has not had a recession will show the change from 2009 to 2014.  A county economy that has not yet entered recovery on this indicator will appear with the lowest quintile."
 						},{
@@ -2261,7 +2263,7 @@
 							"dataType": "percent",
 							"suppressMinMax": true,
 							"CETNulls":  "recovery",
-							"companions": [["County Economies", "Jobs Recovered"], ["County Economies", "Jobs Growth Rate, Long-term"], ["County Economies", "Unemployment Rate Change, 2013-2014"], ["County Economies", "Recovered on # Indicators"]
+							"companions": [["County Economies", "Jobs Recovered"], ["County Economies", "Jobs Growth Rate, Long-term"], ["County Economies", "Unemployment Rate Change, 2014-2015"], ["County Economies", "Recovered on # Indicators"]
 							],
 							"definition": "The annualized growth rate of jobs (showing how much an indicator would have grown annually, if it increased at a steady rate) from the trough to the 2014 value.  Total Jobs represent the total wage and salary jobs, whether full or part-time, temporary or permanent in a county economy. It counts the number of jobs, not employed people, for all employers in a county economy, not only for the county government.  A county economy that has not had a recession will show the annualized growth rate from 2009 to 2014.  A county economy that has not yet entered recovery on this indicator will appear with the lowest quintile."
 						},{
@@ -2269,7 +2271,7 @@
 							"dataType": "percent",
 							"suppressMinMax": true,
 							"CETNulls":  "recovery",
-							"companions": [["County Economies", "GDP Recovered"], ["County Economies", "GDP Growth Rate, Long-term"], ["County Economies", "Jobs Growth Rate, 2013-2014"], ["County Economies", "Recovered on # Indicators"]
+							"companions": [["County Economies", "GDP Recovered"], ["County Economies", "GDP Growth Rate, Long-term"], ["County Economies", "Jobs Growth Rate, 2014-2015"], ["County Economies", "Recovered on # Indicators"]
 							],
 							"definition": "The annualized growth rate of GDP (showing how much an indicator would have grown annually, if it increased at a steady rate) from the trough to the 2014 value.  County economic output is the total value of goods and services produced by a county economy, also known as GDP.  A county economy that has not had a recession will show the annualized growth rate from 2009 to 2014.  A county economy that has not yet entered recovery on this indicator will appear with the lowest quintile."
 						},{
@@ -2307,9 +2309,10 @@
 							"dataType": "categorical",
 							"order": {"Faster Decline": 0, "Slower Decline": 1, "Slower Growth": 2, "Faster Growth": 3}
 						},{
-							"name": "Real Wage Growth vs Productivity Growth, 2009-2014",
+							"name": "Real Wage Growth vs Productivity Growth",
+							"yearSpan": "2009-2014",
 							"dataType": "categorical",
-							"order": {"Declining Wages | Declining Productivity": 0, "Growing Wages | Declining Productivity": 1, "Declining Wages | Growing Productivity": 2, "Growing Wages | Growing Productivity": 3},
+							"order": {"Decline & Decline": 0, "Decline & Rise": 1, "Rise & Decline": 2, "Rise & Rise": 3},
 							"longLegendNames": true
 						},{
 							"name": "Adjusted Wage vs Productivity Growth",
