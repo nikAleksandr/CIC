@@ -1706,7 +1706,7 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 
 
 
-			var moreInfo = d3.select('#results-container').append('div').attr('class', 'temp').attr('class', 'more-info-container');
+			var moreInfo = d3.select('#results-container').append('div').attr('class', 'temp').attr('id', 'more-info-container');
 			moreInfo.append('p').text(function(){
 				var titleText = (attrib.sameDataset) ? indObjects[0].dataset : indObjects[0].category;
 				if(indObjects[0].hasOwnProperty('yearSpan')){
