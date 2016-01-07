@@ -1,0 +1,55 @@
+#naco-website-feed{
+	padding-bottom:100px;
+}
+.naco-website-feed-article{
+	color:white;
+	margin:0;
+	position:relative;
+}
+.naco-website-feed-content{
+	cursor:pointer;
+	float:left;
+	padding-left:16px;
+	padding-right:0;
+	padding-top:0;
+	padding-bottom:0;
+	width: calc( 80% - 16px );
+	margin:0;
+}
+.naco-website-feed-inner-content{
+	cursor:pointer;
+	position:absolute;
+	bottom:0;
+	left:0;
+	width:100%;
+	height:58px;
+	z-index:1;
+	padding: 10px;
+	padding-top:0px;
+	background-color:rgba(0,0,0,0.8);
+	-moz-transition-duration: 0.4s;
+	-o-transition-duration: 0.4s;
+	-webkit-transition-duration: 0.4s;
+	transition-duration: 0.4s;
+}
+.naco-website-feed-title{
+	text-transform: uppercase;
+	color:#9bd0ed;
+	font-size:.8em;
+}
+.naco-website-feed-article-content{
+	display:none;
+	font-size:.8em;
+}
+.naco-website-feed-article-container:hover .naco-website-feed-inner-content{
+	height:148px;
+	max-height:100%;
+}
+.naco-website-feed-article-container:hover .naco-website-feed-article-content{
+	display:block;
+}
+@media (max-width: 768px) {
+	.naco-website-feed-article-container{
+		margin-bottom:10px;
+	}
+}
