@@ -1,33 +1,30 @@
-/*
- * SmartMenus jQuery v0.9.6
+/*!
+ * SmartMenus jQuery Plugin - v1.0.0-beta1 - June 1, 2015
  * http://www.smartmenus.org/
  *
- * Copyright 2014 Vasil Dinkov, Vadikom Web Ltd.
- * http://vadikom.com/
+ * Copyright 2015 Vasil Dinkov, Vadikom Web Ltd.
+ * http://vadikom.com
  *
- * Released under the MIT license:
- * http://www.opensource.org/licenses/MIT
+ * Licensed MIT
  */
 
 (function($) {
 
 	var menuTrees = [],
-		IE = !!window.createPopup, // we need to detect it, unfortunately
-		IElt9 = IE && !document.defaultView,
-		IElt8 = IE && !document.querySelector,
-		IE6 = IE && typeof document.documentElement.currentStyle.minWidth == 'undefined',
+		IE = !!window.createPopup, // detect it for the iframe shim
 		mouse = false, // optimize for touch by default - we will detect for mouse input
 		mouseDetectionEnabled = false;
 
 	// Handle detection for mouse input (i.e. desktop browsers, tablets with a mouse, etc.)
 	function initMouseDetection(disable) {
+		var eNS = '.smartmenus_mouse';
 		if (!mouseDetectionEnabled && !disable) {
 			// if we get two consecutive mousemoves within 2 pixels from each other and within 300ms, we assume a real mouse/cursor is present
 			// in practice, this seems like impossible to trick unintentianally with a real mouse and a pretty safe detection on touch devices (even with older browsers that do not support touch events)
 			var firstTime = true,
 				lastMove = null;
-			$(document).bind({
-				'mousemove.smartmenus_mouse': function(e) {
+			$(document).bind(getEventsNS([
+				['mousemove', function(e) {
 					var thisMove = { x: e.pageX, y: e.pageY, timeStamp: new Date().getTime() };
 					if (lastMove) {
 						var deltaX = Math.abs(lastMove.x - thisMove.x),
@@ -50,37 +47,62 @@
 						}
 					}
 					lastMove = thisMove;
-				},
-				'touchstart.smartmenus_mouse pointerover.smartmenus_mouse MSPointerOver.smartmenus_mouse': function(e) {
-					if (!/^(4|mouse)$/.test(e.originalEvent.pointerType)) {
+				}],
+				[touchEvents() ? 'touchstart' : 'pointerover pointermove pointerout MSPointerOver MSPointerMove MSPointerOut', function(e) {
+					if (isTouchEvent(e.originalEvent)) {
 						mouse = false;
 					}
-				}
-			});
+				}]
+			], eNS));
 			mouseDetectionEnabled = true;
 		} else if (mouseDetectionEnabled && disable) {
-			$(document).unbind('.smartmenus_mouse');
+			$(document).unbind(eNS);
 			mouseDetectionEnabled = false;
 		}
-	};
+	}
+
+	function isTouchEvent(e) {
+		return !/^(4|mouse)$/.test(e.pointerType);
+	}
+
+	// we use this just to choose between toucn and pointer events when we need to, not for touch screen detection
+	function touchEvents() {
+		return 'ontouchstart' in window;
+	}
+
+	// returns a jQuery bind() ready object
+	function getEventsNS(defArr, eNS) {
+		if (!eNS) {
+			eNS = '';
+		}
+		var obj = {};
+		$.each(defArr, function(index, value) {
+			obj[value[0].split(' ').join(eNS + ' ') + eNS] = value[1];
+		});
+		return obj;
+	}
 
 	$.SmartMenus = function(elm, options) {
 		this.$root = $(elm);
 		this.opts = options;
 		this.rootId = ''; // internal
+		this.accessIdPrefix = '';
 		this.$subArrow = null;
-		this.subMenus = []; // all sub menus in the tree (UL elms) in no particular order (only real - e.g. UL's in mega sub menus won't be counted)
 		this.activatedItems = []; // stores last activated A's for each level
-		this.visibleSubMenus = []; // stores visible sub menus UL's
+		this.visibleSubMenus = []; // stores visible sub menus UL's (might be in no particular order)
 		this.showTimeout = 0;
 		this.hideTimeout = 0;
 		this.scrollTimeout = 0;
 		this.clickActivated = false;
+		this.focusActivated = false;
 		this.zIndexInc = 0;
+		this.idInc = 0;
 		this.$firstLink = null; // we'll use these for some tests
 		this.$firstSub = null; // at runtime so we'll cache them
 		this.disabled = false;
 		this.$disableOverlay = null;
+		this.isTouchScrolling = false;
+		this.wasCollapsible = false;
 		this.init();
 	};
 
@@ -104,41 +126,46 @@
 					menuTrees.push(this);
 
 					this.rootId = (new Date().getTime() + Math.random() + '').replace(/\D/g, '');
+					this.accessIdPrefix = 'sm-' + this.rootId + '-';
 
 					if (this.$root.hasClass('sm-rtl')) {
 						this.opts.rightToLeftSubMenus = true;
 					}
 
 					// init root (main menu)
+					var eNS = '.smartmenus';
 					this.$root
 						.data('smartmenus', this)
 						.attr('data-smartmenus-id', this.rootId)
 						.dataSM('level', 1)
-						.bind({
-							'mouseover.smartmenus focusin.smartmenus': $.proxy(this.rootOver, this),
-							'mouseout.smartmenus focusout.smartmenus': $.proxy(this.rootOut, this)
-						})
-						.delegate('a', {
-							'mouseenter.smartmenus': $.proxy(this.itemEnter, this),
-							'mouseleave.smartmenus': $.proxy(this.itemLeave, this),
-							'mousedown.smartmenus': $.proxy(this.itemDown, this),
-							'focus.smartmenus': $.proxy(this.itemFocus, this),
-							'blur.smartmenus': $.proxy(this.itemBlur, this),
-							'click.smartmenus': $.proxy(this.itemClick, this),
-							'touchend.smartmenus': $.proxy(this.itemTouchEnd, this)
-						});
+						.bind(getEventsNS([
+							['mouseover focusin', $.proxy(this.rootOver, this)],
+							['mouseout focusout', $.proxy(this.rootOut, this)],
+							['keydown', $.proxy(this.rootKeyDown, this)]
+						], eNS))
+						.delegate('a', getEventsNS([
+							['mouseenter', $.proxy(this.itemEnter, this)],
+							['mouseleave', $.proxy(this.itemLeave, this)],
+							['mousedown', $.proxy(this.itemDown, this)],
+							['focus', $.proxy(this.itemFocus, this)],
+							['blur', $.proxy(this.itemBlur, this)],
+							['click', $.proxy(this.itemClick, this)],
+							['touchend', $.proxy(this.itemTouchEnd, this)]
+						], eNS));
 
-					var eNamespace = '.smartmenus' + this.rootId;
 					// hide menus on tap or click outside the root UL
+					eNS += this.rootId;
 					if (this.opts.hideOnClick) {
-						$(document).bind('touchstart' + eNamespace, $.proxy(this.docTouchStart, this))
-							.bind('touchmove' + eNamespace, $.proxy(this.docTouchMove, this))
-							.bind('touchend' + eNamespace, $.proxy(this.docTouchEnd, this))
+						$(document).bind(getEventsNS([
+							['touchstart', $.proxy(this.docTouchStart, this)],
+							['touchmove', $.proxy(this.docTouchMove, this)],
+							['touchend', $.proxy(this.docTouchEnd, this)],
 							// for Opera Mobile < 11.5, webOS browser, etc. we'll check click too
-							.bind('click' + eNamespace, $.proxy(this.docClick, this));
+							['click', $.proxy(this.docClick, this)]
+						], eNS));
 					}
 					// hide sub menus on resize
-					$(window).bind('resize' + eNamespace + ' orientationchange' + eNamespace, $.proxy(this.winResize, this));
+					$(window).bind(getEventsNS([['resize orientationchange', $.proxy(this.winResize, this)]], eNS));
 
 					if (this.opts.subIndicators) {
 						this.$subArrow = $('<span/>').addClass('sub-arrow');
@@ -168,74 +195,92 @@
 						if (href == locHref || href == locHrefNoHash) {
 							$this.addClass('current');
 							if (self.opts.markCurrentTree) {
-								$this.parents('li').each(function() {
-									var $this = $(this);
-									if ($this.dataSM('sub')) {
-										$this.children('a').addClass('current');
-									}
+								$this.parentsUntil('[data-smartmenus-id]', 'ul').each(function() {
+									$(this).dataSM('parent-a').addClass('current');
 								});
 							}
 						}
 					});
 				}
+
+				// save initial state
+				this.wasCollapsible = this.isCollapsible();
 			},
-			destroy: function() {
-				this.menuHideAll();
-				this.$root
-					.removeData('smartmenus')
-					.removeAttr('data-smartmenus-id')
-					.removeDataSM('level')
-					.unbind('.smartmenus')
-					.undelegate('.smartmenus');
-				var eNamespace = '.smartmenus' + this.rootId;
-				$(document).unbind(eNamespace);
-				$(window).unbind(eNamespace);
-				if (this.opts.subIndicators) {
-					this.$subArrow = null;
-				}
-				var self = this;
-				$.each(this.subMenus, function() {
-					if (this.hasClass('mega-menu')) {
-						this.find('ul').removeDataSM('in-mega');
-					}
-					if (this.dataSM('shown-before')) {
-						if (IElt8) {
-							this.children().css({ styleFloat: '', width: '' });
-						}
-						if (self.opts.subMenusMinWidth || self.opts.subMenusMaxWidth) {
-							if (!IE6) {
-								this.css({ width: '', minWidth: '', maxWidth: '' }).removeClass('sm-nowrap');
-							} else {
-								this.css({ width: '', overflowX: '', overflowY: '' }).children().children('a').css('white-space', '');
-							}
-						}
-						if (this.dataSM('scroll-arrows')) {
-							this.dataSM('scroll-arrows').remove();
-						}
-						this.css({ zIndex: '', top: '', left: '', marginLeft: '', marginTop: '', display: '' });
-					}
-					if (self.opts.subIndicators) {
-						this.dataSM('parent-a').removeClass('has-submenu').children('span.sub-arrow').remove();
-					}
-					this.removeDataSM('shown-before')
-						.removeDataSM('ie-shim')
-						.removeDataSM('scroll-arrows')
-						.removeDataSM('parent-a')
+			destroy: function(refresh) {
+				if (!refresh) {
+					var eNS = '.smartmenus';
+					this.$root
+						.removeData('smartmenus')
+						.removeAttr('data-smartmenus-id')
 						.removeDataSM('level')
-						.removeDataSM('beforefirstshowfired')
-						.parent().removeDataSM('sub');
-				});
+						.unbind(eNS)
+						.undelegate(eNS);
+					eNS += this.rootId;
+					$(document).unbind(eNS);
+					$(window).unbind(eNS);
+					if (this.opts.subIndicators) {
+						this.$subArrow = null;
+					}
+				}
+				this.menuHideAll();
+				var self = this;
+				this.$root.find('ul').each(function() {
+						var $this = $(this);
+						if ($this.dataSM('scroll-arrows')) {
+							$this.dataSM('scroll-arrows').remove();
+						}
+						if ($this.dataSM('shown-before')) {
+							if (self.opts.subMenusMinWidth || self.opts.subMenusMaxWidth) {
+								$this.css({ width: '', minWidth: '', maxWidth: '' }).removeClass('sm-nowrap');
+							}
+							if ($this.dataSM('scroll-arrows')) {
+								$this.dataSM('scroll-arrows').remove();
+							}
+							$this.css({ zIndex: '', top: '', left: '', marginLeft: '', marginTop: '', display: '' });
+						}
+						if ($this.attr('id').indexOf(self.accessIdPrefix) == 0) {
+							$this.removeAttr('id');
+						}
+					})
+					.removeDataSM('in-mega')
+					.removeDataSM('shown-before')
+					.removeDataSM('ie-shim')
+					.removeDataSM('scroll-arrows')
+					.removeDataSM('parent-a')
+					.removeDataSM('level')
+					.removeDataSM('beforefirstshowfired')
+					.removeAttr('role')
+					.removeAttr('aria-hidden')
+					.removeAttr('aria-labelledby')
+					.removeAttr('aria-expanded');
+				this.$root.find('a.has-submenu').each(function() {
+						var $this = $(this);
+						if ($this.attr('id').indexOf(self.accessIdPrefix) == 0) {
+							$this.removeAttr('id');
+						}
+					})
+					.removeClass('has-submenu')
+					.removeDataSM('sub')
+					.removeAttr('aria-haspopup')
+					.removeAttr('aria-controls')
+					.removeAttr('aria-expanded')
+					.closest('li').removeDataSM('sub');
+				if (this.opts.subIndicators) {
+					this.$root.find('span.sub-arrow').remove();
+				}
 				if (this.opts.markCurrentItem) {
 					this.$root.find('a.current').removeClass('current');
 				}
-				this.$root = null;
-				this.$firstLink = null;
-				this.$firstSub = null;
-				if (this.$disableOverlay) {
-					this.$disableOverlay.remove();
-					this.$disableOverlay = null;
+				if (!refresh) {
+					this.$root = null;
+					this.$firstLink = null;
+					this.$firstSub = null;
+					if (this.$disableOverlay) {
+						this.$disableOverlay.remove();
+						this.$disableOverlay = null;
+					}
+					menuTrees.splice($.inArray(this, menuTrees), 1);
 				}
-				menuTrees.splice($.inArray(this, menuTrees), 1);
 			},
 			disable: function(noOverlay) {
 				if (!this.disabled) {
@@ -249,7 +294,7 @@
 							left: pos.left,
 							width: this.$root.outerWidth(),
 							height: this.$root.outerHeight(),
-							zIndex: this.getStartZIndex() + 1,
+							zIndex: this.getStartZIndex(true),
 							opacity: 0
 						}).appendTo(document.body);
 					}
@@ -257,6 +302,10 @@
 				}
 			},
 			docClick: function(e) {
+				if (this.isTouchScrolling) {
+					this.isTouchScrolling = false;
+					return;
+				}
 				// hide on any click outside the menu or on a menu link
 				if (this.visibleSubMenus.length && !$.contains(this.$root[0], e.target) || $(e.target).is('a')) {
 					this.menuHideAll();
@@ -298,26 +347,26 @@
 					this.disabled = false;
 				}
 			},
+			getClosestMenu: function(elm) {
+				var $closestMenu = $(elm).closest('ul');
+				while ($closestMenu.dataSM('in-mega')) {
+					$closestMenu = $closestMenu.parent().closest('ul');
+				}
+				return $closestMenu[0] || null;
+			},
 			getHeight: function($elm) {
 				return this.getOffset($elm, true);
 			},
-			// returns precise width/height float values in IE9+, FF4+, recent WebKit
-			// http://vadikom.com/dailies/offsetwidth-offsetheight-useless-in-ie9-firefox4/
+			// returns precise width/height float values
 			getOffset: function($elm, height) {
 				var old;
 				if ($elm.css('display') == 'none') {
 					old = { position: $elm[0].style.position, visibility: $elm[0].style.visibility };
 					$elm.css({ position: 'absolute', visibility: 'hidden' }).show();
 				}
-				var defaultView = $elm[0].ownerDocument.defaultView,
-					compStyle = defaultView && defaultView.getComputedStyle && defaultView.getComputedStyle($elm[0], null),
-					val = compStyle && parseFloat(compStyle[height ? 'height' : 'width']);
-				if (val) {
-					val += parseFloat(compStyle[height ? 'paddingTop' : 'paddingLeft'])
-	 					+ parseFloat(compStyle[height ? 'paddingBottom' : 'paddingRight'])
-	 					+ parseInt(compStyle[height ? 'borderTopWidth' : 'borderLeftWidth'])
-	 					+ parseInt(compStyle[height ? 'borderBottomWidth' : 'borderRightWidth']);
-				} else {
+				var box = $elm[0].getBoundingClientRect && $elm[0].getBoundingClientRect(),
+					val = box && (height ? box.height || box.bottom - box.top : box.width || box.right - box.left);
+				if (!val && val !== 0) {
 					val = height ? $elm[0].offsetHeight : $elm[0].offsetWidth;
 				}
 				if (old) {
@@ -325,12 +374,33 @@
 				}
 				return val;
 			},
+			getStartZIndex: function(root) {
+				var zIndex = parseInt(this[root ? '$root' : '$firstSub'].css('z-index'));
+				if (!root && isNaN(zIndex)) {
+					zIndex = parseInt(this.$root.css('z-index'));
+				}
+				return !isNaN(zIndex) ? zIndex : 1;
+			},
+			getTouchPoint: function(e) {
+				return e.touches && e.touches[0] || e.changedTouches && e.changedTouches[0] || e;
+			},
+			getViewport: function(height) {
+				var name = height ? 'Height' : 'Width',
+					val = document.documentElement['client' + name],
+					val2 = window['inner' + name];
+				if (val2) {
+					val = Math.min(val, val2);
+				}
+				return val;
+			},
+			getViewportHeight: function() {
+				return this.getViewport(true);
+			},
+			getViewportWidth: function() {
+				return this.getViewport();
+			},
 			getWidth: function($elm) {
 				return this.getOffset($elm);
-			},
-			getStartZIndex: function() {
-				var zIndex = parseInt(this.$root.css('z-index'));
-				return !isNaN(zIndex) ? zIndex : 1;
 			},
 			handleEvents: function() {
 				return !this.disabled && this.isCSSOn();
@@ -345,17 +415,25 @@
 				return this.$firstLink.css('display') == 'block';
 			},
 			isFixed: function() {
-				return this.$root.css('position') == 'fixed';
+				var isFixed = this.$root.css('position') == 'fixed';
+				if (!isFixed) {
+					this.$root.parentsUntil('body').each(function() {
+						if ($(this).css('position') == 'fixed') {
+							isFixed = true;
+							return false;
+						}
+					});
+				}
+				return isFixed;
 			},
 			isLinkInMegaMenu: function($a) {
-				return !$a.parent().parent().dataSM('level');
+				return $(this.getClosestMenu($a[0])).hasClass('mega-menu');
 			},
 			isTouchMode: function() {
 				return !mouse || this.isCollapsible();
 			},
-			itemActivate: function($a) {
-				var $li = $a.parent(),
-					$ul = $li.parent(),
+			itemActivate: function($a, focus) {
+				var $ul = $a.closest('ul'),
 					level = $ul.dataSM('level');
 				// if for some reason the parent item is not activated (e.g. this is an API call to activate the item), activate all parent items first
 				if (level > 1 && (!this.activatedItems[level - 2] || this.activatedItems[level - 2][0] != $ul.dataSM('parent-a')[0])) {
@@ -365,19 +443,16 @@
 					});
 				}
 				// hide any visible deeper level sub menus
-				if (this.visibleSubMenus.length > level) {
-					for (var i = this.visibleSubMenus.length - 1, l = !this.activatedItems[level - 1] || this.activatedItems[level - 1][0] != $a[0] ? level - 1 : level; i > l; i--) {
-						this.menuHide(this.visibleSubMenus[i]);
-					}
+				if (!this.isCollapsible() || focus) {
+					this.menuHideSubMenus(!this.activatedItems[level - 1] || this.activatedItems[level - 1][0] != $a[0] ? level - 1 : level);
 				}
-				// save new active item and sub menu for this level
+				// save new active item for this level
 				this.activatedItems[level - 1] = $a;
-				this.visibleSubMenus[level - 1] = $ul;
 				if (this.$root.triggerHandler('activate.smapi', $a[0]) === false) {
 					return;
 				}
 				// show the sub menu if this item has one
-				var $sub = $li.dataSM('sub');
+				var $sub = $a.dataSM('sub');
 				if ($sub && (this.isTouchMode() || (!this.opts.showOnClick || this.clickActivated))) {
 					this.menuShow($sub);
 				}
@@ -390,31 +465,40 @@
 				this.$root.triggerHandler('blur.smapi', $a[0]);
 			},
 			itemClick: function(e) {
+				if (this.isTouchScrolling) {
+					this.isTouchScrolling = false;
+					e.stopPropagation();
+					return false;
+				}
 				var $a = $(e.currentTarget);
 				if (!this.handleItemEvents($a)) {
 					return;
 				}
-				$a.removeDataSM('mousedown');
 				if (this.$root.triggerHandler('click.smapi', $a[0]) === false) {
 					return false;
 				}
-				var $sub = $a.parent().dataSM('sub');
-				if (this.isTouchMode()) {
-					// undo fix: prevent the address bar on iPhone from sliding down when expanding a sub menu
-					if ($a.dataSM('href')) {
-						$a.attr('href', $a.dataSM('href')).removeDataSM('href');
+				// undo fix: prevent the address bar on iPhone from sliding down when expanding a sub menu
+				if ($a.dataSM('href')) {
+					$a.attr('href', $a.dataSM('href')).removeDataSM('href');
+				}
+				var subArrowClicked = $(e.target).is('span.sub-arrow'),
+					$sub = $a.dataSM('sub');
+				// if the sub is not visible
+				if ($sub && !$sub.is(':visible')) {
+					// try to activate the item and show the sub
+					this.itemActivate($a);
+					// if "itemActivate" showed the sub, prevent the click so that the link is not loaded
+					// if it couldn't show it, then the sub menus are disabled with an !important declaration (e.g. via mobile styles) so let the link get loaded
+					if ($sub.is(':visible')) {
+						this.focusActivated = true;
+						return false;
 					}
-					// if the sub is not visible
-					if ($sub && (!$sub.dataSM('shown-before') || !$sub.is(':visible'))) {
-						// try to activate the item and show the sub
-						this.itemActivate($a);
-						// if "itemActivate" showed the sub, prevent the click so that the link is not loaded
-						// if it couldn't show it, then the sub menus are disabled with an !important declaration (e.g. via mobile styles) so let the link get loaded
-						if ($sub.is(':visible')) {
-							return false;
-						}
-					}
-				} else if (this.opts.showOnClick && $a.parent().parent().dataSM('level') == 1 && $sub) {
+				} else if (this.isCollapsible() && subArrowClicked) {
+					this.itemActivate($a);
+					this.menuHide($sub);
+					return false;
+				}
+				if (this.opts.showOnClick && $sub && $sub.dataSM('level') == 2) {
 					this.clickActivated = true;
 					this.menuShow($sub);
 					return false;
@@ -444,7 +528,7 @@
 						this.showTimeout = 0;
 					}
 					var self = this;
-					this.showTimeout = setTimeout(function() { self.itemActivate($a); }, this.opts.showOnClick && $a.parent().parent().dataSM('level') == 1 ? 1 : this.opts.showTimeout);
+					this.showTimeout = setTimeout(function() { self.itemActivate($a); }, this.opts.showOnClick && $a.closest('ul').dataSM('level') == 1 ? 1 : this.opts.showTimeout);
 				}
 				this.$root.triggerHandler('mouseenter.smapi', $a[0]);
 			},
@@ -454,8 +538,8 @@
 					return;
 				}
 				// fix (the mousedown check): in some browsers a tap/click produces consecutive focus + click events so we don't need to activate the item on focus
-				if ((!this.isTouchMode() || !$a.dataSM('mousedown')) && (!this.activatedItems.length || this.activatedItems[this.activatedItems.length - 1][0] != $a[0])) {
-					this.itemActivate($a);
+				if (this.focusActivated && (!this.isTouchMode() || !$a.dataSM('mousedown')) && (!this.activatedItems.length || this.activatedItems[this.activatedItems.length - 1][0] != $a[0])) {
+					this.itemActivate($a, true);
 				}
 				this.$root.triggerHandler('focus.smapi', $a[0]);
 			},
@@ -465,9 +549,6 @@
 					return;
 				}
 				if (!this.isTouchMode()) {
-					if ($a[0].blur) {
-						$a[0].blur();
-					}
 					if (this.showTimeout) {
 						clearTimeout(this.showTimeout);
 						this.showTimeout = 0;
@@ -482,20 +563,10 @@
 					return;
 				}
 				// prevent the address bar on iPhone from sliding down when expanding a sub menu
-				var $sub = $a.parent().dataSM('sub');
-				if ($a.attr('href').charAt(0) !== '#' && $sub && (!$sub.dataSM('shown-before') || !$sub.is(':visible'))) {
-					$a.dataSM('href', $a.attr('href'));
-					$a.attr('href', '#');
-				}
-			},
-			menuFixLayout: function($ul) {
-				// fixes a menu that is being shown for the first time
-				if (!$ul.dataSM('shown-before')) {
-					$ul.hide().dataSM('shown-before', true);
-					// fix the layout of the items in IE<8
-					if (IElt8) {
-						$ul.children().css({ styleFloat: 'left', width: '100%' });
-					}
+				var $sub = $a.dataSM('sub');
+				if ($a.attr('href').charAt(0) !== '#' && $sub && !$sub.is(':visible')) {
+					$a.dataSM('href', $a.attr('href'))
+						.attr('href', '#');
 				}
 			},
 			menuHide: function($sub) {
@@ -503,14 +574,10 @@
 					return;
 				}
 				$sub.stop(true, true);
-				if ($sub.is(':visible')) {
+				if ($sub.css('display') != 'none') {
 					var complete = function() {
 						// unset z-index
-						if (IElt9) {
-							$sub.parent().css('z-index', '');
-						} else {
-							$sub.css('z-index', '');
-						}
+						$sub.css('z-index', '');
 					};
 					// if sub is collapsible (mobile view)
 					if (this.isCollapsible()) {
@@ -532,13 +599,19 @@
 					}
 					// deactivate scrolling if it is activated for this sub
 					if ($sub.dataSM('scroll')) {
-						$sub.unbind('.smartmenus_scroll').removeDataSM('scroll').dataSM('scroll-arrows').hide();
+						this.menuScrollStop($sub);
+						$sub.css({ 'touch-action': '', '-ms-touch-action': '' })
+							.unbind('.smartmenus_scroll').removeDataSM('scroll').dataSM('scroll-arrows').hide();
 					}
-					// unhighlight parent item
-					$sub.dataSM('parent-a').removeClass('highlighted');
+					// unhighlight parent item + accessibility
+					$sub.dataSM('parent-a').removeClass('highlighted').attr('aria-expanded', 'false');
+					$sub.attr({
+						'aria-expanded': 'false',
+						'aria-hidden': 'true'
+					});
 					var level = $sub.dataSM('level');
 					this.activatedItems.splice(level - 1, 1);
-					this.visibleSubMenus.splice(level - 1, 1);
+					this.visibleSubMenus.splice($.inArray($sub, this.visibleSubMenus), 1);
 					this.$root.triggerHandler('hide.smapi', $sub[0]);
 				}
 			},
@@ -548,7 +621,9 @@
 					this.showTimeout = 0;
 				}
 				// hide all subs
-				for (var i = this.visibleSubMenus.length - 1; i > 0; i--) {
+				// if it's a popup, this.visibleSubMenus[0] is the root UL
+				var level = this.opts.isPopup ? 1 : 0;
+				for (var i = this.visibleSubMenus.length - 1; i >= level; i--) {
 					this.menuHide(this.visibleSubMenus[i]);
 				}
 				// hide root if it's popup
@@ -569,8 +644,17 @@
 				this.activatedItems = [];
 				this.visibleSubMenus = [];
 				this.clickActivated = false;
+				this.focusActivated = false;
 				// reset z-index increment
 				this.zIndexInc = 0;
+			},
+			menuHideSubMenus: function(level) {
+				for (var i = this.activatedItems.length - 1; i >= level; i--) {
+					var $sub = this.activatedItems[i].dataSM('sub');
+					if ($sub) {
+						this.menuHide($sub);
+					}
+				}
 			},
 			menuIframeShim: function($ul) {
 				// create iframe shim for the menu
@@ -582,7 +666,6 @@
 			},
 			menuInit: function($ul) {
 				if (!$ul.dataSM('in-mega')) {
-					this.subMenus.push($ul);
 					// mark UL's in mega drop downs (if any) so we can neglect them
 					if ($ul.hasClass('mega-menu')) {
 						$ul.find('ul').dataSM('in-mega', true);
@@ -593,19 +676,42 @@
 					while ((par = par.parentNode.parentNode) != this.$root[0]) {
 						level++;
 					}
-					// cache stuff
-					$ul.dataSM('parent-a', $ul.prevAll('a').eq(-1))
+					// cache stuff for quick access
+					var $a = $ul.prevAll('a').eq(-1);
+					// if the link is nested (e.g. in a heading)
+					if (!$a.length) {
+						$a = $ul.prevAll().find('a').eq(-1);
+					}
+					$a.addClass('has-submenu').dataSM('sub', $ul);
+					$ul.dataSM('parent-a', $a)
 						.dataSM('level', level)
 						.parent().dataSM('sub', $ul);
+					// accessibility
+					var aId = $a.attr('id') || this.accessIdPrefix + (++this.idInc),
+						ulId = $ul.attr('id') || this.accessIdPrefix + (++this.idInc);
+					$a.attr({
+						id: aId,
+						'aria-haspopup': 'true',
+						'aria-controls': ulId,
+						'aria-expanded': 'false'
+					});
+					$ul.attr({
+						id: ulId,
+						'role': 'group',
+						'aria-hidden': 'true',
+						'aria-labelledby': aId,
+						'aria-expanded': 'false'
+					});
 					// add sub indicator to parent item
 					if (this.opts.subIndicators) {
-						$ul.dataSM('parent-a').addClass('has-submenu')[this.opts.subIndicatorsPos](this.$subArrow.clone());
+						$a[this.opts.subIndicatorsPos](this.$subArrow.clone());
 					}
 				}
 			},
 			menuPosition: function($sub) {
 				var $a = $sub.dataSM('parent-a'),
-					$ul = $sub.parent().parent(),
+					$li = $a.closest('li'),
+					$ul = $li.parent(),
 					level = $sub.dataSM('level'),
 					subW = this.getWidth($sub),
 					subH = this.getHeight($sub),
@@ -617,30 +723,26 @@
 					$win = $(window),
 					winX = $win.scrollLeft(),
 					winY = $win.scrollTop(),
-					winW = $win.width(),
-					winH = $win.height(),
+					winW = this.getViewportWidth(),
+					winH = this.getViewportHeight(),
 					horizontalParent = $ul.hasClass('sm') && !$ul.hasClass('sm-vertical'),
+					rightToLeft = this.opts.rightToLeftSubMenus && !$li.is('[data-sm-reverse]') || !this.opts.rightToLeftSubMenus && $li.is('[data-sm-reverse]'),
 					subOffsetX = level == 2 ? this.opts.mainMenuSubOffsetX : this.opts.subMenusSubOffsetX,
 					subOffsetY = level == 2 ? this.opts.mainMenuSubOffsetY : this.opts.subMenusSubOffsetY,
 					x, y;
 				if (horizontalParent) {
-					x = this.opts.rightToLeftSubMenus ? itemW - subW - subOffsetX : subOffsetX;
+					x = rightToLeft ? itemW - subW - subOffsetX : subOffsetX;
 					y = this.opts.bottomToTopSubMenus ? -subH - subOffsetY : itemH + subOffsetY;
 				} else {
-					x = this.opts.rightToLeftSubMenus ? subOffsetX - subW : itemW - subOffsetX;
+					x = rightToLeft ? subOffsetX - subW : itemW - subOffsetX;
 					y = this.opts.bottomToTopSubMenus ? itemH - subOffsetY - subH : subOffsetY;
 				}
-				if (this.opts.keepInViewport && !this.isCollapsible()) {
-					if (this.isFixed()) {
-						itemX -= winX;
-						itemY -= winY;
-						winX = winY = 0;
-					}
+				if (this.opts.keepInViewport) {
 					var absX = itemX + x,
 						absY = itemY + y;
-					if (this.opts.rightToLeftSubMenus && absX < winX) {
+					if (rightToLeft && absX < winX) {
 						x = horizontalParent ? winX - absX + x : itemW - subOffsetX;
-					} else if (!this.opts.rightToLeftSubMenus && absX + subW > winX + winW) {
+					} else if (!rightToLeft && absX + subW > winX + winW) {
 						x = horizontalParent ? winX + winW - subW - absX + x : subOffsetX - subW;
 					}
 					if (!horizontalParent) {
@@ -651,13 +753,16 @@
 						}
 					}
 					// do we need scrolling?
-					// 0.49 added for the sake of IE9/FF4+ where we might be dealing with float numbers for "subH"
-					if (mouse && (horizontalParent && (absY + subH > winY + winH + 0.49 || absY < winY) || !horizontalParent && subH > winH + 0.49)) {
+					// 0.49 used for better precision when dealing with float values
+					if (horizontalParent && (absY + subH > winY + winH + 0.49 || absY < winY) || !horizontalParent && subH > winH + 0.49) {
 						var self = this;
 						if (!$sub.dataSM('scroll-arrows')) {
 							$sub.dataSM('scroll-arrows', $([$('<span class="scroll-up"><span class="scroll-up-arrow"></span></span>')[0], $('<span class="scroll-down"><span class="scroll-down-arrow"></span></span>')[0]])
 								.bind({
-									mouseenter: function() { self.menuScroll($sub, $(this).hasClass('scroll-up')); },
+									mouseenter: function() {
+										$sub.dataSM('scroll').up = $(this).hasClass('scroll-up');
+										self.menuScroll($sub);
+									},
 									mouseleave: function(e) {
 										self.menuScrollStop($sub);
 										self.menuScrollOut($sub, e);
@@ -667,23 +772,32 @@
 								.insertAfter($sub)
 							);
 						}
-						// bind events to show/hide arrows on hover and save scrolling data for this sub
-						var vportY = winY - (itemY + itemH);
+						// bind scroll events and save scroll data for this sub
+						var eNS = '.smartmenus_scroll';
 						$sub.dataSM('scroll', {
-								vportY: vportY,
+								step: 1,
+								// cache stuff for faster recalcs later
+								itemH: itemH,
 								subH: subH,
-								winH: winH,
-								step: 1
+								arrowDownH: this.getHeight($sub.dataSM('scroll-arrows').eq(1))
 							})
-							.bind({
-								'mouseover.smartmenus_scroll': function(e) { self.menuScrollOver($sub, e); },
-								'mouseout.smartmenus_scroll': function(e) { self.menuScrollOut($sub, e); },
-								'mousewheel.smartmenus_scroll DOMMouseScroll.smartmenus_scroll': function(e) { self.menuScrollMousewheel($sub, e); }
-							})
-							.dataSM('scroll-arrows').css({ top: 'auto', left: '0', marginLeft: x + (parseInt($sub.css('border-left-width')) || 0), width: this.getWidth($sub) - (parseInt($sub.css('border-left-width')) || 0) - (parseInt($sub.css('border-right-width')) || 0), zIndex: this.getStartZIndex() + this.zIndexInc })
-							.eq(0).css('margin-top', vportY).end()
-							.eq(1).css('margin-top', vportY + winH - this.getHeight($sub.dataSM('scroll-arrows').eq(1))).end()
-							.eq(horizontalParent && this.opts.bottomToTopSubMenus ? 0 : 1).show();
+							.bind(getEventsNS([
+								['mouseover', function(e) { self.menuScrollOver($sub, e); }],
+								['mouseout', function(e) { self.menuScrollOut($sub, e); }],
+								['mousewheel DOMMouseScroll', function(e) { self.menuScrollMousewheel($sub, e); }]
+							], eNS))
+							.dataSM('scroll-arrows').css({ top: 'auto', left: '0', marginLeft: x + (parseInt($sub.css('border-left-width')) || 0), width: subW - (parseInt($sub.css('border-left-width')) || 0) - (parseInt($sub.css('border-right-width')) || 0), zIndex: $sub.css('z-index') })
+								.eq(horizontalParent && this.opts.bottomToTopSubMenus ? 0 : 1).show();
+						// when a menu tree is fixed positioned we allow scrolling via touch too
+						// since there is no other way to access such long sub menus if no mouse is present
+						if (this.isFixed()) {
+							$sub.css({ 'touch-action': 'none', '-ms-touch-action': 'none' })
+								.bind(getEventsNS([
+									[touchEvents() ? 'touchstart touchmove touchend' : 'pointerdown pointermove pointerup MSPointerDown MSPointerMove MSPointerUp', function(e) {
+										self.menuScrollTouch($sub, e);
+									}]
+								], eNS));
+						}
 					}
 				}
 				$sub.css({ top: 'auto', left: '0', marginLeft: x, marginTop: y - itemH });
@@ -693,68 +807,145 @@
 					$sub.dataSM('ie-shim').css({ zIndex: $sub.css('z-index'), width: subW, height: subH, marginLeft: x, marginTop: y - itemH });
 				}
 			},
-			menuScroll: function($sub, up, wheel) {
-				var y = parseFloat($sub.css('margin-top')),
-					scroll = $sub.dataSM('scroll'),
-					end = scroll.vportY + (up ? 0 : scroll.winH - scroll.subH),
-					step = wheel || !this.opts.scrollAccelerate ? this.opts.scrollStep : Math.floor($sub.dataSM('scroll').step);
-				$sub.add($sub.dataSM('ie-shim')).css('margin-top', Math.abs(end - y) > step ? y + (up ? step : -step) : end);
-				y = parseFloat($sub.css('margin-top'));
+			menuScroll: function($sub, once, step) {
+				var data = $sub.dataSM('scroll'),
+					$arrows = $sub.dataSM('scroll-arrows'),
+					y = parseFloat($sub.css('margin-top')),
+					end = data.up ? data.upEnd : data.downEnd,
+					diff;
+				if (!once && data.velocity) {
+					data.velocity *= 0.9;
+					diff = data.velocity;
+					if (diff < 0.5) {
+						this.menuScrollStop($sub);
+						return;
+					}
+				} else {
+					diff = step || (once || !this.opts.scrollAccelerate ? this.opts.scrollStep : Math.floor(data.step));
+				}
+				// hide any visible deeper level sub menus
+				var level = $sub.dataSM('level');
+				if (this.activatedItems[level - 1] && this.activatedItems[level - 1].dataSM('sub') && this.activatedItems[level - 1].dataSM('sub').is(':visible')) {
+					this.menuHideSubMenus(level - 1);
+				}
+				var newY = data.up && end <= y || !data.up && end >= y ? y : (Math.abs(end - y) > diff ? y + (data.up ? diff : -diff) : end);
+				$sub.add($sub.dataSM('ie-shim')).css('margin-top', newY);
 				// show opposite arrow if appropriate
-				if (up && y + scroll.subH > scroll.vportY + scroll.winH || !up && y < scroll.vportY) {
-					$sub.dataSM('scroll-arrows').eq(up ? 1 : 0).show();
+				if (mouse && (data.up && newY > data.downEnd || !data.up && newY < data.upEnd)) {
+					$arrows.eq(data.up ? 1 : 0).show();
 				}
-				// accelerate when not using mousewheel to scroll
-				if (!wheel && this.opts.scrollAccelerate && $sub.dataSM('scroll').step < this.opts.scrollStep) {
-					$sub.dataSM('scroll').step += 0.5;
-				}
-				// "y" and "end" might be float numbers in IE9/FF4+ so this weird way to check is used
-				if (Math.abs(y - end) < 1) {
-					$sub.dataSM('scroll-arrows').eq(up ? 0 : 1).hide();
-					$sub.dataSM('scroll').step = 1;
-				} else if (!wheel) {
+				// if we've reached the end
+				if (newY == end) {
+					if (mouse) {
+						$arrows.eq(data.up ? 0 : 1).hide();
+					}
+					this.menuScrollStop($sub);
+				} else if (!once) {
+					if (this.opts.scrollAccelerate && data.step < this.opts.scrollStep) {
+						data.step += 0.5;
+					}
 					var self = this;
-					this.scrollTimeout = setTimeout(function() { self.menuScroll($sub, up); }, this.opts.scrollInterval);
+					this.scrollTimeout = setTimeout(function() { self.menuScroll($sub); }, this.opts.scrollInterval);
 				}
 			},
 			menuScrollMousewheel: function($sub, e) {
-				var $closestSub = $(e.target).closest('ul');
-				while ($closestSub.dataSM('in-mega')) {
-					$closestSub = $closestSub.parent().closest('ul');
-				}
-				if ($closestSub[0] == $sub[0]) {
-					var up = (e.originalEvent.wheelDelta || -e.originalEvent.detail) > 0;
+				if (this.getClosestMenu(e.target) == $sub[0]) {
+					e = e.originalEvent;
+					var up = (e.wheelDelta || -e.detail) > 0;
 					if ($sub.dataSM('scroll-arrows').eq(up ? 0 : 1).is(':visible')) {
-						this.menuScroll($sub, up, true);
+						$sub.dataSM('scroll').up = up;
+						this.menuScroll($sub, true);
 					}
 				}
 				e.preventDefault();
 			},
 			menuScrollOut: function($sub, e) {
-				var reClass = /^scroll-(up|down)/,
-					$closestSub = $(e.relatedTarget).closest('ul');
-				while ($closestSub.dataSM('in-mega')) {
-					$closestSub = $closestSub.parent().closest('ul');
-				}
-				if (!reClass.test((e.relatedTarget || '').className) && ($sub[0] != e.relatedTarget && !$.contains($sub[0], e.relatedTarget) || $closestSub[0] != $sub[0])) {
-					$sub.dataSM('scroll-arrows').css('visibility', 'hidden');
+				if (mouse) {
+					if (!/^scroll-(up|down)/.test((e.relatedTarget || '').className) && ($sub[0] != e.relatedTarget && !$.contains($sub[0], e.relatedTarget) || this.getClosestMenu(e.relatedTarget) != $sub[0])) {
+						$sub.dataSM('scroll-arrows').css('visibility', 'hidden');
+					}
 				}
 			},
 			menuScrollOver: function($sub, e) {
-				var reClass = /^scroll-(up|down)/,
-					$closestSub = $(e.target).closest('ul');
-				while ($closestSub.dataSM('in-mega')) {
-					$closestSub = $closestSub.parent().closest('ul');
+				if (mouse) {
+					if (!/^scroll-(up|down)/.test(e.target.className) && this.getClosestMenu(e.target) == $sub[0]) {
+						this.menuScrollRefreshData($sub);
+						var data = $sub.dataSM('scroll');
+						$sub.dataSM('scroll-arrows').eq(0).css('margin-top', data.upEnd).end()
+							.eq(1).css('margin-top', data.downEnd + data.subH - data.arrowDownH).end()
+							.css('visibility', 'visible');
+					}
 				}
-				if (!reClass.test(e.target.className) && $closestSub[0] == $sub[0]) {
-					$sub.dataSM('scroll-arrows').css('visibility', 'visible');
-				}
+			},
+			menuScrollRefreshData: function($sub) {
+				var data = $sub.dataSM('scroll'),
+					$win = $(window),
+					vportY = $win.scrollTop() - $sub.dataSM('parent-a').offset().top - data.itemH;
+				$.extend(data, {
+					upEnd: vportY,
+					downEnd: vportY + this.getViewportHeight() - data.subH
+				});
 			},
 			menuScrollStop: function($sub) {
 				if (this.scrollTimeout) {
 					clearTimeout(this.scrollTimeout);
 					this.scrollTimeout = 0;
-					$sub.dataSM('scroll').step = 1;
+					$.extend($sub.dataSM('scroll'), {
+						step: 1,
+						velocity: 0
+					});
+					return true;
+				}
+			},
+			menuScrollTouch: function($sub, e) {
+				e = e.originalEvent;
+				if (isTouchEvent(e)) {
+					var touchPoint = this.getTouchPoint(e);
+					// neglect event if we touched a visible deeper level sub menu
+					if (this.getClosestMenu(touchPoint.target) == $sub[0]) {
+						var data = $sub.dataSM('scroll');
+						if (/(start|down)$/i.test(e.type)) {
+							if (this.menuScrollStop($sub)) {
+								// if we were scrolling, just stop and don't activate any link on the first touch
+								e.preventDefault();
+								this.isTouchScrolling = true;
+							} else {
+								this.isTouchScrolling = false;
+							}
+							// update scroll data since the user might have zoomed, etc.
+							this.menuScrollRefreshData($sub);
+							// extend it with the touch properties
+							$.extend(data, {
+								touchY: touchPoint.pageY,
+								touchTimestamp: e.timeStamp,
+								velocity: 0
+							});
+						} else if (/move$/i.test(e.type)) {
+							var prevY = data.touchY;
+							if (prevY !== undefined && prevY != touchPoint.pageY) {
+								this.isTouchScrolling = true;
+								$.extend(data, {
+									up: prevY < touchPoint.pageY,
+									touchY: touchPoint.pageY,
+									touchTimestamp: e.timeStamp,
+									velocity: data.velocity + Math.abs(touchPoint.pageY - prevY) * 0.5
+								});
+								this.menuScroll($sub, true, Math.abs(data.touchY - prevY));
+							}
+							e.preventDefault();
+						} else { // touchend/pointerup
+							if (data.touchY !== undefined) {
+								// check if we need to scroll
+								if (e.timeStamp - data.touchTimestamp < 120 && data.velocity > 0) {
+									data.velocity *= 0.5;
+									this.menuScrollStop($sub);
+									this.menuScroll($sub);
+									e.preventDefault();
+								}
+								delete data.touchY;
+							}
+						}
+					}
 				}
 			},
 			menuShow: function($sub) {
@@ -767,23 +958,21 @@
 				if (this.$root.triggerHandler('beforeshow.smapi', $sub[0]) === false) {
 					return;
 				}
-				this.menuFixLayout($sub);
-				$sub.stop(true, true);
+				$sub.dataSM('shown-before', true)
+					.stop(true, true);
 				if (!$sub.is(':visible')) {
-					// set z-index - for IE < 9 set it to the parent LI
-					var zIndex = this.getStartZIndex() + (++this.zIndexInc);
-					if (IElt9) {
-						$sub.parent().css('z-index', zIndex);
-					} else {
-						$sub.css('z-index', zIndex);
-					}
 					// highlight parent item
+					var $a = $sub.dataSM('parent-a');
 					if (this.opts.keepHighlighted || this.isCollapsible()) {
-						$sub.dataSM('parent-a').addClass('highlighted');
+						$a.addClass('highlighted');
 					}
-					// min/max-width fix - no way to rely purely on CSS as all UL's are nested
-					if (this.opts.subMenusMinWidth || this.opts.subMenusMaxWidth) {
-						if (!IElt8) {
+					if (this.isCollapsible()) {
+						$sub.removeClass('sm-nowrap').css({ zIndex: '', width: 'auto', minWidth: '', maxWidth: '', top: '', left: '', marginLeft: '', marginTop: '' });
+					} else {
+						// set z-index
+						$sub.css('z-index', this.zIndexInc = (this.zIndexInc || this.getStartZIndex()) + 1);
+						// min/max-width fix - no way to rely purely on CSS as all UL's are nested
+						if (this.opts.subMenusMinWidth || this.opts.subMenusMaxWidth) {
 							$sub.css({ width: 'auto', minWidth: '', maxWidth: '' }).addClass('sm-nowrap');
 							if (this.opts.subMenusMinWidth) {
 							 	$sub.css('min-width', this.opts.subMenusMinWidth);
@@ -795,45 +984,12 @@
 									$sub.removeClass('sm-nowrap').css('width', this.opts.subMenusMaxWidth);
 								}
 							}
-						// IE6,7
- 						} else {
-							$sub.children().css('styleFloat', 'none');
-							if (IE6) {
-								$sub.width(this.opts.subMenusMinWidth ? this.opts.subMenusMinWidth : 1)
-									.children().children('a').css('white-space', 'nowrap');
-							} else { // IE7
-								$sub.css({ width: 'auto', minWidth: '', maxWidth: '' }).addClass('sm-nowrap');
-								if (this.opts.subMenusMinWidth) {
-							         	$sub.css('min-width', this.opts.subMenusMinWidth);
-								}
-							}
-							if (this.opts.subMenusMaxWidth) {
-								var noMaxWidth = $sub.width();
-								if (IE6) {
-							 		var maxWidth = $sub.css({ width: this.opts.subMenusMaxWidth, overflowX: 'hidden', overflowY: 'hidden' }).width();
-									if (noMaxWidth > maxWidth) {
-										$sub.css({ width: maxWidth, overflowX: 'visible', overflowY: 'visible' }).children().children('a').css('white-space', '');
-									} else {
-										$sub.css({ width: noMaxWidth, overflowX: 'visible', overflowY: 'visible' });
-									}
-								} else { // IE7
-									$sub.css('max-width', this.opts.subMenusMaxWidth);
-									if (noMaxWidth > $sub.width()) {
-										$sub.removeClass('sm-nowrap').css('width', this.opts.subMenusMaxWidth);
-									} else {
-										$sub.width(noMaxWidth);
-									}
-								}
-							} else {
-							 	$sub.width($sub.width());
-							}
-							$sub.children().css('styleFloat', 'left');
 						}
-					}
-					this.menuPosition($sub);
-					// insert IE iframe shim
-					if ($sub.dataSM('ie-shim')) {
-						$sub.dataSM('ie-shim').insertBefore($sub);
+						this.menuPosition($sub);
+						// insert IE iframe shim
+						if ($sub.dataSM('ie-shim')) {
+							$sub.dataSM('ie-shim').insertBefore($sub);
+						}
 					}
 					var complete = function() {
 						// fix: "overflow: hidden;" is not reset on animation complete in jQuery < 1.9.0 in Chrome when global "box-sizing: border-box;" is used
@@ -853,8 +1009,14 @@
 							$sub.show(this.opts.showDuration, complete);
 						}
 					}
-					// save new sub menu for this level
-					this.visibleSubMenus[$sub.dataSM('level') - 1] = $sub;
+					// accessibility
+					$a.attr('aria-expanded', 'true');
+					$sub.attr({
+						'aria-expanded': 'true',
+						'aria-hidden': 'false'
+					});
+					// store sub menu in visible array
+					this.visibleSubMenus.push($sub);
 					this.$root.triggerHandler('show.smapi', $sub[0]);
 				}
 			},
@@ -877,8 +1039,8 @@
 					clearTimeout(this.hideTimeout);
 					this.hideTimeout = 0;
 				}
-				this.menuFixLayout(this.$root);
-				this.$root.stop(true, true);
+				this.$root.dataSM('shown-before', true)
+					.stop(true, true);
 				if (!this.$root.is(':visible')) {
 					this.$root.css({ left: left, top: top });
 					// IE iframe shim
@@ -887,39 +1049,49 @@
 						this.$root.dataSM('ie-shim').css({ zIndex: this.$root.css('z-index'), width: this.getWidth(this.$root), height: this.getHeight(this.$root), left: left, top: top }).insertBefore(this.$root);
 					}
 					// show menu
+					var self = this,
+						complete = function() {
+							self.$root.css('overflow', '');
+						};
 					if (this.opts.showFunction) {
-						this.opts.showFunction.call(this, this.$root);
+						this.opts.showFunction.call(this, this.$root, complete);
 					} else {
-						this.$root.show(this.opts.showDuration);
+						this.$root.show(this.opts.showDuration, complete);
 					}
 					this.visibleSubMenus[0] = this.$root;
 				}
 			},
 			refresh: function() {
-				this.menuHideAll();
-				this.$root.find('ul').each(function() {
-						var $this = $(this);
-						if ($this.dataSM('scroll-arrows')) {
-							$this.dataSM('scroll-arrows').remove();
-						}
-					})
-					.removeDataSM('in-mega')
-					.removeDataSM('shown-before')
-					.removeDataSM('ie-shim')
-					.removeDataSM('scroll-arrows')
-					.removeDataSM('parent-a')
-					.removeDataSM('level')
-					.removeDataSM('beforefirstshowfired');
-				this.$root.find('a.has-submenu').removeClass('has-submenu')
-					.parent().removeDataSM('sub');
-				if (this.opts.subIndicators) {
-					this.$root.find('span.sub-arrow').remove();
-				}
-				if (this.opts.markCurrentItem) {
-					this.$root.find('a.current').removeClass('current');
-				}
-				this.subMenus = [];
+				this.destroy(true);
 				this.init(true);
+			},
+			rootKeyDown: function(e) {
+				if (!this.handleEvents()) {
+					return;
+				}
+				switch (e.keyCode) {
+					case 27: // reset on Esc
+						var $activeTopItem = this.activatedItems[0];
+						if ($activeTopItem) {
+							this.menuHideAll();
+							$activeTopItem[0].focus();
+							var $sub = $activeTopItem.dataSM('sub');
+							if ($sub) {
+								this.menuHide($sub);
+							}
+						}
+						break;
+					case 32: // activate item's sub on Space
+						var $target = $(e.target);
+						if ($target.is('a') && this.handleItemEvents($target)) {
+							var $sub = $target.dataSM('sub');
+							if ($sub && !$sub.is(':visible')) {
+								this.itemClick({ currentTarget: e.target });
+								e.preventDefault();
+							}
+						}
+						break;
+				}
 			},
 			rootOut: function(e) {
 				if (!this.handleEvents() || this.isTouchMode() || e.target == this.$root[0]) {
@@ -958,11 +1130,16 @@
 					return;
 				}
 				// hide sub menus on resize - on mobile do it only on orientation change
-				if (!this.isCollapsible() && (!('onorientationchange' in window) || e.type == 'orientationchange')) {
-					if (this.activatedItems.length) {
-						this.activatedItems[this.activatedItems.length - 1][0].blur();
+				if (!('onorientationchange' in window) || e.type == 'orientationchange') {
+					var isCollapsible = this.isCollapsible();
+					// if it was collapsible before resize and still is, don't do it
+					if (!(this.wasCollapsible && isCollapsible)) { 
+						if (this.activatedItems.length) {
+							this.activatedItems[this.activatedItems.length - 1][0].blur();
+						}
+						this.menuHideAll();
 					}
-					this.menuHideAll();
+					this.wasCollapsible = isCollapsible;
 				}
 			}
 		}
@@ -1028,7 +1205,7 @@
 		collapsibleHideDuration:0,		// duration for hide animation for collapsible sub menus - matters only if collapsibleHideFunction:null
 		collapsibleHideFunction:function($ul, complete) { $ul.slideUp(200, complete); },	// custom function to use when hiding a collapsible sub menu
 							// (i.e. when mobile styles are used to make the sub menus collapsible)
-		showOnClick:		true,		// show the first-level sub menus onclick instead of onmouseover (matters only for mouse input)
+		showOnClick:		false,		// show the first-level sub menus onclick instead of onmouseover (matters only for mouse input)
 		hideOnClick:		true,		// hide the sub menus on click/tap anywhere on the page
 		keepInViewport:		true,		// reposition the sub menus if needed to make sure they always appear inside the viewport
 		keepHighlighted:	true,		// keep all ancestor items of the current sub menu highlighted (adds the 'highlighted' class to the A's)

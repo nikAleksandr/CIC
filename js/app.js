@@ -113,17 +113,19 @@
 						var beginning = $scope.feeds[i].content.indexOf('src="')+5;
 						$scope.feeds[i].img = $scope.feeds[i].content.substr(beginning, $scope.feeds[i].content.indexOf('"', beginning) - beginning);
 						if($scope.feeds[i].img.indexOf('<') != -1) $scope.feeds[i].img = 'http://www.naco.org/sites/default/files/styles/medium/public/default_images/default-field-image_0.png?itok=2RfHkd95';
-						console.log($scope.feeds[i].img);
 					};
 
 				});
 			}
 			$scope.loadFeed($scope.feedSrc);
 		}])
-		.directive('indicatorList', function() {		
+		.directive('indicatorList', function() {
 			return {
 				restrict: 'A',
 				templateUrl: 'assets/indicatorList.html',
+				controller: function($scope){
+					$scope.indicatorListType = 'curated';
+				},
 				link: function(scope, elem) {
 					// initialize smartmenus
 					var menu = $(elem).closest('.nav');

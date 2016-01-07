@@ -24,8 +24,8 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 	// -------------------------- Variable Definitions ---------------------------
 	var localVersion = false;
 	
-	var default_dset = 'Nursing Homes';
-	var default_ind = 'Number of Nursing Homes';
+	var default_dset = 'County Economies';
+	var default_ind = 'Recovered on # Indicators';
 	
 	CIC.findACounty = true;
 	CIC.embed = false;
@@ -452,14 +452,18 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 				var datasetName = dataset.attr('name');
 				
 				// when clicking on dataset, update to first companion; but only for non-touch screens
-				if ($('html').hasClass('no-touch')) {
+				//// Deactivated since all menus operate only on click now
+				/*if ($('html').hasClass('no-touch')) {
 					dataset.selectAll('a:not(.indicator)').on('click', function() {
 						var DI = CIC.getInfo(datasetName).companions[0];
 						var indHtml = dataset.select('.indicator[name="' + DI[1] + '"]').html();
 						endFunction(DI[0], DI[1], indHtml);
 					});
-				}
-		
+				}*/
+				
+				//when clicking more and less buttons, keep menu open
+				$('.more-less').bind('click.smapi', function(e, item) { return false });
+
 				dataset.selectAll('li').on('click', function() {
 					CIC.findACounty = false;
 					if (!d3.select(this).classed('disabled')) {
@@ -759,7 +763,7 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 					if (currentDI === 'County Economies - County Economic Profile') {
 						var countyName = parseCountyName(+FIPS, county.geography);
 						countyName = countyName.replace(/\s/g, '');
-						var profileURL = '../profiles/countytracker/' + countyName + '.pdf';
+						var profileURL = '../profiles/countyeconomies/' + countyName + '.pdf';
 						cbOptsHoriz.title = '<a class="newWindow" href="' + profileURL + '" target=_blank">Open In New Window</a>';
 						cbOptsHoriz.href = profileURL;
 						$.colorbox(cbOptsHoriz);
@@ -1511,7 +1515,7 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 		//spaces are added to the end of Pre and the beginning of Post
 		var subtitlePre = (primeIndObj.hasOwnProperty('subtitlePre')) ? primeIndObj.subtitlePre + ' ' : '',
 			subtitleMain = (primeIndObj.hasOwnProperty('subtitleMain')) ? primeIndObj.subtitleMain : primeIndObj.name,
-			subtitlePost = (primeIndObj.hasOwnProperty('subtitlePost')) ? ' ' + primeIndObj.subtitlePost : (primeIndObj.hasOwnProperty('unit') && primeIndObj.unit.indexOf('per ') !== -1 && subtitleMain.indexOf('per ') === -1) ? ' (' + primeIndObj.unit + ')' : '',
+			subtitlePost = (primeIndObj.hasOwnProperty('subtitlePost')) ? primeIndObj.subtitlePost : (primeIndObj.hasOwnProperty('unit') && primeIndObj.unit.indexOf('per ') !== -1 && subtitleMain.indexOf('per ') === -1) ? ' (' + primeIndObj.unit + ')' : '',
 			legendTitlePre = (primeIndObj.hasOwnProperty('legendTitlePre')) ? primeIndObj.legendTitlePre + ' ' : primeIndObj.year + ' ',
 			legendTitleMain = (primeIndObj.hasOwnProperty('legendTitleMain')) ? primeIndObj.legendTitleMain : primeIndObj.dataset,
 			legendTitlePost = (primeIndObj.hasOwnProperty('legendTitlePost')) ? ' ' + primeIndObj.legendTitlePost : '';
@@ -2266,7 +2270,7 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 	format_tt['level'] = function (num, unit) {
 		var type = determineType(unit);	
 		if (type === 'year') return num.toFixed(0);
-		else if (unit === 'PPT') return d3.format('.1r')(num);
+		else if (unit === 'PPT') return d3.format('.1f')(num);
 		else if (Math.abs(num) >= 1000000000) {
 			var formatted = String((num/1000000000).toFixed(1)) + " Bil";
 		} else if (Math.abs(num) >= 1000000) {

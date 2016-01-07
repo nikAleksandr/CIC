@@ -2225,7 +2225,7 @@
 							"definition": "The annualized growth rate of median home sales prices (showing how much an indicator would have grown annually, if it increased at a steady rate) from 1990 to the highest annual level between 2002 and 2009.  Median home sales prices are median sales prices of existing single-family homes in a county economy."
 						},{
 							"name": "Unemployment Rate Change, Recession",
-							"dataType": "level_np",
+							"dataType": "level",
 							"suppressMinMax": true,
 							"CETNulls": "recession",
 							"unit": "PPT",
@@ -2317,8 +2317,8 @@
 							"order": {"Faster Decline": 0, "Slower Decline": 1, "Slower Growth": 2, "Faster Growth": 3}
 						},{
 							"name": "Average Real Wage Growth vs Productivity Growth",
-							"source": "NACo analysis of Census Bureau ACS 5-year estimates, U.S. Bureau of Economic Analysis and U.S. Bureau of Labor Statistics",
-							"yearSpan": "2009-2014",
+							"source": "NACo Analysis of Moody’s Analytics 2015 Data; U.S. Bureau of Labor Statistics Data",
+							"subtitlePost": ", 2009-2014",
 							"dataType": "categorical",
 							"order": {"Decline & Decline": 0, "Decline & Rise": 1, "Rise & Decline": 2, "Rise & Rise": 3},
 							"longLegendNames": true,

@@ -1,4 +1,346 @@
-<li class="category" name="County Profiles">
+<!-- Begin Curated Indicator List -->
+<li class="dataset" name="County Economies" ng-show="indicatorListType == 'curated'">
+	<a>County Economies<span class="badge">embargo</span></a>
+	<ul class="dropdown-menu">
+		<li>
+			<a class="indicator" name="County Economic Profile" href="#">County Economic Profile</a>
+		</li>
+		<li>
+			<a class="indicator" name="Recovered on # Indicators" href="#">Recovered on # Indicators</a>
+		</li>
+		<li>
+			<a class="indicator" name="Average Real Wage Growth vs Productivity Growth" href="#">Real Wage vs Productivity Growth</a>
+		</li>
+		<li>
+			<a class="indicator" name="Adjusted Average County Wage Growth Rate" href="#">Adjusted Average County Wage Growth Rate</a>
+		</li>
+		<!--<li>
+			<a class="indicator" name="Adjusted Average County Wage, 2012" href="#">Adjusted Average County Wage, 2012</a>
+		</li>-->
+		<li class="disabled dropdown-header">
+			<a class="disabled dropdown-header" href="#">2014-2015</a>
+		</li>
+		<li>
+			<a class="indicator" name="Unemployment Rate Change" href="#">Unemployment Rate Change</a>
+		</li>
+		<li>
+			<a class="indicator" name="Jobs Growth Rate" href="#">Jobs Growth Rate</a>
+		</li>
+		<li>
+			<a class="indicator" name="GDP Growth Rate" href="#">GDP Growth Rate</a>
+		</li>
+		<li>
+			<a class="indicator" name="Home Price Growth Rate" href="#">Home Price Growth Rate</a>
+		</li>
+		<li class="disabled dropdown-header" >
+			<a class="disabled dropdown-header"  href="#">Recovery</a>
+		</li>
+		<li>
+			<a class="indicator" name="Unemployment Rate Change, Recovery" href="#">Unemployment Rate Change</a>
+		</li>
+		<li>
+			<a class="indicator" name="Jobs Growth Rate, Recovery" href="#">Jobs Growth Rate</a>
+		</li>
+		<li>
+			<a class="indicator" name="GDP Growth Rate, Recovery" href="#">GDP Growth Rate</a>
+		</li>
+		<li>
+			<a class="indicator" name="Home Price Growth Rate, Recovery" href="#">Home Price Growth Rate</a>
+		</li>
+		<li class="disabled dropdown-header" >
+			<a class="disabled dropdown-header" href="#">Recession</a>
+		</li>
+		<li>
+			<a class="indicator" name="Unemployment Rate Change, Recession" href="#">Unemployment Rate Change</a>
+		</li>
+		<li>
+			<a class="indicator" name="Jobs Growth Rate, Recession" href="#">Jobs Growth Rate</a>
+		</li>
+		<li>
+			<a class="indicator" name="GDP Growth Rate, Recession" href="#">GDP Growth Rate</a>
+		</li>
+		<li>
+			<a class="indicator" name="Home Price Growth Rate, Recession" href="#">Home Price Growth Rate</a>
+		</li>
+		<li class="disabled dropdown-header" >
+			<a class="disabled dropdown-header" href="#">Long-term</a>
+		</li>
+		<li>
+			<a class="indicator" name="Jobs Growth Rate, Long-term" href="#">Jobs Growth Rate</a>
+		</li>
+		<li>
+			<a class="indicator" name="GDP Growth Rate, Long-term" href="#">GDP Growth Rate</a>
+		</li>
+		<li>
+			<a class="indicator" name="Home Price Growth Rate, Long-term" href="#">Home Price Growth Rate</a>
+		</li>
+		<!--<li>
+			<a class="indicator" name="Recovered Unemployment" href="#">Recovered Unemployment</a>
+		</li>
+		<li>
+			<a class="indicator" name="Recovered Jobs" href="#">Recovered Jobs</a>
+		</li>
+		<li>
+			<a class="indicator" name="Recovered GDP" href="#">Recovered GDP</a>
+		</li>
+		<li>
+			<a class="indicator" name="Recovered Home Prices" href="#">Recovered Home Prices</a>
+		</li>-->
+	</ul>
+</li>
+<li class="dataset" name="Structurally Deficient Bridges" ng-show="indicatorListType == 'curated'">
+	<a>Structurally Deficient Bridges</a>
+	<ul class="dropdown-menu">
+		<li>
+			<a class="indicator" name="Structurally Deficient - Total" href="#">Total Bridges</a>
+		</li>
+		<li>
+			<a class="indicator" name="Share Structurally Deficient" href="#">Share Structurally Deficient</a>
+		</li>
+		<li>
+			<a class="indicator" name="Structurally Deficient - City/Town Owned" href="#">City/Town Owned</a>
+		</li>
+		<li>
+			<a class="indicator" name="Structurally Deficient - Share of City/Town Owned" href="#">Share of City/Town Owned</a>
+		</li>
+		<li>
+			<a class="indicator" name="Structurally Deficient - County Owned" href="#">County Owned</a>
+		</li>
+		<li>
+			<a class="indicator" name="Structurally Deficient - Share of County Owned" href="#">Share of County Owned</a>
+		</li>
+		<li>
+			<a class="indicator" name="Structurally Deficient - State Owned" href="#">State Owned</a>
+		</li>
+		<li>
+			<a class="indicator" name="Structurally Deficient - Share of State Owned" href="#">Share of State Owned</a>
+		</li>
+		<li>
+			<a class="indicator" name="Structurally Deficient - Federal Owned" href="#">Federal Owned</a>
+		</li>
+		<li>
+			<a class="indicator" name="Structurally Deficient - Share of Federal Owned" href="#">Share of Federal Owned</a>
+		</li>
+		<li>
+			<a class="indicator" name="Structurally Deficient - Privately Owned" href="#">Privately Owned</a>
+		</li>
+		<li>
+			<a class="indicator" name="Structurally Deficient - Share of Privately Owned" href="#">Share of Privately Owned</a>
+		</li>
+		<!-- <li>
+			<a class="indicator" name="Structurally Deficient - Local Owned" href="#">Local Owned</a>
+		</li>
+		<li>
+			<a class="indicator" name="Structurally Deficient - Share of Local Owned" href="#">Share of Local Owned</a>
+		</li> -->	
+	</ul>
+</li>
+<li class="dataset" name="Municipal Bonds" ng-show="indicatorListType == 'curated'">
+	<a>Municipal Bonds</a>
+	<ul class="dropdown-menu">
+		<li>
+			<a class="indicator" name="County Muni Bonds Profiles" href="#">County Muni Bonds Profiles</a>
+		</li>
+		<li>
+			<a class="indicator" name="Statewide Muni Bonds Profiles" href="#">Statewide Muni Bonds Profiles</a>
+		</li>
+	</ul>
+</li>
+<li class="dataset" name="Veteran Demographics" ng-show="indicatorListType == 'curated'">
+	<a>Veteran Demographics</a>
+	<ul class="dropdown-menu">
+		<li>
+			<a class="indicator" name="Veterans" href="#">Veterans</a>
+		</li>
+		<li>
+			<a class="indicator" name="Percent Veterans" href="#">Percent Veterans</a>
+		</li>
+		<li>
+			<a class="indicator" name="Veterans Median Income" href="#">Veterans Median Income</a>
+		</li>
+		<li>
+			<a class="indicator" name="Veterans Less than High School Graduate" href="#">Veterans Less than High School Graduate</a>
+		</li>
+		<li>
+			<a class="indicator" name="Veterans High School Graduate" href="#">Veterans High School Graduate</a>
+		</li>
+		<li>
+			<a class="indicator" name="Veterans Some College or Associate's Degree" href="#">Veterans Some College or Associate's Degree</a>
+		</li>
+		<li>
+			<a class="indicator" name="Veterans Bachelor's Degree or Higher" href="#">Veterans Bachelor's Degree or Higher</a>
+		</li>
+		<li>
+			<a class="indicator" name="Veterans Unemployment Rate" href="#">Veterans Unemployment Rate</a>
+		</li>
+		<li>
+			<a class="indicator" name="Veterans Poverty Rate" href="#">Veterans Poverty Rate</a>
+		</li>
+	</ul>
+</li>
+<li class="dataset" name="State Criminal Alien Assistance Program (SCAAP)" ng-show="indicatorListType == 'curated'">
+	<a>State Criminal Alien Assistance Program (SCAAP)</a>
+	<ul class="dropdown-menu">
+		<li>
+			<a class="indicator" name="SCAAP Amount" href="#">SCAAP Amount</a>
+		</li>
+		<li>
+			<a class="indicator" name="SCAAP Annual Growth Rate (from previous year)" href="#">SCAAP Annual Growth Rate</a>
+		</li>
+	</ul>
+</li>
+<li class="dataset" name="Payment in Lieu of Taxes (PILT)" ng-show="indicatorListType == 'curated'">
+	<a>Payment in Lieu of Taxes (PILT)</a>
+	<ul class="dropdown-menu">
+		<li>
+			<a class="indicator" name="PILT Profiles" href="#">PILT Profiles</a>
+		</li>
+		<li>
+			<a class="indicator" name="State PILT Profiles" href="#">State PILT Profiles</a>
+		</li>
+	</ul>
+</li>
+<li class="dataset" name="Endangered Species" ng-show="indicatorListType == 'curated'">
+	<a>Endangered Species</a>
+	<ul class="dropdown-menu">
+		<li>
+			<a class="indicator" name="Number of Endangered and Threatened Species Listings" href="#">Endangered and Threatened Species</a>
+		</li>
+		<li>
+			<a class="indicator" name="Number of Endangered Species Listings" href="#">Endangered Species</a>
+		</li>
+		<li>
+			<a class="indicator" name="Number of Threatened Species Listings" href="#">Threatened Species</a>
+		</li>
+		<li>
+			<a class="indicator" name="Number of New Listings of Endangered and Threatened Species" href="#">New Listings of Endangered and Threatened Species</a>
+		</li>
+		<li>
+			<a class="indicator" name="Number of Delistings of Endangered and Threatened Species" href="#">Delistings of Endangered and Threatened Species</a>
+		</li>
+	</ul>
+</li>
+<li class="dataset" name="County Administrators" ng-show="indicatorListType == 'curated'">
+	<a>County Administrators</a>
+	<ul class="dropdown-menu">
+		<li>
+			<a class="indicator" name="Appointed County Administrators" href="#">Appointed County Administrators</a>
+		</li>
+		<li>
+			<a class="indicator" name="Statewide Number of County Administrator Titles" href="#">Statewide Number of County Administrator Titles</a>
+		</li>
+		<li>
+			<a class="indicator" name="Enabled by State Statute or County Ordinance" href="#">Enabled by State Statute or County Ordinance</a>
+		</li>
+		<li>
+			<a class="indicator" name="Decade of Enabling State Statute" href="#">Decade of Enabling State Statute</a>
+		</li>
+		<li>
+			<a class="indicator" name="County Administrator Profiles" href="#">County Administrator Profiles</a>
+		</li>
+	</ul>
+</li>
+<li class="dataset" name="Nursing Homes" ng-show="indicatorListType == 'curated'">
+	<a>Nursing Homes</a>
+	<ul class="dropdown-menu">
+		<li>
+			<a class="indicator" name="Number of Nursing Homes" href="#">Number of Nursing Homes</a>
+		</li>
+		<li>
+			<a class="indicator" name="Number of County Supported Facilities" href="#">Number of County Supported Facilities</a>
+		</li>
+		<li>
+			<a class="indicator" name="Number of City Facilities" href="#">Number of City Facilities</a>
+		</li>
+		<li>
+			<a class="indicator" name="Number of County Facilities" href="#">Number of County Facilities</a>
+		</li>
+		<li>
+			<a class="indicator" name="Number of City-County Facilities" href="#">Number of City-County Facilities</a>
+		</li>
+		<li>
+			<a class="indicator" name="Number of Hospital District Facilities" href="#">Number of Hospital District Facilities</a>
+		</li>
+		<li>
+			<a class="indicator" name="Number of Other Government Facilities" href="#">Number of Other Government Facilities</a>
+		</li>
+		<li>
+			<a class="indicator" name="Number of For-Profit Facilities" href="#">Number of For-Profit Facilities</a>
+		</li>
+		<li>
+			<a class="indicator" name="Number of Nonprofit Facilities" href="#">Number of Nonprofit Facilities</a>
+		</li>
+		<li>
+			<a class="indicator" name="Number of Certified Beds" href="#">Number of Certified Beds</a>
+		</li>
+		<li>
+			<a class="indicator" name="Number of Residents" href="#">Number of Residents</a>
+		</li>
+		<li>
+			<a class="indicator" name="Percent of Occupied Beds" href="#">Percent of Occupied Beds</a>
+		</li>
+		<li>
+			<a class="indicator" name="Number of Continuing Care Retirement Facilities" href="#">Number of Continuing Care Retirement Facilities</a>
+		</li>
+		<li>
+			<a class="indicator" name="Number of Special Focus Facilities" href="#">Number of Special Focus Facilities</a>
+		</li>
+	</ul>
+</li>
+<li class="dataset" name="Jails - Community Supervision" ng-show="indicatorListType == 'curated'">
+	<a>Jails - Community Supervision</a>
+	<ul class="dropdown-menu">
+		<!--<li>
+			<a class="indicator" name="Total Jail Population" href="#">Total Jail Population</a>
+		</li>
+		<li>
+			<a class="indicator" name="Jail Capacity" href="#">Jail Capacity</a>
+		</li>
+		<li>
+			<a class="indicator" name="Confined Persons" href="#">Confined Persons</a>
+		</li>
+		<li>
+			<a class="indicator" name="Nonconfined Persons" href="#">Nonconfined Persons</a>
+		</li>-->
+		<li>
+			<a class="indicator" name="Electronic Monitoring Program" href="#">Electronic Monitoring Program</a>
+		</li>
+		<li>
+			<a class="indicator" name="Home Detention" href="#">Home Detention</a>
+		</li>
+		<li>
+			<a class="indicator" name="Community Service" href="#">Community Service</a>
+		</li>
+		<li>
+			<a class="indicator" name="Day Reporting" href="#">Day Reporting</a>
+		</li>
+		<li>
+			<a class="indicator" name="Other Pretrial Supervision" href="#">Other Pretrial Supervision</a>
+		</li>
+		<li>
+			<a class="indicator" name="Other Alternative Work Programs" href="#">Other Alternative Work Programs</a>
+		</li>
+		<li>
+			<a class="indicator" name="Alcohol/Drug Treatment Programs" href="#">Alcohol/Drug Treatment Programs</a>
+		</li>
+		<li>
+			<a class="indicator" name="Other Nonconfined Programs" href="#">Other Nonconfined Programs</a>
+		</li>
+	</ul>
+</li>
+<li class="disabled more-less" ng-show="indicatorListType == 'curated'">
+	<a ng-click="indicatorListType = 'full'">more...</a>
+</li>
+<!-- END CURATED INDICATOR LIST -->
+
+
+
+
+
+
+
+<!-- END CURATED INDICATOR LIST -->
+<li ng-hide="indicatorListType == 'curated'" class="category" name="County Profiles">
 	<a>County Profiles</a>
 	<ul class="dropdown-menu">
 		<li class="dataset" name="County Economies">
@@ -90,7 +432,7 @@
 	</ul>
 </li>
 <li class="divider"></li>
-<li class="category" name="County Administration">
+<li ng-hide="indicatorListType == 'curated'" class="category" name="County Administration">
 	<a>County Administration</a>
 	<ul class="dropdown-menu">
 		<li class="dataset" name="Administration Expenditures">
@@ -199,7 +541,7 @@
 		</li>
 	</ul>
 </li>
-<li class="category" name="County Employment">
+<li ng-hide="indicatorListType == 'curated'" class="category" name="County Employment">
 	<a>County Employment</a>
 	<ul class="dropdown-menu">
 		<li class="dataset" name="Administration Employment">
@@ -394,7 +736,7 @@
 		</li>
 	</ul>
 </li>
-<li class="category" name="County Finance">
+<li ng-hide="indicatorListType == 'curated'" class="category" name="County Finance">
 	<a>County Finance</a>
 	<ul class="dropdown-menu">
 		<li class="dataset" name="Administration Revenue">
@@ -999,7 +1341,7 @@
 		</li>
 	</ul>
 </li>
-<li class="category" name="County Structure">
+<li ng-hide="indicatorListType == 'curated'" class="category" name="County Structure">
 	<a>County Structure</a>
 	<ul class="dropdown-menu">
 		<li class="dataset" name="County Basics">
@@ -1087,7 +1429,7 @@
 		</li>
 	</ul>
 </li>
-<li class="category" name="Demographics">
+<li ng-hide="indicatorListType == 'curated'" class="category" name="Demographics">
 	<a>Demographics</a>
 	<ul class="dropdown-menu">
 		<li class="dataset" name="Population Levels and Trends">
@@ -1102,7 +1444,7 @@
 			</ul>
 		</li>
 		<li class="dataset" name="Population Change Components">
-			<a>Population Change Components<span class="badge">updated</span></a>
+			<a>Population Change Components</a>
 			<ul class="dropdown-menu">
 				<li>
 					<a class="indicator" name="Population Level" href="#">Population Level</a>
@@ -1166,7 +1508,7 @@
 			</ul>
 		</li>
 		<li class="dataset" name="Population by Age/Gender">
-			<a>Population by Age/Gender<span class="badge">updated</span></a>
+			<a>Population by Age/Gender</a>
 			<ul class="dropdown-menu">
 				<li>
 					<a class="indicator" name="Total Population Level" href="#">Total Population Level</a>
@@ -1216,7 +1558,7 @@
 			</ul>
 		</li>
 		<li class="dataset" name="Population by Ethnicity">
-			<a>Population by Ethnicity<span class="badge">updated</span></a>
+			<a>Population by Ethnicity</a>
 			<ul class="dropdown-menu">
 				<!-- <li>
 				<a class="indicator" name="Total Population" href="#">Total Population</a>
@@ -1319,7 +1661,7 @@
 		</li>
 	</ul>
 </li>
-<li class="category" name="Economy">
+<li ng-hide="indicatorListType == 'curated'" class="category" name="Economy">
 	<a>Economy</a>
 	<ul class="dropdown-menu">
 		<li class="dataset" name="International Exports">
@@ -1427,7 +1769,7 @@
 			</ul>
 		</li>
 		<li class="dataset" name="County Economies">
-			<a>County Economies</a>
+			<a>County Economies<span class="badge">updated</span></a>
 			<ul class="dropdown-menu">
 				<li>
 					<a class="indicator" name="County Economic Profile" href="#">County Economic Profile</a>
@@ -1436,10 +1778,7 @@
 					<a class="indicator" name="Recovered on # Indicators" href="#">Recovered on # Indicators</a>
 				</li>
 				<li>
-					<a class="indicator" name="Average Real Wage Growth vs Productivity Growth" href="#">Wage vs Productivity Growth</a>
-				</li>
-				<li>
-					<a class="indicator" name="Adjusted Average Wage vs Productivity Growth" href="#">Adjusted Wage vs Productivity Growth</a>
+					<a class="indicator" name="Average Real Wage Growth vs Productivity Growth" href="#">Real Wage vs Productivity Growth</a>
 				</li>
 				<li>
 					<a class="indicator" name="Adjusted Average County Wage Growth Rate" href="#">Adjusted Average County Wage Growth Rate</a>
@@ -1449,9 +1788,6 @@
 				</li>-->
 				<li class="disabled dropdown-header">
 					<a class="disabled dropdown-header" href="#">2014-2015</a>
-				</li>
-				<li>
-					<a class="indicator" name="Recovered on # Indicators" href="#">Recovered on # Indicators</a>
 				</li>
 				<li>
 					<a class="indicator" name="Unemployment Rate Change" href="#">Unemployment Rate Change</a>
@@ -1531,7 +1867,7 @@
 		</li>
 	</ul>
 </li>
-<li class="category" name="Education">
+<li ng-hide="indicatorListType == 'curated'" class="category" name="Education">
 	<a>Education</a>
 	<ul class="dropdown-menu">
 		<li class="dataset" name="Education Employment">
@@ -1681,7 +2017,7 @@
 		</li>
 	</ul>
 </li>
-<li class="category" name="Energy & Environment">
+<li ng-hide="indicatorListType == 'curated'" class="category" name="Energy & Environment">
 	<a>Energy &amp; Environment</a>
 	<ul class="dropdown-menu">
 		<li class="dataset" name="Coal Use & Production">
@@ -1731,7 +2067,7 @@
 		</li>
 	</ul>
 </li>
-<li class="category" name="Federal Funding">
+<li ng-hide="indicatorListType == 'curated'" class="category" name="Federal Funding">
 	<a>Federal Funding</a>
 	<ul class="dropdown-menu">
 		<li class="dataset" name="Veteran Expenditures">
@@ -1995,7 +2331,7 @@
 		</li>
 	</ul>
 </li>
-<li class="category" name="Geography">
+<li ng-hide="indicatorListType == 'curated'" class="category" name="Geography">
 	<a>Geography</a>
 	<ul class="dropdown-menu">
 		<li class="dataset" name="Land &amp; Water Area">
@@ -2043,7 +2379,7 @@
 		</li>
 	</ul>
 </li>
-<li class="category" name="Health &amp; Hospitals">
+<li ng-hide="indicatorListType == 'curated'" class="category" name="Health &amp; Hospitals">
 	<a>Health &amp; Hospitals</a>
 	<ul class="dropdown-menu">
 		<li class="dataset" name="Medical Benefits">
@@ -2186,7 +2522,7 @@
 			</ul>
 		</li>
 		<li class="dataset" name="Nursing Homes">
-			<a>Nursing Homes<span class="badge">updated</span></a>
+			<a>Nursing Homes</a>
 			<ul class="dropdown-menu">
 				<li>
 					<a class="indicator" name="Number of Nursing Homes" href="#">Number of Nursing Homes</a>
@@ -2439,7 +2775,7 @@
 		</li>
 	</ul>
 </li>
-<li class="category" name="Housing &amp; Community Development">
+<li ng-hide="indicatorListType == 'curated'" class="category" name="Housing &amp; Community Development">
 	<a>Housing &amp; Community Development</a>
 	<ul class="dropdown-menu">
 		<li class="dataset" name="Housing &amp; Community Development Employment">
@@ -2534,7 +2870,7 @@
 		</li>
 	</ul>
 </li>
-<li class="category" title="Justice & Public Safety">
+<li ng-hide="indicatorListType == 'curated'" class="category" title="Justice & Public Safety">
 	<a>Justice &amp; Public Safety</a>
 	<ul class="dropdown-menu">
 		<li class="dataset" name="Jails - Supervised Population">
@@ -2652,7 +2988,7 @@
 			</ul>
 		</li>
 		<li class="dataset" name="Jails - Community Supervision">
-			<a>Jails - Community Supervision<span class="badge">updated</span></a>
+			<a>Jails - Community Supervision</a>
 			<ul class="dropdown-menu">
 				<!--<li>
 					<a class="indicator" name="Total Jail Population" href="#">Total Jail Population</a>
@@ -2840,7 +3176,7 @@
 		</li>
 	</ul>
 </li>
-<li class="category" name="Public Amenities">
+<li ng-hide="indicatorListType == 'curated'" class="category" name="Public Amenities">
 	<a>Public Amenities</a>
 	<ul class="dropdown-menu">
 		<li class="dataset" name="Public Amenity Employment">
@@ -3009,7 +3345,7 @@
 		</li>
 	</ul>
 </li>
-<li class="category" name="Public Lands">
+<li ng-hide="indicatorListType == 'curated'" class="category" name="Public Lands">
 	<a>Public Lands</a>
 	<ul class="dropdown-menu">
 		<li class="dataset" name="Payment in Lieu of Taxes (PILT)">
@@ -3100,7 +3436,7 @@
 		</li>
 	</ul>
 </li>
-<li class="category" name="Social Services">
+<li ng-hide="indicatorListType == 'curated'" class="category" name="Social Services">
 	<a>Social Services</a>
 	<ul class="dropdown-menu">
 		<li class="dataset" name="Early Childhood">
@@ -3206,7 +3542,7 @@
 		</li>
 	</ul>
 </li>
-<li class="category" name="Transportation">
+<li ng-hide="indicatorListType == 'curated'" class="category" name="Transportation">
 	<a>Transportation</a>
 	<ul class="dropdown-menu">
 		<li class="dataset" name="Transportation Funding Profiles">
@@ -3687,7 +4023,7 @@
 		</li>
 	</ul>
 </li>
-<li class="category" name="Utility">
+<li ng-hide="indicatorListType == 'curated'" class="category" name="Utility">
 	<a>Utility</a>
 	<ul class="dropdown-menu">
 		<li class="dataset" name="Utility Employment">
@@ -3781,7 +4117,7 @@
 		</li>
 	</ul>
 </li>
-<li class="category" name="Water, Sewerage &amp; Solid Waste Management">
+<li ng-hide="indicatorListType == 'curated'" class="category" name="Water, Sewerage &amp; Solid Waste Management">
 	<a>Water, Sewerage &amp; Solid Waste Management</a>
 	<ul class="dropdown-menu">
 		<li class="dataset" name="Water, Sewerage &amp; Solid Waste Employment">
@@ -3844,3 +4180,4 @@
 		</li>
 	</ul>
 </li>
+<li ng-hide="indicatorListType == 'curated'" class="disabled more-less"><a ng-click="indicatorListType = 'curated'">less...</a></li>

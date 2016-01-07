@@ -14,7 +14,7 @@ module.exports = function(grunt) {
 						'js/vendor/jquery.doubletap.js',
 						'js/vendor/jquery.noty.packaged.min.js',
 						'js/vendor/jquery.smartmenus.js',
-						'js/vendor/jquery.smartmenus.bootstrap.min.js',
+						'js/vendor/jquery.smartmenus.bootstrap.js',
 						'js/vendor/rrssb.min.js',
 						'js/vendor/nprogress.js',
 						'js/vendor/svgenie/*.js'				

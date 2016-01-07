@@ -4,27 +4,24 @@
 	<a id="showTableView" class="link" title="Table View" ng-click="panel.isShowing('results')" onclick="CIC.mapToggle('table')"><img class="svgCircle" width="30" height="30" alt="Table View" src="img/table-view.svg"/></a>
 </div>
 <div id="print" class="icon-text" ng-show="panel.printVisible"><img class="svgCircle" src="img/print.svg" />print</div>
-<div id="close" class="icon-text" ng-click="panel.setVisible(false)"><img class="icon" width="15" height="15" alt="close" src="img/Close.svg"/></div>
+<!--<div id="close" class="icon-text" ng-click="panel.setVisible(false)"><img class="icon" width="15" height="15" alt="close" src="img/Close.svg"/></div>-->
+<div id="close" class="icon-text" ng-click="panel.goToIndicator('County Economies', 'County Economic Profile')"><img class="icon" width="15" height="15" alt="close" src="img/Close.svg"/></div>
 <!-- All Popup Content -->
 <div id="instruction-content">
 	<div id="results-container" ng-show="panel.isShowing('results')"></div>
 	
 	<div ng-show="panel.isShowing('update')">
-		<!--<div id="watermark">Embargoed until <br/> 01/12/2015 12:01AM</div>-->
+		<div id="watermark">All data and profiles<br/>Embargoed until<br/> 01/12/2016 12:01AM</div>
 		<div class="col-sm-9 update-column">
-			<div class="panel-title"><h1>December 2015 Update</h1></div>
+			<div class="panel-title"><h1>January 2016 Update</h1></div>
 			<div class="panel-content">
-				<div class="panel-headline"><h2>Nursing Home Data Updated!</h2></div>
-				<div class="pad-down-5">Click on “Map an Indicator”, select “Health &amp; Hospitals” and choose from fourteen indicators, including:</div>
-					<div class="pad-down-5 panel-bullet">&bull; <a class="link" ng-click="panel.goToIndicator('Nursing Homes', 'Number of Nursing Homes')">Number of Nursing Homes</a></div>
-					<div class="pad-down-5 panel-bullet">&bull; <a class="link" ng-click="panel.goToIndicator('Nursing Homes', 'Number of County Supported Facilities')">Number of County Supported Nursing Homes</a></div>
-					<div class="pad-down-5 panel-bullet">&bull; <a class="link" ng-click="panel.goToIndicator('Nursing Homes', 'Percent of Occupied Beds')">Percent of Occupied Beds in Nursing Homes Located in the County</a></div>
-
-				<div class="pad-down-5">Jails-Community Supervision Data Updated!</div>
-				<div class="pad-down-5">Click on “Map an Indicator”, select “Justice &amp; Public Safety” and choose from eight indicators, including:</div>
-					<div class="pad-down-5 panel-bullet">&bull; <a class="link" ng-click="panel.goToIndicator('Jails - Community Supervision', 'Electronic Monitoring Program')">Electronic Monitoring Program</a></div>
-					<div class="pad-down-5 panel-bullet">&bull; <a class="link" ng-click="panel.goToIndicator('Jails - Community Supervision', 'Home Detention')">Home Detention</a></div>
-					<div class="pad-down-5 panel-bullet">&bull; <a class="link" ng-click="panel.goToIndicator('Jails - Community Supervision', 'Alcohol/Drug Treatment Programs')">Alcohol/Drug Treatment Programs</a></div>
+				<div class="panel-headline"><h2>County Economies 2015</h2></div>
+				<div class="pad-down-5">Go to <a target="_blank" onclick="noty({text: 'This link will be active after release.'})" href="http://www.naco.org/countyEconomies">NACo.org/CountyEconomies</a> for the full report, or click on "Map an Indicator", then select “County Economies” and choose from available indicators, including:</div>
+					<div class="pad-down-5 panel-bullet">&bull; <a class="link" ng-click="panel.goToIndicator('County Economies', 'County Economic Profile')">Individual County Economic Profiles</a></div>
+					<div class="pad-down-5 panel-bullet">&bull; <a class="link" ng-click="panel.goToIndicator('County Economies', 'Recovered on # Indicators')">Recovered on # Indicators</a></div>
+					<div class="pad-down-5 panel-bullet">&bull; <a class="link" ng-click="panel.goToIndicator('County Economies', 'GDP Growth Rate')">GDP Growth Rate</a></div>
+					<div class="pad-down-5 panel-bullet">&bull; <a class="link" ng-click="panel.goToIndicator('County Economies', 'Adjusted Average County Wage Growth Rate')">Adjusted Average County Wage Growth Rate</a></div>
+					<div class="pad-down-5 panel-bullet">&bull; <a class="link" ng-click="panel.goToIndicator('County Economies', 'Average Real Wage Growth vs Productivity Growth')">Real Wage vs Productivity Growth</a></div>
 		</div>
 
 		</div>
