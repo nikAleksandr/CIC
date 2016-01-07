@@ -481,6 +481,27 @@
 			"name": "County Finance",
 			"children": [
 				{
+					"name": "County Financial Reporting",
+					"source": "NACo Analysis of county financial statements.",
+					"years": [2015],
+					"companions": [["County Financial Reporting", "County Financial Statement Type"]],
+					"children": [
+						{
+							"name": "County Financial Statement Type",
+							"dataType": "categorical",
+							"longLegendNames": true,
+							"definition": "Counties can release Basic Financial Statements that comply with Generally Accepted Accounting Principles (GAAP), Regulatory Basis Statements (which comply with state regulatory requirements), or produce a Comprehensive Annual Financial Report (which provides additional statistical and demographic information useful to county board members, management and outside groups for financial analysis)."
+						}, {
+							"name": "State Reporting Requirements",
+							"dataType": "categorical",
+							"definition": "States can specify whether counties my file annual financial reports in accordance with GAAP standards, state regulatory requirements or have minimal reporting requirements."
+						}, {
+							"name": "State County Share CAFR",
+							"dataType": "percent",
+							"definition": "Share of a counties in a state that file annual financial statements with a Comprehensive Annual Financial Report (CAFR)."
+						}
+					]
+				}, {
 					"name": "Administration Revenue",
 					"source": "NACo Analysis of U.S. Census Bureau - Census of Individual Governments: Finance",
 					"years": [2007],

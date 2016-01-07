@@ -6,9 +6,7 @@
 */
 /* sub menus arrows */
 .navbar-nav .sub-arrow, .navbar-nav .collapsible .sub-arrow {
-	position:absolute;
-	right:0;
-	top:1em;
+	position:static;
 	margin-top:0;
 	margin-right:0;
 	margin-left:6px;
