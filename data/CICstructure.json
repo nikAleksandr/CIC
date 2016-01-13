@@ -498,6 +498,7 @@
 						}, {
 							"name": "State County Share CAFR",
 							"dataType": "percent",
+							"thresholds": [0.001, 0.25, 0.50, 0.75],
 							"definition": "Share of a counties in a state that file annual financial statements with a Comprehensive Annual Financial Report (CAFR)."
 						}
 					]

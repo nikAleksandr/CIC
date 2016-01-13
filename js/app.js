@@ -125,6 +125,7 @@
 				templateUrl: 'assets/indicatorList.html',
 				controller: function($scope){
 					$scope.indicatorListType = 'curated';
+					console.log('hi');
 				},
 				link: function(scope, elem) {
 					// initialize smartmenus

@@ -28,7 +28,9 @@ module.exports = function(grunt) {
 		},
 		uglify: {
 			options: {
-				banner : '/*! CIC <%= grunt.template.today("yyyy-mm-dd") %> */\n'
+				banner : '/*! CIC <%= grunt.template.today("yyyy-mm-dd") %> */\n',
+				report : 'min',
+				mangle : false
 			},
 			build: {
 				files: {
