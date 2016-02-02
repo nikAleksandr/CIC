@@ -4,8 +4,9 @@
 	<a id="showTableView" class="link" title="Table View" ng-click="panel.isShowing('results')" onclick="CIC.mapToggle('table')"><img class="svgCircle" width="30" height="30" alt="Table View" src="img/table-view.svg"/></a>
 </div>
 <div id="print" class="icon-text" ng-show="panel.printVisible"><img class="svgCircle" src="img/print.svg" />print</div>
-<!--<div id="close" class="icon-text" ng-click="panel.setVisible(false)"><img class="icon" width="15" height="15" alt="close" src="img/Close.svg"/></div>-->
-<div id="close" class="icon-text" ng-click="panel.goToIndicator('County Economies', 'County Economic Profile')"><img class="icon" width="15" height="15" alt="close" src="img/Close.svg"/></div>
+<div id="close" class="icon-text" ng-click="panel.setVisible(false)"><img class="icon" width="15" height="15" alt="close" src="img/Close.svg"/></div>
+<!-- causes problems with double-click overlay close button as well -->
+<!--<div id="close" class="icon-text" ng-click="panel.goToIndicator('County Economies', 'County Economic Profile')"><img class="icon" width="15" height="15" alt="close" src="img/Close.svg"/></div>-->
 <!-- All Popup Content -->
 <div id="instruction-content">
 	<div id="results-container" ng-show="panel.isShowing('results')"></div>
