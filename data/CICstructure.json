@@ -168,6 +168,7 @@
 						}, {
 							"name": "Percent Unemployment",
 							"dataType": "percent",
+							"year": 2014,
 							"definition": "Number of persons unemployed as a percent of the labor force in 2014."
 						}
 					]
@@ -2811,7 +2812,7 @@
 					"source": "U.S. Department of Labor, Employment and Training Administration, State Stautory Formula Funding data, Program Year",
 					"years": [2015],
 					"notes": ".wioa-note",
-					"companions": [["Workforce Innovation and Opportunity Act (WIOA)","Statewide Adult WIOA Funding"]
+					"companions": [["Workforce Innovation and Opportunity Act (WIOA)","Statewide Adult WIOA Funding"], ["Workforce Innovation and Opportunity Act (WIOA)","Statewide Adult WIOA Funding"]
 				     ],
 				    "children": [
 				    	{
