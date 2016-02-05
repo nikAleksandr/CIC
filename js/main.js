@@ -761,12 +761,16 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 					cbOptsHoriz = {iframe:true, width:'792px', height:'632px', maxHeight:'90%', maxWidth:'90%', title:'', href: ''};
 
 					if (currentDI === 'County Economies - County Economic Profile') {
-						var countyName = parseCountyName(+FIPS, county.geography);
-						countyName = countyName.replace(/\s/g, '');
-						var profileURL = '../profiles/countyeconomies/' + countyName + '.pdf';
-						cbOptsHoriz.title = '<a class="newWindow" href="' + profileURL + '" target=_blank">Open In New Window</a>';
-						cbOptsHoriz.href = profileURL;
-						$.colorbox(cbOptsHoriz);
+						if (quantByIds[0][+FIPS] === 0) {
+							noty({text: '<strong>No Profile Available</strong>'});
+						} else {
+							var countyName = parseCountyName(+FIPS, county.geography);
+							countyName = countyName.replace(/\s/g, '');
+							var profileURL = '../profiles/countyeconomies/' + countyName + '.pdf';
+							cbOptsHoriz.title = '<a class="newWindow" href="' + profileURL + '" target=_blank">Open In New Window</a>';
+							cbOptsHoriz.href = profileURL;
+							$.colorbox(cbOptsHoriz);
+						}
 					} else if (currentDI === 'Municipal Bonds - County Muni Bonds Profiles') {
 						if (isNaN(quantByIds[0][+FIPS])) {
 							noty({text: '<strong>No Profile Available</strong>'});

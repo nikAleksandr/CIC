@@ -156,15 +156,15 @@
 					"source": "NACo analysis of U.S. Department of Labor data, 2015; Bureau of Labor Statistics - Local Area Unemployment Statistics (LAUS), 2014",
 					"suppressYear": true,
 					"years": [2015],
-					"companions": [["Workforce Development Boards", "Local WDB Type"]
+					"companions": [["Local Workforce Development Boards", "Local WDB Service Area"], ["Local Workforce Development Boards", "Percent Unemployment"]
 					],
 					"children": [
 						{
-							"name": "WDB Service Area",
+							"name": "Local WDB Service Area",
 							"dataType": "categorical",
 							"notes": ".wdb-note",
 							"source": "NACo analysis of U.S. Department of Labor data",
-							"definition": "Counties are classified into one of the following five categories based on the type of local workforce development board (Local WDB) serving the county:  State (Local), Single County, Regional County, County and City or City.  <ul><li>State (Local) means a county is in the service area of a state-run workforce board that fulfills the responsibilites of local WDBs under WIOA (See Notes).</li>  <li>Single County means a county is the only county in the service area of a local WDB.</li>  <li>Regional County means two or more counties are in the service area of a local WDB.</li>  <li>County and City means a county and one or more cities, including independent cities, are in the service area of a local WDB.</li> <li>City means a county is the service area of one or more local WDBs that serve one or more cities.</li>"
+							"definition": "Counties are classified into one of the following five categories based on the type of local workforce development board (local WDB) serving the county: State Level, Single County, Multiple Counties, County and City or City, as of October 2015.  <ul><li>State Level means a county is in the service area of a state run workforce board that fulfills the responsibilities of a local WDB under the Workforce Innovation and Opportunity Act.</li>  <li>Single County indicates the local WDB serves only the area of one county.</li>  <li>Multiple Counties indicates the local WDB serves the area of two or more counties.</li>  <li>County and City means a county and one or more cities, including independent cities, are in the service area of a local WDB.</li> <li>A City local WDB serves only some cities within the county so that the entire county is served by multiple local WDBs.</li>"
 						}, {
 							"name": "Percent Unemployment",
 							"dataType": "percent",
@@ -2812,17 +2812,21 @@
 					"source": "U.S. Department of Labor, Employment and Training Administration, State Stautory Formula Funding data, Program Year",
 					"years": [2015],
 					"notes": ".wioa-note",
-					"companions": [["Workforce Innovation and Opportunity Act (WIOA)","Statewide Adult WIOA Funding"], ["Workforce Innovation and Opportunity Act (WIOA)","Statewide Adult WIOA Funding"]
+					"companions": [["Workforce Innovation and Opportunity Act (WIOA)","Statewide Adult WIOA Funding"], ["Workforce Innovation and Opportunity Act (WIOA)","Statewide Youth WIOA Funding"], ["Workforce Innovation and Opportunity Act (WIOA)","People in Substantial Unemployment Areas"], ["Workforce Innovation and Opportunity Act (WIOA)","Number of Excess Unemployed"]
 				     ],
 				    "children": [
 				    	{
 				    		"name": "Statewide Adult WIOA Funding",
 				    		"dataType": "level",
+							"companions": [["Workforce Innovation and Opportunity Act (WIOA)","Statewide Adult WIOA Funding"], ["Workforce Innovation and Opportunity Act (WIOA)","Number of Disadvantaged Adults"], ["Workforce Innovation and Opportunity Act (WIOA)","People in Substantial Unemployment Areas"], ["Workforce Innovation and Opportunity Act (WIOA)","Number of Excess Unemployed"]
+						     ],
 				    		"definition": "Amount of WIOA funding allocated by the U.S. Department of Labor to the state for adult employment and training activities for Program Year (July 1 of program year to June 30 of the following year).",
 				    		"unit": "dollars"
 				    	}, {
 				    		"name": "Statewide Adult WIOA Growth Rate",
 				    		"dataType": "percent",
+							"companions": [["Workforce Innovation and Opportunity Act (WIOA)","Statewide Adult WIOA Funding"], ["Workforce Innovation and Opportunity Act (WIOA)","Number of Disadvantaged Adults"], ["Workforce Innovation and Opportunity Act (WIOA)","People in Substantial Unemployment Areas"], ["Workforce Innovation and Opportunity Act (WIOA)","Number of Excess Unemployed"]
+						     ],
 				    		"definition": "Percent change in the amount of WIOA Adult funding allotted to the state in Program Year 2014 and Program Year 2015."
 				    	}, {
 				    		"name": "People in Substantial Unemployment Areas",
@@ -2830,29 +2834,33 @@
 				    		"unit": "person(s)",
 				    		"definition": "Average number of unemployed individuals in the state that are in areas of substantial unemployment between July 1, 2013 and June 30, 2014.  An area of substantial unemployment has a current population of at least 10,000 and an average unemployment rate of at least 6.5 percent.  One third (1/3) of funding from the Department of Labor is based on the state's relative share of this number. "
 				    	}, {
-				    		"name": "Number of Excess Unemployment",
+				    		"name": "Number of Excess Unemployed",
 				    		"dataType": "level",
 				    		"unit": "person(s)",
-				    		"definition": "Average number of unemployed in excess of 4.5 percent between July 1, 2013 and June 30, 2014.  The number of excess unemployed is determined by the higher of unemployment in excess of 6.5 percent in areas of substantial unemployment or excess unemployment is all areas.  One third (1/3) of funding from the Department of Labor is based on the state's relative share of this number."
+				    		"definition": "Average number of unemployed in excess of 4.5 percent between July 1, 2013 and June 30, 2014.  The number of excess unemployed is determined by the higher of unemployment in excess of 6.5 percent in areas of substantial unemployment or excess unemployment in all areas.  One third (1/3) of funding from the Department of Labor is based on the state's relative share of this number."
 				    	}, {
 				    		"name": "Number of Disadvantaged Adults",
 				    		"dataType": "level",
 				    		"unit": "person(s)",
-				    		"definition": "Average number of unemployed in excess of 4.5 percent between July 1, 2013 and June 30, 2014.  The number of excess unemployed is determined by the higher of unemployment in excess of 6.5 percent in areas of substantial unemployment or excess unemployment is all areas.  One third (1/3) of funding from the Department of Labor is based on the state's relative share of this number."
+				    		"definition": "Number of adults between 22 and 72 years (or their family members) who are economically disadvantaged based on a 5 year estimate between 2006 and 2010.  The number of economically disadvantaged adults (or their family members) is determined by the Census poverty level or at 70 percent of the Lower Living Standard Income Level.  One third (1/3) of funding from the Department of Labor is based on the state's relative share of this number."
 				    	}, {
 				    		"name": "Statewide Youth WIOA Funding",
 				    		"dataType": "level",
 				    		"unit": "dollars",
+							"companions": [["Workforce Innovation and Opportunity Act (WIOA)","Statewide Youth WIOA Funding"], ["Workforce Innovation and Opportunity Act (WIOA)","Number of Disadvantaged Youth"], ["Workforce Innovation and Opportunity Act (WIOA)","People in Substantial Unemployment Areas"], ["Workforce Innovation and Opportunity Act (WIOA)","Number of Excess Unemployed"]
+						     ],
 				    		"definition": "Amount of WIOA funding allocated by the U.S. Department of Labor to the state for youth activities for Program Year (July 1 of program year to June 30 of the following year)."
 				    	}, {
 				    		"name": "Statewide Youth WIOA Growth Rate",
 				    		"dataType": "percent",
+							"companions": [["Workforce Innovation and Opportunity Act (WIOA)","Statewide Youth WIOA Funding"], ["Workforce Innovation and Opportunity Act (WIOA)","Number of Disadvantaged Youth"], ["Workforce Innovation and Opportunity Act (WIOA)","People in Substantial Unemployment Areas"], ["Workforce Innovation and Opportunity Act (WIOA)","Number of Excess Unemployed"]
+						     ],
 				    		"definition": "Percent change in the amount of WIOA Adult funding allotted to the state in Program Year 2014 and Program Year 2015."
 				    	}, {
 				    		"name": "Number of Disadvantaged Youth",
 				    		"dataType": "level",
 				    		"unit": "person(s)",
-				    		"definition": "Percent change in the amount of WIOA Adult funding allotted to the state in Program Year 2014 and Program Year 2015."
+				    		"definition": "Number of individuals between 16 and 21 years (or their family members) who are economically disadvantaged based on a 5 year estimate between 2006 and 2010.  The number of economically disadvantaged youth (or their family members) is determined by the Census poverty level or at 70 percent of the Lower Living Standard Income Level.  One third (1/3) of funding from the Department of Labor is based on the state's relative share of this number."
 				    	}
 				      ]
 				}, {
@@ -4417,11 +4425,13 @@
 						}, {
 							"name": "Percent of Capacity",
 							"dataType": "percent",
-							"definition": ""
+							"notes": ".bjs-capacity-note",
+							"definition": "The percent of rated capacity occupied by inmates based on the average daily population of the county's jail facilities. This is calculated by dividing the average daily population by rated capacity and multiplying by 100."
 						}, {
 							"name": "At or Over Capacity",
 							"dataType": "binary",
-							"definition": ""
+							"notes": ".bjs-capacity-note",
+							"definition": "Indicates whether the county's jail facilities are at or above 100 percent of capacity. Yes indicates that the county's jail facilities are at or above capacity. No indicates the county's jail facilities are below capacity."
 						}
 					]
 				}, {
