@@ -761,8 +761,8 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 					cbOptsHoriz = {iframe:true, width:'792px', height:'632px', maxHeight:'90%', maxWidth:'90%', title:'', href: ''};
 
 					if (currentDI === 'County Economies - County Economic Profile') {
-						if (quantByIds[0][+FIPS] === 0) {
-							noty({text: '<strong>No Profile Available</strong>'});
+						if (isNaN(quantByIds[3][+FIPS])) {
+							noty({text: '<strong>Profile Temporarily Unavailable</strong>  Please check back soon.'});
 						} else {
 							var countyName = parseCountyName(+FIPS, county.geography);
 							countyName = countyName.replace(/\s/g, '');
