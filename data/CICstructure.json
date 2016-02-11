@@ -3447,18 +3447,19 @@
 					"source": "Source: NACo Analysis of <a target='_blank' href='http://blogs.cdc.gov/nchs-data-visualization/drug-poisoning-mortality/'>Rossen et al</a>, National Center for Health Statistics data",
 					"years": [2014],
 					"notes": ".drug-poisoning-note",
-					"companions": [["Drug Poisoning", "Drug Poisoning Mortality"], ["County Health Rankings: Clinical Care", "Percent Uninsured"], ["County Health Rankings: Clinical Care", "Mental Health Provider Ratio"], ["Early Childhood", "Child Poverty Rate"], ["Drug Poisoning", "Drug Poisoning Mortality"]
+					"companions": [["Drug Poisoning", " Drug Poisoning Death Rate"], ["County Health Rankings: Clinical Care", "Percent Uninsured"], ["County Health Rankings: Clinical Care", "Mental Health Provider Ratio"], ["Early Childhood", "Child Poverty Rate"], ["Drug Poisoning", " Drug Poisoning Death Rate"]
 					],
 					"children": [
 						{
 							"name": "Drug Poisoning Death Rate",
 							"unit": "individuals",
-							"dataType": "categorical",
+							"dataType": "level",
 							"suppressPrimeInd": true,
-							"order": {"0.0-6.0": 0, "6.1-10.0": 1, "10.1-14.0": 2, "14.1-20.0": 3, ">20": 4},
+							"thresholds": [6, 10, 14, 20],
+							"suppressMinMax": true,
 							"definition": "The estimated number of deaths due to drug poisoning per 100,000 individuals.  Estimated into 5 increments."
 						}, {
-							"name": "Drug Poisoning Mortality",
+							"name": " Drug Poisoning Death Rate",
 							"unit": "individuals",
 							"dataType": "categorical",
 							"definition": "The estimated number of deaths due to drug poisoning per 100,000 individuals."

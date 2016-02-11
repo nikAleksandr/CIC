@@ -60,5 +60,5 @@ Indicator level properties that apply to the legend will override Dataset-level 
 - notes - [".exports-note"]
 - CETNulls
 - customColors
-- suppressPrimeInd – suppresses the primary indicator display in the tooltip
+- suppressPrimeInd – suppresses the primary indicator display in the tooltip (and the definition)
 

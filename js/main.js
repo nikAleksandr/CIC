@@ -30,7 +30,7 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 	CIC.findACounty = true;
 	CIC.embed = false;
 
-	//state association specific variables
+	//state association specific
 	CIC.stateAssoc = $('#stateAssociationLogo').attr('stateAssoc');
 	var scaleHigh, scaleLow, stateMap = {};
 	switch(CIC.stateAssoc){
@@ -1484,6 +1484,7 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 		var defContainer = d3.select("#definitionsContainer").append("p").attr("id", "definitionsText");
 		defContainer.append('div').html('<i>Definitions</i>:');
 		for (var i = 0; i < indObjects.length; i++) {
+			if(indObjects[i].suppressPrimeInd===true) continue;
 			defContainer.append('div').html('<b>' + indObjects[i].name + '</b>: ' + indObjects[i].definition);
 		}
 	};
