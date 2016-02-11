@@ -514,7 +514,7 @@
 							"dataType": "categorical",
 							"longLegendNames": true,
 							"notes": ".state-reporting-req-note",
-							"order": {"Minimum Requirements": 0, "Regulatory Basis": 1, "Require GAAP": 2},
+							"order": {"Minimum Requirements": 0, "State Regulatory Requirements": 1, "Require GAAP": 2},
 							"definition": "Many states specify whether counties must report annual financial statements in accordance with Generally Accepted Accounting Principles (GAAP) set by the Governmental Accounting Standards Board (GASB) or, alternatively, meet state regulatory requirements that do not comply with GAAP. Other states have minimal reporting requirements placed on counties."
 						}, {
 							"name": "State County Share CAFR",
@@ -3447,7 +3447,7 @@
 					"source": "Source: NACo Analysis of <a target='_blank' href='http://blogs.cdc.gov/nchs-data-visualization/drug-poisoning-mortality/'>Rossen et al</a>, National Center for Health Statistics data",
 					"years": [2014],
 					"notes": ".drug-poisoning-note",
-					"companions": [["Drug Poisoning", "Drug Poisoning Mortality"], ["County Health Rankings: Clinical Care", "Percent Uninsured"], ["County Health Rankings: Clinical Care", "Mental Health Provider Ratio"], ["Drug Poisoning", "Drug Poisoning Mortality"]
+					"companions": [["Drug Poisoning", "Drug Poisoning Mortality"], ["County Health Rankings: Clinical Care", "Percent Uninsured"], ["County Health Rankings: Clinical Care", "Mental Health Provider Ratio"], ["Early Childhood", "Child Poverty Rate"], ["Drug Poisoning", "Drug Poisoning Mortality"]
 					],
 					"children": [
 						{
@@ -3455,7 +3455,8 @@
 							"unit": "individuals",
 							"dataType": "categorical",
 							"suppressPrimeInd": true,
-							"definition": "The estimated number of deaths due to drug poisoning per 100,000 individuals."
+							"order": {"0.0-6.0": 0, "6.1-10.0": 1, "10.1-14.0": 2, "14.1-20.0": 3, ">20": 4},
+							"definition": "The estimated number of deaths due to drug poisoning per 100,000 individuals.  Estimated into 5 increments."
 						}, {
 							"name": "Drug Poisoning Mortality",
 							"unit": "individuals",
@@ -5144,7 +5145,7 @@
 					"years": [2014],
 					"suppressYear": true,
 					"note": ".early-childhood-note",
-					"source": "NACo Analysis of U.S. Census Bureau, American Community Survey 2009-2013 5-year Estimates; for the household income place effect- Raj Chetty and Nathaniel Hendren, <a href='http://www.equality-of-opportunity.org/'>The Equality of Opportunity</a>, 2015",
+					"source": "NACo Analysis of U.S. Census Bureau, American Community Survey 2010-2014 5-year Estimates; for the household income place effect- Raj Chetty and Nathaniel Hendren, <a href='http://www.equality-of-opportunity.org/'>The Equality of Opportunity</a>, 2015",
 					"companions": [["Early Childhood", "Child Poverty Rate"], ["Early Childhood","Number of Children in Poverty"], ["Early Childhood", "Percent of Children in High Poverty Areas"], ["Early Childhood","Household Income Place Effect"]
 					],
 					"children": [
