@@ -156,20 +156,15 @@
 					"source": "NACo analysis of U.S. Department of Labor data, 2015; Bureau of Labor Statistics - Local Area Unemployment Statistics (LAUS), 2014",
 					"suppressYear": true,
 					"years": [2015],
-					"companions": [["Local Workforce Development Boards", "Local WDB Service Area"], ["Local Workforce Development Boards", "Percent Unemployment"]
+					"companions": [["Local Workforce Development Boards", "Local WDB Service Area"], ["Labor Force", "Civilian Labor Force Population"], ["Labor Force", "Unemployment Rate"], ["Labor Force", "Number Employed"], ["Labor Force", "Number Unemployed"]
 					],
 					"children": [
 						{
 							"name": "Local WDB Service Area",
 							"dataType": "categorical",
 							"notes": ".wdb-note",
-							"source": "NACo analysis of U.S. Department of Labor data",
+							"source": "NACo analysis of U.S. Department of Labor data, 2015",
 							"definition": "Counties are classified into one of the following five categories based on the type of local workforce development board (local WDB) serving the county: State Level, Single County, Multiple Counties, County and City or City, as of October 2015.  <ul><li>State Level means a county is in the service area of a state run workforce board that fulfills the responsibilities of a local WDB under the Workforce Innovation and Opportunity Act.</li>  <li>Single County indicates the local WDB serves only the area of one county.</li>  <li>Multiple Counties indicates the local WDB serves the area of two or more counties.</li>  <li>County and City means a county and one or more cities, including independent cities, are in the service area of a local WDB.</li> <li>A City local WDB serves only some cities within the county so that the entire county is served by multiple local WDBs.</li>"
-						}, {
-							"name": "Percent Unemployment",
-							"dataType": "percent",
-							"year": 2014,
-							"definition": "Number of persons unemployed as a percent of the labor force in 2014."
 						}
 					]
 				}, {
@@ -503,9 +498,10 @@
 			"children": [
 				{
 					"name": "County Financial Reporting",
-					"source": "NACo Analysis of county financial statements.",
+					"source": "NACo Analysis of county financial statements, as of November",
 					"years": [2015],
-					"companions": [["County Financial Reporting", "County Financial Statement Type"]],
+					"companions": [["County Financial Reporting", "State Reporting Requirements"], ["County Financial Reporting", "State County Share CAFR"]
+					],
 					"children": [
 						{
 							"name": "County Financial Statement Type",
@@ -517,13 +513,15 @@
 							"name": "State Reporting Requirements",
 							"dataType": "categorical",
 							"longLegendNames": true,
+							"notes": ".state-reporting-req-note",
 							"order": {"Minimum Requirements": 0, "Regulatory Basis": 1, "Require GAAP": 2},
-							"definition": "States can specify whether counties my file annual financial reports in accordance with GAAP standards, state regulatory requirements or have minimal reporting requirements."
+							"definition": "Many states specify whether counties must report annual financial statements in accordance with Generally Accepted Accounting Principles (GAAP) set by the Governmental Accounting Standards Board (GASB) or, alternatively, meet state regulatory requirements that do not comply with GAAP. Other states have minimal reporting requirements placed on counties."
 						}, {
 							"name": "State County Share CAFR",
 							"dataType": "percent",
+							"notes": ".county-share-cafr-note",
 							"thresholds": [0.001, 0.25, 0.50, 0.75],
-							"definition": "Share of a counties in a state that file annual financial statements with a Comprehensive Annual Financial Report (CAFR)."
+							"definition": "Share of counties in a state that file annual financial statements in the form of a Comprehensive Annual Financial Report (CAFR). CAFRs go beyond Governmental Accounting Standards Board (GASB) standards and fulfill the Government Finance Officers Association (GFOA) specifications as established by GFOA's Certificate of Achievement for Excellence in Financial Reporting Program. CAFRs are the most thorough version of financial reporting and provide additional statistical and demographic information useful to county board members, management and outside groups for financial analysis. "
 						}
 					]
 				}, {
@@ -2809,37 +2807,35 @@
 			"children": [
 				{
 					"name": "Workforce Innovation and Opportunity Act (WIOA)",
-					"source": "U.S. Department of Labor, Employment and Training Administration, State Stautory Formula Funding data, Program Year",
+					"source": "U.S. Department of Labor, Employment and Training Administration, State Statutory Formula Funding data, Program Year, 2015",
 					"years": [2015],
+					"suppressYear": true,
 					"notes": ".wioa-note",
-					"companions": [["Workforce Innovation and Opportunity Act (WIOA)","Statewide Adult WIOA Funding"], ["Workforce Innovation and Opportunity Act (WIOA)","Statewide Youth WIOA Funding"], ["Workforce Innovation and Opportunity Act (WIOA)","People in Substantial Unemployment Areas"], ["Workforce Innovation and Opportunity Act (WIOA)","Number of Excess Unemployed"]
+					"companions": [["Workforce Innovation and Opportunity Act (WIOA)","Statewide Adult WIOA Growth Rate"], ["Workforce Innovation and Opportunity Act (WIOA)","Statewide Number in Substantial Unemployment Areas"], ["Workforce Innovation and Opportunity Act (WIOA)","Statewide Number of Excess Unemployed"], ["Workforce Innovation and Opportunity Act (WIOA)","Statewide Number of Disadvantaged Adults"], ["Workforce Innovation and Opportunity Act (WIOA)","Statewide Adult WIOA Funding"]
 				     ],
 				    "children": [
 				    	{
 				    		"name": "Statewide Adult WIOA Funding",
 				    		"dataType": "level",
-							"companions": [["Workforce Innovation and Opportunity Act (WIOA)","Statewide Adult WIOA Funding"], ["Workforce Innovation and Opportunity Act (WIOA)","Number of Disadvantaged Adults"], ["Workforce Innovation and Opportunity Act (WIOA)","People in Substantial Unemployment Areas"], ["Workforce Innovation and Opportunity Act (WIOA)","Number of Excess Unemployed"]
-						     ],
+				    		"thresholds": [5000000,10000000,15000000,30000000],
 				    		"definition": "Amount of WIOA funding allocated by the U.S. Department of Labor to the state for adult employment and training activities for Program Year (July 1 of program year to June 30 of the following year).",
 				    		"unit": "dollars"
 				    	}, {
 				    		"name": "Statewide Adult WIOA Growth Rate",
 				    		"dataType": "percent",
-							"companions": [["Workforce Innovation and Opportunity Act (WIOA)","Statewide Adult WIOA Funding"], ["Workforce Innovation and Opportunity Act (WIOA)","Number of Disadvantaged Adults"], ["Workforce Innovation and Opportunity Act (WIOA)","People in Substantial Unemployment Areas"], ["Workforce Innovation and Opportunity Act (WIOA)","Number of Excess Unemployed"]
-						     ],
 				    		"definition": "Percent change in the amount of WIOA Adult funding allotted to the state in Program Year 2014 and Program Year 2015."
 				    	}, {
-				    		"name": "People in Substantial Unemployment Areas",
+				    		"name": "Statewide Number in Substantial Unemployment Areas",
 				    		"dataType": "level",
 				    		"unit": "person(s)",
-				    		"definition": "Average number of unemployed individuals in the state that are in areas of substantial unemployment between July 1, 2013 and June 30, 2014.  An area of substantial unemployment has a current population of at least 10,000 and an average unemployment rate of at least 6.5 percent.  One third (1/3) of funding from the Department of Labor is based on the state's relative share of this number. "
+				    		"definition": "Average number of unemployed individuals in the state that are in areas of substantial unemployment between July 1, 2013 and June 30, 2014.  An area of substantial unemployment is a contiguous area of counties, cities, towns, townships, other minor civil divisions and/or census tracts that has a combined population of at least 10,000 and an average unemployment rate of at least 6.5 percent. One third (1/3) of funding from the Department of Labor is based on the state's relative share of this number."
 				    	}, {
-				    		"name": "Number of Excess Unemployed",
+				    		"name": "Statewide Number of Excess Unemployed",
 				    		"dataType": "level",
 				    		"unit": "person(s)",
 				    		"definition": "Average number of unemployed in excess of 4.5 percent between July 1, 2013 and June 30, 2014.  The number of excess unemployed is determined by the higher of unemployment in excess of 6.5 percent in areas of substantial unemployment or excess unemployment in all areas.  One third (1/3) of funding from the Department of Labor is based on the state's relative share of this number."
 				    	}, {
-				    		"name": "Number of Disadvantaged Adults",
+				    		"name": "Statewide Number of Disadvantaged Adults",
 				    		"dataType": "level",
 				    		"unit": "person(s)",
 				    		"definition": "Number of adults between 22 and 72 years (or their family members) who are economically disadvantaged based on a 5 year estimate between 2006 and 2010.  The number of economically disadvantaged adults (or their family members) is determined by the Census poverty level or at 70 percent of the Lower Living Standard Income Level.  One third (1/3) of funding from the Department of Labor is based on the state's relative share of this number."
@@ -2847,17 +2843,16 @@
 				    		"name": "Statewide Youth WIOA Funding",
 				    		"dataType": "level",
 				    		"unit": "dollars",
-							"companions": [["Workforce Innovation and Opportunity Act (WIOA)","Statewide Youth WIOA Funding"], ["Workforce Innovation and Opportunity Act (WIOA)","Number of Disadvantaged Youth"], ["Workforce Innovation and Opportunity Act (WIOA)","People in Substantial Unemployment Areas"], ["Workforce Innovation and Opportunity Act (WIOA)","Number of Excess Unemployed"]
+				    		"thresholds": [5000000,10000000,15000000,30000000],
+							"companions": [["Workforce Innovation and Opportunity Act (WIOA)","Statewide Youth WIOA Growth Rate"], ["Workforce Innovation and Opportunity Act (WIOA)","Statewide Number in Substantial Unemployment Areas"], ["Workforce Innovation and Opportunity Act (WIOA)","Statewide Number of Excess Unemployed"], ["Workforce Innovation and Opportunity Act (WIOA)","Statewide Number of Disadvantaged Youth"], ["Workforce Innovation and Opportunity Act (WIOA)","Statewide Youth WIOA Funding"]
 						     ],
 				    		"definition": "Amount of WIOA funding allocated by the U.S. Department of Labor to the state for youth activities for Program Year (July 1 of program year to June 30 of the following year)."
 				    	}, {
 				    		"name": "Statewide Youth WIOA Growth Rate",
 				    		"dataType": "percent",
-							"companions": [["Workforce Innovation and Opportunity Act (WIOA)","Statewide Youth WIOA Funding"], ["Workforce Innovation and Opportunity Act (WIOA)","Number of Disadvantaged Youth"], ["Workforce Innovation and Opportunity Act (WIOA)","People in Substantial Unemployment Areas"], ["Workforce Innovation and Opportunity Act (WIOA)","Number of Excess Unemployed"]
-						     ],
 				    		"definition": "Percent change in the amount of WIOA Adult funding allotted to the state in Program Year 2014 and Program Year 2015."
 				    	}, {
-				    		"name": "Number of Disadvantaged Youth",
+				    		"name": "Statewide Number of Disadvantaged Youth",
 				    		"dataType": "level",
 				    		"unit": "person(s)",
 				    		"definition": "Number of individuals between 16 and 21 years (or their family members) who are economically disadvantaged based on a 5 year estimate between 2006 and 2010.  The number of economically disadvantaged youth (or their family members) is determined by the Census poverty level or at 70 percent of the Lower Living Standard Income Level.  One third (1/3) of funding from the Department of Labor is based on the state's relative share of this number."
@@ -3448,6 +3443,27 @@
 			"name": "Health & Hospitals",
 			"children": [
 				{
+					"name": "Drug Poisoning",
+					"source": "Source: NACo Analysis of <a target='_blank' href='http://blogs.cdc.gov/nchs-data-visualization/drug-poisoning-mortality/'>Rossen et al</a>, National Center for Health Statistics data",
+					"years": [2014],
+					"notes": ".drug-poisoning-note",
+					"companions": [["Drug Poisoning", "Drug Poisoning Mortality"], ["County Health Rankings: Clinical Care", "Percent Uninsured"], ["County Health Rankings: Clinical Care", "Mental Health Provider Ratio"], ["Drug Poisoning", "Drug Poisoning Mortality"]
+					],
+					"children": [
+						{
+							"name": "Drug Poisoning Death Rate",
+							"unit": "individuals",
+							"dataType": "categorical",
+							"suppressPrimeInd": true,
+							"definition": "The estimated number of deaths due to drug poisoning per 100,000 individuals."
+						}, {
+							"name": "Drug Poisoning Mortality",
+							"unit": "individuals",
+							"dataType": "categorical",
+							"definition": "The estimated number of deaths due to drug poisoning per 100,000 individuals."
+						}
+					]
+				}, {
 					"name": "Health & Hospitals Employment",
 					"source": "NACo Analysis of U.S. Census Bureau - Census of Individual Governments: Employment",
 					"years": [2007, 2008, 2009, 2010, 2011, 2012],
@@ -5125,8 +5141,9 @@
 					]
 				}, {
 					"name": "Early Childhood",
-					"years": [2013],
+					"years": [2014],
 					"suppressYear": true,
+					"note": ".early-childhood-note",
 					"source": "NACo Analysis of U.S. Census Bureau, American Community Survey 2009-2013 5-year Estimates; for the household income place effect- Raj Chetty and Nathaniel Hendren, <a href='http://www.equality-of-opportunity.org/'>The Equality of Opportunity</a>, 2015",
 					"companions": [["Early Childhood", "Child Poverty Rate"], ["Early Childhood","Number of Children in Poverty"], ["Early Childhood", "Percent of Children in High Poverty Areas"], ["Early Childhood","Household Income Place Effect"]
 					],

@@ -761,7 +761,7 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 					cbOptsHoriz = {iframe:true, width:'792px', height:'632px', maxHeight:'90%', maxWidth:'90%', title:'', href: ''};
 
 					if (currentDI === 'County Economies - County Economic Profile') {
-						if (isNaN(quantByIds[3][+FIPS])) {
+						if (quantByIds[4][+FIPS]===".") {
 							noty({text: '<strong>Profile Temporarily Unavailable</strong>  Please check back soon.'});
 						} else {
 							var countyName = parseCountyName(+FIPS, county.geography);
@@ -1695,6 +1695,7 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 		// write each indicator row
 		for (var i = 0; i < indObjects.length; i++) {
 			if (indObjects[i].has_profile === true) continue;
+			if (indObjects[i].suppressPrimeInd === true) continue;
 			var row = tipTable.append('tr').attr('class', 'tipKey');	
 			writeIndicators(row, indObjects[i], quantByIds[i], attrib);
 		}

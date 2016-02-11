@@ -43,6 +43,7 @@ Indicator level properties that apply to the legend will override Dataset-level 
 - subtitleMain - defaults to indicator name.  If the indicator is a profile, this will default to the first companion.
 - subtitlePost - default off. If a "unit" property is present, will take this value unless subtitlePost is present and overrides.
 
+##indicator level names
 - name
 - dataType
 - year: Used to override the dataset level "years" property at the indicator level.
@@ -59,4 +60,5 @@ Indicator level properties that apply to the legend will override Dataset-level 
 - notes - [".exports-note"]
 - CETNulls
 - customColors
+- suppressPrimeInd – suppresses the primary indicator display in the tooltip
 

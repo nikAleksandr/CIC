@@ -10,22 +10,56 @@
 		</li>
 	</ul>
 </li>-->
+<li class="dataset" name="Drug Poisoning" ng-show="indicatorListType == 'curated'">
+	<a>Drug Poisoning</a>
+	<ul class="dropdown-menu">
+		<li>
+			<a class="indicator" name="Drug Poisoning Death Rate" href="#">Drug Poisoning Death Rate</a>
+		</li>
+	</ul>
+</li>
+<li class="dataset" name="Early Childhood" ng-show="indicatorListType == 'curated'">
+	<a>Early Childhood</a>
+	<ul class="dropdown-menu">
+		<li>
+			<a class="indicator" name="Poverty Rate" href="#">Poverty Rate</a>
+		</li>
+		<li>
+			<a class="indicator" name="Number of People in Poverty" href="#">Number of People in Poverty</a>
+		</li>
+		<li>
+			<a class="indicator" name="Child Poverty Rate" href="#">Child Poverty Rate</a>
+		</li>
+		<li>
+			<a class="indicator" name="Number of Children in Poverty" href="#">Number of Children in Poverty</a>
+		</li>
+		<li>
+			<a class="indicator" name="Percent of Children in High Poverty Areas" href="#">Percent of Children in High Poverty Areas</a>
+		</li>
+		<li>
+			<a class="indicator" name="Number of Children in High Poverty Areas" href="#">Number of Children in High Poverty Areas</a>
+		</li>
+		<li>
+			<a class="indicator" name="Household Income Place Effect" href="#">Household Income Place Effect</a>
+		</li>
+	</ul>
+</li>
 <li class="dataset" name="Workforce Innovation and Opportunity Act (WIOA)" ng-show="indicatorListType == 'curated'">
 	<a>Workforce Innovation and Opportunity Act (WIOA)</a>
 	<ul class="dropdown-menu">
 		<li>
 			<a class="indicator" name="Statewide Adult WIOA Funding" href="#">Statewide Adult WIOA Funding</a>
 		</li>
-		<li>
+		<!--<li>
 			<a class="indicator" name="Statewide Adult WIOA Growth Rate" href="#">Statewide Adult WIOA Growth Rate</a>
-		</li>
+		</li>-->
 		<li>
 			<a class="indicator" name="Statewide Youth WIOA Funding" href="#">Statewide Youth WIOA Funding</a>
 		</li>
-		<li>
+		<!--<li>
 			<a class="indicator" name="Statewide Youth WIOA Growth Rate" href="#">Statewide Youth WIOA Growth Rate</a>
-		</li>
-		<li>
+		</li>-->
+		<!--<li>
 			<a class="indicator" name="People in Substantial Unemployment Areas" href="#">People in Substantial Unemployment Areas</a>
 		</li>
 		<li>
@@ -36,7 +70,7 @@
 		</li>
 		<li>
 			<a class="indicator" name="Number of Disadvantaged Youth" href="#">Number of Disadvantaged Youth</a>
-		</li>
+		</li>-->
 	</ul>
 </li>
 <li class="dataset" name="Local Workforce Development Boards" ng-show="indicatorListType == 'curated'">
@@ -45,12 +79,9 @@
 		<li>
 			<a class="indicator" name="Local WDB Service Area" href="#">Local WDB Service Area</a>
 		</li>
-		<li>
-			<a class="indicator" name="Percent Unemployment" href="#">Percent Unemployment</a>
-		</li>
 	</ul>
 </li>
-<!--<li class="dataset" name="County Financial Reporting" ng-show="indicatorListType == 'curated'">
+<li class="dataset" name="County Financial Reporting" ng-show="indicatorListType == 'curated'">
 	<a>County Financial Reporting</a>
 	<ul class="dropdown-menu">
 		<li>
@@ -63,7 +94,24 @@
 			<a class="indicator" name="State County Share CAFR" href="#">State County Share CAFR</a>
 		</li>
 	</ul>
-</li>-->
+</li>
+<li class="dataset" name="Secure Rural Schools (SRS)" ng-show="indicatorListType == 'curated'">
+			<a>Secure Rural Schools (SRS)</a>
+			<ul class="dropdown-menu">
+				<li>
+					<a class="indicator" name="SRS Profiles" href="#">SRS Profile</a>
+				</li>
+				<li>
+					<a class="indicator" name="SRS Amount" href="#">SRS Amount, FY 2014</a>
+				</li>
+				<li>
+					<a class="indicator" name="Projected 25% Payment" href="#">25% Payment, FY 2014</a>
+				</li>
+				<li>
+					<a class="indicator" name="Payment Percent Change" href="#">Payment Percent Change</a>
+				</li>
+			</ul>
+		</li>
 <li class="dataset" name="County Economies" ng-show="indicatorListType == 'curated'">
 	<a>County Economies<span class="badge">new</span></a>
 	<ul class="dropdown-menu">
@@ -282,114 +330,6 @@
 		</li>
 		<li>
 			<a class="indicator" name="Number of Delistings of Endangered and Threatened Species" href="#">Delistings of Endangered and Threatened Species</a>
-		</li>
-	</ul>
-</li>
-<li class="dataset" name="County Administrators" ng-show="indicatorListType == 'curated'">
-	<a>County Administrators</a>
-	<ul class="dropdown-menu">
-		<li>
-			<a class="indicator" name="Appointed County Administrators" href="#">Appointed County Administrators</a>
-		</li>
-		<li>
-			<a class="indicator" name="Statewide Number of County Administrator Titles" href="#">Statewide Number of County Administrator Titles</a>
-		</li>
-		<li>
-			<a class="indicator" name="Enabled by State Statute or County Ordinance" href="#">Enabled by State Statute or County Ordinance</a>
-		</li>
-		<li>
-			<a class="indicator" name="Decade of Enabling State Statute" href="#">Decade of Enabling State Statute</a>
-		</li>
-		<li>
-			<a class="indicator" name="County Administrator Profiles" href="#">County Administrator Profiles</a>
-		</li>
-	</ul>
-</li>
-<li class="dataset" name="Nursing Homes" ng-show="indicatorListType == 'curated'">
-	<a>Nursing Homes</a>
-	<ul class="dropdown-menu">
-		<li>
-			<a class="indicator" name="Number of Nursing Homes" href="#">Number of Nursing Homes</a>
-		</li>
-		<li>
-			<a class="indicator" name="Number of County Supported Facilities" href="#">Number of County Supported Facilities</a>
-		</li>
-		<li>
-			<a class="indicator" name="Number of City Facilities" href="#">Number of City Facilities</a>
-		</li>
-		<li>
-			<a class="indicator" name="Number of County Facilities" href="#">Number of County Facilities</a>
-		</li>
-		<li>
-			<a class="indicator" name="Number of City-County Facilities" href="#">Number of City-County Facilities</a>
-		</li>
-		<li>
-			<a class="indicator" name="Number of Hospital District Facilities" href="#">Number of Hospital District Facilities</a>
-		</li>
-		<li>
-			<a class="indicator" name="Number of Other Government Facilities" href="#">Number of Other Government Facilities</a>
-		</li>
-		<li>
-			<a class="indicator" name="Number of For-Profit Facilities" href="#">Number of For-Profit Facilities</a>
-		</li>
-		<li>
-			<a class="indicator" name="Number of Nonprofit Facilities" href="#">Number of Nonprofit Facilities</a>
-		</li>
-		<li>
-			<a class="indicator" name="Number of Certified Beds" href="#">Number of Certified Beds</a>
-		</li>
-		<li>
-			<a class="indicator" name="Number of Residents" href="#">Number of Residents</a>
-		</li>
-		<li>
-			<a class="indicator" name="Percent of Occupied Beds" href="#">Percent of Occupied Beds</a>
-		</li>
-		<li>
-			<a class="indicator" name="Number of Continuing Care Retirement Facilities" href="#">Number of Continuing Care Retirement Facilities</a>
-		</li>
-		<li>
-			<a class="indicator" name="Number of Special Focus Facilities" href="#">Number of Special Focus Facilities</a>
-		</li>
-	</ul>
-</li>
-<li class="dataset" name="Jails - Community Supervision" ng-show="indicatorListType == 'curated'">
-	<a>Jails - Community Supervision</a>
-	<ul class="dropdown-menu">
-		<!--<li>
-			<a class="indicator" name="Total Jail Population" href="#">Total Jail Population</a>
-		</li>
-		<li>
-			<a class="indicator" name="Jail Capacity" href="#">Jail Capacity</a>
-		</li>
-		<li>
-			<a class="indicator" name="Confined Persons" href="#">Confined Persons</a>
-		</li>
-		<li>
-			<a class="indicator" name="Nonconfined Persons" href="#">Nonconfined Persons</a>
-		</li>-->
-		<li>
-			<a class="indicator" name="Electronic Monitoring Program" href="#">Electronic Monitoring Program</a>
-		</li>
-		<li>
-			<a class="indicator" name="Home Detention" href="#">Home Detention</a>
-		</li>
-		<li>
-			<a class="indicator" name="Community Service" href="#">Community Service</a>
-		</li>
-		<li>
-			<a class="indicator" name="Day Reporting" href="#">Day Reporting</a>
-		</li>
-		<li>
-			<a class="indicator" name="Other Pretrial Supervision" href="#">Other Pretrial Supervision</a>
-		</li>
-		<li>
-			<a class="indicator" name="Other Alternative Work Programs" href="#">Other Alternative Work Programs</a>
-		</li>
-		<li>
-			<a class="indicator" name="Alcohol/Drug Treatment Programs" href="#">Alcohol/Drug Treatment Programs</a>
-		</li>
-		<li>
-			<a class="indicator" name="Other Nonconfined Programs" href="#">Other Nonconfined Programs</a>
 		</li>
 	</ul>
 </li>
@@ -1749,9 +1689,6 @@
 				<li>
 					<a class="indicator" name="WDB Service Area" href="#">WDB Service Area</a>
 				</li>
-				<li>
-					<a class="indicator" name="Percent Unemployment" href="#">Percent Unemployment</a>
-				</li>
 			</ul>
 		</li>
 		<li class="dataset" name="International Exports">
@@ -2166,13 +2103,13 @@
 				<li>
 					<a class="indicator" name="Statewide Adult WIOA Funding" href="#">Statewide Adult WIOA Funding</a>
 				</li>
-				<li>
+				<!--<li>
 					<a class="indicator" name="Statewide Adult WIOA Growth Rate" href="#">Statewide Adult WIOA Growth Rate</a>
-				</li>
+				</li>-->
 				<li>
 					<a class="indicator" name="Statewide Youth WIOA Funding" href="#">Statewide Youth WIOA Funding</a>
 				</li>
-				<li>
+				<!--<li>
 					<a class="indicator" name="Statewide Youth WIOA Growth Rate" href="#">Statewide Youth WIOA Growth Rate</a>
 				</li>
 				<li>
@@ -2186,7 +2123,7 @@
 				</li>
 				<li>
 					<a class="indicator" name="Number of Disadvantaged Youth" href="#">Number of Disadvantaged Youth</a>
-				</li>
+				</li>-->
 			</ul>
 		</li>
 		<li class="dataset" name="Veteran Expenditures">
