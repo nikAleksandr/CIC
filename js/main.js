@@ -1244,9 +1244,24 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 		}
 		
 		// list source
+		var writeSource = function(){
+			// find out if all indicators are in same dataset
+			// if not, create an array of sources (with their years)
+			var sources = indObjects[0].source + ((indObjects[0].suppressYear) ? '.' : (indObjects[0].legendTitlePre) ? ', ' + indObjects[0].legendTitlePre : ', ' + indObjects[0].year);
+			for (var i = 1; i < indObjects.length; i++){
+				if (indObjects[i].dataset !== indObjects[0].dataset) {
+					var tempSource = indObjects[i].source + ((indObjects[i].suppressYear) ? '' : (indObjects[i].legendTitlePre) ? ', ' + indObjects[i].legendTitlePre : ', ' + indObjects[i].year)
+					// check for its existence already, and add if unique
+					if(sources.search(tempSource) === -1)sources = sources.concat('; ' + tempSource);
+				}
+			}
+
+			d3.select('#sourceContainer').append('p').attr("id", "sourceText").html('<span style="font-weight:400;">Source: </span>' + sources);
+		}
+
 		d3.select("#sourceContainer").selectAll("p").remove();
-		d3.select('#sourceContainer').append('p').attr("id", "sourceText")
-			.html('<span style="font-weight:400;">Source: </span>' + indObjects[0].source + ((indObjects[0].suppressYear) ? '.' : (indObjects[0].legendTitlePre) ? ', ' + indObjects[0].legendTitlePre : ', ' + indObjects[0].year));
+		writeSource();
+
 		
 				
 		// if showing a "county profile" indicator, show a mini help dialog

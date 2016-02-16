@@ -3444,7 +3444,7 @@
 			"children": [
 				{
 					"name": "Drug Poisoning",
-					"source": "Source: NACo Analysis of <a target='_blank' href='http://blogs.cdc.gov/nchs-data-visualization/drug-poisoning-mortality/'>Rossen et al</a>, National Center for Health Statistics data",
+					"source": "NACo Analysis of <a target='_blank' href='http://blogs.cdc.gov/nchs-data-visualization/drug-poisoning-mortality/'>Rossen et al</a>, National Center for Health Statistics data",
 					"years": [2014],
 					"notes": ".drug-poisoning-note",
 					"companions": [["Drug Poisoning", " Drug Poisoning Death Rate"], ["Health Insurance", "Population Uninsured"], ["Early Childhood", "Child Poverty Rate"], ["Drug Poisoning", " Drug Poisoning Death Rate"]
