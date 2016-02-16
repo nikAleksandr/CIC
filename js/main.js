@@ -24,8 +24,8 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 	// -------------------------- Variable Definitions ---------------------------
 	var localVersion = false;
 	
-	var default_dset = 'County Economies';
-	var default_ind = 'Recovered on # Indicators';
+	var default_dset = 'Drug Poisoning';
+	var default_ind = 'Drug Poisoning Death Rate';
 	
 	CIC.findACounty = true;
 	CIC.embed = false;

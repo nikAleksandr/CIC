@@ -3224,7 +3224,7 @@
 				}, {
 					"name": "Secure Rural Schools (SRS)",
 					"years": [2012, 2013, 2014],
-					"source": "NACo Analysis of U.S. Department of Agriculture, U.S. Forest Service data and Headwaters Economics analysis of U.S. Geological Survey, Protected Areas Database",
+					"source": "NACo Analysis of data from the U.S. Forest Service data and Bureau of Land Management and Headwaters Economics analysis of U.S. Geological Survey, Protected Areas Database",
 					"companions": [["Secure Rural Schools (SRS)", "SRS Amount"], ["Secure Rural Schools (SRS)", "Projected 25% Payment"], ["Secure Rural Schools (SRS)", "Payment Percent Change"]
 					],
 					"notes": ".srs-note",
@@ -3447,12 +3447,12 @@
 					"source": "Source: NACo Analysis of <a target='_blank' href='http://blogs.cdc.gov/nchs-data-visualization/drug-poisoning-mortality/'>Rossen et al</a>, National Center for Health Statistics data",
 					"years": [2014],
 					"notes": ".drug-poisoning-note",
-					"companions": [["Drug Poisoning", " Drug Poisoning Death Rate"], ["County Health Rankings: Clinical Care", "Percent Uninsured"], ["County Health Rankings: Clinical Care", "Mental Health Provider Ratio"], ["Early Childhood", "Child Poverty Rate"], ["Drug Poisoning", " Drug Poisoning Death Rate"]
+					"companions": [["Drug Poisoning", " Drug Poisoning Death Rate"], ["Health Insurance", "Population Uninsured"], ["Early Childhood", "Child Poverty Rate"], ["Drug Poisoning", " Drug Poisoning Death Rate"]
 					],
 					"children": [
 						{
 							"name": "Drug Poisoning Death Rate",
-							"unit": "individuals",
+							"unit": "individuals per 100,000",
 							"dataType": "level",
 							"suppressPrimeInd": true,
 							"thresholds": [6, 10, 14, 20],
@@ -3460,7 +3460,7 @@
 							"definition": "The estimated number of deaths due to drug poisoning per 100,000 individuals.  Estimated into 5 increments."
 						}, {
 							"name": " Drug Poisoning Death Rate",
-							"unit": "individuals",
+							"unit": "individuals per 100,000",
 							"dataType": "categorical",
 							"definition": "The estimated number of deaths due to drug poisoning per 100,000 individuals."
 						}
