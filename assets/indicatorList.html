@@ -11,7 +11,7 @@
 	</ul>
 </li>-->
 <li class="dataset" name="Drug Poisoning" ng-show="indicatorListType == 'curated'">
-	<a>Drug Poisoning</a>
+	<a>Drug Poisoning<span class="badge">new</span></a>
 	<ul class="dropdown-menu">
 		<li>
 			<a class="indicator" name="Drug Poisoning Death Rate" href="#">Drug Poisoning Death Rate</a>
@@ -19,7 +19,7 @@
 	</ul>
 </li>
 <li class="dataset" name="Early Childhood" ng-show="indicatorListType == 'curated'">
-	<a>Early Childhood</a>
+	<a>Early Childhood<span class="badge">updated</span></a>
 	<ul class="dropdown-menu">
 		<li>
 			<a class="indicator" name="Poverty Rate" href="#">Poverty Rate</a>
@@ -45,7 +45,7 @@
 	</ul>
 </li>
 <li class="dataset" name="Workforce Innovation and Opportunity Act (WIOA)" ng-show="indicatorListType == 'curated'">
-	<a>Workforce Innovation and Opportunity Act (WIOA)</a>
+	<a>Workforce Innovation and Opportunity Act (WIOA)<span class="badge">new</span></a>
 	<ul class="dropdown-menu">
 		<li>
 			<a class="indicator" name="Statewide Adult WIOA Funding" href="#">Statewide Adult WIOA Funding</a>
@@ -74,7 +74,7 @@
 	</ul>
 </li>
 <li class="dataset" name="Local Workforce Development Boards" ng-show="indicatorListType == 'curated'">
-	<a>Local Workforce Development Boards</a>
+	<a>Local Workforce Development Boards<span class="badge">new</span></a>
 	<ul class="dropdown-menu">
 		<li>
 			<a class="indicator" name="Local WDB Service Area" href="#">Local WDB Service Area</a>
@@ -82,7 +82,7 @@
 	</ul>
 </li>
 <li class="dataset" name="County Financial Reporting" ng-show="indicatorListType == 'curated'">
-	<a>County Financial Reporting</a>
+	<a>County Financial Reporting<span class="badge">new</span></a>
 	<ul class="dropdown-menu">
 		<li>
 			<a class="indicator" name="State Reporting Requirements" href="#">State Reporting Requirements</a>
@@ -110,7 +110,7 @@
 	</ul>
 </li>
 <li class="dataset" name="County Economies" ng-show="indicatorListType == 'curated'">
-	<a>County Economies<span class="badge">new</span></a>
+	<a>County Economies</a>
 	<ul class="dropdown-menu">
 		<li>
 			<a class="indicator" name="County Economic Profile" href="#">County Economic Profile</a>
@@ -744,9 +744,6 @@
 		<li class="dataset" name="County Financial Reporting" ng-show="indicatorListType == 'curated'">
 			<a>County Financial Reporting</a>
 			<ul class="dropdown-menu">
-				<li>
-					<a class="indicator" name="County Financial Statement Type" href="#">County Financial Statement Type</a>
-				</li>
 				<li>
 					<a class="indicator" name="State Reporting Requirements" href="#">State Reporting Requirements</a>
 				</li>
@@ -1680,11 +1677,40 @@
 <li ng-hide="indicatorListType == 'curated'" class="category" name="Economy">
 	<a>Economy</a>
 	<ul class="dropdown-menu">
-		<li class="dataset" name="Local Workforce Development Boards">
+		<li class="dataset" name="Workforce Innovation and Opportunity Act (WIOA)" ng-show="indicatorListType == 'curated'">
+			<a>Workforce Innovation and Opportunity Act (WIOA)</a>
+			<ul class="dropdown-menu">
+				<li>
+					<a class="indicator" name="Statewide Adult WIOA Funding" href="#">Statewide Adult WIOA Funding</a>
+				</li>
+				<!--<li>
+					<a class="indicator" name="Statewide Adult WIOA Growth Rate" href="#">Statewide Adult WIOA Growth Rate</a>
+				</li>-->
+				<li>
+					<a class="indicator" name="Statewide Youth WIOA Funding" href="#">Statewide Youth WIOA Funding</a>
+				</li>
+				<!--<li>
+					<a class="indicator" name="Statewide Youth WIOA Growth Rate" href="#">Statewide Youth WIOA Growth Rate</a>
+				</li>-->
+				<!--<li>
+					<a class="indicator" name="People in Substantial Unemployment Areas" href="#">People in Substantial Unemployment Areas</a>
+				</li>
+				<li>
+					<a class="indicator" name="Number of Excess Unemployed" href="#">Number of Excess Unemployed</a>
+				</li>
+				<li>
+					<a class="indicator" name="Number of Disadvantaged Adults" href="#">Number of Disadvantaged Adults</a>
+				</li>
+				<li>
+					<a class="indicator" name="Number of Disadvantaged Youth" href="#">Number of Disadvantaged Youth</a>
+				</li>-->
+			</ul>
+		</li>
+		<li class="dataset" name="Local Workforce Development Boards" ng-show="indicatorListType == 'curated'">
 			<a>Local Workforce Development Boards</a>
 			<ul class="dropdown-menu">
 				<li>
-					<a class="indicator" name="WDB Service Area" href="#">WDB Service Area</a>
+					<a class="indicator" name="Local WDB Service Area" href="#">Local WDB Service Area</a>
 				</li>
 			</ul>
 		</li>
@@ -2435,6 +2461,14 @@
 <li ng-hide="indicatorListType == 'curated'" class="category" name="Health &amp; Hospitals">
 	<a>Health &amp; Hospitals</a>
 	<ul class="dropdown-menu">
+		<li class="dataset" name="Drug Poisoning" ng-show="indicatorListType == 'curated'">
+			<a>Drug Poisoning</a>
+			<ul class="dropdown-menu">
+				<li>
+					<a class="indicator" name="Drug Poisoning Death Rate" href="#">Drug Poisoning Death Rate</a>
+				</li>
+			</ul>
+		</li>
 		<li class="dataset" name="Medical Benefits">
 			<a>Medical Benefits</a>
 			<ul class="dropdown-menu">
