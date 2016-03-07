@@ -152,22 +152,6 @@
 			"name": "County Employment",
 			"children": [
 				{
-					"name": "Local Workforce Development Boards",
-					"source": "NACo analysis of U.S. Department of Labor data, 2015; Bureau of Labor Statistics - Local Area Unemployment Statistics (LAUS), 2014",
-					"suppressYear": true,
-					"years": [2015],
-					"companions": [["Local Workforce Development Boards", "Local WDB Service Area"], ["Labor Force", "Civilian Labor Force Population"], ["Labor Force", "Unemployment Rate"], ["Labor Force", "Number Employed"], ["Labor Force", "Number Unemployed"]
-					],
-					"children": [
-						{
-							"name": "Local WDB Service Area",
-							"dataType": "categorical",
-							"notes": ".wdb-note",
-							"source": "NACo analysis of U.S. Department of Labor data, 2015",
-							"definition": "Counties are classified into one of the following five categories based on the type of local workforce development board (local WDB) serving the county: State Level, Single County, Multiple Counties, County and City or City, as of October 2015.  <ul><li>State Level means a county is in the service area of a state run workforce board that fulfills the responsibilities of a local WDB under the Workforce Innovation and Opportunity Act.</li>  <li>Single County indicates the local WDB serves only the area of one county.</li>  <li>Multiple Counties indicates the local WDB serves the area of two or more counties.</li>  <li>County and City means a county and one or more cities, including independent cities, are in the service area of a local WDB.</li> <li>A City local WDB serves only some cities within the county so that the entire county is served by multiple local WDBs.</li>"
-						}
-					]
-				}, {
 					"name": "Administration Employment",
 					"source": "NACo Analysis of U.S. Census Bureau - Census of Individual Governments: Employment",
 					"years": [2007, 2008, 2009, 2010, 2011, 2012],
@@ -2605,7 +2589,7 @@
 					]
 				}, {
 					"name": "Colleges & Universities",
-					"source": "NACo Analysis of National Center for Economic Statistics (NCES) - Integrated Postsecondary Education Data System (IPEDS)",
+					"source": "NACo Analysis of National Center for Education Statistics (NCES) - Integrated Postsecondary Education Data System (IPEDS)",
 					"years": [2009, 2010, 2011, 2012],
 					"companions": [["Colleges & Universities", "Number of Institutions"], ["Colleges & Universities", "Average In-State Tuition"], ["Colleges & Universities", "Average Out-of-State Tuition"], ["Colleges & Universities", "Total Enrollment"]
 					],
@@ -2856,7 +2840,15 @@
 				    		"dataType": "level",
 				    		"unit": "person(s)",
 				    		"definition": "Number of individuals between 16 and 21 years (or their family members) who are economically disadvantaged based on a 5 year estimate between 2006 and 2010.  The number of economically disadvantaged youth (or their family members) is determined by the Census poverty level or at 70 percent of the Lower Living Standard Income Level.  One third (1/3) of funding from the Department of Labor is based on the state's relative share of this number."
-				    	}
+				    	}, {
+							"name": "Local WDB Service Area",
+							"dataType": "categorical",
+							"notes": ".wdb-note",
+							"source": "NACo analysis of U.S. Department of Labor data, 2015",
+							"companions": [["Workforce Innovation and Opportunity Act (WIOA)", "Local WDB Service Area"], ["Labor Force", "Civilian Labor Force Population"], ["Labor Force", "Unemployment Rate"], ["Labor Force", "Number Employed"], ["Labor Force", "Number Unemployed"]
+							],
+							"definition": "Counties are classified into one of the following five categories based on the type of local workforce development board (local WDB) serving the county: State Level, Single County, Multiple Counties, County and City or City, as of October 2015.  <ul><li>State Level means a county is in the service area of a state run workforce board that fulfills the responsibilities of a local WDB under the Workforce Innovation and Opportunity Act.</li>  <li>Single County indicates the local WDB serves only the area of one county.</li>  <li>Multiple Counties indicates the local WDB serves the area of two or more counties.</li>  <li>County and City means a county and one or more cities, including independent cities, are in the service area of a local WDB.</li> <li>A City local WDB serves only some cities within the county so that the entire county is served by multiple local WDBs.</li>"
+						}
 				      ]
 				}, {
 					"name": "Veteran Expenditures",
@@ -3003,7 +2995,7 @@
 					]
 				}, {
 					"name": "Community Development Block Grants (CDBG)",
-					"years": [2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015],
+					"years": [2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016],
 					"source": "NACo Analysis of U.S. Department of Housing and Urban Development data",
 					"companions": [["Community Development Block Grants (CDBG)", "CDBG Amount"], ["Community Development Block Grants (CDBG)", "CDBG Annual Growth Rate (from previous year)"], ["Housing & Urban Development Grants", "Total HUD Amount"], ["Housing & Urban Development Grants", "HUD Annual Growth Rate (from previous year)"]
 					],
@@ -3032,7 +3024,7 @@
 					]
 				}, {
 					"name": "Emergency Shelter Grants (ESG)",
-					"years": [2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015],
+					"years": [2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016],
 					"source": "NACo Analysis of U.S. Department of Housing and Urban Development data",
 					"companions": [["Emergency Shelter Grants (ESG)", "ESG Amount"], ["Emergency Shelter Grants (ESG)", "ESG Annual Growth Rate (from previous year)"], ["Housing & Urban Development Grants", "Total HUD Amount"], ["Housing & Urban Development Grants", "HUD Annual Growth Rate (from previous year)"]
 					],
@@ -3052,7 +3044,7 @@
 					]
 				}, {
 					"name": "HOME Investment Partnership Program",
-					"years": [2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015],
+					"years": [2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016],
 					"source": "NACo Analysis of U.S. Department of Housing and Urban Development data",
 					"companions": [["HOME Investment Partnership Program", "HOME Amount"], ["HOME Investment Partnership Program", "HOME Annual Growth Rate (from previous year)"], ["Housing & Urban Development Grants", "Total HUD Amount"], ["Housing & Urban Development Grants", "HUD Annual Growth Rate (from previous year)"]
 					],
@@ -3072,7 +3064,7 @@
 					]
 				}, {
 					"name": "Housing & Urban Development Grants",
-					"years": [2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015],
+					"years": [2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016],
 					"source": "NACo Analysis of U.S. Department of Housing and Urban Development data",
 					"companions": [["Housing & Urban Development Grants", "Total HUD Amount"], ["Housing & Urban Development Grants", "HUD Annual Growth Rate (from previous year)"], ["Community Development Block Grants (CDBG)", "CDBG Amount"], ["HOME Investment Partnership Program", "HOME Amount"]
 					],
@@ -3082,17 +3074,17 @@
 							"unit": "dollars",
 							"dataType": "level",
 							"thresholds": [1,3000000,5000000,10000000],
-							"definition": "Funding received by a county from the Community Development Block Grants (CDBG) going to “entitlement communities” , HOME Investment Partnerships Program (HOME), Housing Opportunities for Persons with AIDS (HOPWA), Emergency Shelter Grants (ESG) and the American Dream Downpayment Initiative (ADDI)."
+							"definition": "Funding received by a county from the Community Development Block Grants (CDBG) going to 'entitlement communities' , HOME Investment Partnerships Program (HOME), Housing Opportunities for Persons with AIDS (HOPWA), and Emergency Shelter Grants (ESG)."
 						}, {
 							"name": "HUD Annual Growth Rate (from previous year)",
 							"dataType": "percent",
 							"thresholds": [0, 0.01, 0.05, 0.1],
-							"definition": "Percent change in funding received by a county from the Community Development Block Grants (CDBG) going to “entitlement communities” , HOME Investment Partnerships Program (HOME), Housing Opportunities for Persons with AIDS (HOPWA), Emergency Shelter Grants (ESG) and the American Dream Downpayment Initiative (ADDI) from the previous year."
+							"definition": "Percent change in funding received by a county from the Community Development Block Grants (CDBG) going to 'entitlement communities' , HOME Investment Partnerships Program (HOME), Housing Opportunities for Persons with AIDS (HOPWA), and Emergency Shelter Grants (ESG) from the previous year"
 						}
 					]
 				}, {
 					"name": "Housing Opportunities for Persons with AIDS (HOPWA)",
-					"years": [2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015],
+					"years": [2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016],
 					"source": "NACo Analysis of U.S. Department of Housing and Urban Development data",
 					"companions": [["Housing Opportunities for Persons with AIDS (HOPWA)", "HOPWA Amount"], ["Housing Opportunities for Persons with AIDS (HOPWA)", "HOPWA Annual Growth Rate (from previous year)"], ["Housing & Urban Development Grants", "Total HUD Amount"], ["Housing & Urban Development Grants", "HUD Annual Growth Rate (from previous year)"]
 					],
@@ -5146,7 +5138,7 @@
 					"years": [2014],
 					"suppressYear": true,
 					"note": ".early-childhood-note",
-					"source": "NACo Analysis of U.S. Census Bureau, American Community Survey 2010-2014 5-year Estimates; for the household income place effect- Raj Chetty and Nathaniel Hendren, <a href='http://www.equality-of-opportunity.org/'>The Equality of Opportunity</a>, 2015",
+					"source": "NACo Analysis of U.S. Census Bureau, Small Area Income and Poverty Estimates 2014; U.S. Census Bureau, American Community Survey 2010-2014 5-year Estimates; for the household income place effect- Raj Chetty and Nathaniel Hendren, <a href='http://www.equality-of-opportunity.org/'>The Equality of Opportunity</a>, 2015",
 					"companions": [["Early Childhood", "Child Poverty Rate"], ["Early Childhood","Number of Children in Poverty"], ["Early Childhood", "Percent of Children in High Poverty Areas"], ["Early Childhood","Household Income Place Effect"]
 					],
 					"children": [
