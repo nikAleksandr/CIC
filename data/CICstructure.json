@@ -6,7 +6,7 @@
 			"children": [
 				{
 					"name": "Administration Expenditures",
-					"years": [2007],
+					"years": [2007,2012],
 					"source": "NACo Analysis of U.S. Census Bureau - Census of Individual Governments: Finance",
 					"companions": [["Administration Expenditures", "Total Administration"], ["Administration Expenditures", "Financial Administration"], ["Administration Expenditures", "Other Governmental Administration"], ["Administration Expenditures", "Current Operations"]
 					],
@@ -105,7 +105,7 @@
 				}, {
 					"name": "Administration Revenue",
 					"source": "NACo Analysis of U.S. Census Bureau - Census of Individual Governments: Finance",
-					"years": [2007],
+					"years": [2007,2012],
 					"companions": [["Administration Revenue", "Total Administration"], ["Administration Revenue", "Charges"], ["Administration Revenue", "Public Employee Retirement Systems"], ["Administration Revenue", "Unemployment Compensation Systems"]
 					],
 					"children": [
@@ -511,7 +511,7 @@
 				}, {
 					"name": "Administration Revenue",
 					"source": "NACo Analysis of U.S. Census Bureau - Census of Individual Governments: Finance",
-					"years": [2007],
+					"years": [2007,2012],
 					"companions": [["Administration Revenue", "Total Administration"], ["Administration Revenue", "Charges"], ["Administration Revenue", "Public Employee Retirement Systems"], ["Administration Revenue", "Unemployment Compensation Systems"]
 					],
 					"children": [
@@ -555,7 +555,7 @@
 				}, {
 					"name": "Intergovernmental Revenue",
 					"source": "NACo Analysis of U.S. Census Bureau - Census of Individual Governments: Finance",
-					"years": [2007],
+					"years": [2007,2012],
 					"companions": [["Intergovernmental Revenue", "Total Intergovernmental"], ["Intergovernmental Revenue", "From Federal Government"], ["Intergovernmental Revenue", "From State Government"], ["Intergovernmental Revenue", "From Local Government"]
 					],
 					"children": [
@@ -589,7 +589,7 @@
 				}, {
 					"name": "Tax Revenue",
 					"source": "NACo Analysis of U.S. Census Bureau - Census of Individual Governments: Finance",
-					"years": [2007],
+					"years": [2007,2012],
 					"companions": [["Tax Revenue", "Total Taxes"], ["Tax Revenue", "Income Taxes"], ["Tax Revenue", "Property Taxes"], ["Tax Revenue", "License Taxes"]
 					],
 					"children": [
@@ -633,7 +633,7 @@
 				}, {
 					"name": "Utility Revenue",
 					"source": "NACo Analysis of U.S. Census Bureau - Census of Individual Governments: Finance",
-					"years": [2007],
+					"years": [2007,2012],
 					"companions": [["Utility Revenue", "Total Utility"], ["Utility Revenue", "Electric Power Systems"], ["Utility Revenue", "Gas Supply Systems"], ["Utility Revenue", "Water Supply Systems"]
 					],
 					"children": [
@@ -672,7 +672,7 @@
 				}, {
 					"name": "Administration Expenditures",
 					"source": "NACo Analysis of U.S. Census Bureau - Census of Individual Governments: Finance",
-					"years": [2007],
+					"years": [2007,2012],
 					"companions": [["Administration Expenditures", "Total Administration"], ["Administration Expenditures", "Financial Administration"], ["Administration Expenditures", "Other Governmental Administration"], ["Administration Expenditures", "Current Operations"]
 					],
 					"children": [
@@ -736,7 +736,7 @@
 				}, {
 					"name": "Public Amenity Expenditures",
 					"source": "NACo Analysis of U.S. Census Bureau - Census of Individual Governments: Finance",
-					"years": [2007],
+					"years": [2007,2012],
 					"companions": [["Public Amenity Expenditures", "Total Public Amenity"], ["Public Amenity Expenditures", "Natural Resources"], ["Public Amenity Expenditures", "Parks & Recreation"], ["Public Amenity Expenditures", "Libraries"]
 					],
 					"children": [
@@ -795,7 +795,7 @@
 				}, {
 					"name": "Education Expenditures",
 					"source": "NACo Analysis of U.S. Census Bureau - Census of Individual Governments: Finance",
-					"years": [2007],
+					"years": [2007,2012],
 					"companions": [["Education Expenditures", "Total Education"], ["Education Employment", "Total Education"], ["Education Expenditures", "Elementary & Secondary Education"], ["Education Expenditures", "Higher Education"]
 					],
 					"children": [
@@ -849,7 +849,7 @@
 				}, {
 					"name": "Housing & Community Development Expenditures",
 					"source": "NACo Analysis of U.S. Census Bureau - Census of Individual Governments: Finance",
-					"years": [2007],
+					"years": [2007,2012],
 					"companions": [["Housing & Community Development Expenditures", "Total Housing & Community Development"], ["Housing & Community Development Employment", "Housing & Community Development"], ["Housing & Community Development Expenditures", "Current Operations"], ["Housing & Community Development Expenditures", "Total County"]
 					],
 					"children": [
@@ -893,7 +893,7 @@
 				}, {
 					"name": "Health & Hospitals Expenditures",
 					"source": "NACo Analysis of U.S. Census Bureau - Census of Individual Governments: Finance",
-					"years": [2007],
+					"years": [2007,2012],
 					"companions": [["Health & Hospitals Expenditures", "Total Health & Hospitals"], ["Health & Hospitals Expenditures", "Health"], ["Health & Hospitals Expenditures", "Hospitals"], ["Hospitals", "Number of Hospitals"]
 					],
 					"children": [
@@ -947,7 +947,7 @@
 				}, {
 					"name": "Financial Expenditures",
 					"source": "NACo Analysis of U.S. Census Bureau - Census of Individual Governments: Finance",
-					"years": [2007],
+					"years": [2007,2012],
 					"companions": [["Financial Expenditures", "Total Financial"], ["Financial Expenditures", "Interest on General Debt"], ["Financial Expenditures", "Insurance Trust - Employee Retirement"], ["Financial Expenditures", "Insurance Trust - Unemployment"]
 					],
 					"children": [
@@ -981,7 +981,7 @@
 				}, {
 					"name": "Justice & Public Safety Expenditures",
 					"source": "NACo Analysis of U.S. Census Bureau - Census of Individual Governments: Finance",
-					"years": [2007],
+					"years": [2007,2012],
 					"companions": [["Justice & Public Safety Expenditures", "Total Justice & Public Safety"], ["Justice & Public Safety Expenditures", "Correction"], ["Justice & Public Safety Expenditures", "Judicial & Legal Services"], ["Justice & Public Safety Expenditures", "Police Protection"]
 					],
 					"children": [
@@ -1050,7 +1050,7 @@
 				}, {
 					"name": "Public Welfare Expenditures",
 					"source": "NACo Analysis of U.S. Census Bureau - Census of Individual Governments: Finance",
-					"years": [2007],
+					"years": [2007,2012],
 					"companions": [["Public Welfare Expenditures", "Total Public Welfare"], ["Public Welfare Employment", "Public Welfare"], ["Public Welfare Expenditures", "Current Operations"], ["Public Welfare Expenditures", "Other Public Welfare"]
 					],
 					"children": [
@@ -1119,7 +1119,7 @@
 				}, {
 					"name": "Transportation Expenditures",
 					"source": "NACo Analysis of U.S. Census Bureau - Census of Individual Governments: Finance",
-					"years": [2007],
+					"years": [2007,2012],
 					"companions": [["Transportation Expenditures", "Total Transportation"], ["Transportation Expenditures", "Transit Utilities"], ["Transportation Expenditures", "Highways"], ["Transportation Expenditures", "Current Operations"]
 					],
 					"children": [
@@ -1193,7 +1193,7 @@
 				}, {
 					"name": "Utility Expenditures",
 					"source": "NACo Analysis of U.S. Census Bureau - Census of Individual Governments: Finance",
-					"years": [2007],
+					"years": [2007,2012],
 					"companions": [["Utility Expenditures", "Total Utility"], ["Utility Expenditures", "Electric Utilities"], ["Utility Expenditures", "Gas Utilities"], ["Utility Expenditures", "Construction"]
 					],
 					"children": [
@@ -1252,7 +1252,7 @@
 				}, {
 					"name": "Water, Sewerage & Solid Waste Expenditures",
 					"source": "NACo Analysis of U.S. Census Bureau - Census of Individual Governments: Finance",
-					"years": [2007],
+					"years": [2007,2012],
 					"companions": [["Water, Sewerage & Solid Waste Expenditures", "Total Water, Sewerage & Solid Waste Management"], ["Water, Sewerage & Solid Waste Expenditures", "Sewerage"], ["Water, Sewerage & Solid Waste Expenditures", "Solid Waste"], ["Water, Sewerage & Solid Waste Expenditures", "Water Utilities"]
 					],
 					"children": [
@@ -1316,7 +1316,7 @@
 				}, {
 					"name": "Other Expenditures",
 					"source": "NACo Analysis of U.S. Census Bureau - Census of Individual Governments: Finance",
-					"years": [2007],
+					"years": [2007,2012],
 					"companions": [["Other Expenditures", "Total Other"], ["Other Expenditures", "Misc. Commercial Activities"], ["Other Expenditures", "Other & Unallocable"], ["Other Expenditures", "General Public Buildings"]
 					],
 					"children": [
@@ -2487,7 +2487,7 @@
 				}, {
 					"name": "Education Expenditures",
 					"source": "NACo Analysis of U.S. Census Bureau - Census of Individual Governments: Finance",
-					"years": [2007],
+					"years": [2007,2012],
 					"companions": [["Education Expenditures", "Total County"], ["Education Expenditures", "Total Education"], ["Education Expenditures", "Elementary & Secondary Education"], ["Education Expenditures", "Higher Education"]
 					],
 					"children": [
@@ -3489,7 +3489,7 @@
 				}, {
 					"name": "Health & Hospitals Expenditures",
 					"source": "NACo Analysis of U.S. Census Bureau - Census of Individual Governments: Finance",
-					"years": [2007],
+					"years": [2007,2012],
 					"companions": [["Health & Hospitals Expenditures", "Total Health & Hospitals"], ["Health & Hospitals Expenditures", "Health"], ["Health & Hospitals Expenditures", "Hospitals"], ["Hospitals", "Number of Hospitals"]
 					],
 					"children": [
@@ -4155,7 +4155,7 @@
 				}, {
 					"name": "Housing & Community Development Expenditures",
 					"source": "NACo Analysis of U.S. Census Bureau - Census of Individual Governments: Finance",
-					"years": [2007],
+					"years": [2007,2012],
 					"companions": [["Housing & Community Development Expenditures", "Total Housing & Community Development"], ["Housing & Community Development Employment", "Housing & Community Development"], ["Housing & Community Development Expenditures", "Current Operations"], ["Housing & Community Development Expenditures", "Total County"]
 					],
 					"children": [
@@ -4325,7 +4325,7 @@
 				}, {
 					"name": "Justice & Public Safety Expenditures",
 					"source": "NACo Analysis of U.S. Census Bureau - Census of Individual Governments: Finance",
-					"years": [2007],
+					"years": [2007,2012],
 					"companions": [["Justice & Public Safety Expenditures", "Total Justice & Public Safety"], ["Justice & Public Safety Expenditures", "Correction"], ["Justice & Public Safety Expenditures", "Judicial & Legal Services"], ["Justice & Public Safety Expenditures", "Police Protection"]
 					],
 					"children": [
@@ -4783,7 +4783,7 @@
 				}, {
 					"name": "Public Amenity Expenditures",
 					"source": "NACo Analysis of U.S. Census Bureau - Census of Individual Governments: Finance",
-					"years": [2007],
+					"years": [2007,2012],
 					"companions": [["Public Amenity Expenditures", "Total Public Amenity"], ["Public Amenity Expenditures", "Natural Resources"], ["Public Amenity Expenditures", "Parks & Recreation"], ["Public Amenity Expenditures", "Libraries"]
 					],
 					"children": [
@@ -5067,7 +5067,7 @@
 				}, {
 					"name": "Public Welfare Expenditures",
 					"source": "NACo Analysis of U.S. Census Bureau - Census of Individual Governments: Finance",
-					"years": [2007],
+					"years": [2007,2012],
 					"companions": [["Public Welfare Expenditures", "Total Public Welfare"], ["Public Welfare Employment", "Public Welfare"], ["Public Welfare Expenditures", "Current Operations"], ["Public Welfare Expenditures", "Other Public Welfare"]
 					],
 					"children": [
@@ -5234,7 +5234,7 @@
 				}, {
 					"name": "Transportation Expenditures",
 					"source": "NACo Analysis of U.S. Census Bureau - Census of Individual Governments: Finance",
-					"years": [2007],
+					"years": [2007,2012],
 					"companions": [["Transportation Expenditures", "Total Transportation"], ["Transportation Expenditures", "Transit Utilities"], ["Transportation Expenditures", "Highways"], ["Transportation Expenditures", "Current Operations"]
 					],
 					"children": [
@@ -5961,7 +5961,7 @@
 				}, {
 					"name": "Utility Revenue",
 					"source": "NACo Analysis of U.S. Census Bureau - Census of Individual Governments: Finance",
-					"years": [2007],
+					"years": [2007,2012],
 					"companions": [["Utility Revenue", "Total Utility"], ["Utility Revenue", "Electric Power Systems"], ["Utility Revenue", "Gas Supply Systems"], ["Utility Revenue", "Water Supply Systems"]
 					],
 					"children": [
@@ -6000,7 +6000,7 @@
 				}, {
 					"name": "Utility Expenditures",
 					"source": "NACo Analysis of U.S. Census Bureau - Census of Individual Governments: Finance",
-					"years": [2007],
+					"years": [2007,2012],
 					"vintage": 2014,
 					"companions": [["Utility Expenditures", "Total Utility"], ["Utility Expenditures", "Electric Utilities"], ["Utility Expenditures", "Gas Utilities"], ["Utility Expenditures", "Construction"]
 					],
@@ -6121,7 +6121,7 @@
 					]
 				}, {
 					"name": "Water, Sewerage & Solid Waste Expenditures",
-					"years": [2007],
+					"years": [2007,2012],
 					"source": "NACo Analysis of U.S. Census Bureau - Census of Individual Governments: Finance",
 					"vintage": 2014,
 					"companions": [["Water, Sewerage & Solid Waste Expenditures", "Total Water, Sewerage & Solid Waste Management"], ["Water, Sewerage & Solid Waste Expenditures", "Sewerage"], ["Water, Sewerage & Solid Waste Expenditures", "Solid Waste"], ["Water, Sewerage & Solid Waste Expenditures", "Water Utilities"]
