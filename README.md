@@ -25,7 +25,10 @@ Data is recieved in JSON format from an SQL server by running requests through a
 - Ctrl + shift + E will export the current map SVG as a .png image
 
 =========
-##data.json Options
+##CICStructure.json 
+There are no duplicates.  When duplicate entries occur in the indicatorList.html, CICStructure will group them according to dataset for efficiency when updating a large data source.  For example, Administration Employment is under the County Employment category, rather than the County Administration category.
+
+Properties
 - years - applies specifically to the year the data is supposed to reflect, or the year the data was collected.
 - source
 - companions
@@ -43,10 +46,12 @@ Indicator level properties that apply to the legend will override Dataset-level 
 - subtitleMain - defaults to indicator name.  If the indicator is a profile, this will default to the first companion.
 - subtitlePost - default off. If a "unit" property is present, will take this value unless subtitlePost is present and overrides.
 
-##indicator level names
+##indicator level properties
 - name
-- dataType
-- year: Used to override the dataset level "years" property at the indicator level.
+- DBDataset - database table location (not yet implemented)
+- DBIndicator - database field location (not yet implemented)
+- dataType – supported types include: level, categorical, binary, percent
+- year - Used to override the dataset level "years" property at the indicator level.
 - definition
 - unit
 - thresholds
@@ -59,6 +64,6 @@ Indicator level properties that apply to the legend will override Dataset-level 
 - format_type
 - notes - [".exports-note"]
 - CETNulls
-- customColors
+- customRange - creates a custom set and order of colors IE: ["rgb(255,153,51)", "rgb(49,130,189)", "rgb(7,81,156)"]
 - suppressPrimeInd – suppresses the primary indicator display in the tooltip (and the definition)
 
