@@ -1,17 +1,551 @@
 <!-- Begin Curated Indicator List -->
-<!--<li class="dataset" name="Jails - Supervised Population">
-	<a>Jails - Supervised Population</a>
+<li class="category" name="County Finance" ng-show="indicatorListType == 'curated'">
+	<a>County Finance<span class="badge">updated</span></a>
 	<ul class="dropdown-menu">
+		<li class="dataset" name="Administration Revenue">
+			<a>Administration Revenue<span class="badge">updated</span></a>
+			<ul class="dropdown-menu">
+				<li>
+					<a class="indicator" name="Total County Revenue" href="#">Total County Revenue</a>
+				</li>
+				<li>
+					<a class="indicator" name="Total Administration Revenue" href="#">Total Administration Revenue</a>
+				</li>
+				<li>
+					<a class="indicator" name="Charges" href="#">Charges</a>
+				</li>
+				<li>
+					<a class="indicator" name="Misc. General Revenue" href="#">Misc. General Revenue</a>
+				</li>
+				<!-- <li>
+				<a class="indicator" name="Liquor Stores" href="#">Liquor Stores</a>
+				</li> -->
+				<li>
+					<a class="indicator" name="Public Employee Retirement Systems" href="#">Public Employee Retirement Systems</a>
+				</li>
+				<!-- <li>
+				<a class="indicator" name="Unemployment Compensation Systems" href="#">Unemployment Compensation Systems</a>
+				</li> -->
+			</ul>
+		</li>
+		<li class="dataset" name="Intergovernmental Revenue">
+			<a>Intergovernmental Revenue<span class="badge">updated</span></a>
+			<ul class="dropdown-menu">
+				<li>
+					<a class="indicator" name="Total County Revenue" href="#">Total County Revenue</a>
+				</li>
+				<li>
+					<a class="indicator" name="Total Intergovernmental Revenue" href="#">Total Intergovernmental Revenue</a>
+				</li>
+				<li>
+					<a class="indicator" name="From Federal Government" href="#">From Federal Government</a>
+				</li>
+				<li>
+					<a class="indicator" name="From Local Government" href="#">From Local Government</a>
+				</li>
+				<li>
+					<a class="indicator" name="From State Government" href="#">From State Government</a>
+				</li>
+			</ul>
+		</li>
+		<li class="dataset" name="Tax Revenue">
+			<a>Tax Revenue<span class="badge">updated</span></a>
+			<ul class="dropdown-menu">
+				<li>
+					<a class="indicator" name="Total County Revenue" href="#">Total County Revenue</a>
+				</li>
+				<li>
+					<a class="indicator" name="Total Tax Revenue" href="#">Total Tax Revenue</a>
+				</li>
+				<li>
+					<a class="indicator" name="Income Taxes" href="#">Income Taxes</a>
+				</li>
+				<li>
+					<a class="indicator" name="License Taxes" href="#">License Taxes</a>
+				</li>
+				<li>
+					<a class="indicator" name="Other Taxes" href="#">Other Taxes</a>
+				</li>
+				<li>
+					<a class="indicator" name="Property Taxes" href="#">Property Taxes</a>
+				</li>
+				<li>
+					<a class="indicator" name="Sales &amp; Gross Receipts Taxes" href="#">Sales &amp; Gross Receipts Taxes</a>
+				</li>
+			</ul>
+		</li>
+		<li class="dataset" name="Utility Revenue">
+			<a>Utility Revenue<span class="badge">updated</span></a>
+			<ul class="dropdown-menu">
+				<li>
+					<a class="indicator" name="Total County Revenue" href="#">Total County Revenue</a>
+				</li>
+				<li>
+					<a class="indicator" name="Total Utility Revenue" href="#">Total Utility Revenue</a>
+				</li>
+				<li>
+					<a class="indicator" name="Electric Power Systems" href="#">Electric Power Systems</a>
+				</li>
+				<li>
+					<a class="indicator" name="Gas Supply Systems" href="#">Gas Supply Systems</a>
+				</li>
+				<li>
+					<a class="indicator" name="Public Mass Transit Systems" href="#">Public Mass Transit Systems</a>
+				</li>
+				<li>
+					<a class="indicator" name="Water Supply Systems" href="#">Water Supply Systems</a>
+				</li>
+			</ul>
+		</li>
+		<li class="dataset" name="Administration Expenditures">
+			<a>Administration Expenditures<span class="badge">updated</span></a>
+			<ul class="dropdown-menu">
+				<li>
+					<a class="indicator" name="Total County Expenditures" href="#">Total County Expenditures</a>
+				</li>
+				<li>
+					<a class="indicator" name="Total Administration Expenditures" href="#">Total Administration Expenditures</a>
+				</li>
+				<li>
+					<a class="indicator" name="Financial Administration" href="#">Financial Administration</a>
+				</li>
+				<li>
+					<a class="indicator" name="Other Governmental Administration" href="#">Other Governmental Administration</a>
+				</li>
+				<!-- <li>
+				<a class="indicator" name="Social Insurance Administration" href="#">Social Insurance Administration</a>
+				</li> -->
+				<!-- <li>
+				<a class="indicator" name="Liquor Stores" href="#">Liquor Stores</a>
+				</li> -->
+				<li>
+					<a class="indicator" name="Current Operations" href="#">Current Operations</a>
+				</li>
+				<li>
+					<a class="indicator" name="Construction" href="#">Construction</a>
+				</li>
+				<li>
+					<a class="indicator" name="Other Capital Outlay" href="#">Other Capital Outlay</a>
+				</li>
+				<!--<li>
+					<a class="indicator" name="Intergovernmental to State" href="#">Intergovernmental to State</a>
+				</li>-->
+				<li>
+					<a class="indicator" name="Intergovernmental to Local" href="#">Intergovernmental to Local</a>
+				</li>
+			</ul>
+		</li>
+		<li class="dataset" name="Public Amenity Expenditures">
+			<a>Public Amenity Expenditures<span class="badge">updated</span></a>
+			<ul class="dropdown-menu">
+				<li>
+					<a class="indicator" name="Total County Expenditures" href="#">Total County Expenditures</a>
+				</li>
+				<li>
+					<a class="indicator" name="Total Public Amenity Expenditures" href="#">Total Public Amenity Expenditures</a>
+				</li>
+				<li>
+					<a class="indicator" name="Libraries" href="#">Libraries</a>
+				</li>
+				<li>
+					<a class="indicator" name="Natural Resources" href="#">Natural Resources</a>
+				</li>
+				<li>
+					<a class="indicator" name="Parks &amp; Recreation" href="#">Parks &amp; Recreation</a>
+				</li>
+				<li>
+					<a class="indicator" name="Current Operations" href="#">Current Operations</a>
+				</li>
+				<li>
+					<a class="indicator" name="Construction" href="#">Construction</a>
+				</li>
+				<li>
+					<a class="indicator" name="Other Capital Outlay" href="#">Other Capital Outlay</a>
+				</li>
+				<!--<li>
+					<a class="indicator" name="Intergovernmental to State" href="#">Intergovernmental to State</a>
+				</li>-->
+				<li>
+					<a class="indicator" name="Intergovernmental to Local" href="#">Intergovernmental to Local</a>
+				</li>
+			</ul>
+		</li>
+		<li class="dataset" name="Education Expenditures">
+			<a>Education Expenditures<span class="badge">updated</span></a>
+			<ul class="dropdown-menu">
+				<li>
+					<a class="indicator" name="Total County Expenditures" href="#">Total County Expenditures</a>
+				</li>
+				<li>
+					<a class="indicator" name="Total Education Expenditures" href="#">Total Education Expenditures</a>
+				</li>
+				<li>
+					<a class="indicator" name="Elementary &amp; Secondary Education" href="#">Elementary &amp; Secondary Education</a>
+				</li>
+				<li>
+					<a class="indicator" name="Higher Education" href="#">Higher Education</a>
+				</li>
+				<li>
+					<a class="indicator" name="Current Operations" href="#">Current Operations</a>
+				</li>
+				<li>
+					<a class="indicator" name="Construction" href="#">Construction</a>
+				</li>
+				<li>
+					<a class="indicator" name="Other Capital Outlay" href="#">Other Capital Outlay</a>
+				</li>
+				<!--<li>
+					<a class="indicator" name="Intergovernmental to State" href="#">Intergovernmental to State</a>
+				</li>-->
+				<li>
+					<a class="indicator" name="Intergovernmental to Local" href="#">Intergovernmental to Local</a>
+				</li>
+			</ul>
+		</li>
+		<li class="dataset" name="Housing &amp; Community Development Expenditures">
+			<a>Housing &amp; Community Development Expenditures<span class="badge">updated</span></a>
+			<ul class="dropdown-menu">
+				<li>
+					<a class="indicator" name="Total County Expenditures" href="#">Total County Expenditures</a>
+				</li>
+				<li>
+					<a class="indicator" name="Total Housing &amp; Community Development Expenditures" href="#">Total Housing &amp; Community Development Expenditures</a>
+				</li>
+				<li>
+					<a class="indicator" name="Current Operations" href="#">Current Operations</a>
+				</li>
+				<li>
+					<a class="indicator" name="Construction" href="#">Construction</a>
+				</li>
+				<li>
+					<a class="indicator" name="Other Capital Outlay" href="#">Other Capital Outlay</a>
+				</li>
+				<li>
+					<a class="indicator" name="Intergovernmental to State" href="#">Intergovernmental to State</a>
+				</li>
+				<li>
+					<a class="indicator" name="Intergovernmental to Local" href="#">Intergovernmental to Local</a>
+				</li>
+			</ul>
+		</li>
+		<li class="dataset" name="Health &amp; Hospitals Expenditures">
+			<a>Health &amp; Hospitals Expenditures<span class="badge">updated</span></a>
+			<ul class="dropdown-menu">
+				<li>
+					<a class="indicator" name="Total County Expenditures" href="#">Total County Expenditures</a>
+				</li>
+				<li>
+					<a class="indicator" name="Total Health &amp; Hospitals Expenditures" href="#">Total Health &amp; Hospitals Expenditures</a>
+				</li>
+				<li>
+					<a class="indicator" name="Health" href="#">Health</a>
+				</li>
+				<li>
+					<a class="indicator" name="Hospitals" href="#">Hospitals</a>
+				</li>
+				<li>
+					<a class="indicator" name="Current Operations" href="#">Current Operations</a>
+				</li>
+				<li>
+					<a class="indicator" name="Construction" href="#">Construction</a>
+				</li>
+				<li>
+					<a class="indicator" name="Other Capital Outlay" href="#">Other Capital Outlay</a>
+				</li>
+				<li>
+					<a class="indicator" name="Intergovernmental to State" href="#">Intergovernmental to State</a>
+				</li>
+				<li>
+					<a class="indicator" name="Intergovernmental to Local" href="#">Intergovernmental to Local</a>
+				</li>
+			</ul>
+		</li>
+		<li class="dataset" name="Financial Expenditures">
+			<a>Financial Expenditures<span class="badge">updated</span></a>
+			<ul class="dropdown-menu">
+				<li>
+					<a class="indicator" name="Total County Expenditures" href="#">Total County Expenditures</a>
+				</li>
+				<li>
+					<a class="indicator" name="Total Financial Expenditures" href="#">Total Financial Expenditures</a>
+				</li>
+				<li>
+					<a class="indicator" name="Interest on General Debt" href="#">Interest on General Debt</a>
+				</li>
+				<li>
+					<a class="indicator" name="Insurance Trust - Employee Retirement" href="#">Insurance Trust - Employee Retirement</a>
+				</li>
+				<!-- <li>
+				<a class="indicator" name="Insurance Trust - Unemployment" href="#">Insurance Trust - Unemployment</a>
+				</li> -->
+			</ul>
+		</li>
+		<li class="dataset" name="Justice &amp; Public Safety Expenditures">
+			<a>Justice &amp; Public Safety Expenditures<span class="badge">updated</span></a>
+			<ul class="dropdown-menu">
+				<li>
+					<a class="indicator" name="Total County Expenditures" href="#">Total County Expenditures</a>
+				</li>
+				<li>
+					<a class="indicator" name="Total Justice &amp; Public Safety Expenditures" href="#">Total Justice &amp; Public Safety Expenditures</a>
+				</li>
+				<li>
+					<a class="indicator" name="Correction" href="#">Correction</a>
+				</li>
+				<li>
+					<a class="indicator" name="Judicial &amp; Legal Services" href="#">Judicial &amp; Legal Services</a>
+				</li>
+				<li>
+					<a class="indicator" name="Police Protection" href="#">Police Protection</a>
+				</li>
+				<li>
+					<a class="indicator" name="Fire Protection" href="#">Fire Protection</a>
+				</li>
+				<li>
+					<a class="indicator" name="Protective Inspection" href="#">Protective Inspection</a>
+				</li>
+				<li>
+					<a class="indicator" name="Current Operations" href="#">Current Operations</a>
+				</li>
+				<li>
+					<a class="indicator" name="Construction" href="#">Construction</a>
+				</li>
+				<li>
+					<a class="indicator" name="Other Capital Outlay" href="#">Other Capital Outlay</a>
+				</li>
+				<li>
+					<a class="indicator" name="Intergovernmental to State" href="#">Intergovernmental to State</a>
+				</li>
+				<li>
+					<a class="indicator" name="Intergovernmental to Local" href="#">Intergovernmental to Local</a>
+				</li>
+			</ul>
+		</li>
+		<li class="dataset" name="Public Welfare Expenditures">
+			<a>Public Welfare Expenditures<span class="badge">updated</span></a>
+			<ul class="dropdown-menu">
+				<li>
+					<a class="indicator" name="Total County Expenditures" href="#">Total County Expenditures</a>
+				</li>
+				<li>
+					<a class="indicator" name="Total Public Welfare Expenditures" href="#">Total Public Welfare Expenditures</a>
+				</li>
+				<li>
+					<a class="indicator" name="Cash Assistance" href="#">Cash Assistance</a>
+				</li>
+				<li>
+					<a class="indicator" name="Vendor Payments" href="#">Vendor Payments</a>
+				</li>
+				<!--<li>
+					<a class="indicator" name="Payments to Medicare Trust Fund" href="#">Payments to Medicare Trust Fund</a>
+				</li>-->
+				<li>
+					<a class="indicator" name="Other Public Welfare" href="#">Other Public Welfare</a>
+				</li>
+				<li>
+					<a class="indicator" name="Current Operations" href="#">Current Operations</a>
+				</li>
+				<!--<li>
+					<a class="indicator" name="Construction" href="#">Construction</a>
+				</li>-->
+				<li>
+					<a class="indicator" name="Assistance &amp; Subsidies" href="#">Assistance &amp; Subsidies</a>
+				</li>
+				<li>
+					<a class="indicator" name="Other Capital Outlay" href="#">Other Capital Outlay</a>
+				</li>
+				<li>
+					<a class="indicator" name="Intergovernmental to State" href="#">Intergovernmental to State</a>
+				</li>
+				<li>
+					<a class="indicator" name="Intergovernmental to Local" href="#">Intergovernmental to Local</a>
+				</li>
+			</ul>
+		</li>
+		<li class="dataset" name="Transportation Expenditures">
+			<a>Transportation Expenditures<span class="badge">updated</span></a>
+			<ul class="dropdown-menu">
+				<li>
+					<a class="indicator" name="Total County Expenditures" href="#">Total County Expenditures</a>
+				</li>
+				<li>
+					<a class="indicator" name="Total Transportation Expenditures" href="#">Total Transportation Expenditures</a>
+				</li>
+				<li>
+					<a class="indicator" name="Air Transportation" href="#">Air Transportation</a>
+				</li>
+				<li>
+					<a class="indicator" name="Highways" href="#">Highways</a>
+				</li>
+				<li>
+					<a class="indicator" name="Parking Facilities" href="#">Parking Facilities</a>
+				</li>
+				<li>
+					<a class="indicator" name="Sea &amp; Inland Port" href="#">Sea &amp; Inland Port</a>
+				</li>
+				<li>
+					<a class="indicator" name="Transit Utilities" href="#">Transit Utilities</a>
+				</li>
+				<li>
+					<a class="indicator" name="Current Operations" href="#">Current Operations</a>
+				</li>
+				<li>
+					<a class="indicator" name="Construction" href="#">Construction</a>
+				</li>
+				<li>
+					<a class="indicator" name="Other Capital Outlay" href="#">Other Capital Outlay</a>
+				</li>
+				<!--<li>
+					<a class="indicator" name="Interest on Debt" href="#">Interest on Debt</a>
+				</li>-->
+				<li>
+					<a class="indicator" name="Intergovernmental to State" href="#">Intergovernmental to State</a>
+				</li>
+				<li>
+					<a class="indicator" name="Intergovernmental to Local" href="#">Intergovernmental to Local</a>
+				</li>
+			</ul>
+		</li>
+		<li class="dataset" name="Utility Expenditures">
+			<a>Utility Expenditures<span class="badge">updated</span></a>
+			<ul class="dropdown-menu">
+				<li>
+					<a class="indicator" name="Total County Expenditures" href="#">Total County Expenditures</a>
+				</li>
+				<li>
+					<a class="indicator" name="Total Utility Expenditures" href="#">Total Utility Expenditures</a>
+				</li>
+				<li>
+					<a class="indicator" name="Electric Utilities" href="#">Electric Utilities</a>
+				</li>
+				<li>
+					<a class="indicator" name="Gas Utilities" href="#">Gas Utilities</a>
+				</li>
+				<!--<li>
+					<a class="indicator" name="Current Operations" href="#">Current Operations</a>
+				</li>
+				<li>
+					<a class="indicator" name="Construction" href="#">Construction</a>
+				</li>
+				<li>
+					<a class="indicator" name="Other Capital Outlay" href="#">Other Capital Outlay</a>
+				</li>
+				<li>
+					<a class="indicator" name="Interest on Debt" href="#">Interest on Debt</a>
+				</li>
+				<li>
+					<a class="indicator" name="Intergovernmental to State" href="#">Intergovernmental to State</a>
+				</li>
+				<li>
+					<a class="indicator" name="Intergovernmental to Local" href="#">Intergovernmental to Local</a>
+				</li>-->
+			</ul>
+		</li>
+		<li class="dataset" name="Water, Sewerage &amp; Solid Waste Expenditures">
+			<a>Water, Sewerage &amp; Solid Waste Expenditures<span class="badge">updated</span></a>
+			<ul class="dropdown-menu">
+				<li>
+					<a class="indicator" name="Total County Expenditures" href="#">Total County Expenditures</a>
+				</li>
+				<li>
+					<a class="indicator" name="Total Water, Sewerage &amp; Solid Waste Expenditures" href="#">Total Water, Sewerage &amp; Solid Waste  Expenditures</a>
+				</li>
+				<li>
+					<a class="indicator" name="Sewerage" href="#">Sewerage</a>
+				</li>
+				<li>
+					<a class="indicator" name="Solid Waste" href="#">Solid Waste</a>
+				</li>
+				<li>
+					<a class="indicator" name="Water Utilities" href="#">Water Utilities</a>
+				</li>
+				<li>
+					<a class="indicator" name="Current Operations" href="#">Current Operations</a>
+				</li>
+				<li>
+					<a class="indicator" name="Construction" href="#">Construction</a>
+				</li>
+				<li>
+					<a class="indicator" name="Other Capital Outlay" href="#">Other Capital Outlay</a>
+				</li>
+				<li>
+					<a class="indicator" name="Interest on Debt" href="#">Interest on Debt</a>
+				</li>
+				<li>
+					<a class="indicator" name="Intergovernmental to State" href="#">Intergovernmental to State</a>
+				</li>
+				<li>
+					<a class="indicator" name="Intergovernmental to Local" href="#">Intergovernmental to Local</a>
+				</li>
+			</ul>
+		</li>
+		<li class="dataset" name="Other Expenditures">
+			<a>Other Expenditures<span class="badge">updated</span></a>
+			<ul class="dropdown-menu">
+				<li>
+					<a class="indicator" name="Total County Expenditures" href="#">Total County Expenditures</a>
+				</li>
+				<li>
+					<a class="indicator" name="Total Other Expenditures" href="#">Total Other Expenditures</a>
+				</li>
+				<li>
+					<a class="indicator" name="Misc. Commercial Activities" href="#">Misc. Commercial Activities</a>
+				</li>
+				<li>
+					<a class="indicator" name="Other &amp; Unallocable" href="#">Other &amp; Unallocable</a>
+				</li>
+				<li>
+					<a class="indicator" name="General Public Buildings" href="#">General Public Buildings</a>
+				</li>
+			</ul>
+		</li>
+	</ul>
+</li>
+<li class="dataset" name="Jails - Supervised Population" ng-show="indicatorListType == 'curated'">
+	<a>Jails - Supervised Population<span class="badge">updated</span></a>
+	<ul class="dropdown-menu">
+		<!--<li>
+			<a class="indicator" name="Total Jail Population" href="#">Total Jail Population</a>
+		</li>-->
 		<li>
+			<a class="indicator" name="Rated Jail Capacity" href="#">Rated Jail Capacity</a>
+		</li>
+		<li>
+			<a class="indicator" name="Jail Capacity Percent" href="#">Jail Capacity Percent</a>
+		</li>
+		<li>
+			<a class="indicator" name="Confined Persons" href="#">Confined Persons</a>
+		</li>
+		<!--<li>
+			<a class="indicator" name="Nonconfined Persons" href="#">Nonconfined Persons</a>
+		</li>
+		<li>
+			<a class="indicator" name="Non US Citizens" href="#">Non US Citizens</a>
+		</li>
+		<li>
+			<a class="indicator" name="Weekenders" href="#">Weekenders</a>
+		</li>-->
+		<li>
+			<a class="indicator" name="Average Daily Population" href="#">Average Daily Population</a>
+		</li>
+		<!--<li>
 			<a class="indicator" name="Percent of Capacity" href="#">Percent of Capacity</a>
 		</li>
 		<li>
 			<a class="indicator" name="At or Over Capacity" href="#">Capacity Status</a>
+		</li>-->
+	</ul>
+</li>
+<li class="dataset" name="Byrne (JAG) Program Awards" ng-show="indicatorListType == 'curated'">
+	<a>Byrne (JAG) Program Awards<span class="badge">updated</span></a>
+	<ul class="dropdown-menu">
+		<li>
+			<a class="indicator" name="JAG Amount" href="#">JAG Amount</a>
 		</li>
 	</ul>
-</li>-->
+</li>
 <li class="dataset" name="County Jails" ng-show="indicatorListType == 'curated'">
-	<a>County Jails</a>
+	<a>County Jails<span class="badge">updated</span></a>
 	<ul class="dropdown-menu">
 		<li>
 			<a class="indicator" name="Role in Jail Operations" href="#">Role in Jail Operations</a>
@@ -43,16 +577,8 @@
 		</li>
 	</ul>
 </li>
-<li class="dataset" name="Drug Poisoning" ng-show="indicatorListType == 'curated'">
-	<a>Drug Poisoning<span class="badge">new</span></a>
-	<ul class="dropdown-menu">
-		<li>
-			<a class="indicator" name="Drug Poisoning Death Rate" href="#">Drug Poisoning Death Rate</a>
-		</li>
-	</ul>
-</li>
 <li class="dataset" name="Early Childhood" ng-show="indicatorListType == 'curated'">
-	<a>Early Childhood<span class="badge">updated</span></a>
+	<a>Early Childhood</a>
 	<ul class="dropdown-menu">
 		<li>
 			<a class="indicator" name="Poverty Rate" href="#">Poverty Rate</a>
@@ -78,7 +604,7 @@
 	</ul>
 </li>
 <li class="dataset" name="Workforce Innovation and Opportunity Act (WIOA)" ng-show="indicatorListType == 'curated'">
-	<a>Workforce Innovation and Opportunity Act (WIOA)<span class="badge">new</span></a>
+	<a>Workforce Innovation and Opportunity Act (WIOA)</a>
 	<ul class="dropdown-menu">
 		<li>
 			<a class="indicator" name="Statewide Adult WIOA Funding" href="#">Statewide Adult WIOA Funding</a>
@@ -110,30 +636,13 @@
 	</ul>
 </li>
 <li class="dataset" name="County Financial Reporting" ng-show="indicatorListType == 'curated'">
-	<a>County Financial Reporting<span class="badge">new</span></a>
+	<a>County Financial Reporting</a>
 	<ul class="dropdown-menu">
 		<li>
 			<a class="indicator" name="State Reporting Requirements" href="#">State Reporting Requirements</a>
 		</li>
 		<li>
 			<a class="indicator" name="State County Share CAFR" href="#">State County Share CAFR</a>
-		</li>
-	</ul>
-</li>
-<li class="dataset" name="Secure Rural Schools (SRS)" ng-show="indicatorListType == 'curated'">
-	<a>Secure Rural Schools (SRS)</a>
-	<ul class="dropdown-menu">
-		<li>
-			<a class="indicator" name="SRS Profiles" href="#">SRS Profile</a>
-		</li>
-		<li>
-			<a class="indicator" name="SRS Amount" href="#">SRS Amount, FY 2014</a>
-		</li>
-		<li>
-			<a class="indicator" name="Projected 25% Payment" href="#">25% Payment, FY 2014</a>
-		</li>
-		<li>
-			<a class="indicator" name="Payment Percent Change" href="#">Payment Percent Change</a>
 		</li>
 	</ul>
 </li>
@@ -226,150 +735,12 @@
 		</li>-->
 	</ul>
 </li>
-<li class="dataset" name="Structurally Deficient Bridges" ng-show="indicatorListType == 'curated'">
-	<a>Structurally Deficient Bridges</a>
-	<ul class="dropdown-menu">
-		<li>
-			<a class="indicator" name="Structurally Deficient - Total" href="#">Total Bridges</a>
-		</li>
-		<li>
-			<a class="indicator" name="Share Structurally Deficient" href="#">Share Structurally Deficient</a>
-		</li>
-		<li>
-			<a class="indicator" name="Structurally Deficient - City/Town Owned" href="#">City/Town Owned</a>
-		</li>
-		<li>
-			<a class="indicator" name="Structurally Deficient - Share of City/Town Owned" href="#">Share of City/Town Owned</a>
-		</li>
-		<li>
-			<a class="indicator" name="Structurally Deficient - County Owned" href="#">County Owned</a>
-		</li>
-		<li>
-			<a class="indicator" name="Structurally Deficient - Share of County Owned" href="#">Share of County Owned</a>
-		</li>
-		<li>
-			<a class="indicator" name="Structurally Deficient - State Owned" href="#">State Owned</a>
-		</li>
-		<li>
-			<a class="indicator" name="Structurally Deficient - Share of State Owned" href="#">Share of State Owned</a>
-		</li>
-		<li>
-			<a class="indicator" name="Structurally Deficient - Federal Owned" href="#">Federal Owned</a>
-		</li>
-		<li>
-			<a class="indicator" name="Structurally Deficient - Share of Federal Owned" href="#">Share of Federal Owned</a>
-		</li>
-		<li>
-			<a class="indicator" name="Structurally Deficient - Privately Owned" href="#">Privately Owned</a>
-		</li>
-		<li>
-			<a class="indicator" name="Structurally Deficient - Share of Privately Owned" href="#">Share of Privately Owned</a>
-		</li>
-		<!-- <li>
-			<a class="indicator" name="Structurally Deficient - Local Owned" href="#">Local Owned</a>
-		</li>
-		<li>
-			<a class="indicator" name="Structurally Deficient - Share of Local Owned" href="#">Share of Local Owned</a>
-		</li> -->	
-	</ul>
-</li>
-<li class="dataset" name="Municipal Bonds" ng-show="indicatorListType == 'curated'">
-	<a>Municipal Bonds</a>
-	<ul class="dropdown-menu">
-		<li>
-			<a class="indicator" name="County Muni Bonds Profiles" href="#">County Muni Bonds Profiles</a>
-		</li>
-		<li>
-			<a class="indicator" name="Statewide Muni Bonds Profiles" href="#">Statewide Muni Bonds Profiles</a>
-		</li>
-	</ul>
-</li>
-<li class="dataset" name="Veteran Demographics" ng-show="indicatorListType == 'curated'">
-	<a>Veteran Demographics</a>
-	<ul class="dropdown-menu">
-		<li>
-			<a class="indicator" name="Veterans" href="#">Veterans</a>
-		</li>
-		<li>
-			<a class="indicator" name="Percent Veterans" href="#">Percent Veterans</a>
-		</li>
-		<li>
-			<a class="indicator" name="Veterans Median Income" href="#">Veterans Median Income</a>
-		</li>
-		<li>
-			<a class="indicator" name="Veterans Less than High School Graduate" href="#">Veterans Less than High School Graduate</a>
-		</li>
-		<li>
-			<a class="indicator" name="Veterans High School Graduate" href="#">Veterans High School Graduate</a>
-		</li>
-		<li>
-			<a class="indicator" name="Veterans Some College or Associate's Degree" href="#">Veterans Some College or Associate's Degree</a>
-		</li>
-		<li>
-			<a class="indicator" name="Veterans Bachelor's Degree or Higher" href="#">Veterans Bachelor's Degree or Higher</a>
-		</li>
-		<li>
-			<a class="indicator" name="Veterans Unemployment Rate" href="#">Veterans Unemployment Rate</a>
-		</li>
-		<li>
-			<a class="indicator" name="Veterans Poverty Rate" href="#">Veterans Poverty Rate</a>
-		</li>
-	</ul>
-</li>
-<li class="dataset" name="State Criminal Alien Assistance Program (SCAAP)" ng-show="indicatorListType == 'curated'">
-	<a>State Criminal Alien Assistance Program (SCAAP)</a>
-	<ul class="dropdown-menu">
-		<li>
-			<a class="indicator" name="SCAAP Amount" href="#">SCAAP Amount</a>
-		</li>
-		<li>
-			<a class="indicator" name="SCAAP Annual Growth Rate (from previous year)" href="#">SCAAP Annual Growth Rate</a>
-		</li>
-	</ul>
-</li>
-<li class="dataset" name="Payment in Lieu of Taxes (PILT)" ng-show="indicatorListType == 'curated'">
-	<a>Payment in Lieu of Taxes (PILT)</a>
-	<ul class="dropdown-menu">
-		<li>
-			<a class="indicator" name="PILT Profiles" href="#">PILT Profiles</a>
-		</li>
-		<li>
-			<a class="indicator" name="State PILT Profiles" href="#">State PILT Profiles</a>
-		</li>
-	</ul>
-</li>
-<li class="dataset" name="Endangered Species" ng-show="indicatorListType == 'curated'">
-	<a>Endangered Species</a>
-	<ul class="dropdown-menu">
-		<li>
-			<a class="indicator" name="Number of Endangered and Threatened Species Listings" href="#">Endangered and Threatened Species</a>
-		</li>
-		<li>
-			<a class="indicator" name="Number of Endangered Species Listings" href="#">Endangered Species</a>
-		</li>
-		<li>
-			<a class="indicator" name="Number of Threatened Species Listings" href="#">Threatened Species</a>
-		</li>
-		<li>
-			<a class="indicator" name="Number of New Listings of Endangered and Threatened Species" href="#">New Listings of Endangered and Threatened Species</a>
-		</li>
-		<li>
-			<a class="indicator" name="Number of Delistings of Endangered and Threatened Species" href="#">Delistings of Endangered and Threatened Species</a>
-		</li>
-	</ul>
-</li>
 <li class="disabled more-less" ng-show="indicatorListType == 'curated'">
 	<a ng-click="indicatorListType = 'full'">more...</a>
 </li>
+<!-- -->
 <!-- END CURATED INDICATOR LIST -->
-
-
-
-
-
-
-
-<!-- END CURATED INDICATOR LIST -->
+<!-- -->
 <li ng-hide="indicatorListType == 'curated'" class="category" name="County Profiles">
 	<a>County Profiles</a>
 	<ul class="dropdown-menu">
@@ -420,7 +791,7 @@
 			</ul>
 		</li>
 		<li class="dataset" name="Community Development Block Grants (CDBG)">
-			<a>Community Development Block Grants (CDBG)</a>
+			<a>Community Development Block Grants (CDBG)<span class="badge">updated</span></a>
 			<ul class="dropdown-menu">
 				<li>
 					<a class="indicator" name="CDBG Profiles" href="#">CDBG Profiles</a>
@@ -469,10 +840,10 @@
 			<a>Administration Expenditures</a>
 			<ul class="dropdown-menu">
 				<li>
-					<a class="indicator" name="Total County Expenditures" href="#">Total County</a>
+					<a class="indicator" name="Total County Expenditures" href="#">Total County Expenditures</a>
 				</li>
 				<li>
-					<a class="indicator" name="Total Administration Expenditures" href="#">Total Administration</a>
+					<a class="indicator" name="Total Administration Expenditures" href="#">Total Administration Expenditures</a>
 				</li>
 				<li>
 					<a class="indicator" name="Financial Administration" href="#">Financial Administration</a>
@@ -495,9 +866,9 @@
 				<li>
 					<a class="indicator" name="Other Capital Outlay" href="#">Other Capital Outlay</a>
 				</li>
-				<li>
+				<!--<li>
 					<a class="indicator" name="Intergovernmental to State" href="#">Intergovernmental to State</a>
-				</li>
+				</li>-->
 				<li>
 					<a class="indicator" name="Intergovernmental to Local" href="#">Intergovernmental to Local</a>
 				</li>
@@ -507,10 +878,10 @@
 			<a>Administration Employment</a>
 			<ul class="dropdown-menu">
 				<li>
-					<a class="indicator" name="Total County Employment" href="#">Total County</a>
+					<a class="indicator" name="Total County Employment" href="#">Total County Employment</a>
 				</li>
 				<li>
-					<a class="indicator" name="Total Administration Employment" href="#">Total Administration</a>
+					<a class="indicator" name="Total Administration Employment" href="#">Total Administration Employment</a>
 				</li>
 				<li>
 					<a class="indicator" name="Financial Administration" href="#">Financial Administration</a>
@@ -527,10 +898,10 @@
 			<a>Administration Revenue</a>
 			<ul class="dropdown-menu">
 				<li>
-					<a class="indicator" name="Total County Revenue" href="#">Total County</a>
+					<a class="indicator" name="Total County Revenue" href="#">Total County Revenue</a>
 				</li>
 				<li>
-					<a class="indicator" name="Total Administration Revenue" href="#">Total Administration</a>
+					<a class="indicator" name="Total Administration Revenue" href="#">Total Administration Revenue</a>
 				</li>
 				<li>
 					<a class="indicator" name="Charges" href="#">Charges</a>
@@ -578,10 +949,10 @@
 			<a>Administration Employment</a>
 			<ul class="dropdown-menu">
 				<li>
-					<a class="indicator" name="Total County Employment" href="#">Total County</a>
+					<a class="indicator" name="Total County Employment" href="#">Total County Employment</a>
 				</li>
 				<li>
-					<a class="indicator" name="Total Administration Employment" href="#">Total Administration</a>
+					<a class="indicator" name="Total Administration Employment" href="#">Total Administration Employment</a>
 				</li>
 				<li>
 					<a class="indicator" name="Financial Administration" href="#">Financial Administration</a>
@@ -598,10 +969,10 @@
 			<a>Public Amenity Employment</a>
 			<ul class="dropdown-menu">
 				<li>
-					<a class="indicator" name="Total County Employment" href="#">Total County</a>
+					<a class="indicator" name="Total County Employment" href="#">Total County Employment</a>
 				</li>
 				<li>
-					<a class="indicator" name="Total Public Amenity Employment" href="#">Total Public Amenity</a>
+					<a class="indicator" name="Total Public Amenity Employment" href="#">Total Public Amenity Employment</a>
 				</li>
 				<li>
 					<a class="indicator" name="Libraries" href="#">Libraries</a>
@@ -618,10 +989,10 @@
 			<a>Education Employment</a>
 			<ul class="dropdown-menu">
 				<li>
-					<a class="indicator" name="Total County Employment" href="#">Total County</a>
+					<a class="indicator" name="Total County Employment" href="#">Total County Employment</a>
 				</li>
 				<li>
-					<a class="indicator" name="Total Education Employment" href="#">Total Education</a>
+					<a class="indicator" name="Total Education Employment" href="#">Total Education Employment</a>
 				</li>
 				<li>
 					<a class="indicator" name="Elementary &amp; Secondary Education" href="#">Elementary &amp; Secondary Education</a>
@@ -635,10 +1006,10 @@
 			<a>Housing &amp; Community Development Employment</a>
 			<ul class="dropdown-menu">
 				<li>
-					<a class="indicator" name="Total County Employment" href="#">Total County</a>
+					<a class="indicator" name="Total County Employment" href="#">Total County Employment</a>
 				</li>
 				<li>
-					<a class="indicator" name="Housing &amp; Community Development Employment" href="#">Housing &amp; Community Development</a>
+					<a class="indicator" name="Housing &amp; Community Development Employment" href="#">Housing &amp; Community Development Employment</a>
 				</li>
 			</ul>
 		</li>
@@ -646,10 +1017,10 @@
 			<a>Health &amp; Hospitals Employment</a>
 			<ul class="dropdown-menu">
 				<li>
-					<a class="indicator" name="Total County Employment" href="#">Total County</a>
+					<a class="indicator" name="Total County Employment" href="#">Total County Employment</a>
 				</li>
 				<li>
-					<a class="indicator" name="Total Health &amp; Hospitals Employment" href="#">Total Health &amp; Hospitals</a>
+					<a class="indicator" name="Total Health &amp; Hospitals Employment" href="#">Total Health &amp; Hospitals Employment</a>
 				</li>
 				<li>
 					<a class="indicator" name="Health" href="#">Health</a>
@@ -663,10 +1034,10 @@
 			<a>Justice &amp; Public Safety Employment</a>
 			<ul class="dropdown-menu">
 				<li>
-					<a class="indicator" name="Total County Employment" href="#">Total County</a>
+					<a class="indicator" name="Total County Employment" href="#">Total County Employment</a>
 				</li>
 				<li>
-					<a class="indicator" name="Total Justice &amp; Public Safety Employment" href="#">Total Justice &amp; Public Safety</a>
+					<a class="indicator" name="Total Justice &amp; Public Safety Employment" href="#">Total Justice &amp; Public Safety Employment</a>
 				</li>
 				<li>
 					<a class="indicator" name="Correction" href="#">Correction</a>
@@ -686,10 +1057,10 @@
 			<a>Public Welfare Employment</a>
 			<ul class="dropdown-menu">
 				<li>
-					<a class="indicator" name="Total County Employment" href="#">Total County</a>
+					<a class="indicator" name="Total County Employment" href="#">Total County Employment</a>
 				</li>
 				<li>
-					<a class="indicator" name="Public Welfare Employment" href="#">Public Welfare</a>
+					<a class="indicator" name="Public Welfare Employment" href="#">Public Welfare Employment</a>
 				</li>
 			</ul>
 		</li>
@@ -697,10 +1068,10 @@
 			<a>Transportation Employment</a>
 			<ul class="dropdown-menu">
 				<li>
-					<a class="indicator" name="Total County Employment" href="#">Total County</a>
+					<a class="indicator" name="Total County Employment" href="#">Total County Employment</a>
 				</li>
 				<li>
-					<a class="indicator" name="Total Transportation Employment" href="#">Total Transportation</a>
+					<a class="indicator" name="Total Transportation Employment" href="#">Total Transportation Employment</a>
 				</li>
 				<li>
 					<a class="indicator" name="Air Transportation" href="#">Air Transportation</a>
@@ -720,10 +1091,10 @@
 			<a>Utility Employment</a>
 			<ul class="dropdown-menu">
 				<li>
-					<a class="indicator" name="Total County Employment" href="#">Total County</a>
+					<a class="indicator" name="Total County Employment" href="#">Total County Employment</a>
 				</li>
 				<li>
-					<a class="indicator" name="Total Utility Employment" href="#">Total Utility</a>
+					<a class="indicator" name="Total Utility Employment" href="#">Total Utility Employment</a>
 				</li>
 				<li>
 					<a class="indicator" name="Electric Utilities" href="#">Electric Utilities</a>
@@ -737,10 +1108,10 @@
 			<a>Water, Sewerage &amp; Solid Waste Employment</a>
 			<ul class="dropdown-menu">
 				<li>
-					<a class="indicator" name="Total County Employment" href="#">Total County</a>
+					<a class="indicator" name="Total County Employment" href="#">Total County Employment</a>
 				</li>
 				<li>
-					<a class="indicator" name="Total Water, Sewerage &amp; Solid Waste Employment" href="#">Total Water, Sewerage &amp; Solid Waste</a>
+					<a class="indicator" name="Total Water, Sewerage &amp; Solid Waste Employment" href="#">Total Water, Sewerage &amp; Solid Waste Employment</a>
 				</li>
 				<li>
 					<a class="indicator" name="Sewerage" href="#">Sewerage</a>
@@ -757,10 +1128,10 @@
 			<a>Other Employment</a>
 			<ul class="dropdown-menu">
 				<li>
-					<a class="indicator" name="Total County Employment" href="#">Total County</a>
+					<a class="indicator" name="Total County Employment" href="#">Total County Employment</a>
 				</li>
 				<li>
-					<a class="indicator" name="Other &amp; Unallocable Employment" href="#">Other &amp; Unallocable</a>
+					<a class="indicator" name="Other &amp; Unallocable Employment" href="#">Other &amp; Unallocable Employment</a>
 				</li>
 			</ul>
 		</li>
@@ -781,13 +1152,13 @@
 			</ul>
 		</li>
 		<li class="dataset" name="Administration Revenue">
-			<a>Administration Revenue</a>
+			<a>Administration Revenue<span class="badge">updated</span></a>
 			<ul class="dropdown-menu">
 				<li>
-					<a class="indicator" name="Total County Revenue" href="#">Total County</a>
+					<a class="indicator" name="Total County Revenue" href="#">Total County Revenue</a>
 				</li>
 				<li>
-					<a class="indicator" name="Total Administration Revenue" href="#">Total Administration</a>
+					<a class="indicator" name="Total Administration Revenue" href="#">Total Administration Revenue</a>
 				</li>
 				<li>
 					<a class="indicator" name="Charges" href="#">Charges</a>
@@ -807,13 +1178,13 @@
 			</ul>
 		</li>
 		<li class="dataset" name="Intergovernmental Revenue">
-			<a>Intergovernmental Revenue</a>
+			<a>Intergovernmental Revenue<span class="badge">updated</span></a>
 			<ul class="dropdown-menu">
 				<li>
-					<a class="indicator" name="Total County Revenue" href="#">Total County</a>
+					<a class="indicator" name="Total County Revenue" href="#">Total County Revenue</a>
 				</li>
 				<li>
-					<a class="indicator" name="Total Intergovernmental Revenue" href="#">Total Intergovernmental</a>
+					<a class="indicator" name="Total Intergovernmental Revenue" href="#">Total Intergovernmental Revenue</a>
 				</li>
 				<li>
 					<a class="indicator" name="From Federal Government" href="#">From Federal Government</a>
@@ -827,13 +1198,13 @@
 			</ul>
 		</li>
 		<li class="dataset" name="Tax Revenue">
-			<a>Tax Revenue</a>
+			<a>Tax Revenue<span class="badge">updated</span></a>
 			<ul class="dropdown-menu">
 				<li>
-					<a class="indicator" name="Total County Revenue" href="#">Total County</a>
+					<a class="indicator" name="Total County Revenue" href="#">Total County Revenue</a>
 				</li>
 				<li>
-					<a class="indicator" name="Total Tax Revenue" href="#">Total Taxes</a>
+					<a class="indicator" name="Total Tax Revenue" href="#">Total Tax Revenue</a>
 				</li>
 				<li>
 					<a class="indicator" name="Income Taxes" href="#">Income Taxes</a>
@@ -853,13 +1224,13 @@
 			</ul>
 		</li>
 		<li class="dataset" name="Utility Revenue">
-			<a>Utility Revenue</a>
+			<a>Utility Revenue<span class="badge">updated</span></a>
 			<ul class="dropdown-menu">
 				<li>
-					<a class="indicator" name="Total County Revenue" href="#">Total County</a>
+					<a class="indicator" name="Total County Revenue" href="#">Total County Revenue</a>
 				</li>
 				<li>
-					<a class="indicator" name="Total Utility Revenue" href="#">Total Utility</a>
+					<a class="indicator" name="Total Utility Revenue" href="#">Total Utility Revenue</a>
 				</li>
 				<li>
 					<a class="indicator" name="Electric Power Systems" href="#">Electric Power Systems</a>
@@ -876,13 +1247,13 @@
 			</ul>
 		</li>
 		<li class="dataset" name="Administration Expenditures">
-			<a>Administration Expenditures</a>
+			<a>Administration Expenditures<span class="badge">updated</span></a>
 			<ul class="dropdown-menu">
 				<li>
-					<a class="indicator" name="Total County Expenditures" href="#">Total County</a>
+					<a class="indicator" name="Total County Expenditures" href="#">Total County Expenditures</a>
 				</li>
 				<li>
-					<a class="indicator" name="Total Administration Expenditures" href="#">Total Administration</a>
+					<a class="indicator" name="Total Administration Expenditures" href="#">Total Administration Expenditures</a>
 				</li>
 				<li>
 					<a class="indicator" name="Financial Administration" href="#">Financial Administration</a>
@@ -905,22 +1276,22 @@
 				<li>
 					<a class="indicator" name="Other Capital Outlay" href="#">Other Capital Outlay</a>
 				</li>
-				<li>
+				<!--<li>
 					<a class="indicator" name="Intergovernmental to State" href="#">Intergovernmental to State</a>
-				</li>
+				</li>-->
 				<li>
 					<a class="indicator" name="Intergovernmental to Local" href="#">Intergovernmental to Local</a>
 				</li>
 			</ul>
 		</li>
 		<li class="dataset" name="Public Amenity Expenditures">
-			<a>Public Amenity Expenditures</a>
+			<a>Public Amenity Expenditures<span class="badge">updated</span></a>
 			<ul class="dropdown-menu">
 				<li>
-					<a class="indicator" name="Total County Expenditures" href="#">Total County</a>
+					<a class="indicator" name="Total County Expenditures" href="#">Total County Expenditures</a>
 				</li>
 				<li>
-					<a class="indicator" name="Total Public Amenity Expenditures" href="#">Total Public Amenity</a>
+					<a class="indicator" name="Total Public Amenity Expenditures" href="#">Total Public Amenity Expenditures</a>
 				</li>
 				<li>
 					<a class="indicator" name="Libraries" href="#">Libraries</a>
@@ -940,22 +1311,22 @@
 				<li>
 					<a class="indicator" name="Other Capital Outlay" href="#">Other Capital Outlay</a>
 				</li>
-				<li>
+				<!--<li>
 					<a class="indicator" name="Intergovernmental to State" href="#">Intergovernmental to State</a>
-				</li>
+				</li>-->
 				<li>
 					<a class="indicator" name="Intergovernmental to Local" href="#">Intergovernmental to Local</a>
 				</li>
 			</ul>
 		</li>
 		<li class="dataset" name="Education Expenditures">
-			<a>Education Expenditures</a>
+			<a>Education Expenditures<span class="badge">updated</span></a>
 			<ul class="dropdown-menu">
 				<li>
-					<a class="indicator" name="Total County Expenditures" href="#">Total County</a>
+					<a class="indicator" name="Total County Expenditures" href="#">Total County Expenditures</a>
 				</li>
 				<li>
-					<a class="indicator" name="Total Education Expenditures" href="#">Total Education</a>
+					<a class="indicator" name="Total Education Expenditures" href="#">Total Education Expenditures</a>
 				</li>
 				<li>
 					<a class="indicator" name="Elementary &amp; Secondary Education" href="#">Elementary &amp; Secondary Education</a>
@@ -972,22 +1343,22 @@
 				<li>
 					<a class="indicator" name="Other Capital Outlay" href="#">Other Capital Outlay</a>
 				</li>
-				<li>
+				<!--<li>
 					<a class="indicator" name="Intergovernmental to State" href="#">Intergovernmental to State</a>
-				</li>
+				</li>-->
 				<li>
 					<a class="indicator" name="Intergovernmental to Local" href="#">Intergovernmental to Local</a>
 				</li>
 			</ul>
 		</li>
 		<li class="dataset" name="Housing &amp; Community Development Expenditures">
-			<a>Housing &amp; Community Development Expenditures</a>
+			<a>Housing &amp; Community Development Expenditures<span class="badge">updated</span></a>
 			<ul class="dropdown-menu">
 				<li>
-					<a class="indicator" name="Total County Expenditures" href="#">Total County</a>
+					<a class="indicator" name="Total County Expenditures" href="#">Total County Expenditures</a>
 				</li>
 				<li>
-					<a class="indicator" name="Total Housing &amp; Community Development Expenditures" href="#">Total Housing &amp; Community Development</a>
+					<a class="indicator" name="Total Housing &amp; Community Development Expenditures" href="#">Total Housing &amp; Community Development Expenditures</a>
 				</li>
 				<li>
 					<a class="indicator" name="Current Operations" href="#">Current Operations</a>
@@ -1007,13 +1378,13 @@
 			</ul>
 		</li>
 		<li class="dataset" name="Health &amp; Hospitals Expenditures">
-			<a>Health &amp; Hospitals Expenditures</a>
+			<a>Health &amp; Hospitals Expenditures<span class="badge">updated</span></a>
 			<ul class="dropdown-menu">
 				<li>
-					<a class="indicator" name="Total County Expenditures" href="#">Total County</a>
+					<a class="indicator" name="Total County Expenditures" href="#">Total County Expenditures</a>
 				</li>
 				<li>
-					<a class="indicator" name="Total Health &amp; Hospitals Expenditures" href="#">Total Health &amp; Hospitals</a>
+					<a class="indicator" name="Total Health &amp; Hospitals Expenditures" href="#">Total Health &amp; Hospitals Expenditures</a>
 				</li>
 				<li>
 					<a class="indicator" name="Health" href="#">Health</a>
@@ -1039,13 +1410,13 @@
 			</ul>
 		</li>
 		<li class="dataset" name="Financial Expenditures">
-			<a>Financial Expenditures</a>
+			<a>Financial Expenditures<span class="badge">updated</span></a>
 			<ul class="dropdown-menu">
 				<li>
-					<a class="indicator" name="Total County Expenditures" href="#">Total County</a>
+					<a class="indicator" name="Total County Expenditures" href="#">Total County Expenditures</a>
 				</li>
 				<li>
-					<a class="indicator" name="Total Financial Expenditures" href="#">Total Financial</a>
+					<a class="indicator" name="Total Financial Expenditures" href="#">Total Financial Expenditures</a>
 				</li>
 				<li>
 					<a class="indicator" name="Interest on General Debt" href="#">Interest on General Debt</a>
@@ -1059,13 +1430,13 @@
 			</ul>
 		</li>
 		<li class="dataset" name="Justice &amp; Public Safety Expenditures">
-			<a>Justice &amp; Public Safety Expenditures</a>
+			<a>Justice &amp; Public Safety Expenditures<span class="badge">updated</span></a>
 			<ul class="dropdown-menu">
 				<li>
-					<a class="indicator" name="Total County Expenditures" href="#">Total County</a>
+					<a class="indicator" name="Total County Expenditures" href="#">Total County Expenditures</a>
 				</li>
 				<li>
-					<a class="indicator" name="Total Justice &amp; Public Safety Expenditures" href="#">Total Justice &amp; Public Safety</a>
+					<a class="indicator" name="Total Justice &amp; Public Safety Expenditures" href="#">Total Justice &amp; Public Safety Expenditures</a>
 				</li>
 				<li>
 					<a class="indicator" name="Correction" href="#">Correction</a>
@@ -1100,32 +1471,32 @@
 			</ul>
 		</li>
 		<li class="dataset" name="Public Welfare Expenditures">
-			<a>Public Welfare Expenditures</a>
+			<a>Public Welfare Expenditures<span class="badge">updated</span></a>
 			<ul class="dropdown-menu">
 				<li>
-					<a class="indicator" name="Total County Expenditures" href="#">Total County</a>
+					<a class="indicator" name="Total County Expenditures" href="#">Total County Expenditures</a>
 				</li>
 				<li>
-					<a class="indicator" name="Total Public Welfare Expenditures" href="#">Total Public Welfare</a>
-				</li>
-				<!-- <li>
-				<a class="indicator" name="Cash Assistance" href="#">Cash Assistance</a>
+					<a class="indicator" name="Total Public Welfare Expenditures" href="#">Total Public Welfare Expenditures</a>
 				</li>
 				<li>
-				<a class="indicator" name="Vendor Payments" href="#">Vendor Payments</a>
-				</li> -->
+					<a class="indicator" name="Cash Assistance" href="#">Cash Assistance</a>
+				</li>
 				<li>
+					<a class="indicator" name="Vendor Payments" href="#">Vendor Payments</a>
+				</li>
+				<!--<li>
 					<a class="indicator" name="Payments to Medicare Trust Fund" href="#">Payments to Medicare Trust Fund</a>
-				</li>
+				</li>-->
 				<li>
 					<a class="indicator" name="Other Public Welfare" href="#">Other Public Welfare</a>
 				</li>
 				<li>
 					<a class="indicator" name="Current Operations" href="#">Current Operations</a>
 				</li>
-				<li>
+				<!--<li>
 					<a class="indicator" name="Construction" href="#">Construction</a>
-				</li>
+				</li>-->
 				<li>
 					<a class="indicator" name="Assistance &amp; Subsidies" href="#">Assistance &amp; Subsidies</a>
 				</li>
@@ -1141,13 +1512,13 @@
 			</ul>
 		</li>
 		<li class="dataset" name="Transportation Expenditures">
-			<a>Transportation Expenditures</a>
+			<a>Transportation Expenditures<span class="badge">updated</span></a>
 			<ul class="dropdown-menu">
 				<li>
-					<a class="indicator" name="Total County Expenditures" href="#">Total County</a>
+					<a class="indicator" name="Total County Expenditures" href="#">Total County Expenditures</a>
 				</li>
 				<li>
-					<a class="indicator" name="Total Transportation Expenditures" href="#">Total Transportation</a>
+					<a class="indicator" name="Total Transportation Expenditures" href="#">Total Transportation Expenditures</a>
 				</li>
 				<li>
 					<a class="indicator" name="Air Transportation" href="#">Air Transportation</a>
@@ -1173,9 +1544,9 @@
 				<li>
 					<a class="indicator" name="Other Capital Outlay" href="#">Other Capital Outlay</a>
 				</li>
-				<li>
+				<!--<li>
 					<a class="indicator" name="Interest on Debt" href="#">Interest on Debt</a>
-				</li>
+				</li>-->
 				<li>
 					<a class="indicator" name="Intergovernmental to State" href="#">Intergovernmental to State</a>
 				</li>
@@ -1185,13 +1556,13 @@
 			</ul>
 		</li>
 		<li class="dataset" name="Utility Expenditures">
-			<a>Utility Expenditures</a>
+			<a>Utility Expenditures<span class="badge">updated</span></a>
 			<ul class="dropdown-menu">
 				<li>
-					<a class="indicator" name="Total County Expenditures" href="#">Total County</a>
+					<a class="indicator" name="Total County Expenditures" href="#">Total County Expenditures</a>
 				</li>
 				<li>
-					<a class="indicator" name="Total Utility Expenditures" href="#">Total Utility</a>
+					<a class="indicator" name="Total Utility Expenditures" href="#">Total Utility Expenditures</a>
 				</li>
 				<li>
 					<a class="indicator" name="Electric Utilities" href="#">Electric Utilities</a>
@@ -1199,7 +1570,7 @@
 				<li>
 					<a class="indicator" name="Gas Utilities" href="#">Gas Utilities</a>
 				</li>
-				<li>
+				<!--<li>
 					<a class="indicator" name="Current Operations" href="#">Current Operations</a>
 				</li>
 				<li>
@@ -1216,17 +1587,17 @@
 				</li>
 				<li>
 					<a class="indicator" name="Intergovernmental to Local" href="#">Intergovernmental to Local</a>
-				</li>
+				</li>-->
 			</ul>
 		</li>
 		<li class="dataset" name="Water, Sewerage &amp; Solid Waste Expenditures">
-			<a>Water, Sewerage &amp; Solid Waste Expenditures</a>
+			<a>Water, Sewerage &amp; Solid Waste Expenditures<span class="badge">updated</span></a>
 			<ul class="dropdown-menu">
 				<li>
-					<a class="indicator" name="Total County Expenditures" href="#">Total County</a>
+					<a class="indicator" name="Total County Expenditures" href="#">Total County Expenditures</a>
 				</li>
 				<li>
-					<a class="indicator" name="Total Water, Sewerage &amp; Solid Waste Management Expenditures" href="#">Total Water, Sewerage &amp; Solid Waste Management</a>
+					<a class="indicator" name="Total Water, Sewerage &amp; Solid Waste Expenditures" href="#">Total Water, Sewerage &amp; Solid Waste  Expenditures</a>
 				</li>
 				<li>
 					<a class="indicator" name="Sewerage" href="#">Sewerage</a>
@@ -1258,13 +1629,13 @@
 			</ul>
 		</li>
 		<li class="dataset" name="Other Expenditures">
-			<a>Other Expenditures</a>
+			<a>Other Expenditures<span class="badge">updated</span></a>
 			<ul class="dropdown-menu">
 				<li>
-					<a class="indicator" name="Total County Expenditures" href="#">Total County</a>
+					<a class="indicator" name="Total County Expenditures" href="#">Total County Expenditures</a>
 				</li>
 				<li>
-					<a class="indicator" name="Total Other Expenditures" href="#">Total Other</a>
+					<a class="indicator" name="Total Other Expenditures" href="#">Total Other Expenditures</a>
 				</li>
 				<li>
 					<a class="indicator" name="Misc. Commercial Activities" href="#">Misc. Commercial Activities</a>
@@ -1807,7 +2178,7 @@
 			</ul>
 		</li>
 		<li class="dataset" name="County Economies">
-			<a>County Economies<span class="badge">updated</span></a>
+			<a>County Economies</a>
 			<ul class="dropdown-menu">
 				<li>
 					<a class="indicator" name="County Economic Profile" href="#">County Economic Profile</a>
@@ -1912,10 +2283,10 @@
 			<a>Education Employment</a>
 			<ul class="dropdown-menu">
 				<li>
-					<a class="indicator" name="Total County Employment" href="#">Total County</a>
+					<a class="indicator" name="Total County Employment" href="#">Total County Employment</a>
 				</li>
 				<li>
-					<a class="indicator" name="Total Education Employment" href="#">Total Education</a>
+					<a class="indicator" name="Total Education Employment" href="#">Total Education Employment</a>
 				</li>
 				<li>
 					<a class="indicator" name="Elementary &amp; Secondary Education" href="#">Elementary &amp; Secondary Education</a>
@@ -1929,10 +2300,10 @@
 			<a>Education Expenditures</a>
 			<ul class="dropdown-menu">
 				<li>
-					<a class="indicator" name="Total County Expenditures" href="#">Total County</a>
+					<a class="indicator" name="Total County Expenditures" href="#">Total County Expenditures</a>
 				</li>
 				<li>
-					<a class="indicator" name="Total Education Expenditures" href="#">Total Education</a>
+					<a class="indicator" name="Total Education Expenditures" href="#">Total Education Expenditures</a>
 				</li>
 				<li>
 					<a class="indicator" name="Elementary &amp; Secondary Education" href="#">Elementary &amp; Secondary Education</a>
@@ -1949,9 +2320,9 @@
 				<li>
 					<a class="indicator" name="Other Capital Outlay" href="#">Other Capital Outlay</a>
 				</li>
-				<li>
+				<!--<li>
 					<a class="indicator" name="Intergovernmental to State" href="#">Intergovernmental to State</a>
-				</li>
+				</li>-->
 				<li>
 					<a class="indicator" name="Intergovernmental to Local" href="#">Intergovernmental to Local</a>
 				</li>
@@ -2109,7 +2480,7 @@
 	<a>Federal Funding</a>
 	<ul class="dropdown-menu">
 		<li class="dataset" name="Workforce Innovation and Opportunity Act (WIOA)">
-			<a>Workforce Innovation and Opportunity Act (WIOA)<span class="badge">new</span></a>
+			<a>Workforce Innovation and Opportunity Act (WIOA)</a>
 			<ul class="dropdown-menu">
 				<li>
 					<a class="indicator" name="Statewide Adult WIOA Funding" href="#">Statewide Adult WIOA Funding</a>
@@ -2209,7 +2580,7 @@
 		</ul>
 		</li> -->
 		<li class="dataset" name="Byrne (JAG) Program Awards">
-			<a>Byrne (JAG) Program Awards</a>
+			<a>Byrne (JAG) Program Awards<span class="badge">updated</span></a>
 			<ul class="dropdown-menu">
 				<li>
 					<a class="indicator" name="JAG Amount" href="#">JAG Amount</a>
@@ -2481,10 +2852,10 @@
 			<a>Health &amp; Hospitals Employment</a>
 			<ul class="dropdown-menu">
 				<li>
-					<a class="indicator" name="Total County Employment" href="#">Total County</a>
+					<a class="indicator" name="Total County Employment" href="#">Total County Employment</a>
 				</li>
 				<li>
-					<a class="indicator" name="Total Health &amp; Hospitals Employment" href="#">Total Health &amp; Hospitals</a>
+					<a class="indicator" name="Total Health &amp; Hospitals Employment" href="#">Total Health &amp; Hospitals Employment</a>
 				</li>
 				<li>
 					<a class="indicator" name="Health" href="#">Health</a>
@@ -2498,10 +2869,10 @@
 			<a>Health &amp; Hospitals Expenditures</a>
 			<ul class="dropdown-menu">
 				<li>
-					<a class="indicator" name="Total County Expenditures" href="#">Total County</a>
+					<a class="indicator" name="Total County Expenditures" href="#">Total County Expenditures</a>
 				</li>
 				<li>
-					<a class="indicator" name="Total Health &amp; Hospitals Expenditures" href="#">Total Health &amp; Hospitals</a>
+					<a class="indicator" name="Total Health &amp; Hospitals Expenditures" href="#">Total Health &amp; Hospitals Expenditures</a>
 				</li>
 				<li>
 					<a class="indicator" name="Health" href="#">Health</a>
@@ -2860,10 +3231,10 @@
 			<a>Housing &amp; Community Development Employment</a>
 			<ul class="dropdown-menu">
 				<li>
-					<a class="indicator" name="Total County Employment" href="#">Total County</a>
+					<a class="indicator" name="Total County Employment" href="#">Total County Employment</a>
 				</li>
 				<li>
-					<a class="indicator" name="Housing &amp; Community Development Employment" href="#">Housing &amp; Community Development</a>
+					<a class="indicator" name="Housing &amp; Community Development Employment" href="#">Housing &amp; Community Development Employment</a>
 				</li>
 			</ul>
 		</li>
@@ -2871,10 +3242,10 @@
 			<a>Housing &amp; Community Development Expenditures</a>
 			<ul class="dropdown-menu">
 				<li>
-					<a class="indicator" name="Total County Expenditures" href="#">Total County</a>
+					<a class="indicator" name="Total County Expenditures" href="#">Total County Expenditures</a>
 				</li>
 				<li>
-					<a class="indicator" name="Total Housing &amp; Community Development Expenditures" href="#">Total Housing &amp; Community Development</a>
+					<a class="indicator" name="Total Housing &amp; Community Development Expenditures" href="#">Total Housing &amp; Community Development Expenditures</a>
 				</li>
 				<li>
 					<a class="indicator" name="Current Operations" href="#">Current Operations</a>
@@ -2952,18 +3323,21 @@
 	<a>Justice &amp; Public Safety</a>
 	<ul class="dropdown-menu">
 		<li class="dataset" name="Jails - Supervised Population">
-			<a>Jails - Supervised Population</a>
+			<a>Jails - Supervised Population<span class="badge">updated</span></a>
 			<ul class="dropdown-menu">
-				<li>
+				<!--<li>
 					<a class="indicator" name="Total Jail Population" href="#">Total Jail Population</a>
+				</li>-->
+				<li>
+					<a class="indicator" name="Rated Jail Capacity" href="#">Rated Jail Capacity</a>
 				</li>
 				<li>
-					<a class="indicator" name="Jail Capacity" href="#">Jail Capacity</a>
+					<a class="indicator" name="Jail Capacity Percent" href="#">Jail Capacity Percent</a>
 				</li>
 				<li>
 					<a class="indicator" name="Confined Persons" href="#">Confined Persons</a>
 				</li>
-				<li>
+				<!--<li>
 					<a class="indicator" name="Nonconfined Persons" href="#">Nonconfined Persons</a>
 				</li>
 				<li>
@@ -2971,10 +3345,16 @@
 				</li>
 				<li>
 					<a class="indicator" name="Weekenders" href="#">Weekenders</a>
-				</li>
+				</li>-->
 				<li>
 					<a class="indicator" name="Average Daily Population" href="#">Average Daily Population</a>
 				</li>
+				<!--<li>
+					<a class="indicator" name="Percent of Capacity" href="#">Percent of Capacity</a>
+				</li>
+				<li>
+					<a class="indicator" name="At or Over Capacity" href="#">Capacity Status</a>
+				</li>-->
 			</ul>
 		</li>
 		<li class="dataset" name="Jails - Supervised Population by Agency">
@@ -3110,10 +3490,10 @@
 			<a>Justice &amp; Public Safety Employment</a>
 			<ul class="dropdown-menu">
 				<li>
-					<a class="indicator" name="Total County Employment" href="#">Total County</a>
+					<a class="indicator" name="Total County Employment" href="#">Total County Employment</a>
 				</li>
 				<li>
-					<a class="indicator" name="Total Justice & Public Safety Employment" href="#">Total Justice &amp; Public Safety</a>
+					<a class="indicator" name="Total Justice & Public Safety Employment" href="#">Total Justice &amp; Public Safety Employment</a>
 				</li>
 				<li>
 					<a class="indicator" name="Correction" href="#">Correction</a>
@@ -3133,10 +3513,10 @@
 			<a>Justice &amp; Public Safety Expenditures</a>
 			<ul class="dropdown-menu">
 				<li>
-					<a class="indicator" name="Total County Expenditures" href="#">Total County</a>
+					<a class="indicator" name="Total County Expenditures" href="#">Total County Expenditures</a>
 				</li>
 				<li>
-					<a class="indicator" name="Total Justice & Public Safety Expenditures" href="#">Total Justice &amp; Public Safety</a>
+					<a class="indicator" name="Total Justice & Public Safety Expenditures" href="#">Total Justice &amp; Public Safety Expenditures</a>
 				</li>
 				<li>
 					<a class="indicator" name="Correction" href="#">Correction</a>
@@ -3171,7 +3551,7 @@
 			</ul>
 		</li>
 		<li class="dataset" name="County Jails">
-			<a>County Jails</a>
+			<a>County Jails<span class="badge">updated</span></a>
 			<ul class="dropdown-menu">
 				<li>
 					<a class="indicator" name="County Operated Jails" href="#">County Operated Jails</a>
@@ -3261,10 +3641,10 @@
 			<a>Public Amenity Employment</a>
 			<ul class="dropdown-menu">
 				<li>
-					<a class="indicator" name="Total County Employment" href="#">Total County</a>
+					<a class="indicator" name="Total County Employment" href="#">Total County Employment</a>
 				</li>
 				<li>
-					<a class="indicator" name="Total Public Amenity Employment" href="#">Total Public Amenity</a>
+					<a class="indicator" name="Total Public Amenity Employment" href="#">Total Public Amenity Employment</a>
 				</li>
 				<li>
 					<a class="indicator" name="Libraries" href="#">Libraries</a>
@@ -3281,10 +3661,10 @@
 			<a>Public Amenity Expenditures</a>
 			<ul class="dropdown-menu">
 				<li>
-					<a class="indicator" name="Total County Expenditures" href="#">Total County</a>
+					<a class="indicator" name="Total County Expenditures" href="#">Total County Expenditures</a>
 				</li>
 				<li>
-					<a class="indicator" name="Total Public Amenity Expenditures" href="#">Total Public Amenity</a>
+					<a class="indicator" name="Total Public Amenity Expenditures" href="#">Total Public Amenity Expenditures</a>
 				</li>
 				<li>
 					<a class="indicator" name="Libraries" href="#">Libraries</a>
@@ -3304,9 +3684,9 @@
 				<li>
 					<a class="indicator" name="Other Capital Outlay" href="#">Other Capital Outlay</a>
 				</li>
-				<li>
+				<!--<li>
 					<a class="indicator" name="Intergovernmental to State" href="#">Intergovernmental to State</a>
-				</li>
+				</li>-->
 				<li>
 					<a class="indicator" name="Intergovernmental to Local" href="#">Intergovernmental to Local</a>
 				</li>
@@ -3570,10 +3950,10 @@
 			<a>Public Welfare Employment</a>
 			<ul class="dropdown-menu">
 				<li>
-					<a class="indicator" name="Total County Employment" href="#">Total County</a>
+					<a class="indicator" name="Total County Employment" href="#">Total County Employment</a>
 				</li>
 				<li>
-					<a class="indicator" name="Public Welfare" href="#">Public Welfare</a>
+					<a class="indicator" name="Public Welfare Employment" href="#">Public Welfare Employment</a>
 				</li>
 			</ul>
 		</li>
@@ -3581,29 +3961,29 @@
 			<a>Public Welfare Expenditures</a>
 			<ul class="dropdown-menu">
 				<li>
-					<a class="indicator" name="Total County Expenditures" href="#">Total County</a>
+					<a class="indicator" name="Total County Expenditures" href="#">Total County Expenditures</a>
 				</li>
 				<li>
-					<a class="indicator" name="Total Public Welfare" href="#">Total Public Welfare</a>
-				</li>
-				<!-- <li>
-				<a class="indicator" name="Cash Assistance" href="#">Cash Assistance</a>
+					<a class="indicator" name="Total Public Welfare Expenditures" href="#">Total Public Welfare Expenditures</a>
 				</li>
 				<li>
-				<a class="indicator" name="Vendor Payments" href="#">Vendor Payments</a>
-				</li> -->
+					<a class="indicator" name="Cash Assistance" href="#">Cash Assistance</a>
+				</li>
 				<li>
+					<a class="indicator" name="Vendor Payments" href="#">Vendor Payments</a>
+				</li>
+				<!--<li>
 					<a class="indicator" name="Payments to Medicare Trust Fund" href="#">Payments to Medicare Trust Fund</a>
-				</li>
+				</li>-->
 				<li>
 					<a class="indicator" name="Other Public Welfare" href="#">Other Public Welfare</a>
 				</li>
 				<li>
 					<a class="indicator" name="Current Operations" href="#">Current Operations</a>
 				</li>
-				<li>
+				<!--<li>
 					<a class="indicator" name="Construction" href="#">Construction</a>
-				</li>
+				</li>-->
 				<li>
 					<a class="indicator" name="Assistance &amp; Subsidies" href="#">Assistance &amp; Subsidies</a>
 				</li>
@@ -3678,10 +4058,10 @@
 			<a>Transportation Employment</a>
 			<ul class="dropdown-menu">
 				<li>
-					<a class="indicator" name="Total County Employment" href="#">Total County</a>
+					<a class="indicator" name="Total County Employment" href="#">Total County Employment</a>
 				</li>
 				<li>
-					<a class="indicator" name="Total Transportation Employment" href="#">Total Transportation</a>
+					<a class="indicator" name="Total Transportation Employment" href="#">Total Transportation Employment</a>
 				</li>
 				<li>
 					<a class="indicator" name="Air Transportation" href="#">Air Transportation</a>
@@ -3701,10 +4081,10 @@
 			<a>Transportation Expenditures</a>
 			<ul class="dropdown-menu">
 				<li>
-					<a class="indicator" name="Total County Expenditures" href="#">Total County</a>
+					<a class="indicator" name="Total County Expenditures" href="#">Total County Expenditures</a>
 				</li>
 				<li>
-					<a class="indicator" name="Total Transportation Expenditures" href="#">Total Transportation</a>
+					<a class="indicator" name="Total Transportation Expenditures" href="#">Total Transportation Expenditures</a>
 				</li>
 				<li>
 					<a class="indicator" name="Air Transportation" href="#">Air Transportation</a>
@@ -3730,9 +4110,9 @@
 				<li>
 					<a class="indicator" name="Other Capital Outlay" href="#">Other Capital Outlay</a>
 				</li>
-				<li>
+				<!--<li>
 					<a class="indicator" name="Interest on Debt" href="#">Interest on Debt</a>
-				</li>
+				</li>-->
 				<li>
 					<a class="indicator" name="Intergovernmental to State" href="#">Intergovernmental to State</a>
 				</li>
@@ -4108,10 +4488,10 @@
 			<a>Utility Employment</a>
 			<ul class="dropdown-menu">
 				<li>
-					<a class="indicator" name="Total County Employment" href="#">Total County</a>
+					<a class="indicator" name="Total County Employment" href="#">Total County Employment</a>
 				</li>
 				<li>
-					<a class="indicator" name="Total Utility Employment" href="#">Total Utility</a>
+					<a class="indicator" name="Total Utility Employment" href="#">Total Utility Employment</a>
 				</li>
 				<li>
 					<a class="indicator" name="Electric Utilities" href="#">Electric Utilities</a>
@@ -4125,10 +4505,10 @@
 			<a>Utility Revenue</a>
 			<ul class="dropdown-menu">
 				<li>
-					<a class="indicator" name="Total County Revenue" href="#">Total County</a>
+					<a class="indicator" name="Total County Revenue" href="#">Total County Revenue</a>
 				</li>
 				<li>
-					<a class="indicator" name="Total Utility Revenue" href="#">Total Utility</a>
+					<a class="indicator" name="Total Utility Revenue" href="#">Total Utility Revenue</a>
 				</li>
 				<li>
 					<a class="indicator" name="Electric Power Systems" href="#">Electric Power Systems</a>
@@ -4148,10 +4528,10 @@
 			<a>Utility Expenditures</a>
 			<ul class="dropdown-menu">
 				<li>
-					<a class="indicator" name="Total County Expenditures" href="#">Total County</a>
+					<a class="indicator" name="Total County Expenditures" href="#">Total County Expenditures</a>
 				</li>
 				<li>
-					<a class="indicator" name="Total Utility Expenditures" href="#">Total Utility</a>
+					<a class="indicator" name="Total Utility Expenditures" href="#">Total Utility Expenditures</a>
 				</li>
 				<li>
 					<a class="indicator" name="Electric Utilities" href="#">Electric Utilities</a>
@@ -4159,7 +4539,7 @@
 				<li>
 					<a class="indicator" name="Gas Utilities" href="#">Gas Utilities</a>
 				</li>
-				<li>
+				<!--<li>
 					<a class="indicator" name="Current Operations" href="#">Current Operations</a>
 				</li>
 				<li>
@@ -4176,7 +4556,7 @@
 				</li>
 				<li>
 					<a class="indicator" name="Intergovernmental to Local" href="#">Intergovernmental to Local</a>
-				</li>
+				</li>-->
 			</ul>
 		</li>
 		<li class="dataset" name="Broadband Connections">
@@ -4202,10 +4582,10 @@
 			<a>Water, Sewerage &amp; Solid Waste Employment</a>
 			<ul class="dropdown-menu">
 				<li>
-					<a class="indicator" name="Total County Employment" href="#">Total County</a>
+					<a class="indicator" name="Total County Employment" href="#">Total County Employment</a>
 				</li>
 				<li>
-					<a class="indicator" name="Total Water, Sewerage &amp; Solid Waste Employment" href="#">Total Water, Sewerage &amp; Solid Waste</a>
+					<a class="indicator" name="Total Water, Sewerage &amp; Solid Waste Employment" href="#">Total Water, Sewerage &amp; Solid Waste Employment</a>
 				</li>
 				<li>
 					<a class="indicator" name="Sewerage" href="#">Sewerage</a>
@@ -4222,10 +4602,10 @@
 			<a>Water, Sewerage &amp; Solid Waste Expenditures</a>
 			<ul class="dropdown-menu">
 				<li>
-					<a class="indicator" name="Total County Expenditures" href="#">Total County</a>
+					<a class="indicator" name="Total County Expenditures" href="#">Total County Expenditures</a>
 				</li>
 				<li>
-					<a class="indicator" name="Total Water, Sewerage &amp; Solid Waste Management Expenditures" href="#">Total Water, Sewerage &amp; Solid Waste Management</a>
+					<a class="indicator" name="Total Water, Sewerage &amp; Solid Waste Expenditures" href="#">Total Water, Sewerage &amp; Solid Waste Management Expenditures</a>
 				</li>
 				<li>
 					<a class="indicator" name="Sewerage" href="#">Sewerage</a>

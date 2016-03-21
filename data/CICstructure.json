@@ -236,7 +236,7 @@
 							"name": "Highways",
 							"unit": "FTE employees",
 							"dataType": "level",
-							"definition": "Number of FTEs working on Regular Highway: Maintenance, operation, repair, and construction of highways, streets, roads, alleys, sidewalks, bridges, tunnels, ferry boats, viaducts, and related non-toll structures.Toll Highway: Maintenance, operation, repair, and construction of highways, roads, bridges, ferries, and tunnels operated on a fee or toll basis. Includes: Turnpikes; toll roads, toll bridges, toll ferries (including docks and related terminals), toll tunnels, and all related activities and facilities such as snow and ice removal, highway police and fire protection units IF administered by the toll authority, lighting and light fixtures, design and engineering, garages and administrative buildings of toll authorities, operation of toll booths, drawspans, rest stops, and service areas by the toll authority itself."
+							"definition": "Number of FTEs working on Regular Highway: Maintenance, operation, repair, and construction of highways, streets, roads, alleys, sidewalks, bridges, tunnels, ferry boats, viaducts, and related non-toll structures.Toll Highway: Maintenance, operation, repair, and construction of highways, roads, bridges, ferries, and tunnels operated on a fee or toll basis. Includes: Turnpikes; toll roads, toll bridges, toll ferries (including docks and related terminals), toll tunnels, and all related activities and facilities such as snow and ice removal, highway police and fire protection units if administered by the toll authority, lighting and light fixtures, design and engineering, garages and administrative buildings of toll authorities, operation of toll booths, drawspans, rest stops, and service areas by the toll authority itself."
 						}, {
 							"name": "Water Transport & Terminals",
 							"unit": "FTE employees",
@@ -390,7 +390,7 @@
 							"name": "Misc. General Revenue",
 							"unit": "dollars",
 							"dataType": "level",
-							"definition": "Amounts received from the public for performance of specific services benefiting the person charged, and from sales of commodities and services, except liquor store sales.  Includes fees, assessments, and other reimbursements for current services, rents and sales derived from commodities or services furnished incident to the performance of particular functions, gross income of commercial activities, and the like.  Excludes amounts received from other governments (see intergovernmental above) and interdepartmental charges and transfers. Current charges are distinguished from license taxes, which relate to privileges granted by the government or regulatory measures for the protection of the public."
+							"definition": "General revenue not falling within any standard functional category including special assessments, sale of property, interest earnings, fines and forfeits, rents, royalties, donations from private sources, net lottery revenue, and general revenue not elsewhere classified."
 						}, {
 							"name": "Liquor Stores",
 							"unit": "dollars",
@@ -458,7 +458,7 @@
 							"name": "Total Tax Revenue",
 							"unit": "dollars",
 							"dataType": "level",
-							"definition": "All intergovernmental revenue received from the state government. For local governments, includes amounts originally from the federal government but channeled through the state."
+							"definition": "Total tax revenue, including Income Taxes, License Taxes, Other Taxes, Property Taxes, Sales and Gross Receipts Taxes."
 						}, {
 							"name": "Income Taxes",
 							"unit": "dollars",
@@ -826,7 +826,7 @@
 							"name": "Insurance Trust - Employee Retirement",
 							"unit": "dollars",
 							"dataType": "level",
-							"definition": "Public Employee Retirement Systems: Distribution of cash benefits to, or withdrawals by, eligible persons under governmentadministered employee retirement systems covering public employees.  Includes: Benefits: Cash payments to, or on behalf of, participants for retirement benefits and annuities, death and disability benefits, life and disability insurance on behalf of retirees, pre-retirement death benefit premiums, benefits due on termination of employment, survivors benefits, and other benefits as allowed. Withdrawals: Cash withdrawals of employees, former employees, or their survivors as return of contributions made during employment, plus any interest on such amounts. Includes transfers of investment holdings and reimbursements for benefits paid when another pension fund assumes responsibility for paying retirement benefits. Other Payments: Exhibit-only codes for expenditure statistics"
+							"definition": "The distribution of cash benefits to, or withdrawals by, eligible persons under government administered employee retirement systems covering public employees.  Includes Benefits: Cash payments to, or on behalf of, participants for retirement benefits and annuities, death and disability benefits, life and disability insurance on behalf of retirees, pre-retirement death benefit premiums, benefits due on termination of employment, survivors benefits, and other benefits as allowed. Withdrawals: Cash withdrawals of employees, former employees, or their survivors as return of contributions made during employment, plus any interest on such amounts. Includes transfers of investment holdings and reimbursements for benefits paid when another pension fund assumes responsibility for paying retirement benefits."
 						}, {
 							"name": "Insurance Trust - Unemployment",
 							"unit": "dollars",
@@ -993,7 +993,7 @@
 							"name": "Air Transportation",
 							"unit": "dollars",
 							"dataType": "level",
-							"definition": "Provision, operation, construction, and support of airport facilities serving the public at-large on a scheduled or unscheduled basis. Also includes the regulation of airline industry, if applicable.  Includes publicly-operated airfields and related facilities (runways, terminals, control towers, maintenance facilities, and the like); intergovernmental payments for construction, operation, or support of publicly-owned airports; support of private airports; airport police if either an integral part of the airport operating authority or a payment to regular police agency (see Special Considerations below)."
+							"definition": "Provision, operation, construction, and support of airport facilities serving the public at-large on a scheduled or unscheduled basis. Also includes the regulation of airline industry, if applicable.  Includes publicly-operated airfields and related facilities (runways, terminals, control towers, maintenance facilities, and the like); intergovernmental payments for construction, operation, or support of publicly-owned airports; support of private airports; airport police if either an integral part of the airport operating authority or a payment to regular police agency."
 						}, {
 							"name": "Highways",
 							"unit": "dollars",
@@ -1043,7 +1043,7 @@
 							"name": "Intergovernmental to Local",
 							"unit": "dollars",
 							"dataType": "level",
-							"definition": "Amounts paid to the state government for performance of specific functions or for general financial support. Includes grants, shared taxes, contingent loans and advances, and any significant and identifiable amounts or reimbursement paid to other governments for performance of general government services or activities. By definition, it excludes amounts paid to other governments for purchase of commodities, property, or utility services and for any tax levied as such on facilities of the government."
+							"definition": "Amounts paid to other local governments for performance of specific functions or for general financial support. Includes grants, shared taxes, contingent loans and advances, and any significant and identifiable amounts or reimbursement paid to other governments for performance of general government services or activities. By definition, it excludes amounts paid to other governments for purchase of commodities, property, or utility services and for any tax levied as such on facilities of the government."
 						}
 					]
 				}, {
@@ -2753,9 +2753,9 @@
 					]
 				}, {
 					"name": "Byrne (JAG) Program Awards",
-					"years": [2014],
-					"source": "NACo Analysis of U.S. Department of Justice, Office of Justice Programs, Bureau of Justice Assistance data",
-					"companions": [["Byrne (JAG) Program Awards", "JAG Amount"]
+					"years": [2014, 2015],
+					"source": "NACo analysis of U.S. Department of Justice, Office of Justice Programs, Bureau of Justice Assistance data",
+					"companions": [["Byrne (JAG) Program Awards", "JAG Amount"], ["Byrne (JAG) Program Awards", "Receives Individual Award"], ["Byrne (JAG) Program Awards", "Receives Share of Award"]
 					],
 					"children": [
 						{
@@ -2763,7 +2763,17 @@
 							"unit": "dollars",
 							"dataType": "level",
 							"thresholds": [1, 50000, 100000, 500000],
-							"definition": "Funding received by the county from the Edward Byrne Memorial Justice Assistance Grant (JAG) Program. Note that this funding reflects only the funding received by counties directly from the federal government and it does not include pass-through funds that may have been received by the county from an award made to the state or another local jurisdiction."
+							"definition": "Funding received by the county from the Edward Byrne Memorial Justice Assistance Grant (JAG) Program.  This amount includes funding allocated directly to and received by the county from the federal government.  It also includes the total amount of a joint allocation from the federal government that is shared by the county and one or more cities within the county. The county's share of a joint allocation is set through an agreement between the jurisdictions that share the allocation.  The amount does not include pass-through funds that may have been received by the county from an award made to the state."
+						}, {
+							"name": "Receives Individual Award",
+							"unit": "dollars",
+							"dataType": "binary",
+							"definition": "Indicates whether the county receives an individual award directly from the federal government that is not shared with another jurisdiction."
+						}, {
+							"name": "Receives Share of Award",
+							"unit": "dollars",
+							"dataType": "binary",
+							"definition": "Indicates whether the county receives a share of funding through a joint allocation from the federal government.  The county's share of a joint allocation is set through an agreement between the jurisdictions that share the allocation."
 						}
 					]
 				}, {
@@ -3912,7 +3922,7 @@
 			"children": [
 				{
 					"name": "Jails - Supervised Population",
-					"source": "2015 NACo Analysis of Bureau of Justice Statistics - Annual Survey of Jails",
+					"source": "2016 NACo analysis of Department of Justice Bureau of Justice Statistics, Census of Jails data",
 					"years": [2008, 2009, 2010, 2011, 2012, 2013],
 					"notes": ".survey-of-jails-note",
 					"companions": [["Jails - Supervised Population", "Total Jail Population"], ["Jails - Supervised Population", "Confined Persons"], ["Jails - Supervised Population", "Nonconfined Persons"], ["Jails - Supervised Population", "Average Daily Population"]
@@ -3924,14 +3934,20 @@
 							"dataType": "level",
 							"definition": "Total number of persons supervised by the county, including persons confined in a jail facility and not confined (e.g., persons in community based supervision programs run by the jail)."
 						}, {
-							"name": "Jail Capacity",
+							"name": "Rated Jail Capacity",
 							"unit": "persons",
 							"dataType": "level",
-							"definition": "The number of beds or inmates assigned by a rating official to a facility, excluding separate temporary holding areas."
+							"definition": "The maximum number of beds or inmates assigned to the county's jail facilities by a rating official."
+						}, {
+							"name": "Jail Capacity Percent",
+							"dataType": "percent",
+							"thresholds": [0.5, 0.6, 0.7, 0.8],
+							"suppressMinMax": true,
+							"definition": "The percent of rated capacity occupied by inmates based on the average daily population of the county's jail facilities. This is calculated by dividing the average daily population by rated capacity and multiplying by 100. "
 						}, {
 							"name": "Confined Persons",
 							"dataType": "level",
-							"definition": "Number of persons  confined in the county’s jail facilities, including halfway houses, work farms, and other facilities in which individuals are in custody overnight."
+							"definition": "Number of individuals confined in the county's jail facilities, including individuals in community programs who return to the jail at night, on December 31, 2013."
 						}, {
 							"name": "Nonconfined Persons",
 							"dataType": "level",
@@ -3950,7 +3966,7 @@
 							"name": "Average Daily Population",
 							"unit": "persons",
 							"dataType": "level",
-							"definition": "The average daily population of the county's jail facilities for July 1, 2012 to June 30, 2013."
+							"definition": "The average daily population of the county's jail facilities for January 1, 2013 to December 31, 2013."
 						}, {
 							"name": "Percent of Capacity",
 							"dataType": "percent",

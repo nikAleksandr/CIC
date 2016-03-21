@@ -24,8 +24,8 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 	// -------------------------- Variable Definitions ---------------------------
 	var localVersion = false;
 	
-	var default_dset = 'Drug Poisoning';
-	var default_ind = 'Drug Poisoning Death Rate';
+	var default_dset = 'Tax Revenue';
+	var default_ind = 'Property Taxes';
 	
 	CIC.findACounty = true;
 	CIC.embed = false;
