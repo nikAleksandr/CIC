@@ -1,7 +1,7 @@
 #CIC
 ===
 
-##The County Intelligence Connection (CIC) 2.0
+##The County Explorer
 
 =========
 
