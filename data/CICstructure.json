@@ -3536,7 +3536,7 @@
 				}, {
 					"name": "County Health Rankings: Ranks",
 					"source": "University of Wisconsin Population Health Institute and the Robert Wood Johnson Foundation",
-					"years": [2015],
+					"years": [2016],
 					"notes": ".chr-note",
 					"companions": [["County Health Rankings: Ranks", "Health Outcomes Rank in State"], ["County Health Rankings: Ranks", "Health Factors Rank in State"], ["County Health Rankings: Ranks", "Health Outcomes Rank in State"]
 					],
@@ -3556,7 +3556,7 @@
 				}, {
 					"name": "County Health Rankings: Health Outcomes",
 					"source": "University of Wisconsin Population Health Institute and the Robert Wood Johnson Foundation",
-					"years": [2015],
+					"years": [2016],
 					"notes": ".chr-note",
 					"companions": [["County Health Rankings: Ranks", "Health Outcomes Rank in State"], ["County Health Rankings: Ranks", "Health Factors Rank in State"], ["County Health Rankings: Ranks", "Health Outcomes Rank in State"]
 					],
@@ -3565,42 +3565,42 @@
 							"name": "Premature Death Rate",
 							"dataType": "level",
 							"suppressMinMax": true,
-							"source": "<a href='http://www.countyhealthrankings.org/'>University of Wisconsin Population Health Institute</a> analysis of National Center for Health Statistics - Mortality files 2010-2012 data",
+							"source": "<a href='http://www.countyhealthrankings.org/'>University of Wisconsin Population Health Institute</a> analysis of National Center for Health Statistics - Mortality files 2011-2013 data",
 							"unit": "years of potential life lost before age 75 per 100,000 people",
 							"definition": "Years of potential life lost before age 75 per 100,000 population (age-adjusted).  For more on methodology, click <a href='http://www.countyhealthrankings.org/ranking-methods'>here</a>."
 						}, {
 							"name": "Poor or Fair Health",
 							"dataType": "percent",
 							"suppressMinMax": true,
-							"source": "<a href='http://www.countyhealthrankings.org/'>University of Wisconsin Population Health Institute</a> analysis of Behavioral Risk Factor Surveillance System 2006-2012 data",
+							"source": "<a href='http://www.countyhealthrankings.org/'>University of Wisconsin Population Health Institute</a> analysis of Behavioral Risk Factor Surveillance System 2014 data",
 							"unit": " of adults reporting fair or poor health",
 							"definition": "Percentage of adults reporting fair or poor health (age-adjusted).  For more on methodology, click <a href='http://www.countyhealthrankings.org/ranking-methods'>here</a>."
 						}, {
 							"name": "Physically Unhealthy Days",
 							"dataType": "level",
 							"suppressMinMax": true,
-							"source": "<a href='http://www.countyhealthrankings.org/'>University of Wisconsin Population Health Institute</a> analysis of Behavioral Risk Factor Surveillance System 2006-2012 data",
+							"source": "<a href='http://www.countyhealthrankings.org/'>University of Wisconsin Population Health Institute</a> analysis of Behavioral Risk Factor Surveillance System 2014 data",
 							"unit": " days reported on avg. in the past 30 days",
 							"definition": "Average number of physically unhealthy days reported in past 30 days (age-adjusted).  For more on methodology, click <a href='http://www.countyhealthrankings.org/ranking-methods'>here</a>."
 						}, {
 							"name": "Mentally Unhealthy Days",
 							"dataType": "level",
 							"suppressMinMax": true,
-							"source": "<a href='http://www.countyhealthrankings.org/'>University of Wisconsin Population Health Institute</a> analysis of Behavioral Risk Factor Surveillance System 2006-2012 data",
+							"source": "<a href='http://www.countyhealthrankings.org/'>University of Wisconsin Population Health Institute</a> analysis of Behavioral Risk Factor Surveillance System 2014 data",
 							"unit": " days reported on avg. in the past 30 days",
 							"definition": "Average number of mentally unhealthy days reported in past 30 days (age-adjusted).  For more on methodology, click <a href='http://www.countyhealthrankings.org/ranking-methods'>here</a>."
 						}, {
 							"name": "Low Birthweight Rate",
 							"dataType": "percent",
 							"suppressMinMax": true,
-							"source": "<a href='http://www.countyhealthrankings.org/'>University of Wisconsin Population Health Institute</a> analysis of National Center for Health Statistics - Natality files 2006-2012 data",
+							"source": "<a href='http://www.countyhealthrankings.org/'>University of Wisconsin Population Health Institute</a> analysis of National Center for Health Statistics - Natality files 2014 data",
 							"definition": "Percentage of live births with low birthweight (< 2500 grams).  For more on methodology, click <a href='http://www.countyhealthrankings.org/ranking-methods'>here</a>."
 						}
 					]
 				}, {
 					"name": "County Health Rankings: Health Behaviors",
 					"source": "University of Wisconsin Population Health Institute and the Robert Wood Johnson Foundation",
-					"years": [2015],
+					"years": [2016],
 					"notes": ".chr-note",
 					"companions": [["County Health Rankings: Ranks", "Health Outcomes Rank in State"], ["County Health Rankings: Ranks", "Health Factors Rank in State"], ["County Health Rankings: Ranks", "Health Outcomes Rank in State"]
 					],
@@ -3609,56 +3609,56 @@
 							"name": "Smoking Rate",
 							"dataType": "percent",
 							"suppressMinMax": true,
-							"source": "<a href='http://www.countyhealthrankings.org/'>University of Wisconsin Population Health Institute</a> analysis of Behavioral Risk Factor Surveillance System 2006-2012 data",
+							"source": "<a href='http://www.countyhealthrankings.org/'>University of Wisconsin Population Health Institute</a> analysis of Behavioral Risk Factor Surveillance System 2014 data",
 							"definition": "Percentage of adults who are current smokers.  For more on methodology, click <a href='http://www.countyhealthrankings.org/ranking-methods'>here</a>."
 						}, {
 							"name": "Obesity Rate",
 							"dataType": "percent",
 							"suppressMinMax": true,
-							"source": "<a href='http://www.countyhealthrankings.org/'>University of Wisconsin Population Health Institute</a> analysis of CDC Diabetes Interactive Atlas 2011 data",
+							"source": "<a href='http://www.countyhealthrankings.org/'>University of Wisconsin Population Health Institute</a> analysis of CDC Diabetes Interactive Atlas 2012 data",
 							"definition": "Percentage of adults that report a BMI of 30 or more.  For more on methodology, click <a href='http://www.countyhealthrankings.org/ranking-methods'>here</a>."
 						}, {
 							"name": "Food Environment Index",
 							"dataType": "level",
 							"suppressMinMax": true,
 							"thresholds": [5,6,7,8],
-							"source": "<a href='http://www.countyhealthrankings.org/'>University of Wisconsin Population Health Institute</a> analysis of USDA Food Environment Atlas, Map the Meal Gap 2012 data",
+							"source": "<a href='http://www.countyhealthrankings.org/'>University of Wisconsin Population Health Institute</a> analysis of USDA Food Environment Atlas, Map the Meal Gap 2013 data",
 							"definition": "Index of factors that contribute to a healthy food environment, 0 (worst) to 10 (best).  For more on methodology, click <a href='http://www.countyhealthrankings.org/ranking-methods'>here</a>."
 						}, {
 							"name": "Percent Physically Inactive",
 							"dataType": "percent",
-							"source": "<a href='http://www.countyhealthrankings.org/'>University of Wisconsin Population Health Institute</a> analysis of CDC Diabetes Interactive Atlas 2011 data",
+							"source": "<a href='http://www.countyhealthrankings.org/'>University of Wisconsin Population Health Institute</a> analysis of CDC Diabetes Interactive Atlas 2012 data",
 							"definition": "Percentage of adults aged 20 and over reporting no leisure-time physical activity.  For more on methodology, click <a href='http://www.countyhealthrankings.org/ranking-methods'>here</a>."
 						}, {
 							"name": "Percent with Access to Exercise",
 							"dataType": "percent",
 							"suppressMinMax": true,
-							"source": "<a href='http://www.countyhealthrankings.org/'>University of Wisconsin Population Health Institute</a> analysis of Business Analyst, Delorme map data, ESRI, & US Census Tigerline Files 2010 & 2013 data",
+							"source": "<a href='http://www.countyhealthrankings.org/'>University of Wisconsin Population Health Institute</a> analysis of Business Analyst, Delorme map data, ESRI, & US Census Tigerline Files 2010 & 2014 data",
 							"definition": "Percentage of population with adequate access to locations for physical activity.  For more on methodology, click <a href='http://www.countyhealthrankings.org/ranking-methods'>here</a>."
 						}, {
 							"name": "Excessive Drinking Rate",
 							"dataType": "percent",
 							"suppressMinMax": true,
-							"source": "<a href='http://www.countyhealthrankings.org/'>University of Wisconsin Population Health Institute</a> analysis of Behavioral Risk Factor Surveillance System 2006-2012 data",
+							"source": "<a href='http://www.countyhealthrankings.org/'>University of Wisconsin Population Health Institute</a> analysis of Behavioral Risk Factor Surveillance System 2014 data",
 							"definition": "Percentage of adults reporting binge or heavy drinking.  For more on methodology, click <a href='http://www.countyhealthrankings.org/ranking-methods'>here</a>."
 						}, {
 							"name": "Alcohol-related Share of Driving Deaths",
 							"dataType": "percent",
 							"suppressMinMax": true,
-							"source": "<a href='http://www.countyhealthrankings.org/'>University of Wisconsin Population Health Institute</a> analysis of Fatality Analysis Reporting System 2009-2013 data",
+							"source": "<a href='http://www.countyhealthrankings.org/'>University of Wisconsin Population Health Institute</a> analysis of Fatality Analysis Reporting System 2014-2014 data",
 							"definition": "Percentage of driving deaths with alcohol involvement.  For more on methodology, click <a href='http://www.countyhealthrankings.org/ranking-methods'>here</a>."
 						}, {
 							"name": "Chlamydia Rate",
 							"dataType": "level",
 							"suppressMinMax": true,
-							"source": "<a href='http://www.countyhealthrankings.org/'>University of Wisconsin Population Health Institute</a> analysis of National Center for HIV/AIDS, Viral Hepatitis, STD, and TB Prevention 2012 data",
+							"source": "<a href='http://www.countyhealthrankings.org/'>University of Wisconsin Population Health Institute</a> analysis of National Center for HIV/AIDS, Viral Hepatitis, STD, and TB Prevention 2013 data",
 							"unit": " cases per 100,000 population",
 							"definition": "Number of newly diagnosed chlamydia cases per 100,000 population.  For more on methodology, click <a href='http://www.countyhealthrankings.org/ranking-methods'>here</a>."
 						}, {
 							"name": "Teen Birth Rate",
 							"dataType": "level",
 							"suppressMinMax": true,
-							"source": "<a href='http://www.countyhealthrankings.org/'>University of Wisconsin Population Health Institute</a> analysis of National Center for Health Statistics - Natality files 2006-2012 data",
+							"source": "<a href='http://www.countyhealthrankings.org/'>University of Wisconsin Population Health Institute</a> analysis of National Center for Health Statistics - Natality files 2007-2012 data",
 							"unit": " births per 1,000 teen females",
 							"definition": "Teen birth rate per 1,000 female population, ages 15-19.  For more on methodology, click <a href='http://www.countyhealthrankings.org/ranking-methods'>here</a>."
 						}
@@ -3666,7 +3666,7 @@
 				}, {
 					"name": "County Health Rankings: Clinical Care",
 					"source": "University of Wisconsin Population Health Institute and the Robert Wood Johnson Foundation",
-					"years": [2015],
+					"years": [2016],
 					"notes": ".chr-note",
 					"companions": [["County Health Rankings: Ranks", "Health Outcomes Rank in State"], ["County Health Rankings: Ranks", "Health Factors Rank in State"], ["County Health Rankings: Ranks", "Health Outcomes Rank in State"]
 					],
@@ -3675,54 +3675,54 @@
 							"name": "Percent Uninsured",
 							"dataType": "percent",
 							"suppressMinMax": true,
-							"source": "<a href='http://www.countyhealthrankings.org/'>University of Wisconsin Population Health Institute</a> analysis of Small Area Health Insurance Estimates 2012 data",
+							"source": "<a href='http://www.countyhealthrankings.org/'>University of Wisconsin Population Health Institute</a> analysis of Small Area Health Insurance Estimates 2013 data",
 							"definition": "Percentage of population under age 65 without health insurance.  For more on methodology, click <a href='http://www.countyhealthrankings.org/ranking-methods'>here</a>"
 						}, {
 							"name": "Primary Care Physician Ratio",
 							"dataType": "level",
 							"suppressMinMax": true,
-							"source": "<a href='http://www.countyhealthrankings.org/'>University of Wisconsin Population Health Institute</a> analysis of Area Health Resource File/American Medical Association 2012 data",
+							"source": "<a href='http://www.countyhealthrankings.org/'>University of Wisconsin Population Health Institute</a> analysis of Area Health Resource File/American Medical Association 2013 data",
 							"unit": " population per physician",
 							"definition": "Ratio of population to primary care physicians.  For more on methodology, click <a href='http://www.countyhealthrankings.org/ranking-methods'>here</a>."
 						}, {
 							"name": "Dentist Ratio",
 							"dataType": "level",
 							"suppressMinMax": true,
-							"source": "<a href='http://www.countyhealthrankings.org/'>University of Wisconsin Population Health Institute</a> analysis of Area Health Resource File/National Provider Identification file 2013 data",
+							"source": "<a href='http://www.countyhealthrankings.org/'>University of Wisconsin Population Health Institute</a> analysis of Area Health Resource File/National Provider Identification file 2014 data",
 							"unit": " population per dentist",
 							"definition": "Ratio of population to dentists.  For more on methodology, click <a href='http://www.countyhealthrankings.org/ranking-methods'>here</a>."
 						}, {
 							"name": "Mental Health Provider Ratio",
 							"dataType": "level",
 							"suppressMinMax": true,
-							"source": "<a href='http://www.countyhealthrankings.org/'>University of Wisconsin Population Health Institute</a> analysis of CMS, National Provider Identification file 2014 data",
+							"source": "<a href='http://www.countyhealthrankings.org/'>University of Wisconsin Population Health Institute</a> analysis of CMS, National Provider Identification file 2015 data",
 							"unit": " population per provider",
 							"definition": "Ratio of population to mental health providers.  For more on methodology, click <a href='http://www.countyhealthrankings.org/ranking-methods'>here</a>."
 						}, {
 							"name": "Preventable Hospital Stays Rate",
 							"dataType": "level",
 							"suppressMinMax": true,
-							"source": "<a href='http://www.countyhealthrankings.org/'>University of Wisconsin Population Health Institute</a> analysis of Dartmouth Atlas of Health Care 2012 data",
+							"source": "<a href='http://www.countyhealthrankings.org/'>University of Wisconsin Population Health Institute</a> analysis of Dartmouth Atlas of Health Care 2013 data",
 							"unit": " preventable stays per 1,000 Medicare enrollees",
 							"definition": "Number of hospital stays for ambulatory-care sensitive conditions per 1,000 Medicare enrollees.  For more on methodology, click <a href='http://www.countyhealthrankings.org/ranking-methods'>here</a>."
 						}, {
 							"name": "Diabetic Monitoring Rate",
 							"dataType": "percent",
 							"suppressMinMax": true,
-							"source": "<a href='http://www.countyhealthrankings.org/'>University of Wisconsin Population Health Institute</a> analysis of Dartmouth Atlas of Health Care 2012 data",
+							"source": "<a href='http://www.countyhealthrankings.org/'>University of Wisconsin Population Health Institute</a> analysis of Dartmouth Atlas of Health Care 2013 data",
 							"definition": "Percentage of diabetic Medicare enrollees ages 65-75 that receive HbA1c monitoring.  For more on methodology, click <a href='http://www.countyhealthrankings.org/ranking-methods'>here</a>."
 						}, {
 							"name": "Mammography Rate",
 							"dataType": "percent",
 							"suppressMinMax": true,
-							"source": "<a href='http://www.countyhealthrankings.org/'>University of Wisconsin Population Health Institute</a> analysis of Dartmouth Atlas of Health Care 2012 data",
+							"source": "<a href='http://www.countyhealthrankings.org/'>University of Wisconsin Population Health Institute</a> analysis of Dartmouth Atlas of Health Care 2013 data",
 							"definition": "Percentage of female Medicare enrollees ages 67-69 that receive mammography screening.  For more on methodology, click <a href='http://www.countyhealthrankings.org/ranking-methods'>here</a>."
 						}
 					]
 				}, {
 					"name": "County Health Rankings: Social & Economic Environment",
 					"source": "University of Wisconsin Population Health Institute and the Robert Wood Johnson Foundation",
-					"years": [2015],
+					"years": [2016],
 					"notes": ".chr-note",
 					"companions": [["County Health Rankings: Ranks", "Health Outcomes Rank in State"], ["County Health Rankings: Ranks", "Health Factors Rank in State"], ["County Health Rankings: Ranks", "Health Outcomes Rank in State"]
 					],
@@ -3731,43 +3731,43 @@
 							"name": "High School Graduation Rate",
 							"dataType": "percent",
 							"suppressMinMax": true,
-							"source": "<a href='http://www.countyhealthrankings.org/'>University of Wisconsin Population Health Institute</a> analysis of data.gov, supplemented w/ National Center for Education Statistics 2011-2012 data",
+							"source": "<a href='http://www.countyhealthrankings.org/'>University of Wisconsin Population Health Institute</a> analysis of data.gov, supplemented w/ National Center for Education Statistics 2012-2013 data",
 							"definition": "Percentage of ninth-grade cohort that graduates in four years.  For more on methodology, click <a href='http://www.countyhealthrankings.org/ranking-methods'>here</a>."
 						}, {
 							"name": "Percent with Some College",
 							"dataType": "percent",
 							"suppressMinMax": true,
-							"source": "<a href='http://www.countyhealthrankings.org/'>University of Wisconsin Population Health Institute</a> analysis of American Community Survey 2009-2013 data",
+							"source": "<a href='http://www.countyhealthrankings.org/'>University of Wisconsin Population Health Institute</a> analysis of American Community Survey 2010-2014 data",
 							"definition": "Percentage of adults ages 25-44 years with some post-secondary education.  For more on methodology, click <a href='http://www.countyhealthrankings.org/ranking-methods'>here</a>."
 						}, {
 							"name": "Percent Unemployed",
 							"dataType": "percent",
 							"suppressMinMax": true,
-							"source": "<a href='http://www.countyhealthrankings.org/'>University of Wisconsin Population Health Institute</a> analysis of Bureau of Labor Statistics 2013 data",
+							"source": "<a href='http://www.countyhealthrankings.org/'>University of Wisconsin Population Health Institute</a> analysis of Bureau of Labor Statistics 2014 data",
 							"definition": "Percentage of population ages 16 and older unemployed but seeking work.  For more on methodology, click <a href='http://www.countyhealthrankings.org/ranking-methods'>here</a>."
 						}, {
 							"name": "Child Poverty Rate",
 							"dataType": "percent",
 							"suppressMinMax": true,
-							"source": "<a href='http://www.countyhealthrankings.org/'>University of Wisconsin Population Health Institute</a> analysis of Small Area Income and Poverty Estimates 2013 data",
+							"source": "<a href='http://www.countyhealthrankings.org/'>University of Wisconsin Population Health Institute</a> analysis of Small Area Income and Poverty Estimates 2014 data",
 							"definition": "Percentage of children under age 18 in poverty.  For more on methodology, click <a href='http://www.countyhealthrankings.org/ranking-methods'>here</a>."
 						}, {
 							"name": "Income Inequality Ratio",
 							"dataType": "level",
 							"suppressMinMax": true,
-							"source": "<a href='http://www.countyhealthrankings.org/'>University of Wisconsin Population Health Institute</a> analysis of American Community Survey 2009-2013 data",
+							"source": "<a href='http://www.countyhealthrankings.org/'>University of Wisconsin Population Health Institute</a> analysis of American Community Survey 2010-2014 data",
 							"definition": "Ratio of household income at the 80th percentile to income at the 20th percentile.  For more on methodology, click <a href='http://www.countyhealthrankings.org/ranking-methods'>here</a>."
 						}, {
 							"name": "Percent Single Parent Household",
 							"dataType": "percent",
 							"suppressMinMax": true,
-							"source": "<a href='http://www.countyhealthrankings.org/'>University of Wisconsin Population Health Institute</a> analysis of American Community Survey 2009-2013 data",
+							"source": "<a href='http://www.countyhealthrankings.org/'>University of Wisconsin Population Health Institute</a> analysis of American Community Survey 2010-2014 data",
 							"definition": "Percentage of children that live in a household headed by single parent.  For more on methodology, click <a href='http://www.countyhealthrankings.org/ranking-methods'>here</a>."
 						}, {
 							"name": "Social Association Rate",
 							"dataType": "level",
 							"suppressMinMax": true,
-							"source": "<a href='http://www.countyhealthrankings.org/'>University of Wisconsin Population Health Institute</a> analysis of County Business Patterns 2012 data",
+							"source": "<a href='http://www.countyhealthrankings.org/'>University of Wisconsin Population Health Institute</a> analysis of County Business Patterns 2013 data",
 							"unit": " associations per 10,000 population",
 							"definition": "Number of membership associations per 10,000 population.  For more on methodology, click <a href='http://www.countyhealthrankings.org/ranking-methods'>here</a>."
 						}, {
@@ -3781,7 +3781,7 @@
 							"name": "Injury Death Rate",
 							"dataType": "level",
 							"suppressMinMax": true,
-							"source": "<a href='http://www.countyhealthrankings.org/'>University of Wisconsin Population Health Institute</a> analysis of CDC WONDER mortality 2008-2012 data",
+							"source": "<a href='http://www.countyhealthrankings.org/'>University of Wisconsin Population Health Institute</a> analysis of CDC WONDER mortality 2009-2013 data",
 							"unit": " deaths per 100,000 population",
 							"definition": "Number of deaths due to injury per 100,000 population.  For more on methodology, click <a href='http://www.countyhealthrankings.org/ranking-methods'>here</a>."
 						}
@@ -3789,7 +3789,7 @@
 				}, {
 					"name": "County Health Rankings: Physical Environment",
 					"source": "University of Wisconsin Population Health Institute and the Robert Wood Johnson Foundation",
-					"years": [2015],
+					"years": [2016],
 					"notes": ".chr-note",
 					"companions": [["County Health Rankings: Ranks", "Health Outcomes Rank in State"], ["County Health Rankings: Ranks", "Health Factors Rank in State"], ["County Health Rankings: Ranks", "Health Outcomes Rank in State"]
 					],
@@ -3812,19 +3812,19 @@
 							"name": "Percent with Severe Housing Problems",
 							"dataType": "percent",
 							"suppressMinMax": true,
-							"source": "<a href='http://www.countyhealthrankings.org/'>University of Wisconsin Population Health Institute</a> analysis of Comprehensive Housing Affordability Strategy (CHAS) data 2007-2011 data",
+							"source": "<a href='http://www.countyhealthrankings.org/'>University of Wisconsin Population Health Institute</a> analysis of Comprehensive Housing Affordability Strategy (CHAS) data 2008-2012 data",
 							"definition": "Percentage of households with at least 1 of 4 housing problems: overcrowding, high housing costs, or lack of kitchen or plumbing facilities.  For more on methodology, click <a href='http://www.countyhealthrankings.org/ranking-methods'>here</a>."
 						}, {
 							"name": "Percent Driving Alone to Work",
 							"dataType": "percent",
 							"suppressMinMax": true,
-							"source": "<a href='http://www.countyhealthrankings.org/'>University of Wisconsin Population Health Institute</a> analysis of American Community Survey 2009-2013 data",
+							"source": "<a href='http://www.countyhealthrankings.org/'>University of Wisconsin Population Health Institute</a> analysis of American Community Survey 2010-2014 data",
 							"definition": "Percentage of the workforce that drives alone to work.  For more on methodology, click <a href='http://www.countyhealthrankings.org/ranking-methods'>here</a>."
 						}, {
 							"name": "Percent with Long Commutes Alone to Work",
 							"dataType": "percent",
 							"suppressMinMax": true,
-							"source": "<a href='http://www.countyhealthrankings.org/'>University of Wisconsin Population Health Institute</a> analysis of American Community Survey 2009-2013 data",
+							"source": "<a href='http://www.countyhealthrankings.org/'>University of Wisconsin Population Health Institute</a> analysis of American Community Survey 2010-2014 data",
 							"definition": "Among workers who commute in their car alone, the percentage that commute more than 30 minutes.  For more on methodology, click <a href='http://www.countyhealthrankings.org/ranking-methods'>here</a>."
 						}
 					]
