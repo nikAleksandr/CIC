@@ -1636,7 +1636,9 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 				unit = '';
 			} else {
 				if (typeof value === 'string') value = value.charAt(0).toUpperCase() + value.substr(1);
-	
+				
+				if (value == '-0.0%') value = "0.0%"; //very small but still negative values that round to 0
+
 				if (unit.indexOf('dollar') !== -1 || unit.indexOf('year') !== -1 && unit.indexOf('years') === -1) unit = '';
 				else if (unit !== '') {				
 					// change unit from plural to singular if necessary
