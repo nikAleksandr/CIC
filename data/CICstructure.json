@@ -1568,6 +1568,7 @@
 						{
 							"name": "Population Level",
 							"dataType": "level",
+							"thresholds": [50000, 150000, 250000, 500000],
 							"definition": "The number of people living in both the incorporated and unincorporated areas of the county, as of July 1st of the current year."
 						}, {
 							"name": "Change in Population (from previous year)",
@@ -1646,6 +1647,7 @@
 						{
 							"name": "Population Level",
 							"dataType": "level",
+							"thresholds": [50000, 150000, 250000, 500000],
 							"suppressMinMax": true,
 							"definition": "The number of people living in both the incorporated and unincorporated areas of the county, as of July 1st of the current year."
 						}, {
@@ -1910,15 +1912,15 @@
 			"children": [
 				{
 					"name": "Household Income",
-					"source": "NACo Analysis of U.S. Census Bureau - American Community Survey (ACS)",
-					"years": [2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013],
+					"source": "NACo Analysis of U.S. Census Bureau - American Community Survey (ACS) 5 year estimates",
+					"years": [2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014],
 					"companions": [["Household Income", "Median Household Income"], ["Household Income", "Percent of Households with Income Less than $10,000"], ["Household Income", "Percent of Households with Income Between $50,000 - $99,999"], ["Household Income", "Percent of Households with Income of $200,000 or more"]
 					],
 					"children": [
 						{
 							"name": "Total Households",
 							"dataType": "level",
-							"definition": "A household consists of all the people who occupy a housing unit. A house, an apartment or other group of rooms, or a single room, is regarded as a housing unit when it is occupied or intended for occupancy as separate living quarters; that is, when the occupants do not live with any other persons in the structure and there is direct access from the outside or through a common hall. A household includes the related family members and all the unrelated people, if any, such as lodgers, foster children, wards, or employees who share the housing unit. A person living alone in a housing unit, or a group of unrelated people sharing a housing unit such as partners or roomers, is also counted as a household. The count of households excludes group quarters."
+							"definition": " The number of households in a county. A household consists of all the people who occupy a housing unit. A house, an apartment or other group of rooms, or a single room, is regarded as a housing unit when it is occupied or intended for occupancy as separate living quarters; that is, when the occupants do not live with any other persons in the structure and there is direct access from the outside or through a common hall. A household includes the related family members and all the unrelated people, if any, such as lodgers, foster children, wards, or employees who share the housing unit. A person living alone in a housing unit, or a group of unrelated people sharing a housing unit such as partners or roomers, is also counted as a household. The count of households excludes group quarters."
 						}, {
 							"name": "Mean Household Income",
 							"dataType": "level",
@@ -3836,38 +3838,38 @@
 				{
 					"name": "Housing Units",
 					"source": "NACo Analysis of U.S. Census Bureau - American Community Survey (ACS) 5 year estimates",
-					"years": [2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013],
+					"years": [2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014],
 					"companions": [["Housing Units", "Number of Housing Units"], ["Housing Units", "Average Household Size"], ["Housing Units", "Percent of Owner-Occupied Housing Units"], ["Housing Units", "Percent of Renter-Occupied Housing Units"]
 					],
 					"children": [
 						{
 							"name": "Population in Households",
 							"dataType": "level",
-							"definition": "County residents one year or older part of households that are living in the county."
+							"definition": "Number of county residents one year or older living in households within the county."
 						}, {
 							"name": "Same House as 1 Year Ago",
 							"dataType": "level",
-							"definition": "County residents one year or older part of households that are living in the same house as one year ago."
+							"definition": "Number of county residents one year or older living in households in the same house as one year ago."
 						}, {
 							"name": "Percent In Same House as 1 Year Ago",
 							"dataType": "percent",
-							"definition": "Share of county residents one year or older part of households that are living in the same house as one year ago."
+							"definition": "Share of county residents one year or older living in households in the same house as one year ago."
 						}, {
 							"name": "Moved Within Same County",
 							"dataType": "level",
-							"definition": "County residents one year or older part of households that moved within the same county in the past year."
+							"definition": "Number of county residents one year or older living in households that moved within the same county in the past year."
 						}, {
 							"name": "Percent Moved Within Same County",
 							"dataType": "percent",
-							"definition": "Share of county residents one year or older part of households that moved within the same county in the past year."
+							"definition": "Share of county residents one year or older living in households that moved within the same county in the past year."
 						}, {
 							"name": "Moved From Outside the County",
 							"dataType": "level",
-							"definition": "County residents one year or older part of households that moved from outside the county in the past year."
+							"definition": "Number of county residents one year or older living in households that moved from outside the county in the past year."
 						}, {
 							"name": "Percent Moved From Outside the County",
 							"dataType": "percent",
-							"definition": "Share of county residents one year or older part of households that moved from outside the county in the past year."
+							"definition": "Share of county residents one year or older living in households that moved from outside the county in the past year."
 						}, {
 							"name": "Number of Housing Units",
 							"dataType": "level",
@@ -3905,14 +3907,14 @@
 							"unit": "dollars",
 							"companions": [["Housing Units", "Median Home Value"], ["Housing Units", "Median Gross Rent"], ["Housing Units", "Percent of Owner-Occupied Housing Units"], ["Housing Units", "Average Household Size"]
 							],
-							"definition": "The median estimate of how much owner-occupied houses in a county would sell for if they were for sale.  These data exclude mobile homes, houses with a business or medical office, houses on 10 or more acres, and housing units in multi-unit structures."
+							"definition": "The median estimate of how much owner-occupied houses in a county would sell for if they were for sale. These data exclude mobile homes, houses with a business or medical office, houses on 10 or more acres, and housing units in multi-unit structures."
 						}, {
 							"name": "Median Gross Rent",
 							"dataType": "level",
 							"unit": "dollars",
 							"companions": [["Housing Units", "Median Gross Rent"], ["Housing Units", "Median Home Value"], ["Housing Units", "Percent of Renter-Occupied Housing Units"], ["Housing Units", "Average Household Size"]
 							],
-							"definition": "The median estimate of gross rent payments in a county.  Gross rent is the contract rent plus the estimated average monthly cost of utilities (electricity, gas, and water and sewer) and fuels (oil, coal, kerosene, wood, etc.) if these are paid by the renter (or paid for the renter by someone else)."
+							"definition": "The median estimate of gross rent payments in a county. Gross rent is the contract rent plus the estimated average monthly cost of utilities (electricity, gas, and water and sewer) and fuels (oil, coal, kerosene, wood, etc.) if these are paid by the renter (or paid for the renter by someone else)."
 						} 
 					]
 				}
@@ -5003,8 +5005,8 @@
 					]
 				}, {
 					"name": "Road Classification",
-					"source": "NACo Analysis of Federal Highway Administration - Highway Performance Monitoring System",
-					"years": [2011],
+					"source": "NACo Analysis of U.S. Department of Transportation – Federal Highway Administration, Highway Performance Monitoring System",
+					"years": [2011, 2014],
 					"companions": [["Road Classification", "Total Public Road Miles"], ["Road Classification", "Share Interstate"], ["Road Classification", "Share Local"], ["Road Classification", "Share Other Freeway/Expressway"]
 					],
 					"children": [
@@ -5043,10 +5045,12 @@
 						}, {
 							"name": "Share Interstate",
 							"dataType": "percent",
+							"thresholds": [0.01, 0.02, 0.03, 0.1],
 							"definition": "Percentage of interstate road miles out of total public road miles."
 						}, {
 							"name": "Share Other Freeway/Expressway",
 							"dataType": "percent",
+							"thresholds": [0.01, 0.02, 0.03, 0.1],
 							"definition": "Percentage of other freeway and expressway road miles out of total public road miles."
 						}, {
 							"name": "Share Other Principle Arterial",
@@ -5072,7 +5076,7 @@
 					]
 				}, {
 					"name": "Road Ownership",
-					"years": [2008, 2011],
+					"years": [2008, 2011, 2014],
 					"source": "NACo Analysis of U.S. Department of Transportation – Federal Highway Administration, Highway Performance Monitoring System",
 					"vintage": 2011,
 					"companions": [["Road Ownership", "Total Public Road Miles"], ["Road Ownership", "Share County Highway Agency"], ["Road Ownership", "Share State Highway Agency"], ["Road Ownership", "Share Other Local Agencies"]
@@ -5121,7 +5125,7 @@
 						}, {
 							"name": "Federal Agency Road Miles",
 							"dataType": "level",
-							"definition": "Public road miles under the control of the federal highway administration."
+							"definition": "Public road miles under the control of a federal agency."
 						}, {
 							"name": "County Land Square Miles",
 							"dataType": "level",
@@ -5152,6 +5156,7 @@
 						}, {
 							"name": "Share Other State Agencies",
 							"dataType": "percent",
+							"thresholds": [0.01, 0.03, 0.05, 0.1],
 							"definition": "Percentage public road miles under the control of another state agency out of all public roads."
 						}, {
 							"name": "Share Other Local Agencies",
@@ -5176,11 +5181,13 @@
 						}, {
 							"name": "Share Indian Tribe/Nation",
 							"dataType": "percent",
+							"thresholds": [0.01, 0.02, 0.03, 0.05],
 							"definition": "Percentage public road miles under the control of Indian Tribe/Nation/Government out of all public roads."
 						}, {
 							"name": "Share Federal Agency",
 							"dataType": "percent",
-							"definition": "Percentage public road miles under the control of the federal highway administration out of all public roads."
+							"thresholds": [0.01, 0.05, 0.1, 0.4],
+							"definition": "Percentage Public road miles under the control of a federal agency out of all public roads."
 						}, {
 							"name": "Share Unknown",
 							"dataType": "percent",

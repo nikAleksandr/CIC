@@ -24,8 +24,8 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 	// -------------------------- Variable Definitions ---------------------------
 	var localVersion = false;
 	
-	var default_dset = 'Tax Revenue';
-	var default_ind = 'Property Taxes';
+	var default_dset = 'Road Ownership';
+	var default_ind = 'Share County Hiightway Agency';
 	
 	CIC.findACounty = true;
 	CIC.embed = false;
@@ -260,7 +260,7 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 		setSearchBehavior();
 		setIconBehavior();
 		setZoomIconBehavior();
-		//setDataButtonBehavior();
+		setDataButtonBehavior();
 	};
 	//Functions for Icons
 	var setIconBehavior = function() {
