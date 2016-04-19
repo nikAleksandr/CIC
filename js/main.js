@@ -25,7 +25,7 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 	var localVersion = false;
 	
 	var default_dset = 'Road Ownership';
-	var default_ind = 'Share County Hiightway Agency';
+	var default_ind = 'Share County Highway Agency';
 	
 	CIC.findACounty = true;
 	CIC.embed = false;
@@ -49,16 +49,16 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 	// check if embedded version
     if (window.location.search.indexOf('embed=true') > -1){
     	CIC.embed = true;
-    	$('#header').hide();
+   		//keep the header if it is the fullSite embedded version
+    	if (window.location.search.indexOf('fullSite=true') == -1){
+	    	$('#header').hide();
+	    }
     	$('#definitionsContainer').hide();
     	$('#notesContainer').hide();
     	$('#byline').hide();
     	$('#side-icon-container').hide();
-    	$('#container').removeClass('container').addClass('container-fluid');
-
+		$('#container').removeClass('container').addClass('container-fluid');
     	if (window.location.search.indexOf('external=true') > -1) $('#external-logo').show();
-    	
-		//window.setTimeout(redraw, 50);
     }
 
 	var zoom = d3.behavior.zoom()
