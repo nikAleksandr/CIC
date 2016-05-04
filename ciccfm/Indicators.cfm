@@ -1,3 +1,4 @@
+<cfheader name="Access-Control-Allow-Origin" value="http://www.fl-counties-com">
 <cfsetting showdebugoutput="no">
 <cfheader name="Content-Type" value="application/json">
 

@@ -992,20 +992,18 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 	 	} else {
 	 		// need to sort by dataset because we want to send one query per dataset needed
 		  	var indicatorList = {}; // list of indicators indexed by dataset then indexed by year
-		  	for (var i = 0; i < indObjs.length; i++) {		  		
+		  	for (var i = 0; i < indObjs.length; i++) {	  		
 			  	var DI = indObjs[i].dataset+' - '+indObjs[i].name;
 			  	
 			  	// for debugging
 		  		if (!indObjs[i].hasOwnProperty('name')) console.log('Indicator #' + i + ' not matched in CIC structure');
-			  	if (!crosswalk.hasOwnProperty(DI)) console.log('Indicator #' + i + ' not matched in tsv crosswalk');
-			  	
-			  	var crossObject = crosswalk[DI];
+
 			  	var year = indObjs[i].year;
 		
-		  		if (!indicatorList.hasOwnProperty(crossObject.db_dataset)) indicatorList[crossObject.db_dataset] = {};
-				var dataset_obj = indicatorList[crossObject.db_dataset];
+		  		if (!indicatorList.hasOwnProperty(indObjs[i].db_dataset)) indicatorList[indObjs[i].db_dataset] = {};
+				var dataset_obj = indicatorList[indObjs[i].db_dataset];
 				if (!dataset_obj.hasOwnProperty(year)) dataset_obj[year] = [];
-				dataset_obj[year].push(crossObject.db_indicator);
+				dataset_obj[year].push(indObjs[i].db_indicator);
 		  	}
 	
 			// configure query string for each dataset
@@ -1023,29 +1021,33 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 		  	}
 			    	
 	    	var getRequest = function(query_str, queryIndex) {
-			  	d3.xhr('/ciccfm/indicators.cfm?'+ query_str, function(error, request){
-			    	try {
-			    		var responseObj = jQuery.parseJSON(request.responseText);
-			    	}
-			    	catch(error) {
-			    		noty({text: 'Error retrieving information from database.'});
-			    		NProgress.done(true);
-			    	}
-			    	if (responseObj.ROWCOUNT === 0) noty({text: 'Database error: ROWCOUNT = 0'});
-			    	
-			    	// restructure response object to object indexed by fips, and add it to "data"	
-			    	for (var i = 0; i < responseObj.DATA.FIPS.length; i++) {
-			    		var fips = parseInt(responseObj.DATA.FIPS[i]);
-			    		if (!data.hasOwnProperty(fips)) data[fips] = {id: fips};
-			    		for (var j = 1; j < responseObj.COLUMNS.length; j++) {
-			    			var property = responseObj.COLUMNS[j]; // does not avoid duplicate property names (e.g. primary: "Total County", companion1: "Total County")
-			    			if (!data[fips].hasOwnProperty(property)) data[fips][property] = responseObj.DATA[property][i];
-			    		}
-			    		if (!data[fips].hasOwnProperty('geography')) data[fips].geography = data[fips].COUNTY_NAME + ', ' + data[fips].STATE;
-			    	}
-	
-			    	$(document.body).trigger('requestReceived');		    	
-				});
+			  	/*/f(has property 'API') {
+
+			  	} else {*/
+				  	d3.xhr('/ciccfm/indicators.cfm?'+ query_str, function(error, request){
+				    	try {
+				    		var responseObj = jQuery.parseJSON(request.responseText);
+				    	}
+				    	catch(error) {
+				    		noty({text: 'Error retrieving information from database.'});
+				    		NProgress.done(true);
+				    	}
+				    	if (responseObj.ROWCOUNT === 0) noty({text: 'Database error: ROWCOUNT = 0'});
+				    	
+				    	// restructure response object to object indexed by fips, and add it to "data"	
+				    	for (var i = 0; i < responseObj.DATA.FIPS.length; i++) {
+				    		var fips = parseInt(responseObj.DATA.FIPS[i]);
+				    		if (!data.hasOwnProperty(fips)) data[fips] = {id: fips};
+				    		for (var j = 1; j < responseObj.COLUMNS.length; j++) {
+				    			var property = responseObj.COLUMNS[j]; // does not avoid duplicate property names (e.g. primary: "Total County", companion1: "Total County")
+				    			if (!data[fips].hasOwnProperty(property)) data[fips][property] = responseObj.DATA[property][i];
+				    		}
+				    		if (!data[fips].hasOwnProperty('geography')) data[fips].geography = data[fips].COUNTY_NAME + ', ' + data[fips].STATE;
+				    	}
+		
+				    	$(document.body).trigger('requestReceived');		    	
+					});
+				/*}*/
 			};
 			
 	    	var data = {};
@@ -1407,6 +1409,8 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 					selectedInd.year = d3.max(Jdataset.years);
 					selectedInd.source = Jdataset.source;
 					selectedInd.companions = Jdataset.companions;
+					selectedInd.db_dataset = Jdataset.db_dataset;
+					//optional dataset properties
 					if (Jdataset.hasOwnProperty('legendTitlePre')) selectedInd.legendTitlePre = Jdataset.legendTitlePre;
 					if (Jdataset.hasOwnProperty('legendTitleMain')) selectedInd.legendTitleMain = Jdataset.legendTitleMain;
 					if (Jdataset.hasOwnProperty('legendTitlePost')) selectedInd.legendTitlePost = Jdataset.legendTitlePost;
@@ -1423,11 +1427,6 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 									selectedInd[ind] = Jdataset.children[h][ind];
 								}
 								selectedInd.DI = selectedInd.dataset + ' - ' + selectedInd.name;
-								if (localVersion === false) {
-									for (var prop in crosswalk[selectedInd.DI]) {
-										if (!selectedInd.hasOwnProperty(prop)) selectedInd[prop] = crosswalk[selectedInd.DI][prop];
-									}
-								}
 								break;
 							}
 						}
@@ -2021,36 +2020,23 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 
 			    if (localVersion) {
 			    	CIC.update(default_dset, default_ind); // fill in map colors for default indicator now that everything is loaded 	
-			    } else {  
-			    	// load crosswalk
-			    	d3.tsv('data/database_crosswalk.tsv', function(error, data_array) {
-			    		// set up crosswalk object; indexed by front-end "Dataset - Indicator" field names, filled with database names
-				      	crosswalk = {};
-			      		for (var i = 0; i < data_array.length; i++) {
-					        if (data_array[i].indicator !== '') {
-			          			var di = data_array[i].dataset + ' - ' + data_array[i].indicator;
-			          			crosswalk[di] = data_array[i];
-			        		}
-			      		}
-			      		
-			      		// fill in map colors now that everything is loaded
-			      		if (custom_dset !== '' && crosswalk.hasOwnProperty(custom_dset + ' - ' + custom_ind)) {
-			      			CIC.update(custom_dset, custom_ind);
-			      		} else {
-			      			CIC.update(default_dset, default_ind);
-			      		}
+			    } else {  	
+		      		// fill in map colors now that everything is loaded
+		      		if (custom_dset !== '') {  // was a convenient way to verify the custom indicators requested before firing... "&& crosswalk.hasOwnProperty(custom_dset + ' - ' + custom_ind)"
+		      			CIC.update(custom_dset, custom_ind);
+		      		} else {
+		      			CIC.update(default_dset, default_ind);
+		      		}
 
-
-						// for testing
-						/*
-						$.getScript('js/util.js', function(){
-							//countIndicators();
-							//areAllIndicatorsInDatabase();
-							//areAllCompanionsValid();
-							//checkDropdownNames();
-							//testDatabaseResponses(); // will only work if on nacocic.naco.org and localVersion disabled (note: 700+ requests being sent! will take more than a minute!)
-						}); */
-			    	});
+					// for testing
+					/*
+					$.getScript('js/util.js', function(){
+						//countIndicators();
+						//areAllIndicatorsInDatabase();
+						//areAllCompanionsValid();
+						//checkDropdownNames();
+						//testDatabaseResponses(); // will only work if on nacocic.naco.org and localVersion disabled (note: 700+ requests being sent! will take more than a minute!)
+					}); */
 			    }
 			    	    
 			    // check to toggle certain overlay popup on page load
