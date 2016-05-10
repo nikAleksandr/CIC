@@ -45,7 +45,8 @@ var colorlegend = function (target, scale, type, options) {
     	, measure_type = opts.measure_type
     	, small_large = opts.small_large || false
     	, format_type = opts.format_type || false
-    	, format = opts.formatFnArr;
+    	, format = opts.formatFnArr
+    	, isPerCapita = isPerCapita;
     
 	// check for valid input - 'quantize' not included
   	for (var i = 0; i < scaleTypes.length; i++) {
@@ -121,7 +122,7 @@ var colorlegend = function (target, scale, type, options) {
 			}
 		}
 	}
-	
+
 	// exception for "Jobs Skills" - fix in database when given chance
 	if (typeof dataValues[0] === 'string') {
 		for (var k = 0; k < dataValues.length; k++) {

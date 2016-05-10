@@ -295,6 +295,7 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 	};
 	var setDataButtonBehavior = function() {	
 		$('#perCapitaButton').on('click', function() {
+			if($(this).hasClass('disabled')) return;
 			NProgress.start();
 			$(this).button('toggle');
 			if ($(this).hasClass('active')) {
@@ -306,8 +307,8 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 						if (quantByIds[0][i]) quantByIds[0][i] /= pop_db[year][i];
 					}
 				};
-				
-				if (!pop_db.hasOwnProperty(year)) {
+				console.log(indObjects[0]);
+				if (!pop_db.hasOwnProperty(year)) { //if there isn't yet pop_db data for this year
 					pop_db[year] = {};
 					if (localVersion) {
 				 		d3.tsv("data/local_data.tsv", function(error, countyData) {
@@ -320,17 +321,30 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 					} else {
 						var query_str = 'db_set=Demographics&db_ind=Pop_LT_Population&db_year=' + year;
 						d3.xhr('/ciccfm/indicators.cfm?'+ query_str, function(error, request) {
-							var responseObj = jQuery.parseJSON(request.responseText);
-							var population = responseObj.DATA.POP_LT_POPULATION;
+							try {
+								var responseObj = jQuery.parseJSON(request.responseText);
+								var population = responseObj.DATA.POP_LT_POPULATION;
+							}
+							catch(error) {
+					    		noty({text: 'Error retrieving information from database.'});
+					    		NProgress.done(true);
+					    	}
+					    	if (responseObj.ROWCOUNT === 0) noty({text: 'Population data for ' + year + ' is not available'});
 							for (var i = 0; i < population.length; i++) {
 								pop_db[year][+responseObj.DATA.FIPS[i]] = +population[i];
 								
 							}
+							//create a unit property if it doesn't already have one
+							if(!indObjects[0].hasOwnProperty('unit')) indObjects[0].unit = '';
+			 				if(indObjects[0].unit.indexOf("per person") == -1) indObjects[0].unit = indObjects[0].unit + " per person";
 			 				updateQuants();
 							updateView();
 						});					
 					}
-				} else {
+				} else {  //if the year of pop_db already matches the current data
+					//create a unit property if it doesn't already have one
+					if(!indObjects[0].hasOwnProperty('unit')) indObjects[0].unit = '';
+					if(indObjects[0].unit.indexOf("per person") == -1) indObjects[0].unit = indObjects[0].unit + " per person";
 					updateQuants();
 					updateView();
 				}
@@ -944,7 +958,7 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 		
 		// reset per capita button
 		$('#perCapitaButton').removeClass('active');
-		if (isNumFun(currentDataType)) $('#perCapitaButton').removeClass('disabled');
+		if (currentDataType=='level' || currentDataType=='level_np') $('#perCapitaButton').removeClass('disabled');
 		else $('#perCapitaButton').addClass('disabled');
 		
 		//reset from statewide to statewide to county map
@@ -1505,7 +1519,6 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 	
 	var createLegend = function(measure_type, keyArray, dataVals) {
 		d3.selectAll(".legend svg").remove();
-	
 		var primeIndObj = indObjects[0];
 		if (primeIndObj.dataType !== 'none') {	
 			var options = {
@@ -1514,7 +1527,8 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 				dataType : primeIndObj.dataType,
 				unit	 : primeIndObj.unit,
 				measure_type: measure_type,
-				formatFnArr: format
+				formatFnArr: format,
+				isPerCapita: isPerCapita
 			};
 			if (keyArray) options.keyArray = keyArray;
 			if (dataVals) options.small_large = dataVals;
@@ -2246,11 +2260,14 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 	    	} else if (Math.abs(num) >= 100) {
 	    		return (type === 'currency') ? d3.format('$,.0f')(num) : d3.format(',.0f')(num);
 	    	} else if (num == 0) {
-	    		return (type === 'currency') ? '$0' : 0;
+	    		if (isPerCapita) return d3.format('')(num);
+	    		else return (type === 'currency') ? '$0' : 0;
 	    	} else {
 	    		if (type === 'currency') return d3.format('$.2f')(num);
-	    		else if (type === 'person') return d3.format('0f')(num);
-	    		else if (isPerCapita) return d3.format('.2f')(num); // kind of a hack for right now
+	    		else if (type === 'person'){
+	    			if(isPerCapita) return d3.format('.2f')(num);
+	    			else return d3.format('0f')(num);
+	    		}
 	    		else return d3.format('0f')(num);
 	    	}
 	    	
