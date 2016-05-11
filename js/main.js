@@ -299,15 +299,26 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 			NProgress.start();
 			$(this).button('toggle');
 			if ($(this).hasClass('active')) {
+				pop_db.currentIndicator = indObjects[0].name;
+				//reset, copy, save, and remove the threshold property
+				pop_db.thresholds = [];
+				pop_db.replaceThresholds = false;
+				if(indObjects[0].hasOwnProperty('thresholds')){
+					pop_db.replaceThreshold = true;
+					pop_db.thresholds = indObjects[0].thresholds;
+					delete indObjects[0].thresholds;
+					console.log(pop_db);
+					console.log(indObjects[0]);
+				}
 				// currently only does it for the primary indicator not the companions (would have to poll multiple years)
 				isPerCapita = true;
-				var year = indObjects[0].year;			
+				var year = indObjects[0].year;		
 				var updateQuants = function() {
 					for (var i = 0; i < quantByIds[0].length; i++) {
 						if (quantByIds[0][i]) quantByIds[0][i] /= pop_db[year][i];
 					}
 				};
-				console.log(indObjects[0]);
+				
 				if (!pop_db.hasOwnProperty(year)) { //if there isn't yet pop_db data for this year
 					pop_db[year] = {};
 					if (localVersion) {
@@ -343,12 +354,19 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 					}
 				} else {  //if the year of pop_db already matches the current data
 					//create a unit property if it doesn't already have one
-					if(!indObjects[0].hasOwnProperty('unit')) indObjects[0].unit = '';
-					if(indObjects[0].unit.indexOf("per person") == -1) indObjects[0].unit = indObjects[0].unit + " per person";
+					if(!indObjects[0].hasOwnProperty('unit')) indObjects[0].unit = 'Per person';
+					else indObjects[0].unit = indObjects[0].unit + " per person";
 					updateQuants();
 					updateView();
 				}
-			} else {
+			} else { //turning off the Per Capita Button
+				//replace threshold value
+				if(pop_db.replaceThresholds && indObjects[0] === pop_db.currentIndicator){
+					indObjects[0].thresholds = pop_db.thresholds;
+					pop_db.replaceThresholds = false;
+				}
+				//remove the per capita unit addition
+				indObjects[0].unit = indObjects[0].unit.substring(0,indObjects[0].unit.toLowerCase().indexOf(' per person'))
 				isPerCapita = false;
 				this.blur();
 				for (var i = 0; i < quantByIds[0].length; i++) {
