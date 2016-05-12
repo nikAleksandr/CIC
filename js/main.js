@@ -337,7 +337,7 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 								var population = responseObj.DATA.POP_LT_POPULATION;
 							}
 							catch(error) {
-					    		noty({text: 'Error retrieving information from database.'});
+					    		noty({text: 'Error retrieving population for' + year + 'from database.'});
 					    		NProgress.done(true);
 					    	}
 					    	if (responseObj.ROWCOUNT === 0) noty({text: 'Population data for ' + year + ' is not available'});
@@ -1062,6 +1062,8 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 				    	}
 				    	catch(error) {
 				    		noty({text: 'Error retrieving information from database.'});
+				    		if(query_str.indexOf('undefined')!=-1) console.log('A companion is not matching to the metadata: ' + query_str);
+				    		else console.log('Error retrieving data.' + '\n' + 'Dataset:' + query_str.substring(7, query_str.indexOf("&db_ind=") - 7) + '\n' + 'Indicators:' + query_str.substring(query_str.indexOf("&db_ind=")));
 				    		NProgress.done(true);
 				    	}
 				    	if (responseObj.ROWCOUNT === 0) noty({text: 'Database error: ROWCOUNT = 0'});
@@ -1429,7 +1431,7 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 	
 	CIC.getInfo = function(dataset, indicator){
 		var selectedInd = {};
-		var structure = CICstructure.children;
+		var structure = (CICstructure.children) ? CICstructure.children : console.log("Invalid JSON metadata");
 		for (var i = 0; i < structure.length; i++) {				
 			for (var j = 0; j < structure[i].children.length; j++) {
 				if (structure[i].children[j].name === dataset) {
