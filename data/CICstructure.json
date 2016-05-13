@@ -9,7 +9,8 @@
             "years": [
                 2014
             ],
-            "source": "NACo Analysis of U.S. Cencsus Bureau - Census of Individual Governments: Employment",
+            "source": "NACo Analysis of U.S. Census Bureau - Census of Individual Governments: Employment",
+            "notes": ".census-of-govs-employment-note",
             "db_dataset": "Employment",
             "companions": [
                 [
@@ -30,21 +31,21 @@
                   "name": "Total County Employment",
                   "unit": "employees",
                   "dataType": "level",
-                  "definition": "The number of Full-time equivalent (FTE) employees for each county is a computed statistic representing the number of full-time employees that could have been employed if the reported number of hours worked by part-time employees had been worked by full-time employees.",
+                  "definition": "The number of full-time and part-time employees for a county.",
                   "db_indicator": "County_Total_FTE_PTE"
                 },
                 {
                   "name": "Total County Full-time Employment",
                   "unit": "FT employees",
                   "dataType": "level",
-                  "definition": "The number of Full-time equivalent (FTE) employees for each county is a computed statistic representing the number of full-time employees that could have been employed if the reported number of hours worked by part-time employees had been worked by full-time employees.",
+                  "definition": "The number of full-time employees for a county.",
                   "db_indicator": "County_Total_FTE"
                 },
                 {
                   "name": "Total County Part-time Employment",
                   "unit": "PT employees",
                   "dataType": "level",
-                  "definition": "The number of Full-time equivalent (FTE) employees for each county is a computed statistic representing the number of full-time employees that could have been employed if the reported number of hours worked by part-time employees had been worked by full-time employees.",
+                  "definition": "The number of part-time employees for a county.",
                   "db_indicator": "County_Total_PTE"
                 }
             ]
@@ -61,6 +62,7 @@
             2014
           ],
           "source": "NACo Analysis of U.S. Census Bureau - Census of Individual Governments: Employment",
+          "notes": ".census-of-govs-employment-note",
           "db_dataset": "Employment",
           "companions": [
             [
@@ -85,84 +87,84 @@
               "name": "Total Administration Employment",
               "unit": "employees",
               "dataType": "level",
-              "definition": "Number of FTEs on Financial Administration, Social Insurance Administration and Other Governmental Administration.  Covers  administration of unemployment compensation systems, public employment services, and the Federal Social Security, Medicare, and Railroad Retirement trusts; officials and central staff agencies concerned with tax assessment and collection, accounting, auditing, budgeting, purchasing, custody of funds, and other finance activities; legislative bodies and related activities involved in the making, enacting, and repeal of law; and government-wide executive, administrative, and staff service agencies other than financial, judicial, legal, and Federal or state legislative activities.",
+              "definition": "Number of full-time and part-time employees working on financial administration, social insurance administration and other governmental administration.",
               "db_indicator": "Admin_Total_Administration_FTE_PTE"
             },
             {
               "name": "Total Administration Full-time Employment",
               "unit": "PT employees",
               "dataType": "level",
-              "definition": "Number of FTEs on Financial Administration, Social Insurance Administration and Other Governmental Administration.  Covers  administration of unemployment compensation systems, public employment services, and the Federal Social Security, Medicare, and Railroad Retirement trusts; officials and central staff agencies concerned with tax assessment and collection, accounting, auditing, budgeting, purchasing, custody of funds, and other finance activities; legislative bodies and related activities involved in the making, enacting, and repeal of law; and government-wide executive, administrative, and staff service agencies other than financial, judicial, legal, and Federal or state legislative activities.",
+              "definition": "Number of full-time employees working on financial administration, social insurance administration and other governmental administration.",
               "db_indicator": "Admin_Total_Administration_FTE"
             },
             {
               "name": "Total Administration Part-time Employment",
               "unit": "PT employees",
               "dataType": "level",
-              "definition": "Number of FTEs on Financial Administration, Social Insurance Administration and Other Governmental Administration.  Covers  administration of unemployment compensation systems, public employment services, and the Federal Social Security, Medicare, and Railroad Retirement trusts; officials and central staff agencies concerned with tax assessment and collection, accounting, auditing, budgeting, purchasing, custody of funds, and other finance activities; legislative bodies and related activities involved in the making, enacting, and repeal of law; and government-wide executive, administrative, and staff service agencies other than financial, judicial, legal, and Federal or state legislative activities.",
+              "definition": "Number of part-time employees working on financial administration, social insurance administration and other governmental administration.",
               "db_indicator": "Admin_Total_Administration_PTE"
             },
             {
               "name": "Financial Administration",
               "unit": "employees",
               "dataType": "level",
-              "definition": "Number of FTEs working on Officials and central staff agencies concerned with tax assessment and collection, accounting, auditing, budgeting, purchasing, custody of funds, and other finance activities.",
+              "definition": "Number of full-time and part-time employees working on official and central staff agencies concerned with tax assessment and collection, accounting, auditing, budgeting, purchasing, custody of funds, and other finance activities. ",
               "db_indicator": "Admin_Financial_Administration_FTE_PTE"
             },
             {
               "name": "Financial Administration Full-time",
               "unit": "FT employees",
               "dataType": "level",
-              "definition": "Number of FTEs working on Officials and central staff agencies concerned with tax assessment and collection, accounting, auditing, budgeting, purchasing, custody of funds, and other finance activities.",
+              "definition": "Number of full-time employees working on official and central staff agencies concerned with tax assessment and collection, accounting, auditing, budgeting, purchasing, custody of funds, and other finance activities. ",
               "db_indicator": "Admin_Financial_Administration_FTE"
             },
             {
               "name": "Financial Administration Part-time",
               "unit": "PT employees",
               "dataType": "level",
-              "definition": "Number of FTEs working on Officials and central staff agencies concerned with tax assessment and collection, accounting, auditing, budgeting, purchasing, custody of funds, and other finance activities.",
+              "definition": "Number of part-time employees working on official and central staff agencies concerned with tax assessment and collection, accounting, auditing, budgeting, purchasing, custody of funds, and other finance activities. ",
               "db_indicator": "Admin_Financial_Administration_PTE"
             },
             {
               "name": "Other Governmental Administration",
               "unit": "employees",
               "dataType": "level",
-              "definition": "Number of FTEs working on Government-wide executive, administrative, and staff service agencies other than financial, judicial, legal, and Federal or state legislative activities.",
+              "definition": "Number of full-time and part-time employees working on government-wide executive, administrative, and staff service agencies other than financial, judicial, legal, and Federal or state legislative activities. ",
               "db_indicator": "Admin_Other_Government_Administration_FTE_PTE"
             },
             {
               "name": "Other Governmental Administration Full-time",
               "unit": "FT employees",
               "dataType": "level",
-              "definition": "Number of FTEs working on Government-wide executive, administrative, and staff service agencies other than financial, judicial, legal, and Federal or state legislative activities.",
+              "definition": "Number of full-time employees working on government-wide executive, administrative, and staff service agencies other than financial, judicial, legal, and Federal or state legislative activities. ",
               "db_indicator": "Admin_Other_Government_Administration_FTE"
             },
             {
               "name": "Other Governmental Administration Part-time",
               "unit": "PT employees",
               "dataType": "level",
-              "definition": "Number of FTEs working on Government-wide executive, administrative, and staff service agencies other than financial, judicial, legal, and Federal or state legislative activities.",
+              "definition": "Number of part-time employees working on government-wide executive, administrative, and staff service agencies other than financial, judicial, legal, and Federal or state legislative activities. ",
               "db_indicator": "Admin_Other_Government_Administration_PTE"
             },
             {
               "name": "Social Insurance Administration",
               "unit": "employees",
               "dataType": "level",
-              "definition": "Number of FTEs working on Administration of unemployment compensation systems, public employment services, and the Federal Social Security, Medicare, and Railroad Retirement trusts. Includes Employees of unemployment compensation, unemployment insurance, and equivalent agencies involved in administering the cooperative Federal-state unemployment compensation system.",
+              "definition": "Number of full-time and part-time employees working on administration of unemployment compensation systems, public employment services, and the Federal Social Security, Medicare, and Railroad Retirement trusts. Includes employees of unemployment compensation, unemployment insurance, and equivalent agencies involved in administering the cooperative Federal-state unemployment compensation  system.",
               "db_indicator": "Admin_Social_Insurance_Administration_FTE_PTE"
             },
             {
               "name": "Social Insurance Administration Full-time",
               "unit": "FT employees",
               "dataType": "level",
-              "definition": "Number of FTEs working on Administration of unemployment compensation systems, public employment services, and the Federal Social Security, Medicare, and Railroad Retirement trusts. Includes Employees of unemployment compensation, unemployment insurance, and equivalent agencies involved in administering the cooperative Federal-state unemployment compensation system.",
+              "definition": "Number of full-time employees working on administration of unemployment compensation systems, public employment services, and the Federal Social Security, Medicare, and Railroad Retirement trusts. Includes employees of unemployment compensation, unemployment insurance, and equivalent agencies involved in administering the cooperative Federal-state unemployment compensation  system.",
               "db_indicator": "Admin_Social_Insurance_Administration_FTE"
             },
             {
               "name": "Social Insurance Administration Part-time",
               "unit": "PT employees",
               "dataType": "level",
-              "definition": "Number of FTEs working on Administration of unemployment compensation systems, public employment services, and the Federal Social Security, Medicare, and Railroad Retirement trusts. Includes Employees of unemployment compensation, unemployment insurance, and equivalent agencies involved in administering the cooperative Federal-state unemployment compensation system.",
+              "definition": "Number of part-time employees working on administration of unemployment compensation systems, public employment services, and the Federal Social Security, Medicare, and Railroad Retirement trusts. Includes employees of unemployment compensation, unemployment insurance, and equivalent agencies involved in administering the cooperative Federal-state unemployment compensation  system.",
               "db_indicator": "Admin_Social_Insurance_Administration_PTE"
             }
           ]
@@ -179,6 +181,7 @@
             2014
           ],
           "source": "NACo Analysis of U.S. Census Bureau - Census of Individual Governments: Employment",
+          "notes": ".census-of-govs-employment-note",
           "db_dataset": "Employment",
           "companions": [
             [
@@ -207,63 +210,63 @@
               "name": "Total Education Employment",
               "unit": "employees",
               "dataType": "level",
-              "definition": "Number of FTEs working in Schools, colleges, and other educational institutions (elementary and secondary schools).",
+              "definition": "Number of full-time and part-time employees working on elementary, secondary and higher education.",
               "db_indicator": "Edu_Total_Education_FTE_PTE"
             },
             {
               "name": "Total Education Full-time Employment",
               "unit": "FT employees",
               "dataType": "level",
-              "definition": "Number of FTEs working in Schools, colleges, and other educational institutions (elementary and secondary schools).",
+              "definition": "Number of full-time employees working on elementary, secondary and higher education.",
               "db_indicator": "Edu_Total_Education_FTE"
             },
             {
               "name": "Total Education Part-time Employment",
               "unit": "PT employees",
               "dataType": "level",
-              "definition": "Number of FTEs working in Schools, colleges, and other educational institutions (elementary and secondary schools).",
+              "definition": "Number of part-time employees working on elementary, secondary and higher education.",
               "db_indicator": "Edu_Total_Education_PTE"
             },
             {
               "name": "Elementary & Secondary Education",
               "unit": "employees",
               "dataType": "level",
-              "definition": "Number of FTEs working on The operation, maintenance, and construction of public schools and facilities for elementary and secondary education (kindergarten through high school), vocational-technical education, and other educational institutions except those for higher education. Covers operations by independent governments (school districts) as well as those operated as integral agencies of state, county, municipal, or township governments. Also covers financial support of public elementary and secondary schools.",
+              "definition": "Number of full-time and part-time employees working on the operation, maintenance, and construction of public schools and facilities for elementary and secondary education (kindergarten through high school), vocational-technical education, and other educational institutions except those for higher education. Covers operations by independent governments (school districts) as well as those operated as integral agencies of state, county, municipal, or township governments. Also covers financial support of public elementary and secondary schools.",
               "db_indicator": "Edu_Elementary_Secondary_Education_FTE_PTE"
             },
             {
               "name": "Elementary & Secondary Education Full-time",
               "unit": "FT employees",
               "dataType": "level",
-              "definition": "Number of FTEs working on The operation, maintenance, and construction of public schools and facilities for elementary and secondary education (kindergarten through high school), vocational-technical education, and other educational institutions except those for higher education. Covers operations by independent governments (school districts) as well as those operated as integral agencies of state, county, municipal, or township governments. Also covers financial support of public elementary and secondary schools.",
+              "definition": "Number of full-time employees working on the operation, maintenance, and construction of public schools and facilities for elementary and secondary education (kindergarten through high school), vocational-technical education, and other educational institutions except those for higher education. Covers operations by independent governments (school districts) as well as those operated as integral agencies of state, county, municipal, or township governments. Also covers financial support of public elementary and secondary schools.",
               "db_indicator": "Edu_Elementary_Secondary_Education_FTE"
             },
             {
               "name": "Elementary & Secondary Education Part-time",
               "unit": "PT employees",
               "dataType": "level",
-              "definition": "Number of FTEs working on The operation, maintenance, and construction of public schools and facilities for elementary and secondary education (kindergarten through high school), vocational-technical education, and other educational institutions except those for higher education. Covers operations by independent governments (school districts) as well as those operated as integral agencies of state, county, municipal, or township governments. Also covers financial support of public elementary and secondary schools.",
+              "definition": "Number of part-time employees working on the operation, maintenance, and construction of public schools and facilities for elementary and secondary education (kindergarten through high school), vocational-technical education, and other educational institutions except those for higher education. Covers operations by independent governments (school districts) as well as those operated as integral agencies of state, county, municipal, or township governments. Also covers financial support of public elementary and secondary schools.",
               "db_indicator": "Edu_Elementary_Secondary_Education_PTE"
             },
             {
               "name": "Higher Education",
               "unit": "employees",
               "dataType": "level",
-              "definition": "Number of FTEs working on Higher Education Auxiliary Enterprises: Higher education activities and facilities that provide supplementary services to students, faculty or staff, and which are self-supported (wholly or largely through charges for services) and operated on a commercial basis.Includes: Dormitories; cafeterias; bookstores; athletic facilities, contests, or events; student activities; lunch rooms; student health services; college unions; college stores, and the like.    Other Higher Education: Degree-granting institutions (associate, bachelor, master, or doctorate) operated by state or local governments that provide academic training beyond the high school (grade 12) level, other than for auxiliary enterprises of the state or local institution.",
+              "definition": "Number of full-time and part-time employees working on higher education auxiliary enterprises: higher education activities and facilities that provide supplementary services to students, faculty or staff, and which are self-supported (wholly or largely through charges for services) and operated  on a commercial basis. Includes: dormitories; cafeterias; bookstores; athletic facilities, contests, or events; student activities; lunch rooms; student health services; college unions; college stores, and the like. Other Higher Education: Degree-granting institutions (associate, bachelor, master, or doctorate) operated by state or local governments that provide academic training beyond the high school (grade 12) level, other than for auxiliary enterprises of the state or local institution.",
               "db_indicator": "Edu_Higher_Education_FTE_PTE"
             },
             {
               "name": "Higher Education Full-time",
               "unit": "FT employees",
               "dataType": "level",
-              "definition": "Number of FTEs working on Higher Education Auxiliary Enterprises: Higher education activities and facilities that provide supplementary services to students, faculty or staff, and which are self-supported (wholly or largely through charges for services) and operated on a commercial basis.Includes: Dormitories; cafeterias; bookstores; athletic facilities, contests, or events; student activities; lunch rooms; student health services; college unions; college stores, and the like.    Other Higher Education: Degree-granting institutions (associate, bachelor, master, or doctorate) operated by state or local governments that provide academic training beyond the high school (grade 12) level, other than for auxiliary enterprises of the state or local institution.",
+              "definition": "Number of full-time employees working on higher education auxiliary enterprises: higher education activities and facilities that provide supplementary services to students, faculty or staff, and which are self-supported (wholly or largely through charges for services) and operated  on a commercial basis. Includes: dormitories; cafeterias; bookstores; athletic facilities, contests, or events; student activities; lunch rooms; student health services; college unions; college stores, and the like. Other Higher Education: Degree-granting institutions (associate, bachelor, master, or doctorate) operated by state or local governments that provide academic training beyond the high school (grade 12) level, other than for auxiliary enterprises of the state or local institution.",
               "db_indicator": "Edu_Higher_Education_FTE"
             },
             {
               "name": "Higher Education Part-time",
               "unit": "PT employees",
               "dataType": "level",
-              "definition": "Number of FTEs working on Higher Education Auxiliary Enterprises: Higher education activities and facilities that provide supplementary services to students, faculty or staff, and which are self-supported (wholly or largely through charges for services) and operated on a commercial basis.Includes: Dormitories; cafeterias; bookstores; athletic facilities, contests, or events; student activities; lunch rooms; student health services; college unions; college stores, and the like.    Other Higher Education: Degree-granting institutions (associate, bachelor, master, or doctorate) operated by state or local governments that provide academic training beyond the high school (grade 12) level, other than for auxiliary enterprises of the state or local institution.",
+              "definition": "Number of part-time employees working on higher education auxiliary enterprises: higher education activities and facilities that provide supplementary services to students, faculty or staff, and which are self-supported (wholly or largely through charges for services) and operated  on a commercial basis. Includes: dormitories; cafeterias; bookstores; athletic facilities, contests, or events; student activities; lunch rooms; student health services; college unions; college stores, and the like. Other Higher Education: Degree-granting institutions (associate, bachelor, master, or doctorate) operated by state or local governments that provide academic training beyond the high school (grade 12) level, other than for auxiliary enterprises of the state or local institution.",
               "db_indicator": "Edu_Higher_Education_PTE"
             }
           ]
@@ -280,6 +283,7 @@
             2014
           ],
           "source": "NACo Analysis of U.S. Census Bureau - Census of Individual Governments: Employment",
+          "notes": ".census-of-govs-employment-note",
           "db_dataset": "Employment",
           "companions": [
             [
@@ -308,64 +312,64 @@
               "name": "Total Health & Hospitals Employment",
               "unit": "employees",
               "dataType": "level",
-              "definition": "Number of FTEs working in hospitals or providing health services.",
+              "definition": "Number of full-time and part-time employees working in hospitals or  providing health services.",
               "db_indicator": "HH_Total_Health_Hospitals_FTE_PTE"
             },
             {
               "name": "Total Health & Hospitals Full-time Employment",
               "unit": "FT employees",
               "dataType": "level",
-              "definition": "Number of FTEs working in hospitals or providing health services.",
+              "definition": "Number of full-time employees working in hospitals or  providing health services.",
               "db_indicator": "HH_Total_Health_Hospitals_FTE"
             },
             {
               "name": "Total Health & Hospitals Part-time Employment",
               "unit": "PT employees",
               "dataType": "level",
-              "definition": "Number of FTEs working in hospitals or providing health services.",
+              "definition": "Number of part-time employees working in hospitals or  providing health services.",
               "db_indicator": "HH_Total_Health_Hospitals_PTE"
             },
             {
               "name": "Health",
               "unit": "employees",
               "dataType": "level",
-              "definition": "Number of FTEs working on Provision of services for the conservation and improvement of public health, other than hospital care, and support of other governments’ health programs.",
+              "definition": "Number of full-time and part-time employees working on provision of services for the conservation and improvement of public health, other than hospital care, and support of other governments’ health programs.",
               "db_indicator": "HH_Health_FTE_PTE"
             },
             {
               "name": "Health Full-time",
               "unit": "FT employees",
               "dataType": "level",
-              "definition": "Number of FTEs working on Provision of services for the conservation and improvement of public health, other than hospital care, and support of other governments’ health programs.",
+              "definition": "Number of full-time employees working on provision of services for the conservation and improvement of public health, other than hospital care, and support of other governments’ health programs.",
               "db_indicator": "HH_Health_FTE"
             },
             {
               "name": "Health Part-time",
               "unit": "PT employees",
               "dataType": "level",
-              "definition": "Number of FTEs working on Provision of services for the conservation and improvement of public health, other than hospital care, and support of other governments’ health programs.",
+              "definition": "Number of part-time employees working on provision of services for the conservation and improvement of public health, other than hospital care, and support of other governments’ health programs.",
               "db_indicator": "HH_Health_PTE"
             },
             {
               "name": "Hospitals",
               "unit": "employees",
               "dataType": "level",
-              "definition": "Number of FTEs working on Services provided from a government’s own hospitals as well as expenditures for the provision of care in other hospitals (public or private). Own hospitals are facilities directly administered by the government, including those operated by public universities. Other expenditures cover the provision of care in other hospitals and support of other public and private hospitals.",
+              "definition": "Number of full-time and part-time employees working on services provided from a government’s own hospitals as well as expenditures for the provision of care in other hospitals (public or private). Own hospitals are facilities directly administered by the government, including those operated by public universities. Other expenditures cover the provision of care in other hospitals and support of other public and private hospitals.",
               "db_indicator": "HH_Hospitals_FTE_PTE"
             },
             {
               "name": "Hospitals Full-time",
               "unit": "FT employees",
               "dataType": "level",
-              "definition": "Number of FTEs working on Services provided from a government’s own hospitals as well as expenditures for the provision of care in other hospitals (public or private). Own hospitals are facilities directly administered by the government, including those operated by public universities. Other expenditures cover the provision of care in other hospitals and support of other public and private hospitals.",
+              "definition": "Number of full-time employees working on services provided from a government’s own hospitals as well as expenditures for the provision of care in other hospitals (public or private). Own hospitals are facilities directly administered by the government, including those operated by public universities. Other expenditures cover the provision of care in other hospitals and support of other public and private hospitals.",
               "db_indicator": "HH_Hospitals_FTE"
             },
             {
               "name": "Hospitals Part-time",
               "unit": "PT employees",
               "dataType": "level",
-              "definition": "Number of FTEs working on Services provided from a government’s own hospitals as well as expenditures for the provision of care in other hospitals (public or private). Own hospitals are facilities directly administered by the government, including those operated by public universities. Other expenditures cover the provision of care in other hospitals and support of other public and private hospitals.",
-              "db_indicator": "HH_Hospitals_1PTE"
+              "definition": "Number of part-time employees working on services provided from a government’s own hospitals as well as expenditures for the provision of care in other hospitals (public or private). Own hospitals are facilities directly administered by the government, including those operated by public universities. Other expenditures cover the provision of care in other hospitals and support of other public and private hospitals.",
+              "db_indicator": "HH_Hospitals_PTE"
             }
           ]
         },
@@ -381,6 +385,7 @@
             2014
           ],
           "source": "NACo Analysis of U.S. Census Bureau - Census of Individual Governments: Employment",
+          "notes": ".census-of-govs-employment-note",
           "db_dataset": "Employment",
           "companions": [
             [
@@ -401,21 +406,21 @@
               "name": "Housing & Community Development Employment",
               "unit": "employees",
               "dataType": "level",
-              "definition": "Number of FTEs working on Construction, operation, and support of housing and redevelopment projects and other activities to promote or aid public and private housing and community development.  Includes: Housing: Planning, construction, furnishing, and operation of public housing projects (generally for persons not adequately served by private sector). Community development: Urban renewal and slum clearance; redevelopment and rehabilitation of substandard or deteriorated facilities and areas; rural redevelopment; and revitalization of commercial areas.",
+              "definition": "Number of full-time and part-time employees working on construction, operation, and support of housing and redevelopment projects and other activities to promote or aid public and private housing and community development.  Includes: Housing: Planning, construction, furnishing, and operation of public housing projects (generally for persons not adequately served by private sector). Community development: Urban renewal and slum clearance; redevelopment and rehabilitation of substandard or deteriorated facilities and areas; rural redevelopment; and revitalization of commercial areas.",
               "db_indicator": "HCD_Total_Housing_Community_Development_FTE_PTE"
             },
             {
               "name": "Housing & Community Development Full-time Employment",
               "unit": "FT employees",
               "dataType": "level",
-              "definition": "Number of FTEs working on Construction, operation, and support of housing and redevelopment projects and other activities to promote or aid public and private housing and community development.  Includes: Housing: Planning, construction, furnishing, and operation of public housing projects (generally for persons not adequately served by private sector). Community development: Urban renewal and slum clearance; redevelopment and rehabilitation of substandard or deteriorated facilities and areas; rural redevelopment; and revitalization of commercial areas.",
+              "definition": "Number of full-time employees working on construction, operation, and support of housing and redevelopment projects and other activities to promote or aid public and private housing and community development.  Includes: Housing: Planning, construction, furnishing, and operation of public housing projects (generally for persons not adequately served by private sector). Community development: Urban renewal and slum clearance; redevelopment and rehabilitation of substandard or deteriorated facilities and areas; rural redevelopment; and revitalization of commercial areas.",
               "db_indicator": "HCD_Total_Housing_Community_Development_FTE"
             },
             {
               "name": "Housing & Community Development Part-time Employment",
-              "unit": "Pt employees",
+              "unit": "PT employees",
               "dataType": "level",
-              "definition": "Number of FTEs working on Construction, operation, and support of housing and redevelopment projects and other activities to promote or aid public and private housing and community development.  Includes: Housing: Planning, construction, furnishing, and operation of public housing projects (generally for persons not adequately served by private sector). Community development: Urban renewal and slum clearance; redevelopment and rehabilitation of substandard or deteriorated facilities and areas; rural redevelopment; and revitalization of commercial areas.",
+              "definition": "Number of part-time employees working on construction, operation, and support of housing and redevelopment projects and other activities to promote or aid public and private housing and community development.  Includes: Housing: Planning, construction, furnishing, and operation of public housing projects (generally for persons not adequately served by private sector). Community development: Urban renewal and slum clearance; redevelopment and rehabilitation of substandard or deteriorated facilities and areas; rural redevelopment; and revitalization of commercial areas.",
               "db_indicator": "HCD_Total_Housing_Community_Development_PTE"
             }
           ]
@@ -432,6 +437,7 @@
             2014
           ],
           "source": "NACo Analysis of U.S. Census Bureau - Census of Individual Governments: Employment",
+          "notes": ".census-of-govs-employment-note",
           "db_dataset": "Employment",
           "companions": [
             [
@@ -460,105 +466,105 @@
               "name": "Total Justice & Public Safety Employment",
               "unit": "employees",
               "dataType": "level",
-              "definition": "Number of FTEs working on correction, judicial and legal services, and police protection. Correctional Institutions: Residential institutions or facilities for the confinement, correction, and rehabilitation of convicted adults, or juveniles adjudicated, delinquent or in need of supervision, and for the detention of adults and juveniles charged with a crime and awaiting trial. Judicial and Legal : Courts (criminal and civil) and activities associated with courts, legal services, and legal counseling of indigent or other needy persons. Police protection: sheriff, state police, and other governmental departments that preserve law and order, protect persons and property from illegal acts, and work to prevent, control, investigate, and reduce crime.",
+              "definition": "Number of full-time and part-time employees working on correction, judicial and legal services, police protection and fire protection.",
               "db_indicator": "JPS_Justice_Public_Safety_FTE_PTE"
             },
             {
               "name": "Total Justice & Public Safety Full-time Employment",
               "unit": "FT employees",
               "dataType": "level",
-              "definition": "Number of FTEs working on correction, judicial and legal services, and police protection. Correctional Institutions: Residential institutions or facilities for the confinement, correction, and rehabilitation of convicted adults, or juveniles adjudicated, delinquent or in need of supervision, and for the detention of adults and juveniles charged with a crime and awaiting trial. Judicial and Legal : Courts (criminal and civil) and activities associated with courts, legal services, and legal counseling of indigent or other needy persons. Police protection: sheriff, state police, and other governmental departments that preserve law and order, protect persons and property from illegal acts, and work to prevent, control, investigate, and reduce crime.",
+              "definition": "Number of full-time employees working on correction, judicial and legal services, police protection and fire protection.",
               "db_indicator": "JPS_Justice_Public_Safety_FTE"
             },
             {
               "name": "Total Justice & Public Safety Part-time Employment",
               "unit": "PT employees",
               "dataType": "level",
-              "definition": "Number of FTEs working on correction, judicial and legal services, and police protection. Correctional Institutions: Residential institutions or facilities for the confinement, correction, and rehabilitation of convicted adults, or juveniles adjudicated, delinquent or in need of supervision, and for the detention of adults and juveniles charged with a crime and awaiting trial. Judicial and Legal : Courts (criminal and civil) and activities associated with courts, legal services, and legal counseling of indigent or other needy persons. Police protection: sheriff, state police, and other governmental departments that preserve law and order, protect persons and property from illegal acts, and work to prevent, control, investigate, and reduce crime.",
+              "definition": "Number of part-time employees working on correction, judicial and legal services, police protection and fire protection.",
               "db_indicator": "JPS_Justice_Public_Safety_PTE"
             },
             {
               "name": "Corrections",
               "unit": "employees",
               "dataType": "level",
-              "definition": "Number of FTEs working on Correctional Institutions-Residential institutions or facilities for the confinement, correction, and rehabilitation of convicted adults, or juveniles adjudicated, delinquent or in need of supervision, and for the detention of adults and juveniles charged with a crime and awaiting trial.  Other Correctionss - Correctional activities other than Federal, state and local residential institutions or facilities.",
+              "definition": "Number of full-time and part-time employees working on correctional institutions: residential institutions or facilities for the confinement, correction, and rehabilitation of convicted adults, or juveniles adjudicated, delinquent or in need of supervision, and for the detention of adults and juveniles charged with a crime and awaiting trial. Other corrections including correctional activities other than Federal, state and local residential institutions or facilities. ",
               "db_indicator": "JPS_Corrections_FTE_PTE"
             },
             {
               "name": "Corrections Full-time",
               "unit": "FT employees",
               "dataType": "level",
-              "definition": "Number of FTEs working on Correctional Institutions-Residential institutions or facilities for the confinement, correction, and rehabilitation of convicted adults, or juveniles adjudicated, delinquent or in need of supervision, and for the detention of adults and juveniles charged with a crime and awaiting trial.  Other Correctionss - Correctional activities other than Federal, state and local residential institutions or facilities.",
-              "db_indicator": "JPS_Corrections_FTE_PTE"
+              "definition": "Number of full-time employees working on correctional institutions: residential institutions or facilities for the confinement, correction, and rehabilitation of convicted adults, or juveniles adjudicated, delinquent or in need of supervision, and for the detention of adults and juveniles charged with a crime and awaiting trial. Other corrections including correctional activities other than Federal, state and local residential institutions or facilities. ",
+              "db_indicator": "JPS_Corrections_FTE"
             },
             {
               "name": "Corrections Part-time",
               "unit": "PT employees",
               "dataType": "level",
-              "definition": "Number of FTEs working on Correctional Institutions-Residential institutions or facilities for the confinement, correction, and rehabilitation of convicted adults, or juveniles adjudicated, delinquent or in need of supervision, and for the detention of adults and juveniles charged with a crime and awaiting trial.  Other Correctionss - Correctional activities other than Federal, state and local residential institutions or facilities.",
-              "db_indicator": "JPS_Corrections_FTE_PTE"
+              "definition": "Number of part-time employees working on correctional institutions: residential institutions or facilities for the confinement, correction, and rehabilitation of convicted adults, or juveniles adjudicated, delinquent or in need of supervision, and for the detention of adults and juveniles charged with a crime and awaiting trial. Other corrections including correctional activities other than Federal, state and local residential institutions or facilities. ",
+              "db_indicator": "JPS_Corrections_PTE"
             },
             {
               "name": "Judicial & Legal Services",
               "unit": "employees",
               "dataType": "level",
-              "definition": "Number of FTEs working on Courts (criminal and civil) and activities associated with courts, legal services, and legal counseling of indigent or other needy persons.",
+              "definition": "Number of full-time and part-time employees working on courts (criminal and civil) and activities associated with courts, legal services, and legal counseling of indigent or other needy persons. ",
               "db_indicator": "JPS_Judicial_Legal_FTE_PTE"
             },
             {
               "name": "Judicial & Legal Services Full-time",
               "unit": "FT employees",
               "dataType": "level",
-              "definition": "Number of FTEs working on Courts (criminal and civil) and activities associated with courts, legal services, and legal counseling of indigent or other needy persons.",
+              "definition": "Number of full-time employees working on courts (criminal and civil) and activities associated with courts, legal services, and legal counseling of indigent or other needy persons. ",
               "db_indicator": "JPS_Judicial_Legal_FTE"
             },
             {
               "name": "Judicial & Legal Services Part-time",
               "unit": "PT employees",
               "dataType": "level",
-              "definition": "Number of FTEs working on Courts (criminal and civil) and activities associated with courts, legal services, and legal counseling of indigent or other needy persons.",
+              "definition": "Number of part-time employees working on courts (criminal and civil) and activities associated with courts, legal services, and legal counseling of indigent or other needy persons. ",
               "db_indicator": "JPS_Judicial_Legal_PTE"
             },
             {
               "name": "Police Protection",
               "unit": "employees",
               "dataType": "level",
-              "definition": "Number of FTEs working on general police, sheriff, state police, and other governmental departments that preserve law and order, protect persons and property from illegal acts, and work to prevent, control, investigate, and reduce crime.",
+              "definition": "Number of full-time and part-time employees working on general police, sheriff, state police, and other governmental departments that preserve law and order, protect persons and property from illegal acts, and work to prevent, control, investigate, and reduce crime.",
               "db_indicator": "JPS_Police_Protection_FTE_PTE"
             },
             {
               "name": "Police Protection Full-time",
               "unit": "FT employees",
               "dataType": "level",
-              "definition": "Number of FTEs working on general police, sheriff, state police, and other governmental departments that preserve law and order, protect persons and property from illegal acts, and work to prevent, control, investigate, and reduce crime.",
+              "definition": "Number of full-time employees working on general police, sheriff, state police, and other governmental departments that preserve law and order, protect persons and property from illegal acts, and work to prevent, control, investigate, and reduce crime.",
               "db_indicator": "JPS_Police_Protection_FTE"
             },
             {
               "name": "Police Protection Part-time",
               "unit": "PT employees",
               "dataType": "level",
-              "definition": "Number of FTEs working on general police, sheriff, state police, and other governmental departments that preserve law and order, protect persons and property from illegal acts, and work to prevent, control, investigate, and reduce crime.",
+              "definition": "Number of part-time employees working on general police, sheriff, state police, and other governmental departments that preserve law and order, protect persons and property from illegal acts, and work to prevent, control, investigate, and reduce crime.",
               "db_indicator": "JPS_Police_Protection_PTE"
             },
             {
               "name": "Fire Protection",
               "unit": "employees",
               "dataType": "level",
-              "definition": "Prevention, avoidance, and suppression of fires and provision of ambulance, medical, rescue, or auxiliary services provided by fire protection agencies. This includes regular fire departments; financial, technical, and operational support of volunteer fire forces; fire hydrant maintenance; rescue squads; fire inspection, investigation, and regulation; fire marshals; fire prevention education; fire suppression training; auxiliary services; and the following activities IF handled by a fire department: ambulances, emergency medical technicians (EMTs), paramedic squads, and arson investigation.  This excludes forest-fire protection and suppression; ambulances, emergency medical technicians, and paramedic squads handled by non-fire departments.",
+              "definition": "Number of full-time and part-time employees working on prevention, avoidance, and suppression of fires and provision of ambulance, medical, rescue, or auxiliary services provided by fire protection agencies. This includes regular fire departments; financial, technical, and operational support of volunteer fire forces; fire hydrant maintenance; rescue squads; fire inspection, investigation, and regulation; fire marshals; fire prevention education; fire suppression training; auxiliary services; and the following activities if handled by a fire department: ambulances, emergency medical technicians (EMTs), paramedic squads, and arson investigation. This excludes forest-fire protection and suppression; ambulances, emergency medical technicians, and paramedic squads handled by non-fire departments.",
               "db_indicator": "JPS_Fire_Protection_FTE_PTE"
             },
             {
               "name": "Fire Protection Full-time",
               "unit": "FT employees",
               "dataType": "level",
-              "definition": "Prevention, avoidance, and suppression of fires and provision of ambulance, medical, rescue, or auxiliary services provided by fire protection agencies. This includes regular fire departments; financial, technical, and operational support of volunteer fire forces; fire hydrant maintenance; rescue squads; fire inspection, investigation, and regulation; fire marshals; fire prevention education; fire suppression training; auxiliary services; and the following activities IF handled by a fire department: ambulances, emergency medical technicians (EMTs), paramedic squads, and arson investigation.  This excludes forest-fire protection and suppression; ambulances, emergency medical technicians, and paramedic squads handled by non-fire departments.",
+              "definition": "Number of full-time employees working on prevention, avoidance, and suppression of fires and provision of ambulance, medical, rescue, or auxiliary services provided by fire protection agencies. This includes regular fire departments; financial, technical, and operational support of volunteer fire forces; fire hydrant maintenance; rescue squads; fire inspection, investigation, and regulation; fire marshals; fire prevention education; fire suppression training; auxiliary services; and the following activities if handled by a fire department: ambulances, emergency medical technicians (EMTs), paramedic squads, and arson investigation. This excludes forest-fire protection and suppression; ambulances, emergency medical technicians, and paramedic squads handled by non-fire departments.",
               "db_indicator": "JPS_Fire_Protection_FTE"
             },
             {
               "name": "Fire Protection Part-time",
               "unit": "PT employees",
               "dataType": "level",
-              "definition": "Prevention, avoidance, and suppression of fires and provision of ambulance, medical, rescue, or auxiliary services provided by fire protection agencies. This includes regular fire departments; financial, technical, and operational support of volunteer fire forces; fire hydrant maintenance; rescue squads; fire inspection, investigation, and regulation; fire marshals; fire prevention education; fire suppression training; auxiliary services; and the following activities IF handled by a fire department: ambulances, emergency medical technicians (EMTs), paramedic squads, and arson investigation.  This excludes forest-fire protection and suppression; ambulances, emergency medical technicians, and paramedic squads handled by non-fire departments.",
+              "definition": "Number of part-time employees working on prevention, avoidance, and suppression of fires and provision of ambulance, medical, rescue, or auxiliary services provided by fire protection agencies. This includes regular fire departments; financial, technical, and operational support of volunteer fire forces; fire hydrant maintenance; rescue squads; fire inspection, investigation, and regulation; fire marshals; fire prevention education; fire suppression training; auxiliary services; and the following activities if handled by a fire department: ambulances, emergency medical technicians (EMTs), paramedic squads, and arson investigation. This excludes forest-fire protection and suppression; ambulances, emergency medical technicians, and paramedic squads handled by non-fire departments.",
               "db_indicator": "JPS_Fire_Protection_PTE"
             }
           ]
@@ -575,6 +581,7 @@
             2014
           ],
           "source": "NACo Analysis of U.S. Census Bureau - Census of Individual Governments: Employment",
+          "notes": ".census-of-govs-employment-note",
           "db_dataset": "Employment",
           "companions": [
             [
@@ -603,84 +610,84 @@
               "name": "Total Public Amenity Employment",
               "unit": "employees",
               "dataType": "level",
-              "definition": "Number of FTEs working on libraries, parks and recreation, as well as other natural resources.",
+              "definition": "Number of full-time and part-time employees working on libraries, parks and recreation, as well as other natural resources.",
               "db_indicator": "Pub_Total_Public_Amenity_FTE_PTE"
             },
             {
               "name": "Total Public Amenity Full-time Employment",
               "unit": "FT employees",
               "dataType": "level",
-              "definition": "Number of FTEs working on libraries, parks and recreation, as well as other natural resources.",
+              "definition": "Number of full-time employees working on libraries, parks and recreation, as well as other natural resources.",
               "db_indicator": "Pub_Total_Public_Amenity_FTE"
             },
             {
               "name": "Total Public Amenity Part-time Employment",
               "unit": "PT employees",
               "dataType": "level",
-              "definition": "Number of FTEs working on libraries, parks and recreation, as well as other natural resources.",
+              "definition": "Number of part-time employees working on libraries, parks and recreation, as well as other natural resources.",
               "db_indicator": "Pub_Total_Public_Amenity_PTE"
             },
             {
               "name": "Libraries",
               "unit": "employees",
               "dataType": "level",
-              "definition": "Number of FTEs working on Establishment and provision of libraries for use by the general public and the technical support of privately-operated libraries. Includes: Public libraries, community libraries, consolidated libraries, regional libraries, and their variously-named equivalents; library extension services including bookmobiles; public library (special) districts; U.S. Library of Congress (including Copyright Office); state library commissions and boards; programs to promote, develop, and coordinate library services and facilities.",
+              "definition": "Number of full-time and part-time employees working on the establishment and provision of libraries for use by the general public and the technical support of privately-operated libraries. Includes: Public libraries, community libraries, consolidated libraries, regional libraries, and their variously-named equivalents; library extension services including bookmobiles; public library (special) districts; U.S. Library of Congress (including Copyright Office); state library commissions and boards; programs to promote, develop, and coordinate library services and facilities.",
               "db_indicator": "Pub_Libraries_FTE_PTE"
             },
             {
               "name": "Libraries Full-time",
               "unit": "FT employees",
               "dataType": "level",
-              "definition": "Number of FTEs working on Establishment and provision of libraries for use by the general public and the technical support of privately-operated libraries. Includes: Public libraries, community libraries, consolidated libraries, regional libraries, and their variously-named equivalents; library extension services including bookmobiles; public library (special) districts; U.S. Library of Congress (including Copyright Office); state library commissions and boards; programs to promote, develop, and coordinate library services and facilities.",
+              "definition": "Number of full-time employees working on the establishment and provision of libraries for use by the general public and the technical support of privately-operated libraries. Includes: Public libraries, community libraries, consolidated libraries, regional libraries, and their variously-named equivalents; library extension services including bookmobiles; public library (special) districts; U.S. Library of Congress (including Copyright Office); state library commissions and boards; programs to promote, develop, and coordinate library services and facilities.",
               "db_indicator": "Pub_Libraries_FTE"
             },
             {
               "name": "Libraries Part-time",
               "unit": "PT employees",
               "dataType": "level",
-              "definition": "Number of FTEs working on Establishment and provision of libraries for use by the general public and the technical support of privately-operated libraries. Includes: Public libraries, community libraries, consolidated libraries, regional libraries, and their variously-named equivalents; library extension services including bookmobiles; public library (special) districts; U.S. Library of Congress (including Copyright Office); state library commissions and boards; programs to promote, develop, and coordinate library services and facilities.",
+              "definition": "Number of part-time employees working on the establishment and provision of libraries for use by the general public and the technical support of privately-operated libraries. Includes: Public libraries, community libraries, consolidated libraries, regional libraries, and their variously-named equivalents; library extension services including bookmobiles; public library (special) districts; U.S. Library of Congress (including Copyright Office); state library commissions and boards; programs to promote, develop, and coordinate library services and facilities.",
               "db_indicator": "Pub_Libraries_PTE"
             },
             {
               "name": "Natural Resources",
               "unit": "employees",
               "dataType": "level",
-              "definition": "Number of FTEs working on Conservation, promotion, and development of natural resources (soil, water, energy, minerals, etc.) and the regulation of industries which develop, utilize, or affect natural resources. Includes: Employees engaged in irrigation; drainage; flood control; soil conservation and reclamation including prevention of soil erosion; surveying, development, and regulation of water resources; regulation of mineral resources and related industries including land reclamation; wetlands and watershed management and protection; geological surveying and mapping; regulation of gas and oil drilling and production; dam and reservoir safety; public education programs related to the above; fairs; technical assistance to private or other governmental efforts in these areas.",
+              "definition": "Number of full-time and part-time employees working on conservation, promotion, and development of natural resources (soil, water, energy, minerals, etc.) and the regulation of industries which develop, utilize, or affect natural resources. Includes: Employees engaged in irrigation; drainage; flood control; soil conservation and reclamation including prevention of soil erosion; surveying, development, and regulation of water resources; regulation of mineral resources and related industries including land reclamation; wetlands and watershed management and protection; geological surveying and mapping; regulation of gas and oil drilling and production; dam and reservoir safety; public education programs related to the above; fairs; technical assistance to private or other governmental efforts in these areas.",
               "db_indicator": "Pub_Natural_Resources_FTE_PTE"
             },
             {
               "name": "Natural Resources Full-time",
               "unit": "FT employees",
               "dataType": "level",
-              "definition": "Number of FTEs working on Conservation, promotion, and development of natural resources (soil, water, energy, minerals, etc.) and the regulation of industries which develop, utilize, or affect natural resources. Includes: Employees engaged in irrigation; drainage; flood control; soil conservation and reclamation including prevention of soil erosion; surveying, development, and regulation of water resources; regulation of mineral resources and related industries including land reclamation; wetlands and watershed management and protection; geological surveying and mapping; regulation of gas and oil drilling and production; dam and reservoir safety; public education programs related to the above; fairs; technical assistance to private or other governmental efforts in these areas.",
+              "definition": "Number of full-time employees working on conservation, promotion, and development of natural resources (soil, water, energy, minerals, etc.) and the regulation of industries which develop, utilize, or affect natural resources. Includes: Employees engaged in irrigation; drainage; flood control; soil conservation and reclamation including prevention of soil erosion; surveying, development, and regulation of water resources; regulation of mineral resources and related industries including land reclamation; wetlands and watershed management and protection; geological surveying and mapping; regulation of gas and oil drilling and production; dam and reservoir safety; public education programs related to the above; fairs; technical assistance to private or other governmental efforts in these areas.",
               "db_indicator": "Pub_Natural_Resources_FTE"
             },
             {
               "name": "Natural Resources Part-time",
               "unit": "PT employees",
               "dataType": "level",
-              "definition": "Number of FTEs working on Conservation, promotion, and development of natural resources (soil, water, energy, minerals, etc.) and the regulation of industries which develop, utilize, or affect natural resources. Includes: Employees engaged in irrigation; drainage; flood control; soil conservation and reclamation including prevention of soil erosion; surveying, development, and regulation of water resources; regulation of mineral resources and related industries including land reclamation; wetlands and watershed management and protection; geological surveying and mapping; regulation of gas and oil drilling and production; dam and reservoir safety; public education programs related to the above; fairs; technical assistance to private or other governmental efforts in these areas.",
+              "definition": "Number of part-time employees working on conservation, promotion, and development of natural resources (soil, water, energy, minerals, etc.) and the regulation of industries which develop, utilize, or affect natural resources. Includes: Employees engaged in irrigation; drainage; flood control; soil conservation and reclamation including prevention of soil erosion; surveying, development, and regulation of water resources; regulation of mineral resources and related industries including land reclamation; wetlands and watershed management and protection; geological surveying and mapping; regulation of gas and oil drilling and production; dam and reservoir safety; public education programs related to the above; fairs; technical assistance to private or other governmental efforts in these areas.",
               "db_indicator": "Pub_Natural_Resources_PTE"
             },
             {
               "name": "Parks & Recreation",
               "unit": "employees",
               "dataType": "level",
-              "definition": "Number of FTEs working on Provision and support of recreational and cultural-scientific facilities maintained for the benefit of residents and visitors.",
+              "definition": "Number of full-time and part-time employees working on provision and support of recreational and cultural-scientific facilities maintained for the benefit of residents and visitors.",
               "db_indicator": "Pub_Parks_and_Recreation_FTE_PTE"
             },
             {
               "name": "Parks & Recreation Full-time",
               "unit": "FT employees",
               "dataType": "level",
-              "definition": "Number of FTEs working on Provision and support of recreational and cultural-scientific facilities maintained for the benefit of residents and visitors.",
+              "definition": "Number of full-time employees working on provision and support of recreational and cultural-scientific facilities maintained for the benefit of residents and visitors.",
               "db_indicator": "Pub_Parks_and_Recreation_FTE"
             },
             {
               "name": "Parks & Recreation Part-time",
               "unit": "PT employees",
               "dataType": "level",
-              "definition": "Number of FTEs working on Provision and support of recreational and cultural-scientific facilities maintained for the benefit of residents and visitors.",
+              "definition": "Number of part-time employees working on provision and support of recreational and cultural-scientific facilities maintained for the benefit of residents and visitors.",
               "db_indicator": "Pub_Parks_and_Recreation_PTE"
             }
           ]
@@ -697,6 +704,7 @@
             2014
           ],
           "source": "NACo Analysis of U.S. Census Bureau - Census of Individual Governments: Employment",
+          "notes": ".census-of-govs-employment-note",
           "db_dataset": "Employment",
           "companions": [
             [
@@ -725,21 +733,21 @@
               "name": "Public Welfare Employment",
               "unit": "employees",
               "dataType": "level",
-              "definition": "Number of FTEs working on Support of and assistance to needy persons contingent upon their need.",
+              "definition": "Number of full-time and part-time employees working on support of and assistance to needy persons contingent upon their need. ",
               "db_indicator": "PW_Total_Public_Welfare_FTE_PTE"
             },
             {
               "name": "Public Welfare Full-time Employment",
               "unit": "FT employees",
               "dataType": "level",
-              "definition": "Number of FTEs working on Support of and assistance to needy persons contingent upon their need.",
+              "definition": "Number of full-time employees working on support of and assistance to needy persons contingent upon their need. ",
               "db_indicator": "PW_Total_Public_Welfare_FTE"
             },
             {
               "name": "Public Welfare Part-time Employment",
               "unit": "PT employees",
               "dataType": "level",
-              "definition": "Number of FTEs working on Support of and assistance to needy persons contingent upon their need.",
+              "definition": "Number of part-time employees working on support of and assistance to needy persons contingent upon their need. ",
               "db_indicator": "PW_Total_Public_Welfare_PTE"
             }
           ]
@@ -756,6 +764,7 @@
             2014
           ],
           "source": "NACo Analysis of U.S. Census Bureau - Census of Individual Governments: Employment",
+          "notes": ".census-of-govs-employment-note",
           "db_dataset": "Employment",
           "companions": [
             [
@@ -764,7 +773,7 @@
             ],
             [
               "Transportation Employment",
-              "Total Transportation"
+              "Total Transportation Employment"
             ],
             [
               "Transportation Employment",
@@ -782,38 +791,108 @@
           "children": [
             {
               "name": "Total Transportation Employment",
-              "unit": "FTE employees",
+              "unit": "employees",
               "dataType": "level",
-              "definition": "Number of FTEs working on Air Transportation, Highways, Sea and Inland Port and Transit Utilities.",
-              "db_indicator": "Trans_Empl_Total_Transportation_FTE"
+              "definition": "Number of full-time and part-time employees involved in air transporation, highways, transit, as well as water transport and terminals.",
+              "db_indicator": "Trans_Total_Transportation_FTE_PTE"
+            },
+            {
+              "name": "Total Transportation Full-time Employment",
+              "unit": "FT employees",
+              "dataType": "level",
+              "definition": "Number of full-time employees involved in air transporation, highways, transit, as well as water transport and terminals.",
+              "db_indicator": "Trans_Total_Transportation_FTE"
+            },
+            {
+              "name": "Total Transportation Part-time Employment",
+              "unit": "PT employees",
+              "dataType": "level",
+              "definition": "Number of part-time employees involved in air transporation, highways, transit, as well as water transport and terminals.",
+              "db_indicator": "Trans_Total_Transportation_PTE"
             },
             {
               "name": "Air Transportation",
-              "unit": "FTE employees",
+              "unit": "employees",
               "dataType": "level",
-              "definition": "Number of FTEs working on Provision, operation, construction, and support of airport facilities serving the public at-large on a scheduled or unscheduled basis.",
-              "db_indicator": "Trans_Empl_Air_Transportation"
+              "definition": "Number of full-time and part-time employees  involved in the provision, operation, construction, and support of airport facilities serving the public at-large on a scheduled or unscheduled basis. Also includes the regulation of airline industry, if applicable.",
+              "db_indicator": "Trans_Air_Transportation_FTE_PTE"
+            },
+            {
+              "name": "Air Transportation Full-time",
+              "unit": "FT employees",
+              "dataType": "level",
+              "definition": "Number of full-time employees  involved in the provision, operation, construction, and support of airport facilities serving the public at-large on a scheduled or unscheduled basis. Also includes the regulation of airline industry, if applicable.",
+              "db_indicator": "Trans_Air_Transportation_FTE"
+            },
+            {
+              "name": "Air Transportation Part-time",
+              "unit": "PT employees",
+              "dataType": "level",
+              "definition": "Number of part-time employees  involved in the provision, operation, construction, and support of airport facilities serving the public at-large on a scheduled or unscheduled basis. Also includes the regulation of airline industry, if applicable.",
+              "db_indicator": "Trans_Air_Transportation_PTE"
             },
             {
               "name": "Highways",
-              "unit": "FTE employees",
+              "unit": "employees",
               "dataType": "level",
-              "definition": "Number of FTEs working on Regular Highway: Maintenance, operation, repair, and construction of highways, streets, roads, alleys, sidewalks, bridges, tunnels, ferry boats, viaducts, and related non-toll structures.Toll Highway: Maintenance, operation, repair, and construction of highways, roads, bridges, ferries, and tunnels operated on a fee or toll basis. Includes: Turnpikes; toll roads, toll bridges, toll ferries (including docks and related terminals), toll tunnels, and all related activities and facilities such as snow and ice removal, highway police and fire protection units if administered by the toll authority, lighting and light fixtures, design and engineering, garages and administrative buildings of toll authorities, operation of toll booths, drawspans, rest stops, and service areas by the toll authority itself.",
-              "db_indicator": "Trans_Empl_Highways"
+              "definition": "Number of full-time and part-time employees involed in maintenance, operation, repair, and construction of highways, streets, roads, alleys, sidewalks, bridges, tunnels, ferry boats, and related structures, including those operated on a toll basis.",
+              "db_indicator": "Trans_Highways_FTE_PTE"
+            },
+            {
+              "name": "Highways Full-time",
+              "unit": "FT employees",
+              "dataType": "level",
+              "definition": "Number of full-time employees involed in maintenance, operation, repair, and construction of highways, streets, roads, alleys, sidewalks, bridges, tunnels, ferry boats, and related structures, including those operated on a toll basis.",
+              "db_indicator": "Trans_Highways_FTE"
+            },
+            {
+              "name": "Highways Part-time",
+              "unit": "PT employees",
+              "dataType": "level",
+              "definition": "Number of part-time employees involed in maintenance, operation, repair, and construction of highways, streets, roads, alleys, sidewalks, bridges, tunnels, ferry boats, and related structures, including those operated on a toll basis.",
+              "db_indicator": "Trans_Highways_PTE"
             },
             {
               "name": "Water Transport & Terminals",
-              "unit": "FTE employees",
+              "unit": "employees",
               "dataType": "level",
-              "definition": "Number of FTEs working on Construction, maintenance, operation, and support of canals and other waterways, harbors, docks, wharves, and related marine terminal facilities.",
-              "db_indicator": "Trans_Empl_Water_Transport_and_Terminals"
+              "definition": "Number of full-time and part-time employees involved in provision, construction, operation, maintenance, and support of public waterways, harbors, docks, wharves, and related marine terminal facilities. Regulation of the water transportation industry.",
+              "db_indicator": "Trans_Water_Transport_Terminals_FTE_PTE"
+            },
+            {
+              "name": "Water Transport & Terminals Full-time",
+              "unit": "FT employees",
+              "dataType": "level",
+              "definition": "Number of full-time employees involved in provision, construction, operation, maintenance, and support of public waterways, harbors, docks, wharves, and related marine terminal facilities. Regulation of the water transportation industry.",
+              "db_indicator": "Trans_Water_Transport_Terminals_FTE"
+            },
+            {
+              "name": "Water Transport & Terminals Part-time",
+              "unit": "PT employees",
+              "dataType": "level",
+              "definition": "Number of part-time employees involved in provision, construction, operation, maintenance, and support of public waterways, harbors, docks, wharves, and related marine terminal facilities. Regulation of the water transportation industry.",
+              "db_indicator": "Trans_Water_Transport_Terminals_PTE"
             },
             {
               "name": "Transit",
-              "unit": "FTE employees",
+              "unit": "employees",
               "dataType": "level",
-              "definition": "Number of FTEs working on Construction, maintenance, and operation of public mass transit systems--bus, commuter rail, light rail, or subway systems. Excludes systems established solely to transport elementary and secondary school pupils. Ferry systems are classified under Highways.",
-              "db_indicator": "Trans_Empl_Transit"
+              "definition": "Number of full-time and part-time employees involved in the operation, maintenance, and construction of public mass transit systems, including subways, surface rails, and buses.",
+              "db_indicator": "Trans_Transit_FTE_PTE"
+            },
+            {
+              "name": "Transit Full-time",
+              "unit": "FT employees",
+              "dataType": "level",
+              "definition": "Number of full-time employees involved in the operation, maintenance, and construction of public mass transit systems, including subways, surface rails, and buses.",
+              "db_indicator": "Trans_Transit_FTE"
+            },
+            {
+              "name": "Transit Part-time",
+              "unit": "PT employees",
+              "dataType": "level",
+              "definition": "Number of part-time employees involved in the operation, maintenance, and construction of public mass transit systems, including subways, surface rails, and buses.",
+              "db_indicator": "Trans_Transit_PTE"
             }
           ]
         },
@@ -829,6 +908,7 @@
             2014
           ],
           "source": "NACo Analysis of U.S. Census Bureau - Census of Individual Governments: Employment",
+          "notes": ".census-of-govs-employment-note",
           "db_dataset": "Employment",
           "companions": [
             [
@@ -855,24 +935,66 @@
           "children": [
             {
               "name": "Total Utility Employment",
-              "unit": "FTE employees",
+              "unit": "employees",
               "dataType": "level",
-              "definition": "Number of FTEs working on Electricity Utilities and Gas Utilities.",
-              "db_indicator": "Utility_Empl_Total_Utility_FTE"
+              "definition": "Number of full-time and part-time employees working on electric and gas utilities.",
+              "db_indicator": "Utility_Total_Utilities_FTE_PTE"
+            },
+            {
+              "name": "Total Utility Full-time Employment",
+              "unit": "FT employees",
+              "dataType": "level",
+              "definition": "Number of full-time employees working on electric and gas utilities.",
+              "db_indicator": "Utility_Total_Utilities_FTE"
+            },
+            {
+              "name": "Total Utility Part-time Employment",
+              "unit": "PT employees",
+              "dataType": "level",
+              "definition": "Number of part-time employees working on electric and gas utilities.",
+              "db_indicator": "Utility_Total_Utilities_PTE"
             },
             {
               "name": "Electric Utilities",
+              "unit": "employees",
+              "dataType": "level",
+              "definition": "Number of full-time and part-time employees working on operation, maintenance, and construction of public electric power systems, including production, acquisition, and distribution of electricity to general public or to other public or private utilities. ",
+              "db_indicator": "Utility_Electric_Utilities_FTE_PTE"
+            },
+            {
+              "name": "Electric Utilities Full-time",
               "unit": "FTE employees",
               "dataType": "level",
-              "definition": "Number of FTEs working on Operation, maintenance, and construction of public electric power systems, including production, acquisition, and distribution of electricity to general public or to other public or private utilities.",
-              "db_indicator": "Utility_Empl_Electric_Power"
+              "definition": "Number of full-time employees working on operation, maintenance, and construction of public electric power systems, including production, acquisition, and distribution of electricity to general public or to other public or private utilities. ",
+              "db_indicator": "Utility_Electric_Utilities_FTE"
+            },
+            {
+              "name": "Electric Utilities Part-time",
+              "unit": "PT employees",
+              "dataType": "level",
+              "definition": "Number of part-time employees working on operation, maintenance, and construction of public electric power systems, including production, acquisition, and distribution of electricity to general public or to other public or private utilities. ",
+              "db_indicator": "Utility_Electric_Utilities_PTE"
             },
             {
               "name": "Gas Utilities",
-              "unit": "FTE employees",
+              "unit": "employees",
               "dataType": "level",
-              "definition": "Number of FTEs working on Operation, maintenance, and construction of public natural gas supply systems, including production, acquisition, and distribution of gas to general public or to other public or private utilities. This function covers government gas supply activities for residential, commercial, and industrial gas usage.",
-              "db_indicator": "Utility_Empl_Gas_Supply"
+              "definition": "Number of full-time and part-time employees working on operation, maintenance, and construction of public natural gas supply systems, including production, acquisition, and distribution of gas to general public or to other public or private utilities. This function covers government gas supply activities for residential, commercial, and industrial gas usage. ",
+              "db_indicator": "Utility_Gas_Utilities_FTE_PTE"
+            },
+            {
+              "name": "Gas Utilities Full-time",
+              "unit": "FT employees",
+              "dataType": "level",
+              "definition": "Number of full-time employees working on operation, maintenance, and construction of public natural gas supply systems, including production, acquisition, and distribution of gas to general public or to other public or private utilities. This function covers government gas supply activities for residential, commercial, and industrial gas usage. ",
+              "db_indicator": "Utility_Gas_Utilities_FTE"
+            },
+            {
+              "name": "Gas Utilities Part-time",
+              "unit": "PT employees",
+              "dataType": "level",
+              "definition": "Number of part-time employees working on operation, maintenance, and construction of public natural gas supply systems, including production, acquisition, and distribution of gas to general public or to other public or private utilities. This function covers government gas supply activities for residential, commercial, and industrial gas usage. ",
+              "db_indicator": "Utility_Gas_Utilities_PTE"
             }
           ]
         },
@@ -888,6 +1010,7 @@
             2014
           ],
           "source": "NACo Analysis of U.S. Census Bureau - Census of Individual Governments: Employment",
+          "notes": ".census-of-govs-employment-note",
           "db_dataset": "Employment",
           "companions": [
             [
@@ -914,31 +1037,87 @@
           "children": [
             {
               "name": "Total Water, Sewerage & Solid Waste Employment",
-              "unit": "FTE employees",
+              "unit": "employees",
               "dataType": "level",
-              "definition": "Includes FTEs working on on Sewerage, Solid Waste Management and Water Utitlies services.",
-              "db_indicator": "WSSW_Empl_Total_Water_Sewerage_Solid_Waste_FTE"
+              "definition": "Number of full-time and part-time employees working on sewerage, solid waste management and water utilties.",
+              "db_indicator": "WSW_Total_Water_Sewerage_Solid_Waste_FTE_PTE"
+            },
+            {
+              "name": "Total Water, Sewerage & Solid Waste Full-time Employment",
+              "unit": "FT employees",
+              "dataType": "level",
+              "definition": "Number of full-time employees working on sewerage, solid waste management and water utilties.",
+              "db_indicator": "WSW_Total_Water_Sewerage_Solid_Waste_FTE"
+            },
+            {
+              "name": "Total Water, Sewerage & Solid Waste Part-time Employment",
+              "unit": "PT employees",
+              "dataType": "level",
+              "definition": "Number of part-time employees working on sewerage, solid waste management and water utilties.",
+              "db_indicator": "WSW_Total_Water_Sewerage_Solid_Waste_PTE"
             },
             {
               "name": "Sewerage",
-              "unit": "FTE employees",
+              "unit": "employees",
               "dataType": "level",
-              "definition": "Number of FTEs working on Provision, maintenance, and operation of sanitary and storm sewer systems and sewage disposal and treatment facilities, as well as all intergovernmental payments for such activities.",
-              "db_indicator": "WSSW_Empl_Sewerage_FTE"
+              "definition": "Number of full-time and part-time employees working on provision, maintenance, and operation of sanitary and storm sewer systems and sewage disposal and treatment facilities, as well as all intergovernmental payments for such activities.",
+              "db_indicator": "WSW_Sewerage_FTE_PTE"
+            },
+            {
+              "name": "Sewerage Full-time",
+              "unit": "FT employees",
+              "dataType": "level",
+              "definition": "Number of full-time employees working on provision, maintenance, and operation of sanitary and storm sewer systems and sewage disposal and treatment facilities, as well as all intergovernmental payments for such activities.",
+              "db_indicator": "WSW_Sewerage_FTE"
+            },
+            {
+              "name": "Sewerage Part-time",
+              "unit": "PT employees",
+              "dataType": "level",
+              "definition": "Number of part-time employees working on provision, maintenance, and operation of sanitary and storm sewer systems and sewage disposal and treatment facilities, as well as all intergovernmental payments for such activities.",
+              "db_indicator": "WSW_Sewerage_PTE"
             },
             {
               "name": "Solid Waste",
-              "unit": "FTE employees",
+              "unit": "employees",
               "dataType": "level",
-              "definition": "Number of FTEs working on Collection, removal, and disposal of garbage, refuse, hazardous, and other solid wastes and the cleaning of streets, alleys, and sidewalks.",
-              "db_indicator": "WSSW_Empl_Solid_Waste_Management_FTE"
+              "definition": "Number of full-time and part-time employees working on collection, removal, and disposal of garbage, refuse, hazardous, and other solid wastes and the cleaning of streets, alleys, and sidewalks. ",
+              "db_indicator": "WSW_Solid_Waste_FTE_PTE"
+            },
+            {
+              "name": "Solid Waste Full-time",
+              "unit": "FT employees",
+              "dataType": "level",
+              "definition": "Number of full-time employees working on collection, removal, and disposal of garbage, refuse, hazardous, and other solid wastes and the cleaning of streets, alleys, and sidewalks. ",
+              "db_indicator": "WSW_Solid_Waste_FTE"
+            },
+            {
+              "name": "Solid Waste Part-time",
+              "unit": "PT employees",
+              "dataType": "level",
+              "definition": "Number of part-time employees working on collection, removal, and disposal of garbage, refuse, hazardous, and other solid wastes and the cleaning of streets, alleys, and sidewalks. ",
+              "db_indicator": "WSW_Solid_Waste_PTE"
             },
             {
               "name": "Water Utilities",
-              "unit": "FTE employees",
+              "unit": "employees",
               "dataType": "level",
-              "definition": "Number of FTEs working on Operation, maintenance, and construction of public water supply systems, whether for distribution of water to the general public or to other public or private utilities. This function covers government water supply activities for residential, commercial, and industrial water usage.",
-              "db_indicator": "WSSW_Empl_Water_Supply_FTE"
+              "definition": "Number of full-time and part-time employees working on operation, maintenance, and construction of public water supply systems, whether for distribution of water to the general public or to other public or private utilities. This function covers government water supply activities for residential, commercial, and industrial water usage.",
+              "db_indicator": "WSW_Water_Utilities_FTE_PTE"
+            },
+            {
+              "name": "Water Utilities Full-time",
+              "unit": "FT employees",
+              "dataType": "level",
+              "definition": "Number of full-time employees working on operation, maintenance, and construction of public water supply systems, whether for distribution of water to the general public or to other public or private utilities. This function covers government water supply activities for residential, commercial, and industrial water usage.",
+              "db_indicator": "WSW_Water_Utilities_FTE"
+            },
+            {
+              "name": "Water Utilities Part-time",
+              "unit": "PT employees",
+              "dataType": "level",
+              "definition": "Number of part-time employees working on operation, maintenance, and construction of public water supply systems, whether for distribution of water to the general public or to other public or private utilities. This function covers government water supply activities for residential, commercial, and industrial water usage.",
+              "db_indicator": "WSW_Water_Utilities_PTE"
             }
           ]
         },
@@ -954,6 +1133,7 @@
             2014
           ],
           "source": "NACo Analysis of U.S. Census Bureau - Census of Individual Governments: Employment",
+          "notes": ".census-of-govs-employment-note",
           "db_dataset": "Employment",
           "companions": [
             [
@@ -963,10 +1143,6 @@
             [
               "Other Employment",
               "Other & Unallocable Employment"
-            ],
-            [
-              "Other Employment",
-              "Total County Employment"
             ],
             [
               "Administration Employment",
@@ -980,10 +1156,24 @@
           "children": [
             {
               "name": "Other & Unallocable Employment",
-              "unit": "FTE employees",
+              "unit": "employees",
               "dataType": "level",
-              "definition": "Number of FTEs working on Activities not applicable to other general functions, or multi-functional general sector activities that cannot be separated into specific functions.",
-              "db_indicator": "Empl_All_Other_Unallocable_County_FTE"
+              "definition": "Number of full-time and part-time employees working on activities not applicable to other general functions, or multi-functional general sector activities that cannot be separated into specific functions.",
+              "db_indicator": "Other_Total_Other_Unallocable_FTE_PTE"
+            },
+            {
+              "name": "Other & Unallocable Full-time Employment",
+              "unit": "FT employees",
+              "dataType": "level",
+              "definition": "Number of full-time employees working on activities not applicable to other general functions, or multi-functional general sector activities that cannot be separated into specific functions.",
+              "db_indicator": "Other_Total_Other_Unallocable_FTE"
+            },
+            {
+              "name": "Other & Unallocable Part-time Employment",
+              "unit": "PT employees",
+              "dataType": "level",
+              "definition": "Number of part-time employees working on activities not applicable to other general functions, or multi-functional general sector activities that cannot be separated into specific functions.",
+              "db_indicator": "Other_Total_Other_Unallocable_PTE"
             }
           ]
         }
@@ -8148,6 +8338,7 @@
           ],
           "source": "2016 NACo analysis of Department of Justice Bureau of Justice Statistics, Census of Jails data",
           "db_dataset": "Justice_Public_Safety",
+          "notes": ".survey-of-jails-note",
           "companions": [
             [
               "Jails - Supervised Population",
@@ -8218,7 +8409,31 @@
               "unit": "persons",
               "dataType": "level",
               "definition": "The number of convicted persons that are released from confinement on weekdays and return to the jail on the weekend to serve their sentence.",
-              "db_indicator": "Supervised_Number_of_Weekenders"
+              "db_indicator": "Supervised_Number_of_Weekenders",
+              "companions": [
+                [
+                  "Jails - Supervised Population",
+                  "Supervised Weekender Program"
+                ],
+                [
+                  "Jails - Supervised Population",
+                  "Confined Persons"
+                ],
+                [
+                  "Jails - Supervised Population",
+                  "Nonconfined Persons"
+                ],
+                [
+                  "Jails - Supervised Population",
+                  "Average Daily Population"
+                ]
+              ]
+            },
+            {
+              "name": "Supervised Weekender Program",
+              "dataType": "categorical",
+              "definition": "Indicates whether the county jail has a weekender program, where convicted persons are released from confinement on weekdays and return to the jail on the weekend to serve their sentence.",
+              "db_indicator": "Supervised_Weekender_Program"
             },
             {
               "name": "Average Daily Population",
@@ -8248,6 +8463,7 @@
           ],
           "source": "NACo Analysis of Bureau of Justice Statistics - Annual Survey of Jails",
           "db_dataset": "Justice_Public_Safety",
+          "notes": ".survey-of-jails-note",
           "companions": [
             [
               "Jails - Supervised Population",

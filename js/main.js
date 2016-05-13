@@ -24,8 +24,8 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 	// -------------------------- Variable Definitions ---------------------------
 	var localVersion = false;
 	
-	var default_dset = 'Road Ownership';
-	var default_ind = 'Share County Highway Agency';
+	var default_dset = 'All Bridges';
+	var default_ind = 'All Bridges - County Owned';
 	
 	CIC.findACounty = true;
 	CIC.embed = false;
@@ -1288,7 +1288,7 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 				if (indObjects[i].dataset !== indObjects[0].dataset) {
 					var tempSource = indObjects[i].source + ((indObjects[i].suppressYear) ? '' : (indObjects[i].legendTitlePre) ? ', ' + indObjects[i].legendTitlePre : ', ' + indObjects[i].year)
 					// check for its existence already, and add if unique
-					if(sources.search(tempSource) === -1)sources = sources.concat('; ' + tempSource);
+					if(sources.indexOf(tempSource) === -1)sources = sources.concat('; ' + tempSource);
 				}
 			}
 
