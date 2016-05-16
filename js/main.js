@@ -363,7 +363,7 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 				//remove the per capita unit addition
 				indObjects[0].unit = indObjects[0].unit.substring(0,indObjects[0].unit.toLowerCase().indexOf(' per person'));
 				indObjects[0].unit = indObjects[0].unit.substring(11);  //11 characters in "people per "
-				
+
 				isPerCapita = false;
 				this.blur();
 				for (var i = 0; i < quantByIds[0].length; i++) {
@@ -1220,7 +1220,7 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 					}
 				}
 				//if in perCapita and the second quantile is less than 0.01, switch to person per unit
-				if(perCapita){
+				if(isPerCapita){
 					if(quantiles[0] < 0.01){
 						pop_db.personPerUnit = true;
 						console.log('in updateView');
