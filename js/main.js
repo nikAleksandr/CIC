@@ -312,6 +312,7 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 				}
 				// currently only does it for the primary indicator not the companions (would have to poll multiple years)
 				isPerCapita = true;
+				pop_db.personPerUnit = false;
 				var year = indObjects[0].year;		
 				var updateQuants = function() {
 					for (var i = 0; i < quantByIds[0].length; i++) {
@@ -345,19 +346,13 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 								pop_db[year][+responseObj.DATA.FIPS[i]] = +population[i];
 								
 							}
-							//create a unit property if it doesn't already have one
-							if(!indObjects[0].hasOwnProperty('unit')) indObjects[0].unit = '';
-			 				if(indObjects[0].unit.indexOf("per person") == -1) indObjects[0].unit = indObjects[0].unit + " per person";
 			 				updateQuants();
 							updateView();
 						});					
 					}
 				} else {  //if the year of pop_db already matches the current data
-					//create a unit property if it doesn't already have one
-					if(!indObjects[0].hasOwnProperty('unit')) indObjects[0].unit = 'Per person';
-					else indObjects[0].unit = indObjects[0].unit + " per person";
 					updateQuants();
-					updateView();
+					updateView(); 
 				}
 			} else { //turning off the Per Capita Button
 				//replace threshold value
@@ -366,7 +361,9 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 					pop_db.replaceThresholds = false;
 				}
 				//remove the per capita unit addition
-				indObjects[0].unit = indObjects[0].unit.substring(0,indObjects[0].unit.toLowerCase().indexOf(' per person'))
+				indObjects[0].unit = indObjects[0].unit.substring(0,indObjects[0].unit.toLowerCase().indexOf(' per person'));
+				indObjects[0].unit = indObjects[0].unit.substring(11);  //11 characters in "people per "
+				
 				isPerCapita = false;
 				this.blur();
 				for (var i = 0; i < quantByIds[0].length; i++) {
@@ -1222,6 +1219,23 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 						break;
 					}
 				}
+				//if in perCapita and the second quantile is less than 0.01, switch to person per unit
+				if(perCapita){
+					if(quantiles[0] < 0.01){
+						pop_db.personPerUnit = true;
+						console.log('in updateView');
+						for(var i = 0; i< quantiles.length; i++) {
+							quantiles[i] = 1/quantiles[i];
+						}
+					}
+					//create a unit property if it doesn't already have one
+					if(!indObjects[0].hasOwnProperty('unit')) indObjects[0].unit = '';
+	 				if(indObjects[0].unit.indexOf("per person") == -1){
+	 					if(pop_db.personPerUnit) indObjects[0].unit = "people per " + indObjects[0].unit;
+	 					else indObjects[0].unit = indObjects[0].unit + " per person";
+	 				}
+				} 
+
 				var d = color.domain();
 				if (measureType === 'quartile' && quantiles[0] <= 1) measureType = 'threshold';
 				if (quantiles[0] === d[0] || quantiles[quantiles.length - 1] === d[d.length - 1]) measureType = 'threshold';
