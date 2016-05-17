@@ -303,6 +303,7 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 				//reset, copy, save, and remove the threshold property
 				pop_db.thresholds = [];
 				pop_db.replaceThresholds = false;
+				pop_db.personPerUnit = false;
 				if(indObjects[0].hasOwnProperty('thresholds')){
 					pop_db.replaceThreshold = true;
 					pop_db.thresholds = indObjects[0].thresholds;
@@ -312,7 +313,6 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 				}
 				// currently only does it for the primary indicator not the companions (would have to poll multiple years)
 				isPerCapita = true;
-				pop_db.personPerUnit = false;
 				var year = indObjects[0].year;		
 				var updateQuants = function() {
 					for (var i = 0; i < quantByIds[0].length; i++) {
@@ -1117,7 +1117,7 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 	var updateView = function() {
 		var isNumeric = isNumFun(currentDataType);
 		var quantById = quantByIds[0];	
-	
+
 		// define domain based on dataType
 		if (isNumeric) {
 			var domain = [];
@@ -1177,12 +1177,14 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 				range = level_colors;
 		}
 	
-		// set domain and range
-		if (currentDataType !== 'none') {
-			color = d3.scale.quantile();
-			if (isNumeric) color.domain(domain).range(range);
-			else color.domain(corrDomain).range(range);
-		}
+		function setDomainRange(){// set domain and range
+			if (currentDataType !== 'none') {
+				color = d3.scale.quantile();
+				if (isNumeric) color.domain(domain).range(range);
+				else color.domain(corrDomain).range(range);
+			}
+		};
+		setDomainRange();
 		
 		// define measureType
 		// if 0 spans more than one quintile, then switch to quartiles
@@ -1195,6 +1197,38 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 			} else {
 				var quantiles = color.quantiles();
 				
+				//if in perCapita and the second quantile is less than 0.01, switch to person per unit
+				if(isPerCapita){
+					if(quantiles[0] < 0.01){
+						pop_db.personPerUnit = true;
+						//replace quantById and Domain by their inverse and recalculate domain and range
+						domain = [];
+						//getting some strange super large values.  maybe actually divide the pop by road miles instead of inverting?
+						/*for (var i = 0; i < quantByIds[0].length; i++) {
+							if (quantByIds[0][i]) quantByIds[0][i] *= pop_db[indObjects[0].year][i];
+						}*/
+						for (var ind in quantById){
+							quantById[ind] = ((quantById[ind]!=0) ? 1/quantById[ind] : null);
+							domain[ind] = quantById[ind];
+						}
+						setDomainRange();
+						quantiles = color.quantiles();
+						//hacky, but manually return the inverse of the existing quantiles and reorder
+						/*function sortNumber(a,b){
+							return a - b;
+						}
+						for(i = 0; i<quantiles.length; i++){
+							quantiles[i] = 1/quantiles[i];
+						}
+						quantiles.sort(sortNumber);*/
+					}
+					//add per person or people per to the unit property if it needs it
+					if(!indObjects[0].hasOwnProperty('unit')) indObjects[0].unit = '';
+	 				if(indObjects[0].unit.indexOf("per person") == -1 && pop_db.personPerUnit==false || indObjects[0].unit.indexOf("people per") == -1 && pop_db.personPerUnit==true){
+	 					if(pop_db.personPerUnit) indObjects[0].unit = "people per " + indObjects[0].unit;
+	 					else indObjects[0].unit = indObjects[0].unit + " per person";
+	 				}
+				}
 				// if more than one fifth of counties are zeros, switch to quartile
 				if (quantiles[0] === 0) {
 					measureType = 'quartile';
@@ -1218,22 +1252,6 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 						measureType = 'threshold';
 						break;
 					}
-				}
-				//if in perCapita and the second quantile is less than 0.01, switch to person per unit
-				if(isPerCapita){
-					if(quantiles[0] < 0.01){
-						pop_db.personPerUnit = true;
-						console.log('in updateView');
-						for(var i = 0; i< quantiles.length; i++) {
-							quantiles[i] = 1/quantiles[i];
-						}
-					}
-					//create a unit property if it doesn't already have one
-					if(!indObjects[0].hasOwnProperty('unit')) indObjects[0].unit = '';
-	 				if(indObjects[0].unit.indexOf("per person") == -1){
-	 					if(pop_db.personPerUnit) indObjects[0].unit = "people per " + indObjects[0].unit;
-	 					else indObjects[0].unit = indObjects[0].unit + " per person";
-	 				}
 				} 
 
 				var d = color.domain();
