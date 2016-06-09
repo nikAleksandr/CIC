@@ -1,5 +1,5 @@
 <!-- Begin Curated Indicator List -->
-<li class="dataset" name="Health Insurance">
+<li class="dataset" name="Health Insurance" ng-show="indicatorListType == 'curated'">
 	<a>Health Insurance<span class="badge">updated</span></a>
 	<ul class="dropdown-menu">
 		<!-- --><li class="disabled dropdown-header">
@@ -58,7 +58,7 @@
 		</li>
 	</ul>
 </li>
-<li class="dataset" name="Immigration and Ancestry">
+<li class="dataset" name="Immigration and Ancestry" ng-show="indicatorListType == 'curated'">
 	<a>Immigration and Ancestry<span class="badge">updated</span></a>
 	<ul class="dropdown-menu">
 		<li>
@@ -99,7 +99,7 @@
 		</li>-->
 	</ul>
 </li>
-<li class="dataset" name="Medical Benefits">
+<li class="dataset" name="Medical Benefits" ng-show="indicatorListType == 'curated'">
 	<a>Medical Benefits<span class="badge">updated</span></a>
 	<ul class="dropdown-menu">
 		<li>
@@ -116,7 +116,7 @@
 		</li>
 	</ul>
 </li>
-<li class="dataset" name="Supplemental Nutrition Assistance Program (SNAP)">
+<li class="dataset" name="Supplemental Nutrition Assistance Program (SNAP)" ng-show="indicatorListType == 'curated'">
 	<a>Supplemental Nutrition Assistance Program (SNAP)<span class="badge">updated</span></a>
 	<ul class="dropdown-menu">
 		<li>
@@ -912,7 +912,7 @@
 			</ul>
 		</li>
 		<li class="dataset" name="Secure Rural Schools (SRS)">
-			<a>Secure Rural Schools (SRS)<span class="badge">updated</span></a>
+			<a>Secure Rural Schools (SRS)</a>
 			<ul class="dropdown-menu">
 				<li>
 					<a class="indicator" name="SRS Profiles" href="#">SRS Profiles</a>
@@ -1062,7 +1062,7 @@
 	</ul>
 </li>
 <li ng-hide="indicatorListType == 'curated'" class="category" name="County Employment">
-	<a>County Employment<span class="badge">updated</span></a>
+	<a>County Employment</a>
 	<ul class="dropdown-menu">
 		<li class="dataset" name="Total County Employment">
 			<a>Total County Employment</a>
@@ -2968,7 +2968,7 @@
 			</ul>
 		</li>
 		<li class="dataset" name="Medical Benefits">
-			<a>Medical Benefits</a>
+			<a>Medical Benefits<span class="badge">updated</span></a>
 			<ul class="dropdown-menu">
 				<li>
 					<a class="indicator" name="Medical Benefits" href="#">Medical Benefits</a>
@@ -4447,7 +4447,7 @@
 			</ul>
 		</li>
 		<li class="dataset" name="Supplemental Nutrition Assistance Program (SNAP)">
-			<a>Supplemental Nutrition Assistance Program (SNAP)</a>
+			<a>Supplemental Nutrition Assistance Program (SNAP)<span class="badge">updated</span></a>
 			<ul class="dropdown-menu">
 				<li>
 					<a class="indicator" name="SNAP Recipient Households" href="#">SNAP Recipient Households</a>

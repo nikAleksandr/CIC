@@ -364,18 +364,18 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 					indObjects[0].thresholds = pop_db.thresholds;
 					pop_db.replaceThresholds = false;
 				}
-				//remove the per capita unit addition
-				indObjects[0].unit = indObjects[0].unit.substring(0,indObjects[0].unit.toLowerCase().indexOf(' per person'));
-				indObjects[0].unit = indObjects[0].unit.substring(11);  //11 characters in "people per "
 
 				isPerCapita = false;
 				this.blur();
 				if(pop_db.personPerUnit){
+					indObjects[0].unit = indObjects[0].unit.substring(11);  //11 characters in "people per "
+					indObjects[0].unit = indObjects[0].unit + 's';  //repluralize
 					//quantById[ind] = ((quantById[ind]!=0) ? 1/quantById[ind] : null);
 					for (var i = 0; i < quantByIds[0].length; i++) {
 						if (quantByIds[0][i]) quantByIds[0][i] = 1/quantByIds[0][i];
 					}
 				}else{
+					indObjects[0].unit = indObjects[0].unit.substring(0,indObjects[0].unit.toLowerCase().indexOf(' per person'));
 					for (var i = 0; i < quantByIds[0].length; i++) {
 						if (quantByIds[0][i]) quantByIds[0][i] *= pop_db[indObjects[0].year][i];
 					}
@@ -987,7 +987,7 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 		
 		// reset per capita button
 		$('#perCapitaButton').removeClass('active');
-		if (currentDataType=='level' || currentDataType=='level_np') $('#perCapitaButton').removeClass('disabled');
+		if (indObjects[0].hasOwnProperty('perCapita') && indObjects[0].perCapita===true && (currentDataType=='level' || currentDataType=='level_np')) $('#perCapitaButton').removeClass('disabled');
 		else $('#perCapitaButton').addClass('disabled');
 		
 		//reset from statewide to statewide to county map
@@ -1231,7 +1231,11 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 					//add per person or people per to the unit property if it needs it
 					if(!indObjects[0].hasOwnProperty('unit')) indObjects[0].unit = '';
 	 				if(indObjects[0].unit.indexOf("per person") == -1 && pop_db.personPerUnit==false || indObjects[0].unit.indexOf("people per") == -1 && pop_db.personPerUnit==true){
-	 					if(pop_db.personPerUnit) indObjects[0].unit = "people per " + indObjects[0].unit;
+	 					if(pop_db.personPerUnit){
+	 						//singularize the unit
+	 						unit = unit.substring(0,unit.indexOf('s')-1);
+	 						indObjects[0].unit = "people per " + indObjects[0].unit;
+	 					}
 	 					else indObjects[0].unit = indObjects[0].unit + " per person";
 	 				}
 				}
@@ -1489,6 +1493,7 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 					if (Jdataset.hasOwnProperty('vintage')) selectedInd.vintage = Jdataset.vintage;
 					if (Jdataset.hasOwnProperty('suppressYear')) selectedInd.suppressYear = Jdataset.suppressYear;
 					if (Jdataset.hasOwnProperty('notes')) selectedInd.notes = Jdataset.notes;
+					if (Jdataset.hasOwnProperty('perCapita')) selectedInd.perCapita = Jdataset.perCapita;
 					
 					if (typeof indicator !== 'undefined') {
 						for (var h = 0; h < Jdataset.children.length; h++) {

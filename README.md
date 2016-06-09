@@ -66,4 +66,5 @@ Indicator level properties that apply to the legend will override Dataset-level 
 - CETNulls
 - customRange - creates a custom set and order of colors IE: ["rgb(255,153,51)", "rgb(49,130,189)", "rgb(7,81,156)"]
 - suppressPrimeInd – suppresses the primary indicator display in the tooltip (and the definition)
+- perCapita - will activate the perCapita button when set to true.  Can be activated at the dataset level and will be passed to children.  Can be deactivated for children by passing the value false.  PerCapita is off for non "level" and "level_np" dataTypes.
 
