@@ -3845,7 +3845,8 @@
         {
           "name": "Immigration and Ancestry",
           "years": [
-            2013
+            2013,
+            2014
           ],
           "source": "NACo Analysis of U.S. Census Bureau - American Community Survey (ACS) 5 year estimates",
           "db_dataset": "Demographics",
@@ -3896,7 +3897,6 @@
                 0.1
               ],
               "suppressMinMax": true,
-              "notes": ".ancestry-note",
               "definition": "The percentage of a county's population that is foreign-born.",
               "db_indicator": "Immi_Share_Foreign_Born"
             },
@@ -5740,10 +5740,12 @@
         {
           "name": "Medical Benefits",
           "years": [
-            2013
+            2013,
+            2014
           ],
           "source": "NACo Analysis of U.S. Bureau of Economic Analysis, Local Area Personal Income and Employment Data",
           "db_dataset": "Federal_Funding",
+          "notes": "medical-benefits-note",
           "companions": [
             [
               "Medical Benefits",
@@ -6646,7 +6648,8 @@
           "years": [
             2012,
             2013,
-            2014
+            2014,
+            2015
           ],
           "source": "NACo Analysis of data from the U.S. Forest Service data and Bureau of Land Management and Headwaters Economics analysis of U.S. Geological Survey, Protected Areas Database",
           "db_dataset": "Federal_Funding",
@@ -6667,7 +6670,7 @@
           "children": [
             {
               "name": "SRS Profiles",
-              "subtitlePost": ", FY 2014 Receipts Year",
+              "subtitlePost": ", FY 2015 Receipts Year",
               "dataType": "level",
               "unit": "dollars",
               "has_profile": true,
@@ -6692,12 +6695,12 @@
                   "Payment Percent Change"
                 ]
               ],
-              "definition": "Profiles showing that without the SRS Act reauthorization, states revert to the Payments to States Act of 1908 as amended, receiving a 25 percent payment from national forest receipts.  USFS estimates FY 2014 county 25 percent payments based on county shares of the national forest receipts.  These estimates do not reflect the application of a 7.3 percent sequester to the state payments.  Note: The receipts year reflects when U.S. Forest Service (USFS) collects revenues from national forest lands.",
+              "definition": "Profiles showing that without the SRS Act reauthorization, states revert to the Payments to States Act of 1908 as amended, receiving a 25 percent payment from national forest receipts. USFS estimates FY 2015 county 25 percent payments based on county shares of the national forest receipts. These estimates do not reflect the application of a 6.8 percent sequester to the state payments. Note: The receipts year reflects when U.S. Forest Service (USFS) collects revenues from national forest lands.",
               "db_indicator": "SRS"
             },
             {
               "name": "SRS Amount",
-              "subtitlePost": ", FY 2014 Receipts Year",
+              "subtitlePost": ", FY 2015 Receipts Year",
               "unit": "dollars",
               "dataType": "level",
               "suppressMinMax": true,
@@ -6707,12 +6710,12 @@
                 100000,
                 300000
               ],
-              "definition": "Funding received by counties through the Secure Rural Schools program based on forest receipts, FY 2014 receipts year.",
+              "definition": "Funding received by counties through the Secure Rural Schools program based on  forest receipts, FY 2015 receipts year.",
               "db_indicator": "SRS"
             },
             {
               "name": "Projected 25% Payment",
-              "subtitlePost": ", FY 2014 Receipts Year",
+              "subtitlePost": ", FY 2015 Receipts Year",
               "unit": "dollars",
               "dataType": "level",
               "thresholds": [
@@ -6721,15 +6724,15 @@
                 100000,
                 300000
               ],
-              "definition": "Without the SRS Act reauthorization, states would have reverted to the Payments to States Act of 1908 as amended, receiving a 25 percent payment from the national forest receipts. U.S.F.S. estimated  FY 2014  25 percent payments based on county shares of the national forest receipts.  These estimates did not reflect the application of a 7.3 percent sequester to the payments to the states.",
-              "db_indicator": "SRS_projected_2014"
+              "definition": "Without the SRS Act reauthorization, states would have reverted  to the Payments to States Act of 1908 as amended, receiving a 25  percent payment from the national forest receipts. U.S.F.S.  estimated  FY 2015 25 percent payments based on county shares of the  national forest receipts.  These estimates did not reflect the application  of a 6.8 percent sequester to the payments to the states.",
+              "db_indicator": "SRS_projected"
             },
             {
               "name": "Payment Percent Change",
               "dataType": "percent",
               "suppressMinMax": true,
-              "definition": "Percentage change in funding from the 25% Fund Payment in FY 2014 to the Secure Rural Schools program in FY 2014.",
-              "db_indicator": "SRS_projected_growth_rate_2013_2014"
+              "definition": "Percentage change in funding from the Secure Rural Schools  program in FY 2015 to the projected 25% Fund Payment in FY 2015.",
+              "db_indicator": "SRS_projected_growth_rate"
             }
           ]
         },
@@ -7089,10 +7092,6 @@
             [
               "Drug Poisoning",
               " Drug Poisoning Death Rate"
-            ],
-            [
-              "Health Insurance",
-              "Population Uninsured"
             ],
             [
               "Early Childhood",
@@ -7507,163 +7506,229 @@
         {
           "name": "Health Insurance",
           "years": [
-            2009,
-            2010,
-            2011,
-            2012
+            2014
           ],
-          "source": "NACo Analysis of U.S. Census Bureau - American Community Survey (ACS)",
+          "notes": ".health-insurance-note",
+          "source": "NACo Analysis of U.S. Census Bureau, Small Area Health Insurance Estimates (SAHIE)",
           "db_dataset": "Health_Hospitals",
           "companions": [
-            [
-              "Health Insurance",
-              "Percent Insured"
-            ],
-            [
-              "Health Insurance",
-              "Population with Private Health Insurance"
-            ],
-            [
-              "Health Insurance",
-              "Population with Public Health Insurance"
-            ],
-            [
-              "Health Insurance",
-              "Percent 6-24 Insured"
-            ]
           ],
           "children": [
             {
-              "name": "Population Level",
-              "dataType": "level",
-              "definition": "The calculated number of people living in the county.",
-              "db_indicator": "Health_Insruance_Population"
-            },
-            {
-              "name": "Population Insured",
-              "dataType": "level",
-              "definition": "The number of people that are covered by a public health insurance program or by private health insurance.",
-              "db_indicator": "Health_Insruance_Population_Insured"
-            },
-            {
-              "name": "Percent Insured",
+              "name": "Share Uninsured - All Income Levels",
               "dataType": "percent",
-              "definition": "The percentage of people that are covered by a public health insurance program or by private health insurance.",
-              "db_indicator": "Health_Insruance_Percent_Insured"
+              "definition": "Share of county residents under 65 years of age that do not have health coverage.",
+              "db_indicator": "Health_Insurance_Share_Uninsured_All_income_levels",
+              "companions": [
+                ["Health Insurance", "Share Uninsured - All Income Levels"],
+                ["Health Insurance", "Uninsured Population - All Income Levels"],
+                ["Health Insurance", "Population Under 65 - All Income Levels"],
+                ["Health Insurance", "Share Insured - All Income Levels"]
+              ]
             },
             {
-              "name": "Population Uninsured",
-              "dataType": "level",
-              "definition": "The number of people that are not covered by a health insurance plan.",
-              "db_indicator": "Health_Insruance_Population_Uninsured"
-            },
-            {
-              "name": "Population with Private Health Insurance",
-              "dataType": "level",
-              "definition": "The number of people that are covered by private health insurance. Private health insurance is a plan provided through an employer or union; a plan purchased by an individual from an insurance company; or TRICARE or other military health coverage.",
-              "db_indicator": "Health_Insruance_Population_with_Private_Health_Insurance"
-            },
-            {
-              "name": "Population with Public Health Insurance",
-              "dataType": "level",
-              "definition": "The number of people that are covered by a public health insurance health plan. Public coverage includes the federal programs Medicare, Medicaid and other medical assistance programs, VA Health Care; the Children’s Health Insurance Program (CHIP); and individual state health plans.",
-              "db_indicator": "Health_Insruance_Population_with_Public_Health_Insurance"
-            },
-            {
-              "name": "Population Under 6",
-              "dataType": "level",
-              "definition": "The calculated number of people living in the county under the age of 6 years as of April 1st of the data year.",
-              "db_indicator": "Health_Insruance_Population_under_6"
-            },
-            {
-              "name": "Population Under 6 Insured",
-              "dataType": "level",
-              "definition": "The number of people living in the county under the age of 6 years that are covered by a public health insurance program or by private health insurance.",
-              "db_indicator": "Health_Insruance_Population_under_6_Insured"
-            },
-            {
-              "name": "Population Under 6 Uninsured",
-              "dataType": "level",
-              "definition": "The number of people living in the county under the age of 6 years that are not covered by a public health insurance program nor by private health insurance.",
-              "db_indicator": "Health_Insruance_Population_under_6_Uninsured"
-            },
-            {
-              "name": "Percent Under 6 Insured",
+              "name": "Share Insured - All Income Levels",
               "dataType": "percent",
-              "definition": "The percentage of people living in the county under the age of 6 years that are covered by a public health insurance program or by private health insurance.",
-              "db_indicator": "Health_Insruance_Percent_under_6_Insured"
+              "definition": "Share of county residents under 65 years of age that have health coverage.",
+              "db_indicator": "Health_Insurance_Share_Insured_All_income_levels",
+              "companions": [
+                ["Health Insurance", "Share Uninsured - All Income Levels"],
+                ["Health Insurance", "Uninsured Population - All Income Levels"],
+                ["Health Insurance", "Population Under 65 - All Income Levels"],
+                ["Health Insurance", "Share Insured - All Income Levels"]
+              ]
             },
             {
-              "name": "Population 6-24",
+              "name": "Uninsured Population - All Income Levels",
               "dataType": "level",
-              "definition": "The calculated number of people living in the county between (and including) the ages of 6 and 24 years as of April 1st of the data year.",
-              "db_indicator": "Health_Insruance_Population_6_24"
+              "definition": "Number of county residents under 65 years of age that do not have health insurance coverage.",
+              "db_indicator": "Health_Insurance_Uninsured_Population_Under_65_All_income_levels"
             },
             {
-              "name": "Population 6-24 Insured",
+              "name": "Population Under 65 - All Income Levels",
               "dataType": "level",
-              "definition": "The number of people living in the county between (and including) the ages of 6 and 24 years that are covered by a public health insurance program or by private health insurance.",
-              "db_indicator": "Health_Insruance_Population_6_24_Insured"
+              "definition": "Number of county residents under 65 years of age.",
+              "db_indicator": "Health_Insurance_Population_Under_65_All_income_levels"
             },
             {
-              "name": "Population 6-24 Uninsured",
-              "dataType": "level",
-              "definition": "The number of people living in the county between (and including) the ages of 6 and 24 years that are not covered by a public health insurance program bor by private health insurance.",
-              "db_indicator": "Health_Insruance_Population_6_24_Uninsured"
-            },
-            {
-              "name": "Percent 6-24 Insured",
+              "name": "Share Uninsured - 200 Percent Poverty",
               "dataType": "percent",
-              "definition": "The percentage of people living in the county between (and including) the ages of 6 and 24 years that are covered by a public health insurance program or by private health insurance.",
-              "db_indicator": "Health_Insruance_Percent_6_24_Insured"
+              "definition": "Share of county residents under 65 years of age living at or below 200 percent of the poverty level that do not have health insurance coverage.",
+              "db_indicator": "Health_Insurance_Share_Uninsured_At_or_below_200_pct",
+              "companions": [
+                ["Health Insurance", "Share Uninsured - 200 Percent Poverty"],
+                ["Health Insurance", "Uninsured Population - 200 Percent Poverty"],
+                ["Health Insurance", "Population Under 65 - 200 Percent Poverty"],
+                ["Health Insurance", "Share Insured - All Income Levels"]
+              ]
             },
             {
-              "name": "Population 25-64",
-              "dataType": "level",
-              "definition": "The calculated number of people living in the county between (and including) the ages of 25 and 64 years as of April 1st of the data year.",
-              "db_indicator": "Health_Insruance_Population_25_64"
-            },
-            {
-              "name": "Population 25-64 Insured",
-              "dataType": "level",
-              "definition": "The number of people living in the county between (and including) the ages of 25 and 64 years that are covered by a public health insurance program or by private health insurance.",
-              "db_indicator": "Health_Insruance_Population_25_64_Insured"
-            },
-            {
-              "name": "Population 25-64 Uninsured",
-              "dataType": "level",
-              "definition": "The number of people living in the county between (and including) the ages of 25 and 64 years that are not covered by a public health insurance program nor by private health insurance.",
-              "db_indicator": "Health_Insruance_Population_25_64_Uninsured"
-            },
-            {
-              "name": "Percent 25-64 Insured",
+              "name": "Share Insured - 200 Percent Poverty",
               "dataType": "percent",
-              "definition": "The percentage of people living in the county between (and including) the ages of 25 and 64 years that are covered by a public health insurance program or by private health insurance.",
-              "db_indicator": "Health_Insruance_Percent_25_64_Insured"
+              "definition": "Share of county residents under 65 years of age living at or below 200 percent of the poverty level that have health insurance coverage.",
+              "db_indicator": "Health_Insurance_Share_Insured_At_or_below_200_pct",
+              "companions": [
+                ["Health Insurance", "Share Uninsured - 200 Percent Poverty"],
+                ["Health Insurance", "Uninsured Population - 200 Percent Poverty"],
+                ["Health Insurance", "Population Under 65 - 200 Percent Poverty"],
+                ["Health Insurance", "Share Insured - All Income Levels"]
+              ]
             },
             {
-              "name": "Population 65 and Over",
+              "name": "Uninsured Population - 200 Percent Poverty",
               "dataType": "level",
-              "definition": "The calculated number of people living in the county over (and including) the ages of 65 years as of April 1st of the data year.",
-              "db_indicator": "Health_Insruance_Population_65_and_over"
+              "definition": "Number of county residents under 65 years of age living at or below 200 percent of the poverty level that do not have health insurance coverage.",
+              "db_indicator": "Health_Insurance_Uninsured_Population_Under_65_At_or_below_200_pct"
             },
             {
-              "name": "Population 65 and Over Insured",
+              "name": "Population Under 65 - 200 Percent Poverty",
               "dataType": "level",
-              "definition": "The number of people living in the county over (and including) the ages of 65 years that are covered by a public health insurance program or by private health insurance.",
-              "db_indicator": "Health_Insruance_Population_65_and_over_Insured"
+              "definition": "Number of county residents under 65 years of age living at or below 200 percent of the poverty level.",
+              "db_indicator": "Health_Insurance_Population_Under_65_At_or_below_200_pct"
             },
             {
-              "name": "Population 65 and Over Uninsured",
-              "dataType": "level",
-              "definition": "The number of people living in the county over (and including) the ages of 65 years that are not covered by a public health insurance program nor by private health insurance.",
-              "db_indicator": "Health_Insruance_Population_65_and_over_Uninsured"
-            },
-            {
-              "name": "Percent 65 and Over Insured",
+              "name": "Share Uninsured - 250 Percent Poverty",
               "dataType": "percent",
-              "definition": "The percentage of people living in the county over (and including) the ages of 65 years that are covered by a public health insurance program or by private health insurance.",
-              "db_indicator": "Health_Insruance_Percent_65_and_over_Insured"
+              "definition": "Share of county residents under 65 years of age living at or below 250 percent of the poverty level that do not have health insurance coverage.",
+              "db_indicator": "Health_Insurance_Share_Uninsured_At_or_below_250_pct",
+              "companions": [
+                ["Health Insurance", "Share Uninsured - 250 Percent Poverty"],
+                ["Health Insurance", "Uninsured Population - 250 Percent Poverty"],
+                ["Health Insurance", "Population Under 65 - 250 Percent Poverty"],
+                ["Health Insurance", "Share Insured - All Income Levels"]
+              ]
+            },
+            {
+              "name": "Share Insured - 250 Percent Poverty",
+              "dataType": "percent",
+              "definition": "Share of county residents under 65 years of age living at or below 250 percent of the poverty level that have health insurance coverage.",
+              "db_indicator": "Health_Insurance_Share_Insured_At_or_below_250_pct",
+              "companions": [
+                ["Health Insurance", "Share Uninsured - 250 Percent Poverty"],
+                ["Health Insurance", "Uninsured Population - 250 Percent Poverty"],
+                ["Health Insurance", "Population Under 65 - 250 Percent Poverty"],
+                ["Health Insurance", "Share Insured - All Income Levels"]
+              ]
+            },
+            {
+              "name": "Uninsured Population - 250 Percent Poverty",
+              "dataType": "level",
+              "definition": "Number of county residents under 65 years of age living at or below 250 percent of the poverty level that do not have health insurance coverage.",
+              "db_indicator": "Health_Insurance_Uninsured_Population_Under_65_At_or_below_250_pct"
+            },
+            {
+              "name": "Population Under 65 - 250 Percent Poverty",
+              "dataType": "level",
+              "definition": "Number of county residents under 65 years of age living at or below 250 percent of the poverty level.",
+              "db_indicator": "Health_Insurance_Population_Under_65_At_or_below_250_pct"
+            },
+            {
+              "name": "Share Uninsured - 138 Percent Poverty",
+              "dataType": "percent",
+              "definition": "Share of county residents under 65 years of age living at or below 138 percent of the poverty level that do not have health insurance coverage.",
+              "db_indicator": "Health_Insurance_Share_Uninsured_At_or_below_138_pct",
+              "companions": [
+                ["Health Insurance", "Share Uninsured - 138 Percent Poverty"],
+                ["Health Insurance", "Uninsured Population - 138 Percent Poverty"],
+                ["Health Insurance", "Population Under 65 - 138 Percent Poverty"],
+                ["Health Insurance", "Share Insured - All Income Levels"]
+              ]
+            },
+            {
+              "name": "Share Insured - 138 Percent Poverty",
+              "dataType": "percent",
+              "definition": "Share of county residents under 65 years of age living at or below 138 percent of the poverty level that have health insurance coverage.",
+              "db_indicator": "Health_Insurance_Share_Insured_At_or_below_138_pct",
+              "companions": [
+                ["Health Insurance", "Share Uninsured - 138 Percent Poverty"],
+                ["Health Insurance", "Uninsured Population - 138 Percent Poverty"],
+                ["Health Insurance", "Population Under 65 - 138 Percent Poverty"],
+                ["Health Insurance", "Share Insured - All Income Levels"]
+              ]
+            },
+            {
+              "name": "Uninsured Population - 138 Percent Poverty",
+              "dataType": "level",
+              "definition": "Number of county residents under 65 years of age living at or below 138 percent of the poverty level that do not have health insurance coverage.",
+              "db_indicator": "Health_Insurance_Uninsured_Population_Under_65_At_or_below_138_pct"
+            },
+            {
+              "name": "Population Under 65 - 138 Percent Poverty",
+              "dataType": "level",
+              "definition": "Number of county residents under 65 years of age living at or below 138 percent of the poverty level.",
+              "db_indicator": "Health_Insurance_Population_Under_65_At_or_below_138_pct"
+            },
+            {
+              "name": "Share Uninsured - 400 Percent Poverty",
+              "dataType": "percent",
+              "definition": "Share of county residents under 65 years of age living at or below 400 percent of the poverty level that do not have health insurance coverage.",
+              "db_indicator": "Health_Insurance_Share_Uninsured_At_or_below_400_pct",
+              "companions": [
+                ["Health Insurance", "Share Uninsured - 400 Percent Poverty"],
+                ["Health Insurance", "Uninsured Population - 400 Percent Poverty"],
+                ["Health Insurance", "Population Under 65 - 400 Percent Poverty"],
+                ["Health Insurance", "Share Insured - All Income Levels"]
+              ]
+            },
+            {
+              "name": "Share Insured - 400 Percent Poverty",
+              "dataType": "percent",
+              "definition": "Share of county residents under 65 years of age living at or below 400 percent of the poverty level that have health insurance coverage.",
+              "db_indicator": "Health_Insurance_Share_Insured_At_or_below_400_pct",
+              "companions": [
+                ["Health Insurance", "Share Uninsured - 400 Percent Poverty"],
+                ["Health Insurance", "Uninsured Population - 400 Percent Poverty"],
+                ["Health Insurance", "Population Under 65 - 400 Percent Poverty"],
+                ["Health Insurance", "Share Insured - All Income Levels"]
+              ]
+            },
+            {
+              "name": "Uninsured Population - 400 Percent Poverty",
+              "dataType": "level",
+              "definition": "Number of county residents under 65 years of age living at or below 400 percent of the poverty level that do not have health insurance coverage.",
+              "db_indicator": "Health_Insurance_Uninsured_Population_Under_65_At_or_below_400_pct"
+            },
+            {
+              "name": "Population Under 65 - 400 Percent Poverty",
+              "dataType": "level",
+              "definition": "Number of county residents under 65 years of age living at or below 400 percent of the poverty level.",
+              "db_indicator": "Health_Insurance_Population_Under_65_At_or_below_400_pct"
+            },
+            {
+              "name": "Share Uninsured - 138-400 Percent Poverty",
+              "dataType": "percent",
+              "definition": "Share of county residents under 65 years of age living between 138 and 400 percent of the poverty level that do not have health insurance coverage.",
+              "db_indicator": "Health_Insurance_Share_Uninsured_Between_138_to_400_pct",
+              "companions": [
+                ["Health Insurance", "Share Uninsured - 138-400 Percent Poverty"],
+                ["Health Insurance", "Uninsured Population - 138-400 Percent Poverty"],
+                ["Health Insurance", "Population Under 65 - 138-400 Percent Poverty"],
+                ["Health Insurance", "Share Insured - All Income Levels"]
+              ]
+            },
+            {
+              "name": "Share Insured - 138-400 Percent Poverty",
+              "dataType": "percent",
+              "definition": "Share of county residents under 65 years of age living between 138 and 400 percent of the poverty level that have health insurance coverage.",
+              "db_indicator": "Health_Insurance_Share_Insured_Between_138_to_400_pct",
+              "companions": [
+                ["Health Insurance", "Share Uninsured - 138-400 Percent Poverty"],
+                ["Health Insurance", "Uninsured Population - 138-400 Percent Poverty"],
+                ["Health Insurance", "Population Under 65 - 138-400 Percent Poverty"],
+                ["Health Insurance", "Share Insured - All Income Levels"]
+              ]
+            },
+            {
+              "name": "Uninsured Population - 138-400 Percent Poverty",
+              "dataType": "level",
+              "definition": "Number of county residents under 65 years of age living between 138 and 400 percent of the poverty level that do not have health insurance coverage.",
+              "db_indicator": "Health_Insurance_Uninsured_Population_Under_65_Between_138_to_400_pct"
+            },
+            {
+              "name": "Population Under 65 - 138-400 Percent Poverty",
+              "dataType": "level",
+              "definition": "Number of county residents under 65 years of age living between 138 and 400 percent of the poverty level.",
+              "db_indicator": "Health_Insurance_Population_Under_65_Between_138_to_400_pct"
             }
           ]
         },
@@ -9290,10 +9355,12 @@
             2010,
             2011,
             2012,
-            2013
+            2013,
+            2014
           ],
           "source": "NACo Analysis of U.S. Census Bureau,  2009-2013 American Community Survey 5-Year Estimates; U.S. Bureau of Economic Analysis Personal Current Transfer Receipts Data",
           "db_dataset": "Public_Welfare",
+          "notes": "snap-bens-note",
           "companions": [
             [
               "Supplemental Nutrition Assistance Program (SNAP)",
@@ -9334,19 +9401,19 @@
               "name": "SNAP Benefit Growth Rate",
               "dataType": "percent",
               "definition": "Growth Rate in the average amount of SNAP benefits received by the SNAP recipient households located in a county.",
-              "db_indicator": "gr_SNAP_bens"
+              "db_indicator": "SNAP_bens_growth"
             },
             {
               "name": "SNAP Recipient Growth Rate",
               "dataType": "percent",
               "definition": "Growth Rate in the number of households in a county receiving Supplemental Nutrition Assistance Program (SNAP) benefits. A SNAP recipient household has one or more of the current household members that received food stamps or a food stamp benefit card during the past 12 months.",
-              "db_indicator": "gr_SNAP_HH"
+              "db_indicator": "SNAP_HH_growth"
             },
             {
               "name": "SNAP per Household Growth Rate",
               "dataType": "percent",
               "definition": "Growth rate in the average amount of SNAP benefits received by the SNAP recipient households located in a county.",
-              "db_indicator": "gr_SNAP_bens_per_HH"
+              "db_indicator": "SNAP_bens_per_HH_growth"
             }
           ]
         },
@@ -9453,7 +9520,8 @@
         {
           "name": "State Level Transportation",
           "years": [
-            2014
+            2014,
+            2015
           ],
           "source": "June, 2015 NACo analysis of various sources",
           "db_dataset": "Transportation",
@@ -9475,7 +9543,7 @@
             {
               "name": "Statewide Share of County-Owned Roads",
               "dataType": "percent",
-              "year": 2011,
+              "year": 2014,
               "companions": [
                 [
                   "State Level Transportation",
@@ -9653,6 +9721,7 @@
             {
               "name": "State Limits on Property Tax",
               "dataType": "categorical",
+              "year": 2014,
               "order": {
                 "Prop Tax and Assessment Limit": 0,
                 "Only Assessment Limit": 1,
@@ -10865,7 +10934,8 @@
         {
           "name": "Transportation Funding Profiles",
           "years": [
-            2011
+            2011,
+            2014
           ],
           "source": "NACo Analysis of U.S. Department of Transportation – Federal Highway Administration, Highway Performance Monitoring System data",
           "db_dataset": "Transportation",
@@ -10883,46 +10953,29 @@
             {
               "name": "Transportation Funding Profiles",
               "dataType": "percent",
-              "companions": [
-                [
-                  "Transportation Funding Profiles",
-                  "Statewide Share of County Owned Roads"
-                ],
-                [
-                  "Transportation Funding Profiles",
-                  "Statewide Share of County Owned Roads"
-                ],
-                [
-                  "Transportation Funding Profiles",
-                  "Statewide Share of County Owned Bridges"
-                ],
-                [
-                  "Transportation Funding Profiles",
-                  "Statewide Structurally Deficient Share of County Bridges"
-                ]
-              ],
               "legendTitlePre": "2014",
               "definition": "Profiles on state level transportation funding and financing for counties.",
               "has_profile": true,
-              "db_indicator": "SRS_Statewide_Share_County_Owned_Road_Miles"
-            },
-            {
-              "name": "Statewide Share of County Owned Roads",
-              "dataType": "percent",
-              "definition": "The Share of county-owned road miles out of publicly-owned roads statewide.",
-              "db_indicator": "SRS_Statewide_Share_County_Owned_Road_Miles"
-            },
-            {
-              "name": "Statewide Share of County Owned Bridges",
-              "dataType": "percent",
-              "definition": "The share of county owned bridges out of public bridges statewide.",
-              "db_indicator": "SRS_Statewide_Share_County_Owned_Bridges"
-            },
-            {
-              "name": "Statewide Structurally Deficient Share of County Bridges",
-              "dataType": "percent",
-              "definition": "The Share of structurally deficient bridges owned by counties out of total county bridges statewide.",
-              "db_indicator": "SRS_Statewide_Share_Structurally_Deficient_County_Bridges"
+              "year": 2014,
+              "db_indicator": "RA_statewide_pctRoads",
+              "companions": [
+                [
+                  "State Level Transportation",
+                  "Statewide Share of County-Owned Roads"
+                ],
+                [
+                  "State Level Transportation",
+                  "Statewide Share of County-Owned Roads"
+                ],
+                [
+                  "State Level Transportation",
+                  "Statewide Share of County-Owned Bridges"
+                ],
+                [
+                  "State Level Transportation",
+                  "Statewide County Owned Share of Structurally-Deficient Bridges"
+                ]
+              ]
             }
           ]
         },

@@ -5,7 +5,7 @@
             
            <CFQUERY NAME="getcountydata" DATASOURCE="naco_cic">
            SELECT FIPS, LEFT(fips,2) as StateFIPS, county_name, state, Org_Type, Founded, Board_Size, Gov_type,
-           Population_2013, Member_Status, County_Seat, Total_Square_Miles, Population_1990, Population_1980,                      Population_2000, Population_2010, county_website,
+           Population_2013, Member_Status, County_Seat, Total_Square_Miles, Population_1990, Population_1980,                     Population_2000, Population_2010, county_website, Population_2015,
            Address1, Address2, AddressCity, AddressState, AddressZip, AddressPhone
            FROM County_data
            WHERE FIPS=  '#URL.id#'
@@ -66,7 +66,7 @@
                     <th>1990</th>
                     <th>2000</th>
                     <th>2010</th>
-                    <th>2013</th>
+                    <th>2015</th>
                 </tr>
                 
                 <tr>
@@ -74,7 +74,7 @@
                     <td>#NumberFormat(Population_1990, "999,999,999,999")#</td>
                     <td>#NumberFormat(Population_2000, "999,999,999,999")#</td>
                     <td>#NumberFormat(Population_2010, "999,999,999,999")#</td>
-                    <td>#NumberFormat(Population_2013, "999,999,999,999")#</td>
+                    <td>#NumberFormat(Population_2015, "999,999,999,999")#</td>
                 </tr>
             </table>
         </div>
@@ -99,7 +99,7 @@
             <tr><th align="right">County Seat:&nbsp; </td><td>#County_Seat#</td></tr>
             <tr><th align="right">Year Organized:&nbsp;</td><td>#Founded#</td></tr>
             <tr><th align="right">Total Square Miles:&nbsp;</td><td>#Total_Square_Miles#</td></tr>
-            <tr><Th align="right">2013 Population:&nbsp;</TD><TD>#NumberFormat(Population_2013, "999,999,999,999")#</TD></tr>
+            <tr><Th align="right">2015 Population:&nbsp;</TD><TD>#NumberFormat(Population_2015, "999,999,999,999")#</TD></tr>
             <tr><th align="right">Persons/Square Mile:&nbsp;</td><td>#NumberFormat(PersonsPerSqMile, "999,999,999.99")#</td></tr>
             <tr><th align="right">Size of Board:&nbsp;</td><td>#Board_Size#</td></tr>
         </table>

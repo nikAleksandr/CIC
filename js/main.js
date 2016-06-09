@@ -1,3 +1,7 @@
+$(document).ready(function() {
+	$( "div.call-to-action" ).appendTo( "div.featured-docs" );
+});
+
 // default for noty alert system
 $.noty.defaults.layout = 'center';
 $.noty.defaults.killer = true;
@@ -354,7 +358,7 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 					updateQuants();
 					updateView(); 
 				}
-			} else { //turning off the Per Capita Button
+			} else { //reverting from Per Capita to regular data
 				//replace threshold value
 				if(pop_db.replaceThresholds && indObjects[0] === pop_db.currentIndicator){
 					indObjects[0].thresholds = pop_db.thresholds;
@@ -366,10 +370,20 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 
 				isPerCapita = false;
 				this.blur();
-				for (var i = 0; i < quantByIds[0].length; i++) {
-					if (quantByIds[0][i]) quantByIds[0][i] *= pop_db[indObjects[0].year][i];
+				if(pop_db.personPerUnit){
+					//quantById[ind] = ((quantById[ind]!=0) ? 1/quantById[ind] : null);
+					for (var i = 0; i < quantByIds[0].length; i++) {
+						if (quantByIds[0][i]) quantByIds[0][i] = 1/quantByIds[0][i];
+					}
+				}else{
+					for (var i = 0; i < quantByIds[0].length; i++) {
+						if (quantByIds[0][i]) quantByIds[0][i] *= pop_db[indObjects[0].year][i];
+					}
 				}
 				updateView();
+				//alternative option to just re-get the data
+				/*var k = currentDI.lastIndexOf(' - ');
+				CIC.update(currentDI.substring(0, k), currentDI.substring(k+3, currentDI.length));*/
 			}
 			NProgress.done();
 		});
@@ -1213,14 +1227,6 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 						}
 						setDomainRange();
 						quantiles = color.quantiles();
-						//hacky, but manually return the inverse of the existing quantiles and reorder
-						/*function sortNumber(a,b){
-							return a - b;
-						}
-						for(i = 0; i<quantiles.length; i++){
-							quantiles[i] = 1/quantiles[i];
-						}
-						quantiles.sort(sortNumber);*/
 					}
 					//add per person or people per to the unit property if it needs it
 					if(!indObjects[0].hasOwnProperty('unit')) indObjects[0].unit = '';
