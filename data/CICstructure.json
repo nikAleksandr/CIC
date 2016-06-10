@@ -5773,7 +5773,7 @@
           ],
           "source": "NACo Analysis of U.S. Bureau of Economic Analysis, Local Area Personal Income and Employment Data",
           "db_dataset": "Federal_Funding",
-          "notes": "medical-benefits-note",
+          "notes": ".medical-benefits-note",
           "companions": [
             [
               "Medical Benefits",
@@ -9388,7 +9388,7 @@
           ],
           "source": "NACo Analysis of U.S. Census Bureau, 2010-2014 American Community Survey 5-Year Estimates; U.S. Bureau of Economic Analysis Personal Current Transfer Receipts Data",
           "db_dataset": "Public_Welfare",
-          "notes": "snap-bens-note",
+          "notes": ".snap-bens-note",
           "companions": [
             [
               "Supplemental Nutrition Assistance Program (SNAP)",

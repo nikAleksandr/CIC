@@ -28,7 +28,7 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 	// -------------------------- Variable Definitions ---------------------------
 	var localVersion = false;
 	
-	var default_dset = 'All Bridges';
+	var default_dset = 'Health Insurance';
 	var default_ind = 'All Bridges - County Owned';
 	
 	CIC.findACounty = true;
@@ -282,7 +282,7 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 			e.stopPropagation();
 			var twitterContentIntro = "http://twitter.com/home?status=See%20";
 			var twitterContentEnd = "%20data%20for%20your%20county%20by%20@NACoTweets%20%23CountyExplorer%20www.naco.org%2FCountyExplorer";
-			var i=currentDI.indexOf(' - ');
+			var i=currentDI.indexOf(' | ');
 			var twitterContentDataset = encodeURIComponent(currentDI.substring(0,i));
 			if ($('.rrssb-buttons').is(':visible')) {
 				var moveTransition = d3.select('#rrssbContainer').transition().duration(500).style('right', '-200px');
@@ -367,7 +367,8 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 
 				isPerCapita = false;
 				this.blur();
-				if(pop_db.personPerUnit){
+				//convert data and unit back to original form  (doesn't work well right now)
+				/*if(pop_db.personPerUnit){
 					indObjects[0].unit = indObjects[0].unit.substring(11);  //11 characters in "people per "
 					indObjects[0].unit = indObjects[0].unit + 's';  //repluralize
 					//quantById[ind] = ((quantById[ind]!=0) ? 1/quantById[ind] : null);
@@ -379,11 +380,11 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 					for (var i = 0; i < quantByIds[0].length; i++) {
 						if (quantByIds[0][i]) quantByIds[0][i] *= pop_db[indObjects[0].year][i];
 					}
-				}
+				}*/
 				updateView();
 				//alternative option to just re-get the data
-				/*var k = currentDI.lastIndexOf(' - ');
-				CIC.update(currentDI.substring(0, k), currentDI.substring(k+3, currentDI.length));*/
+				var k = currentDI.indexOf(' | ');
+				CIC.update(currentDI.substring(0, k), currentDI.substring(k+3, currentDI.length));
 			}
 			NProgress.done();
 		});
@@ -465,7 +466,7 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 		var pickedIndicator = function(dataset, indicator, html) {
 			$.SmartMenus.hideAll();		
 			hideInstructions();			
-			if (currentDI === dataset + ' - ' + indicator) {
+			if (currentDI === dataset + ' | ' + indicator) {
 			//	noty({text: 'Already showing "' + indicator + '"'});
 			} else {
 				CIC.update(dataset, indicator);
@@ -478,7 +479,7 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 		var pickedCountyProfile = function(dataset, indicator, html) {
 			$.SmartMenus.hideAll();
 			hideInstructions();
-			if (currentDI === dataset + ' - ' + indicator) {
+			if (currentDI === dataset + ' | ' + indicator) {
 			//	noty({text: 'Already showing "' + indicator + '"'});
 			} else {
 				CIC.update(dataset, indicator);
@@ -803,7 +804,7 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 					cbOptsVert = {iframe:true, width:'792px', height:'632px', maxHeight:'90%', maxWidth:'90%', title:'', href: ''};
 					cbOptsHoriz = {iframe:true, width:'792px', height:'632px', maxHeight:'90%', maxWidth:'90%', title:'', href: ''};
 
-					if (currentDI === 'County Economies - County Economic Profile') {
+					if (currentDI === 'County Economies | County Economic Profile') {
 						if (quantByIds[4][+FIPS]===".") {
 							noty({text: '<strong>Profile Temporarily Unavailable</strong>  Please check back soon.'});
 						} else {
@@ -814,7 +815,7 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 							cbOptsHoriz.href = profileURL;
 							$.colorbox(cbOptsHoriz);
 						}
-					} else if (currentDI === 'Municipal Bonds - County Muni Bonds Profiles') {
+					} else if (currentDI === 'Municipal Bonds | County Muni Bonds Profiles') {
 						if (isNaN(quantByIds[0][+FIPS])) {
 							noty({text: '<strong>No Profile Available</strong>'});
 						} else {
@@ -824,7 +825,7 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 							cbOptsHoriz.href = profileURL;
 							$.colorbox(cbOptsHoriz);
 						}
-					} else if (currentDI === 'Community Development Block Grants (CDBG) - CDBG Profiles') {
+					} else if (currentDI === 'Community Development Block Grants (CDBG) | CDBG Profiles') {
 						if (quantByIds[0][+FIPS] === 0 || isNaN(quantByIds[0][+FIPS])) {
 							noty({text: '<strong>No Profile Available</strong>'});
 						} else {
@@ -834,13 +835,13 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 							cbOptsVert.href = profileURL;
 							$.colorbox(cbOptsVert);
 						}
-					} else if (currentDI === 'Municipal Bonds - Statewide Muni Bonds Profiles') {
+					} else if (currentDI === 'Municipal Bonds | Statewide Muni Bonds Profiles') {
 						var state = countyObjectById[+FIPS].STATE;
 						var profileURL = '../profiles/state_muniBonds/state_bonds_profiles' + state + '.pdf';
 						cbOptsHoriz.title = '<a class="newWindow" href="' + profileURL + '" target=_blank">Open In New Window</a>';
 						cbOptsHoriz.href = profileURL;
 						$.colorbox(cbOptsHoriz);
-					} else if (currentDI === 'Payment in Lieu of Taxes (PILT) - PILT Profiles') {
+					} else if (currentDI === 'Payment in Lieu of Taxes (PILT) | PILT Profiles') {
 						if (quantByIds[0][+FIPS] === 0) {
 							var profileURL = '../profiles/PILT/National_PILT.pdf';
 						} else {
@@ -850,14 +851,14 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 						cbOptsVert.title = '<a class="newWindow" href="' + profileURL + '" target=_blank">Open In New Window</a>';
 						cbOptsVert.href = profileURL;
 						$.colorbox(cbOptsVert);
-					} else if (currentDI === 'Payment in Lieu of Taxes (PILT) - State PILT Profiles') {
+					} else if (currentDI === 'Payment in Lieu of Taxes (PILT) | State PILT Profiles') {
 						var state = countyObjectById[+FIPS].STATE;
 						var profileURL = '../profiles/PILT_State/' + state + '.pdf';	
 
 						cbOptsVert.title = '<a class="newWindow" href="' + profileURL + '" target=_blank">Open In New Window</a>';
 						cbOptsVert.href = profileURL;
 						$.colorbox(cbOptsVert);
-					} else if (currentDI === 'MFA Profiles - MFA Profiles') {
+					} else if (currentDI === 'MFA Profiles | MFA Profiles') {
 						var state = countyObjectById[+FIPS].STATE;
 						if(state=="MT" | state=="OR" | state=="NH" | state=="DE"){
 							noty({text: '<strong>No Profile Available</strong></br>This state does not have a sales tax.'});
@@ -867,7 +868,7 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 							cbOptsVert.href = profileURL;
 							$.colorbox(cbOptsVert);
 						}
-					}  else if (currentDI === 'Transportation Funding Profiles - Transportation Funding Profiles') {
+					}  else if (currentDI === 'Transportation Funding Profiles | Transportation Funding Profiles') {
 						if (quantByIds[0][+FIPS] === NaN) {
 							noty({text: '<strong>No Profile Available</strong>'});
 						} else {
@@ -877,7 +878,7 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 							cbOptsHoriz.href = profileURL;
 							$.colorbox(cbOptsHoriz);
 						}
-					}  else if (currentDI === 'MAP-21 Profiles - MAP-21 Profiles') {
+					}  else if (currentDI === 'MAP-21 Profiles | MAP-21 Profiles') {
 						if (quantByIds[0][+FIPS] === NaN) {
 							noty({text: '<strong>No Profile Available</strong>'});
 						} else {
@@ -887,7 +888,7 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 							cbOptsHoriz.href = profileURL;
 							$.colorbox(cbOptsHoriz);
 						}
-					}  else if (currentDI === "U.S. Ex-Im Bank Financing - U.S. Ex-Im Bank County Profiles") {
+					}  else if (currentDI === "U.S. Ex-Im Bank Financing | U.S. Ex-Im Bank County Profiles") {
 						if (quantByIds[0][+FIPS] === 0) {
 							noty({text: '<strong>No Profile Available</strong></br>Businesses located in this county have not received export financing support from the U.S. Ex-Im Bank between 2007 and 2014.'});
 						} else {
@@ -898,7 +899,7 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 							cbOptsVert.href = profileURL;
 							$.colorbox(cbOptsVert);
 						}
-					} else if (currentDI === "Secure Rural Schools (SRS) - SRS Profiles") {
+					} else if (currentDI === "Secure Rural Schools (SRS) | SRS Profiles") {
 						if (quantByIds[0][+FIPS] === 0) {
 							var profileURL = '../profiles/SRSProfiles/National.pdf';
 							cbOptsVert.title = '<a class="newWindow" href="' + profileURL + '" target=_blank">Open In New Window</a>';
@@ -912,7 +913,7 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 							cbOptsVert.href = profileURL;
 							$.colorbox(cbOptsVert);
 						}
-					} else if (currentDI === 'Endangered Species - Endangered Species Profiles') {
+					} else if (currentDI === 'Endangered Species | Endangered Species Profiles') {
 						var countyName = parseCountyName(+FIPS, county.geography);
 						countyName = countyName.replace(/\s/g, '');
 						var profileURL = '../profiles/endangeredSpecies/' + countyName + '.pdf';
@@ -920,7 +921,7 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 						cbOptsHoriz.href = profileURL;
 						$.colorbox(cbOptsHoriz);
 						//window.open('http://explorer.naco.org/profiles/countytracker/' + countyName + '.pdf');
-					} else if (currentDI === 'County Administrators - County Administrator Profiles') {
+					} else if (currentDI === 'County Administrators | County Administrator Profiles') {
 						var state = countyObjectById[+FIPS].STATE;
 						var profileURL = '../profiles/countyAdminProfiles/administratorProfile_' + state + '.pdf';
 						cbOptsHoriz.title = '<a class="newWindow" href="' + profileURL + '" target=_blank">Open In New Window</a>';
@@ -974,7 +975,7 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 	
 	CIC.update = function(dataset, indicator) {
 		NProgress.start();
-		currentDI = dataset + ' - ' + indicator; 
+		currentDI = dataset + ' | ' + indicator; 
 		//tooltip.classed("hidden", true);
 		$(document.body).scrollTop(0);
 		
@@ -986,6 +987,7 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 		} else customColors = null;
 		
 		// reset per capita button
+		isPerCapita = false;
 		$('#perCapitaButton').removeClass('active');
 		if (indObjects[0].hasOwnProperty('perCapita') && indObjects[0].perCapita===true && (currentDataType=='level' || currentDataType=='level_np')) $('#perCapitaButton').removeClass('disabled');
 		else $('#perCapitaButton').addClass('disabled');
@@ -1233,7 +1235,7 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 	 				if(indObjects[0].unit.indexOf("per person") == -1 && pop_db.personPerUnit==false || indObjects[0].unit.indexOf("people per") == -1 && pop_db.personPerUnit==true){
 	 					if(pop_db.personPerUnit){
 	 						//singularize the unit
-	 						unit = unit.substring(0,unit.indexOf('s')-1);
+	 						indObjects[0].unit = indObjects[0].unit.substring(0,indObjects[0].unit.indexOf('s'));
 	 						indObjects[0].unit = "people per " + indObjects[0].unit;
 	 					}
 	 					else indObjects[0].unit = indObjects[0].unit + " per person";
@@ -1473,7 +1475,9 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 	
 	CIC.getInfo = function(dataset, indicator){
 		var selectedInd = {};
-		var structure = (CICstructure.children) ? CICstructure.children : console.log("Invalid JSON metadata");
+		var structure = CICstructure.children;
+		if(!CICstructure.children) console.log("JSON invalid in metadata file") // error checking for when JSON is invalid
+		
 		for (var i = 0; i < structure.length; i++) {				
 			for (var j = 0; j < structure[i].children.length; j++) {
 				if (structure[i].children[j].name === dataset) {
@@ -2049,7 +2053,7 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 	d3.select(document.body).on('keyup',function() {
 		if (d3.event.ctrlKey && d3.event.shiftKey && d3.event.keyCode === 76) {
 			level_colors = ['rgb(189,215,231)','rgb(107,174,214)','rgb(49,130,189)','rgb(7,81,156)','rgb(28,53,99)'];
-			var i = currentDI.lastIndexOf(' - ');
+			var i = currentDI.indexOf(' | ');
 			CIC.update(currentDI.substring(0, i), currentDI.substring(i+3, currentDI.length));
 		}
 	});
