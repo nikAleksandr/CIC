@@ -29,7 +29,7 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 	var localVersion = false;
 	
 	var default_dset = 'Health Insurance';
-	var default_ind = 'All Bridges - County Owned';
+	var default_ind = 'Share Uninsured - All Income Levels';
 	
 	CIC.findACounty = true;
 	CIC.embed = false;
