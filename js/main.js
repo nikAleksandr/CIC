@@ -827,14 +827,14 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 						}
 					} else if (currentDI === 'Community Development Block Grants (CDBG) | CDBG Profiles') {
 						if (quantByIds[0][+FIPS] === 0 || isNaN(quantByIds[0][+FIPS])) {
-							noty({text: '<strong>No Profile Available</strong>'});
+							var profileURL = '../profiles/CDBG/national.pdf';
 						} else {
 							var countyName = parseCountyName(+FIPS, county.geography);
 							var profileURL = '../profiles/CDBG/' + countyName + '.pdf';
-							cbOptsVert.title = '<a class="newWindow" href="' + profileURL + '" target=_blank">Open In New Window</a>';
-							cbOptsVert.href = profileURL;
-							$.colorbox(cbOptsVert);
 						}
+						cbOptsVert.title = '<a class="newWindow" href="' + profileURL + '" target=_blank">Open In New Window</a>';
+						cbOptsVert.href = profileURL;
+						$.colorbox(cbOptsVert);
 					} else if (currentDI === 'Municipal Bonds | Statewide Muni Bonds Profiles') {
 						var state = countyObjectById[+FIPS].STATE;
 						var profileURL = '../profiles/state_muniBonds/state_bonds_profiles' + state + '.pdf';
