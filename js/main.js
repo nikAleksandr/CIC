@@ -913,6 +913,12 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 							cbOptsVert.href = profileURL;
 							$.colorbox(cbOptsVert);
 						}
+					} else if (currentDI === "Secure Rural Schools (SRS) | State SRS Profiles") {
+						var state = countyObjectById[+FIPS].STATE;
+						var profileURL = '../profiles/StateSRSProfiles/' + state + '.pdf';
+						cbOptsVert.title = '<a class="newWindow" href="' + profileURL + '" target=_blank">Open In New Window</a>';
+						cbOptsVert.href = profileURL;
+						$.colorbox(cbOptsVert);
 					} else if (currentDI === 'Endangered Species | Endangered Species Profiles') {
 						var countyName = parseCountyName(+FIPS, county.geography);
 						countyName = countyName.replace(/\s/g, '');

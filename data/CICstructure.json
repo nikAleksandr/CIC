@@ -6761,6 +6761,58 @@
               "suppressMinMax": true,
               "definition": "Percentage change in funding from the Secure Rural Schools  program in FY 2015 to the projected 25% Fund Payment in FY 2015.",
               "db_indicator": "SRS_projected_growth_rate"
+            },
+            {
+              "name": "State SRS Profiles",
+              "subtitlePost": ", FY 2015 Receipts Year",
+              "dataType": "level",
+              "unit": "dollars",
+              "has_profile": true,
+              "suppressMinMax": true,
+              "companions": [
+                [
+                  "Secure Rural Schools (SRS)",
+                  "State SRS Amount"
+                ],
+                [
+                  "Secure Rural Schools (SRS)",
+                  "State Projected 25% Payment"
+                ],
+                [
+                  "Secure Rural Schools (SRS)",
+                  "State Payment Percent Change"
+                ],
+                [
+                  "Secure Rural Schools (SRS)",
+                  "State SRS Amount"
+                ]
+              ],
+              "definition": "Profiles of aggregated county payments at the state-level showing that without the SRS Act reauthorization, states revert to the Payments to States Act of 1908 as amended, receiving a 25 percent payment from national forest receipts. USFS estimates FY 2015 county 25 percent payments based on county shares of the national forest receipts. These estimates do not reflect the application of a 6.8 percent sequester to the state payments. Note: The receipts year reflects when U.S. Forest Service (USFS) collects revenues from national forest lands.",
+              "db_indicator": "SRS_State"
+            },
+            {
+              "name": "State SRS Amount",
+              "subtitlePost": ", FY 2015 Receipts Year",
+              "unit": "dollars",
+              "dataType": "level",
+              "suppressMinMax": true,
+              "definition": "Funding received by counties through the Secure Rural Schools program based on forest receipts, FY 2015 receipts year aggregated at the state-level.",
+              "db_indicator": "SRS"
+            },
+            {
+              "name": "State Projected 25% Payment",
+              "subtitlePost": ", FY 2015 Receipts Year",
+              "unit": "dollars",
+              "dataType": "level",
+              "definition": "Without the SRS Act reauthorization, states would have reverted to the Payments to States Act of 1908 as amended, receiving a 25 percent payment from the national forest receipts. U.S.F.S. estimated FY 2015 25 percent payments based on county shares of the national forest receipts. These estimates are aggregated at the state-level. These estimates did not reflect the application of a 6.8 percent sequester to the payments to the states.",
+              "db_indicator": "SRS_State_projected"
+            },
+            {
+              "name": "State Payment Percent Change",
+              "dataType": "percent",
+              "suppressMinMax": true,
+              "definition": "Percentage change in funding from the Secure Rural Schools program in FY 2015 aggregated at the state-level to the projected 25% Fund Payment in FY 2015 aggregated at the state-level.",
+              "db_indicator": "SRS_State_Projected_Growth_Rate"
             }
           ]
         },
