@@ -3420,7 +3420,7 @@
                 250000,
                 500000
               ],
-              "definition": "The number of people living in both the incorporated and unincorporated areas of the county, as of July 1st of the current year.",
+              "definition": "The number of people living in both the incorporated and unincorporated areas of the county, as of July 1st of the source year.",
               "db_indicator": "Pop_LT_Population"
             },
             {
@@ -3482,49 +3482,49 @@
                 250000,
                 500000
               ],
-              "definition": "The number of people living in both the incorporated and unincorporated areas of the county, as of July 1st of the current year.",
+              "definition": "The number of people living in both the incorporated and unincorporated areas of the county, as of July 1st of the source year.",
               "db_indicator": "Pop_CC_Population"
             },
             {
               "name": "Change in Population (from previous year)",
               "dataType": "level_np",
-              "definition": "The difference in the number of county residents between July 1 of the previous year and July 1 of the current year.",
+              "definition": "The difference in the number of county residents between July 1 of the previous year and July 1 of the source year.",
               "db_indicator": "Pop_CC_Change_in_Population"
             },
             {
               "name": "Births",
               "dataType": "level",
-              "definition": "Total number occurring to county residents from July 1st of the previous year to June 30 of the current year.",
+              "definition": "Total number occurring to county residents from July 1st of the previous year to June 30 of the source year.",
               "db_indicator": "Pop_CC_Births"
             },
             {
               "name": "Deaths",
               "dataType": "level",
-              "definition": "Total number occurring to county residents from July 1st of the previous year to June 30 of the current year.",
+              "definition": "Total number occurring to county residents from July 1st of the previous year to June 30 of the source year.",
               "db_indicator": "Pop_CC_Deaths"
             },
             {
               "name": "Natural Population Increase",
               "dataType": "level_np",
-              "definition": "Births minus deaths in the county from July 1st of the previous year to June 30 of the current year.",
+              "definition": "Births minus deaths in the county from July 1st of the previous year to June 30 of the source year.",
               "db_indicator": "Pop_CC_Natural_Population_Increase"
             },
             {
               "name": "International Migration",
               "dataType": "level_np",
-              "definition": "Any change of the number of county residents due to movement across the borders of the United States (50 states and District of Columbia), from July 1st of the previous year to June 30 of the current year.",
+              "definition": "Any change of the number of county residents due to movement across the borders of the United States (50 states and District of Columbia), from July 1st of the previous year to June 30 of the source year.",
               "db_indicator": "Pop_CC_International_Migration"
             },
             {
               "name": "Domestic Migration",
               "dataType": "level_np",
-              "definition": "The difference between domestic in-migration to the county and domestic out-migration from the same county from July 1st of the previous year to June 30 of the current year. Domestic in- and out-migration consist of moves where both the origin and the destination are within the United States (excluding Puerto Rico).",
+              "definition": "The difference between domestic in-migration to the county and domestic out-migration from the same county from July 1st of the previous year to June 30 of the source year. Domestic in- and out-migration consist of moves where both the origin and the destination are within the United States (excluding Puerto Rico).",
               "db_indicator": "Pop_CC_Domestic_Migration"
             },
             {
               "name": "Net Migration",
               "dataType": "level_np",
-              "definition": "Domestic migration plus international migration in the county, from July 1st of the previous year to June 30 of the current year.",
+              "definition": "Domestic migration plus international migration in the county, from July 1st of the previous year to June 30 of the source year.",
               "db_indicator": "Pop_CC_Net_Migration"
             },
             {
@@ -3532,7 +3532,7 @@
               "unit": "per 1000 residents",
               "dataType": "level",
               "format_type": "dec1",
-              "definition": "Births from July 1st of the previous year to June 30 of the current year as a proportion of the county's population. Rates are expressed per 1,000 population.",
+              "definition": "Births from July 1st of the previous year to June 30 of the source year as a proportion of the county's population. Rates are expressed per 1,000 population.",
               "db_indicator": "Pop_CC_Birth_Rate"
             },
             {
@@ -3540,7 +3540,7 @@
               "unit": "per 1000 residents",
               "dataType": "level",
               "format_type": "dec1",
-              "definition": "Deaths from July 1st of the previous year to June 30 of the current year as a proportion of the county's population. Rates are expressed per 1,000 population.",
+              "definition": "Deaths from July 1st of the previous year to June 30 of the source year as a proportion of the county's population. Rates are expressed per 1,000 population.",
               "db_indicator": "Pop_CC_Death_Rate"
             },
             {
@@ -3548,7 +3548,7 @@
               "unit": "per 1000 residents",
               "format_type": "dec1",
               "dataType": "level_np",
-              "definition": "Natural increase from July 1st of the previous year to June 30 of the current year as a proportion of the county's population. Rates are expressed per 1,000 population.",
+              "definition": "Natural increase from July 1st of the previous year to June 30 of the source year as a proportion of the county's population. Rates are expressed per 1,000 population.",
               "db_indicator": "Pop_CC_Natural_Population_Increase_Rate"
             },
             {
@@ -3556,7 +3556,7 @@
               "unit": "per 1000 residents",
               "format_type": "dec1",
               "dataType": "level_np",
-              "definition": "International migration from July 1st of the previous year to June 30 of the current year as a proportion of the county's population. Rates are expressed per 1,000 population.",
+              "definition": "International migration from July 1st of the previous year to June 30 of the source year as a proportion of the county's population. Rates are expressed per 1,000 population.",
               "db_indicator": "Pop_CC_International_Migration_Rate"
             },
             {
@@ -3564,7 +3564,7 @@
               "unit": "per 1000 residents",
               "format_type": "dec1",
               "dataType": "level_np",
-              "definition": "Domestic migration from July 1st of the previous year to June 30 of the current year as a proportion of the county's population. Rates are expressed per 1,000 population.",
+              "definition": "Domestic migration from July 1st of the previous year to June 30 of the source year as a proportion of the county's population. Rates are expressed per 1,000 population.",
               "db_indicator": "Pop_CC_Domestic_Migration_Rate"
             },
             {
@@ -3572,7 +3572,7 @@
               "unit": "per 1000 residents",
               "format_type": "dec1",
               "dataType": "level_np",
-              "definition": "Net migration from July 1st of the previous year to June 30 of the current year as a proportion of the county's population. Rates are expressed per 1,000 population.",
+              "definition": "Net migration from July 1st of the previous year to June 30 of the source year as a proportion of the county's population. Rates are expressed per 1,000 population.",
               "db_indicator": "Pop_CC_Net_Migration_Rate"
             }
           ]
@@ -3624,7 +3624,7 @@
                 500000
               ],
               "suppressMinMax": true,
-              "definition": "The number of people living in both the incorporated and unincorporated areas of the county, as of July 1st of the current year.",
+              "definition": "The number of people living in both the incorporated and unincorporated areas of the county, as of July 1st of the source year.",
               "db_indicator": "Pop_den_Population"
             },
             {
@@ -3669,13 +3669,14 @@
             2011,
             2012,
             2013,
-            2014
+            2014,
+            2015
           ],
           "source": "NACo Analysis of U.S. Census Bureau - Population Estimates Program (PEP)",
           "db_dataset": "Demographics",
           "companions": [
             [
-              "Population Density",
+              "Population Levels and Trends",
               "Population Level"
             ],
             [
@@ -3687,99 +3688,99 @@
               "Percent 25-64 years old"
             ],
             [
-              "Population Density",
-              "Population Density"
+              "Population by Age/Gender",
+              "Percent 65 years and older"
             ]
           ],
           "children": [
             {
               "name": "Total Population Level",
               "dataType": "level",
-              "definition": "The number of people living in both the incorporated and unincorporated areas of the county, as of July 1st of the current year.",
+              "definition": "The number of people living in both the incorporated and unincorporated areas of the county, as of July 1st of the source year.",
               "db_indicator": "Pop_AG_Total_Population"
             },
             {
               "name": "Male Population",
               "dataType": "level",
-              "definition": "Total male population in the county as self-identified to the Census Bureau, as of July 1st of the current year.",
+              "definition": "Total male population in the county as self-identified to the Census Bureau, as of July 1st of the source year.",
               "db_indicator": "Pop_AG_Male_Population"
             },
             {
               "name": "Percent Male",
               "dataType": "percent",
-              "definition": "Percent male population in the county, as of July 1st of the current year.",
+              "definition": "Percent male population in the county, as of July 1st of the source year.",
               "db_indicator": "Pop_AG_Percent_Male"
             },
             {
               "name": "Female Population",
               "dataType": "level",
-              "definition": "Total female population in the county as self-identified to the Census Bureau, as of July 1st of the current year.",
+              "definition": "Total female population in the county as self-identified to the Census Bureau, as of July 1st of the source year.",
               "db_indicator": "Pop_AG_Female_Population"
             },
             {
               "name": "Percent Female",
               "dataType": "percent",
-              "definition": "Percent female population in the county, as of July 1st of the current year.",
+              "definition": "Percent female population in the county, as of July 1st of the source year.",
               "db_indicator": "Pop_AG_Percent_Female"
             },
             {
               "name": "Under 5 years old Population",
               "dataType": "level",
-              "definition": "Population under the age of 5 years in the county, as of July 1st of the current year.",
+              "definition": "Population under the age of 5 years in the county, as of July 1st of the source year.",
               "db_indicator": "Pop_AG_Population_under_5_years_old"
             },
             {
               "name": "Percent Under 5 years old",
               "dataType": "percent",
-              "definition": "Percentage of people under the age of 5 years in the county, as of July 1st of the current year.",
+              "definition": "Percentage of people under the age of 5 years in the county, as of July 1st of the source year.",
               "db_indicator": "Pop_AG_Percent_under_5_years_old"
             },
             {
               "name": "5-14 years old Population",
               "dataType": "level",
-              "definition": "Population between (and including) the ages of 5 and 14 years in the county, as of July 1st of the current year.",
+              "definition": "Population between (and including) the ages of 5 and 14 years in the county, as of July 1st of the source year.",
               "db_indicator": "Pop_AG_Population_5_14_years_old"
             },
             {
               "name": "Percent 5-14 years old",
               "dataType": "percent",
-              "definition": "Percentage of people between (and including) the ages of 5 and 14 years in the county, as of July 1st of the current year.",
+              "definition": "Percentage of people between (and including) the ages of 5 and 14 years in the county, as of July 1st of the source year.",
               "db_indicator": "Pop_AG_Percent_5_14_years_old"
             },
             {
               "name": "15-24 years old Population",
               "dataType": "level",
-              "definition": "Population between (and including) the ages of 15 and 24 years in the county, as of July 1st of the current year.",
+              "definition": "Population of people between (and including) the ages of 15 and 24 years in the county, as of July 1st of the source year.",
               "db_indicator": "Pop_AG_Population_15_24_years_old"
             },
             {
               "name": "Percent 15-24 years old",
               "dataType": "percent",
-              "definition": "Percentage of people between (and including) the ages of 15 and 24 years in the county, as of July 1st of the current year.",
+              "definition": "Percentage of people between (and including) the ages of 15 and 24 years in the county, as of July 1st of the source year.",
               "db_indicator": "Pop_AG_Percent_15_24_years_old"
             },
             {
               "name": "25-64 years old Population",
               "dataType": "level",
-              "definition": "Population between (and including) the ages of 25 and 64 years in the county, as of July 1st of the current year.",
+              "definition": "Population between (and including) the ages of 25 and 64 years in the county, as of July 1st of the source year.",
               "db_indicator": "Pop_AG_Population_25_64_years_old"
             },
             {
               "name": "Percent 25-64 years old",
               "dataType": "percent",
-              "definition": "Percentage of people between (and including) the ages of 25 and 64 years in the county, as of July 1st of the current year.",
+              "definition": "Percentage of people between (and including) the ages of 25 and 64 years in the county, as of July 1st of the source year.",
               "db_indicator": "Pop_AG_Percent_25_64_years_old"
             },
             {
               "name": "65 years and older Population",
               "dataType": "level",
-              "definition": "Population over (and including) the age of 65 years in the county, as of July 1st of the current year.",
+              "definition": "Population over (and including) the age of 65 years in the county, as of July 1st of the source year.",
               "db_indicator": "Pop_AG_Population_65_years_and_older"
             },
             {
               "name": "Percent 65 years and older",
               "dataType": "percent",
-              "definition": "Percentage of people over (and including) the age of 65 in the county, as of July 1st of the current year.",
+              "definition": "Percentage of people over (and including) the age of 65 in the county, as of July 1st of the source year.",
               "db_indicator": "Pop_AG_Percent_65_years_and_older"
             }
           ]
@@ -3801,7 +3802,8 @@
             2011,
             2012,
             2013,
-            2014
+            2014,
+            2015
           ],
           "source": "NACo Analysis of U.S. Census Bureau - Population Estimates Program (PEP)",
           "db_dataset": "Demographics",
@@ -3823,49 +3825,49 @@
             {
               "name": "Total Population",
               "dataType": "level",
-              "definition": "The number of people living in both the incorporated and unincorporated areas of the county, as of July 1st of the current year.",
+              "definition": "The number of people living in both the incorporated and unincorporated areas of the county, as of July 1st of the source year.",
               "db_indicator": "Pop_Eth_Total_Population"
             },
             {
               "name": "White Population",
               "dataType": "level",
-              "definition": "County residents (not Hispanic) identifying with origins in any of the original peoples of Europe, the Middle East, or North Africa, as of July 1st of the current year.",
+              "definition": "County residents (not Hispanic) identifying with origins in any of the original peoples of Europe, the Middle East, or North Africa, as of July 1st of the source year.",
               "db_indicator": "Pop_Eth_White"
             },
             {
               "name": "Black or African American Population",
               "dataType": "level",
-              "definition": "County residents (not Hispanic) identifying with origins in any of the Black racial groups of Africa, as of July 1st of the current year.",
+              "definition": "County residents (not Hispanic) identifying with origins in any of the Black racial groups of Africa, as of July 1st of the source year.",
               "db_indicator": "Pop_Eth_Black_or_African_American"
             },
             {
               "name": "American Indian and Alaskan Native Population",
               "dataType": "level",
-              "definition": "County residents (not Hispanic) identifying with origins in any of the original peoples of North and South America (including Central America) and who maintains tribal affiliation or community attachment, as of July 1st of the current year.",
+              "definition": "County residents (not Hispanic) identifying with origins in any of the original peoples of North and South America (including Central America) and who maintains tribal affiliation or community attachment, as of July 1st of the source year.",
               "db_indicator": "Pop_Eth_American_Indian_and_Alaska_Native"
             },
             {
               "name": "Asian Population",
               "dataType": "level",
-              "definition": "County residents (not Hispanic) identifying with origins in any of the original peoples of the Far East, Southeast Asia, or the Indian subcontinent including, for example, Cambodia, China, India, Japan, Korea, Malaysia, Pakistan, the Philippine Islands, Thailand, and Vietnam, as of July 1st of the current year.",
+              "definition": "County residents (not Hispanic) identifying with origins in any of the original peoples of the Far East, Southeast Asia, or the Indian subcontinent including, for example, Cambodia, China, India, Japan, Korea, Malaysia, Pakistan, the Philippine Islands, Thailand, and Vietnam, as of July 1st of the source year.",
               "db_indicator": "Pop_Eth_Asian"
             },
             {
               "name": "Native Hawaiian and Other Pacific Islander Population",
               "dataType": "level",
-              "definition": "County residents (not Hispanic) identifying with origins in any of the original peoples of Hawaii, Guam, Samoa, or other Pacific Islands, as of July 1st of the current year.",
+              "definition": "County residents (not Hispanic) identifying with origins in any of the original peoples of Hawaii, Guam, Samoa, or other Pacific Islands, as of July 1st of the source year.",
               "db_indicator": "Pop_Eth_Native_Hawaiian_and_Other_Pacific_Islander"
             },
             {
               "name": "Two or More Races Population",
               "dataType": "level",
-              "definition": "County residents (not Hispanic) identifying with two or more races, as of July 1st of the current year.",
+              "definition": "County residents (not Hispanic) identifying with two or more races, as of July 1st of the source year.",
               "db_indicator": "Pop_Eth_Two_or_More_Races"
             },
             {
               "name": "Hispanic or Latino Origin Population",
               "dataType": "level",
-              "definition": "County residents identifying as a person of Cuban, Mexican, Puerto Rican, South or Central American, or other Spanish culture or origin regardless of race, as of July 1st of the current year.",
+              "definition": "County residents identifying as a person of Cuban, Mexican, Puerto Rican, South or Central American, or other Spanish culture or origin regardless of race, as of July 1st of the source year.",
               "db_indicator": "Pop_Eth_Hispanic"
             }
           ]
@@ -4004,7 +4006,8 @@
         {
           "name": "Veteran Demographics",
           "years": [
-            2013
+            2013,
+            2014
           ],
           "source": "NACo Analysis of U.S. Census Bureau - American Community Survey (ACS) 5 year estimates",
           "db_dataset": "Demographics",
@@ -4036,13 +4039,14 @@
             {
               "name": "Percent Veterans",
               "dataType": "percent",
+              "thresholds": [0.082, 0.1, 0.11, 0.12],
               "definition": "The proportion of county adult residents (over 18 years old) who are veterans.",
               "db_indicator": "Veterans_Percent"
             },
             {
               "name": "Veterans Median Income",
               "dataType": "level",
-              "definition": "Median income for veterans resident in the county, in 2013 inflation adjusted dollars.",
+              "definition": "Median income for veterans resident in the county, in 2014 inflation adjusted dollars.",
               "notes": ".veterans-income-note",
               "db_indicator": "Veterans_Median_Income"
             },
@@ -4092,6 +4096,63 @@
     {
       "name": "Economy",
       "children": [
+        {
+          "name": "Local Government Pay",
+          "years": [
+            2015
+          ],
+          "source": "NACo Analysis of Bureau of Labor Statistics - Quarterly Census of Employment and Wages (QCEW)",
+          "db_dataset": "Economy",
+          "companions":[
+            [
+              "Local Government Pay",
+              "Local Government Establishments"
+            ],
+            [
+              "Local Government Pay",
+              "Local Government Employment Level"
+            ],
+            [
+              "Local Government Pay",
+              "Local Government Weekly Wages"
+            ],
+            [
+              "Local Government Pay",
+              "Local Government Annual Pay"
+            ]
+          ],
+          "children": [
+            {
+              "name": "Local Government Establishments",
+              "dataType": "level",
+              "unit": "establishments",
+              "definition": "Number of local government establishments located within a county",
+              "db_indicator": "LGE_local_gov_estabs"
+            },
+            {
+              "name": "Local Government Employment Level",
+              "dataType": "level",
+              "unit": "employees",
+              "definition": "Annual average number of employees working for local government located within a county",
+              "db_indicator": "LGE_local_gov_emplvl"
+            },
+            {
+              "name": "Local Government Weekly Wages",
+              "dataType": "level",
+              "unit": "dollars",
+              "definition": "Average weekly wages of local government employees located within a county",
+              "db_indicator": "LGE_local_gov_wkly_wage"
+            },
+            {
+              "name": "Local Government Annual Pay",
+              "dataType": "level",
+              "unit": "dollars",
+              "thresholds": [30400, 33400, 36600, 47476],
+              "definition": "Annual average pay of local government employees located within a county",
+              "db_indicator": "LGE_local_gov_annual_pay"
+            }
+          ]
+        },
         {
           "name": "Household Income",
           "years": [
@@ -5668,7 +5729,8 @@
         {
           "name": "Veteran Expenditures",
           "years": [
-            2014
+            2014,
+            2015
           ],
           "source": "NACo Analysis of U.S. Department of Veterans Affairs Data",
           "db_dataset": "Federal_Funding",
@@ -5702,6 +5764,7 @@
               ],
               "definition": "U.S. Department of Veterans Affairs expenditures within the county jurisdiction, for items such as: compensation and pension; education and vocational rehabilitation and employment; insurance and indemnities; construction and related costs; general operating expenses and related costs; loan guaranty; and medical expenditures.",
               "unit": "dollars",
+              "notes": ".veterans-vahealthcare-note",
               "db_indicator": "Veterans_Total_Expenditures"
             },
             {
@@ -5715,6 +5778,7 @@
               ],
               "definition": "Federal compensation and pension benefits to veterans resident in the county.  It includes: veterans' compensation for service-connected disabilities; dependency and indemnity compensation for service-connected deaths; veterans' pension for nonservice-connected disabilities; and burial and other benefits to veterans and their survivors.",
               "unit": "dollars",
+              "notes": ".veterans-vahealthcare-note",
               "db_indicator": "Veterans_Expenditures_Compensation_and_Pension"
             },
             {
@@ -5754,6 +5818,7 @@
               ],
               "definition": "U.S. Department of Veterans Affairs expenditures on medical care, consisting of operating expenses incurred through the provision of healthcare services to veterans. These expenditures include dollars for medical services, medical administration, facility maintenance, educational support, research support, and other overhead items.  Medical care expenditures do not include dollars for construction or other non-medical support.  Medical care expenditures are based on where patients live instead of where care is delivered.",
               "unit": "dollar",
+              "notes": ".veterans-vahealthcare-note",
               "db_indicator": "Veterans_Expenditures_Medical_Care"
             },
             {
@@ -5826,7 +5891,8 @@
         {
           "name": "Airports Funding",
           "years": [
-            2014
+            2014,
+            2015
           ],
           "source": "Federal Aviation Administration and Office of Aviation Analysis, U.S. Department of Transportation data",
           "db_dataset": "Transportation",
@@ -5859,7 +5925,7 @@
                 500000,
                 1000000
               ],
-              "definition": "The total amount received by county airports in federal fiscal year 2014 from the Airport Investment Program (AIP) in a county.  Some amounts may be preliminary estimates, subject to change prior to award.  Data current as of September 30, 2014.",
+              "definition": "The total amount received by county airports in federal fiscal year 2014 from the Airport Investment Program (AIP) in a county.  Some amounts may be preliminary estimates, subject to change prior to award.  Data current as of September 30, 2015.",
               "db_indicator": "Total_AIP_Amount"
             },
             {
@@ -5872,7 +5938,7 @@
                 500000,
                 1000000
               ],
-              "definition": "The entitlement amount received by county airports from the Airport Investment Program (AIP) in a county for federal fiscal year 2014.  Some amounts may be preliminary estimates, subject to change prior to award.  Data current as of September 30, 2014.",
+              "definition": "The entitlement amount received by county airports from the Airport Investment Program (AIP) in a county for federal fiscal year 2014.  Some amounts may be preliminary estimates, subject to change prior to award.  Data current as of September 30, 2015.",
               "db_indicator": "Entitlement_AIP_Amount"
             },
             {
@@ -5885,21 +5951,23 @@
                 3000000,
                 5000000
               ],
-              "definition": "The discretionary amount received by county airports from the Airport Investment Program (AIP) in a county for federal fiscal year 2014.  Some amounts may be preliminary estimates, subject to change prior to award.  Data current as of September 30, 2014.",
+              "definition": "The discretionary amount received by county airports from the Airport Investment Program (AIP) in a county for federal fiscal year 2014.  Some amounts may be preliminary estimates, subject to change prior to award.  Data current as of September 30, 2015.",
               "db_indicator": "Discretionary_AIP_Amount"
             },
             {
               "name": "Essential Air Service Annual Subsidy",
               "dataType": "level",
               "unit": "dollars",
+              "year": 2016,
+              "legendTitlePost": ", as of April 2016",
               "thresholds": [
                 1,
                 1000000,
                 2000000,
                 3000000
               ],
-              "definition": "The amount received by subsidized air service carriers serving communities within a county under the Essential Air Service (EAS) program, as of November 2014.",
-              "db_indicator": "Annual_EAS_Subsidy_Rates"
+              "definition": "The amount received by subsidized air service carriers serving communities within a county under the Essential Air Service (EAS) program, as of November 2015.",
+              "db_indicator": "Fund_Total_Annual_Subsidy_Rates_Spring"
             }
           ]
         },
@@ -7171,15 +7239,19 @@
           "companions": [
             [
               "Drug Poisoning",
-              " Drug Poisoning Death Rate"
-            ],
-            [
-              "Early Childhood",
-              "Child Poverty Rate"
+              "Number of Deaths Involving Heroin"
             ],
             [
               "Drug Poisoning",
-              " Drug Poisoning Death Rate"
+              "Age-Adjusted Rate of Deaths Involving Heroin"
+            ],
+            [
+              "Drug Poisoning",
+              "Age-Adjusted Rate of Deaths Involving Opioid Analgesics"
+            ],
+            [
+              "Drug Poisoning",
+              "Age-Adjusted Rate of Deaths Involving Any Opioid"
             ]
           ],
           "children": [
@@ -7196,7 +7268,21 @@
               ],
               "suppressMinMax": true,
               "definition": "The estimated number of deaths due to drug poisoning per 100,000 individuals.  Estimated into 5 increments.",
-              "db_indicator": "DP_Drug_Rate_Wide"
+              "db_indicator": "DP_Drug_Rate_Wide",
+              "companions": [
+                [
+                  "Drug Poisoning",
+                  " Drug Poisoning Death Rate"
+                ],
+                [
+                  "Early Childhood",
+                  "Child Poverty Rate"
+                ],
+                [
+                  "Drug Poisoning",
+                  " Drug Poisoning Death Rate"
+                ]
+              ]
             },
             {
               "name": " Drug Poisoning Death Rate",
@@ -7204,6 +7290,66 @@
               "dataType": "categorical",
               "definition": "The estimated number of deaths due to drug poisoning per 100,000 individuals.",
               "db_indicator": "DP_Drug_Rate_Wide"
+            },
+            {
+              "name": "Number of Deaths Involving Heroin",
+              "unit": "individuals",
+              "notes": ".opioid-deaths-CDC-note",
+              "legendTitlePre": "2010-2014",
+              "dataType": "level_np",
+              "definition": "Total number of deaths involving heroin in a county, 2010-2014",
+              "source": "Source: NACo Analysis of Centers for Disease Control and Prevention, National Center for Health Statistics. Multiple Cause of Death 1999-2014 on CDC WONDER Online Database, released 2015",
+              "db_indicator": "Num_of_Deaths_Involving_Heroin_2010_2014"
+            },
+            {
+              "name": "Age-Adjusted Rate of Deaths Involving Heroin",
+              "unit": "individuals per 100,000",
+              "notes": ".opioid-deaths-CDC-note",
+              "legendTitlePre": "2010-2014",
+              "dataType": "level",
+              "definition": "Annual age-adjusted rate of all deaths involving heroin per 100,000 people in a county, 2010-2014",
+              "source": "Source: NACo Analysis of Centers for Disease Control and Prevention, National Center for Health Statistics. Multiple Cause of Death 1999-2014 on CDC WONDER Online Database, released 2015",
+              "db_indicator": "Age_Adjusted_Rate_of_Deaths_Involving_Heroin_2010_2014"
+            },
+            {
+              "name": "Number of Deaths Involving Opioid Analgesics",
+              "unit": "individuals",
+              "notes": ".opioid-deaths-CDC-note",
+              "legendTitlePre": "2010-2014",
+              "dataType": "level_np",
+              "definition": "Total number of deaths involving opioid analgesics in a county, 2010-2014",
+              "source": "Source: NACo Analysis of Centers for Disease Control and Prevention, National Center for Health Statistics. Multiple Cause of Death 1999-2014 on CDC WONDER Online Database, released 2015",
+              "db_indicator": "Num_of_Deaths_Involving_Opioid_Analgesics_2010_2014"
+            },
+            {
+              "name": "Age-Adjusted Rate of Deaths Involving Opioid Analgesics",
+              "unit": "individuals per 100,000",
+              "notes": ".opioid-deaths-CDC-note",
+              "legendTitlePre": "2010-2014",
+              "dataType": "level",
+              "definition": "Annual age-adjusted rate of all deaths involving opioid analgesics per 100,000 people in a county, 2010-2014",
+              "source": "Source: NACo Analysis of Centers for Disease Control and Prevention, National Center for Health Statistics. Multiple Cause of Death 1999-2014 on CDC WONDER Online Database, released 2015",
+              "db_indicator": "Age_Adjusted_Rate_of_Deaths_Involving_Opioid_Analgesics_2010_2014"
+            },
+            {
+              "name": "Number of Deaths Involving Any Opioid",
+              "unit": "individuals",
+              "notes": ".opioid-deaths-CDC-note",
+              "legendTitlePre": "2010-2014",
+              "dataType": "level_np",
+              "definition": "Total number of deaths involving any opioid in a county, 2010-2014",
+              "source": "Source: NACo Analysis of Centers for Disease Control and Prevention, National Center for Health Statistics. Multiple Cause of Death 1999-2014 on CDC WONDER Online Database, released 2015",
+              "db_indicator": "Num_of_Deaths_Involving_Any_Opioid_2010_2014"
+            },
+            {
+              "name": "Age-Adjusted Rate of Deaths Involving Any Opioid",
+              "unit": "individuals per 100,000",
+              "notes": ".opioid-deaths-CDC-note",
+              "legendTitlePre": "2010-2014",
+              "dataType": "level",
+              "definition": "Annual age-adjusted rate of all deaths involving any opioid per 100,000 people in a county, 2010-2014",
+              "source": "Source: NACo Analysis of Centers for Disease Control and Prevention, National Center for Health Statistics. Multiple Cause of Death 1999-2014 on CDC WONDER Online Database, released 2015",
+              "db_indicator": "Age_Adjusted_Rate_of_Deaths_Involving_Any_Opioid_2010_2014"
             }
           ]
         },
@@ -9429,6 +9575,36 @@
       "name": "Social Services",
       "children": [
         {
+          "name": "County Veterans Service Office",
+          "years": [
+            2016
+          ],
+          "source": "National Association of County Veterans Service Officers (NACVSO)",
+          "db_dataset": "County_Data",
+          "companions": [
+            [
+              "County Veterans Service Office",
+              "CVSO Status"
+            ]
+          ],
+          "children": [
+            {
+              "name": "CVSO Status",
+              "dataType": "categorical",
+              "order": {
+                "None": 0,
+                "County": 1,
+                "State": 2,
+                "Some local (county/city/townships)": 3
+              },
+              "longLegendNames": true,
+              "suppressYear": true,
+              "definition": "Indicates how County Veterans Services Officers (CVSO) operate within a state. 'County' refers to a county located in a state where most or all counties have CVSOs. 'Some local' refers to counties in a state where a few counties have CVSOs and/or veterans services officers are city and township-based. 'State' refers to a county located within a state where veterans services officers are regional and operate at the state-level. 'None' means there are no locally-based veterans services officers.",
+              "db_indicator": "CVSO_Status"
+            }
+          ]
+        },
+        {
           "name": "Supplemental Nutrition Assistance Program (SNAP)",
           "years": [
             2009,
@@ -9502,7 +9678,7 @@
           "years": [
             2014
           ],
-          "source": "NACo Analysis of U.S. Census Bureau, Small Area Income and Poverty Estimates 2014; U.S. Census Bureau, American Community Survey 2010-2014 5-year Estimates; for the household income place effect- Raj Chetty and Nathaniel Hendren, <a href='http://www.equality-of-opportunity.org/'>The Equality of Opportunity</a>, 2015",
+          "source": "NACo Analysis of U.S. Census Bureau, Small Area Income and Poverty Estimates 2014; U.S. Census Bureau, American Community Survey 2010-2014 5-year Estimates",
           "db_dataset": "Social_Services",
           "companions": [
             [
@@ -9861,7 +10037,8 @@
           "years": [
             2013,
             2014,
-            2015
+            2015,
+            2016
           ],
           "source": "NACo Analysis of Federal Aviation Administration and Office of Aviation Analysis, U.S. Department of Transportation",
           "db_dataset": "Transportation",

@@ -1,6 +1,207 @@
 <!-- Begin Curated Indicator List -->
+<li class="dataset" name="Veteran Expenditures" ng-show="indicatorListType == 'curated'">
+	<a>Veteran Expenditures<span class="badge">updated</span></a>
+	<ul class="dropdown-menu">
+		<li>
+			<a class="indicator" name="Total Veterans Expenditures" href="#">Total Veterans Expenditures</a>
+		</li>
+		<li>
+			<a class="indicator" name="Compensation and Pension" href="#">Compensation and Pension</a>
+		</li>
+		<li>
+			<a class="indicator" name="Education and Vocational Rehabilitation and Employment" href="#">Educataion and Vocational Rehabilitation and Employment</a>
+		</li>
+		<li>
+			<a class="indicator" name="Insurance and Indemnities" href="#">Insurance and Indemnities</a>
+		</li>
+		<li>
+			<a class="indicator" name="Medical Care" href="#">Medical Care</a>
+		</li>
+		<li>
+			<a class="indicator" name="VA Healthcare Facility Patients" href="#">VA Healthcare Facility Patients</a>
+		</li>
+	</ul>
+</li>
+<li class="dataset" name="County Veterans Service Office" ng-show="indicatorListType == 'curated'">
+	<a>County Veterans Service Office<span class="badge">new</span></a>
+	<ul class="dropdown-menu">
+		<li>
+			<a class="indicator" name="CVSO Status" href="#">CVSO Status</a>
+		</li>
+	</ul>
+</li>
+<li ng-show="indicatorListType == 'curated'" class="category" name="Demographics">
+	<a>Demographics<span class="badge">updated</span></a>
+	<ul class="dropdown-menu">
+		<li class="dataset" name="Population by Age/Gender">
+			<a>Population by Age/Gender<span class="badge">updated</span></a>
+			<ul class="dropdown-menu">
+				<!--<li>
+					<a class="indicator" name="Total Population Level" href="#">Total Population Level</a>
+				</li>-->
+				<li>
+					<a class="indicator" name="Male Population" href="#">Male Population</a>
+				</li>
+				<li>
+					<a class="indicator" name="Percent Male" href="#">Percent Male</a>
+				</li>
+				<li>
+					<a class="indicator" name="Female Population" href="#">Female Population</a>
+				</li>
+				<li>
+					<a class="indicator" name="Percent Female" href="#">Percent Female</a>
+				</li>
+				<li>
+					<a class="indicator" name="Under 5 years old Population" href="#">Under 5 years old Population</a>
+				</li>
+				<li>
+					<a class="indicator" name="Percent Under 5 years old" href="#">Percent Under 5 years old</a>
+				</li>
+				<li>
+					<a class="indicator" name="5-14 years old Population" href="#">5-14 years old Population</a>
+				</li>
+				<li>
+					<a class="indicator" name="Percent 5-14 years old" href="#">Percent 5-14 years old</a>
+				</li>
+				<li>
+					<a class="indicator" name="15-24 years old Population" href="#">15-24 years old Population</a>
+				</li>
+				<li>
+					<a class="indicator" name="Percent 15-24 years old" href="#">Percent 15-24 years old</a>
+				</li>
+				<li>
+					<a class="indicator" name="25-64 years old Population" href="#">25-64 years old Population</a>
+				</li>
+				<li>
+					<a class="indicator" name="Percent 25-64 years old" href="#">Percent 25-64 years old</a>
+				</li>
+				<li>
+					<a class="indicator" name="65 years and older Population" href="#">65 years and older Population</a>
+				</li>
+				<li>
+					<a class="indicator" name="Percent 65 years and older" href="#">Percent 65 years and older</a>
+				</li>
+			</ul>
+		</li>
+		<li class="dataset" name="Veteran Demographics">
+			<a>Veteran Demographics<span class="badge">updated</span></a>
+			<ul class="dropdown-menu">
+				<li>
+					<a class="indicator" name="Veterans" href="#">Veterans</a>
+				</li>
+				<li>
+					<a class="indicator" name="Percent Veterans" href="#">Percent Veterans</a>
+				</li>
+				<li>
+					<a class="indicator" name="Veterans Median Income" href="#">Veterans Median Income</a>
+				</li>
+				<li>
+					<a class="indicator" name="Veterans Less than High School Graduate" href="#">Veterans Less than High School Graduate</a>
+				</li>
+				<li>
+					<a class="indicator" name="Veterans High School Graduate" href="#">Veterans High School Graduate</a>
+				</li>
+				<li>
+					<a class="indicator" name="Veterans Some College or Associate's Degree" href="#">Veterans Some College or Associate's Degree</a>
+				</li>
+				<li>
+					<a class="indicator" name="Veterans Bachelor's Degree or Higher" href="#">Veterans Bachelor's Degree or Higher</a>
+				</li>
+				<li>
+					<a class="indicator" name="Veterans Unemployment Rate" href="#">Veterans Unemployment Rate</a>
+				</li>
+				<li>
+					<a class="indicator" name="Veterans Poverty Rate" href="#">Veterans Poverty Rate</a>
+				</li>
+			</ul>
+		</li>
+	</ul>
+</li>
+<li class="dataset" name="Local Government Pay" ng-show="indicatorListType == 'curated'">
+	<a>Local Government Pay<span class="badge">new</span></a>
+	<ul class="dropdown-menu">
+		<li>
+			<a class="indicator" name="Local Government Establishments" href="#">Local Government Establishments</a>
+		</li>
+		<li>
+			<a class="indicator" name="Local Government Employment Level" href="#">Local Government Employment Level</a>
+		</li>
+		<li>
+			<a class="indicator" name="Local Government Weekly Wages" href="#">Local Government Weekly Wages</a>
+		</li>
+		<li>
+			<a class="indicator" name="Local Government Annual Pay" href="#">Local Government Annual Pay</a>
+		</li>
+	</ul>
+</li>
+<li class="dataset" name="Airports Funding" ng-show="indicatorListType == 'curated'">
+	<a>Airports Funding<span class="badge">updated</span></a>
+	<ul class="dropdown-menu">
+		<li>
+			<a class="indicator" name="Airport Investment Program Total" href="#">Airport Investment Program (AIP) Total</a>
+		</li>
+		<li>
+			<a class="indicator" name="Airport Investment Program Entitlement" href="#">Airport Investment Program (AIP) Entitlement</a>
+		</li>
+		<li>
+			<a class="indicator" name="Airport Investment Program Discretionary" href="#">Airport Investment Program (AIP) Discretionary</a>
+		</li>
+		<li>
+			<a class="indicator" name="Essential Air Service Annual Subsidy" href="#">Essential Air Service (EAS) Annual Subsidy</a>
+		</li>
+	</ul>
+</li>
+<li class="dataset" name="Airports" ng-show="indicatorListType == 'curated'">
+	<a>Airports<span class="badge">updated</span></a>
+	<ul class="dropdown-menu">
+		<li>
+			<a class="indicator" name="Total Airports" href="#">Total Airports</a>
+		</li>
+		<li>
+			<a class="indicator" name="Publicly Owned Airports" href="#">Publicly Owned Airports</a>
+		</li>
+		<li>
+			<a class="indicator" name="County Airports" href="#">County Airports</a>
+		</li>
+		<li>
+			<a class="indicator" name="Privately Owned Airports" href="#">Privately Owned Airports</a>
+		</li>
+		<li>
+			<a class="indicator" name="General Aviation County Airports" href="#">General Aviation County Airports</a>
+		</li>
+		<li>
+			<a class="indicator" name="Commercial Aviation County Airports" href="#">Commercial Aviation County Airports</a>
+		</li>
+	</ul>
+</li>
+<li class="dataset" name="Drug Poisoning" ng-show="indicatorListType == 'curated'">
+	<a>Drug Poisoning</a>
+	<ul class="dropdown-menu">
+		<li>
+			<a class="indicator" name="Drug Poisoning Death Rate" href="#">Drug Poisoning Death Rate</a>
+		</li>
+		<li>
+			<a class="indicator" name="Number of Deaths Involving Heroin" hred="#">Number of Deaths Involving Heroin</a>
+		</li>
+		<li>
+			<a class="indicator" name="Age-Adjusted Rate of Deaths Involving Heroin" hred="#">Age-Adjusted Rate of Deaths Involving Heroin</a>
+		</li>
+		<li>
+			<a class="indicator" name="Number of Deaths Involving Opioid Analgesics" hred="#">Number of Deaths Involving Opioid Analgesics</a>
+		</li>
+		<li>
+			<a class="indicator" name="Age-Adjusted Rate of Deaths Involving Opioid Analgesics" hred="#">Age-Adjusted Rate of Deaths Involving Opioid Analgesics</a>
+		</li>
+		<li>
+			<a class="indicator" name="Number of Deaths Involving Any Opioid" hred="#">Number of Deaths Involving Any Opioid</a>
+		</li>
+		<li>
+			<a class="indicator" name="Age-Adjusted Rate of Deaths Involving Any Opioid" hred="#">Age-Adjusted Rate of Deaths Involving Any Opioid</a>
+		</li>
+	</ul>
+</li>
 <li class="dataset" name="Health Insurance" ng-show="indicatorListType == 'curated'">
-	<a>Health Insurance<span class="badge">updated</span></a>
+	<a>Health Insurance</a>
 	<ul class="dropdown-menu">
 		<!-- --><li class="disabled dropdown-header">
 			<a class="disabled dropdown-header" href="#">All Income Levels</a>
@@ -58,85 +259,53 @@
 		</li>
 	</ul>
 </li>
-<li class="dataset" name="Immigration and Ancestry" ng-show="indicatorListType == 'curated'">
-	<a>Immigration and Ancestry<span class="badge">updated</span></a>
+<li class="dataset" name="Secure Rural Schools (SRS)" ng-show="indicatorListType == 'curated'">
+	<a>Secure Rural Schools (SRS)</a>
 	<ul class="dropdown-menu">
 		<li>
-			<a class="indicator" name="Foreign Born, Not U.S. Citizens" href="#">Foreign Born, Not U.S. Citizens</a>
+			<a class="indicator" name="State SRS Profiles" href="#">State SRS Profile</a>
 		</li>
 		<li>
-			<a class="indicator" name="Foreign Born, U.S. Citizens" href="#">Foreign Born, U.S. Citizens</a>
+			<a class="indicator" name="SRS Profiles" href="#">SRS Profile</a>
 		</li>
 		<li>
-			<a class="indicator" name="Foreign Born Total" href="#">Foreign Born Total</a>
+			<a class="indicator" name="SRS Amount" href="#">SRS Amount</a>
 		</li>
 		<li>
-			<a class="indicator" name="Percent of Foreign-Born Residents" href="#">Percent of Foreign-Born Residents</a>
-		</li>
-		<!--<li>
-			<a class="indicator" name="Percent of Residents with European Ancestry" href="#">Percent of Residents with European Ancestry</a>
+			<a class="indicator" name="Projected 25% Payment" href="#">25% Payment</a>
 		</li>
 		<li>
-			<a class="indicator" name="Percent of Residents with Middle Eastern or North African Ancestry" href="#">Percent of Residents with Middle Eastern or North African Ancestry</a>
-		</li>
-		<li>
-			<a class="indicator" name="Percent of Residents with Sub-Saharan African Ancestry" href="#">Percent of Residents with Sub-Saharan African Ancestry</a>
-		</li>
-		<li>
-			<a class="indicator" name="Percent of Residents with Australian or New Zealand Ancestry" href="#">Percent of Residents with Australian or New Zealand Ancestry</a>
-		</li>
-		<li>
-			<a class="indicator" name="Percent of Residents with North American Ancestry" href="#">Percent of Residents with North American Ancestry</a>
-		</li>
-		<li>
-			<a class="indicator" name="Percent of Residents with West Indian or Brazilian Ancestry" href="#">Percent of Residents with West Indian or Brazilian Ancestry</a>
-		</li>
-		<li>
-			<a class="indicator" name="Refugee Arrivals" href="#">Refugee Arrivals</a>
-		</li>
-		<li>
-			<a class="indicator" name="Unaccompanied Children" href="#">Unaccompanied Children</a>
-		</li>-->
-	</ul>
-</li>
-<li class="dataset" name="Medical Benefits" ng-show="indicatorListType == 'curated'">
-	<a>Medical Benefits<span class="badge">updated</span></a>
-	<ul class="dropdown-menu">
-		<li>
-			<a class="indicator" name="Medical Benefits" href="#">Medical Benefits</a>
-		</li>
-		<li>
-			<a class="indicator" name="Medicare Benefits" href="#">Medicare Benefits</a>
-		</li>
-		<li>
-			<a class="indicator" name="Public Assistance Medical Care Benefits" href="#">Public Assistance Medical Care Benefits</a>
-		</li>
-		<li>
-			<a class="indicator" name="Military Medical Insurance Benefits" href="#">Military Medical Insurance Benefits</a>
+			<a class="indicator" name="Payment Percent Change" href="#">Payment Percent Change</a>
 		</li>
 	</ul>
 </li>
-<li class="dataset" name="Supplemental Nutrition Assistance Program (SNAP)" ng-show="indicatorListType == 'curated'">
-	<a>Supplemental Nutrition Assistance Program (SNAP)<span class="badge">updated</span></a>
+<li class="dataset" name="Payment in Lieu of Taxes (PILT)" ng-show="indicatorListType == 'curated'">
+	<a>Payment in Lieu of Taxes (PILT)</a>
 	<ul class="dropdown-menu">
 		<li>
-			<a class="indicator" name="SNAP Benefits" href="#">SNAP Benefits</a>
+			<a class="indicator" name="PILT Profiles" href="#">PILT Profiles</a>
 		</li>
-		<!--<li>
-			<a class="indicator" name="SNAP Benefit Growth Rate" href="#">SNAP Benefit Growth Rate</a>
-		</li>-->
 		<li>
-			<a class="indicator" name="SNAP Recipient Households" href="#">SNAP Recipient Households</a>
+			<a class="indicator" name="State PILT Profiles" href="#">State PILT Profiles</a>
 		</li>
-		<!--<li>
-			<a class="indicator" name="SNAP Recipient Growth Rate" href="#">SNAP Recipient Growth Rate</a>
-		</li>-->
 		<li>
-			<a class="indicator" name="SNAP Benefits per Household" href="#">SNAP Benefits per Household</a>
+			<a class="indicator" name="PILT Amount" href="#">PILT Amount</a>
 		</li>
-		<!--<li>
-			<a class="indicator" name="SNAP per Household Growth Rate" href="#">SNAP per Household Growth Rate</a>
-		</li>-->
+		<li>
+			<a class="indicator" name="PILT Annual Growth Rate" href="#">PILT Annual Growth Rate</a>
+		</li>
+		<li>
+			<a class="indicator" name="Total PILT Entitlement Land" href="#">Total PILT Entitlement Land</a>
+		</li>
+		<!-- <li>
+		<a class="indicator" name="Total County Area" href="#">Total County Area</a>
+		</li> -->
+		<li>
+			<a class="indicator" name="Percent of PILT Entitlement Land" href="#">Percent of PILT Entitlement Land</a>
+		</li>
+		<li>
+			<a class="indicator" name="PILT per Acre" href="#">PILT per Acre</a>
+		</li>
 	</ul>
 </li>
 <li class="dataset" name="County Economies" ng-show="indicatorListType == 'curated'">
@@ -226,605 +395,6 @@
 		<li>
 			<a class="indicator" name="Recovered Home Prices" href="#">Recovered Home Prices</a>
 		</li>-->
-	</ul>
-</li>
-<li class="category" name="County Employment" ng-show="indicatorListType == 'curated'">
-	<a>County Employment</a>
-	<ul class="dropdown-menu">
-		<li class="dataset" name="Total County Employment">
-			<a>Total County Employment</a>
-			<ul class="dropdown-menu">
-				<!-- --><li class="disabled dropdown-header">
-					<a class="disabled dropdown-header" href="#">FT &amp; PT</a>
-				<!-- --></li>
-				<li>
-					<a class="indicator" name="Total County Employment" href="#">Total County Employment</a>
-				</li>
-				<!-- --><li class="disabled dropdown-header">
-					<a class="disabled dropdown-header" href="#">Full-time Employees (FT)</a>
-				<!-- --></li>
-				<li>
-					<a class="indicator" name="Total County Full-time Employment" href="#">County Total Employment</a>
-				</li>
-				<!-- --><li class="disabled dropdown-header">
-					<a class="disabled dropdown-header" href="#">Part-time Employees (PT)</a>
-				<!-- --></li>
-				<li>
-					<a class="indicator" name="Total County Part-time Employment" href="#">County Total Employment</a>
-				</li>
-			</ul>
-		</li>
-		<li class="dataset" name="Administration Employment">
-			<a>Administration Employment</a>
-			<ul class="dropdown-menu">
-				<!-- --><li class="disabled dropdown-header">
-					<a class="disabled dropdown-header" href="#">FT &amp; PT</a>
-				<!-- --></li>
-				<li>
-					<a class="indicator" name="Total Administration Employment" href="#">Total Administration Employment</a>
-				</li>
-				<li>
-					<a class="indicator" name="Financial Administration" href="#">Financial Administration</a>
-				</li>
-				<li>
-					<a class="indicator" name="Other Governmental Administration" href="#">Other Governmental Administration</a>
-				</li>
-				<!--<li>
-					<a class="indicator" name="Social Insurance Administration" href="#">Social Insurance Administration</a>
-				</li>-->
-				<!-- --><li class="disabled dropdown-header">
-					<a class="disabled dropdown-header" href="#">Full-time Employees (FT)</a>
-				<!-- --></li>
-				<li>
-					<a class="indicator" name="Total Administration Full-time Employment" href="#">Total Administration Employment</a>
-				</li>
-				<li>
-					<a class="indicator" name="Financial Administration Full-time" href="#">Financial Administration</a>
-				</li>
-				<li>
-					<a class="indicator" name="Other Governmental Administration Full-time" href="#">Other Governmental Administration</a>
-				</li>
-				<!--<li>
-					<a class="indicator" name="Social Insurance Administration Full-time" href="#">Social Insurance Administration</a>
-				</li>-->
-				<!-- --><li class="disabled dropdown-header">
-					<a class="disabled dropdown-header" href="#">Part-time Employees (PT)</a>
-				<!-- --></li>
-				<li>
-					<a class="indicator" name="Total Administration Part-time Employment" href="#">Total Administration Employment</a>
-				</li>
-				<li>
-					<a class="indicator" name="Financial Administration Part-time" href="#">Financial Administration</a>
-				</li>
-				<li>
-					<a class="indicator" name="Other Governmental Administration Part-time" href="#">Other Governmental Administration</a>
-				</li>
-				<!--<li>
-				<a class="indicator" name="Social Insurance Administration Part-time" href="#">Social Insurance Administration</a>
-				</li>-->
-			</ul>
-		</li>
-		<li class="dataset" name="Education Employment">
-			<a>Education Employment</a>
-			<ul class="dropdown-menu">
-				<!-- --><li class="disabled dropdown-header">
-					<a class="disabled dropdown-header" href="#">FT &amp; PT</a>
-				<!-- --></li>
-				<li>
-					<a class="indicator" name="Total Education Employment" href="#">Total Education Employment</a>
-				</li>
-				<li>
-					<a class="indicator" name="Elementary &amp; Secondary Education" href="#">Elementary &amp; Secondary Education</a>
-				</li>
-				<li>
-					<a class="indicator" name="Higher Education" href="#">Higher Education</a>
-				</li>
-				<!-- --><li class="disabled dropdown-header">
-					<a class="disabled dropdown-header" href="#">Full-time Employees (FT)</a>
-				<!-- --></li>
-				<li>
-					<a class="indicator" name="Total Education Full-time Employment" href="#">Total Education Employment</a>
-				</li>
-				<li>
-					<a class="indicator" name="Elementary &amp; Secondary Education Full-time" href="#">Elementary &amp; Secondary Education</a>
-				</li>
-				<li>
-					<a class="indicator" name="Higher Education Full-time" href="#">Higher Education</a>
-				</li>
-				<!-- --><li class="disabled dropdown-header">
-					<a class="disabled dropdown-header" href="#">Part-time Employees (PT)</a>
-				<!-- --></li>
-				<li>
-					<a class="indicator" name="Total Education Part-time Employment" href="#">Total Education Employment</a>
-				</li>
-				<li>
-					<a class="indicator" name="Elementary &amp; Secondary Education Part-time" href="#">Elementary &amp; Secondary Education</a>
-				</li>
-				<li>
-					<a class="indicator" name="Higher Education Part-time" href="#">Higher Education</a>
-				</li>
-			</ul>
-		</li>
-		<li class="dataset" name="Health &amp; Hospitals Employment">
-			<a>Health &amp; Hospitals Employment</a>
-			<ul class="dropdown-menu">
-				<!-- --><li class="disabled dropdown-header">
-					<a class="disabled dropdown-header" href="#">FT &amp; PT</a>
-				<!-- --></li>
-				<li>
-					<a class="indicator" name="Total Health &amp; Hospitals Employment" href="#">Total Health &amp; Hospitals Employment</a>
-				</li>
-				<li>
-					<a class="indicator" name="Health" href="#">Health</a>
-				</li>
-				<li>
-					<a class="indicator" name="Hospitals" href="#">Hospitals</a>
-				</li>
-				<!-- --><li class="disabled dropdown-header">
-					<a class="disabled dropdown-header" href="#">Full-time Employees (FT)</a>
-				<!-- --></li>
-				<li>
-					<a class="indicator" name="Total Health &amp; Hospitals Full-time Employment" href="#">Total Health &amp; Hospitals Employment</a>
-				</li>
-				<li>
-					<a class="indicator" name="Health Full-time" href="#">Health</a>
-				</li>
-				<li>
-					<a class="indicator" name="Hospitals Full-time" href="#">Hospitals</a>
-				</li>
-				<!-- --><li class="disabled dropdown-header">
-					<a class="disabled dropdown-header" href="#">Part-time Employees (PT)</a>
-				<!-- --></li>
-				<li>
-					<a class="indicator" name="Total Health &amp; Hospitals Part-time Employment" href="#">Total Health &amp; Hospitals Employment</a>
-				</li>
-				<li>
-					<a class="indicator" name="Health Part-time" href="#">Health</a>
-				</li>
-				<li>
-					<a class="indicator" name="Hospitals Part-time" href="#">Hospitals</a>
-				</li>
-			</ul>
-		</li>
-		<li class="dataset" name="Housing &amp; Community Development Employment">
-			<a>Housing &amp; Community Development Employment</a>
-			<ul class="dropdown-menu">
-				<!-- --><li class="disabled dropdown-header">
-					<a class="disabled dropdown-header" href="#">FT &amp; PT</a>
-				<!-- --></li>
-				<li>
-					<a class="indicator" name="Housing &amp; Community Development Employment" href="#">Housing &amp; Community Development Employment</a>
-				</li>
-				<!-- --><li class="disabled dropdown-header">
-					<a class="disabled dropdown-header" href="#">Full-time Employees (FT)</a>
-				<!-- --></li>
-				<li>
-					<a class="indicator" name="Housing &amp; Community Development Full-time Employment" href="#">Housing &amp; Community Development Employment</a>
-				</li>
-				<!-- --><li class="disabled dropdown-header">
-					<a class="disabled dropdown-header" href="#">Part-time Employees (PT)</a>
-				<!-- --></li>
-				<li>
-					<a class="indicator" name="Housing &amp; Community Development Part-time Employment" href="#">Housing &amp; Community Development Employment</a>
-				</li>
-			</ul>
-		</li>
-		<li class="dataset" name="Justice &amp; Public Safety Employment">
-			<a>Justice &amp; Public Safety Employment</a>
-			<ul class="dropdown-menu">
-				<!-- --><li class="disabled dropdown-header">
-					<a class="disabled dropdown-header" href="#">FT &amp; PT</a>
-				<!-- --></li>
-				<li>
-					<a class="indicator" name="Total Justice &amp; Public Safety Employment" href="#">Total Justice &amp; Public Safety Employment</a>
-				</li>
-				<li>
-					<a class="indicator" name="Corrections" href="#">Corrections</a>
-				</li>
-				<li>
-					<a class="indicator" name="Judicial &amp; Legal Services" href="#">Judicial &amp; Legal Services</a>
-				</li>
-				<li>
-					<a class="indicator" name="Police Protection" href="#">Police Protection</a>
-				</li>
-				<li>
-					<a class="indicator" name="Fire Protection" href="#">Fire Protection</a>
-				</li>
-				<!-- --><li class="disabled dropdown-header">
-					<a class="disabled dropdown-header" href="#">Full-time Employees (FT)</a>
-				<!-- --></li>
-				<li>
-					<a class="indicator" name="Total Justice &amp; Public Safety Full-time Employment" href="#">Total Justice &amp; Public Safety Employment</a>
-				</li>
-				<li>
-					<a class="indicator" name="Corrections Full-time" href="#">Corrections</a>
-				</li>
-				<li>
-					<a class="indicator" name="Judicial &amp; Legal Services Full-time" href="#">Judicial &amp; Legal Services</a>
-				</li>
-				<li>
-					<a class="indicator" name="Police Protection Full-time" href="#">Police Protection</a>
-				</li>
-				<li>
-					<a class="indicator" name="Fire Protection Full-time" href="#">Fire Protection</a>
-				</li>
-				<!-- --><li class="disabled dropdown-header">
-					<a class="disabled dropdown-header" href="#">Part-time Employees (PT)</a>
-				<!-- --></li>
-				<li>
-					<a class="indicator" name="Total Justice &amp; Public Safety Part-time Employment" href="#">Total Justice &amp; Public Safety Employment</a>
-				</li>
-				<li>
-					<a class="indicator" name="Corrections Part-time" href="#">Corrections</a>
-				</li>
-				<li>
-					<a class="indicator" name="Judicial &amp; Legal Services Part-time" href="#">Judicial &amp; Legal Services</a>
-				</li>
-				<li>
-					<a class="indicator" name="Police Protection Part-time" href="#">Police Protection</a>
-				</li>
-				<li>
-					<a class="indicator" name="Fire Protection Part-time" href="#">Fire Protection</a>
-				</li>
-			</ul>
-		</li>
-		<li class="dataset" name="Public Amenity Employment">
-			<a>Public Amenity Employment</a>
-			<ul class="dropdown-menu">
-				<!-- --><li class="disabled dropdown-header">
-					<a class="disabled dropdown-header" href="#">FT &amp; PT</a>
-				<!-- --></li>
-				<li>
-					<a class="indicator" name="Total Public Amenity Employment" href="#">Total Public Amenity Employment</a>
-				</li>
-				<li>
-					<a class="indicator" name="Libraries" href="#">Libraries</a>
-				</li>
-				<li>
-					<a class="indicator" name="Natural Resources" href="#">Natural Resources</a>
-				</li>
-				<li>
-					<a class="indicator" name="Parks &amp; Recreation" href="#">Parks &amp; Recreation</a>
-				</li>
-				<!-- --><li class="disabled dropdown-header">
-					<a class="disabled dropdown-header" href="#">Full-time Employees (FT)</a>
-				<!-- --></li>
-				<li>
-					<a class="indicator" name="Total Public Amenity Full-time Employment" href="#">Total Public Amenity Employment</a>
-				</li>
-				<li>
-					<a class="indicator" name="Libraries Full-time" href="#">Libraries</a>
-				</li>
-				<li>
-					<a class="indicator" name="Natural Resources Full-time" href="#">Natural Resources</a>
-				</li>
-				<li>
-					<a class="indicator" name="Parks &amp; Recreation Full-time" href="#">Parks &amp; Recreation</a>
-				</li>
-				<!-- --><li class="disabled dropdown-header">
-					<a class="disabled dropdown-header" href="#">Part-time Employees (PT)</a>
-				<!-- --></li>
-				<li>
-					<a class="indicator" name="Total Public Amenity Part-time Employment" href="#">Total Public Amenity Employment</a>
-				</li>
-				<li>
-					<a class="indicator" name="Libraries Part-time" href="#">Libraries</a>
-				</li>
-				<li>
-					<a class="indicator" name="Natural Resources Part-time" href="#">Natural Resources</a>
-				</li>
-				<li>
-					<a class="indicator" name="Parks &amp; Recreation Part-time" href="#">Parks &amp; Recreation</a>
-				</li>
-			</ul>
-		</li>
-		<li class="dataset" name="Public Welfare Employment">
-			<a>Public Welfare Employment</a>
-			<ul class="dropdown-menu">
-				<!-- --><li class="disabled dropdown-header">
-					<a class="disabled dropdown-header" href="#">FT &amp; PT</a>
-				<!-- --></li>
-				<li>
-					<a class="indicator" name="Public Welfare Employment" href="#">Public Welfare Employment</a>
-				</li>
-				<!-- --><li class="disabled dropdown-header">
-					<a class="disabled dropdown-header" href="#">Full-time Employees (FT)</a>
-				<!-- --></li>
-				<li>
-					<a class="indicator" name="Public Welfare Full-time Employment" href="#">Public Welfare Employment</a>
-				</li>
-				<!-- --><li class="disabled dropdown-header">
-					<a class="disabled dropdown-header" href="#">Part-time Employees (PT)</a>
-				<!-- --></li>
-				<li>
-					<a class="indicator" name="Public Welfare Part-time Employment" href="#">Public Welfare Employment</a>
-				</li>
-			</ul>
-		</li>
-		<li class="dataset" name="Transportation Employment">
-			<a>Transportation Employment</a>
-			<ul class="dropdown-menu">
-				<!-- --><li class="disabled dropdown-header">
-					<a class="disabled dropdown-header" href="#">FT &amp; PT</a>
-				<!-- --></li>
-				<li>
-					<a class="indicator" name="Total Transportation Employment" href="#">Total Transportation Employment</a>
-				</li>
-				<li>
-					<a class="indicator" name="Air Transportation" href="#">Air Transportation</a>
-				</li>
-				<li>
-					<a class="indicator" name="Highways" href="#">Highways</a>
-				</li>
-				<li>
-					<a class="indicator" name="Water Transport &amp; Terminals" href="#">Water Transport &amp; Terminals</a>
-				</li>
-				<li>
-					<a class="indicator" name="Transit" href="#">Transit</a>
-				</li>
-				<!-- --><li class="disabled dropdown-header">
-					<a class="disabled dropdown-header" href="#">Full-time Employees (FT)</a>
-				<!-- --></li>
-				<li>
-					<a class="indicator" name="Total Transportation Full-time Employment" href="#">Total Transportation Employment</a>
-				</li>
-				<li>
-					<a class="indicator" name="Air Transportation Full-time" href="#">Air Transportation</a>
-				</li>
-				<li>
-					<a class="indicator" name="Highways Full-time" href="#">Highways</a>
-				</li>
-				<li>
-					<a class="indicator" name="Water Transport &amp; Terminals Full-time" href="#">Water Transport &amp; Terminals</a>
-				</li>
-				<li>
-					<a class="indicator" name="Transit Full-time" href="#">Transit</a>
-				</li>
-				<!-- --><li class="disabled dropdown-header">
-					<a class="disabled dropdown-header" href="#">Part-time Employees (PT)</a>
-				<!-- --></li>
-				<li>
-					<a class="indicator" name="Total Transportation Part-time Employment" href="#">Total Transportation Employment</a>
-				</li>
-				<li>
-					<a class="indicator" name="Air Transportation Part-time" href="#">Air Transportation</a>
-				</li>
-				<li>
-					<a class="indicator" name="Highways Part-time" href="#">Highways</a>
-				</li>
-				<li>
-					<a class="indicator" name="Water Transport &amp; Terminals Part-time" href="#">Water Transport &amp; Terminals</a>
-				</li>
-				<li>
-					<a class="indicator" name="Transit Part-time" href="#">Transit</a>
-				</li>
-			</ul>
-		</li>
-		<li class="dataset" name="Utility Employment">
-			<a>Utility Employment</a>
-			<ul class="dropdown-menu">
-				<!-- --><li class="disabled dropdown-header">
-					<a class="disabled dropdown-header" href="#">FT &amp; PT</a>
-				<!-- --></li>
-				<li>
-					<a class="indicator" name="Total Utility Employment" href="#">Total Utility Employment</a>
-				</li>
-				<li>
-					<a class="indicator" name="Electric Utilities" href="#">Electric Utilities</a>
-				</li>
-				<li>
-					<a class="indicator" name="Gas Utilities" href="#">Gas Utilities</a>
-				</li>
-				<!-- --><li class="disabled dropdown-header">
-					<a class="disabled dropdown-header" href="#">Full-time Employees (FT)</a>
-				<!-- --></li>
-				<li>
-					<a class="indicator" name="Total Utility Full-time Employment" href="#">Total Utility Employment</a>
-				</li>
-				<li>
-					<a class="indicator" name="Electric Utilities Full-time" href="#">Electric Utilities</a>
-				</li>
-				<li>
-					<a class="indicator" name="Gas Utilities Full-time" href="#">Gas Utilities</a>
-				</li>
-				<!-- --><li class="disabled dropdown-header">
-					<a class="disabled dropdown-header" href="#">Part-time Employees (PT)</a>
-				<!-- --></li>
-				<li>
-					<a class="indicator" name="Total Utility Part-time Employment" href="#">Total Utility Employment</a>
-				</li>
-				<li>
-					<a class="indicator" name="Electric Utilities Part-time" href="#">Electric Utilities</a>
-				</li>
-				<li>
-					<a class="indicator" name="Gas Utilities Part-time" href="#">Gas Utilities</a>
-				</li>
-			</ul>
-		</li>
-		<li class="dataset" name="Water, Sewerage &amp; Solid Waste Employment">
-			<a>Water, Sewerage &amp; Solid Waste Employment</a>
-			<ul class="dropdown-menu">
-				<!-- --><li class="disabled dropdown-header">
-					<a class="disabled dropdown-header" href="#">FT &amp; PT</a>
-				<!-- --></li>
-				<li>
-					<a class="indicator" name="Total Water, Sewerage &amp; Solid Waste Employment" href="#">Total Water, Sewerage &amp; Solid Waste Employment</a>
-				</li>
-				<li>
-					<a class="indicator" name="Sewerage" href="#">Sewerage</a>
-				</li>
-				<li>
-					<a class="indicator" name="Solid Waste" href="#">Solid Waste</a>
-				</li>
-				<li>
-					<a class="indicator" name="Water Utilities" href="#">Water Utilities</a>
-				</li>
-				<!-- --><li class="disabled dropdown-header">
-					<a class="disabled dropdown-header" href="#">Full-time Employees (FT)</a>
-				<!-- --></li>
-				<li>
-					<a class="indicator" name="Total Water, Sewerage &amp; Solid Waste Full-time Employment" href="#">Total Water, Sewerage &amp; Solid Waste Employment</a>
-				</li>
-				<li>
-					<a class="indicator" name="Sewerage Full-time" href="#">Sewerage</a>
-				</li>
-				<li>
-					<a class="indicator" name="Solid Waste Full-time" href="#">Solid Waste</a>
-				</li>
-				<li>
-					<a class="indicator" name="Water Utilities Full-time" href="#">Water Utilities</a>
-				</li>
-				<!-- --><li class="disabled dropdown-header">
-					<a class="disabled dropdown-header" href="#">Part-time Employees (PT)</a>
-				<!-- --></li>
-				<li>
-					<a class="indicator" name="Total Water, Sewerage &amp; Solid Waste Part-time Employment" href="#">Total Water, Sewerage &amp; Solid Waste Employment</a>
-				</li>
-				<li>
-					<a class="indicator" name="Sewerage Part-time" href="#">Sewerage</a>
-				</li>
-				<li>
-					<a class="indicator" name="Solid Waste Part-time" href="#">Solid Waste</a>
-				</li>
-				<li>
-					<a class="indicator" name="Water Utilities Part-time" href="#">Water Utilities</a>
-				</li>
-			</ul>
-		</li>
-		<li class="dataset" name="Other Employment">
-			<a>Other Employment</a>
-			<ul class="dropdown-menu">
-				<!-- --><li class="disabled dropdown-header">
-					<a class="disabled dropdown-header" href="#">FT &amp; PT</a>
-				<!-- --></li>
-				<li>
-					<a class="indicator" name="Other &amp; Unallocable Employment" href="#">Other &amp; Unallocable Employment</a>
-				</li>
-				<!-- --><li class="disabled dropdown-header">
-					<a class="disabled dropdown-header" href="#">Full-time Employees (FT)</a>
-				<!-- --></li>
-				<li>
-					<a class="indicator" name="Other &amp; Unallocable Full-time Employment" href="#">Other &amp; Unallocable Employment</a>
-				</li>
-				<!-- --><li class="disabled dropdown-header">
-					<a class="disabled dropdown-header" href="#">Part-time Employees (PT)</a>
-				<!-- --></li>
-				<li>
-					<a class="indicator" name="Other &amp; Unallocable Part-time Employment" href="#">Other &amp; Unallocable Employment</a>
-				</li>
-			</ul>
-		</li>
-	</ul>
-</li>
-<li class="dataset" name="Jails - Supervised Population" ng-show="indicatorListType == 'curated'">
-	<a>Jails - Supervised Population</a>
-	<ul class="dropdown-menu">
-		<li>
-			<a class="indicator" name="Total Jail Population" href="#">Total Jail Population</a>
-		</li>
-		<li>
-			<a class="indicator" name="Rated Jail Capacity" href="#">Rated Jail Capacity</a>
-		</li>
-		<li>
-			<a class="indicator" name="Jail Capacity Percent" href="#">Jail Capacity Percent</a>
-		</li>
-		<li>
-			<a class="indicator" name="Confined Persons" href="#">Confined Persons</a>
-		</li>
-		<li>
-			<a class="indicator" name="Nonconfined Persons" href="#">Nonconfined Persons</a>
-		</li>
-		<li>
-			<a class="indicator" name="Non US Citizens" href="#">Non US Citizens</a>
-		</li>
-		<li>
-			<a class="indicator" name="Weekenders" href="#">Weekenders</a>
-		</li>
-		<li>
-			<a class="indicator" name="Average Daily Population" href="#">Average Daily Population</a>
-		</li>
-		<!--<li>
-			<a class="indicator" name="Percent of Capacity" href="#">Percent of Capacity</a>
-		</li>
-		<li>
-			<a class="indicator" name="At or Over Capacity" href="#">Capacity Status</a>
-		</li>-->
-	</ul>
-</li>
-<li class="dataset" name="Road Ownership" ng-show="indicatorListType == 'curated'">
-	<a>Road Ownership</a>
-	<ul class="dropdown-menu">
-		<li>
-			<a class="indicator" name="Total Public Road Miles" href="#">Total Public Road Miles</a>
-		</li>
-		<li>
-			<a class="indicator" name="State Highway Agency Road Miles" href="#">State Highway Agency Road Miles</a>
-		</li>
-		<li>
-			<a class="indicator" name="County Highway Agency Road Miles" href="#">County Highway Agency Road Miles</a>
-		</li>
-		<li>
-			<a class="indicator" name="Other State Agency Road Miles" href="#">Other State Agency Road Miles</a>
-		</li>
-		<li>
-			<a class="indicator" name="Town or Township Highway Agency Road Miles" href="#">Town or Township Highway Agency Road Miles</a>
-		</li>
-		<li>
-			<a class="indicator" name="City or Municipal Highway Agency Road Miles" href="#">City or Municipal Highway Agency Road Miles</a>
-		</li>
-		<li>
-			<a class="indicator" name="Indian Tribe/Nation Road Miles" href="#">Indian Tribe/Nation Road Miles</a>
-		</li>
-		<li>
-			<a class="indicator" name="Federal Agency Road Miles" href="#">Federal Agency Road Miles</a>
-		</li>
-		<li>
-			<a class="indicator" name="Share State Highway Agency" href="#">Share State Highway Agency</a>
-		</li>
-		<li>
-			<a class="indicator" name="Share County Highway Agency" href="#">Share County Highway Agency</a>
-		</li>
-		<li>
-			<a class="indicator" name="Share Other State Agencies" href="#">Share Other State Agencies</a>
-		</li>
-		<li>
-			<a class="indicator" name="Share Town or Township Highway Agency" href="#">Share Town or Township Highway Agency</a>
-		</li>
-		<li>
-			<a class="indicator" name="Share City or Municipal Highway Agency" href="#">Share City or Municipal Highway Agency</a>
-		</li>
-		<li>
-			<a class="indicator" name="Share Indian Tribe/Nation" href="#">Share Indian Tribe/Nation</a>
-		</li>
-		<li>
-			<a class="indicator" name="Share Federal Agency" href="#">Share Federal Agency</a>
-		</li>
-		<li>
-			<a class="indicator" name="Total Road Miles per Square Mile" href="#">Total Road Miles per Square Mile</a>
-		</li>
-		<li>
-			<a class="indicator" name="Total County Road Miles per Square Mile" href="#">Total County Road Miles per Square Mile</a>
-		</li>
-	</ul>
-</li>
-<li class="dataset" name="Secure Rural Schools (SRS)" ng-show="indicatorListType == 'curated'">
-	<a>Secure Rural Schools (SRS)</a>
-	<ul class="dropdown-menu">
-		<li>
-			<a class="indicator" name="State SRS Profiles" href="#">State SRS Profile</a>
-		</li>
-		<li>
-			<a class="indicator" name="SRS Profiles" href="#">SRS Profile</a>
-		</li>
-		<li>
-			<a class="indicator" name="SRS Amount" href="#">SRS Amount</a>
-		</li>
-		<li>
-			<a class="indicator" name="Projected 25% Payment" href="#">25% Payment</a>
-		</li>
-		<li>
-			<a class="indicator" name="Payment Percent Change" href="#">Payment Percent Change</a>
-		</li>
 	</ul>
 </li>
 <li class="disabled more-less" ng-show="indicatorListType == 'curated'">
@@ -2332,7 +1902,7 @@
 			</ul>
 		</li>
 		<li class="dataset" name="Population by Age/Gender">
-			<a>Population by Age/Gender</a>
+			<a>Population by Age/Gender<span class="badge">updated</span></a>
 			<ul class="dropdown-menu">
 				<!--<li>
 					<a class="indicator" name="Total Population Level" href="#">Total Population Level</a>
@@ -2382,7 +1952,7 @@
 			</ul>
 		</li>
 		<li class="dataset" name="Population by Ethnicity">
-			<a>Population by Ethnicity</a>
+			<a>Population by Ethnicity<span class="badge">updated</span></a>
 			<ul class="dropdown-menu">
 				<!-- <li>
 				<a class="indicator" name="Total Population" href="#">Total Population</a>
@@ -2411,7 +1981,7 @@
 			</ul>
 		</li>
 		<li class="dataset" name="Immigration and Ancestry">
-			<a>Immigration and Ancestry<span class="badge">updated</span></a>
+			<a>Immigration and Ancestry</a>
 			<ul class="dropdown-menu">
 				<li>
 					<a class="indicator" name="Foreign Born, Not U.S. Citizens" href="#">Foreign Born, Not U.S. Citizens</a>
@@ -2452,7 +2022,7 @@
 			</ul>
 		</li>
 		<li class="dataset" name="Veteran Demographics">
-			<a>Veteran Demographics</a>
+			<a>Veteran Demographics<span class="badge">updated</span></a>
 			<ul class="dropdown-menu">
 				<li>
 					<a class="indicator" name="Veterans" href="#">Veterans</a>
@@ -2488,6 +2058,23 @@
 <li ng-hide="indicatorListType == 'curated'" class="category" name="Economy">
 	<a>Economy</a>
 	<ul class="dropdown-menu">
+		<li class="dataset" name="Local Government Pay">
+			<a>Local Government Pay<span class="badge">new</span></a>
+			<ul class="dropdown-menu">
+				<li>
+					<a class="indicator" name="Local Government Establishments" href="#">Local Government Establishments</a>
+				</li>
+				<li>
+					<a class="indicator" name="Local Government Employment Level" href="#">Local Government Employment Level</a>
+				</li>
+				<li>
+					<a class="indicator" name="Local Government Weekly Wages" href="#">Local Government Weekly Wages</a>
+				</li>
+				<li>
+					<a class="indicator" name="Local Government Annual Pay" href="#">Local Government Annual Pay</a>
+				</li>
+			</ul>
+		</li>
 		<li class="dataset" name="International Exports">
 			<a>International Exports</a>
 			<ul class="dropdown-menu">
@@ -2918,6 +2505,14 @@
 <li ng-hide="indicatorListType == 'curated'" class="category" name="Federal Funding">
 	<a>Federal Funding</a>
 	<ul class="dropdown-menu">
+		<li class="dataset" name="County Veterans Service Office">
+			<a>County Veterans Service Office<span class="badge">new</span></a>
+			<ul class="dropdown-menu">
+				<li>
+					<a class="indicator" name="CVSO Status" href="#">CVSO Status</a>
+				</li>
+			</ul>
+		</li>
 		<li class="dataset" name="Workforce Innovation and Opportunity Act (WIOA)">
 			<a>Workforce Innovation and Opportunity Act (WIOA)</a>
 			<ul class="dropdown-menu">
@@ -2951,7 +2546,7 @@
 			</ul>
 		</li>
 		<li class="dataset" name="Veteran Expenditures">
-			<a>Veteran Expenditures</a>
+			<a>Veteran Expenditures<span class="badge">updated</span></a>
 			<ul class="dropdown-menu">
 				<li>
 					<a class="indicator" name="Total Veterans Expenditures" href="#">Total Veterans Expenditures</a>
@@ -2974,7 +2569,7 @@
 			</ul>
 		</li>
 		<li class="dataset" name="Medical Benefits">
-			<a>Medical Benefits<span class="badge">updated</span></a>
+			<a>Medical Benefits</a>
 			<ul class="dropdown-menu">
 				<li>
 					<a class="indicator" name="Medical Benefits" href="#">Medical Benefits</a>
@@ -2991,7 +2586,7 @@
 			</ul>
 		</li>
 		<li class="dataset" name="Airports Funding">
-			<a>Airports Funding</a>
+			<a>Airports Funding<span class="badge">updated</span></a>
 			<ul class="dropdown-menu">
 				<li>
 					<a class="indicator" name="Airport Investment Program Total" href="#">Airport Investment Program (AIP) Total</a>
@@ -3134,7 +2729,7 @@
 			</ul>
 		</li>
 		<li class="dataset" name="Secure Rural Schools (SRS)">
-			<a>Secure Rural Schools (SRS)<span class="badge">updated</span></a>
+			<a>Secure Rural Schools (SRS)</a>
 			<ul class="dropdown-menu">	
 				<li>
 					<a class="indicator" name="State SRS Profiles" href="#">State SRS Profile</a>
@@ -3154,7 +2749,7 @@
 			</ul>
 		</li>
 		<li class="dataset" name="Supplemental Nutrition Assistance Program (SNAP)">
-			<a>Supplemental Nutrition Assistance Program (SNAP)<span class="badge">updated</span></a>
+			<a>Supplemental Nutrition Assistance Program (SNAP)</a>
 			<ul class="dropdown-menu">
 				<li>
 					<a class="indicator" name="SNAP Benefits" href="#">SNAP Benefits</a>
@@ -3271,10 +2866,28 @@
 				<li>
 					<a class="indicator" name="Drug Poisoning Death Rate" href="#">Drug Poisoning Death Rate</a>
 				</li>
+				<li>
+					<a class="indicator" name="Number of Deaths Involving Heroin" hred="#">Number of Deaths Involving Heroin</a>
+				</li>
+				<li>
+					<a class="indicator" name="Age-Adjusted Rate of Deaths Involving Heroin" hred="#">Age-Adjusted Rate of Deaths Involving Heroin</a>
+				</li>
+				<li>
+					<a class="indicator" name="Number of Deaths Involving Opioid Analgesics" hred="#">Number of Deaths Involving Opioid Analgesics</a>
+				</li>
+				<li>
+					<a class="indicator" name="Age-Adjusted Rate of Deaths Involving Opioid Analgesics" hred="#">Age-Adjusted Rate of Deaths Involving Opioid Analgesics</a>
+				</li>
+				<li>
+					<a class="indicator" name="Number of Deaths Involving Any Opioid" hred="#">Number of Deaths Involving Any Opioid</a>
+				</li>
+				<li>
+					<a class="indicator" name="Age-Adjusted Rate of Deaths Involving Any Opioid" hred="#">Age-Adjusted Rate of Deaths Involving Any Opioid</a>
+				</li>
 			</ul>
 		</li>
 		<li class="dataset" name="Medical Benefits">
-			<a>Medical Benefits<span class="badge">updated</span></a>
+			<a>Medical Benefits</a>
 			<ul class="dropdown-menu">
 				<li>
 					<a class="indicator" name="Medical Benefits" href="#">Medical Benefits</a>
@@ -3484,7 +3097,7 @@
 			</ul>
 		</li>
 		<li class="dataset" name="Health Insurance">
-			<a>Health Insurance<span class="badge">updated</span></a>
+			<a>Health Insurance</a>
 			<ul class="dropdown-menu">
 				<!-- --><li class="disabled dropdown-header">
 					<a class="disabled dropdown-header" href="#">All Income Levels</a>
@@ -4056,7 +3669,7 @@
 			<a>County Jails</a>
 			<ul class="dropdown-menu">
 				<li>
-					<a class="indicator" name="County Operated Jails" href="#">County Operated Jails</a>
+					<a class="indicator" name="Role in Jail Operations" href="#">Role in Jail Operations</a>
 				</li>
 			</ul>
 		</li>
@@ -4432,6 +4045,14 @@
 <li ng-hide="indicatorListType == 'curated'" class="category" name="Social Services">
 	<a>Social Services</a>
 	<ul class="dropdown-menu">
+		<li class="dataset" name="County Veterans Service Office">
+			<a>County Veterans Service Office<span class="badge">new</span></a>
+			<ul class="dropdown-menu">
+				<li>
+					<a class="indicator" name="CVSO Status" href="#">CVSO Status</a>
+				</li>
+			</ul>
+		</li>
 		<li class="dataset" name="Early Childhood">
 			<a>Early Childhood</a>
 			<ul class="dropdown-menu">
@@ -4459,7 +4080,7 @@
 			</ul>
 		</li>
 		<li class="dataset" name="Supplemental Nutrition Assistance Program (SNAP)">
-			<a>Supplemental Nutrition Assistance Program (SNAP)<span class="badge">updated</span></a>
+			<a>Supplemental Nutrition Assistance Program (SNAP)</a>
 			<ul class="dropdown-menu">
 				<li>
 					<a class="indicator" name="SNAP Recipient Households" href="#">SNAP Recipient Households</a>
@@ -4705,7 +4326,7 @@
 			</ul>
 		</li>
 		<li class="dataset" name="Airports">
-			<a>Airports</a>
+			<a>Airports<span class="badge">updated</span></a>
 			<ul class="dropdown-menu">
 				<li>
 					<a class="indicator" name="Total Airports" href="#">Total Airports</a>
@@ -4728,7 +4349,7 @@
 			</ul>
 		</li>
 		<li class="dataset" name="Airports Funding">
-			<a>Airports Funding</a>
+			<a>Airports Funding<span class="badge">updated</span></a>
 			<ul class="dropdown-menu">
 				<li>
 					<a class="indicator" name="Airport Investment Program Total" href="#">Airport Investment Program (AIP) Total</a>
