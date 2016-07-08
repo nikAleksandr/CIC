@@ -5959,6 +5959,7 @@
               "dataType": "level",
               "unit": "dollars",
               "year": 2016,
+              "suppressYear": true,
               "legendTitlePost": ", as of April 2016",
               "thresholds": [
                 1,
@@ -5966,7 +5967,7 @@
                 2000000,
                 3000000
               ],
-              "definition": "The amount received by subsidized air service carriers serving communities within a county under the Essential Air Service (EAS) program, as of November 2015.",
+              "definition": "The amount received by subsidized air service carriers serving communities within a county under the Essential Air Service (EAS) program, as of April 2016.",
               "db_indicator": "Fund_Total_Annual_Subsidy_Rates_Spring"
             }
           ]
