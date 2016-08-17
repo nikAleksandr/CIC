@@ -1,205 +1,199 @@
 <!-- Begin Curated Indicator List -->
-<li class="dataset" name="Veteran Expenditures" ng-show="indicatorListType == 'curated'">
-	<a>Veteran Expenditures<span class="badge">updated</span></a>
+<li class="dataset" name="Payment in Lieu of Taxes (PILT)" ng-show="indicatorListType == 'curated'">
+	<a>Payment in Lieu of Taxes (PILT)<span class="badge">updated</span></a>
 	<ul class="dropdown-menu">
 		<li>
-			<a class="indicator" name="Total Veterans Expenditures" href="#">Total Veterans Expenditures</a>
+			<a class="indicator" name="PILT Profiles" href="#">PILT Profiles</a>
 		</li>
 		<li>
-			<a class="indicator" name="Compensation and Pension" href="#">Compensation and Pension</a>
+			<a class="indicator" name="State PILT Profiles" href="#">State PILT Profiles</a>
 		</li>
 		<li>
-			<a class="indicator" name="Education and Vocational Rehabilitation and Employment" href="#">Educataion and Vocational Rehabilitation and Employment</a>
+			<a class="indicator" name="PILT Amount" href="#">PILT Amount</a>
 		</li>
 		<li>
-			<a class="indicator" name="Insurance and Indemnities" href="#">Insurance and Indemnities</a>
+			<a class="indicator" name="PILT Annual Growth Rate" href="#">PILT Annual Growth Rate</a>
 		</li>
 		<li>
-			<a class="indicator" name="Medical Care" href="#">Medical Care</a>
+			<a class="indicator" name="Total PILT Entitlement Land" href="#">Total PILT Entitlement Land</a>
+		</li>
+		<!-- <li>
+		<a class="indicator" name="Total County Area" href="#">Total County Area</a>
+		</li> -->
+		<li>
+			<a class="indicator" name="Percent of PILT Entitlement Land" href="#">Percent of PILT Entitlement Land</a>
 		</li>
 		<li>
-			<a class="indicator" name="VA Healthcare Facility Patients" href="#">VA Healthcare Facility Patients</a>
+			<a class="indicator" name="PILT per Acre" href="#">PILT per Acre</a>
 		</li>
 	</ul>
 </li>
-<li class="dataset" name="County Veterans Service Office" ng-show="indicatorListType == 'curated'">
-	<a>County Veterans Service Office<span class="badge">new</span></a>
+<li class="dataset" name="Hospitals" ng-show="indicatorListType == 'curated'">
+	<a>Hospitals<span class="badge">updated</span></a>
 	<ul class="dropdown-menu">
 		<li>
-			<a class="indicator" name="CVSO Status" href="#">CVSO Status</a>
+			<a class="indicator" name="Number of Hospitals" href="#">Number of Hospitals</a>
+		</li>
+		<li>
+			<a class="indicator" name="Number of County Supported Facilities" href="#">Number of County Supported Facilities</a>
+		</li>
+		<li>
+			<a class="indicator" name="Number of City Facilities" href="#">Number of City Facilities</a>
+		</li>
+		<li>
+			<a class="indicator" name="Number of County Facilities" href="#">Number of County Facilities</a>
+		</li>
+		<li>
+			<a class="indicator" name="Number of City-County Facilities" href="#">Number of City-County Facilities</a>
+		</li>
+		<li>
+			<a class="indicator" name="Number of Hospital District Facilities" href="#">Number of Hospital District Facilities</a>
+		</li>
+		<li>
+			<a class="indicator" name="Number of Other Government Facilities" href="#">Number of Other Government Facilities</a>
+		</li>
+		<li>
+			<a class="indicator" name="Number of Proprietary Facilities" href="#">Number of Proprietary Facilities</a>
+		</li>
+		<li>
+			<a class="indicator" name="Number of Nonprofit Facilities" href="#">Number of Nonprofit Facilities</a>
+		</li>
+		<li>
+			<a class="indicator" name="Number of Beds" href="#">Number of Beds</a>
+		</li>
+		<li>
+			<a class="indicator" name="Number of Employees" href="#">Number of Employees</a>
+		</li>
+		<li>
+			<a class="indicator" name="Gross Revenue" href="#">Gross Revenue</a>
+		</li>
+		<li>
+			<a class="indicator" name="Medicare Revenue" href="#">Medicare Revenue</a>
+		</li>
+		<li>
+			<a class="indicator" name="Medicaid Revenue" href="#">Medicaid Revenue</a>
+		</li>
+		<li>
+			<a class="indicator" name="Patient Days" href="#">Patient Days</a>
+		</li>
+		<li>
+			<a class="indicator" name="Revenue per Bed" href="#">Revenue per Bed</a>
+		</li>
+		<li>
+			<a class="indicator" name="Revenue per Patient Day" href="#">Revenue per Patient Day</a>
 		</li>
 	</ul>
 </li>
-<li ng-show="indicatorListType == 'curated'" class="category" name="Demographics">
-	<a>Demographics<span class="badge">updated</span></a>
+<li ng-hide="indicatorListType == 'curated'" class="category" title="Justice & Public Safety" ng-show="indicatorListType == 'curated'">
+	<a>Justice &amp; Public Safety<span class="badge">updated</span></a>
 	<ul class="dropdown-menu">
-		<li class="dataset" name="Population by Ethnicity">
-			<a>Population by Ethnicity<span class="badge">updated</span></a>
-			<ul class="dropdown-menu">
-				<!-- <li>
-				<a class="indicator" name="Total Population" href="#">Total Population</a>
-				</li> -->
-				<li>
-					<a class="indicator" name="White Population" href="#">White Population</a>
-				</li>
-				<li>
-					<a class="indicator" name="Black or African American Population" href="#">Black or African American Population</a>
-				</li>
-				<li>
-					<a class="indicator" name="American Indian and Alaskan Native Population" href="#">American Indian and Alaskan Native Population</a>
-				</li>
-				<li>
-					<a class="indicator" name="Asian Population" href="#">Asian Population</a>
-				</li>
-				<li>
-					<a class="indicator" name="Native Hawaiian and Other Pacific Islander Population" href="#">Native Hawaiian and Other Pacific Islander Population</a>
-				</li>
-				<li>
-					<a class="indicator" name="Two or More Races Population" href="#">Two or More Races Population</a>
-				</li>
-				<li>
-					<a class="indicator" name="Hispanic or Latino Origin Population" href="#">Hispanic or Latino Origin Population</a>
-				</li>
-			</ul>
-		</li>
-		<li class="dataset" name="Population by Age/Gender">
-			<a>Population by Age/Gender<span class="badge">updated</span></a>
+		<li class="dataset" name="Jails - Inmate Demographics">
+			<a>Jails - Inmate Demographics<span class="badge">updated</span></a>
 			<ul class="dropdown-menu">
 				<!--<li>
-					<a class="indicator" name="Total Population Level" href="#">Total Population Level</a>
+					<a class="indicator" name="Total Jail Population" href="#">Total Jail Population</a>
 				</li>-->
 				<li>
-					<a class="indicator" name="Male Population" href="#">Male Population</a>
+					<a class="indicator" name="Adult Males" href="#">Adult Males</a>
 				</li>
 				<li>
-					<a class="indicator" name="Percent Male" href="#">Percent Male</a>
+					<a class="indicator" name="Adult Females" href="#">Adult Females</a>
 				</li>
 				<li>
-					<a class="indicator" name="Female Population" href="#">Female Population</a>
+					<a class="indicator" name="Total Juveniles" href="#">Total Juveniles</a>
 				</li>
 				<li>
-					<a class="indicator" name="Percent Female" href="#">Percent Female</a>
+					<a class="indicator" name="Total Convicted" href="#">Total Convicted</a>
 				</li>
 				<li>
-					<a class="indicator" name="Under 5 years old Population" href="#">Under 5 years old Population</a>
+					<a class="indicator" name="Total Unconvicted" href="#">Total Unconvicted</a>
 				</li>
 				<li>
-					<a class="indicator" name="Percent Under 5 years old" href="#">Percent Under 5 years old</a>
+					<a class="indicator" name="White" href="#">White</a>
 				</li>
 				<li>
-					<a class="indicator" name="5-14 years old Population" href="#">5-14 years old Population</a>
+					<a class="indicator" name="Black or African American" href="#">Black or African American</a>
 				</li>
 				<li>
-					<a class="indicator" name="Percent 5-14 years old" href="#">Percent 5-14 years old</a>
+					<a class="indicator" name="Hispanic or Latino" href="#">Hispanic or Latino</a>
 				</li>
 				<li>
-					<a class="indicator" name="15-24 years old Population" href="#">15-24 years old Population</a>
+					<a class="indicator" name="Asian" href="#">Asian</a>
 				</li>
 				<li>
-					<a class="indicator" name="Percent 15-24 years old" href="#">Percent 15-24 years old</a>
+					<a class="indicator" name="American Indian or Alaskan Native" href="#">American Indian or Alaskan Native</a>
 				</li>
 				<li>
-					<a class="indicator" name="25-64 years old Population" href="#">25-64 years old Population</a>
+					<a class="indicator" name="Native Hawaiian or Other Pacific Islander" href="#">Native Hawaiian or Other Pacific Islander</a>
 				</li>
 				<li>
-					<a class="indicator" name="Percent 25-64 years old" href="#">Percent 25-64 years old</a>
+					<a class="indicator" name="Two or More Races" href="#">Two or More Races</a>
 				</li>
 				<li>
-					<a class="indicator" name="65 years and older Population" href="#">65 years and older Population</a>
+					<a class="indicator" name="Other Inmate Races" href="#">Other Inmate Races</a>
 				</li>
 				<li>
-					<a class="indicator" name="Percent 65 years and older" href="#">Percent 65 years and older</a>
+					<a class="indicator" name="Race Not Known" href="#">Race Not Known</a>
 				</li>
 			</ul>
 		</li>
-		<li class="dataset" name="Veteran Demographics">
-			<a>Veteran Demographics<span class="badge">updated</span></a>
+		<li class="dataset" name="Jails - Community Supervision">
+			<a>Jails - Community Supervision<span class="badge">updated</span></a>
 			<ul class="dropdown-menu">
-				<li>
-					<a class="indicator" name="Veterans" href="#">Veterans</a>
+				<!--<li>
+					<a class="indicator" name="Total Jail Population" href="#">Total Jail Population</a>
 				</li>
 				<li>
-					<a class="indicator" name="Percent Veterans" href="#">Percent Veterans</a>
+					<a class="indicator" name="Jail Capacity" href="#">Jail Capacity</a>
 				</li>
 				<li>
-					<a class="indicator" name="Veterans Median Income" href="#">Veterans Median Income</a>
+					<a class="indicator" name="Confined Persons" href="#">Confined Persons</a>
 				</li>
 				<li>
-					<a class="indicator" name="Veterans Less than High School Graduate" href="#">Veterans Less than High School Graduate</a>
+					<a class="indicator" name="Nonconfined Persons" href="#">Nonconfined Persons</a>
+				</li>-->
+				<li>
+					<a class="indicator" name="Electronic Monitoring Program" href="#">Electronic Monitoring Program</a>
 				</li>
 				<li>
-					<a class="indicator" name="Veterans High School Graduate" href="#">Veterans High School Graduate</a>
+					<a class="indicator" name="Home Detention" href="#">Home Detention</a>
 				</li>
 				<li>
-					<a class="indicator" name="Veterans Some College or Associate's Degree" href="#">Veterans Some College or Associate's Degree</a>
+					<a class="indicator" name="Community Service" href="#">Community Service</a>
 				</li>
 				<li>
-					<a class="indicator" name="Veterans Bachelor's Degree or Higher" href="#">Veterans Bachelor's Degree or Higher</a>
+					<a class="indicator" name="Day Reporting" href="#">Day Reporting</a>
 				</li>
 				<li>
-					<a class="indicator" name="Veterans Unemployment Rate" href="#">Veterans Unemployment Rate</a>
+					<a class="indicator" name="Other Pretrial Supervision" href="#">Other Pretrial Supervision</a>
 				</li>
 				<li>
-					<a class="indicator" name="Veterans Poverty Rate" href="#">Veterans Poverty Rate</a>
+					<a class="indicator" name="Other Alternative Work Programs" href="#">Other Alternative Work Programs</a>
+				</li>
+				<li>
+					<a class="indicator" name="Alcohol/Drug Treatment Programs" href="#">Alcohol/Drug Treatment Programs</a>
+				</li>
+				<li>
+					<a class="indicator" name="Other Nonconfined Programs" href="#">Other Nonconfined Programs</a>
 				</li>
 			</ul>
 		</li>
 	</ul>
 </li>
-<li class="dataset" name="Local Government Pay" ng-show="indicatorListType == 'curated'">
-	<a>Local Government Pay<span class="badge">new</span></a>
+<li class="dataset" name="Arts Establishments" ng-show="indicatorListType == 'curated'">
+	<a>Arts Establishments<span class="badge">updated</span></a>
 	<ul class="dropdown-menu">
 		<li>
-			<a class="indicator" name="Local Government Establishments" href="#">Local Government Establishments</a>
+			<a class="indicator" name="Arts Businesses" href="#">Arts Businesses</a>
 		</li>
 		<li>
-			<a class="indicator" name="Local Government Employment Level" href="#">Local Government Employment Level</a>
+			<a class="indicator" name="Arts Employees" href="#">Arts Employees</a>
 		</li>
 		<li>
-			<a class="indicator" name="Local Government Weekly Wages" href="#">Local Government Weekly Wages</a>
+			<a class="indicator" name="Share Arts Businesses" href="#">Share Arts Businesses</a>
 		</li>
 		<li>
-			<a class="indicator" name="Local Government Annual Pay" href="#">Local Government Annual Pay</a>
-		</li>
-	</ul>
-</li>
-<li class="dataset" name="Airports Funding" ng-show="indicatorListType == 'curated'">
-	<a>Airports Funding<span class="badge">updated</span></a>
-	<ul class="dropdown-menu">
-		<li>
-			<a class="indicator" name="Airport Investment Program Total" href="#">Airport Investment Program (AIP) Total</a>
-		</li>
-		<li>
-			<a class="indicator" name="Airport Investment Program Entitlement" href="#">Airport Investment Program (AIP) Entitlement</a>
-		</li>
-		<li>
-			<a class="indicator" name="Airport Investment Program Discretionary" href="#">Airport Investment Program (AIP) Discretionary</a>
-		</li>
-		<li>
-			<a class="indicator" name="Essential Air Service Annual Subsidy" href="#">Essential Air Service (EAS) Annual Subsidy</a>
-		</li>
-	</ul>
-</li>
-<li class="dataset" name="Airports" ng-show="indicatorListType == 'curated'">
-	<a>Airports<span class="badge">updated</span></a>
-	<ul class="dropdown-menu">
-		<li>
-			<a class="indicator" name="Total Airports" href="#">Total Airports</a>
-		</li>
-		<li>
-			<a class="indicator" name="Publicly Owned Airports" href="#">Publicly Owned Airports</a>
-		</li>
-		<li>
-			<a class="indicator" name="County Airports" href="#">County Airports</a>
-		</li>
-		<li>
-			<a class="indicator" name="Privately Owned Airports" href="#">Privately Owned Airports</a>
-		</li>
-		<li>
-			<a class="indicator" name="General Aviation County Airports" href="#">General Aviation County Airports</a>
-		</li>
-		<li>
-			<a class="indicator" name="Commercial Aviation County Airports" href="#">Commercial Aviation County Airports</a>
+			<a class="indicator" name="Share Arts Employees" href="#">Share Arts Employees</a>
 		</li>
 	</ul>
 </li>
@@ -288,6 +282,23 @@
 		</li>
 	</ul>
 </li>
+<li class="dataset" name="Local Government Pay" ng-show="indicatorListType == 'curated'">
+	<a>Local Government Pay</a>
+	<ul class="dropdown-menu">
+		<li>
+			<a class="indicator" name="Local Government Establishments" href="#">Local Government Establishments</a>
+		</li>
+		<li>
+			<a class="indicator" name="Local Government Employment Level" href="#">Local Government Employment Level</a>
+		</li>
+		<li>
+			<a class="indicator" name="Local Government Weekly Wages" href="#">Local Government Weekly Wages</a>
+		</li>
+		<li>
+			<a class="indicator" name="Local Government Annual Pay" href="#">Local Government Annual Pay</a>
+		</li>
+	</ul>
+</li>
 <li class="dataset" name="Secure Rural Schools (SRS)" ng-show="indicatorListType == 'curated'">
 	<a>Secure Rural Schools (SRS)</a>
 	<ul class="dropdown-menu">
@@ -308,32 +319,119 @@
 		</li>
 	</ul>
 </li>
-<li class="dataset" name="Payment in Lieu of Taxes (PILT)" ng-show="indicatorListType == 'curated'">
-	<a>Payment in Lieu of Taxes (PILT)</a>
+<li class="category" name="Demographics" ng-show="indicatorListType == 'curated'" >
+	<a>Demographics</a>
 	<ul class="dropdown-menu">
-		<li>
-			<a class="indicator" name="PILT Profiles" href="#">PILT Profiles</a>
+		<li class="dataset" name="Population by Ethnicity">
+			<a>Population by Ethnicity</a>
+			<ul class="dropdown-menu">
+				<!-- <li>
+				<a class="indicator" name="Total Population" href="#">Total Population</a>
+				</li> -->
+				<li>
+					<a class="indicator" name="White Population" href="#">White Population</a>
+				</li>
+				<li>
+					<a class="indicator" name="Black or African American Population" href="#">Black or African American Population</a>
+				</li>
+				<li>
+					<a class="indicator" name="American Indian and Alaskan Native Population" href="#">American Indian and Alaskan Native Population</a>
+				</li>
+				<li>
+					<a class="indicator" name="Asian Population" href="#">Asian Population</a>
+				</li>
+				<li>
+					<a class="indicator" name="Native Hawaiian and Other Pacific Islander Population" href="#">Native Hawaiian and Other Pacific Islander Population</a>
+				</li>
+				<li>
+					<a class="indicator" name="Two or More Races Population" href="#">Two or More Races Population</a>
+				</li>
+				<li>
+					<a class="indicator" name="Hispanic or Latino Origin Population" href="#">Hispanic or Latino Origin Population</a>
+				</li>
+			</ul>
 		</li>
-		<li>
-			<a class="indicator" name="State PILT Profiles" href="#">State PILT Profiles</a>
+		<li class="dataset" name="Population by Age/Gender">
+			<a>Population by Age/Gender</a>
+			<ul class="dropdown-menu">
+				<!--<li>
+					<a class="indicator" name="Total Population Level" href="#">Total Population Level</a>
+				</li>-->
+				<li>
+					<a class="indicator" name="Male Population" href="#">Male Population</a>
+				</li>
+				<li>
+					<a class="indicator" name="Percent Male" href="#">Percent Male</a>
+				</li>
+				<li>
+					<a class="indicator" name="Female Population" href="#">Female Population</a>
+				</li>
+				<li>
+					<a class="indicator" name="Percent Female" href="#">Percent Female</a>
+				</li>
+				<li>
+					<a class="indicator" name="Under 5 years old Population" href="#">Under 5 years old Population</a>
+				</li>
+				<li>
+					<a class="indicator" name="Percent Under 5 years old" href="#">Percent Under 5 years old</a>
+				</li>
+				<li>
+					<a class="indicator" name="5-14 years old Population" href="#">5-14 years old Population</a>
+				</li>
+				<li>
+					<a class="indicator" name="Percent 5-14 years old" href="#">Percent 5-14 years old</a>
+				</li>
+				<li>
+					<a class="indicator" name="15-24 years old Population" href="#">15-24 years old Population</a>
+				</li>
+				<li>
+					<a class="indicator" name="Percent 15-24 years old" href="#">Percent 15-24 years old</a>
+				</li>
+				<li>
+					<a class="indicator" name="25-64 years old Population" href="#">25-64 years old Population</a>
+				</li>
+				<li>
+					<a class="indicator" name="Percent 25-64 years old" href="#">Percent 25-64 years old</a>
+				</li>
+				<li>
+					<a class="indicator" name="65 years and older Population" href="#">65 years and older Population</a>
+				</li>
+				<li>
+					<a class="indicator" name="Percent 65 years and older" href="#">Percent 65 years and older</a>
+				</li>
+			</ul>
 		</li>
-		<li>
-			<a class="indicator" name="PILT Amount" href="#">PILT Amount</a>
-		</li>
-		<li>
-			<a class="indicator" name="PILT Annual Growth Rate" href="#">PILT Annual Growth Rate</a>
-		</li>
-		<li>
-			<a class="indicator" name="Total PILT Entitlement Land" href="#">Total PILT Entitlement Land</a>
-		</li>
-		<!-- <li>
-		<a class="indicator" name="Total County Area" href="#">Total County Area</a>
-		</li> -->
-		<li>
-			<a class="indicator" name="Percent of PILT Entitlement Land" href="#">Percent of PILT Entitlement Land</a>
-		</li>
-		<li>
-			<a class="indicator" name="PILT per Acre" href="#">PILT per Acre</a>
+		<li class="dataset" name="Veteran Demographics">
+			<a>Veteran Demographics</a>
+			<ul class="dropdown-menu">
+				<li>
+					<a class="indicator" name="Veterans" href="#">Veterans</a>
+				</li>
+				<li>
+					<a class="indicator" name="Percent Veterans" href="#">Percent Veterans</a>
+				</li>
+				<li>
+					<a class="indicator" name="Veterans Median Income" href="#">Veterans Median Income</a>
+				</li>
+				<li>
+					<a class="indicator" name="Veterans Less than High School Graduate" href="#">Veterans Less than High School Graduate</a>
+				</li>
+				<li>
+					<a class="indicator" name="Veterans High School Graduate" href="#">Veterans High School Graduate</a>
+				</li>
+				<li>
+					<a class="indicator" name="Veterans Some College or Associate's Degree" href="#">Veterans Some College or Associate's Degree</a>
+				</li>
+				<li>
+					<a class="indicator" name="Veterans Bachelor's Degree or Higher" href="#">Veterans Bachelor's Degree or Higher</a>
+				</li>
+				<li>
+					<a class="indicator" name="Veterans Unemployment Rate" href="#">Veterans Unemployment Rate</a>
+				</li>
+				<li>
+					<a class="indicator" name="Veterans Poverty Rate" href="#">Veterans Poverty Rate</a>
+				</li>
+			</ul>
 		</li>
 	</ul>
 </li>
@@ -1931,7 +2029,7 @@
 			</ul>
 		</li>
 		<li class="dataset" name="Population by Age/Gender">
-			<a>Population by Age/Gender<span class="badge">updated</span></a>
+			<a>Population by Age/Gender</a>
 			<ul class="dropdown-menu">
 				<!--<li>
 					<a class="indicator" name="Total Population Level" href="#">Total Population Level</a>
@@ -1981,7 +2079,7 @@
 			</ul>
 		</li>
 		<li class="dataset" name="Population by Ethnicity">
-			<a>Population by Ethnicity<span class="badge">updated</span></a>
+			<a>Population by Ethnicity</a>
 			<ul class="dropdown-menu">
 				<!-- <li>
 				<a class="indicator" name="Total Population" href="#">Total Population</a>
@@ -2051,7 +2149,7 @@
 			</ul>
 		</li>
 		<li class="dataset" name="Veteran Demographics">
-			<a>Veteran Demographics<span class="badge">updated</span></a>
+			<a>Veteran Demographics</a>
 			<ul class="dropdown-menu">
 				<li>
 					<a class="indicator" name="Veterans" href="#">Veterans</a>
@@ -2088,7 +2186,7 @@
 	<a>Economy</a>
 	<ul class="dropdown-menu">
 		<li class="dataset" name="Local Government Pay">
-			<a>Local Government Pay<span class="badge">new</span></a>
+			<a>Local Government Pay</a>
 			<ul class="dropdown-menu">
 				<li>
 					<a class="indicator" name="Local Government Establishments" href="#">Local Government Establishments</a>
@@ -2535,7 +2633,7 @@
 	<a>Federal Funding</a>
 	<ul class="dropdown-menu">
 		<li class="dataset" name="County Veterans Service Office">
-			<a>County Veterans Service Office<span class="badge">new</span></a>
+			<a>County Veterans Service Office</a>
 			<ul class="dropdown-menu">
 				<li>
 					<a class="indicator" name="CVSO Status" href="#">CVSO Status</a>
@@ -2575,7 +2673,7 @@
 			</ul>
 		</li>
 		<li class="dataset" name="Veteran Expenditures">
-			<a>Veteran Expenditures<span class="badge">updated</span></a>
+			<a>Veteran Expenditures</a>
 			<ul class="dropdown-menu">
 				<li>
 					<a class="indicator" name="Total Veterans Expenditures" href="#">Total Veterans Expenditures</a>
@@ -2615,7 +2713,7 @@
 			</ul>
 		</li>
 		<li class="dataset" name="Airports Funding">
-			<a>Airports Funding<span class="badge">updated</span></a>
+			<a>Airports Funding</a>
 			<ul class="dropdown-menu">
 				<li>
 					<a class="indicator" name="Airport Investment Program Total" href="#">Airport Investment Program (AIP) Total</a>
@@ -3023,7 +3121,7 @@
 			</ul>
 		</li>
 		<li class="dataset" name="Hospitals">
-			<a>Hospitals</a>
+			<a>Hospitals<span class="badge">updated</span></a>
 			<ul class="dropdown-menu">
 				<li>
 					<a class="indicator" name="Number of Hospitals" href="#">Number of Hospitals</a>
@@ -3504,7 +3602,7 @@
 			</ul>
 		</li>
 		<li class="dataset" name="Jails - Inmate Demographics">
-			<a>Jails - Inmate Demographics</a>
+			<a>Jails - Inmate Demographics<span class="badge">updated</span></a>
 			<ul class="dropdown-menu">
 				<!--<li>
 					<a class="indicator" name="Total Jail Population" href="#">Total Jail Population</a>
@@ -3554,7 +3652,7 @@
 			</ul>
 		</li>
 		<li class="dataset" name="Jails - Community Supervision">
-			<a>Jails - Community Supervision</a>
+			<a>Jails - Community Supervision<span class="badge">updated</span></a>
 			<ul class="dropdown-menu">
 				<!--<li>
 					<a class="indicator" name="Total Jail Population" href="#">Total Jail Population</a>
@@ -3959,7 +4057,7 @@
 			</ul>
 		</li>
 		<li class="dataset" name="Arts Establishments">
-			<a>Arts Establishments</a>
+			<a>Arts Establishments<span class="badge">updated</span></a>
 			<ul class="dropdown-menu">
 				<li>
 					<a class="indicator" name="Arts Businesses" href="#">Arts Businesses</a>
@@ -3968,10 +4066,10 @@
 					<a class="indicator" name="Arts Employees" href="#">Arts Employees</a>
 				</li>
 				<li>
-					<a class="indicator" name="Arts Businesses per 10,000 people" href="#">Arts Businesses per 10,000 people</a>
+					<a class="indicator" name="Share Arts Businesses" href="#">Arts Businesses per 10,000 people</a>
 				</li>
 				<li>
-					<a class="indicator" name="Arts Employees per 10,000 people" href="#">Arts Employees per 10,000 people</a>
+					<a class="indicator" name="Share Arts Establishments" href="#">Arts Employees per 10,000 people</a>
 				</li>
 			</ul>
 		</li>
@@ -4075,7 +4173,7 @@
 	<a>Social Services</a>
 	<ul class="dropdown-menu">
 		<li class="dataset" name="County Veterans Service Office">
-			<a>County Veterans Service Office<span class="badge">new</span></a>
+			<a>County Veterans Service Office</a>
 			<ul class="dropdown-menu">
 				<li>
 					<a class="indicator" name="CVSO Status" href="#">CVSO Status</a>
@@ -4355,7 +4453,7 @@
 			</ul>
 		</li>
 		<li class="dataset" name="Airports">
-			<a>Airports<span class="badge">updated</span></a>
+			<a>Airports</a>
 			<ul class="dropdown-menu">
 				<li>
 					<a class="indicator" name="Total Airports" href="#">Total Airports</a>
@@ -4378,7 +4476,7 @@
 			</ul>
 		</li>
 		<li class="dataset" name="Airports Funding">
-			<a>Airports Funding<span class="badge">updated</span></a>
+			<a>Airports Funding</a>
 			<ul class="dropdown-menu">
 				<li>
 					<a class="indicator" name="Airport Investment Program Total" href="#">Airport Investment Program (AIP) Total</a>

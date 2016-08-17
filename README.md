@@ -28,7 +28,7 @@ Data is recieved in JSON format from an SQL server by running requests through a
 ##CICStructure.json 
 There are no duplicates.  When duplicate entries occur in the indicatorList.html, CICStructure will group them according to dataset for efficiency when updating a large data source.  For example, Administration Employment is under the County Employment category, rather than the County Administration category.
 
-Properties
+#Properties
 - years - applies specifically to the year the data is supposed to reflect, or the year the data was collected.
 - source
 - companions

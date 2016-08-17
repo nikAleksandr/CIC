@@ -6440,7 +6440,8 @@
             2012,
             2013,
             2014,
-            2015
+            2015,
+            2016
           ],
           "source": "NACo Analysis of U.S. Department of the Interior Data",
           "db_dataset": "Federal_Funding",
@@ -7357,7 +7358,8 @@
         {
           "name": "Hospitals",
           "years": [
-            2011
+            2011,
+            2016
           ],
           "source": "NACo Analysis of American Hospital Directory",
           "db_dataset": "Health_Hospitals",
@@ -7383,55 +7385,55 @@
             {
               "name": "Number of Hospitals",
               "dataType": "level",
-              "definition": "Number of hospitals located in the county.",
+              "definition": "The Number of hospitals located in the county.",
               "db_indicator": "Hospitals_Number_of_Hospitals"
             },
             {
               "name": "Number of County Supported Facilities",
               "dataType": "level",
-              "definition": "Number of hospitals supported by a county agency. Includes county, hospital district, and city-county hospitals.",
+              "definition": "The Number of hospitals supported by a county agency. Includes county, hospital district, and city-county hospitals.",
               "db_indicator": "Hospitals_Number_of_County_Supported_Hospitals"
             },
             {
               "name": "Number of City Facilities",
               "dataType": "level",
-              "definition": "Number of hospitals controlled by the city in the county.",
+              "definition": "The Number of hospitals controlled by the city in the county.",
               "db_indicator": "Hospitals_Number_of_City_Facilities"
             },
             {
               "name": "Number of County Facilities",
               "dataType": "level",
-              "definition": "Number of hospitals controlled by the county in the county.",
+              "definition": "The Number of hospitals controlled by the county in the county.",
               "db_indicator": "Hospitals_Number_of_County_Facilities"
             },
             {
               "name": "Number of City-County Facilities",
               "dataType": "level",
-              "definition": "Number of hospitals controlled by city-county in the county.",
+              "definition": "The Number of hospitals controlled by city-county in the county.",
               "db_indicator": "Hospitals_Number_of_City_County_Facilities"
             },
             {
               "name": "Number of Hospital District Facilities",
               "dataType": "level",
-              "definition": "Number of hospitals controlled by hospital districts in the county.",
+              "definition": "The Number of hospitals controlled by hospital districts in the county.",
               "db_indicator": "Hospitals_Number_of_Hopstial_District_Facilities"
             },
             {
               "name": "Number of Other Government Facilities",
               "dataType": "level",
-              "definition": "Number of hospitals controlled by other governmental agencies in the county.",
+              "definition": "The Number of hospitals controlled by other governmental agencies in the county.",
               "db_indicator": "Hospitals_Number_of_Other_Government_Facilities"
             },
             {
               "name": "Number of Proprietary Facilities",
               "dataType": "level",
-              "definition": "Number of non-governmental proprietary hospitals located in the county.",
+              "definition": "The Number of non-governmental proprietary hospitals located in the county.",
               "db_indicator": "Hospitals_Number_of_Proprietary_Facilities"
             },
             {
               "name": "Number of Nonprofit Facilities",
               "dataType": "level",
-              "definition": "Number of voluntary, non-profit hospitals located in the county.",
+              "definition": "The Number of voluntary, non-profit hospitals located in the county.",
               "db_indicator": "Hospitals_Number_of_NonProfit_Facilities"
             },
             {
@@ -8309,6 +8311,7 @@
             {
               "name": "Income Inequality Ratio",
               "dataType": "level",
+              "format_type": "dec2",
               "suppressMinMax": true,
               "source": "<a href='http://www.countyhealthrankings.org/'>University of Wisconsin Population Health Institute</a> analysis of American Community Survey 2010-2014 data",
               "definition": "Ratio of household income at the 80th percentile to income at the 20th percentile.  For more on methodology, click <a href='http://www.countyhealthrankings.org/ranking-methods'>here</a>.",
@@ -8870,6 +8873,7 @@
           ],
           "source": "NACo Analysis of Bureau of Justice Statistics - Annual Survey of Jails",
           "db_dataset": "Justice_Public_Safety",
+          "notes": ".jails-community-note",
           "companions": [
             [
               "Jails - Inmate Demographics",
@@ -9001,6 +9005,7 @@
           ],
           "source": "NACo Analysis of Bureau of Justice Statistics - Annual Survey of Jails",
           "db_dataset": "Justice_Public_Safety",
+          "notes": ".jails-community-note",
           "companions": [
             [
               "Jails - Community Supervision",
@@ -9517,10 +9522,12 @@
         {
           "name": "Arts Establishments",
           "years": [
-            2014
+            2014,
+            2015
           ],
-          "source": "<a href='http://www.americansforthearts.org/by-program/reports-and-data/research-studies-publications/creative-industries'>Americans for the Arts Creative Industries</a>",
+          "source": "NACo Analysis of <a href='http://www.americansforthearts.org/by-program/reports-and-data/research-studies-publications/creative-industries'>Americans for the Arts Creative Industries</a> data",
           "db_dataset": "Public_Amenity",
+          "notes": ".arts-establishments-note",
           "companions": [
             [
               "Arts Establishments",
@@ -9528,15 +9535,15 @@
             ],
             [
               "Arts Establishments",
-              "Arts Businesses per 10,000 people"
-            ],
-            [
-              "Arts Establishments",
               "Arts Employees"
             ],
             [
               "Arts Establishments",
-              "Arts Employees per 10,000 people"
+              "Share Arts Businesses"
+            ],
+            [
+              "Arts Establishments",
+              "Share Arts Employees"
             ]
           ],
           "children": [
@@ -9555,18 +9562,16 @@
               "db_indicator": "Art_est_Arts_employees"
             },
             {
-              "name": "Arts Businesses per 10,000 people",
-              "unit": "businesses per 10,000 people",
-              "dataType": "level",
-              "definition": "The number of businesses involved in the creation or distribution of the arts—ranging from nonprofit museums, symphonies, and theaters to for-profit film, architecture, and design companies per 10,000 people.",
-              "db_indicator": "Art_Est_Arts_businesses_per_10000"
+              "name": "Share Arts Businesses",
+              "dataType": "percent",
+              "definition": "The share of businesses located within a county involved in the creation or distribution of the arts.",
+              "db_indicator": "Art_Est_Share_Arts_businesses"
             },
             {
-              "name": "Arts Employees per 10,000 people",
-              "unit": "employees per 10,000 people",
-              "dataType": "level",
-              "definition": "The number of employees of businesses involved in the creation or distribution of the arts—ranging from nonprofit museums, symphonies, and theaters to for-profit film, architecture, and design companies per 10,000 people.",
-              "db_indicator": "Art_Est_Arts_Employees_per_10000"
+              "name": "Share Arts Employees",
+              "dataType": "percent",
+              "definition": "The share of employees located within a county that work in the creation or distribution of the arts.",
+              "db_indicator": "Art_Est_Share_Arts_employees"
             }
           ]
         }
