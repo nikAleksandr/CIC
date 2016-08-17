@@ -47,8 +47,12 @@
 		</div>
 	</div>
 
-	<div ng-show="panel.isShowing('accessMoreData')">
-		<div class="center extraction-tool-header"><h3><a class="link" href="http://cic.naco.org/cic_extraction/cic_extraction_1.cfm">County Explorer Extraction Tool</a></h3></div>
+	<div class="center" ng-show="panel.isShowing('accessMoreData')">
+		<p><h3>Keep Me Updated!</h3></p>
+		<p>Submit your email to the mailing list and receive updates when new features have been added.</p>
+	
+		<mailing-form></mailing-form>
+		<!--<div class="center extraction-tool-header"><h3><a class="link" href="http://cic.naco.org/cic_extraction/cic_extraction_1.cfm">County Explorer Extraction Tool</a></h3></div>
 		<div class="center">
 			<div class="extraction-tool-content"><p>
 				Customizable data downloads now available! 
@@ -59,7 +63,7 @@
 			<div class="extraction-tool-content"><p>
 				Purchases of subscriptions are temporarily suspended. We are reviewing the distribution process. Thank you for your patience.
 			</p></div>
-		</div>
+		</div>-->
 	</div>
 	
 	<div class="center" ng-show="panel.isShowing('mailingList')">
