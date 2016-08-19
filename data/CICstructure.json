@@ -7443,31 +7443,11 @@
               "db_indicator": "Hospitals_Number_of_Beds"
             },
             {
-              "name": "Number of Employees",
-              "dataType": "level",
-              "definition": "Total number of employees working in all hospitals located in the county.",
-              "db_indicator": "Hospitals_Number_of_Employees"
-            },
-            {
               "name": "Gross Revenue",
               "unit": "dollars",
               "dataType": "level",
               "definition": "Gross revenue of all hospitals located in the county as reported on Medicare reports.",
               "db_indicator": "Hospitals_Gross_Revenue"
-            },
-            {
-              "name": "Medicare Revenue",
-              "unit": "dollars",
-              "dataType": "level",
-              "definition": "Amount of revenue from all hospitals located in the county from the Medicare program.",
-              "db_indicator": "Hospitals_Medicare_Revenue"
-            },
-            {
-              "name": "Medicaid Revenue",
-              "unit": "dollars",
-              "dataType": "level",
-              "definition": "Amount of revenue from all hospitals located in the county from the Medicaid program.",
-              "db_indicator": "Hospitals_Medicaid_Revenue"
             },
             {
               "name": "Patient Days",
@@ -9057,56 +9037,56 @@
               "name": "Electronic Monitoring Program",
               "unit": "persons",
               "dataType": "level",
-              "definition": "Number of persons under the county jail's supervision that participate in a community based electronic monitoring program. Data based on sample of 891 local jails selected and surveyed by the Bureau of Justice Statistics.",
+              "definition": "Number of persons under the county jail's supervision that participate in a community based electronic monitoring program.",
               "db_indicator": "CS_Electronic_Monitoring_Program"
             },
             {
               "name": "Home Detention",
               "unit": "persons",
               "dataType": "level",
-              "definition": "Number of persons under the county jail's supervision that participate in a community based home detention program.  Data based on sample of 891 local jails selected and surveyed by the Bureau of Justice Statistics.",
+              "definition": "Number of persons under the county jail's supervision that participate in a community based home detention program. ",
               "db_indicator": "CS_Home_Detention"
             },
             {
               "name": "Community Service",
               "unit": "persons",
               "dataType": "level",
-              "definition": "Number of persons under the county jail's supervision that participate in a community based community service program.  Data based on sample of 891 local jails selected and surveyed by the Bureau of Justice Statistics.",
+              "definition": "Number of persons under the county jail's supervision that participate in a community based community service program. ",
               "db_indicator": "CS_Community_Service"
             },
             {
               "name": "Day Reporting",
               "unit": "persons",
               "dataType": "level",
-              "definition": "Number of persons under the county jail's supervision that participate in a community based day reporting program.  Data based on sample of 891 local jails selected and surveyed by the Bureau of Justice Statistics.",
+              "definition": "Number of persons under the county jail's supervision that participate in a community based day reporting program. ",
               "db_indicator": "CS_Day_Reporting"
             },
             {
               "name": "Other Pretrial Supervision",
               "unit": "persons",
               "dataType": "level",
-              "definition": "Number of persons under the county jail's supervision that participate in other community based pretrial supervision programs.  Data based on sample of 891 local jails selected and surveyed by the Bureau of Justice Statistics.",
+              "definition": "Number of persons under the county jail's supervision that participate in other community based pretrial supervision programs. ",
               "db_indicator": "CS_Other_Pretrial_Supervision"
             },
             {
               "name": "Other Alternative Work Programs",
               "unit": "persons",
               "dataType": "level",
-              "definition": "Number of persons under the county jail's supervision that participate in other community based alternative work programs.  Data based on sample of 891 local jails selected and surveyed by the Bureau of Justice Statistics.",
+              "definition": "Number of persons under the county jail's supervision that participate in other community based alternative work programs. ",
               "db_indicator": "CS_Other_Alternative_Work_Programs"
             },
             {
               "name": "Alcohol/Drug Treatment Programs",
               "unit": "persons",
               "dataType": "level",
-              "definition": "Number of persons under the county jail's supervision that participate in community based alcohol or drug treatment programs.  Data based on sample of 891 local jails selected and surveyed by the Bureau of Justice Statistics.",
+              "definition": "Number of persons under the county jail's supervision that participate in community based alcohol or drug treatment programs. ",
               "db_indicator": "CS_Alcohol_Drug_Treatment_Programs"
             },
             {
               "name": "Other Nonconfined Programs",
               "unit": "persons",
               "dataType": "level",
-              "definition": "Number of persons under the county jail's supervision that participate in other programs outside of the county's jail facilities.  Data based on sample of 891 local jails selected and surveyed by the Bureau of Justice Statistics.",
+              "definition": "Number of persons under the county jail's supervision that participate in other programs outside of the county's jail facilities. ",
               "db_indicator": "CS_Other_Nonconfined_Programs"
             }
           ]
@@ -9558,7 +9538,7 @@
               "name": "Arts Employees",
               "unit": "employees",
               "dataType": "level",
-              "definition": "The number of employees of businesses involved in the creation or distribution of the arts—ranging from nonprofit museums, symphonies, and theaters to for-profit film, architecture, and design companies.",
+              "definition": "The number of employees involved in the creation or distribution of the arts—ranging from nonprofit museums, symphonies, and theaters to for-profit film, architecture, and design companies.",
               "db_indicator": "Art_est_Arts_employees"
             },
             {

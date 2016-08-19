@@ -28,8 +28,8 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 	// -------------------------- Variable Definitions ---------------------------
 	var localVersion = false;
 	
-	var default_dset = 'Veteran Demographics';
-	var default_ind = 'Percent Veterans';
+	var default_dset = 'Payments in Lieu of Taxes (PILT)';
+	var default_ind = 'PILT Profiles';
 	
 	CIC.findACounty = true;
 	CIC.embed = false;
