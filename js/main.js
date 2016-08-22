@@ -28,7 +28,7 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 	// -------------------------- Variable Definitions ---------------------------
 	var localVersion = false;
 	
-	var default_dset = 'Payments in Lieu of Taxes (PILT)';
+	var default_dset = 'Payment in Lieu of Taxes (PILT)';
 	var default_ind = 'PILT Profiles';
 	
 	CIC.findACounty = true;
