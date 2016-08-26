@@ -2986,7 +2986,7 @@
             },
             {
               "name": "Statewide Muni Bonds Profiles",
-              "unit": "millions of dollars",
+              "unit": "2dollars",
               "statewide": true,
               "dataType": "level",
               "legendTitlePre": "2013",
@@ -5885,6 +5885,15 @@
               "definition": "Vendor payments made under the TRICARE Management Program, formerly called the Civilian Health and Medical Plan of the Uniformed Services, for the medical care of dependents of active duty military personnel and of retired military personnel and their dependents at nonmilitary medical facilities.",
               "unit": "dollars",
               "db_indicator": "BEA_Military_Medical_Insurance_Benefits"
+            },
+            {
+              "name": "Medicaid Contribution Mandate",
+              "year": 2016,
+              "longLegendNames": true,
+              "source": "NACo Research",
+              "dataType": "categorical",
+              "definition":"Identifies if counties within a state contribute to Medicaid, and if they are mandated by the state to do so or not.",
+              "db_indicator": "Medicaid_Contribution"
             }
           ]
         },
