@@ -6435,7 +6435,7 @@
           ]
         },
         {
-          "name": "Payment in Lieu of Taxes (PILT)",
+          "name": "PILT & SRS",
           "years": [
             2003,
             2004,
@@ -6456,19 +6456,19 @@
           "db_dataset": "Federal_Funding",
           "companions": [
             [
-              "Payment in Lieu of Taxes (PILT)",
+              "PILT & SRS",
               "PILT Amount"
             ],
             [
-              "Payment in Lieu of Taxes (PILT)",
+              "PILT & SRS",
               "PILT per Acre"
             ],
             [
-              "Payment in Lieu of Taxes (PILT)",
+              "PILT & SRS",
               "Percent of PILT Entitlement Land"
             ],
             [
-              "Payment in Lieu of Taxes (PILT)",
+              "PILT & SRS",
               "PILT Annual Growth Rate"
             ]
           ],
@@ -6486,27 +6486,27 @@
               ],
               "companions": [
                 [
-                  "Payment in Lieu of Taxes (PILT)",
+                  "PILT & SRS",
                   "State PILT Amount"
                 ],
                 [
-                  "Payment in Lieu of Taxes (PILT)",
+                  "PILT & SRS",
                   "State PILT Entitlement Land"
                 ],
                 [
-                  "Payment in Lieu of Taxes (PILT)",
+                  "PILT & SRS",
                   "State Percent PILT Acres"
                 ],
                 [
-                  "Payment in Lieu of Taxes (PILT)",
+                  "PILT & SRS",
                   "State PILT per Acre"
                 ],
                 [
-                  "Payment in Lieu of Taxes (PILT)",
+                  "PILT & SRS",
                   "State PILT Amount"
                 ]
               ],
-              "definition": "Payment in Lieu of Taxes annual funding.",
+              "definition": "Payments in Lieu of Taxes annual funding.",
               "db_indicator": "State_PILT_Allocation"
             },
             {
@@ -6515,27 +6515,27 @@
               "dataType": "level",
               "companions": [
                 [
-                  "Payment in Lieu of Taxes (PILT)",
+                  "PILT & SRS",
                   "State PILT Amount"
                 ],
                 [
-                  "Payment in Lieu of Taxes (PILT)",
+                  "PILT & SRS",
                   "State PILT Entitlement Land"
                 ],
                 [
-                  "Payment in Lieu of Taxes (PILT)",
+                  "PILT & SRS",
                   "State Percent PILT Acres"
                 ],
                 [
-                  "Payment in Lieu of Taxes (PILT)",
+                  "PILT & SRS",
                   "State PILT per Acre"
                 ],
                 [
-                  "Payment in Lieu of Taxes (PILT)",
+                  "PILT & SRS",
                   "State PILT Amount"
                 ]
               ],
-              "definition": "Payment in Lieu of Taxes annual funding aggregated at the state level.",
+              "definition": "Payments in Lieu of Taxes annual funding aggregated at the state level.",
               "db_indicator": "State_PILT_Allocation"
             },
             {
@@ -6544,23 +6544,23 @@
               "dataType": "level",
               "companions": [
                 [
-                  "Payment in Lieu of Taxes (PILT)",
+                  "PILT & SRS",
                   "State PILT Amount"
                 ],
                 [
-                  "Payment in Lieu of Taxes (PILT)",
+                  "PILT & SRS",
                   "State PILT Entitlement Land"
                 ],
                 [
-                  "Payment in Lieu of Taxes (PILT)",
+                  "PILT & SRS",
                   "State Percent PILT Acres"
                 ],
                 [
-                  "Payment in Lieu of Taxes (PILT)",
+                  "PILT & SRS",
                   "State PILT per Acre"
                 ],
                 [
-                  "Payment in Lieu of Taxes (PILT)",
+                  "PILT & SRS",
                   "State PILT Amount"
                 ]
               ],
@@ -6572,23 +6572,23 @@
               "dataType": "percent",
               "companions": [
                 [
-                  "Payment in Lieu of Taxes (PILT)",
+                  "PILT & SRS",
                   "State PILT Amount"
                 ],
                 [
-                  "Payment in Lieu of Taxes (PILT)",
+                  "PILT & SRS",
                   "State PILT Entitlement Land"
                 ],
                 [
-                  "Payment in Lieu of Taxes (PILT)",
+                  "PILT & SRS",
                   "State Percent PILT Acres"
                 ],
                 [
-                  "Payment in Lieu of Taxes (PILT)",
+                  "PILT & SRS",
                   "State PILT per Acre"
                 ],
                 [
-                  "Payment in Lieu of Taxes (PILT)",
+                  "PILT & SRS",
                   "State PILT Amount"
                 ]
               ],
@@ -6601,27 +6601,27 @@
               "dataType": "level",
               "companions": [
                 [
-                  "Payment in Lieu of Taxes (PILT)",
+                  "PILT & SRS",
                   "State PILT Amount"
                 ],
                 [
-                  "Payment in Lieu of Taxes (PILT)",
+                  "PILT & SRS",
                   "State PILT Entitlement Land"
                 ],
                 [
-                  "Payment in Lieu of Taxes (PILT)",
+                  "PILT & SRS",
                   "State Percent PILT Acres"
                 ],
                 [
-                  "Payment in Lieu of Taxes (PILT)",
+                  "PILT & SRS",
                   "State PILT per Acre"
                 ],
                 [
-                  "Payment in Lieu of Taxes (PILT)",
+                  "PILT & SRS",
                   "State PILT Amount"
                 ]
               ],
-              "definition": "The Payment in Lieu of Taxes annual funding per acre of entitlement land aggregated at the state level.",
+              "definition": "The Payments in Lieu of Taxes annual funding per acre of entitlement land aggregated at the state level.",
               "db_indicator": "State_Pilt_Per_Acre"
             },
             {
@@ -6635,7 +6635,7 @@
                 100000,
                 1000000
               ],
-              "definition": "Payment in Lieu of Taxes annual funding",
+              "definition": "Payments in Lieu of Taxes annual funding",
               "db_indicator": "PILT_Allocation"
             },
             {
@@ -6648,7 +6648,7 @@
                 100000,
                 1000000
               ],
-              "definition": "Payment in Lieu of Taxes (PILT) funding to county governments based on presence of certain federal lands within their boundaries.",
+              "definition": "Payments in Lieu of Taxes (PILT) funding to county governments based on presence of certain federal lands within their boundaries.",
               "db_indicator": "PILT_Allocation"
             },
             {
@@ -6661,7 +6661,7 @@
                 0.5
               ],
               "suppressMinMax": true,
-              "definition": "Percent change in Payment in Lieu of Taxes annual funding from the previous year",
+              "definition": "Percent change in Payments in Lieu of Taxes annual funding from the previous year",
               "db_indicator": "PILT_Trend"
             },
             {
@@ -6700,8 +6700,311 @@
                 2,
                 2.5
               ],
-              "definition": "The Payment in Lieu of Taxes annual funding per acre of entitlement land.",
+              "definition": "The Payments in Lieu of Taxes annual funding per acre of entitlement land.",
               "db_indicator": "PILT_per_acre"
+            },
+            {
+              "name": "Total SRS & PILT Impact",
+              "year": 2015,
+              "unit": "dollars",
+              "dataType": "level_np",
+              "thresholds": [-500000,-50000,0,0.01],
+              "source": "NACo Analysis of data from the U.S. Department of the Interior and the U.S. Forest Service",
+              "customRange": ["rgb(0,51,102)", "rgb(0,102,153)", "rgb(0,153,204)", "rgb(153,153,153)", "rgb(255,204,102)"],
+              "definition":"Total projected change in PILT FY 2015 and SRS FY 2014 funding for a county, if SRS FY 2014 had not been reauthorized and PILT payments were adjusted accordingly.",
+              "db_indicator":"Impact_Fed_Funds_SRS_PILT",
+              "companions":[
+                [
+                  "PILT & SRS",
+                  "SRS Impact"
+                ],
+                [
+                  "PILT & SRS",
+                  "PILT Impact"
+                ],
+                [
+                  "PILT & SRS",
+                  "Total SRS & PILT Impact"
+                ]
+              ]
+            },
+            {
+              "name": "State Total SRS & PILT Impact",
+              "year": 2015,
+              "unit": "dollars",
+              "dataType": "level_np",
+              "source": "NACo Analysis of data from the U.S. Department of the Interior and the U.S. Forest Service",
+              "thresholds": [-5000000,-1000000,0],
+              "customRange": ["rgb(0,51,102)", "rgb(0,102,153)", "rgb(0,153,204)", "rgb(255,204,102)"],
+              "definition":"State aggregate projected changes in PILT FY 2015 and SRS FY 2014 funding, if SRS FY 2014 had not been reauthorized and PILT payments were adjusted accordingly.",
+              "db_indicator":"Impact_Fed_Funds_SRS_PILT_State",
+              "companions":[
+                [
+                  "PILT & SRS",
+                  "State SRS Impact"
+                ],
+                [
+                  "PILT & SRS",
+                  "State PILT Impact"
+                ],
+                [
+                  "PILT & SRS",
+                  "State Total SRS & PILT Impact"
+                ]
+              ]
+            },
+            {
+              "name": "SRS Impact",
+              "year": 2015,
+              "unit": "dollars",
+              "dataType": "level",
+              "source": "NACo Analysis of data from the U.S. Department of the Interior and the U.S. Forest Service",
+              "definition":"Projected changes in federal payments by replacing FY 2014 Secure Rural Schools program with permanently authorized FY 2014 25% Fund Payments. If the Secure Rural Schools program is not reauthorized forest payments to counties revert to the 25% Fund Payment (16 U.S.C. 500).",
+              "db_indicator":"Impact_Fed_Funds_SRS"
+            },
+            {
+              "name": "PILT Impact",
+              "year": 2015,
+              "unit": "dollars",
+              "dataType": "level",
+              "source": "NACo Analysis of data from the U.S. Department of the Interior and the U.S. Forest Service",
+              "definition":"Projected changes in Payment in Lieu of Taxes (PILT) FY 2015 formula payments to counties, if SRS FY 2014 had not been reauthorized.  Calculations based on $442 million in appropriated funds for FY 2015.",
+              "db_indicator":"Impact_Fed_Funds_PILT"
+            },
+            {
+              "name": "State SRS Impact",
+              "year": 2015,
+              "unit": "dollars",
+              "dataType": "level",
+              "source": "NACo Analysis of data from the U.S. Department of the Interior and the U.S. Forest Service",
+              "definition":"Projected changes in federal payments by replacing FY 2014 Secure Rural Schools program with permanently authorized FY 2014 25% Fund Payments aggregated at the state-level. If the Secure Rural Schools program is not reauthorized forest payments to counties revert to the 25% Fund Payment (16 U.S.C. 500).",
+              "db_indicator":"Impact_Fed_Funds_SRS_State"
+            },
+            {
+              "name": "State PILT Impact",
+              "year": 2015,
+              "unit": "dollars",
+              "dataType": "level",
+              "source": "NACo Analysis of data from the U.S. Department of the Interior and the U.S. Forest Service",
+              "definition":"Projected changes in Payment in Lieu of Taxes (PILT) FY 2015 formula payments aggregated at the state-level, if SRS FY 2014 had not been reauthorized.  Calculations based on $442 million in appropriated funds for FY 2015.",
+              "db_indicator":"Impact_Fed_Funds_PILT_State"
+            },
+            {
+              "name": "SRS Profiles",
+              "subtitlePost": ", FY 2015 Receipts Year",
+              "source": "NACo Analysis of data from the U.S. Forest Service data and Bureau of Land Management and Headwaters Economics analysis of U.S. Geological Survey, Protected Areas Database",
+              "dataType": "level",
+              "unit": "dollars",
+              "has_profile": true,
+              "suppressMinMax": true,
+              "thresholds": [
+                1,
+                30000,
+                100000,
+                300000
+              ],
+              "companions": [
+                [
+                  "PILT & SRS",
+                  "SRS Amount"
+                ],
+                [
+                  "PILT & SRS",
+                  "Projected 25% Payment"
+                ],
+                [
+                  "PILT & SRS",
+                  "Payment Percent Change"
+                ]
+              ],
+              "definition": "Profiles showing that without the SRS Act reauthorization, states revert to the Payments to States Act of 1908 as amended, receiving a 25 percent payment from national forest receipts. USFS estimates FY 2015 county 25 percent payments based on county shares of the national forest receipts. These estimates do not reflect the application of a 6.8 percent sequester to the state payments. Note: The receipts year reflects when U.S. Forest Service (USFS) collects revenues from national forest lands.",
+              "db_indicator": "SRS"
+            },
+            {
+              "name": "SRS Amount",
+              "year": 2015,
+              "subtitlePost": ", FY 2015 Receipts Year",
+              "unit": "dollars",
+              "dataType": "level",
+              "source": "NACo Analysis of data from the U.S. Forest Service data and Bureau of Land Management and Headwaters Economics analysis of U.S. Geological Survey, Protected Areas Database",
+              "suppressMinMax": true,
+              "thresholds": [
+                1,
+                30000,
+                100000,
+                300000
+              ],
+              "definition": "Funding received by counties through the Secure Rural Schools program based on  forest receipts, FY 2015 receipts year.",
+              "db_indicator": "SRS",
+              "companions": [
+                [
+                  "PILT & SRS",
+                  "SRS Amount"
+                ],
+                [
+                  "PILT & SRS",
+                  "Projected 25% Payment"
+                ],
+                [
+                  "PILT & SRS",
+                  "Payment Percent Change"
+                ]
+              ]
+            },
+            {
+              "name": "Projected 25% Payment",
+              "year": 2015,
+              "subtitlePost": ", FY 2015 Receipts Year",
+              "unit": "dollars",
+              "dataType": "level",
+              "source": "NACo Analysis of data from the U.S. Forest Service data and Bureau of Land Management and Headwaters Economics analysis of U.S. Geological Survey, Protected Areas Database",
+              "thresholds": [
+                1,
+                30000,
+                100000,
+                300000
+              ],
+              "definition": "Without the SRS Act reauthorization, states would have reverted  to the Payments to States Act of 1908 as amended, receiving a 25  percent payment from the national forest receipts. U.S.F.S.  estimated  FY 2015 25 percent payments based on county shares of the  national forest receipts.  These estimates did not reflect the application  of a 6.8 percent sequester to the payments to the states.",
+              "db_indicator": "SRS_projected",
+              "companions": [
+                [
+                  "PILT & SRS",
+                  "SRS Amount"
+                ],
+                [
+                  "PILT & SRS",
+                  "Projected 25% Payment"
+                ],
+                [
+                  "PILT & SRS",
+                  "Payment Percent Change"
+                ]
+              ]
+            },
+            {
+              "name": "Payment Percent Change",
+              "year": 2015,
+              "dataType": "percent",
+              "suppressMinMax": true,
+              "source": "NACo Analysis of data from the U.S. Forest Service data and Bureau of Land Management and Headwaters Economics analysis of U.S. Geological Survey, Protected Areas Database",
+              "definition": "Percentage change in funding from the Secure Rural Schools  program in FY 2015 to the projected 25% Fund Payment in FY 2015.",
+              "db_indicator": "SRS_projected_growth_rate",
+              "companions": [
+                [
+                  "PILT & SRS",
+                  "SRS Amount"
+                ],
+                [
+                  "PILT & SRS",
+                  "Projected 25% Payment"
+                ],
+                [
+                  "PILT & SRS",
+                  "Payment Percent Change"
+                ]
+              ]
+            },
+            {
+              "name": "State SRS Profiles",
+              "year": 2015,
+              "subtitlePost": ", FY 2015 Receipts Year",
+              "dataType": "level",
+              "unit": "dollars",
+              "source": "NACo Analysis of data from the U.S. Forest Service data and Bureau of Land Management and Headwaters Economics analysis of U.S. Geological Survey, Protected Areas Database",
+              "has_profile": true,
+              "suppressMinMax": true,
+              "companions": [
+                [
+                  "PILT & SRS",
+                  "State SRS Amount"
+                ],
+                [
+                  "PILT & SRS",
+                  "State Projected 25% Payment"
+                ],
+                [
+                  "PILT & SRS",
+                  "State Payment Percent Change"
+                ],
+                [
+                  "PILT & SRS",
+                  "State SRS Amount"
+                ]
+              ],
+              "definition": "Profiles of aggregated county payments at the state-level showing that without the SRS Act reauthorization, states revert to the Payments to States Act of 1908 as amended, receiving a 25 percent payment from national forest receipts. USFS estimates FY 2015 county 25 percent payments based on county shares of the national forest receipts. These estimates do not reflect the application of a 6.8 percent sequester to the state payments. Note: The receipts year reflects when U.S. Forest Service (USFS) collects revenues from national forest lands.",
+              "db_indicator": "SRS_State"
+            },
+            {
+              "name": "State SRS Amount",
+              "year": 2015,
+              "subtitlePost": ", FY 2015 Receipts Year",
+              "unit": "dollars",
+              "dataType": "level",
+              "suppressMinMax": true,
+              "source": "NACo Analysis of data from the U.S. Forest Service data and Bureau of Land Management and Headwaters Economics analysis of U.S. Geological Survey, Protected Areas Database",
+              "definition": "Funding received by counties through the Secure Rural Schools program based on forest receipts, FY 2015 receipts year aggregated at the state-level.",
+              "db_indicator": "SRS",
+              "companions": [
+                [
+                  "PILT & SRS",
+                  "SRS Amount"
+                ],
+                [
+                  "PILT & SRS",
+                  "Projected 25% Payment"
+                ],
+                [
+                  "PILT & SRS",
+                  "Payment Percent Change"
+                ]
+              ]
+            },
+            {
+              "name": "State Projected 25% Payment",
+              "year": 2015,
+              "subtitlePost": ", FY 2015 Receipts Year",
+              "unit": "dollars",
+              "dataType": "level",
+              "source": "NACo Analysis of data from the U.S. Forest Service data and Bureau of Land Management and Headwaters Economics analysis of U.S. Geological Survey, Protected Areas Database",
+              "definition": "Without the SRS Act reauthorization, states would have reverted to the Payments to States Act of 1908 as amended, receiving a 25 percent payment from the national forest receipts. U.S.F.S. estimated FY 2015 25 percent payments based on county shares of the national forest receipts. These estimates are aggregated at the state-level. These estimates did not reflect the application of a 6.8 percent sequester to the payments to the states.",
+              "db_indicator": "SRS_State_projected",
+              "companions": [
+                [
+                  "PILT & SRS",
+                  "SRS Amount"
+                ],
+                [
+                  "PILT & SRS",
+                  "Projected 25% Payment"
+                ],
+                [
+                  "PILT & SRS",
+                  "Payment Percent Change"
+                ]
+              ]
+            },
+            {
+              "name": "State Payment Percent Change",
+              "year": 2015,
+              "dataType": "percent",
+              "suppressMinMax": true,
+              "source": "NACo Analysis of data from the U.S. Forest Service data and Bureau of Land Management and Headwaters Economics analysis of U.S. Geological Survey, Protected Areas Database",
+              "definition": "Percentage change in funding from the Secure Rural Schools program in FY 2015 aggregated at the state-level to the projected 25% Fund Payment in FY 2015 aggregated at the state-level.",
+              "db_indicator": "SRS_State_Projected_Growth_Rate",
+              "companions": [
+                [
+                  "PILT & SRS",
+                  "SRS Amount"
+                ],
+                [
+                  "PILT & SRS",
+                  "Projected 25% Payment"
+                ],
+                [
+                  "PILT & SRS",
+                  "Payment Percent Change"
+                ]
+              ]
             }
           ]
         },
@@ -6775,124 +7078,6 @@
             ]
           ],
           "children": [
-            {
-              "name": "SRS Profiles",
-              "subtitlePost": ", FY 2015 Receipts Year",
-              "dataType": "level",
-              "unit": "dollars",
-              "has_profile": true,
-              "suppressMinMax": true,
-              "thresholds": [
-                1,
-                30000,
-                100000,
-                300000
-              ],
-              "companions": [
-                [
-                  "Secure Rural Schools (SRS)",
-                  "SRS Amount"
-                ],
-                [
-                  "Secure Rural Schools (SRS)",
-                  "Projected 25% Payment"
-                ],
-                [
-                  "Secure Rural Schools (SRS)",
-                  "Payment Percent Change"
-                ]
-              ],
-              "definition": "Profiles showing that without the SRS Act reauthorization, states revert to the Payments to States Act of 1908 as amended, receiving a 25 percent payment from national forest receipts. USFS estimates FY 2015 county 25 percent payments based on county shares of the national forest receipts. These estimates do not reflect the application of a 6.8 percent sequester to the state payments. Note: The receipts year reflects when U.S. Forest Service (USFS) collects revenues from national forest lands.",
-              "db_indicator": "SRS"
-            },
-            {
-              "name": "SRS Amount",
-              "subtitlePost": ", FY 2015 Receipts Year",
-              "unit": "dollars",
-              "dataType": "level",
-              "suppressMinMax": true,
-              "thresholds": [
-                1,
-                30000,
-                100000,
-                300000
-              ],
-              "definition": "Funding received by counties through the Secure Rural Schools program based on  forest receipts, FY 2015 receipts year.",
-              "db_indicator": "SRS"
-            },
-            {
-              "name": "Projected 25% Payment",
-              "subtitlePost": ", FY 2015 Receipts Year",
-              "unit": "dollars",
-              "dataType": "level",
-              "thresholds": [
-                1,
-                30000,
-                100000,
-                300000
-              ],
-              "definition": "Without the SRS Act reauthorization, states would have reverted  to the Payments to States Act of 1908 as amended, receiving a 25  percent payment from the national forest receipts. U.S.F.S.  estimated  FY 2015 25 percent payments based on county shares of the  national forest receipts.  These estimates did not reflect the application  of a 6.8 percent sequester to the payments to the states.",
-              "db_indicator": "SRS_projected"
-            },
-            {
-              "name": "Payment Percent Change",
-              "dataType": "percent",
-              "suppressMinMax": true,
-              "definition": "Percentage change in funding from the Secure Rural Schools  program in FY 2015 to the projected 25% Fund Payment in FY 2015.",
-              "db_indicator": "SRS_projected_growth_rate"
-            },
-            {
-              "name": "State SRS Profiles",
-              "subtitlePost": ", FY 2015 Receipts Year",
-              "dataType": "level",
-              "unit": "dollars",
-              "has_profile": true,
-              "suppressMinMax": true,
-              "companions": [
-                [
-                  "Secure Rural Schools (SRS)",
-                  "State SRS Amount"
-                ],
-                [
-                  "Secure Rural Schools (SRS)",
-                  "State Projected 25% Payment"
-                ],
-                [
-                  "Secure Rural Schools (SRS)",
-                  "State Payment Percent Change"
-                ],
-                [
-                  "Secure Rural Schools (SRS)",
-                  "State SRS Amount"
-                ]
-              ],
-              "definition": "Profiles of aggregated county payments at the state-level showing that without the SRS Act reauthorization, states revert to the Payments to States Act of 1908 as amended, receiving a 25 percent payment from national forest receipts. USFS estimates FY 2015 county 25 percent payments based on county shares of the national forest receipts. These estimates do not reflect the application of a 6.8 percent sequester to the state payments. Note: The receipts year reflects when U.S. Forest Service (USFS) collects revenues from national forest lands.",
-              "db_indicator": "SRS_State"
-            },
-            {
-              "name": "State SRS Amount",
-              "subtitlePost": ", FY 2015 Receipts Year",
-              "unit": "dollars",
-              "dataType": "level",
-              "suppressMinMax": true,
-              "definition": "Funding received by counties through the Secure Rural Schools program based on forest receipts, FY 2015 receipts year aggregated at the state-level.",
-              "db_indicator": "SRS"
-            },
-            {
-              "name": "State Projected 25% Payment",
-              "subtitlePost": ", FY 2015 Receipts Year",
-              "unit": "dollars",
-              "dataType": "level",
-              "definition": "Without the SRS Act reauthorization, states would have reverted to the Payments to States Act of 1908 as amended, receiving a 25 percent payment from the national forest receipts. U.S.F.S. estimated FY 2015 25 percent payments based on county shares of the national forest receipts. These estimates are aggregated at the state-level. These estimates did not reflect the application of a 6.8 percent sequester to the payments to the states.",
-              "db_indicator": "SRS_State_projected"
-            },
-            {
-              "name": "State Payment Percent Change",
-              "dataType": "percent",
-              "suppressMinMax": true,
-              "definition": "Percentage change in funding from the Secure Rural Schools program in FY 2015 aggregated at the state-level to the projected 25% Fund Payment in FY 2015 aggregated at the state-level.",
-              "db_indicator": "SRS_State_Projected_Growth_Rate"
-            }
           ]
         },
         {

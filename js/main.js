@@ -28,7 +28,7 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 	// -------------------------- Variable Definitions ---------------------------
 	var localVersion = false;
 	
-	var default_dset = 'Payment in Lieu of Taxes (PILT)';
+	var default_dset = 'PILT & SRS';
 	var default_ind = 'PILT Profiles';
 	
 	CIC.findACounty = true;
@@ -841,7 +841,7 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 						cbOptsHoriz.title = '<a class="newWindow" href="' + profileURL + '" target=_blank">Open In New Window</a>';
 						cbOptsHoriz.href = profileURL;
 						$.colorbox(cbOptsHoriz);
-					} else if (currentDI === 'Payment in Lieu of Taxes (PILT) | PILT Profiles') {
+					} else if (currentDI === 'PILT & SRS | PILT Profiles') {
 						if (quantByIds[0][+FIPS] === 0) {
 							var profileURL = '../profiles/PILT/National_PILT.pdf';
 						} else {
@@ -851,7 +851,7 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 						cbOptsVert.title = '<a class="newWindow" href="' + profileURL + '" target=_blank">Open In New Window</a>';
 						cbOptsVert.href = profileURL;
 						$.colorbox(cbOptsVert);
-					} else if (currentDI === 'Payment in Lieu of Taxes (PILT) | State PILT Profiles') {
+					} else if (currentDI === 'PILT & SRS | State PILT Profiles') {
 						var state = countyObjectById[+FIPS].STATE;
 						var profileURL = '../profiles/PILT_State/' + state + '.pdf';	
 
@@ -899,7 +899,7 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 							cbOptsVert.href = profileURL;
 							$.colorbox(cbOptsVert);
 						}
-					} else if (currentDI === "Secure Rural Schools (SRS) | SRS Profiles") {
+					} else if (currentDI === "PILT & SRS | SRS Profiles") {
 						if (quantByIds[0][+FIPS] === 0) {
 							var profileURL = '../profiles/SRSProfiles/National.pdf';
 							cbOptsVert.title = '<a class="newWindow" href="' + profileURL + '" target=_blank">Open In New Window</a>';
@@ -913,7 +913,7 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 							cbOptsVert.href = profileURL;
 							$.colorbox(cbOptsVert);
 						}
-					} else if (currentDI === "Secure Rural Schools (SRS) | State SRS Profiles") {
+					} else if (currentDI === "PILT & SRS | State SRS Profiles") {
 						var state = countyObjectById[+FIPS].STATE;
 						var profileURL = '../profiles/StateSRSProfiles/' + state + '.pdf';
 						cbOptsVert.title = '<a class="newWindow" href="' + profileURL + '" target=_blank">Open In New Window</a>';
@@ -1196,7 +1196,9 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 				}
 				break;
 			default:
-				range = level_colors;
+				if (customColors!=null){
+					range = customColors;
+				} else range = level_colors;
 		}
 	
 		function setDomainRange(){// set domain and range
@@ -1353,7 +1355,7 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 		// if showing a "county profile" indicator, show a mini help dialog
 		if (indObjects[0].has_profile) {
 			var text = 'Click once on a county to see their county profile.';
-			if (indObjects[0].name === 'MFA Profiles' || indObjects[0].name === 'Transportation Funding Profiles' || indObjects[0].name === 'Statewide Muni Bonds Profiles' || indObjects[0].name === 'MAP-21 Profiles' || indObjects[0].name === 'State PILT Profilestt'){
+			if (indObjects[0].name === 'MFA Profiles' || indObjects[0].name === 'Transportation Funding Profiles' || indObjects[0].name === 'Statewide Muni Bonds Profiles' || indObjects[0].name === 'MAP-21 Profiles' || indObjects[0].name === 'State PILT Profiles'){
 				text = 'Click once on a county to see their state profile.';
 			}
 			noty({
