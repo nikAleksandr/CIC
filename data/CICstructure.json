@@ -4313,7 +4313,8 @@
             2011,
             2012,
             2013,
-            2014
+            2014,
+            2015
           ],
           "source": "NACo Analysis of Bureau of Labor Statistics - Local Area Unemployment Statistics (LAUS)",
           "db_dataset": "Economy",
@@ -5114,14 +5115,16 @@
             2009,
             2010,
             2011,
-            2012
+            2012,
+            2014
           ],
           "source": "NACo Analysis of National Center for Economic Statistics (NCES) - Common Core Data (CCD), Elementary and Secondary Information System (ELSi)",
           "db_dataset": "Education",
+          "legendTitlePre": "2013-14",
           "companions": [
             [
               "Public Elementary & Secondary Schools",
-              "Number of Local School Districts"
+              "Number of Locally-Operated Institutions"
             ],
             [
               "Public Elementary & Secondary Schools",
@@ -5150,10 +5153,10 @@
               "db_indicator": "PESS_Operational_Schools"
             },
             {
-              "name": "Number of Local School Districts",
+              "name": "Number of Locally-Operated Institutions",
               "dataType": "level",
-              "definition": "The number of Local School Districts or Local School District Components of a Supervisory Union located in the county.",
-              "db_indicator": "PESS_Local_School_Districts"
+              "definition": "The number of Locally Operated institutions located in the county.",
+              "db_indicator": "PESS_Number_of_Locally_Operated_Institutions"
             },
             {
               "name": "Number of Federally-operated Institutions",
@@ -5292,7 +5295,8 @@
             2009,
             2010,
             2011,
-            2012
+            2012,
+            2014
           ],
           "source": "NACo Analysis of U.S. Census Bureau",
           "db_dataset": "Education",
@@ -9483,7 +9487,10 @@
             2008,
             2009,
             2010,
-            2011
+            2011,
+            2012,
+            2013,
+            2014
           ],
           "source": "NACo Analysis of Institute of Museum and Library Services - Public Libraries Survey (PLS)",
           "db_dataset": "Public_Amenity",

@@ -28,8 +28,8 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 	// -------------------------- Variable Definitions ---------------------------
 	var localVersion = false;
 	
-	var default_dset = 'PILT & SRS';
-	var default_ind = 'PILT Profiles';
+	var default_dset = 'Labor Force';
+	var default_ind = 'Unemployment Rate';
 	
 	CIC.findACounty = true;
 	CIC.embed = false;
@@ -1458,7 +1458,7 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 							if (qbis[i][ind] === 5) qbis[i][ind] = 4;
 						}
 					} else if (indObjs[i].dataType === 'percent') {
-						if (indObjs[i].dataset === 'Educational Attainment') qbis[i][ind] /= 100;	
+						//if (indObjs[i].dataset === 'Educational Attainment') qbis[i][ind] /= 100;	 //no longer need this, left for example
 					} else if (indObjs[i].name === 'CSA Code') {
 						if (qbis[i][ind] === 0) qbis[i][ind] = null;
 					}				

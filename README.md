@@ -39,12 +39,12 @@ There are no duplicates.  When duplicate entries occur in the indicatorList.html
 
 ###Legend Properties
 Indicator level properties that apply to the legend will override Dataset-level properties
-- legendTitlePre - defaults to dataset year or the year the data is supposed to reflect. When overridden, may contain a span of years, or a vintage year for the dataset.  Should always be a year value.  Will also appear on the source when the source year is not suppressed.
+- legendTitlePre - defaults to dataset year or the year the data is supposed to reflect. When overridden, may contain a span of years, or a vintage year for the dataset.  Should always be a year value, though in string format.  Will also appear on the source when the source year is not suppressed.
 - legendTitleMain - defaults to dataset name.
 - legendTitlePost - default off.  Override may contain an addendum to the dataset, such as ",as of May, 2015".
 - subtitlePre - default off.  Override if there is a specific year for an indicator separate from the dataset.  Will turn off legendTitlePre.
 - subtitleMain - defaults to indicator name.  If the indicator is a profile, this will default to the first companion.
-- subtitlePost - default off. If a "unit" property is present, will take this value unless subtitlePost is present and overrides.
+- subtitlePost - default off. subtitlePost overrides a "unit" property if it is present.
 
 ##indicator level properties
 - name
