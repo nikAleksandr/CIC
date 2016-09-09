@@ -5143,6 +5143,7 @@
             {
               "name": "Number of Districts",
               "dataType": "level",
+              "suppressMinMax": true,
               "definition": "The number of school districts located in the county.",
               "db_indicator": "PESS_Number_of_Districts"
             },
