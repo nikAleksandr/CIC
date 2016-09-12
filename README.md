@@ -38,36 +38,29 @@ Data is recieved in JSON format from an SQL server by running requests through a
 7. Test
 8. If any javascript files have been changed (not including CICStructure.json), run 'grunt' in terminal inside the root folder to compile and minify the code.  CIC.min.js is the only file neccessary to push to the live version.  It is located at: CIC/build/CIC.min.js
 9. Push changed files to live.  If index.html has changed, make sure to comment javascript links at the bottom so that only CIC.min.js is linked as it contains all the internal dependencies and javaScript files.
-10. Test again.  Success!
+10. Test again.  Success!  Push changes to github.
 
 =========
 ##CICStructure.json 
 There are no duplicates.  When duplicate entries occur in the indicatorList.html, CICStructure will group them according to dataset for efficiency when updating a large data source.  For example, Administration Employment is under the County Employment category, rather than the County Administration category.
 
-#Properties
-- years - applies specifically to the year the data is supposed to reflect, or the year the data was collected.
-- source
-- companions
-- suppressYear - supresses the year in the source information.
+###Standard Properties
+| Property          | Type      | Default | Dataset/Indicator |  Description  |
+| :---------------- | :-------- | :------ | :---------------- | :------------ |
+| 'name'            | 'string'  | ***     | both              | The primary dataset and indicator identifier. Necessary for both dataset and indicator. |
+
+- years - Array of numeric years. Applies specifically to the year the data is supposed to reflect, or the year the data was collected.  The latest year in the array must match the year of the data you want to display as stored in the SQL database.
+- source - Information about the source of the data stored as a string.  Will automatically append the latest of the 'years' array at the end of the source unless the 'suppressYear' or 'legendTitlePre' properties are active.
+- companions - 2-dimensional array containing the dataset and indicator names of the indicators that will appear in the overlay on a single-click event.  Will show length minus one indicators in the overlay.  Indicator-level property will override any dataset-level 'companions' property.
+- children - object array containing indicators within the dataset.
 
 
-- vintage - remove? maybe add a "month of last update" in the format of a Date object with year and month inputs
-
-###Legend Properties
-Indicator level properties that apply to the legend will override Dataset-level properties
-- legendTitlePre - defaults to dataset year or the year the data is supposed to reflect. When overridden, may contain a span of years, or a vintage year for the dataset.  Should always be a year value, though in string format.  Will also appear on the source when the source year is not suppressed.
-- legendTitleMain - defaults to dataset name.
-- legendTitlePost - default off.  Override may contain an addendum to the dataset, such as ",as of May, 2015".
-- subtitlePre - default off.  Override if there is a specific year for an indicator separate from the dataset.  Will turn off legendTitlePre.
-- subtitleMain - defaults to indicator name.  If the indicator is a profile, this will default to the first companion.
-- subtitlePost - default off. subtitlePost overrides a "unit" property if it is present.
-
-##indicator level properties
-- name
+###Additional Properties
 - DBDataset - database table location (not yet implemented)
 - DBIndicator - database field location (not yet implemented)
 - dataType – supported types include: level, categorical, binary, percent
 - year - Used to override the dataset level "years" property at the indicator level.
+- suppressYear - supresses the year in the source information.
 - definition
 - unit
 - thresholds
@@ -84,4 +77,13 @@ Indicator level properties that apply to the legend will override Dataset-level 
 - customRange - creates a custom set and order of colors IE: ["rgb(255,153,51)", "rgb(49,130,189)", "rgb(7,81,156)"]
 - suppressPrimeInd – suppresses the primary indicator display in the tooltip (and the definition)
 - perCapita - will activate the perCapita button when set to true.  Can be activated at the dataset level and will be passed to children.  Can be deactivated for children by passing the value false.  PerCapita is off for non "level" and "level_np" dataTypes.
+- vintage - remove? maybe add a "month of last update" in the format of a Date object with year and month inputs
 
+###Legend Properties
+Can be applied at dataset or indicator level. Indicator level properties that apply to the legend will override Dataset-level properties.
+- legendTitlePre - defaults to dataset year or the year the data is supposed to reflect. When overridden, may contain a span of years, or a vintage year for the dataset.  Should always be a year value, though in string format.  Will also appear on the source when the source year is not suppressed.
+- legendTitleMain - defaults to dataset name.
+- legendTitlePost - default off.  Override may contain an addendum to the dataset, such as ",as of May, 2015".
+- subtitlePre - default off.  Override if there is a specific year for an indicator separate from the dataset.  Will turn off legendTitlePre.
+- subtitleMain - defaults to indicator name.  If the indicator is a profile, this will default to the first companion.
+- subtitlePost - default off. subtitlePost overrides a "unit" property if it is present.
