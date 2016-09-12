@@ -17,7 +17,7 @@ Data is recieved in JSON format from an SQL server by running requests through a
 
 =========
 ##Additional Functionality
-
+- Verbose Mode - For debugging, change CIC.verbose to true in main.js.  Important/common error logging will occur even when false.
 - Ctrl + shift + L will force the map to adopt a more standard single-hue color scheme for continuous data as seen at [Color Brewer](www.colorbrewer2.org)
 
 ![Single-hue colors](/img/CICThumb_IPad_oldColors.png)
@@ -61,6 +61,7 @@ Indicator level properties that apply to the legend will override Dataset-level 
 - greyData - changes the labeling of the grey legend color from N/A to the string value associated with this indicator object's greyData.
 - overrideLegendMax
 - suppressMinMax
+- suppressQuint - supresses the appearance of "bottom 20%" & "top 20%" text in legend when neccessary
 - format_type
 - notes - [".exports-note"]
 - CETNulls

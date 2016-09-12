@@ -33,6 +33,7 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 	
 	CIC.findACounty = true;
 	CIC.embed = false;
+	CIC.verbose = false;  //activate for a more verbose console output for debugging.  Standard error logging will still occur without verbose true.
 
 	//state association specific
 	CIC.stateAssoc = $('#stateAssociationLogo').attr('stateAssoc');
@@ -1269,10 +1270,31 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 				// check if any quantile thresholds are the same value, if so switch to threshold 
 				for (var i = 0; i < quantiles.length - 1; i++) {
 					if (quantiles[i] === quantiles[i+1]) {
+						if(CIC.verbose) console.log('measureType switched to threshold due to multiple instances of same value in legend');
 						measureType = 'threshold';
 						break;
 					}
-				} 
+				}
+				//check if quantile is not a 20% split due to discreet values
+				var quantOnePer = function(arr){
+					var count = 0;
+					var quantOne = 0;
+					for(el in arr){
+						if(el != null){
+							count++
+							//console.log(el);
+							if(arr[el] < quantiles[0]) quantOne++;
+						};
+					}
+					//console.log(quantOne + '/' + count);
+					return quantOne/count;
+				}
+				if(quantOnePer(domain) < 0.19){
+					if(CIC.verbose) console.log('suppressQuint is active since the lowest quintile contains less than 19% of values.')
+					indObjects[0].suppressQuint = true;
+				}
+				var functionTestEnd = new Date().getTime();
+				console.log(functionTestEnd - functionTestStart);
 
 				var d = color.domain();
 				if (measureType === 'quartile' && quantiles[0] <= 1) measureType = 'threshold';
@@ -1610,6 +1632,7 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 			if (primeIndObj.name === 'Body of Water' || primeIndObj.name === 'County Supported Local Health Departments (LHDs)') options.boxWidth = 68;
 			if (primeIndObj.hasOwnProperty('format_type')) options.format_type = primeIndObj.format_type;
 			if (primeIndObj.hasOwnProperty('suppressMinMax')) options.suppressMinMax = primeIndObj.suppressMinMax;
+			if (primeIndObj.hasOwnProperty('suppressQuint')) options.suppressQuint = primeIndObj.suppressQuint;
 			if (primeIndObj.hasOwnProperty('longLegendNames')) options.longLegendNames = primeIndObj.longLegendNames;
 			if (primeIndObj.hasOwnProperty('overrideLegendMax')) options.overrideLegendMax = primeIndObj.overrideLegendMax;
 	

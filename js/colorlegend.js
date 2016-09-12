@@ -31,6 +31,7 @@ var colorlegend = function (target, scale, type, options) {
     	, unit = opts.unit || ''
     	, longLegendNames = opts.longLegendNames || false
     	, suppressMinMax = opts.suppressMinMax || false
+    	, suppressQuint = opts.suppressQuint || false
     	, overrideLegendMax = opts.overrideLegendMax || null
     	, htmlElement = document.getElementById(target.substring(0, 1) === '#' ? target.substring(1, target.length) : target) // target container element - strip the prefix #
     	, w = htmlElement.offsetWidth // width of container element
@@ -153,7 +154,7 @@ var colorlegend = function (target, scale, type, options) {
       	.style('display', function (d, i) { if (i >= colors.length) return 'none'; });
 
     // additional text on top of color boxes, displaying "top 20%", "bottom 20%", etc.
-    if (isNumeric && measure_type === 'quintile') {
+    if (isNumeric && measure_type === 'quintile' && suppressQuint == false) {
 	    legendBoxes.append('text')
 	    	.attr('class', 'colorlegend-boxlabels')
 	    	.attr('x', function (d, i) {
