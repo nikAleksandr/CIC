@@ -7,13 +7,13 @@
 
 The CIC uses D3's data manipulating and mapping abilities to display a very wide range of county-based data based on user selection.
 
-Metadata is kept in the hierarchical CICstructure.json file, which is pulled into main.js as needed on data calls to the server.
+Binary, categorical, percent, and levels with negative values are all treated slightly differently in creating quantiles, or linear (or arbitrary) thresholds where needed.
 
-Binary, categorical, percent, and levels with negative values are all treated slightly differently in creating quantiles, or linear thresholds where needed.
+Single-click on a county returns a tooltip displaying exact data including and related to the selected "Primary Indicator".
 
-Single-click on a county returns a tooltip displaying exact data including and related to the selected "Primary Indicator"
+Double-click presents basic county information.
 
-Data is recieved in JSON format from an SQL server by running requests through a Coldfusion script
+Data is recieved in JSON format from an SQL server by running requests through a Coldfusion script.
 
 =========
 ##Additional Functionality
@@ -22,7 +22,23 @@ Data is recieved in JSON format from an SQL server by running requests through a
 
 ![Single-hue colors](/img/CICThumb_IPad_oldColors.png)
 
-- Ctrl + shift + E will export the current map SVG as a .png image
+=========
+##Dependencies
+- node.js
+- Grunt.js
+
+=========
+##Update Procedure
+1. Update the datatbase with any new indicators and updated indicators.  Keep track of any changed or additonal field and table names for updating in CICstructure.json
+2. Update CICStructure.json with indicators and datasets.  Datasets are unique and should not be duplicated across multiple categories.  Categories are for organizational purposes only and do not relate to the categories on the front end of the site.  See the section on CICStructure.json for a full list of options.
+3. Update indicatorList.html.  Remove previous month's 'updated' and 'new' badges, add any new indicators, update any needed indicators and datasets.  Datasets may appear in several categories.  Update the curated list of datasets (or categories) at the top of the file.  Angular.js is used to determine which will appear and be hidden.  Use ng-show or ng-hide such as: ng-show="indicatorListType == 'curated'" in order to show or hide for the curated list.
+4. Update the overlay with a sample of indicators, using angular.js in the anchor tag to link internally to the appropriate indicators: ng-click="panel.goToIndicator('Educational Attainment', 'High School Graduate')"
+5. Push changed files into future/ for testing.
+6. Prepare and schedule email.
+7. Test
+8. If any javascript files have been changed (not including CICStructure.json), run 'grunt' in terminal inside the root folder to compile and minify the code.  CIC.min.js is the only file neccessary to push to the live version.  It is located at: CIC/build/CIC.min.js
+9. Push changed files to live.  If index.html has changed, make sure to comment javascript links at the bottom so that only CIC.min.js is linked as it contains all the internal dependencies and javaScript files.
+10. Test again.  Success!
 
 =========
 ##CICStructure.json 
