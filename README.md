@@ -45,15 +45,15 @@ Data is recieved in JSON format from an SQL server by running requests through a
 There are no duplicates.  When duplicate entries occur in the indicatorList.html, CICStructure will group them according to dataset for efficiency when updating a large data source.  For example, Administration Employment is under the County Employment category, rather than the County Administration category.
 
 ###Standard Properties
-*** indicates neccessary.
+XXX indicates neccessary.
 | Property          | Type            | Default | Dataset or Indicator |  Description  |
 | :---------------- | :-------------- | :------ | :------------------- | :------------ |
-| 'name'            | 'string'        | ***     | both                 | The primary dataset and indicator identifier. Necessary for both dataset and indicator. |
-| 'years'           | 'numeric array' | ***     | dataset              | Array of years. Applies specifically to the year the data is supposed to reflect, or seoncdarily, the year the data was collected.  The latest year in the array must match the year of the data you want to display as stored in the SQL database.  The indicator-level 'year' property can be used to override an indicator not matching its dataset. |
-| 'source'          | 'string         | ***     | dataset or both      | Information about the source of the data.  Will automatically append the latest of the 'years' array at the end of the source unless the 'suppressYear' or 'legendTitlePre' properties are active. |
-| 'companions'      | '2-D array'     | ***     | dataset or both      | Two-dimensional array containing the dataset and indicator names of the indicators that will appear in the overlay on a single-click event.  Will show length minus one indicators in the overlay.  Indicator-level 'companions' property will override any dataset-level 'companions' property. |
-| 'children'        | 'object array'  | ***     | dataset or both      | Array of objects, each of which is an indicator within the dataset. |
-| 'DBDataset'       | 'string'        | ***     | dataset or both      | SQL table location of 'database' data. |
+| 'name'            | 'string'        | XXX     | both                 | The primary dataset and indicator identifier. Necessary for both dataset and indicator. |
+| 'years'           | 'numeric array' | XXX     | dataset              | Array of years. Applies specifically to the year the data is supposed to reflect, or seoncdarily, the year the data was collected.  The latest year in the array must match the year of the data you want to display as stored in the SQL database.  The indicator-level 'year' property can be used to override an indicator not matching its dataset. |
+| 'source'          | 'string         | XXX     | dataset or both      | Information about the source of the data.  Will automatically append the latest of the 'years' array at the end of the source unless the 'suppressYear' or 'legendTitlePre' properties are active. |
+| 'companions'      | '2-D array'     | XXX     | dataset or both      | Two-dimensional array containing the dataset and indicator names of the indicators that will appear in the overlay on a single-click event.  Will show length minus one indicators in the overlay.  Indicator-level 'companions' property will override any dataset-level 'companions' property. |
+| 'children'        | 'object array'  | XXX     | dataset or both      | Array of objects, each of which is an indicator within the dataset. |
+| 'DBDataset'       | 'string'        | XXX     | dataset or both      | SQL table location of 'database' data. |
 
 - DBIndicator - SQL field location of 'indicator' data.
 - dataType – supported types include: level, categorical, binary, percent
