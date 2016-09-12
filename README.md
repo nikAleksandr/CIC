@@ -48,6 +48,7 @@ There are no duplicates.  When duplicate entries occur in the indicatorList.html
 XXX indicates neccessary.
 | Property          | Type            | Default | Dataset or Indicator |  Description  |
 | :---------------- | :-------------- | :------ | :------------------- | :------------ |
+
 | 'name'            | 'string'        | XXX     | both                 | The primary dataset and indicator identifier. Necessary for both dataset and indicator. |
 | 'years'           | 'numeric array' | XXX     | dataset              | Array of years. Applies specifically to the year the data is supposed to reflect, or seoncdarily, the year the data was collected.  The latest year in the array must match the year of the data you want to display as stored in the SQL database.  The indicator-level 'year' property can be used to override an indicator not matching its dataset. |
 | 'source'          | 'string         | XXX     | dataset or both      | Information about the source of the data.  Will automatically append the latest of the 'years' array at the end of the source unless the 'suppressYear' or 'legendTitlePre' properties are active. |
