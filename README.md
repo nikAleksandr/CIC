@@ -1,9 +1,7 @@
-#CIC
-===
+#CIC (Now County Explorer)
 
+========
 ##The County Explorer
-
-=========
 
 The CIC uses D3's data manipulating and mapping abilities to display a very wide range of county-based data based on user selection.
 
@@ -14,13 +12,6 @@ Single-click on a county returns a tooltip displaying exact data including and r
 Double-click presents basic county information.
 
 Data is recieved in JSON format from an SQL server by running requests through a Coldfusion script.
-
-=========
-##Additional Functionality
-- Verbose Mode - For debugging, change CIC.verbose to true in main.js.  Important/common error logging will occur even when false.
-- Ctrl + shift + L will force the map to adopt a more standard single-hue color scheme for continuous data as seen at [Color Brewer](www.colorbrewer2.org)
-
-![Single-hue colors](/img/CICThumb_IPad_oldColors.png)
 
 =========
 ##Dependencies
@@ -89,4 +80,13 @@ Can be applied at dataset or indicator level. Indicator level properties that ap
 - subtitleMain - defaults to indicator name.  If the indicator is a profile, this will default to the first companion.
 - subtitlePost - default off. subtitlePost overrides a "unit" property if it is present.
 
+=========
 ##Examples
+
+=========
+##Additional Functionality
+- Verbose Mode - For debugging, change CIC.verbose to true in main.js.  Important/common error logging will occur even when false.
+- Ctrl + shift + L will force the map to adopt a more standard single-hue color scheme for continuous data as seen at [Color Brewer](www.colorbrewer2.org)
+
+![Single-hue colors](/img/CICThumb_IPad_oldColors.png)
+
