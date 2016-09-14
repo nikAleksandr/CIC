@@ -46,19 +46,21 @@ XXX indicates neccessary.
 | 'companions'      | '2-D array'     | XXX     | dataset or both      | Two-dimensional array containing the dataset and indicator names of the indicators that will appear in the overlay on a single-click event.  Will show length minus one indicators in the overlay.  Indicator-level 'companions' property will override any dataset-level 'companions' property. |
 | 'children'        | 'object array'  | XXX     | dataset or both      | Array of objects, each of which is an indicator within the dataset. |
 | 'DBDataset'       | 'string'        | XXX     | dataset or both      | SQL table location of 'database' data. |
-
-- DBIndicator - SQL field location of 'indicator' data.
-- dataType – supported types include: level, categorical, binary, percent
-- definition
-- unit
+| 'DBIndicator'     | 'string'        | XXX     | indicator            | SQL field location of 'indicator' data. |
+| 'dataType'        | 'string'        | XXX     | indicator            | Type of data interpretation, supported types include: 'level' - standard numeric, 'level_np' - standard numeric that does not start at 0, for negative number or other reasons, 'categorical' - discrete data, generally as strings. supports 5 categories, 'binary' - yes and no or on or off., and 'percent', for percentages.  For both binary and categorical, data must be stored as strings exactly as it will be displayed. 'format_type' may be used to change the number of decimals displayed. |
+| 'definition'      | 'string'        | null    | indicator            | The definition will be displayed below the map when an indicator is mapped or shown as a companion.
+| 'unit'            | 'string'        | null    | indicator            | 'unit' property will be displayed in the legend when present.  'dollars' will change the formatting of the numbers.  Neccessary for clarity when using the 'perCapita' feature. |
 
 ###Additional Properties
-- year - Used to override the dataset level "years" property at the indicator level.
-- suppressYear - supresses the year in the source information.
-- thresholds
-- has_profile
-- order
-- longLegendNames
+
+| Property          | Type            | Default | Dataset or Indicator |  Description  |
+| :---------------- | :-------------- | :------ | :------------------- | :------------ |
+| 'year'            | 'numeric'       | from 'years' | indicator       | Used to override the dataset level 'years' property at the indicator level.
+| 'suppressYear'    | 'boolean'       | false   | either               | Supresses the year in the source information.
+| 'thresholds'      | 'numeric array' | null    | indicator            | Used to mandate the legend instead of the default quantiles.  IE: '[-0.3,-0.2,-0.1,0]' The first and last numbers are determined by the minimum and maximum data values. |
+| 'has_profile'     | 'boolean'       | false   | indicator            | Indicates when an indicator should change its single-click behavior to load a profile.  Must be paired with a change to the profile section of main.js.  The data shown will be from the first non-self 'companions' indicator.  Aside from 'has_profile', the 'name' and 'definition' property, all other properties should match the first companion. |
+| 'order'           | 'object'        | null    | indicator            | Used for 'categorical' and 'binary' 'dataType' indicating the name of the category and the numeric order (0-indexed) as property and value, respectively.  IE: '{"Minimum Requirements": 0,"State Regulatory Requirements": 1,"Require GAAP": 2}'. |
+| longLegendNames
 - greyData - changes the labeling of the grey legend color from N/A to the string value associated with this indicator object's greyData.
 - overrideLegendMax
 - suppressMinMax
@@ -82,6 +84,8 @@ Can be applied at dataset or indicator level. Indicator level properties that ap
 
 =========
 ##Examples
+
+###Profiles
 
 =========
 ##Additional Functionality

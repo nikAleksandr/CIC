@@ -10180,6 +10180,7 @@
             {
               "name": "State Authorized Local Gas Tax",
               "dataType": "categorical",
+              "year": 2014,
               "order": {
                 "Not Authorized": 0,
                 "Authorized but not adopted": 1,
@@ -10200,13 +10201,14 @@
                   "State Authorized Local Gas Tax"
                 ]
               ],
-              "source": "NACo analysis of various sources, February 2014",
+              "source": "NACo analysis of various sources, February",
               "definition": "States allowing counties to collect local option gas taxes, as of February 2014. Local option gas tax is a tax collected by a local government on the sale of gasoline within their jurisdiction, if the local government is granted the authority by the state. The revenues from this tax are used for transportation purposes. Besides state authority, often the local government needs a local law or voter approval to implement the local option gas tax. To be considered a local option gas tax for these data, the state authority to collect the tax must be granted to counties; statewide and state collected gas taxes that do not require local approval are not considered local gas taxes.",
               "db_indicator": "RA_localGasTax"
             },
             {
               "name": "Local Option Sales Tax",
               "dataType": "categorical",
+              "year": 2014,
               "order": {
                 "Not Authorized": 0,
                 "Authorized but not adopted": 1,
