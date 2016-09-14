@@ -36,7 +36,7 @@ Data is recieved in JSON format from an SQL server by running requests through a
 There are no duplicates.  When duplicate entries occur in the indicatorList.html, CICStructure will group them according to dataset for efficiency when updating a large data source.  For example, Administration Employment is under the County Employment category, rather than the County Administration category.
 
 ###Standard Properties
-XXX indicates neccessary.
+'XXX' indicates that the property needs a value for the data to function.
 
 | Property          | Type            | Default | Dataset or Indicator |  Description  |
 | :---------------- | :-------------- | :------ | :------------------- | :------------ |
@@ -60,32 +60,33 @@ XXX indicates neccessary.
 | 'thresholds'      | 'numeric array' | null    | indicator            | Used to mandate the legend instead of the default quantiles.  IE: '[-0.3,-0.2,-0.1,0]' The first and last numbers are determined by the minimum and maximum data values. |
 | 'has_profile'     | 'boolean'       | false   | indicator            | Indicates when an indicator should change its single-click behavior to load a profile.  Must be paired with a change to the profile section of main.js.  The data shown will be from the first non-self 'companions' indicator.  Aside from 'has_profile', the 'name' and 'definition' property, all other properties should match the first companion. |
 | 'order'           | 'object'        | null    | indicator            | Used for 'categorical' and 'binary' 'dataType' indicating the name of the category and the numeric order (0-indexed) as property and value, respectively.  IE: '{"Minimum Requirements": 0,"State Regulatory Requirements": 1,"Require GAAP": 2}'. |
-| longLegendNames
-- greyData - changes the labeling of the grey legend color from N/A to the string value associated with this indicator object's greyData.
-- overrideLegendMax
-- suppressMinMax
-- suppressQuint - supresses the appearance of "bottom 20%" & "top 20%" text in legend when neccessary
-- format_type
-- notes - [".exports-note"]
-- CETNulls
-- customRange - creates a custom set and order of colors IE: ["rgb(255,153,51)", "rgb(49,130,189)", "rgb(7,81,156)"]
-- suppressPrimeInd – suppresses the primary indicator display in the tooltip (and the definition).  Useful for hacking strange data.
-- perCapita - will activate the perCapita button when set to true.  Can be activated at the dataset level and will be passed to children.  Can be deactivated for children by passing the value false.  PerCapita is off for non "level" and "level_np" dataTypes.
-- vintage - remove? maybe add a "month of last update" in the format of a Date object with year and month inputs
+| longLegendNames   | 'boolean'       | false   | indicator            | Indicates that the (usually categorical) data needs more room in the legend.  Makes text wrap and adds a few more pixels of legend width. |
+| 'greyData'        | 'string'        | null    | indicator            | Changes the "county data is unavailable if the county is colored grey" legend text to the string value associated with this indicator object's greyData. |
+| 'overrideLegendMax' | 'string'      | null    | indicator            | Changes the legend maximum value to the string value of 'overrideLegendMax'. |
+| 'suppressMinMax'  | 'boolean'       | false   | indicator            | Removes the minimum and maximum values from the legend when desired. |
+| 'format_type'     | 'string'        | null    | indicator            | Only works for 'level' and 'level_np' values of 'dataType' properties. May take two possible values: 'dec1' fixed with one decimal place and 'dec2', fixed with 2 decimals places.  If format_type is missing or unspecified, values are displayed as integers. |
+| 'notes'           | 'string'        | null    | either               | Specifies the CSS class of the note stored in the assets/notes.html file. IE: 'bjs-note'  The actual text of the note must be placed in a div that matches this class in addition to the "idio-note" class (so that it is recognized as a non-permanent note). |
+| 'CETNulls'        | 'string'        | null    | indicator            | Intercepts numeric data and codes 999 as 'No Recession' and -999 as 'No Recovery'.  Sepcific function for the County Economies data.  Value of the property does not matter. |
+| 'customRange'     | 'array'         | standard colors | indicator    | Creates a custom set and order of colors. IE: '["rgb(255,153,51)", "rgb(49,130,189)", "rgb(7,81,156)"]'. |
+| 'suppressPrimeInd' | 'boolean'      | false   | indicator            | Suppresses the appearance of the primary indicator in the tooltip (and the definition).  Can be useful for hacking strange data. |
+| 'perCapita'       | 'boolean'       | false   | either               | When true, will activate the perCapita button, dividing by the dataset's year of population data.  Can be activated at the dataset level and overridden for children by passing the value false.  PerCapita is always off for non "level" and "level_np" dataTypes. |
 
 ###Legend Properties
 Can be applied at dataset or indicator level. Indicator level properties that apply to the legend will override Dataset-level properties.
-- legendTitlePre - defaults to dataset year or the year the data is supposed to reflect. When overridden, may contain a span of years, or a vintage year for the dataset.  Should always be a year value, though in string format.  Will also appear on the source when the source year is not suppressed.
-- legendTitleMain - defaults to dataset name.
-- legendTitlePost - default off.  Override may contain an addendum to the dataset, such as ",as of May, 2015".
-- subtitlePre - default off.  Override if there is a specific year for an indicator separate from the dataset.  Will turn off legendTitlePre.
-- subtitleMain - defaults to indicator name.  If the indicator is a profile, this will default to the first companion.
-- subtitlePost - default off. subtitlePost overrides a "unit" property if it is present.
+
+| Property          | Type            | Default | Dataset or Indicator |  Description  |
+| :---------------- | :-------------- | :------ | :------------------- | :------------ |
+| 'legendTitlePre'  | 'string'        | year of data | either          | Replaces the dataset year value with a span of years, or a vintage year for the dataset.  Should always be a year value, though in string format.  Will also appear on the source when the 'suppressYear' is not 'true'. |
+| 'legendTitleMain' | 'string'        | dataset name | either          | Replaces the dataset name in the legend with the string value indicated.  Not recommedned. |
+| 'legendTitlePost' | 'string'        | null    | either               | Adds an addendum to the dataset, such as ",as of May, 2015". Often used with 'suppressYear' |
+| 'subtitlePre'     | 'string'        | null    | indicator            | Adds a specific year for an indicator separate from the dataset before the indicator name.  Will deactivate legendTitlePre. |
+| 'subtitleMain'    | 'string'        | indicator name | indicator     | Replaces the indicator name in the legend with string values indicated. Not Recommended. If the indicator is a profile, this will default to the first companion without having to use 'subtitleMain'. |
+| 'subtitlePost'    | 'string'        | null    | indicator            | Adds an addendum to the indicator nname.  Overrides a "unit" property. |
 
 =========
 ##Examples
 
-###Profiles
+###Profile Example
 
 =========
 ##Additional Functionality

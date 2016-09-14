@@ -10,7 +10,7 @@
                 2014
             ],
             "source": "NACo Analysis of U.S. Census Bureau - Census of Individual Governments: Employment",
-            "notes": ".census-of-govs-employment-note",
+            "notes": "census-of-govs-employment-note",
             "db_dataset": "Employment",
             "perCapita": true,
             "companions": [
@@ -63,7 +63,7 @@
             2014
           ],
           "source": "NACo Analysis of U.S. Census Bureau - Census of Individual Governments: Employment",
-          "notes": ".census-of-govs-employment-note",
+          "notes": "census-of-govs-employment-note",
           "db_dataset": "Employment",
           "perCapita": true,
           "companions": [
@@ -183,7 +183,7 @@
             2014
           ],
           "source": "NACo Analysis of U.S. Census Bureau - Census of Individual Governments: Employment",
-          "notes": ".census-of-govs-employment-note",
+          "notes": "census-of-govs-employment-note",
           "db_dataset": "Employment",
           "perCapita": true,
           "companions": [
@@ -286,7 +286,7 @@
             2014
           ],
           "source": "NACo Analysis of U.S. Census Bureau - Census of Individual Governments: Employment",
-          "notes": ".census-of-govs-employment-note",
+          "notes": "census-of-govs-employment-note",
           "db_dataset": "Employment",
           "perCapita": true,
           "companions": [
@@ -389,7 +389,7 @@
             2014
           ],
           "source": "NACo Analysis of U.S. Census Bureau - Census of Individual Governments: Employment",
-          "notes": ".census-of-govs-employment-note",
+          "notes": "census-of-govs-employment-note",
           "db_dataset": "Employment",
           "perCapita": true,
           "companions": [
@@ -442,7 +442,7 @@
             2014
           ],
           "source": "NACo Analysis of U.S. Census Bureau - Census of Individual Governments: Employment",
-          "notes": ".census-of-govs-employment-note",
+          "notes": "census-of-govs-employment-note",
           "db_dataset": "Employment",
           "perCapita": true,
           "companions": [
@@ -587,7 +587,7 @@
             2014
           ],
           "source": "NACo Analysis of U.S. Census Bureau - Census of Individual Governments: Employment",
-          "notes": ".census-of-govs-employment-note",
+          "notes": "census-of-govs-employment-note",
           "db_dataset": "Employment",
           "perCapita": true,
           "companions": [
@@ -711,7 +711,7 @@
             2014
           ],
           "source": "NACo Analysis of U.S. Census Bureau - Census of Individual Governments: Employment",
-          "notes": ".census-of-govs-employment-note",
+          "notes": "census-of-govs-employment-note",
           "db_dataset": "Employment",
           "perCapita": true,
           "companions": [
@@ -772,7 +772,7 @@
             2014
           ],
           "source": "NACo Analysis of U.S. Census Bureau - Census of Individual Governments: Employment",
-          "notes": ".census-of-govs-employment-note",
+          "notes": "census-of-govs-employment-note",
           "db_dataset": "Employment",
           "perCapita": true,
           "companions": [
@@ -917,7 +917,7 @@
             2014
           ],
           "source": "NACo Analysis of U.S. Census Bureau - Census of Individual Governments: Employment",
-          "notes": ".census-of-govs-employment-note",
+          "notes": "census-of-govs-employment-note",
           "db_dataset": "Employment",
           "perCapita": true,
           "companions": [
@@ -1020,7 +1020,7 @@
             2014
           ],
           "source": "NACo Analysis of U.S. Census Bureau - Census of Individual Governments: Employment",
-          "notes": ".census-of-govs-employment-note",
+          "notes": "census-of-govs-employment-note",
           "db_dataset": "Employment",
           "perCapita": true,
           "companions": [
@@ -1144,7 +1144,7 @@
             2014
           ],
           "source": "NACo Analysis of U.S. Census Bureau - Census of Individual Governments: Employment",
-          "notes": ".census-of-govs-employment-note",
+          "notes": "census-of-govs-employment-note",
           "db_dataset": "Employment",
           "perCapita": true,
           "companions": [
@@ -1216,7 +1216,7 @@
               "name": "State Reporting Requirements",
               "dataType": "categorical",
               "longLegendNames": true,
-              "notes": ".state-reporting-req-note",
+              "notes": "state-reporting-req-note",
               "order": {
                 "Minimum Requirements": 0,
                 "State Regulatory Requirements": 1,
@@ -1228,7 +1228,7 @@
             {
               "name": "State County Share CAFR",
               "dataType": "percent",
-              "notes": ".county-share-cafr-note",
+              "notes": "county-share-cafr-note",
               "thresholds": [
                 0.001,
                 0.25,
@@ -3933,42 +3933,42 @@
             {
               "name": "Percent of Residents with European Ancestry",
               "dataType": "percent",
-              "notes": ".ancestry-note",
+              "notes": "ancestry-note",
               "definition": "The percentage of a county's population with European first reported ancestry.",
               "db_indicator": "Immi_Share_Europe_First_Ancestry"
             },
             {
               "name": "Percent of Residents with Middle Eastern or North African Ancestry",
               "dataType": "percent",
-              "notes": ".ancestry-note",
+              "notes": "ancestry-note",
               "definition": "The percentage of a county's population with Middle Eastern or North African first reported ancestry.",
               "db_indicator": "Immi_Share_Middle_East_and_North_Africa_First_Ancestry"
             },
             {
               "name": "Percent of Residents with Sub-Saharan African Ancestry",
               "dataType": "percent",
-              "notes": ".ancestry-note",
+              "notes": "ancestry-note",
               "definition": "The percentage of a county's population with Sub-Saharan African first reported ancestry.",
               "db_indicator": "Immi_Share_Sub_Saharan_Africa_First_Ancestry"
             },
             {
               "name": "Percent of Residents with Australian or New Zealand Ancestry",
               "dataType": "percent",
-              "notes": ".ancestry-note",
+              "notes": "ancestry-note",
               "definition": "The percentage of a county's population with Australian or New Zealand first reported ancestry.",
               "db_indicator": "Immi_Share_Australia_and_New_Zealand_First_Ancestry"
             },
             {
               "name": "Percent of Residents with North American Ancestry",
               "dataType": "percent",
-              "notes": ".ancestry-note",
+              "notes": "ancestry-note",
               "definition": "The percentage of a county's population with North American first reported ancestry.  U.S. Census Bureau includes in the North American ancestry individuals who identify themselves as American, Cajun, French Canadian, Pennsylvania German, and Canadian.",
               "db_indicator": "Immi_Share_North_America_First_Ancestry"
             },
             {
               "name": "Percent of Residents with West Indian or Brazilian Ancestry",
               "dataType": "percent",
-              "notes": ".ancestry-note",
+              "notes": "ancestry-note",
               "definition": "The percentage of a county's population with West Indian or Brazilian first reported ancestry.",
               "db_indicator": "Immi_Share_West_Indies_and_Brazil_First_Ancestry"
             },
@@ -3991,7 +3991,7 @@
               "dataType": "level",
               "source": "NACo Analysis of Office of Refugee Resettlement, Administration for Children and Families, U.S. Department of Health and Human Services",
               "year": 2014,
-              "notes": ".unaccompaniedChildren-note",
+              "notes": "unaccompaniedChildren-note",
               "companions": [
                 [
                   "Immigration and Ancestry",
@@ -4047,7 +4047,7 @@
               "name": "Veterans Median Income",
               "dataType": "level",
               "definition": "Median income for veterans resident in the county, in 2014 inflation adjusted dollars.",
-              "notes": ".veterans-income-note",
+              "notes": "veterans-income-note",
               "db_indicator": "Veterans_Median_Income"
             },
             {
@@ -4079,7 +4079,7 @@
               "dataType": "percent",
               "definition": "The unemployment rate for veterans aged 18-64 in the civilian labor force in the county.",
               "suppressMinMax": true,
-              "notes": ".veterans-unem-note",
+              "notes": "veterans-unem-note",
               "db_indicator": "Veterans_Unemployment_Rate"
             },
             {
@@ -5701,7 +5701,7 @@
             {
               "name": "Local WDB Service Area",
               "dataType": "categorical",
-              "notes": ".wdb-note",
+              "notes": "wdb-note",
               "source": "NACo analysis of U.S. Department of Labor data, 2015",
               "companions": [
                 [
@@ -5768,7 +5768,7 @@
               ],
               "definition": "U.S. Department of Veterans Affairs expenditures within the county jurisdiction, for items such as: compensation and pension; education and vocational rehabilitation and employment; insurance and indemnities; construction and related costs; general operating expenses and related costs; loan guaranty; and medical expenditures.",
               "unit": "dollars",
-              "notes": ".veterans-vahealthcare-note",
+              "notes": "veterans-vahealthcare-note",
               "db_indicator": "Veterans_Total_Expenditures"
             },
             {
@@ -5782,7 +5782,7 @@
               ],
               "definition": "Federal compensation and pension benefits to veterans resident in the county.  It includes: veterans' compensation for service-connected disabilities; dependency and indemnity compensation for service-connected deaths; veterans' pension for nonservice-connected disabilities; and burial and other benefits to veterans and their survivors.",
               "unit": "dollars",
-              "notes": ".veterans-vahealthcare-note",
+              "notes": "veterans-vahealthcare-note",
               "db_indicator": "Veterans_Expenditures_Compensation_and_Pension"
             },
             {
@@ -5822,14 +5822,14 @@
               ],
               "definition": "U.S. Department of Veterans Affairs expenditures on medical care, consisting of operating expenses incurred through the provision of healthcare services to veterans. These expenditures include dollars for medical services, medical administration, facility maintenance, educational support, research support, and other overhead items.  Medical care expenditures do not include dollars for construction or other non-medical support.  Medical care expenditures are based on where patients live instead of where care is delivered.",
               "unit": "dollar",
-              "notes": ".veterans-vahealthcare-note",
+              "notes": "veterans-vahealthcare-note",
               "db_indicator": "Veterans_Expenditures_Medical_Care"
             },
             {
               "name": "VA Healthcare Facility Patients",
               "dataType": "level",
               "definition": "Patients residing in the county who received treatment at a VA health care facility.",
-              "notes": ".veterans-vahealthcare-note",
+              "notes": "veterans-vahealthcare-note",
               "db_indicator": "Veterans_Unique_Patients"
             }
           ]
@@ -5842,7 +5842,7 @@
           ],
           "source": "NACo Analysis of U.S. Bureau of Economic Analysis, Local Area Personal Income and Employment Data",
           "db_dataset": "Federal_Funding",
-          "notes": ".medical-benefits-note",
+          "notes": "medical-benefits-note",
           "companions": [
             [
               "Medical Benefits",
@@ -6795,6 +6795,7 @@
             },
             {
               "name": "SRS Profiles",
+              "year": 2015,
               "subtitlePost": ", FY 2015 Receipts Year",
               "source": "NACo Analysis of data from the U.S. Forest Service data and Bureau of Land Management and Headwaters Economics analysis of U.S. Geological Survey, Protected Areas Database",
               "dataType": "level",
@@ -7494,7 +7495,7 @@
             {
               "name": "Number of Deaths Involving Heroin",
               "unit": "individuals",
-              "notes": ".opioid-deaths-CDC-note",
+              "notes": "opioid-deaths-CDC-note",
               "legendTitlePre": "2010-2014",
               "dataType": "level_np",
               "definition": "Total number of deaths involving heroin in a county, 2010-2014",
@@ -7504,7 +7505,7 @@
             {
               "name": "Age-Adjusted Rate of Deaths Involving Heroin",
               "unit": "individuals per 100,000",
-              "notes": ".opioid-deaths-CDC-note",
+              "notes": "opioid-deaths-CDC-note",
               "legendTitlePre": "2010-2014",
               "dataType": "level",
               "definition": "Annual age-adjusted rate of all deaths involving heroin per 100,000 people in a county, 2010-2014",
@@ -7514,7 +7515,7 @@
             {
               "name": "Number of Deaths Involving Opioid Analgesics",
               "unit": "individuals",
-              "notes": ".opioid-deaths-CDC-note",
+              "notes": "opioid-deaths-CDC-note",
               "legendTitlePre": "2010-2014",
               "dataType": "level_np",
               "definition": "Total number of deaths involving opioid analgesics in a county, 2010-2014",
@@ -7524,7 +7525,7 @@
             {
               "name": "Age-Adjusted Rate of Deaths Involving Opioid Analgesics",
               "unit": "individuals per 100,000",
-              "notes": ".opioid-deaths-CDC-note",
+              "notes": "opioid-deaths-CDC-note",
               "legendTitlePre": "2010-2014",
               "dataType": "level",
               "definition": "Annual age-adjusted rate of all deaths involving opioid analgesics per 100,000 people in a county, 2010-2014",
@@ -7534,7 +7535,7 @@
             {
               "name": "Number of Deaths Involving Any Opioid",
               "unit": "individuals",
-              "notes": ".opioid-deaths-CDC-note",
+              "notes": "opioid-deaths-CDC-note",
               "legendTitlePre": "2010-2014",
               "dataType": "level_np",
               "definition": "Total number of deaths involving any opioid in a county, 2010-2014",
@@ -7544,7 +7545,7 @@
             {
               "name": "Age-Adjusted Rate of Deaths Involving Any Opioid",
               "unit": "individuals per 100,000",
-              "notes": ".opioid-deaths-CDC-note",
+              "notes": "opioid-deaths-CDC-note",
               "legendTitlePre": "2010-2014",
               "dataType": "level",
               "definition": "Annual age-adjusted rate of all deaths involving any opioid per 100,000 people in a county, 2010-2014",
@@ -7830,7 +7831,7 @@
             {
               "name": "Number of County Supported Facilities",
               "dataType": "level",
-              "notes": ".nursing-county-supported-note",
+              "notes": "nursing-county-supported-note",
               "definition": "The number of nursing homes supported by the county government. Includes county, hospital district, and city-county facilities.",
               "db_indicator": "Nursing_Home_Number_of_County_Supported_Nursing_Homes"
             },
@@ -7891,7 +7892,7 @@
             {
               "name": "Percent of Occupied Beds",
               "dataType": "percent",
-              "notes": ".nursing-percent-occupied-note",
+              "notes": "nursing-percent-occupied-note",
               "suppressMinMax": true,
               "definition": "The percentage of occupied beds in all the nursing home facilities located in the county, expressed as number of residents relative to number of certified beds.",
               "db_indicator": "Nursing_Home_Percent_of_Occupied_Beds"
@@ -7915,7 +7916,7 @@
           "years": [
             2014
           ],
-          "notes": ".health-insurance-note",
+          "notes": "health-insurance-note",
           "source": "NACo Analysis of U.S. Census Bureau, Small Area Health Insurance Estimates (SAHIE)",
           "db_dataset": "Health_Hospitals",
           "companions": [
@@ -8811,7 +8812,7 @@
           ],
           "source": "2016 NACo analysis of Department of Justice Bureau of Justice Statistics, Census of Jails data",
           "db_dataset": "Justice_Public_Safety",
-          "notes": ".survey-of-jails-note",
+          "notes": "survey-of-jails-note",
           "companions": [
             [
               "Jails - Supervised Population",
@@ -8918,7 +8919,7 @@
             {
               "name": "At or Over Capacity",
               "dataType": "binary",
-              "notes": ".bjs-capacity-note",
+              "notes": "bjs-capacity-note",
               "definition": "Indicates whether the county's jail facilities are at or above 100 percent of capacity. Yes indicates that the county's jail facilities are at or above capacity. No indicates the county's jail facilities are below capacity.",
               "db_indicator": "None"
             }
@@ -8936,7 +8937,7 @@
           ],
           "source": "NACo Analysis of Bureau of Justice Statistics - Annual Survey of Jails",
           "db_dataset": "Justice_Public_Safety",
-          "notes": ".survey-of-jails-note",
+          "notes": "survey-of-jails-note",
           "companions": [
             [
               "Jails - Supervised Population",
@@ -9051,7 +9052,7 @@
           ],
           "source": "NACo Analysis of Bureau of Justice Statistics - Annual Survey of Jails",
           "db_dataset": "Justice_Public_Safety",
-          "notes": ".jails-community-note",
+          "notes": "jails-community-note",
           "companions": [
             [
               "Jails - Inmate Demographics",
@@ -9183,7 +9184,7 @@
           ],
           "source": "NACo Analysis of Bureau of Justice Statistics - Annual Survey of Jails",
           "db_dataset": "Justice_Public_Safety",
-          "notes": ".jails-community-note",
+          "notes": "jails-community-note",
           "companions": [
             [
               "Jails - Community Supervision",
@@ -9708,7 +9709,7 @@
           ],
           "source": "NACo Analysis of <a href='http://www.americansforthearts.org/by-program/reports-and-data/research-studies-publications/creative-industries'>Americans for the Arts Creative Industries</a> data",
           "db_dataset": "Public_Amenity",
-          "notes": ".arts-establishments-note",
+          "notes": "arts-establishments-note",
           "companions": [
             [
               "Arts Establishments",
@@ -9803,7 +9804,7 @@
           ],
           "source": "NACo Analysis of U.S. Census Bureau, 2010-2014 American Community Survey 5-Year Estimates; U.S. Bureau of Economic Analysis Personal Current Transfer Receipts Data",
           "db_dataset": "Public_Welfare",
-          "notes": ".snap-bens-note",
+          "notes": "snap-bens-note",
           "companions": [
             [
               "Supplemental Nutrition Assistance Program (SNAP)",
@@ -9891,7 +9892,7 @@
               "dataType": "percent",
               "suppressMinMax": true,
               "definition": "The percentage of people in a county living in poverty.",
-              "notes": ".child-poverty-note",
+              "notes": "child-poverty-note",
               "db_indicator": "SAIPE_poverty_rate"
             },
             {
@@ -9899,7 +9900,7 @@
               "dataType": "level",
               "suppressMinMax": true,
               "definition": "The number of people in a county that are in poverty.",
-              "notes": ".child-poverty-note",
+              "notes": "child-poverty-note",
               "db_indicator": "SAIPE_number_in_poverty"
             },
             {
@@ -9907,7 +9908,7 @@
               "dataType": "percent",
               "suppressMinMax": true,
               "definition": "The percentage of children in a county that are in poverty.",
-              "notes": ".child-poverty-note",
+              "notes": "child-poverty-note",
               "db_indicator": "SAIPE_child_poverty_rate"
             },
             {
@@ -9921,14 +9922,14 @@
                 5000
               ],
               "definition": "The number of children in a county that are in poverty.",
-              "notes": ".child-poverty-note",
+              "notes": "child-poverty-note",
               "db_indicator": "SAIPE_number_of_children_in_poverty"
             },
             {
               "name": "Percent of Children in High Poverty Areas",
               "dataType": "percent",
               "definition": "The percentage of children in a county living in high poverty areas.  The U.S. Census Bureau designates a census tract with a poverty rate of 20 percent or more as a high poverty area.",
-              "notes": ".child-poverty-note",
+              "notes": "child-poverty-note",
               "db_indicator": "EC_Percent_Children_in_High_Poverty_Areas"
             },
             {
@@ -9942,7 +9943,7 @@
                 6500
               ],
               "definition": "The number of children in a county living in high poverty areas.  The U.S. Census Bureau designates a census tract with a poverty rate of 20 percent or more as a high poverty area.",
-              "notes": ".child-poverty-note",
+              "notes": "child-poverty-note",
               "db_indicator": "EC_Number_Children_in_High_Poverty_Areas"
             },
             {

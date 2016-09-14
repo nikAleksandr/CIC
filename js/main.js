@@ -1293,8 +1293,6 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 					if(CIC.verbose) console.log('suppressQuint is active since the lowest quintile contains less than 19% of values.')
 					indObjects[0].suppressQuint = true;
 				}
-				var functionTestEnd = new Date().getTime();
-				console.log(functionTestEnd - functionTestStart);
 
 				var d = color.domain();
 				if (measureType === 'quartile' && quantiles[0] <= 1) measureType = 'threshold';
@@ -1389,7 +1387,11 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 		
 		//special notes for certain datasets
 		$('.idio-note').hide();
-		if(indObjects[0].hasOwnProperty('notes')) $(indObjects[0].notes).show();
+		if(indObjects[0].hasOwnProperty('notes')){
+			var noteClass = '.';
+				noteClass = noteClass.concat(indObjects[0].notes);
+			$(noteClass).show();
+		};
 	};
 	
 	var switchToThreshold = function(domain, range) {
