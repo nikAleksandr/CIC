@@ -14,7 +14,10 @@ Double-click presents basic county information.
 Data is recieved in JSON format from an SQL server by running requests through a Coldfusion script.
 
 =========
-##Dependencies
+##Installation
+
+
+###Dependencies
 - node.js
 - Grunt.js
 
@@ -22,6 +25,44 @@ Data is recieved in JSON format from an SQL server by running requests through a
 ##Update Procedure
 1. Update the datatbase with any new indicators and updated indicators.  Keep track of any changed or additonal field and table names for updating in CICstructure.json
 2. Update CICStructure.json with indicators and datasets.  Datasets are unique and should not be duplicated across multiple categories.  Categories are for organizational purposes only and do not relate to the categories on the front end of the site.  See the section on CICStructure.json for a full list of options.
+```
+{
+  "name": "Example Dataset",
+  "years": [
+    2007,
+    2012
+  ],
+  "source": "NACo Analysis of U.S. Census Bureau - American Communities Survey data",
+  "db_dataset": "Example_SQL_Table_Name",
+  "companions": [
+    [
+      "Example Dataset",
+      "Example Indicator 1"
+    ],
+    [
+      "Example Dataset",
+      "Example Indicator 2"
+    ],
+    [
+      "Example Dataset",
+      "Example Indicator 3"
+    ],
+    [
+      "Example Dataset",
+      "Example Indicator 4"
+    ]
+  ],
+  "children": [
+    {
+      "name": "Example Indicator 1",
+      "unit": "dollars",
+      "dataType": "level",
+      "definition": "This indicator has a short definition",
+      "db_indicator": "Example_Indicator_SQL_Field_Name"
+    }
+  ]
+}
+```
 3. Update indicatorList.html.  Remove previous month's 'updated' and 'new' badges, add any new indicators, update any needed indicators and datasets.  Datasets may appear in several categories.  Update the curated list of datasets (or categories) at the top of the file.  Angular.js is used to determine which will appear and be hidden.  Use ng-show or ng-hide such as: ng-show="indicatorListType == 'curated'" in order to show or hide for the curated list.
 4. Update the overlay with a sample of indicators, using angular.js in the anchor tag to link internally to the appropriate indicators: ng-click="panel.goToIndicator('Educational Attainment', 'High School Graduate')"
 5. Push changed files into future/ for testing.
@@ -32,22 +73,22 @@ Data is recieved in JSON format from an SQL server by running requests through a
 10. Test again.  Success!  Push changes to github.
 
 =========
-##CICStructure.json 
-There are no duplicates.  When duplicate entries occur in the indicatorList.html, CICStructure will group them according to dataset for efficiency when updating a large data source.  For example, Administration Employment is under the County Employment category, rather than the County Administration category.
+##API Reference
+CICstructure.json contains the metadata where these options and properties are used.  There are no duplicates.  When duplicate entries occur in the indicatorList.html, CICStructure will group them according to dataset for efficiency when updating a large data source.  For example, Administration Employment is under the County Employment category, rather than the County Administration category.
 
 ###Standard Properties
-'XXX' indicates that the property needs a value for the data to function.
+'req' indicates that the property and a value is required for the data to function.
 
 | Property          | Type            | Default | Dataset or Indicator |  Description  |
 | :---------------- | :-------------- | :------ | :------------------- | :------------ |
-| 'name'            | 'string'        | XXX     | both                 | The primary dataset and indicator identifier. Necessary for both dataset and indicator. |
-| 'years'           | 'numeric array' | XXX     | dataset              | Array of years. Applies specifically to the year the data is supposed to reflect, or seoncdarily, the year the data was collected.  The latest year in the array must match the year of the data you want to display as stored in the SQL database.  The indicator-level 'year' property can be used to override an indicator not matching its dataset. |
-| 'source'          | 'string         | XXX     | dataset or both      | Information about the source of the data.  Will automatically append the latest of the 'years' array at the end of the source unless the 'suppressYear' or 'legendTitlePre' properties are active. |
-| 'companions'      | '2-D array'     | XXX     | dataset or both      | Two-dimensional array containing the dataset and indicator names of the indicators that will appear in the overlay on a single-click event.  Will show length minus one indicators in the overlay.  Indicator-level 'companions' property will override any dataset-level 'companions' property. |
-| 'children'        | 'object array'  | XXX     | dataset or both      | Array of objects, each of which is an indicator within the dataset. |
-| 'DBDataset'       | 'string'        | XXX     | dataset or both      | SQL table location of 'database' data. |
-| 'DBIndicator'     | 'string'        | XXX     | indicator            | SQL field location of 'indicator' data. |
-| 'dataType'        | 'string'        | XXX     | indicator            | Type of data interpretation, supported types include: 'level' - standard numeric, 'level_np' - standard numeric that does not start at 0, for negative number or other reasons, 'categorical' - discrete data, generally as strings. supports 5 categories, 'binary' - yes and no or on or off., and 'percent', for percentages.  For both binary and categorical, data must be stored as strings exactly as it will be displayed. 'format_type' may be used to change the number of decimals displayed. |
+| 'name'            | 'string'        | req     | both                 | The primary dataset and indicator identifier. Necessary for both dataset and indicator. |
+| 'years'           | 'numeric array' | req     | dataset              | Array of years. Applies specifically to the year the data is supposed to reflect, or seoncdarily, the year the data was collected.  The latest year in the array must match the year of the data you want to display as stored in the SQL database.  The indicator-level 'year' property can be used to override an indicator not matching its dataset. |
+| 'source'          | 'string         | req     | dataset or both      | Information about the source of the data.  Will automatically append the latest of the 'years' array at the end of the source unless the 'suppressYear' or 'legendTitlePre' properties are active. |
+| 'companions'      | '2-D array'     | req     | dataset or both      | Two-dimensional array containing the dataset and indicator names of the indicators that will appear in the overlay on a single-click event.  Will show length minus one indicators in the overlay.  Indicator-level 'companions' property will override any dataset-level 'companions' property. |
+| 'children'        | 'object array'  | req     | dataset or both      | Array of objects, each of which is an indicator within the dataset. |
+| 'DBDataset'       | 'string'        | req     | dataset or both      | SQL table location of 'database' data. |
+| 'DBIndicator'     | 'string'        | req     | indicator            | SQL field location of 'indicator' data. |
+| 'dataType'        | 'string'        | req     | indicator            | Type of data interpretation, supported types include: 'level' - standard numeric, 'level_np' - standard numeric that does not start at 0, for negative number or other reasons, 'categorical' - discrete data, generally as strings. supports 5 categories, 'binary' - yes and no or on or off., and 'percent', for percentages.  For both binary and categorical, data must be stored as strings exactly as it will be displayed. 'format_type' may be used to change the number of decimals displayed. |
 | 'definition'      | 'string'        | null    | indicator            | The definition will be displayed below the map when an indicator is mapped or shown as a companion.
 | 'unit'            | 'string'        | null    | indicator            | 'unit' property will be displayed in the legend when present.  'dollars' will change the formatting of the numbers.  Neccessary for clarity when using the 'perCapita' feature. |
 
@@ -95,3 +136,6 @@ Can be applied at dataset or indicator level. Indicator level properties that ap
 
 ![Single-hue colors](/img/CICThumb_IPad_oldColors.png)
 
+=========
+##Contributors
+Jefferson Pecht and Nick Lyell

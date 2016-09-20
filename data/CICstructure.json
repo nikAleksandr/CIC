@@ -1199,7 +1199,7 @@
           "years": [
             2015
           ],
-          "source": "NACo Analysis of county financial statements, as of November",
+          "source": "NACo Analysis of county financial statements",
           "db_dataset": "County_Finance",
           "companions": [
             [
@@ -1237,6 +1237,18 @@
               ],
               "definition": "Share of counties in a state that file annual financial statements in the form of a Comprehensive Annual Financial Report (CAFR). CAFRs go beyond Governmental Accounting Standards Board (GASB) standards and fulfill the Government Finance Officers Association (GFOA) specifications as established by GFOA's Certificate of Achievement for Excellence in Financial Reporting Program. CAFRs are the most thorough version of financial reporting and provide additional statistical and demographic information useful to county board members, management and outside groups for financial analysis. ",
               "db_indicator": "CM_State_County_Share_CAFR"
+            },
+            {
+              "name": "Financial Statement Type",
+              "order": {
+                "State Financial Reporting OCBOA": 0,
+                "Basic Financial Statements OCBOA": 1,
+                "Basic Financial Statement Accrual": 2
+              },
+              "dataType": "categorical",
+              "longLegendNames": true,
+              "definition": "Counties can release Basic Financial Statements that comply with Generally Accepted Accounting Principles (GAAP), Regulatory Basis Statements (which comply with state regulatory requirements), or produce a Comprehensive Annual Financial Report (which provides additional statistical and demographic information useful to county board members, management and outside groups for financial analysis).",
+              "db_indicator": "CM_County_Financial_Statement_Type"
             }
           ]
         },
@@ -9514,6 +9526,18 @@
             ]
           ],
           "children": [
+            {
+              "name": "Number of Libraries",
+              "dataType": "level",
+              "definition": "Total number of libraries within the county.",
+              "db_indicator": "Number_of_Libraries"
+            },
+            {
+              "name": "County Supported Libraries",
+              "dataType": "level",
+              "definition": "Number of libraries reported as being operated by a county government, library district or jointly by two or more units of local government.",
+              "db_indicator": "Library_County_Supported"
+            },
             {
               "name": "Number of Central Service Outlets",
               "dataType": "level",
