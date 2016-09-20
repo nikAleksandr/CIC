@@ -88,11 +88,11 @@ Data is recieved in JSON format from an SQL server by running requests through a
 ```
 <div class="pad-down-5 panel-bullet">&bull; <a class="link" ng-click="panel.goToIndicator('Example Dataset', 'Example Indicator 1')">Example Indicator 1 Name</a></div>
 ```
-5. Push changed files into their respective folders on future/ for testing.
+5. Push changed files into their respective folders on future/ on the server for testing.
 6. Prepare and schedule email.
 7. Test.
 8. If any javascript files have been changed (not including CICStructure.json), run 'grunt' in terminal inside the root folder to compile and minify the code.  CIC.min.js is the only file neccessary to push to the live version.  It is located at: CIC/build/CIC.min.js
-9. Push changed files to live.  If index.html has changed, make sure to comment javascript links at the bottom so that only CIC.min.js is linked as it contains all the internal dependencies and javaScript files.
+9. Push changed files to their respective folders in the live version (See 8 above for changes to javascript files).  If index.html has changed, make sure to comment javascript links at the bottom so that only CIC.min.js is linked as it contains all the internal dependencies and javaScript files.
 10. Test again.  Success!  Push changes to github.
 
 =========
