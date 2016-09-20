@@ -42,14 +42,6 @@ Data is recieved in JSON format from an SQL server by running requests through a
     [
       "Example Dataset",
       "Example Indicator 2"
-    ],
-    [
-      "Example Dataset",
-      "Example Indicator 3"
-    ],
-    [
-      "Example Dataset",
-      "Example Indicator 4"
     ]
   ],
   "children": [
@@ -58,16 +50,47 @@ Data is recieved in JSON format from an SQL server by running requests through a
       "unit": "dollars",
       "dataType": "level",
       "definition": "This indicator has a short definition",
-      "db_indicator": "Example_Indicator_SQL_Field_Name"
+      "db_indicator": "Example_Indicator_One_SQL_Field_Name"
+    }
+     {
+      "name": "Example Indicator 2",
+      "dataType": "categorical",
+      "definition": "This indicator has a short definition as well",
+      "db_indicator": "Example_Indicator_Two_SQL_Field_Name"
     }
   ]
 }
 ```
 3. Update indicatorList.html.  Remove previous month's 'updated' and 'new' badges, add any new indicators, update any needed indicators and datasets.  Datasets may appear in several categories.  Update the curated list of datasets (or categories) at the top of the file.  Angular.js is used to determine which will appear and be hidden.  Use ng-show or ng-hide such as: ng-show="indicatorListType == 'curated'" in order to show or hide for the curated list.
-4. Update the overlay with a sample of indicators, using angular.js in the anchor tag to link internally to the appropriate indicators: ng-click="panel.goToIndicator('Educational Attainment', 'High School Graduate')"
-5. Push changed files into future/ for testing.
+```
+<li class="dataset" name="Transportation Employment">
+	<a>Transportation Employment</a>
+	<ul class="dropdown-menu">
+		<!-- --><li class="disabled dropdown-header">
+			<a class="disabled dropdown-header" href="#">Header One</a>
+		<!-- --></li>
+		<li>
+			<a class="indicator" name="Example Indicator 1" href="#">Example Indicator 1 Name</a>
+		</li>
+		<li>
+			<a class="indicator" name="Example Indicator 2" href="#">Example Indicator 2 Name</a>
+		</li>
+		<!-- --><li class="disabled dropdown-header">
+			<a class="disabled dropdown-header" href="#">Header Two</a>
+		<!-- --></li>
+		<li>
+			<a class="indicator" name="Example Indicator 3" href="#">Example Indicator 3 Name</a>
+		</li>
+	</ul>
+</li>
+```
+4. Update overlay.html with a sample of indicators, using angular.js in the anchor tag to link internally to the appropriate indicators.
+```
+<div class="pad-down-5 panel-bullet">&bull; <a class="link" ng-click="panel.goToIndicator('Example Dataset', 'Example Indicator 1')">Example Indicator 1 Name</a></div>
+```
+5. Push changed files into their respective folders on future/ for testing.
 6. Prepare and schedule email.
-7. Test
+7. Test.
 8. If any javascript files have been changed (not including CICStructure.json), run 'grunt' in terminal inside the root folder to compile and minify the code.  CIC.min.js is the only file neccessary to push to the live version.  It is located at: CIC/build/CIC.min.js
 9. Push changed files to live.  If index.html has changed, make sure to comment javascript links at the bottom so that only CIC.min.js is linked as it contains all the internal dependencies and javaScript files.
 10. Test again.  Success!  Push changes to github.
@@ -125,7 +148,7 @@ Can be applied at dataset or indicator level. Indicator level properties that ap
 | 'subtitlePost'    | 'string'        | null    | indicator            | Adds an addendum to the indicator nname.  Overrides a "unit" property. |
 
 =========
-##Examples
+##Specific Examples
 
 ###Profile Example
 
