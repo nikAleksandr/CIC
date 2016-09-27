@@ -15,15 +15,16 @@ Data is recieved in JSON format from an SQL server by running requests through a
 
 =========
 ##Installation
-
-
-###Dependencies
-- node.js
-- Grunt.js
+1. Clone this repo
+2. Install [Node Package Manager](https://www.nodejs.org/en/download) if you don't already have it installed.
+3. Use npm to install [grunt CLI](http://gruntjs/com/getting-started). (May need sudo)
+4. Go to the root CIC directory and run `npm install`, which will install all other dependencies.
+5. Use `grunt` inside the CIC root directory to create a minified and combined build.js file.
 
 =========
 ##Update Procedure
 1. Update the datatbase with any new indicators and updated indicators.  Keep track of any changed or additonal field and table names for updating in CICstructure.json
+  * Binary data should be represented with 1 and 0 values.  Percentage data should be in decimal format (90% = 0.9).  Categorical data must have values that exactly match what will be shown in the legend.  Level data should have numeric data entries.
 2. Update CICStructure.json with indicators and datasets.  Datasets are unique and should not be duplicated across multiple categories.  Categories are for organizational purposes only and do not relate to the categories on the front end of the site.  See the section on CICStructure.json for a full list of options.
 ```
 {
@@ -151,6 +152,17 @@ Can be applied at dataset or indicator level. Indicator level properties that ap
 ##Specific Examples
 
 ###Profile Example
+Updating a profile is similar to the standard update procedure, but involves some special modifications to work properly.
+1. Follow [Update Procedure]() steps 1 and 2 ignoring the profiles and just adding/updating the dataset's indicators.
+2. Identify the profile data indicator and duplicate it.  The profile data indicator will be the data displayed on the map when people select the profile from indicatorList.html.
+3. Change the name of this duplicate indicator to the name you want the profile to have.  This must be a unique name.
+4. Add the property `"has_profile": true` to the profile indicator.
+5. Make sure the dataset's (or at least the profile indicator's) first companion matches the profile data indicator you want.
+5. Modify the `CIC.executeSearchMatch()` function in main.js to include the new profile indicator.
+6. Add the profiles to the '/profiles/ExampleProfileName/' directory.
+8. Continue with [Update Procedure]() Step 3.
+  * When testing, make sure any county names that have "/", "'", and other special characters are being correctly found.
+
 
 =========
 ##Additional Functionality

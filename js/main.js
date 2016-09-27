@@ -934,6 +934,16 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 						cbOptsHoriz.title = '<a class="newWindow" href="' + profileURL + '" target=_blank">Open In New Window</a>';
 						cbOptsHoriz.href = profileURL;
 						$.colorbox(cbOptsHoriz);
+					} else if (currentDI === 'Stepping Up For Mental Health | Stepping Up Resolution') {
+						if (quantByIds[0][+FIPS] === 0 || isNaN(quantByIds[0][+FIPS])) {
+							noty({text: "<strong>This County's Resolution is Unavailable</strong> </b> If you have more information, please contact research@naco.org"});
+						} else {
+							var countyName = parseCountyName(+FIPS, county.geography);
+							var profileURL = '../profiles/SteppingUp/' + countyName + '.pdf';
+						}
+						cbOptsVert.title = '<a class="newWindow" href="' + profileURL + '" target=_blank">Open In New Window</a>';
+						cbOptsVert.href = profileURL;
+						$.colorbox(cbOptsVert);
 					}
 					
 				}

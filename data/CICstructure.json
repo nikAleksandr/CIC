@@ -9480,6 +9480,35 @@
               "db_indicator": "PBS_Elected_District_Attorney"
             }
           ]
+        },
+        {
+          "name": "Stepping Up For Mental Health",
+          "years": [
+            2016
+          ],
+          "source": "NACo Research",
+          "db_dataset": "Justice_Public_Safety",
+          "companions": [
+            [
+              "Stepping Up For Mental Health",
+              "Stepping Up Resolution"
+            ]
+          ],
+          "children": [
+            {
+              "name": "Stepping Up Resolution Document",
+              "has_profile": true,
+              "dataType": "categorical",
+              "definition": "",
+              "db_indicator": "Stepping_Up_County"
+            },
+            {
+              "name": "Stepping Up Resolution",
+              "dataType": "categorical",
+              "definition": "",
+              "db_indicator": "Stepping_Up_County"
+            }
+          ]
         }
       ]
     },
