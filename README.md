@@ -24,9 +24,13 @@ Data is recieved in JSON format from an SQL server by running requests through a
 =========
 ##Update Procedure
 1. Update the datatbase with any new indicators and updated indicators.  Keep track of any changed or additonal field and table names for updating in CICstructure.json
-  * Binary data should be represented with 1 and 0 values.  Percentage data should be in decimal format (90% = 0.9).  Categorical data must have values that exactly match what will be shown in the legend.  Level data should have numeric data entries.
+  * Binary data should be represented with 1 and 0 values.  
+  * Percentage data should be in decimal format (90% = 0.9).  
+  * Categorical data must have values that exactly match what will be shown in the legend.  
+  * Level data should have numeric data entries.
+  * Null values should be represented by a "." character.
 2. Update CICStructure.json with indicators and datasets.  Datasets are unique and should not be duplicated across multiple categories.  Categories are for organizational purposes only and do not relate to the categories on the front end of the site.  See the section on CICStructure.json for a full list of options.
-```
+  * ```
 {
   "name": "Example Dataset",
   "years": [
@@ -62,7 +66,7 @@ Data is recieved in JSON format from an SQL server by running requests through a
   ]
 }
 ```
-3. Update indicatorList.html.  Remove previous month's 'updated' and 'new' badges, add any new indicators, update any needed indicators and datasets.  Datasets may appear in several categories.  Update the curated list of datasets (or categories) at the top of the file.  Angular.js is used to determine which will appear and be hidden.  Use ng-show or ng-hide such as: ng-show="indicatorListType == 'curated'" in order to show or hide for the curated list.
+3. Update indicatorList.html.  Remove previous month's 'updated' and 'new' badges, add any new indicators, update any needed indicators and datasets.  Datasets may appear in several categories.  Update the curated list of datasets (or categories) at the top of the file.  Angular.js is used to determine which will appear and be hidden.  Use `ng-show` or `ng-hide` such as: `ng-show="indicatorListType == 'curated'"` in order to show or hide for the curated list.
 ```
 <li class="dataset" name="Transportation Employment">
 	<a>Transportation Employment</a>
