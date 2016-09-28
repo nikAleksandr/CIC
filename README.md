@@ -22,15 +22,15 @@ Data is recieved in JSON format from an SQL server by running requests through a
 5. Use `grunt` inside the CIC root directory to create a minified and combined build.js file.
 
 =========
-##Update Procedure
-1. Update the datatbase with any new indicators and updated indicators.  Keep track of any changed or additonal field and table names for updating in CICstructure.json
+One. Update Procedure
+First. Update the datatbase with any new indicators and updated indicators.  Keep track of any changed or additonal field and table names for updating in CICstructure.json
   * Binary data should be represented with 1 and 0 values.  
   * Percentage data should be in decimal format (90% = 0.9).  
   * Categorical data must have values that exactly match what will be shown in the legend.  
   * Level data should have numeric data entries.
   * Null values should be represented by a "." character.
-2. Update CICStructure.json with indicators and datasets.  Datasets are unique and should not be duplicated across multiple categories.  Categories are for organizational purposes only and do not relate to the categories on the front end of the site.  See the section on CICStructure.json for a full list of options.
-  * ```
+Two. Update CICStructure.json with indicators and datasets.  Datasets are unique and should not be duplicated across multiple categories.  Categories are for organizational purposes only and do not relate to the categories on the front end of the site.  See the section on CICStructure.json for a full list of options.
+```
 {
   "name": "Example Dataset",
   "years": [
@@ -66,7 +66,7 @@ Data is recieved in JSON format from an SQL server by running requests through a
   ]
 }
 ```
-3. Update indicatorList.html.  Remove previous month's 'updated' and 'new' badges, add any new indicators, update any needed indicators and datasets.  Datasets may appear in several categories.  Update the curated list of datasets (or categories) at the top of the file.  Angular.js is used to determine which will appear and be hidden.  Use `ng-show` or `ng-hide` such as: `ng-show="indicatorListType == 'curated'"` in order to show or hide for the curated list.
+Three. Update indicatorList.html.  Remove previous month's 'updated' and 'new' badges, add any new indicators, update any needed indicators and datasets.  Datasets may appear in several categories.  Update the curated list of datasets (or categories) at the top of the file.  Angular.js is used to determine which will appear and be hidden.  Use `ng-show` or `ng-hide` such as: `ng-show="indicatorListType == 'curated'"` in order to show or hide for the curated list.
 ```
 <li class="dataset" name="Transportation Employment">
 	<a>Transportation Employment</a>
@@ -89,16 +89,16 @@ Data is recieved in JSON format from an SQL server by running requests through a
 	</ul>
 </li>
 ```
-4. Update overlay.html with a sample of indicators, using angular.js in the anchor tag to link internally to the appropriate indicators.
+Four. Update overlay.html with a sample of indicators, using angular.js in the anchor tag to link internally to the appropriate indicators.
 ```
 <div class="pad-down-5 panel-bullet">&bull; <a class="link" ng-click="panel.goToIndicator('Example Dataset', 'Example Indicator 1')">Example Indicator 1 Name</a></div>
 ```
-5. Push changed files into their respective folders on future/ on the server for testing.
-6. Prepare and schedule email.
-7. Test.
-8. If any javascript files have been changed (not including CICStructure.json), run 'grunt' in terminal inside the root folder to compile and minify the code.  CIC.min.js is the only file neccessary to push to the live version.  It is located at: CIC/build/CIC.min.js
-9. Push changed files to their respective folders in the live version (See 8 above for changes to javascript files).  If index.html has changed, make sure to comment javascript links at the bottom so that only CIC.min.js is linked as it contains all the internal dependencies and javaScript files.
-10. Test again.  Success!  Push changes to github.
+Five. Push changed files into their respective folders on future/ on the server for testing.
+Six. Prepare and schedule email.
+Seven. Test.
+Eight. If any javascript files have been changed (not including CICStructure.json), run 'grunt' in terminal inside the root folder to compile and minify the code.  CIC.min.js is the only file neccessary to push to the live version.  It is located at: CIC/build/CIC.min.js
+Nine. Push changed files to their respective folders in the live version (See 8 above for changes to javascript files).  If index.html has changed, make sure to comment javascript links at the bottom so that only CIC.min.js is linked as it contains all the internal dependencies and javaScript files.
+Ten. Test again.  Success!  Push changes to github.
 
 =========
 ##API Reference
