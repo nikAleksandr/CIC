@@ -157,6 +157,7 @@ Can be applied at dataset or indicator level. Indicator level properties that ap
 
 ###Profile Example
 Updating a profile is similar to the standard update procedure, but involves some special modifications to work properly.
+
 1. Follow [Update Procedure]() steps 1 and 2 ignoring the profiles and just adding/updating the dataset's indicators.
 2. Identify the profile data indicator and duplicate it.  The profile data indicator will be the data displayed on the map when people select the profile from indicatorList.html.
 3. Change the name of this duplicate indicator to the name you want the profile to have.  This must be a unique name.
