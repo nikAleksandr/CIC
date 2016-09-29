@@ -26,7 +26,7 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 (function() {
 	
 	// -------------------------- Variable Definitions ---------------------------
-	var localVersion = false;
+	var localVersion = true;
 	
 	var default_dset = 'Labor Force';
 	var default_ind = 'Unemployment Rate';

@@ -94,9 +94,13 @@ Four. Update overlay.html with a sample of indicators, using angular.js in the a
 <div class="pad-down-5 panel-bullet">&bull; <a class="link" ng-click="panel.goToIndicator('Example Dataset', 'Example Indicator 1')">Example Indicator 1 Name</a></div>
 ```
 Five. Push changed files into their respective folders on future/ on the server for testing.
+
 Six. Prepare and schedule email.
+
 Seven. Test.
+
 Eight. If any javascript files have been changed (not including CICStructure.json), run 'grunt' in terminal inside the root folder to compile and minify the code.  CIC.min.js is the only file neccessary to push to the live version.  It is located at: CIC/build/CIC.min.js
+
 Nine. Push changed files to their respective folders in the live version (See 8 above for changes to javascript files).  If index.html has changed, make sure to comment javascript links at the bottom so that only CIC.min.js is linked as it contains all the internal dependencies and javaScript files.
 Ten. Test again.  Success!  Push changes to github.
 
