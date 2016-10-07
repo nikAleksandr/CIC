@@ -28,8 +28,8 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 	// -------------------------- Variable Definitions ---------------------------
 	var localVersion = false;
 	
-	var default_dset = 'Labor Force';
-	var default_ind = 'Unemployment Rate';
+	var default_dset = 'The State of County Finances';
+	var default_ind = 'General Revenues, 2007-2013';
 	
 	CIC.findACounty = true;
 	CIC.embed = false;
