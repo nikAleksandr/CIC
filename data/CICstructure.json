@@ -7605,6 +7605,39 @@
       "name": "Health & Hospitals",
       "children": [
         {
+          "name": "HIV Prevalence",
+          "years": [
+            2012
+          ],
+          "source": "NACo Analysis of National HIV Surveillance System data",
+          "db_dataset": "",
+          "companions": [
+            [
+              "Drug Poisoning",
+              "Drug Poisoning Death Rate"
+            ],
+            [
+              "Health Insurance",
+              "Share Insured"
+            ]
+          ],
+          "children": [
+            {
+              "name": "HIV Prevalence Rate",
+              "dataType": "percent",
+              "definition": "Rate of adolescents and adults aged 13 years and over (per 100,000) living with HIV.",
+              "db_indicator": "",
+            },
+            {
+              "name": "HIV Number of Cases",
+              "dataType": "level",
+              "definition": "Number of individual diagnosed HIV cases within a county.",
+              "db_indicator": "",
+            }
+
+          ]
+        }
+        {
           "name": "Drug Poisoning",
           "years": [
             2014
@@ -7847,7 +7880,8 @@
         {
           "name": "Local Health Departments",
           "years": [
-            2015
+            2015,
+            2016
           ],
           "source": "NACo Analysis of NACCHO (National Association of County and City Health Officials) data",
           "db_dataset": "Health_Hospitals",
@@ -7973,7 +8007,8 @@
         {
           "name": "Nursing Homes",
           "years": [
-            2015
+            2015,
+            2016
           ],
           "source": "NACo Analysis of U.S. Department of Health & Human Services data",
           "db_dataset": "Health_Hospitals",
@@ -8974,6 +9009,77 @@
     {
       "name": "Justice & Public Safety",
       "children": [
+        {
+          "name": "Drug-related Offenses",
+          "years": [2014],
+          "source": "Naco analysus if 2014 Uniform Crime Reporting Program National Incident-Based Reporting System data, Federal Bureau of Investigatino, 2016",
+          "suppressYear": true,
+          "notes": "drug-related-offenses-note",
+          "db_dataset": "",
+          "companions": [],
+          "children": [
+            {
+              "name": "Total Offenses",
+              "dataType": "level",
+              "definition": "Total nubmer of offenses for a county in 2014.",
+              "db_indicator": ""
+            },
+            {
+              "name": "Total Drug Violations",
+              "dataType": "level",
+              "definition": "Total nubmerdrug and narcotic violations (e.g., possesion or distribution) for a county in 2014.",
+              "db_indicator": ""
+            },
+            {
+              "name": "Total Drug Equipment Violations",
+              "dataType": "level",
+              "definition": "Total number of drug equipment violations for a county in 2014.",
+              "db_indicator": ""
+            },
+            {
+              "name": "Total Drug-Related Offenses",
+              "dataType": "level",
+              "definition": "Total number of all drug-related violations for a county in 2014.",
+              "db_indicator": ""
+            },
+            {
+              "name": "Total Heroin-Involved Offenses",
+              "dataType": "level",
+              "definition": "Total number of offenses in a county that involved heroin in 2014.",
+              "db_indicator": ""
+            },
+            {
+              "name": "Total Morphine-Involved Offenses",
+              "dataType": "level",
+              "definition": "Total number of offenses in a county that involved morphine in 2014.",
+              "db_indicator": ""
+            },
+            {
+              "name": "Total Opium-Involved Offenses",
+              "dataType": "level",
+              "definition": "Total number of offenses in a county that involved opium in 2014.",
+              "db_indicator": ""
+            },
+            {
+              "name": "Total Prescription Opioid-Involved Offenses",
+              "dataType": "2014",
+              "definition": "Total number of offenses in a county that involved codeine, demeral, dihydromorphinone, hydrocodone or methadone in 2014.",
+              "db_indicator": ""
+            },
+            {
+              "name": "Percent Drug-Related Offenses",
+              "dataType": "percent",
+              "definition": "Percent of all offenses in a county that were drug-related in 2014.",
+              "db_indicator": ""
+            },
+            {
+              "name": "Percent Prescription",
+              "dataType": "percent",
+              "definition": "Percent of all opioid-related offenses involving prescription opioids in a county in 2014.",
+              "db_indicator": ""
+            }
+          ]
+        }
         {
           "name": "Jails - Supervised Population",
           "years": [
