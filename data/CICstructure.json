@@ -3283,6 +3283,90 @@
       ]
     },
     {
+      "name": "County Administration",
+      "children": [
+        {
+          "name": "General Elections",
+          "years": [
+            2014
+          ],
+          "source": "NACo Analysis of U.S. Election Assistance Commission, Election Administration and Voting Survey",
+          "db_dataset": "",
+          "companions": [],
+          "children": [
+            {
+              "name": "Total Registrations",
+              "dataType": "level",
+              "definition": "Total number of registration forms the county received from all sources during the period from the close of registration for the November 2012 general election until the close of registration for the November 2014 general election.",
+              "db_indicator": ""
+            },
+            {
+              "name": "Share of Registrations Recieved by Mail, Fax, or Email",
+              "dataType": "percent",
+              "definition": "The percent of registration forms the county received by mail, fax, or email from the close of registration for the November 2012 general election until the close of registration for the November 2014 general election.",
+              "db_indicator": ""
+            },
+            {
+              "name": "Share of Registrations Processed via the Internet",
+              "dataType": "percent",
+              "definition": "The percent of registration forms the county received via the Internet from the close of registration for the November 2012 general election until the close of registration for the November 2014 general election.",
+              "db_indicator": ""
+            },
+            {
+              "name": "Share of Registartions Processed at Motor Vehicle Offices",
+              "dataType": "percent",
+              "definition": "The percent of registration forms the county received at a motor vehicle offices or other offices that issue drivers licenses from the close of registration for the November 2012 general election until the close of registration for the November 2014 general election.",
+              "db_indicator": ""
+            },
+            {
+              "name": "Share of Registrations Processed Through Other Methods",
+              "dataType": "percent",
+              "definition": "The percent of registration forms the county received via other sources from the close of registration for the November 2012 general election until the close of registration for the November 2014 general election.",
+              "db_indicator": ""
+            },
+            {
+              "name": "Number of Absentee Ballots Transmitted to the UOCAVA Voters",
+              "dataType": "level",
+              "definition": "The total number of absentee ballots transmitted to UOCAVA (The Uniformed and Overseas Citizens Absentee Voting Act) voters for the November 2012 general election.",
+              "db_indicator": ""
+            },
+            {
+              "name": "Number of Domestic Civilian Absentee Ballots",
+              "dataType": "level",
+              "definition": "The total number of domestic civilian absentee ballots transmitted to voters for the November 2014 general election.",
+              "db_indicator": ""
+            },
+            {
+              "name": "Number of Physical Polling Places",
+              "perCapita": true,
+              "unit": "Polling Place",
+              "dataType": "level",
+              "definition": "The total number of physical polling places within the county for the November 2014 general election.",
+              "db_indicator": ""
+            },
+            {
+              "name": "Number of Precincts",
+              "dataType": "level",
+              "definition": "The total number of precincts within the county for the November 2014 general election.",
+              "db_indicator": ""
+            },
+            {
+              "name": "Number of Poll Workers",
+              "dataType": "level",
+              "definition": "The total number of pool workers used by the county for the November 2014 general election.",
+              "db_indicator": ""
+            },
+            {
+              "name": "People Who Participated in the General Election",
+              "dataType": "level",
+              "definition": "The total number of people within the county who participated in the November 2014 general election.",
+              "db_indicator": ""
+            }
+          ]
+        }
+      ]
+    }
+    {
       "name": "County Structure",
       "children": [
         {
