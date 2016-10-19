@@ -24,7 +24,7 @@ Data is recieved in JSON format from an SQL server by running requests through a
 =========
 One. Update Procedure
 First. Update the datatbase with any new indicators and updated indicators.  Keep track of any changed or additonal field and table names for updating in CICstructure.json
-  * Binary data should be represented with 1 and 0 values.  
+  * Binary data should be represented with 1, true, or 'Yes' and 0, flase, or 'No' values.  Strings must match 'Yes' and 'No' exactly.  
   * Percentage data should be in decimal format (90% = 0.9).  
   * Categorical data must have values that exactly match what will be shown in the legend.  
   * Level data should have numeric data entries.

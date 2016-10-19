@@ -1216,6 +1216,10 @@
             [
               "The State of County Finances",
               "Accounting Method"
+            ],
+            [
+              "The State of County Finances",
+              "Accounting Method"
             ]
           ],
           "children": [
@@ -3286,86 +3290,143 @@
       "name": "County Administration",
       "children": [
         {
+          "name": "Election Registrations",
+          "ntoes": "election-reg-note",
+          "years": [
+            2016
+          ],
+          "source": "NACo Analysis of state government website elections data",
+          "db_dataset": "Administration",
+          "companions":[
+            [
+              "Election Registrations",
+              "Republican"
+            ],
+            [
+              "Election Registrations",
+              "Democratic"
+            ],
+            [
+              "Election Registrations",
+              "Date Updated"
+            ],
+            [
+              "Election Registrations",
+              "Date Updated"
+            ]
+          ],
+          "children": [
+            {
+              "name": "Total Registered Voters",
+              "dataType": "level",
+              "perCapita": true,
+              "definition": "The number of people in the county who are registered and eligible to vote on the 2016 Presidential Election.",
+              "db_indicator": "Elec_Tot_Reg_Voters"
+            },
+            {
+              "name": "Democratic",
+              "dataType": "level",
+              "perCapita": true,
+              "definition": "The number of registered voters who are affiliated to the Democratic Party.",
+              "db_indicator": "Elec_Democratic"
+            },
+            {
+              "name": "Republican",
+              "dataType": "level",
+              "perCapita": true,
+              "definition": "The number of registered voters who are affiliated to the Republican Party.",
+              "db_indicator": "Elec_Republican"
+            },
+            {
+              "name": "Other Party",
+              "dataType": "level",
+              "perCapita": true,
+              "definition": "The number of registered voters who are affiliated to other parties Party. They include but are not limited to: Libertarian Party, Green Party, United Independent Party, American First Party, Constitution Party, Pizza Party, etc.",
+              "db_indicator": "Elec_Others"
+            },
+            {
+              "name": "Date Updated",
+              "dataType": "categorical",
+              "definition": "The date of when these data were reported on their state government elections website.",
+              "db_indicator": "Elec_Date_Updated"
+            }
+          ]
+        },
+        {
           "name": "General Elections",
           "years": [
             2014
           ],
           "source": "NACo Analysis of U.S. Election Assistance Commission, Election Administration and Voting Survey",
-          "db_dataset": "",
+          "db_dataset": "Administration",
           "companions": [],
           "children": [
             {
               "name": "Total Registrations",
               "dataType": "level",
               "definition": "Total number of registration forms the county received from all sources during the period from the close of registration for the November 2012 general election until the close of registration for the November 2014 general election.",
-              "db_indicator": ""
+              "db_indicator": "Elec_Tot_Reg"
             },
             {
-              "name": "Share of Registrations Recieved by Mail, Fax, or Email",
+              "name": "Registrations by Mail, Fax, or Email",
               "dataType": "percent",
               "definition": "The percent of registration forms the county received by mail, fax, or email from the close of registration for the November 2012 general election until the close of registration for the November 2014 general election.",
-              "db_indicator": ""
+              "db_indicator": "Elec_Share_Reg_Rcv_by_Mail_Fax_Email"
             },
             {
-              "name": "Share of Registrations Processed via the Internet",
+              "name": "Registrations via the Internet",
               "dataType": "percent",
               "definition": "The percent of registration forms the county received via the Internet from the close of registration for the November 2012 general election until the close of registration for the November 2014 general election.",
-              "db_indicator": ""
+              "db_indicator": "Elec_Share_Reg_Proc_via_Internet"
             },
             {
-              "name": "Share of Registartions Processed at Motor Vehicle Offices",
+              "name": "Registartions at Motor Vehicle Offices",
               "dataType": "percent",
               "definition": "The percent of registration forms the county received at a motor vehicle offices or other offices that issue drivers licenses from the close of registration for the November 2012 general election until the close of registration for the November 2014 general election.",
-              "db_indicator": ""
+              "db_indicator": "Elec_Share_Reg_Proc_at_Motor_Vehicle_Off"
             },
             {
-              "name": "Share of Registrations Processed Through Other Methods",
+              "name": "Registrations Through Other Methods",
               "dataType": "percent",
               "definition": "The percent of registration forms the county received via other sources from the close of registration for the November 2012 general election until the close of registration for the November 2014 general election.",
-              "db_indicator": ""
+              "db_indicator": "Elec_Share_Reg_Proc_Through_Oth_Methods"
             },
             {
-              "name": "Number of Absentee Ballots Transmitted to the UOCAVA Voters",
-              "dataType": "level",
-              "definition": "The total number of absentee ballots transmitted to UOCAVA (The Uniformed and Overseas Citizens Absentee Voting Act) voters for the November 2012 general election.",
-              "db_indicator": ""
-            },
-            {
-              "name": "Number of Domestic Civilian Absentee Ballots",
+              "name": "Domestic Civilian Absentee Ballots",
               "dataType": "level",
               "definition": "The total number of domestic civilian absentee ballots transmitted to voters for the November 2014 general election.",
-              "db_indicator": ""
+              "db_indicator": "Elec_Num_Dom_Civ_Abs_Ballots"
             },
             {
-              "name": "Number of Physical Polling Places",
+              "name": "Physical Polling Places",
               "perCapita": true,
-              "unit": "Polling Place",
+              "unit": "Polling Places",
               "dataType": "level",
               "definition": "The total number of physical polling places within the county for the November 2014 general election.",
-              "db_indicator": ""
+              "db_indicator": "Elec_Num_Phy_Polling_Places"
             },
             {
-              "name": "Number of Precincts",
+              "name": "General Election of Precincts",
               "dataType": "level",
               "definition": "The total number of precincts within the county for the November 2014 general election.",
-              "db_indicator": ""
+              "db_indicator": "Elec_Num_Precincts"
             },
             {
-              "name": "Number of Poll Workers",
+              "name": "Poll Workers",
               "dataType": "level",
               "definition": "The total number of pool workers used by the county for the November 2014 general election.",
-              "db_indicator": ""
+              "db_indicator": "Elec_Num_Poll_Workers"
             },
             {
-              "name": "People Who Participated in the General Election",
+              "name": "General Election Participants",
               "dataType": "level",
               "definition": "The total number of people within the county who participated in the November 2014 general election.",
-              "db_indicator": ""
+              "db_indicator": "Elec_Ppl_Part_Gen_Elec"
             }
           ]
         }
       ]
-    }
+    },
     {
       "name": "County Structure",
       "children": [
@@ -7694,7 +7755,7 @@
             2012
           ],
           "source": "NACo Analysis of National HIV Surveillance System data",
-          "db_dataset": "",
+          "db_dataset": "Health_Hospitals",
           "companions": [
             [
               "Drug Poisoning",
@@ -7702,7 +7763,11 @@
             ],
             [
               "Health Insurance",
-              "Share Insured"
+              "Share Insured - All Income Levels"
+            ],
+            [
+              "HIV Prevalence",
+              "HIV Prevalence Rate"
             ]
           ],
           "children": [
@@ -7710,17 +7775,16 @@
               "name": "HIV Prevalence Rate",
               "dataType": "percent",
               "definition": "Rate of adolescents and adults aged 13 years and over (per 100,000) living with HIV.",
-              "db_indicator": "",
+              "db_indicator": "HIV_Prevalence_Rate"
             },
             {
               "name": "HIV Number of Cases",
               "dataType": "level",
               "definition": "Number of individual diagnosed HIV cases within a county.",
-              "db_indicator": "",
+              "db_indicator": "HIV_Num_of_Cases"
             }
-
           ]
-        }
+        },
         {
           "name": "Drug Poisoning",
           "years": [
@@ -8068,7 +8132,7 @@
                 ]
               ],
               "definition": "LHD primarily serves population of a city.",
-              "db_indicator": "city_lhd"
+              "db_indicator": "city_lhd_binary"
             },
             {
               "name": "Multi-city LHD",
@@ -8084,7 +8148,7 @@
                 ]
               ],
               "definition": "LHD primarily serves population of 2 or more cities.",
-              "db_indicator": "multicity_lhd"
+              "db_indicator": "multicity_lhd_binary"
             }
           ]
         },
@@ -9099,71 +9163,71 @@
           "source": "Naco analysus if 2014 Uniform Crime Reporting Program National Incident-Based Reporting System data, Federal Bureau of Investigatino, 2016",
           "suppressYear": true,
           "notes": "drug-related-offenses-note",
-          "db_dataset": "",
+          "db_dataset": "Justice_Public_Safety",
           "companions": [],
           "children": [
             {
               "name": "Total Offenses",
               "dataType": "level",
               "definition": "Total nubmer of offenses for a county in 2014.",
-              "db_indicator": ""
+              "db_indicator": "DO_Total_Offenses"
             },
             {
               "name": "Total Drug Violations",
               "dataType": "level",
               "definition": "Total nubmerdrug and narcotic violations (e.g., possesion or distribution) for a county in 2014.",
-              "db_indicator": ""
+              "db_indicator": "DO_Total_Drug_Violations"
             },
             {
               "name": "Total Drug Equipment Violations",
               "dataType": "level",
               "definition": "Total number of drug equipment violations for a county in 2014.",
-              "db_indicator": ""
+              "db_indicator": "DO_Total_Drug_Equip_Violations"
             },
             {
               "name": "Total Drug-Related Offenses",
               "dataType": "level",
               "definition": "Total number of all drug-related violations for a county in 2014.",
-              "db_indicator": ""
+              "db_indicator": "DO_Total_Drug_Related_Offenses"
             },
             {
               "name": "Total Heroin-Involved Offenses",
               "dataType": "level",
               "definition": "Total number of offenses in a county that involved heroin in 2014.",
-              "db_indicator": ""
+              "db_indicator": "DO_Total_Heroin_Involved_Offenses"
             },
             {
               "name": "Total Morphine-Involved Offenses",
               "dataType": "level",
               "definition": "Total number of offenses in a county that involved morphine in 2014.",
-              "db_indicator": ""
+              "db_indicator": "DO_Total_Morphine_Involved_Offenses"
             },
             {
               "name": "Total Opium-Involved Offenses",
               "dataType": "level",
               "definition": "Total number of offenses in a county that involved opium in 2014.",
-              "db_indicator": ""
+              "db_indicator": "DO_Total_Opium_Involved_Offenses"
             },
             {
               "name": "Total Prescription Opioid-Involved Offenses",
-              "dataType": "2014",
+              "dataType": "level",
               "definition": "Total number of offenses in a county that involved codeine, demeral, dihydromorphinone, hydrocodone or methadone in 2014.",
-              "db_indicator": ""
+              "db_indicator": "DO_Total_Prescription_Opioid_Involved_Offenses"
             },
             {
               "name": "Percent Drug-Related Offenses",
               "dataType": "percent",
               "definition": "Percent of all offenses in a county that were drug-related in 2014.",
-              "db_indicator": ""
+              "db_indicator": "DO_Pct_Drug_Related_Offenses"
             },
             {
               "name": "Percent Prescription",
               "dataType": "percent",
               "definition": "Percent of all opioid-related offenses involving prescription opioids in a county in 2014.",
-              "db_indicator": ""
+              "db_indicator": "DO_Pct_Prescription"
             }
           ]
-        }
+        },
         {
           "name": "Jails - Supervised Population",
           "years": [
