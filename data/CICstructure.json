@@ -3300,6 +3300,10 @@
           "companions":[
             [
               "Election Registrations",
+              "Total Registered Voters"
+            ],
+            [
+              "Election Registrations",
               "Republican"
             ],
             [
@@ -3308,8 +3312,8 @@
             ],
             [
               "Election Registrations",
-              "Date Updated"
-            ],
+              "Other Party"
+            ]
             [
               "Election Registrations",
               "Date Updated"
@@ -3341,7 +3345,7 @@
               "name": "Other Party",
               "dataType": "level",
               "perCapita": true,
-              "definition": "The number of registered voters who are affiliated to other parties Party. They include but are not limited to: Libertarian Party, Green Party, United Independent Party, American First Party, Constitution Party, Pizza Party, etc.",
+              "definition": "The number of registered voters who are affiliated to other parties Party. They include but are not limited to: Libertarian Party, Green Party, United Independent Party, American First Party, Constitution Party, etc.",
               "db_indicator": "Elec_Others"
             },
             {
@@ -3359,7 +3363,24 @@
           ],
           "source": "NACo Analysis of U.S. Election Assistance Commission, Election Administration and Voting Survey",
           "db_dataset": "Administration",
-          "companions": [],
+          "companions": [
+            [
+              "General Elections",
+              "Total Registrations"
+            ],
+            [
+              "General Elections",
+              "Physical Polling Places"
+            ],
+            [
+              "General Elections",
+              "Poll Workers"
+            ],
+            [
+              "General Elections",
+              "General Election Participants"
+            ]
+          ],
           "children": [
             {
               "name": "Total Registrations",
@@ -3380,7 +3401,7 @@
               "db_indicator": "Elec_Share_Reg_Proc_via_Internet"
             },
             {
-              "name": "Registartions at Motor Vehicle Offices",
+              "name": "Registrations at Motor Vehicle Offices",
               "dataType": "percent",
               "definition": "The percent of registration forms the county received at a motor vehicle offices or other offices that issue drivers licenses from the close of registration for the November 2012 general election until the close of registration for the November 2014 general election.",
               "db_indicator": "Elec_Share_Reg_Proc_at_Motor_Vehicle_Off"
@@ -3414,7 +3435,7 @@
             {
               "name": "Poll Workers",
               "dataType": "level",
-              "definition": "The total number of pool workers used by the county for the November 2014 general election.",
+              "definition": "The total number of poll workers used by the county for the November 2014 general election.",
               "db_indicator": "Elec_Num_Poll_Workers"
             },
             {
@@ -7759,7 +7780,7 @@
           "companions": [
             [
               "Drug Poisoning",
-              "Drug Poisoning Death Rate"
+              " Drug Poisoning Death Rate"
             ],
             [
               "Health Insurance",
@@ -7773,13 +7794,15 @@
           "children": [
             {
               "name": "HIV Prevalence Rate",
-              "dataType": "percent",
+              "unit": "per 100,000",
+              "dataType": "level",
               "definition": "Rate of adolescents and adults aged 13 years and over (per 100,000) living with HIV.",
               "db_indicator": "HIV_Prevalence_Rate"
             },
             {
               "name": "HIV Number of Cases",
               "dataType": "level",
+              "thresholds": [10,50,100,1000],
               "definition": "Number of individual diagnosed HIV cases within a county.",
               "db_indicator": "HIV_Num_of_Cases"
             }
@@ -8208,7 +8231,7 @@
               "name": "Number of City-County Facilities",
               "dataType": "level",
               "definition": "The number of nursing homes jointly owned by city and county governments located in the county.",
-              "db_indicator": "Nursing_Home_Number_of_City_CountyFacilities"
+              "db_indicator": "Nursing_Home_Number_of_City_County_Facilities"
             },
             {
               "name": "Number of Hospital District Facilities",
@@ -9160,7 +9183,7 @@
         {
           "name": "Drug-related Offenses",
           "years": [2014],
-          "source": "Naco analysus if 2014 Uniform Crime Reporting Program National Incident-Based Reporting System data, Federal Bureau of Investigatino, 2016",
+          "source": "Naco analysus of 2014 Uniform Crime Reporting Program National Incident-Based Reporting System data, Federal Bureau of Investigatino, 2016",
           "suppressYear": true,
           "notes": "drug-related-offenses-note",
           "db_dataset": "Justice_Public_Safety",
@@ -9169,12 +9192,14 @@
             {
               "name": "Total Offenses",
               "dataType": "level",
+              "thresholds": [100,500,1000,5000],
               "definition": "Total nubmer of offenses for a county in 2014.",
               "db_indicator": "DO_Total_Offenses"
             },
             {
               "name": "Total Drug Violations",
               "dataType": "level",
+              "thresholds": [100,500,1000,5000],
               "definition": "Total nubmerdrug and narcotic violations (e.g., possesion or distribution) for a county in 2014.",
               "db_indicator": "DO_Total_Drug_Violations"
             },
@@ -9187,12 +9212,14 @@
             {
               "name": "Total Drug-Related Offenses",
               "dataType": "level",
+              "thresholds": [25,100,250,500],
               "definition": "Total number of all drug-related violations for a county in 2014.",
               "db_indicator": "DO_Total_Drug_Related_Offenses"
             },
             {
               "name": "Total Heroin-Involved Offenses",
               "dataType": "level",
+              "thresholds": [5,10,25,100],
               "definition": "Total number of offenses in a county that involved heroin in 2014.",
               "db_indicator": "DO_Total_Heroin_Involved_Offenses"
             },
@@ -9211,12 +9238,14 @@
             {
               "name": "Total Prescription Opioid-Involved Offenses",
               "dataType": "level",
+              "thresholds": [5,10,25,100],
               "definition": "Total number of offenses in a county that involved codeine, demeral, dihydromorphinone, hydrocodone or methadone in 2014.",
               "db_indicator": "DO_Total_Prescription_Opioid_Involved_Offenses"
             },
             {
               "name": "Percent Drug-Related Offenses",
               "dataType": "percent",
+              "thresholds": [0.1,0.2,0.3,0.4],
               "definition": "Percent of all offenses in a county that were drug-related in 2014.",
               "db_indicator": "DO_Pct_Drug_Related_Offenses"
             },
