@@ -140,7 +140,8 @@ var colorlegend = function (target, scale, type, options) {
     
   	var legendBoxes = legend.selectAll('g.legend')
     	.data(dataValues)
-    	.enter().append('g');
+    	.enter().append('g')
+    		.attr('class', 'label');
 
   	// the colors, each color is drawn as a rectangle
   	legendBoxes.append('rect')
@@ -173,30 +174,6 @@ var colorlegend = function (target, scale, type, options) {
 	    	});
 	}
 	
-	///for wrapping text when the legend names are too long
-	if(longLegendNames){
-		var dataValuesWrap = ['', '', '', ''];
-		dataValuesWrap.wrapText = function(){
-			
-			for(var index = 0; index<dataValues.length; index++){
-				var value = dataValues[index];
-				var tempValue = value.split(' ');
-				
-				if(tempValue.length>2){
-					dataValues[index] = tempValue[0] + " " + tempValue[1];
-					
-					dataValuesWrap[index] = tempValue[2];
-					if(tempValue.length>3){
-						for(j=3; j<tempValue.length; j++){
-							dataValuesWrap[index] = dataValuesWrap[index] + " " + tempValue[j];
-						}
-					}
-				}
-				else dataValuesWrap[index]='';
-			}
-		};
-		dataValuesWrap.wrapText();
-	}
 	
  	// value labels
   	legendBoxes.append('text')
@@ -225,31 +202,7 @@ var colorlegend = function (target, scale, type, options) {
     	    	else return format[format_type](dataValues[i], unit);
     	    }
       	});
-     //additional line of legend text when there are long legend names.  See dataValuesWrap above.
-     if(longLegendNames){
-	     legendBoxes.append('text')
-	    	.attr('class', 'colorlegend-labels')
-	      	.attr('dy', '1.71em')
-	      	.attr('x', function (d, i) {
-		        var leftAlignX = i * (boxWidth + boxSpacing);
-	    	    return isNumeric ? leftAlignX : (leftAlignX + boxWidth / 2);
-	      	})
-	      	.attr('y', boxLabelHeight + boxHeight + 4)
-	      	.style('text-anchor', function () {
-		        return type === 'ordinal' ? 'start' : 'middle';
-	      	})
-	      	.style('pointer-events', 'none')
-	      	.text(function (d, i) {
-		        // show label for all ordinal values
-	    	    if (type === 'ordinal') return dataValuesWrap[i];
-	    	    else {
-	    	    	//suppress max and minimum values for those with JSON property "suppressMinMax" == true
-	    	    	if (suppressMinMax & i==0 || suppressMinMax & i==5) return ' ';
-	    	    	else if (format_type === false) return format[dataType](dataValuesWrap[i], unit); // format is defined based on dataType
-	    	    	else return format[format_type](dataValuesWrap[i], unit);
-	    	    }
-	      	});
-	 }
+     if(longLegendNames) legend.selectAll(".label text").call(wrap, boxWidth);
   	// show a title in center of legend (bottom)
   	if (title) {
 	    legend.append('text')
@@ -262,5 +215,30 @@ var colorlegend = function (target, scale, type, options) {
         	.text(title);
   	}
     
+    function wrap(text, width) {
+	  text.each(function() {
+	    var text = d3.select(this),
+	        words = text.text().split(/\s+/).reverse(),
+	        word,
+	        line = [],
+	        lineNumber = 0,
+	        lineHeight = 1.1, // ems
+	        y = text.attr("y"),
+	        x = text.attr("x"),
+	        dy = parseFloat(text.attr("dy")),
+	        tspan = text.text(null).append("tspan").attr("x", x).attr("y", y).attr("dy", dy + "em");
+	    while (word = words.pop()) {
+	      line.push(word);
+	      tspan.text(line.join(" "));
+	      if (tspan.node().getComputedTextLength() > width) {
+	        line.pop();
+	        tspan.text(line.join(" "));
+	        line = [word];
+	        tspan = text.append("tspan").attr("x", x).attr("y", y).attr("dy", ++lineNumber * lineHeight + dy + "em").text(word);
+	      }
+	    }
+	  });
+	}
+
   	return legend;
 };

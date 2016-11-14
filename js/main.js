@@ -28,8 +28,8 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 	// -------------------------- Variable Definitions ---------------------------
 	var localVersion = false;
 	
-	var default_dset = 'The State of County Finances';
-	var default_ind = 'General Revenues, 2007-2013';
+	var default_dset = 'Doing More with Less';
+	var default_ind = 'Limitations on County Property Tax Rates and Property Assessments';
 	
 	CIC.findACounty = true;
 	CIC.embed = false;
@@ -944,6 +944,13 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 							cbOptsVert.href = profileURL;
 							$.colorbox(cbOptsVert);
 						}
+					} else if (currentDI === 'Doing More with Less | Doing More with Less Profiles') {
+						var state = countyObjectById[+FIPS].STATE;
+						var profileURL = '../profiles/DMWL/' + state + '.pdf';	
+
+						cbOptsVert.title = '<a class="newWindow" href="' + profileURL + '" target=_blank">Open In New Window</a>';
+						cbOptsVert.href = profileURL;
+						$.colorbox(cbOptsVert);
 					}
 					
 				}
