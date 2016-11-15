@@ -1237,7 +1237,7 @@
               "dataType": "categorical",
               "subtitlePost": ", as of November 2016",
               "db_indicator": "SC_Expns_Prop_Tax_Lim",
-              "oredr": {"No Limit":0, "Pre 1990":1, "1990-2000":2, "2000-2010":3, "After 2010":4},
+              "order": {"No Limit":0, "Pre 1990":1, "1990-2000":2, "2000-2010":3, "After 2010":4},
               "definition": "Year latest change to state-imposed property tax limitations was enacted. Property tax limitations are State-imposed limitations on the ability of  counties to raise property tax revenue. These  property tax limitations encompass the following manifestations: (1) rate  limits, (2) levy limits, (3) assessment limits and (4) tax freezes and  rollbacks."
             },
             {
@@ -1256,6 +1256,7 @@
               "subtitlePost": ", as of November 2016",
               "db_indicator": "SC_Prop_tax_Levy_Lim",
               "order": {"No Levy Limit": 0, "Levy Limit, Can Exceed Without Vote": 1, "Levy Limit, Can Exceed With Vote": 2, "Levy Limit, Cannot Exceed": 3},
+              "customRange": ["rgb(255,204,102)", "rgb(0,153,204)", "rgb(0,102,153)", "rgb(0,51,102)"],
               "longLegendNames": true,
               "definition": "The total amount of property taxes assessed on property within a particular  jurisdiction in a given year."
             },
@@ -1265,6 +1266,7 @@
               "subtitlePost": ", as of November 2016",
               "db_indicator": "SC_Loc_Option_Sales_Tax",
               "order": {"No Local Sales Tax Permitted":0, "Local Sales Tax Permitted With Voter Approval":1, "Local Sales Tax Permitted Without Voter Approval":2},
+              "customRange": ["rgb(255,204,102)", "rgb(0,102,153)", "rgb(0,51,102)"],
               "longLegendNames": true,
               "definition": "A tax collected by a local government on the sale of any taxable goods within its  jurisdiction, if the local government is granted the authority by the state.  Besides state authority, often the local government needs a local law or voter  approval to implement the local option sales tax."
             },
