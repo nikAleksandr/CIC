@@ -1392,7 +1392,7 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 		// if showing a "county profile" indicator, show a mini help dialog
 		if (indObjects[0].has_profile) {
 			var text = 'Click once on a county to see their county profile.';
-			if (indObjects[0].name === 'MFA Profiles' || indObjects[0].name === 'Transportation Funding Profiles' || indObjects[0].name === 'Statewide Muni Bonds Profiles' || indObjects[0].name === 'MAP-21 Profiles' || indObjects[0].name === 'State PILT Profiles'){
+			if (indObjects[0].name === 'MFA Profiles' || indObjects[0].name === 'Transportation Funding Profiles' || indObjects[0].name === 'Statewide Muni Bonds Profiles' || indObjects[0].name === 'MAP-21 Profiles' || indObjects[0].name === 'State PILT Profiles' || indObjects[0].name === 'Doing More with Less Profiles'){
 				text = 'Click once on a county to see their state profile.';
 			}
 			noty({
