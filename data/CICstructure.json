@@ -1327,7 +1327,29 @@
               "db_indicator": "SC_Lim_Cnty_Prop_Tax_Rts_Prop_Assm",
               "order": {"No Authority to Levy Property Taxes": 0, "Neither Property Tax Rate nor Assessment Limit": 1, "Only Property Tax Rate Limit": 2, "Only Assessment Limit": 3, "Both Property Tax Rate and Assessment Limit": 4},
               "longLegendNames": true,
-              "definition": "The rate which is multiplied by the assessed value of a piece of property to  determine the amount of property tax payable by the owner. The assessed value  is for property tax purposes and is not necessarily indicative of the  property’s true market value. Assessed value is also known as 'taxable value.'"
+              "definition": "The rate which is multiplied by the assessed value of a piece of property to  determine the amount of property tax payable by the owner. The assessed value  is for property tax purposes and is not necessarily indicative of the  property’s true market value. Assessed value is also known as 'taxable value.'",
+              "companions": [
+                [
+                  "Doing More with Less",
+                  "State Property Tax Limitations for Counties, Timeline"
+                ],
+                [
+                  "Doing More with Less",
+                  "Limitations on County Property Tax Rates and Property Assessments"
+                ],
+                [
+                  "Doing More with Less",
+                  "Property Tax Levy Limitations"
+                ],
+                [
+                  "Doing More with Less",
+                  "Property Taxes Collected Statewide, Share Retained by Counties"
+                ],
+                [
+                  "Doing More with Less",
+                  "Property Taxes Collected Statewide, Share Retained by Counties"
+                ]
+              ]
             }
           ]
         },
@@ -7991,7 +8013,7 @@
                   " Drug Poisoning Death Rate"
                 ],
                 [
-                  "Early Childhood",
+                  "Poverty",
                   "Child Poverty Rate"
                 ],
                 [
@@ -10503,7 +10525,7 @@
           ]
         },
         {
-          "name": "Early Childhood",
+          "name": "Poverty",
           "years": [
             2014
           ],
@@ -10511,19 +10533,19 @@
           "db_dataset": "Social_Services",
           "companions": [
             [
-              "Early Childhood",
+              "Poverty",
               "Child Poverty Rate"
             ],
             [
-              "Early Childhood",
+              "Poverty",
               "Number of Children in Poverty"
             ],
             [
-              "Early Childhood",
+              "Poverty",
               "Percent of Children in High Poverty Areas"
             ],
             [
-              "Early Childhood",
+              "Poverty",
               "Household Income Place Effect"
             ]
           ],
