@@ -6016,11 +6016,15 @@
           "companions": [
             [
               "Ozone Concentration",
-              "2011-2013 Level"
+              "2013-2015 Level"
             ],
             [
               "Ozone Concentration",
-              "2011-2013 Count"
+              "Particulate Matter 2.5 Concentration"
+            ]
+            [
+              "Ozone Concentration",
+              "2013-2015 Count"
             ],
             [
               "Ozone Concentration",
@@ -6033,7 +6037,22 @@
           ],
           "children": [
             {
-              "name": "2011-2013 Level",
+              "name": "Particulate Matter 2.5 Concentration",
+              "year": 2015,
+              "unit": "µg/cubic meter",
+              "dataType": "categorical",
+              "order": {
+                "Under 5": 0,
+                "5-6.9": 1,
+                "7-8.9": 2,
+                "9 and Above": 3
+              },
+              "definition": "Category indicating whether the county's 2013-2015 3-year concentration level of ground-level particulate matter (<2.5μm) as measured by county monitors.  Categories in micrograms per cubic meter: under 5, 5-6.9, 7-8.9, 9 and Above.",
+              "db_indicator": "ozone_pm25_level"
+            }
+            {
+              "name": "2013-2015 Level",
+              "year": 2015,
               "unit": "parts per billion",
               "dataType": "categorical",
               "order": {
@@ -6042,7 +6061,7 @@
                 "65-69": 2,
                 "70 and Above": 3
               },
-              "definition": "Category indicating whether the county's 2011-2013 3-year concentration level of ground-level ozone as measured by county monitors is under 60 parts per billion, 60-64 parts per billion, 65-69 parts per billion or 70 and above parts per billion.",
+              "definition": "Category indicating whether the county's 2013-2015 3-year concentration level of ground-level ozone as measured by county monitors is under 60 parts per billion, 60-64 parts per billion, 65-69 parts per billion or 70 and above parts per billion.",
               "db_indicator": "Ozone_Class"
             },
             {
@@ -6059,10 +6078,11 @@
               "db_indicator": "Projected_Ozone_Class"
             },
             {
-              "name": "2011-2013 Count",
+              "name": "2013-2015 Count",
+              "year": 2015,
               "unit": "parts per billion",
               "dataType": "level",
-              "definition": "2011-2013 3-year concentration levels of ground-level ozone as measured by county monitors",
+              "definition": "2013-2015 3-year concentration levels of ground-level ozone as measured by county monitors",
               "db_indicator": "Ozone_Level"
             },
             {
@@ -10425,6 +10445,57 @@
     {
       "name": "Social Services",
       "children": [
+        {
+          "name": "Homeless Shelters",
+          "years": [
+            2015
+          ],
+          "db_dataset": "Social_Services",
+          "source": "Source: NACo Analysis of U.S. Department of Housing and Urban Development PIT data",
+          "companions": [
+            [
+              "Homeless Shelters",
+              "Total Beds Available"
+            ],
+            [
+              "Homeless Shelters",
+              "Beds for Families with Children"
+            ],
+            [
+              "Homeless Shelters",
+              "Beds for Chronically Homeless"
+            ]
+          ],
+          "children":[
+            {
+              "name": "Total Beds Available",
+              "dataType": "level",
+              "unit": "Number of Beds",
+              "suppressMinMax": true,
+              "thresholds": [14,25,73,187],
+              "definition": "The total number of beds available for use by those experiencing homelessness or domestic violence.",
+              "db_indicator": "EC_Total_Beds"
+            },
+            {
+              "name": "Beds for Families with Children",
+              "dataType": "level",
+              "unit": "Number of Beds",
+              "suppressMinMax": true,
+              "thresholds": [8,20,42,98],
+              "definition": "The number of beds available for use by families with at least one adult and one child.",
+              "db_indicator": "EC_Beds_Household_w_Children"
+            },
+            {
+              "name": "Beds for Chronically Homeless",
+              "dataType": "level",
+              "unit": "Number of Beds",
+              "suppressMinMax": true,
+              "thresholds": [1,6,16,52],
+              "definition": "The number of beds available for those who have been homeless for a year or more.",
+              "db_indicator": "EC_Beds_Chronically_Homeless_People"
+            }
+          ]
+        },
         {
           "name": "County Veterans Service Office",
           "years": [
