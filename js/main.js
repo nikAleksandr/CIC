@@ -28,8 +28,8 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 	// -------------------------- Variable Definitions ---------------------------
 	var localVersion = false;
 	
-	var default_dset = 'Doing More with Less';
-	var default_ind = 'Limitations on County Property Tax Rates and Property Assessments';
+	var default_dset = 'Homeless Shelters';
+	var default_ind = 'Total Beds Available';
 	
 	CIC.findACounty = true;
 	CIC.embed = false;

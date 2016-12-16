@@ -4375,7 +4375,8 @@
           "name": "Immigration and Ancestry",
           "years": [
             2013,
-            2014
+            2014,
+            2015
           ],
           "source": "NACo Analysis of U.S. Census Bureau - American Community Survey (ACS) 5 year estimates",
           "db_dataset": "Demographics",
@@ -4506,7 +4507,8 @@
           "name": "Veteran Demographics",
           "years": [
             2013,
-            2014
+            2014,
+            2015
           ],
           "source": "NACo Analysis of U.S. Census Bureau - American Community Survey (ACS) 5 year estimates",
           "db_dataset": "Demographics",
@@ -4664,7 +4666,8 @@
             2011,
             2012,
             2013,
-            2014
+            2014,
+            2015
           ],
           "source": "NACo Analysis of U.S. Census Bureau - American Community Survey (ACS) 5 year estimates",
           "db_dataset": "Economy",
@@ -5707,7 +5710,8 @@
             2009,
             2010,
             2011,
-            2012
+            2012,
+            2015
           ],
           "source": "NACo Analysis of National Center for Education Statistics (NCES) - Integrated Postsecondary Education Data System (IPEDS)",
           "db_dataset": "Education",
@@ -5795,7 +5799,8 @@
             2010,
             2011,
             2012,
-            2014
+            2014,
+            2015
           ],
           "source": "NACo Analysis of U.S. Census Bureau",
           "db_dataset": "Education",
@@ -6007,7 +6012,7 @@
           ]
         },
         {
-          "name": "Ozone Concentration",
+          "name": "Air Quality",
           "years": [
             2013
           ],
@@ -6015,24 +6020,16 @@
           "db_dataset": "Environment",
           "companions": [
             [
-              "Ozone Concentration",
-              "2013-2015 Level"
+              "Air Quality",
+              "2013-2015 Ozone Level"
             ],
             [
-              "Ozone Concentration",
+              "Air Quality",
+              "2013-2015 Ozone Count"
+            ],
+            [
+              "Air Quality",
               "Particulate Matter 2.5 Concentration"
-            ]
-            [
-              "Ozone Concentration",
-              "2013-2015 Count"
-            ],
-            [
-              "Ozone Concentration",
-              "Projected 2025 Level"
-            ],
-            [
-              "Ozone Concentration",
-              "Projected 2025 Count"
             ]
           ],
           "children": [
@@ -6049,9 +6046,9 @@
               },
               "definition": "Category indicating whether the county's 2013-2015 3-year concentration level of ground-level particulate matter (<2.5μm) as measured by county monitors.  Categories in micrograms per cubic meter: under 5, 5-6.9, 7-8.9, 9 and Above.",
               "db_indicator": "ozone_pm25_level"
-            }
+            },
             {
-              "name": "2013-2015 Level",
+              "name": "2013-2015 Ozone Level",
               "year": 2015,
               "unit": "parts per billion",
               "dataType": "categorical",
@@ -6065,7 +6062,7 @@
               "db_indicator": "Ozone_Class"
             },
             {
-              "name": "Projected 2025 Level",
+              "name": "Projected 2025 Ozone Level",
               "unit": "parts per billion",
               "dataType": "categorical",
               "order": {
@@ -6078,7 +6075,7 @@
               "db_indicator": "Projected_Ozone_Class"
             },
             {
-              "name": "2013-2015 Count",
+              "name": "2013-2015 Ozone Count",
               "year": 2015,
               "unit": "parts per billion",
               "dataType": "level",
@@ -6086,7 +6083,7 @@
               "db_indicator": "Ozone_Level"
             },
             {
-              "name": "Projected 2025 Count",
+              "name": "Projected 2025 Ozone Count",
               "unit": "parts per billion",
               "dataType": "level",
               "definition": "Model projections for 2025 of 3-year levels of ground-level ozone concentration as measured by county monitors.",
@@ -6105,7 +6102,7 @@
             2015
           ],
           "source": "U.S. Department of Labor, Employment and Training Administration, State Statutory Formula Funding data, Program Year, 2015",
-          "db_dataset": "Economy",
+          "db_dataset": "Federal_Funding",
           "companions": [
             [
               "Workforce Innovation and Opportunity Act (WIOA)",
@@ -9180,7 +9177,8 @@
             2011,
             2012,
             2013,
-            2014
+            2014,
+            2015
           ],
           "source": "NACo Analysis of U.S. Census Bureau - American Community Survey (ACS) 5 year estimates",
           "db_dataset": "Housing_Community_Development",
@@ -10470,7 +10468,7 @@
             {
               "name": "Total Beds Available",
               "dataType": "level",
-              "unit": "Number of Beds",
+              "unit": "Beds",
               "suppressMinMax": true,
               "thresholds": [14,25,73,187],
               "definition": "The total number of beds available for use by those experiencing homelessness or domestic violence.",
@@ -10479,7 +10477,7 @@
             {
               "name": "Beds for Families with Children",
               "dataType": "level",
-              "unit": "Number of Beds",
+              "unit": "Beds",
               "suppressMinMax": true,
               "thresholds": [8,20,42,98],
               "definition": "The number of beds available for use by families with at least one adult and one child.",
@@ -10488,7 +10486,7 @@
             {
               "name": "Beds for Chronically Homeless",
               "dataType": "level",
-              "unit": "Number of Beds",
+              "unit": "Beds",
               "suppressMinMax": true,
               "thresholds": [1,6,16,52],
               "definition": "The number of beds available for those who have been homeless for a year or more.",
