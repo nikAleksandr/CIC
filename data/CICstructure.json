@@ -5881,7 +5881,8 @@
         {
           "name": "Coal Use & Production",
           "years": [
-            2013
+            2013,
+            2015
           ],
           "source": "NACo Analysis of U.S. Energy Information Adminstration Data",
           "db_dataset": "Environment",
