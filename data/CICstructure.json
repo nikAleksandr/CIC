@@ -5400,7 +5400,8 @@
         {
           "name": "International Exports",
           "years": [
-            2014
+            2014,
+            2015
           ],
           "source": "Brookings Institution <a target='_blank' href='http://www.brookings.edu/research/interactives/2015/export-monitor#10420'>Export Monitor 2015</a>. For more on the methodology, see <a target='_blank' href='http://www.brookings.edu/~/media/research/files/interactives/2015/export-monitor/brookings-export-series-methodology-nm-5715.pdf'>here</a>",
           "db_dataset": "Economy",
@@ -6100,7 +6101,8 @@
         {
           "name": "Workforce Innovation and Opportunity Act (WIOA)",
           "years": [
-            2015
+            2015,
+            2016
           ],
           "source": "U.S. Department of Labor, Employment and Training Administration, State Statutory Formula Funding data, Program Year, 2015",
           "db_dataset": "Federal_Funding",
@@ -6244,6 +6246,36 @@
               ],
               "definition": "Counties are classified into one of the following five categories based on the type of local workforce development board (local WDB) serving the county: State Level, Single County, Multiple Counties, County and City or City, as of October 2015.  <ul><li>State Level means a county is in the service area of a state run workforce board that fulfills the responsibilities of a local WDB under the Workforce Innovation and Opportunity Act.</li>  <li>Single County indicates the local WDB serves only the area of one county.</li>  <li>Multiple Counties indicates the local WDB serves the area of two or more counties.</li>  <li>County and City means a county and one or more cities, including independent cities, are in the service area of a local WDB.</li> <li>A City local WDB serves only some cities within the county so that the entire county is served by multiple local WDBs.</li>",
               "db_indicator": "WDB_local_service_area"
+            },
+            {
+              "name": "Statewide Dislocated Worker Funding",
+              "dataType": "level",
+              "notes": "wdb-note",
+              "unit": "dollars",
+              "companions": [
+                [
+                  "Workforce Innovation and Opportunity Act (WIOA)",
+                  "Statewide Youth WIOA Growth Rate"
+                ],
+                [
+                  "Workforce Innovation and Opportunity Act (WIOA)",
+                  "Statewide Number in Substantial Unemployment Areas"
+                ],
+                [
+                  "Workforce Innovation and Opportunity Act (WIOA)",
+                  "Statewide Number of Excess Unemployed"
+                ],
+                [
+                  "Workforce Innovation and Opportunity Act (WIOA)",
+                  "Statewide Number of Disadvantaged Youth"
+                ],
+                [
+                  "Workforce Innovation and Opportunity Act (WIOA)",
+                  "Statewide Youth WIOA Funding"
+                ]
+              ],
+              "definition":"Amount of WIOA funding allocated by the U.S. Department of Labor to the state for dislocated workers for Program Year (July 1 of program year to June 30 of the following year).",
+              "db_indicator": "WIOA_Statewide_Dislocated_Worker_Funding"
             }
           ]
         },
@@ -10533,9 +10565,10 @@
             2011,
             2012,
             2013,
-            2014
+            2014,
+            2015
           ],
-          "source": "NACo Analysis of U.S. Census Bureau, 2010-2014 American Community Survey 5-Year Estimates; U.S. Bureau of Economic Analysis Personal Current Transfer Receipts Data",
+          "source": "NACo Analysis of U.S. Census Bureau, 2011-2015 American Community Survey 5-Year Estimates; U.S. Bureau of Economic Analysis Personal Current Transfer Receipts Data",
           "db_dataset": "Public_Welfare",
           "notes": "snap-bens-note",
           "companions": [
@@ -10597,9 +10630,10 @@
         {
           "name": "Poverty",
           "years": [
-            2014
+            2014,
+            2015
           ],
-          "source": "NACo Analysis of U.S. Census Bureau, Small Area Income and Poverty Estimates 2014; U.S. Census Bureau, American Community Survey 2010-2014 5-year Estimates",
+          "source": "NACo Analysis of U.S. Census Bureau, Small Area Income and Poverty Estimates 2015; U.S. Census Bureau, American Community Survey 2011-2015 5-year Estimates",
           "db_dataset": "Social_Services",
           "companions": [
             [

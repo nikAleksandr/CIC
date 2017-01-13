@@ -28,8 +28,8 @@ CIC = {}; // main namespace containing functions, to avoid global namespace clut
 	// -------------------------- Variable Definitions ---------------------------
 	var localVersion = false;
 	
-	var default_dset = 'Homeless Shelters';
-	var default_ind = 'Total Beds Available';
+	var default_dset = 'Poverty';
+	var default_ind = 'Child Poverty Rate';
 	
 	CIC.findACounty = true;
 	CIC.embed = false;
